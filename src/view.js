@@ -236,61 +236,85 @@ const EmptyResultsBox = new Lang.Class({
     Name: 'EmptyResultsBox',
     Extends: Gtk.Grid,
 
-    _init: function() {
-        this.parent({ orientation: Gtk.Orientation.HORIZONTAL,
-                      column_spacing: 12,
+    _init: function(mode) {
+        this._mode = mode;
+        this.parent({ orientation: Gtk.Orientation.VERTICAL,
+                      row_spacing: 12,
                       hexpand: true,
                       vexpand: true,
                       halign: Gtk.Align.CENTER,
                       valign: Gtk.Align.CENTER });
         this.get_style_context().add_class('dim-label');
 
-        this._image = new Gtk.Image({ pixel_size: 64,
-                                      icon_name: 'emblem-documents-symbolic' });
-        this.add(this._image);
-
-        this._labelsGrid = new Gtk.Grid({ orientation: Gtk.Orientation.VERTICAL,
-                                          row_spacing: 12 });
-        this.add(this._labelsGrid);
-
-        let titleLabel = new Gtk.Label({ label: '<b><span size="large">' +
-                                         (Application.application.isBooks ?
-                                          _("No Books Found") :
-                                          _("No Documents Found")) +
-                                         '</span></b>',
-                                         use_markup: true,
-                                         halign: Gtk.Align.START,
-                                         vexpand: true });
-        this._labelsGrid.add(titleLabel);
-
-        if (Application.sourceManager.hasOnlineSources() ||
-            Application.application.isBooks) {
-            titleLabel.valign = Gtk.Align.CENTER;
-        } else {
-            titleLabel.valign = Gtk.Align.START;
-            this._addSystemSettingsLabel();
-        }
+        this._addImage();
+        this._addPrimaryLabel();
+        this._addSecondaryLabel();
 
         this.show_all();
     },
 
-    _addSystemSettingsLabel: function() {
+    _addImage: function() {
+        let iconName;
+        if (this._mode == WindowMode.WindowMode.SEARCH)
+            iconName = 'system-search-symbolic';
+        else if (this._mode == WindowMode.WindowMode.COLLECTIONS)
+            iconName = 'emblem-documents-symbolic';
+        else
+            iconName = 'x-office-document-symbolic';
+
+        this.add(new Gtk.Image({ pixel_size: 128, icon_name: iconName, margin_bottom: 9 }));
+    },
+
+    _addPrimaryLabel: function() {
+        let text;
+        if (this._mode == WindowMode.WindowMode.COLLECTIONS)
+            text = _("No collections found");
+        else
+            text = Application.application.isBooks ? _("No books found") : _("No documents found");
+
+        this.add(new Gtk.Label({ label: '<b><span size="large">' + text + '</span></b>',
+                                 use_markup: true,
+                                 margin_top: 9 }));
+    },
+
+    _addSecondaryLabel: function() {
+        if (this._mode == WindowMode.WindowMode.SEARCH) {
+            this.add(new Gtk.Label({ label: _("Try a different search") }));
+            return;
+        }
+
+        if (this._mode == WindowMode.WindowMode.COLLECTIONS) {
+            let label;
+            if (Application.application.isBooks)
+                label = _("You can create collections from the Books view");
+            else
+                label = _("You can create collections from the Documents view");
+
+            this.add(new Gtk.Label({ label: label }));
+            return;
+        }
+
+        if (Application.application.isBooks)
+            return;
+
         let detailsStr =
-            // Translators: %s here is "Settings", which is in a separate string due to
-            // markup, and should be translated only in the context of this sentence
-            _("You can add your online accounts in %s").format(
-            " <a href=\"system-settings\">" +
+            // Translators: the %s's here are "Online Accounts" and "Documents folder", which are
+            // in a separate string due to markup, and should be translated only in the context of
+            // this sentence
+            _("Documents from your %s and %s will appear here.").format(
+            "<a href=\"system-settings\">" +
             // Translators: this should be translated in the context of the
-            // "You can add your online accounts in Settings" sentence above
-            _("Settings") +
+            // "Documents from your Online Accounts and Documents folder will appear here." sentence above
+            _("Online Accounts") +
+            "</a>",
+            "<a href=\"file://"+ GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DOCUMENTS) + "\">" +
+            // Translators: this should be translated in the context of the
+            // "Documents from your Online Accounts and Documents folder will appear here." sentence above
+            _("Documents folder") +
             "</a>");
         let details = new Gtk.Label({ label: detailsStr,
-                                      use_markup: true,
-                                      halign: Gtk.Align.START,
-                                      xalign: 0,
-                                      max_width_chars: 24,
-                                      wrap: true });
-        this._labelsGrid.add(details);
+                                      use_markup: true });
+        this.add(details);
 
         details.connect('activate-link', Lang.bind(this,
             function(label, uri) {
@@ -334,7 +358,7 @@ const ViewContainer = new Lang.Class({
         this.view = new Gd.MainView({ shadow_type: Gtk.ShadowType.NONE });
         this.add_named(this.view, 'view');
 
-        this._noResults = new EmptyResultsBox();
+        this._noResults = new EmptyResultsBox(this._mode);
         this.add_named(this._noResults, 'no-results');
 
         this._errorBox = new ErrorBox.ErrorBox();
