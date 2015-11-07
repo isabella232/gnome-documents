@@ -114,6 +114,7 @@ const OverviewToolbar = new Lang.Class({
         this._viewSettingsId = 0;
         this._activeCollection = null;
         this._infoUpdatedId = 0;
+        this._countChangedId = 0;
 
         this.parent();
 
@@ -286,6 +287,11 @@ const OverviewToolbar = new Lang.Class({
         this._viewMenuButton = null;
         this.toolbar.set_custom_title(null);
 
+        if (this._countChangedId != 0) {
+            Application.offsetDocumentsController.disconnect(this._countChangedId);
+            this._countChangedId = 0;
+        }
+
         if (this._collectionId != 0) {
             Application.documentManager.disconnect(this._collectionId);
             this._collectionId = 0;
@@ -322,6 +328,14 @@ const OverviewToolbar = new Lang.Class({
 
         this._setToolbarTitle();
         this.toolbar.show_all();
+
+        this._countChangedId = Application.offsetDocumentsController.connect('item-count-changed', Lang.bind(this,
+            function(controller, count) {
+                this.toolbar.foreach(Lang.bind(this,
+                    function(child) {
+                        child.set_sensitive(count != 0);
+                    }));
+            }));
 
         if (Application.searchController.getString() != '')
             Application.application.change_action_state('search', GLib.Variant.new('b', true));
