@@ -489,6 +489,8 @@ const Embed = new Lang.Class({
     },
 
     getPreview: function() {
+        //FIXME When we can pass clicks and key presses
+        //to the view, we'll need to grab the real current view
         return this._previewEv;
     }
 });
