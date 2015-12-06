@@ -45,6 +45,13 @@ const Search = imports.search;
 const TrackerUtils = imports.trackerUtils;
 const Utils = imports.utils;
 
+// Those are the per-document-type views
+const ViewType = {
+    NONE: 0,
+    EV: 1,
+    LOK: 2
+};
+
 const DeleteItemJob = new Lang.Class({
     Name: 'DeleteItemJob',
 // deletes the given resource
@@ -234,6 +241,7 @@ const DocCommon = new Lang.Class({
         this.origPixbuf = null;
         this.defaultApp = null;
         this.defaultAppName = null;
+        this.viewType = ViewType.NONE;
 
         this.mimeType = null;
         this.rdfType = null;
@@ -691,6 +699,14 @@ const DocCommon = new Lang.Class({
     getSourceLink: function() {
         // This should return an array of URI and source name
         log('Error: DocCommon implementations must override getSourceLink');
+    },
+
+    updateViewType: function() {
+        if (LOKView.isOpenDocumentFormat(this.mimeType) && !Application.application.isBooks) {
+            this.viewType = ViewType.LOK;
+        } else {
+            this.viewType = ViewType.EV;
+        }
     },
 
     getWhere: function() {
@@ -1392,6 +1408,7 @@ const DocumentManager = new Lang.Class({
         this._clearActiveDocModel();
 
         this._loaderCancellable = new Gio.Cancellable();
+        doc.updateViewType();
         this.emit('load-started', doc);
         doc.load(passwd, this._loaderCancellable, Lang.bind(this, this._onDocumentLoaded));
     },
@@ -1450,6 +1467,7 @@ const DocumentManager = new Lang.Class({
             recentManager.add_item(doc.uri);
 
             this._loaderCancellable = new Gio.Cancellable();
+            doc.updateViewType();
             this.emit('load-started', doc);
             doc.load(null, this._loaderCancellable, Lang.bind(this, this._onDocumentLoaded));
         }

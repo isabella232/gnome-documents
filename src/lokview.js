@@ -133,8 +133,6 @@ const LOKView = new Lang.Class({
                                             Lang.bind(this, this._onLoadStarted));
         Application.documentManager.connect('load-error',
                                             Lang.bind(this, this._onLoadError));
-        Application.documentManager.connect('load-finished',
-                                            Lang.bind(this, this._onLoadFinished));
 
         this.connect('destroy', Lang.bind(this,
            function() {
@@ -143,10 +141,17 @@ const LOKView = new Lang.Class({
            }));
     },
 
-    _onLoadStarted: function() {
+    _onLoadStarted: function(manager, doc) {
+        if (doc.viewType != Documents.ViewType.LOK)
+            return;
+        this._doc = doc;
+        this.view.open_document(doc.uri, "{}", null, Lang.bind(this, this.open_document_cb));
+        this._progressBar.show();
     },
 
     _onLoadError: function(manager, doc, message, exception) {
+        if (doc.viewType != Documents.ViewType.LOK)
+            return;
         //FIXME we should hide controls
         this._setError(message, exception.message);
     },
@@ -164,14 +169,6 @@ const LOKView = new Lang.Class({
         this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
         this.view.show();
         this.view.set_edit(false);
-    },
-
-    _onLoadFinished: function(manager, doc, docModel) {
-        if (docModel == null && doc != null) {
-            this._doc = doc;
-            this.view.open_document(doc.uri, "{}", null, Lang.bind(this, this.open_document_cb));
-            this._progressBar.show();
-        }
     },
 
     reset: function () {

@@ -358,23 +358,31 @@ const Embed = new Lang.Class({
     },
 
     _onLoadFinished: function(manager, doc, docModel) {
-        if (doc && docModel) {
-            if (Application.application.isBooks)
-                docModel.set_sizing_mode(EvView.SizingMode.FIT_PAGE);
-            else
-                docModel.set_sizing_mode(EvView.SizingMode.AUTOMATIC);
-            docModel.set_page_layout(EvView.PageLayout.AUTOMATIC);
-            this._toolbar.setModel(docModel);
-            this._previewEv.setModel(docModel);
-            this._previewEv.grab_focus();
-        }
-
         this._clearLoadTimer();
         this._spinner.stop();
-        if (doc != null && docModel == null)
-            this._stack.set_visible_child_name('preview-lok');
-        else
+
+        switch (doc.viewType) {
+        case Documents.ViewType.EV:
+            if (docModel) {
+                if (Application.application.isBooks)
+                    docModel.set_sizing_mode(EvView.SizingMode.FIT_PAGE);
+                else
+                    docModel.set_sizing_mode(EvView.SizingMode.AUTOMATIC);
+                docModel.set_page_layout(EvView.PageLayout.AUTOMATIC);
+                this._toolbar.setModel(docModel);
+                this._previewEv.setModel(docModel);
+                this._previewEv.grab_focus();
+            }
             this._stack.set_visible_child_name('preview-ev');
+            break;
+        case Documents.ViewType.LOK:
+            this._stack.set_visible_child_name('preview-lok');
+            break;
+        case Documents.ViewType.NONE:
+        default:
+            log('Something bad happened and the document type is unset');
+            break;
+        }
     },
 
     _onLoadError: function(manager, doc, message, exception) {
