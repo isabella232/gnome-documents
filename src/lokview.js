@@ -144,6 +144,8 @@ const LOKView = new Lang.Class({
     _onLoadStarted: function(manager, doc) {
         if (doc.viewType != Documents.ViewType.LOK)
             return;
+        if (!isAvailable())
+            return;
         this._doc = doc;
         this.view.open_document(doc.uri, "{}", null, Lang.bind(this, this.open_document_cb));
         this._progressBar.show();
