@@ -113,6 +113,11 @@ const LOKView = new Lang.Class({
         this.add_named(this._sw, 'view');
         this._createView();
 
+        // create context menu
+        let model = this._getPreviewContextMenu();
+        this._previewContextMenu = Gtk.Menu.new_from_model(model);
+        this._previewContextMenu.attach_to_widget(this._sw, null);
+
         this.show_all();
 
         this._zoomIn = Application.application.lookup_action('zoom-in');
@@ -129,6 +134,9 @@ const LOKView = new Lang.Class({
                 this.view.set_zoom(zoomLevel / 2);
             }));
 
+        this._copy = Application.application.lookup_action('copy');
+        let copyId = this._copy.connect('activate', Lang.bind(this, this._onCopyActivated));
+
         Application.documentManager.connect('load-started',
                                             Lang.bind(this, this._onLoadStarted));
         Application.documentManager.connect('load-error',
@@ -138,7 +146,16 @@ const LOKView = new Lang.Class({
            function() {
                this._zoomIn.disconnect(zoomInId);
                this._zoomOut.disconnect(zoomOutId);
+               this._copy.disconnect(copyId);
            }));
+    },
+
+    _onCopyActivated: function() {
+        let [selectedText, mimeType] = this.view.copy_selection('text/plain;charset=utf-8');
+        let display = Gdk.Display.get_default();
+        let clipboard = Gtk.Clipboard.get_default(display);
+
+        clipboard.set_text(selectedText, selectedText.length);
     },
 
     _onLoadStarted: function(manager, doc) {
@@ -147,6 +164,7 @@ const LOKView = new Lang.Class({
         if (!isAvailable())
             return;
         this._doc = doc;
+        this._copy.enabled = false;
         this.view.open_document(doc.uri, "{}", null, Lang.bind(this, this.open_document_cb));
         this._progressBar.show();
     },
@@ -177,6 +195,7 @@ const LOKView = new Lang.Class({
             return;
         this.view.reset_view();
         this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
+        this._copy.enabled = false;
     },
 
     _createView: function() {
@@ -184,15 +203,39 @@ const LOKView = new Lang.Class({
             this.view = LOKDocView.View.new(null, null, null);
             this._sw.add(this.view);
             this.view.show();
+            this.view.connect('button-press-event', Lang.bind(this, this._onButtonPressEvent));
             this.view.connect('load-changed', Lang.bind(this, this._onProgressChanged));
+            this.view.connect('text-selection', Lang.bind(this, this._onTextSelection));
         }
 
         this._navControls = new LOKViewNavControls(this, this._overlay);
         this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
     },
 
+    _getPreviewContextMenu: function() {
+        let builder = new Gtk.Builder();
+        builder.add_from_resource('/org/gnome/Documents/ui/preview-context-menu.ui');
+        return builder.get_object('preview-context-menu');
+    },
+
+    _onButtonPressEvent: function(widget, event) {
+        let button = event.get_button()[1];
+
+        if (button == 3) {
+            let time = event.get_time();
+            this._previewContextMenu.popup(null, null, null, button, time);
+            return true;
+        }
+
+        return false;
+   },
+
     _onProgressChanged: function() {
         this._progressBar.fraction = this.view.load_progress;
+    },
+
+    _onTextSelection: function(hasSelection) {
+        this._copy.enabled = hasSelection;
     },
 
     _setError: function(primary, secondary) {
