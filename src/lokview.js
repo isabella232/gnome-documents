@@ -49,6 +49,9 @@ const View = imports.view;
 const WindowMode = imports.windowMode;
 const Documents = imports.documents;
 
+const ZOOM_IN_FACTOR = 1.2;
+const ZOOM_OUT_FACTOR = (1.0/ZOOM_IN_FACTOR);
+
 const openDocumentFormats = ['application/vnd.oasis.opendocument.text',
                              'application/vnd.oasis.opendocument.text-template',
                              'application/vnd.oasis.opendocument.text-web',
@@ -121,17 +124,21 @@ const LOKView = new Lang.Class({
         this.show_all();
 
         this._zoomIn = Application.application.lookup_action('zoom-in');
+        this.view.connect('notify::can-zoom-in', Lang.bind(this,
+            this._onCanZoomInChanged));
         let zoomInId = this._zoomIn.connect('activate', Lang.bind(this,
             function() {
-                let zoomLevel = this.view.get_zoom();
-                this.view.set_zoom(zoomLevel * 2);
+                let zoomLevel = this.view.get_zoom() * ZOOM_IN_FACTOR;
+                this.view.set_zoom(zoomLevel);
             }));
 
         this._zoomOut = Application.application.lookup_action('zoom-out');
+        this.view.connect('notify::can-zoom-out', Lang.bind(this,
+            this._onCanZoomOutChanged));
         let zoomOutId = this._zoomOut.connect('activate', Lang.bind(this,
             function() {
-                let zoomLevel = this.view.get_zoom();
-                this.view.set_zoom(zoomLevel / 2);
+                let zoomLevel = this.view.get_zoom() * ZOOM_OUT_FACTOR;
+                this.view.set_zoom(zoomLevel);
             }));
 
         this._copy = Application.application.lookup_action('copy');
@@ -148,6 +155,14 @@ const LOKView = new Lang.Class({
                this._zoomOut.disconnect(zoomOutId);
                this._copy.disconnect(copyId);
            }));
+    },
+
+    _onCanZoomInChanged: function() {
+        this._zoomIn.enabled = this.view.can_zoom_in;
+    },
+
+    _onCanZoomOutChanged: function() {
+        this._zoomOut.enabled = this.view.can_zoom_out;
     },
 
     _onCopyActivated: function() {
