@@ -34,7 +34,7 @@
   <terms>
     <item>
       <title>Sources</title>
-      <p>Chose to search documents that are <gui>Local</gui>, accessed through
+      <p>Choose to search documents that are <gui>Local</gui>, accessed through
       <link href="help:gnome-help/online-accounts">online accounts</link> with
       <gui>Google</gui>, <gui>OneDrive</gui>, <gui>ownCloud</gui>, or
       <gui>All</gui>.</p>
