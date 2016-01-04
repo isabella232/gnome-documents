@@ -49,13 +49,22 @@ const ModeController = new Lang.Class({
         if (!steps)
             steps = 1;
 
-        let oldMode;
+        if (this._history.length < steps)
+            return;
 
-        for (let i = 0; i < steps; i++) {
+        let oldMode;
+        for (let i = 0; i < steps; i++)
             oldMode = this._history.pop();
-            if (!oldMode || oldMode == WindowMode.NONE)
-                return;
-        }
+
+        /* Always go back to the documents view when activated from the search
+         * provider. It is easier to special case it here instead of all
+         * over the code.
+         */
+        if (this._mode == WindowMode.PREVIEW && oldMode == WindowMode.NONE && steps == 1)
+          oldMode = WindowMode.DOCUMENTS;
+
+        if (oldMode == WindowMode.NONE)
+            return;
 
         // Swap the old and current modes.
         let tmp = oldMode;
