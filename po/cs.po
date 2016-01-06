@@ -901,7 +901,7 @@ msgstr "Své účty on-line můžete přidat v %s"
 #. "You can add your online accounts in Settings" sentence above
 #: ../src/view.js:285
 msgid "Settings"
-msgstr "Nastavení"
+msgstr "nastavení"
 
 #: ../src/view.js:505
 msgid "Yesterday"
