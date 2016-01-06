@@ -64,10 +64,11 @@ const QueryBuilder = new Lang.Class({
                  activeSource: this._context.sourceManager.getActiveItem() };
     },
 
-    _buildFilterString: function(currentType, flags) {
+    _buildFilterString: function(currentType, flags, isFtsEnabled) {
         let filters = [];
 
-        filters.push(this._context.searchMatchManager.getFilter(flags));
+        if (!isFtsEnabled)
+            filters.push(this._context.searchMatchManager.getFilter(flags));
         filters.push(this._context.sourceManager.getFilter(flags));
         filters.push(this._context.searchCategoryManager.getFilter(flags));
 
@@ -86,6 +87,27 @@ const QueryBuilder = new Lang.Class({
         return sparql;
     },
 
+    _addWhereClauses: function(partsList, global, flags, searchTypes, ftsQuery) {
+        // build an array of WHERE clauses; each clause maps to one
+        // type of resource we're looking for.
+        searchTypes.forEach(Lang.bind(this,
+            function(currentType) {
+                let part = '{ ' + currentType.getWhere() + ftsQuery;
+                part += this._buildOptional();
+
+                if ((flags & QueryFlags.UNFILTERED) == 0) {
+                    if (global)
+                        part += this._context.searchCategoryManager.getWhere() +
+                                this._context.documentManager.getWhere();
+
+                    part += this._buildFilterString(currentType, flags, ftsQuery.length > 0);
+                }
+
+                part += ' }';
+                partsList.push(part);
+            }));
+    },
+
     _buildWhere: function(global, flags) {
         let whereSparql = 'WHERE { ';
         let whereParts = [];
@@ -100,23 +122,23 @@ const QueryBuilder = new Lang.Class({
         else
             searchTypes = this._context.searchTypeManager.getAllTypes();
 
-        // build an array of WHERE clauses; each clause maps to one
-        // type of resource we're looking for.
-        searchTypes.forEach(Lang.bind(this,
-            function(currentType) {
-                let part = '{ ' + currentType.getWhere() + this._buildOptional();
+        let matchItem = this._context.searchMatchManager.getActiveItem();
 
-                if ((flags & QueryFlags.UNFILTERED) == 0) {
-                    if (global)
-                        part += this._context.searchCategoryManager.getWhere() +
-                                this._context.documentManager.getWhere();
+        // Skip matchTypes when only doing fts
+        if (matchItem.id != Search.SearchMatchStock.CONTENT) {
+            this._addWhereClauses(whereParts, global, flags, searchTypes, '');
+        }
 
-                    part += this._buildFilterString(currentType, flags);
-                }
+        if (flags & QueryFlags.SEARCH) {
+            let ftsWhere = this._context.searchMatchManager.getWhere();
 
-                part += ' }';
-                whereParts.push(part);
-            }));
+            // Need to repeat the searchTypes part to also include fts
+            // Note that the filter string needs to be slightly different for the
+            // fts to work properly
+            if (ftsWhere.length || matchItem.id == Search.SearchMatchStock.CONTENT) {
+                this._addWhereClauses(whereParts, global, flags, searchTypes, ftsWhere);
+            }
+        }
 
         // put all the clauses in an UNION
         whereSparql += whereParts.join(' UNION ');
@@ -134,6 +156,8 @@ const QueryBuilder = new Lang.Class({
             let offset = 0;
             let step = Search.OFFSET_STEP;
 
+            tailSparql += 'ORDER BY DESC(fts:rank(?urn)) ';
+
             if (offsetController) {
                 offset = offsetController.getOffset();
                 step = offsetController.getOffsetStep();
@@ -141,16 +165,16 @@ const QueryBuilder = new Lang.Class({
 
             switch (sortBy) {
             case Gd.MainColumns.PRIMARY_TEXT:
-                tailSparql += 'ORDER BY ASC(?title) ASC(?filename)';
+                tailSparql += 'ASC(?title) ASC(?filename)';
                 break;
             case Gd.MainColumns.SECONDARY_TEXT:
-                tailSparql += 'ORDER BY ASC(?author)';
+                tailSparql += 'ASC(?author)';
                 break;
             case Gd.MainColumns.MTIME:
-                tailSparql += 'ORDER BY DESC(?mtime)';
+                tailSparql += 'DESC(?mtime)';
                 break;
             default:
-                tailSparql += 'ORDER BY DESC(?mtime)';
+                tailSparql += 'DESC(?mtime)';
                 break;
             }
 
