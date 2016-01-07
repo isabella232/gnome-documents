@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents 3.19.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-14 16:18+0100\n"
-"PO-Revision-Date: 2015-11-14 16:19+0100\n"
+"POT-Creation-Date: 2016-01-07 21:21+0100\n"
+"PO-Revision-Date: 2016-01-07 21:23+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: \n"
@@ -18,8 +18,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:1
-#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:114
-#: ../src/embed.js:80 ../src/lib/gd-utils.c:418
+#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:115
+#: ../src/embed.js:81 ../src/lib/gd-utils.c:418
 msgid "Books"
 msgstr "Bøker"
 
@@ -51,17 +51,12 @@ msgid "Search through e-books"
 msgstr "Søk i e-bøker"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:7
-msgid "View e-books fullscreen"
-msgstr "Vis e-bøker med fullskjerm"
+msgid "View e-books (PDF and comics) fullscreen"
+msgstr "Vis e-bøker (PDF og tegneserier) i fullskjerm"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:8
 msgid "Print e-books"
 msgstr "Skriv ut e-bøker"
-
-#: ../data/org.gnome.Books.appdata.xml.in.h:9
-#: ../data/org.gnome.Documents.appdata.xml.in.h:12
-msgid "Allow opening full featured editor for non-trivial changes"
-msgstr "Tillat åpning av et redigeringsprogram for å gjøre avanserte endringer"
 
 #: ../data/org.gnome.Books.desktop.in.h:2
 msgid "Access, manage and share books"
@@ -82,48 +77,58 @@ msgid "View as type"
 msgstr "Vis som type"
 
 #: ../data/org.gnome.books.gschema.xml.h:3
+#: ../data/org.gnome.documents.gschema.xml.h:3
+msgid "Sort by"
+msgstr "Sorter etter"
+
+#: ../data/org.gnome.books.gschema.xml.h:4
+#: ../data/org.gnome.documents.gschema.xml.h:4
+msgid "Sort by type"
+msgstr "Sorter etter type"
+
+#: ../data/org.gnome.books.gschema.xml.h:5
 #: ../data/org.gnome.documents.gschema.xml.h:5
 msgid "Window size"
 msgstr "Vindustørrelse"
 
-#: ../data/org.gnome.books.gschema.xml.h:4
+#: ../data/org.gnome.books.gschema.xml.h:6
 #: ../data/org.gnome.documents.gschema.xml.h:6
 msgid "Window size (width and height)."
 msgstr "Vindustørrelse (bredde og høyde)."
 
-#: ../data/org.gnome.books.gschema.xml.h:5
+#: ../data/org.gnome.books.gschema.xml.h:7
 #: ../data/org.gnome.documents.gschema.xml.h:7
 msgid "Window position"
 msgstr "Vinduposisjon"
 
-#: ../data/org.gnome.books.gschema.xml.h:6
+#: ../data/org.gnome.books.gschema.xml.h:8
 #: ../data/org.gnome.documents.gschema.xml.h:8
 msgid "Window position (x and y)."
 msgstr "Vinduposisjon (x og y)."
 
-#: ../data/org.gnome.books.gschema.xml.h:7
+#: ../data/org.gnome.books.gschema.xml.h:9
 #: ../data/org.gnome.documents.gschema.xml.h:9
 msgid "Window maximized"
 msgstr "Vindu maksimert"
 
-#: ../data/org.gnome.books.gschema.xml.h:8
+#: ../data/org.gnome.books.gschema.xml.h:10
 #: ../data/org.gnome.documents.gschema.xml.h:10
 msgid "Window maximized state"
 msgstr "Om vinduet er maksimert eller ikke"
 
-#: ../data/org.gnome.books.gschema.xml.h:9
+#: ../data/org.gnome.books.gschema.xml.h:11
 #: ../data/org.gnome.documents.gschema.xml.h:11
 msgid "Night mode"
 msgstr "Nattmodus"
 
-#: ../data/org.gnome.books.gschema.xml.h:10
+#: ../data/org.gnome.books.gschema.xml.h:12
 #: ../data/org.gnome.documents.gschema.xml.h:12
 msgid "Whether the application is in night mode."
 msgstr "Hvorvidt programmet er i nattmodus."
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:1
-#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:117
-#: ../src/embed.js:80 ../src/lib/gd-utils.c:411 ../src/mainWindow.js:54
+#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:118
+#: ../src/embed.js:81 ../src/lib/gd-utils.c:411 ../src/mainWindow.js:54
 msgid "Documents"
 msgstr "Dokumenter"
 
@@ -171,6 +176,10 @@ msgstr "Skriv ut dokumenter"
 msgid "Select favorites"
 msgstr "Velg favoritter"
 
+#: ../data/org.gnome.Documents.appdata.xml.in.h:12
+msgid "Allow opening full featured editor for non-trivial changes"
+msgstr "Tillat åpning av et redigeringsprogram for å gjøre avanserte endringer"
+
 #: ../data/org.gnome.Documents.desktop.in.h:2
 msgid "Access, manage and share documents"
 msgstr "Aksesser, håndter og del dokumenter"
@@ -179,15 +188,7 @@ msgstr "Aksesser, håndter og del dokumenter"
 msgid "Docs;PDF;Document;"
 msgstr "Dokumentasjon;PDF;Dokument;"
 
-#: ../data/org.gnome.documents.gschema.xml.h:3
-msgid "Sort by"
-msgstr "Sorter etter"
-
-#: ../data/org.gnome.documents.gschema.xml.h:4
-msgid "Sort by type"
-msgstr "Sorter etter type"
-
-#: ../data/ui/app-menu.ui.h:1
+#: ../data/ui/app-menu.ui.h:1 ../data/ui/help-overlay.ui.h:20
 msgid "Fullscreen"
 msgstr "Fullskjerm"
 
@@ -196,16 +197,92 @@ msgid "Night Mode"
 msgstr "Nattmodus"
 
 #: ../data/ui/app-menu.ui.h:3
+msgid "Keyboard Shortcuts"
+msgstr "Tastatursnarveier"
+
+#: ../data/ui/app-menu.ui.h:4
 msgid "Help"
 msgstr "Hjelp"
 
-#: ../data/ui/app-menu.ui.h:4
+#: ../data/ui/app-menu.ui.h:5
 msgid "About"
 msgstr "Om"
 
-#: ../data/ui/app-menu.ui.h:5
+#: ../data/ui/app-menu.ui.h:6 ../data/ui/help-overlay.ui.h:3
 msgid "Quit"
 msgstr "Avslutt"
+
+#: ../data/ui/help-overlay.ui.h:1
+msgid "General"
+msgstr "Generelt"
+
+#: ../data/ui/help-overlay.ui.h:2
+msgid "Show help"
+msgstr "Vis hjelp"
+
+#: ../data/ui/help-overlay.ui.h:4 ../src/mainToolbar.js:90
+msgid "Search"
+msgstr "Søk"
+
+#: ../data/ui/help-overlay.ui.h:5
+msgid "Print the current document"
+msgstr "Skriv ut dette dokumentet"
+
+#: ../data/ui/help-overlay.ui.h:6
+msgid "Navigation"
+msgstr "Navigasjon"
+
+#: ../data/ui/help-overlay.ui.h:7
+msgid "Go back"
+msgstr "Gå tilbake"
+
+#: ../data/ui/help-overlay.ui.h:8
+msgid "Preview"
+msgstr "Forhåndsvis"
+
+#: ../data/ui/help-overlay.ui.h:9
+msgid "Zoom in"
+msgstr "Zoom inn"
+
+#: ../data/ui/help-overlay.ui.h:10
+msgid "Zoom out"
+msgstr "Zoom ut"
+
+#: ../data/ui/help-overlay.ui.h:11
+msgid "Bookmark the current page"
+msgstr "Lag bokmerke for denne siden"
+
+#: ../data/ui/help-overlay.ui.h:12
+msgid "Open places and bookmarks dialog"
+msgstr "Åpne dialogen steder og bokmerker"
+
+#: ../data/ui/help-overlay.ui.h:13
+msgid "Copy selected text to clipboard"
+msgstr "Kopier valgt tekst til utklippstavlen"
+
+#: ../data/ui/help-overlay.ui.h:14
+msgid "Rotate anti-clockwise"
+msgstr "Roter mot klokken"
+
+#: ../data/ui/help-overlay.ui.h:15
+msgid "Rotate clockwise"
+msgstr "Roter med klokken"
+
+#: ../data/ui/help-overlay.ui.h:16
+msgid "Next occurrence of the search string"
+msgstr "Neste treff på søkestrengen"
+
+#: ../data/ui/help-overlay.ui.h:17
+msgid "Previous occurrence of the search string"
+msgstr "Forrige treff på søkestrengen"
+
+#: ../data/ui/help-overlay.ui.h:18
+msgid "Presentation mode"
+msgstr "Presentasjonsmodus"
+
+#: ../data/ui/help-overlay.ui.h:19
+msgid "Open action menu"
+msgstr "Åpne handlingsmenyen"
 
 #: ../data/ui/organize-collection-dialog.ui.h:1
 msgid "Enter a name for your first collection"
@@ -219,7 +296,7 @@ msgstr "Ny samling …"
 msgid "Add"
 msgstr "Legg til"
 
-#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:218
+#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:208
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -232,10 +309,9 @@ msgstr "Ferdig"
 msgid "_Copy"
 msgstr "_Kopier"
 
-#. open button
 #. Translators: this is the Open action in a context menu
-#: ../data/ui/preview-menu.ui.h:1 ../src/selections.js:875
-#: ../src/selections.js:1003
+#: ../data/ui/preview-menu.ui.h:1 ../data/ui/selection-toolbar.ui.h:1
+#: ../src/selections.js:986
 msgid "Open"
 msgstr "Åpne"
 
@@ -267,9 +343,8 @@ msgstr "Roter ↶"
 msgid "Rotate ↷"
 msgstr "Roter ↷"
 
-#. properties button
-#: ../data/ui/preview-menu.ui.h:9 ../src/properties.js:62
-#: ../src/selections.js:897
+#: ../data/ui/preview-menu.ui.h:9 ../data/ui/selection-toolbar.ui.h:2
+#: ../src/properties.js:62
 msgid "Properties"
 msgstr "Egenskaper"
 
@@ -281,108 +356,137 @@ msgstr "Velg alle"
 msgid "Select None"
 msgstr "Velg ingen"
 
-#: ../src/documents.js:630
+#: ../data/ui/selection-toolbar.ui.h:3 ../src/embed.js:85 ../src/search.js:203
+#: ../src/search.js:209
+msgid "Collections"
+msgstr "Samlinger"
+
+#: ../data/ui/view-menu.ui.h:1
+msgid "View items as a grid of icons"
+msgstr "Vis oppføringer som et rutenett med ikoner"
+
+#: ../data/ui/view-menu.ui.h:2
+msgid "View items as a list"
+msgstr "Vis oppføringer som en liste"
+
+#: ../data/ui/view-menu.ui.h:3
+msgid "Sort"
+msgstr "Sorter"
+
+#: ../data/ui/view-menu.ui.h:4
+msgid "Author"
+msgstr "Forfatter"
+
+#: ../data/ui/view-menu.ui.h:5
+msgid "Date"
+msgstr "Dato"
+
+#: ../data/ui/view-menu.ui.h:6
+msgid "Name"
+msgstr "Navn"
+
+#: ../src/documents.js:663
 msgid "Failed to print document"
 msgstr "Klarte ikke å skrive ut dokumentet"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:672 ../src/search.js:510
+#: ../src/documents.js:717 ../src/search.js:510
 msgid "Local"
 msgstr "Lokalt"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:699
+#: ../src/documents.js:756
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:700
+#: ../src/documents.js:757
 msgid "Getting Started with Documents"
 msgstr "Kom i gang med Dokumenter"
 
-#: ../src/documents.js:716 ../src/documents.js:919 ../src/documents.js:987
-#: ../src/documents.js:1103
+#: ../src/documents.js:773 ../src/documents.js:987 ../src/documents.js:1055
+#: ../src/documents.js:1171
 msgid "Collection"
 msgstr "Samling"
 
 #. overridden
-#: ../src/documents.js:797
+#: ../src/documents.js:865
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:798
+#: ../src/documents.js:866
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:921 ../src/documents.js:1105
+#: ../src/documents.js:989 ../src/documents.js:1173
 msgid "Spreadsheet"
 msgstr "Regneark"
 
-#: ../src/documents.js:923 ../src/documents.js:1107 ../src/presentation.js:49
+#: ../src/documents.js:991 ../src/documents.js:1175 ../src/presentation.js:49
 msgid "Presentation"
 msgstr "Presentasjon"
 
-#: ../src/documents.js:925 ../src/documents.js:1109
+#: ../src/documents.js:993 ../src/documents.js:1177
 msgid "e-Book"
 msgstr "e-bok"
 
-#: ../src/documents.js:927 ../src/documents.js:1111
+#: ../src/documents.js:995 ../src/documents.js:1179
 msgid "Document"
 msgstr "Dokument"
 
 #. overridden
-#: ../src/documents.js:966
+#: ../src/documents.js:1034
 msgid "ownCloud"
 msgstr "ownCloud"
 
 #. overridden
-#: ../src/documents.js:1037 ../src/documents.js:1038
+#: ../src/documents.js:1105 ../src/documents.js:1106
 msgid "OneDrive"
 msgstr "OneDrive"
 
-#: ../src/documents.js:1287
+#: ../src/documents.js:1355
 msgid "Please check the network connection."
 msgstr "Sjekk nettverkstilkoblingen."
 
-#: ../src/documents.js:1290
+#: ../src/documents.js:1358
 msgid "Please check the network proxy settings."
 msgstr "Sjekk proxyinnstillinger for nettverk."
 
-#: ../src/documents.js:1293
+#: ../src/documents.js:1361
 msgid "Unable to sign in to the document service."
 msgstr "Kan ikke logge inn på dokumenttjenesten."
 
-#: ../src/documents.js:1296
+#: ../src/documents.js:1364
 msgid "Unable to locate this document."
 msgstr "Kan ikke finne dette dokumentet."
 
-#: ../src/documents.js:1299
+#: ../src/documents.js:1367
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Hmm, noe er galt (%d)."
 
-#: ../src/documents.js:1306
+#: ../src/documents.js:1374
 msgid ""
 "You are using a preview of Books. Full viewing capabilities are coming soon!"
 msgstr ""
 "Du bruker en forhåndsvisning av Bøker. Flere visningsfunksjoner kommer snart!"
 
+#: ../src/documents.js:1376
+msgid ""
+"LibreOffice support is not available. Please contact your system "
+"administrator."
+msgstr "Støtte for LibreOffice er ikke tilgjengelig. Vennligst kontakt din systemadministrator."
+
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1327
+#: ../src/documents.js:1397
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Opps! kan ikke laste «%s»"
 
-#: ../src/edit.js:180
+#: ../src/edit.js:186
 msgid "View"
 msgstr "Vis"
-
-#. collections button
-#: ../src/embed.js:84 ../src/search.js:203 ../src/search.js:209
-#: ../src/selections.js:902
-msgid "Collections"
-msgstr "Samlinger"
 
 #: ../src/lib/gd-nav-bar.c:242
 #, c-format
@@ -413,7 +517,7 @@ msgstr "Ingen bokmerker"
 msgid "Loading…"
 msgstr "Laster …"
 
-#: ../src/lib/gd-places-bookmarks.c:656 ../src/preview.js:631
+#: ../src/lib/gd-places-bookmarks.c:656 ../src/preview.js:641
 msgid "Bookmarks"
 msgstr "Bokmerker"
 
@@ -437,34 +541,32 @@ msgstr "Et program for å håndtere e-bøker"
 msgid "translator-credits"
 msgstr "Kjartan Maraas <kmaraas@gnome.org>"
 
-#: ../src/mainToolbar.js:89
-msgid "Search"
-msgstr "Søk"
+#. Translators: this is the Open action in a context menu
+#: ../src/lokview.js:222 ../src/preview.js:911 ../src/selections.js:983
+#, javascript-format
+msgid "Open with %s"
+msgstr "Åpne med %s"
 
-#: ../src/mainToolbar.js:97
+#: ../src/mainToolbar.js:98
 msgid "Back"
 msgstr "Tilbake"
 
-#: ../src/mainToolbar.js:156
-msgid "View items as a list"
-msgstr "Vis oppføringer som en liste"
+#: ../src/mainToolbar.js:154
+msgid "View Menu"
+msgstr "Vis meny"
 
-#: ../src/mainToolbar.js:162
-msgid "View items as a grid of icons"
-msgstr "Vis oppføringer som et rutenett med ikoner"
-
-#: ../src/mainToolbar.js:192
+#: ../src/mainToolbar.js:182
 msgid "Click on items to select them"
 msgstr "Klikk på oppføringer for å velge dem"
 
-#: ../src/mainToolbar.js:194
+#: ../src/mainToolbar.js:184
 #, javascript-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d valgt"
 msgstr[1] "%d valgt"
 
-#: ../src/mainToolbar.js:278
+#: ../src/mainToolbar.js:268
 msgid "Select Items"
 msgstr "Velg oppføringer"
 
@@ -554,21 +656,15 @@ msgstr "Av"
 msgid "Secondary"
 msgstr "Sekundær"
 
-#: ../src/preview.js:639
+#: ../src/preview.js:649
 msgid "Bookmark this page"
 msgstr "Lag bokmerke for denne siden"
 
-#. Translators: this is the Open action in a context menu
-#: ../src/preview.js:901 ../src/selections.js:1000
-#, javascript-format
-msgid "Open with %s"
-msgstr "Åpne med %s"
-
-#: ../src/preview.js:964
+#: ../src/preview.js:968
 msgid "Find Previous"
 msgstr "Finn forrige"
 
-#: ../src/preview.js:971
+#: ../src/preview.js:974
 msgid "Find Next"
 msgstr "Finn neste"
 
@@ -687,8 +783,7 @@ msgstr "Kilder"
 msgid "Rename…"
 msgstr "Endre navn …"
 
-#. trash button
-#: ../src/selections.js:372 ../src/selections.js:374 ../src/selections.js:885
+#: ../src/selections.js:372 ../src/selections.js:374
 msgid "Delete"
 msgstr "Slett"
 
@@ -706,15 +801,6 @@ msgstr "Endre navn"
 msgctxt "Dialog Title"
 msgid "Collections"
 msgstr "Samlinger"
-
-#. print button
-#: ../src/selections.js:880
-msgid "Print"
-msgstr "Skriv ut"
-
-#: ../src/selections.js:891
-msgid "Share"
-msgstr "Del"
 
 #: ../src/sharing.js:108
 msgid "Sharing Settings"
@@ -784,73 +870,73 @@ msgstr "Du kan spørre %s om tilgang"
 msgid "The document was not updated"
 msgstr "Dokumentet ble ikke oppdatert"
 
-#: ../src/shellSearchProvider.js:292
+#: ../src/shellSearchProvider.js:290
 msgid "Untitled Document"
 msgstr "Dokument uten navn"
 
-#: ../src/trackerController.js:172
+#: ../src/trackerController.js:177
 msgid "Unable to fetch the list of documents"
 msgstr "Kan ikke hente listen med dokumenter"
 
-#: ../src/view.js:260
+#: ../src/view.js:258
 msgid "No Books Found"
 msgstr "Ingen bøker funnet"
 
-#: ../src/view.js:261
+#: ../src/view.js:259
 msgid "No Documents Found"
 msgstr "Ingen dokumenter funnet"
 
 #. Translators: %s here is "Settings", which is in a separate string due to
 #. markup, and should be translated only in the context of this sentence
-#: ../src/view.js:283
+#: ../src/view.js:281
 #, javascript-format
 msgid "You can add your online accounts in %s"
 msgstr "Du kan legge til dine kontoer på nettet i %s"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in Settings" sentence above
-#: ../src/view.js:287
+#: ../src/view.js:285
 msgid "Settings"
 msgstr "Innstillinger"
 
-#: ../src/view.js:483
+#: ../src/view.js:505
 msgid "Yesterday"
 msgstr "I går"
 
-#: ../src/view.js:485
+#: ../src/view.js:507
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d dag siden"
 msgstr[1] "%d dager siden"
 
-#: ../src/view.js:489
+#: ../src/view.js:511
 msgid "Last week"
 msgstr "Siste uke"
 
-#: ../src/view.js:491
+#: ../src/view.js:513
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d uke siden"
 msgstr[1] "%d uker siden"
 
-#: ../src/view.js:495
+#: ../src/view.js:517
 msgid "Last month"
 msgstr "Siste måned"
 
-#: ../src/view.js:497
+#: ../src/view.js:519
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d måned siden"
 msgstr[1] "%d måneder siden"
 
-#: ../src/view.js:501
+#: ../src/view.js:523
 msgid "Last year"
 msgstr "Siste år"
 
-#: ../src/view.js:503
+#: ../src/view.js:525
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
