@@ -2,15 +2,15 @@
 # Copyright (C) 2011 gnome-documents's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-documents package.
 # Jorge González <jorgegonz@svn.gnome.org>, 2011.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012, 2013, 2014, 2015.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012, 2013, 2014, 2015, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-12-14 09:07+0000\n"
-"PO-Revision-Date: 2015-12-14 16:33+0100\n"
+"POT-Creation-Date: 2016-01-06 21:07+0000\n"
+"PO-Revision-Date: 2016-01-07 09:06+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:1
 #: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:115
-#: ../src/embed.js:80 ../src/lib/gd-utils.c:418
+#: ../src/embed.js:81 ../src/lib/gd-utils.c:418
 msgid "Books"
 msgstr "Libros"
 
@@ -54,7 +54,6 @@ msgid "Search through e-books"
 msgstr "Buscar en los libros electrónicos"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:7
-#| msgid "View e-books fullscreen"
 msgid "View e-books (PDF and comics) fullscreen"
 msgstr "Ver libros electrónicos (PDF y cómics) a pantalla completa"
 
@@ -132,7 +131,7 @@ msgstr "Indica si la aplicación está en modo nocturno."
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:1
 #: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:118
-#: ../src/embed.js:80 ../src/lib/gd-utils.c:411 ../src/mainWindow.js:54
+#: ../src/embed.js:81 ../src/lib/gd-utils.c:411 ../src/mainWindow.js:54
 msgid "Documents"
 msgstr "Documentos"
 
@@ -360,7 +359,7 @@ msgstr "Seleccionar todo"
 msgid "Select None"
 msgstr "Seleccionar nada"
 
-#: ../data/ui/selection-toolbar.ui.h:3 ../src/embed.js:84 ../src/search.js:203
+#: ../data/ui/selection-toolbar.ui.h:3 ../src/embed.js:85 ../src/search.js:203
 #: ../src/search.js:209
 msgid "Collections"
 msgstr "Colecciones"
@@ -389,96 +388,104 @@ msgstr "Fecha"
 msgid "Name"
 msgstr "Nombre"
 
-#: ../src/documents.js:639
+#: ../src/documents.js:663
 msgid "Failed to print document"
 msgstr "Falló al imprimir el documento"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:681 ../src/search.js:510
+#: ../src/documents.js:717 ../src/search.js:510
 msgid "Local"
 msgstr "Locales"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:708
+#: ../src/documents.js:756
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:709
+#: ../src/documents.js:757
 msgid "Getting Started with Documents"
 msgstr "Primeros pasos con Documentos"
 
-#: ../src/documents.js:725 ../src/documents.js:928 ../src/documents.js:996
-#: ../src/documents.js:1112
+#: ../src/documents.js:773 ../src/documents.js:987 ../src/documents.js:1055
+#: ../src/documents.js:1171
 msgid "Collection"
 msgstr "Colección"
 
 #. overridden
-#: ../src/documents.js:806
+#: ../src/documents.js:865
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:807
+#: ../src/documents.js:866
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:930 ../src/documents.js:1114
+#: ../src/documents.js:989 ../src/documents.js:1173
 msgid "Spreadsheet"
 msgstr "Hoja de cálculo"
 
-#: ../src/documents.js:932 ../src/documents.js:1116 ../src/presentation.js:49
+#: ../src/documents.js:991 ../src/documents.js:1175 ../src/presentation.js:49
 msgid "Presentation"
 msgstr "Presentación"
 
-#: ../src/documents.js:934 ../src/documents.js:1118
+#: ../src/documents.js:993 ../src/documents.js:1177
 msgid "e-Book"
 msgstr "e-Book"
 
-#: ../src/documents.js:936 ../src/documents.js:1120
+#: ../src/documents.js:995 ../src/documents.js:1179
 msgid "Document"
 msgstr "Documento"
 
 #. overridden
-#: ../src/documents.js:975
+#: ../src/documents.js:1034
 msgid "ownCloud"
 msgstr "ownCloud"
 
 #. overridden
-#: ../src/documents.js:1046 ../src/documents.js:1047
+#: ../src/documents.js:1105 ../src/documents.js:1106
 msgid "OneDrive"
 msgstr "OneDrive"
 
-#: ../src/documents.js:1296
+#: ../src/documents.js:1355
 msgid "Please check the network connection."
 msgstr "Compruebe la conexión de red."
 
-#: ../src/documents.js:1299
+#: ../src/documents.js:1358
 msgid "Please check the network proxy settings."
 msgstr "Compruebe la configuración del proxy de red."
 
-#: ../src/documents.js:1302
+#: ../src/documents.js:1361
 msgid "Unable to sign in to the document service."
 msgstr "No se pudo iniciar sesión en el servicio de documentos."
 
-#: ../src/documents.js:1305
+#: ../src/documents.js:1364
 msgid "Unable to locate this document."
 msgstr "No se pudo encontrar este documento."
 
-#: ../src/documents.js:1308
+#: ../src/documents.js:1367
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Hay algo sospechoso (%d)."
 
-#: ../src/documents.js:1315
+#: ../src/documents.js:1374
 msgid ""
 "You are using a preview of Books. Full viewing capabilities are coming soon!"
 msgstr ""
 "Está usando una vista previa de Libros. Las opciones de visualización "
 "completas llegarán pronto."
 
+#: ../src/documents.js:1376
+msgid ""
+"LibreOffice support is not available. Please contact your system "
+"administrator."
+msgstr ""
+"Soporte de LibreOffice no disponible. Contacte con el administrador de su "
+"sistema."
+
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1336
+#: ../src/documents.js:1397
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "No se pudo cargar «%s»"
@@ -516,7 +523,7 @@ msgstr "No hay marcadores"
 msgid "Loading…"
 msgstr "Cargando…"
 
-#: ../src/lib/gd-places-bookmarks.c:656 ../src/preview.js:635
+#: ../src/lib/gd-places-bookmarks.c:656 ../src/preview.js:641
 msgid "Bookmarks"
 msgstr "Marcadores"
 
@@ -649,21 +656,21 @@ msgstr "Desactivada"
 msgid "Secondary"
 msgstr "Secundaria"
 
-#: ../src/preview.js:643
+#: ../src/preview.js:649
 msgid "Bookmark this page"
 msgstr "añadir esta página a marcadores"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/preview.js:905 ../src/selections.js:983
+#: ../src/preview.js:911 ../src/selections.js:983
 #, javascript-format
 msgid "Open with %s"
 msgstr "Abrir con %s"
 
-#: ../src/preview.js:962
+#: ../src/preview.js:968
 msgid "Find Previous"
 msgstr "Buscar anterior"
 
-#: ../src/preview.js:968
+#: ../src/preview.js:974
 msgid "Find Next"
 msgstr "Buscar siguiente"
 
