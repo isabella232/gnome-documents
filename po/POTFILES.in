@@ -22,6 +22,7 @@ src/lib/gd-pdf-loader.c
 src/lib/gd-places-bookmarks.c
 src/lib/gd-places-links.c
 src/lib/gd-utils.c
+src/lokview.js
 src/mainToolbar.js
 src/mainWindow.js
 src/notifications.js
