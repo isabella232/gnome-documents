@@ -4,15 +4,15 @@
 #
 # Gnome 2012-03 Finnish translation sprint participants:
 # Niklas Laxström
-# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2012, 2013, 2014, 2015.
+# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2012, 2013, 2014, 2015, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-12-20 09:09+0000\n"
-"PO-Revision-Date: 2015-12-20 21:14+0200\n"
+"POT-Creation-Date: 2016-01-07 21:04+0000\n"
+"PO-Revision-Date: 2016-01-07 23:15+0200\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
@@ -25,7 +25,7 @@ msgstr ""
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:1
 #: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:115
-#: ../src/embed.js:80 ../src/lib/gd-utils.c:418
+#: ../src/embed.js:81 ../src/lib/gd-utils.c:418
 msgid "Books"
 msgstr "Kirjat"
 
@@ -57,7 +57,6 @@ msgid "Search through e-books"
 msgstr "Etsiä kirjojen sisällöstä"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:7
-#| msgid "View e-books fullscreen"
 msgid "View e-books (PDF and comics) fullscreen"
 msgstr "Katsele sähköisiä kirjoja koko näytön tilassa"
 
@@ -137,7 +136,7 @@ msgstr "Toimiiko sovellus yötilassa."
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:1
 #: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:118
-#: ../src/embed.js:80 ../src/lib/gd-utils.c:411 ../src/mainWindow.js:54
+#: ../src/embed.js:81 ../src/lib/gd-utils.c:411 ../src/mainWindow.js:54
 msgid "Documents"
 msgstr "Asiakirjat"
 
@@ -365,7 +364,7 @@ msgstr "Valitse kaikki"
 msgid "Select None"
 msgstr "Poista kaikki valinnat"
 
-#: ../data/ui/selection-toolbar.ui.h:3 ../src/embed.js:84 ../src/search.js:203
+#: ../data/ui/selection-toolbar.ui.h:3 ../src/embed.js:85 ../src/search.js:203
 #: ../src/search.js:209
 msgid "Collections"
 msgstr "Kokoelmat"
@@ -379,13 +378,10 @@ msgid "View items as a list"
 msgstr "Näytä kohteet luettelona"
 
 #: ../data/ui/view-menu.ui.h:3
-#| msgid "Sort by"
 msgid "Sort"
 msgstr "Järjestä"
 
 #: ../data/ui/view-menu.ui.h:4
-#| msgctxt "Document Author"
-#| msgid "Author"
 msgid "Author"
 msgstr "Tekijä"
 
@@ -397,96 +393,103 @@ msgstr "Päiväys"
 msgid "Name"
 msgstr "Nimi"
 
-#: ../src/documents.js:639
+#: ../src/documents.js:663
 msgid "Failed to print document"
 msgstr "Asiakirjan tulostaminen epäonnistui"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:681 ../src/search.js:510
+#: ../src/documents.js:717 ../src/search.js:510
 msgid "Local"
 msgstr "Paikallinen"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:708
+#: ../src/documents.js:756
 msgid "GNOME"
 msgstr "Gnome"
 
-#: ../src/documents.js:709
+#: ../src/documents.js:757
 msgid "Getting Started with Documents"
 msgstr "Asiakirjat ja käytön aloitus"
 
-#: ../src/documents.js:725 ../src/documents.js:928 ../src/documents.js:996
-#: ../src/documents.js:1112
+#: ../src/documents.js:773 ../src/documents.js:987 ../src/documents.js:1055
+#: ../src/documents.js:1171
 msgid "Collection"
 msgstr "Kokoelma"
 
 #. overridden
-#: ../src/documents.js:806
+#: ../src/documents.js:865
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:807
+#: ../src/documents.js:866
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:930 ../src/documents.js:1114
+#: ../src/documents.js:989 ../src/documents.js:1173
 msgid "Spreadsheet"
 msgstr "Taulukko"
 
-#: ../src/documents.js:932 ../src/documents.js:1116 ../src/presentation.js:49
+#: ../src/documents.js:991 ../src/documents.js:1175 ../src/presentation.js:49
 msgid "Presentation"
 msgstr "Esitys"
 
-#: ../src/documents.js:934 ../src/documents.js:1118
+#: ../src/documents.js:993 ../src/documents.js:1177
 msgid "e-Book"
 msgstr "Kirja"
 
-#: ../src/documents.js:936 ../src/documents.js:1120
+#: ../src/documents.js:995 ../src/documents.js:1179
 msgid "Document"
 msgstr "Asiakirja"
 
 #. overridden
-#: ../src/documents.js:975
+#: ../src/documents.js:1034
 msgid "ownCloud"
 msgstr "ownCloud"
 
 #. overridden
-#: ../src/documents.js:1046 ../src/documents.js:1047
+#: ../src/documents.js:1105 ../src/documents.js:1106
 msgid "OneDrive"
 msgstr "OneDrive"
 
-#: ../src/documents.js:1296
+#: ../src/documents.js:1355
 msgid "Please check the network connection."
 msgstr "Tarkista verkkoyhteys."
 
-#: ../src/documents.js:1299
+#: ../src/documents.js:1358
 msgid "Please check the network proxy settings."
 msgstr "Tarkista verkkoyhteyden välityspalvelimen asetukset."
 
-#: ../src/documents.js:1302
+#: ../src/documents.js:1361
 msgid "Unable to sign in to the document service."
 msgstr "Asiakirjapalveluun kirjautuminen epäonnistui."
 
-#: ../src/documents.js:1305
+#: ../src/documents.js:1364
 msgid "Unable to locate this document."
 msgstr "Tämän asiakirjan paikantaminen epäonnistui."
 
-#: ../src/documents.js:1308
+#: ../src/documents.js:1367
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Hmm, jokin meni pieleen (%d)."
 
-#: ../src/documents.js:1315
+#: ../src/documents.js:1374
 msgid ""
 "You are using a preview of Books. Full viewing capabilities are coming soon!"
 msgstr ""
 "Käytössäsi on Kirjat-sovelluksen esiversio. Parannetut katseluominaisuudet "
 "tulevat pian!"
 
+#: ../src/documents.js:1376
+msgid ""
+"LibreOffice support is not available. Please contact your system "
+"administrator."
+msgstr ""
+"LibreOffice-tuki ei ole käytettävissä. Ota yhteys järjestelmän ylläpitäjään."
+
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1336
+#: ../src/documents.js:1397
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Hups! Kohteen \"%s\" lataus epäonnistui"
@@ -524,7 +527,7 @@ msgstr "Ei kirjanmerkkejä"
 msgid "Loading…"
 msgstr "Ladataan…"
 
-#: ../src/lib/gd-places-bookmarks.c:656 ../src/preview.js:635
+#: ../src/lib/gd-places-bookmarks.c:656 ../src/preview.js:641
 msgid "Bookmarks"
 msgstr "Kirjanmerkit"
 
@@ -547,6 +550,12 @@ msgstr "Kirjojen hallintasovellus"
 #: ../src/lib/gd-utils.c:427
 msgid "translator-credits"
 msgstr "Jiri Grönroos, 2012-2015"
+
+#. Translators: this is the Open action in a context menu
+#: ../src/lokview.js:222 ../src/preview.js:911 ../src/selections.js:983
+#, javascript-format
+msgid "Open with %s"
+msgstr "Avaa sovelluksella %s"
 
 #: ../src/mainToolbar.js:98
 msgid "Back"
@@ -660,21 +669,15 @@ msgstr "Pois"
 msgid "Secondary"
 msgstr "Toissijainen"
 
-#: ../src/preview.js:643
+#: ../src/preview.js:649
 msgid "Bookmark this page"
 msgstr "Lisää sivu kirjanmerkkeihin"
 
-#. Translators: this is the Open action in a context menu
-#: ../src/preview.js:905 ../src/selections.js:983
-#, javascript-format
-msgid "Open with %s"
-msgstr "Avaa sovelluksella %s"
-
-#: ../src/preview.js:962
+#: ../src/preview.js:968
 msgid "Find Previous"
 msgstr "Etsi edellinen"
 
-#: ../src/preview.js:968
+#: ../src/preview.js:974
 msgid "Find Next"
 msgstr "Etsi seuraava"
 
