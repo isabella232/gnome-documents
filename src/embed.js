@@ -153,6 +153,9 @@ const Embed = new Lang.Class({
         case WindowMode.WindowMode.PREVIEW:
             view = this._previewEv;
             break;
+        case WindowMode.WindowMode.PREVIEW_LOK:
+            view = this._previewLok;
+            break;
         case WindowMode.WindowMode.SEARCH:
             view = this._search;
             break;
