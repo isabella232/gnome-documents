@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-12-29 21:09+0000\n"
-"PO-Revision-Date: 2016-01-03 17:00+0700\n"
+"POT-Creation-Date: 2016-01-16 09:08+0000\n"
+"PO-Revision-Date: 2016-01-17 16:07+0700\n"
 "Last-Translator: Akom Chotiphantawanon <knight2000@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "Language: th\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:1
 #: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:115
-#: ../src/embed.js:80 ../src/lib/gd-utils.c:418
+#: ../src/embed.js:81 ../src/lib/gd-utils.c:418
 msgid "Books"
 msgstr "หนังสือ"
 
@@ -130,7 +130,7 @@ msgstr "กำหนดว่าโปรแกรมอยู่ในโหม
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:1
 #: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:118
-#: ../src/embed.js:80 ../src/lib/gd-utils.c:411 ../src/mainWindow.js:54
+#: ../src/embed.js:81 ../src/lib/gd-utils.c:411 ../src/mainWindow.js:54
 msgid "Documents"
 msgstr "เอกสาร"
 
@@ -357,7 +357,7 @@ msgstr "เลือกทั้งหมด"
 msgid "Select None"
 msgstr "ล้างการเลือก"
 
-#: ../data/ui/selection-toolbar.ui.h:3 ../src/embed.js:84 ../src/search.js:203
+#: ../data/ui/selection-toolbar.ui.h:3 ../src/embed.js:85 ../src/search.js:203
 #: ../src/search.js:209
 msgid "Collections"
 msgstr "ชุดเอกสาร"
@@ -386,95 +386,101 @@ msgstr "วันที่"
 msgid "Name"
 msgstr "ชื่อ"
 
-#: ../src/documents.js:639
+#: ../src/documents.js:682
 msgid "Failed to print document"
 msgstr "พิมพ์เอกสารไม่สำเร็จ"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:681 ../src/search.js:510
+#: ../src/documents.js:732 ../src/search.js:536
 msgid "Local"
 msgstr "ในเครื่อง"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:708
+#: ../src/documents.js:771
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:709
+#: ../src/documents.js:772
 msgid "Getting Started with Documents"
 msgstr "เริ่มต้นกับเอกสาร"
 
-#: ../src/documents.js:725 ../src/documents.js:928 ../src/documents.js:996
-#: ../src/documents.js:1112
+#: ../src/documents.js:788 ../src/documents.js:972 ../src/documents.js:1040
+#: ../src/documents.js:1148
 msgid "Collection"
 msgstr "ชุดเอกสาร"
 
 #. overridden
-#: ../src/documents.js:806
+#: ../src/documents.js:850
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:807
+#: ../src/documents.js:851
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:930 ../src/documents.js:1114
+#: ../src/documents.js:974 ../src/documents.js:1150
 msgid "Spreadsheet"
 msgstr "ตารางคำนวณ"
 
-#: ../src/documents.js:932 ../src/documents.js:1116 ../src/presentation.js:49
+#: ../src/documents.js:976 ../src/documents.js:1152 ../src/presentation.js:49
 msgid "Presentation"
 msgstr "งานนำเสนอ"
 
-#: ../src/documents.js:934 ../src/documents.js:1118
+#: ../src/documents.js:978 ../src/documents.js:1154
 msgid "e-Book"
 msgstr "อีบุ๊ก"
 
-#: ../src/documents.js:936 ../src/documents.js:1120
+#: ../src/documents.js:980 ../src/documents.js:1156
 msgid "Document"
 msgstr "เอกสาร"
 
 #. overridden
-#: ../src/documents.js:975
+#: ../src/documents.js:1019
 msgid "ownCloud"
 msgstr "ownCloud"
 
 #. overridden
-#: ../src/documents.js:1046 ../src/documents.js:1047
+#: ../src/documents.js:1082 ../src/documents.js:1083
 msgid "OneDrive"
 msgstr "OneDrive"
 
-#: ../src/documents.js:1296
+#: ../src/documents.js:1332
 msgid "Please check the network connection."
 msgstr "กรุณาตรวจสอบการเชื่อมต่อเครือข่าย"
 
-#: ../src/documents.js:1299
+#: ../src/documents.js:1335
 msgid "Please check the network proxy settings."
 msgstr "กรุณาตรวจสอบการตั้งค่าพร็อกซีเครือข่าย"
 
-#: ../src/documents.js:1302
+#: ../src/documents.js:1338
 msgid "Unable to sign in to the document service."
 msgstr "ไม่สามารถเข้าระบบเพื่อใช้บริการเอกสารได้"
 
-#: ../src/documents.js:1305
+#: ../src/documents.js:1341
 msgid "Unable to locate this document."
 msgstr "หาเอกสารนี้ไม่พบ"
 
-#: ../src/documents.js:1308
+#: ../src/documents.js:1344
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "มีบางสิ่งบางอย่างน่าสงสัย (%d)"
 
-#: ../src/documents.js:1315
+#: ../src/documents.js:1351
 msgid ""
 "You are using a preview of Books. Full viewing capabilities are coming soon!"
 msgstr ""
 "คุณกำลังใช้รุ่นตัวอย่างของ \"หนังสือ\" ความสามารถในการดูอย่างเต็มรูปแบบกำลังจะมาในเร็วๆ นี้!"
 
+#: ../src/documents.js:1353
+msgid ""
+"LibreOffice support is not available. Please contact your system "
+"administrator."
+msgstr "การรองรับ LibreOffice ไม่สามารถใช้ได้ กรุณาติดต่อผู้ดูแลระบบของคุณ"
+
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1336
+#: ../src/documents.js:1374
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "ไม่สามารถโหลด “%s” ได้"
@@ -512,7 +518,7 @@ msgstr "ไม่มีที่คั่นหน้า"
 msgid "Loading…"
 msgstr "กำลังโหลด…"
 
-#: ../src/lib/gd-places-bookmarks.c:656 ../src/preview.js:635
+#: ../src/lib/gd-places-bookmarks.c:656 ../src/preview.js:646
 msgid "Bookmarks"
 msgstr "ที่คั่นหน้า"
 
@@ -535,6 +541,12 @@ msgstr "โปรแกรมจัดการอีบุ๊ก"
 #: ../src/lib/gd-utils.c:427
 msgid "translator-credits"
 msgstr "Akom Chotiphantawanon <knight2000@gmail.com>"
+
+#. Translators: this is the Open action in a context menu
+#: ../src/lokview.js:298 ../src/preview.js:916 ../src/selections.js:983
+#, javascript-format
+msgid "Open with %s"
+msgstr "เปิดด้วย %s"
 
 #: ../src/mainToolbar.js:98
 msgid "Back"
@@ -642,21 +654,15 @@ msgstr "ปิด"
 msgid "Secondary"
 msgstr "รอง"
 
-#: ../src/preview.js:643
+#: ../src/preview.js:654
 msgid "Bookmark this page"
 msgstr "คั่นหน้านี้"
 
-#. Translators: this is the Open action in a context menu
-#: ../src/preview.js:905 ../src/selections.js:983
-#, javascript-format
-msgid "Open with %s"
-msgstr "เปิดด้วย %s"
-
-#: ../src/preview.js:962
+#: ../src/preview.js:973
 msgid "Find Previous"
 msgstr "หาก่อนหน้า"
 
-#: ../src/preview.js:968
+#: ../src/preview.js:979
 msgid "Find Next"
 msgstr "หาต่อ"
 
@@ -703,8 +709,8 @@ msgstr "หมวดหมู่"
 
 #. Translators: this refers to new and recent documents
 #. Translators: this refers to documents
-#: ../src/search.js:131 ../src/search.js:200 ../src/search.js:333
-#: ../src/search.js:504
+#: ../src/search.js:131 ../src/search.js:200 ../src/search.js:337
+#: ../src/search.js:530
 msgid "All"
 msgstr "ทั้งหมด"
 
@@ -749,25 +755,32 @@ msgstr "ตารางคำนวณ"
 msgid "Text Documents"
 msgstr "เอกสารข้อเขียน"
 
-#. Translators: this is a verb that refers to "All", "Title" and "Author",
-#. as in "Match All", "Match Title" and "Match Author"
-#: ../src/search.js:330
+#. Translators: this is a verb that refers to "All", "Title", "Author",
+#. and "Content" as in "Match All", "Match Title", "Match Author", and
+#. "Match Content"
+#: ../src/search.js:334
 msgid "Match"
 msgstr "ตรวจหา"
 
 #. Translators: "Title" refers to "Match Title" when searching
-#: ../src/search.js:336
+#: ../src/search.js:340
 msgctxt "Search Filter"
 msgid "Title"
 msgstr "ชื่อเรื่อง"
 
 #. Translators: "Author" refers to "Match Author" when searching
-#: ../src/search.js:339
+#: ../src/search.js:343
 msgctxt "Search Filter"
 msgid "Author"
 msgstr "ผู้เขียน"
 
-#: ../src/search.js:500
+#. Translators: "Content" refers to "Match Content" when searching
+#: ../src/search.js:346
+msgctxt "Search Filter"
+msgid "Content"
+msgstr "เนื้อหา"
+
+#: ../src/search.js:526
 msgid "Sources"
 msgstr "แหล่ง"
 
