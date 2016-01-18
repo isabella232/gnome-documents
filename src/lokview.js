@@ -66,13 +66,26 @@ const openDocumentFormats = ['application/vnd.oasis.opendocument.text',
                              'application/vnd.oasis.opendocument.formula',
                              'application/vnd.oasis.opendocument.database',
                              'application/vnd.oasis.opendocument.image',
-                             'application/vnd.openofficeorg.extension'];
+                             'application/vnd.openofficeorg.extension',
+                             'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+                             'application/vnd.openxmlformats-officedocument.presentationml.slideshow',
+                             'application/vnd.openxmlformats-officedocument.presentationml.template',
+                             'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                             'application/vnd.openxmlformats-officedocument.spreadsheetml.template',
+                             'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                             'application/vnd.openxmlformats-officedocument.wordprocessingml.template',];
+
 
 // These are the documents consisting of document parts.
 const openDocumentPartFormats = ['application/vnd.oasis.opendocument.presentation',
                                  'application/vnd.oasis.opendocument.presentation-template',
                                  'application/vnd.oasis.opendocument.spreadsheet',
-                                 'application/vnd.oasis.opendocument.spreadsheet-template',];
+                                 'application/vnd.oasis.opendocument.spreadsheet-template',
+                                 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+                                 'application/vnd.openxmlformats-officedocument.presentationml.slideshow',
+                                 'application/vnd.openxmlformats-officedocument.presentationml.template',
+                                 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                                 'application/vnd.openxmlformats-officedocument.spreadsheetml.template',];
 
 function isAvailable() {
     return (LOKDocView != undefined);
