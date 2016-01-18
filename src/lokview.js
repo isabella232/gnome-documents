@@ -208,7 +208,10 @@ const LOKView = new Lang.Class({
     reset: function () {
         if (!this.view)
             return;
-        this.view.reset_view();
+
+        // FIXME: https://bugs.documentfoundation.org/show_bug.cgi?id=97235
+        if (this._doc)
+            this.view.reset_view();
         this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
         this._copy.enabled = false;
     },
