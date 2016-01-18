@@ -426,6 +426,8 @@ const LOKViewNavControls = new Lang.Class({
         if (currentPart < 0)
             return;
         this._lokView.view.set_part(currentPart);
+        // FIXME: https://bugs.documentfoundation.org/show_bug.cgi?id=97236
+        this._lokView.view.reset_view();
         this._lokView.currentPart = currentPart;
     },
 
@@ -436,6 +438,8 @@ const LOKViewNavControls = new Lang.Class({
         if (currentPart > totalParts)
             return;
         this._lokView.view.set_part(currentPart);
+        // FIXME: https://bugs.documentfoundation.org/show_bug.cgi?id=97236
+        this._lokView.view.reset_view();
         this._lokView.currentPart = currentPart;
     },
 
