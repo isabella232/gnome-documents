@@ -1,3 +1,12 @@
+3.19.4 - "Walk the Dog"
+=======================
+
+- Add full-text search (Rafael Fonseca)
+- Use LOKDocView for handling ODF, OOXML, etc. files (Bastien Nocera, Pranav
+  Kant)
+- Try not to open PDFs in GIMP (Bastien Nocera)
+- Translation updates
+
 3.19.3 - "Merge Cowboy"
 =======================
 
