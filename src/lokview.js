@@ -137,8 +137,6 @@ const LOKView = new Lang.Class({
         this.show_all();
 
         this._zoomIn = Application.application.lookup_action('zoom-in');
-        this.view.connect('notify::can-zoom-in', Lang.bind(this,
-            this._onCanZoomInChanged));
         let zoomInId = this._zoomIn.connect('activate', Lang.bind(this,
             function() {
                 let zoomLevel = this.view.get_zoom() * ZOOM_IN_FACTOR;
@@ -146,8 +144,6 @@ const LOKView = new Lang.Class({
             }));
 
         this._zoomOut = Application.application.lookup_action('zoom-out');
-        this.view.connect('notify::can-zoom-out', Lang.bind(this,
-            this._onCanZoomOutChanged));
         let zoomOutId = this._zoomOut.connect('activate', Lang.bind(this,
             function() {
                 let zoomLevel = this.view.get_zoom() * ZOOM_OUT_FACTOR;
@@ -237,6 +233,8 @@ const LOKView = new Lang.Class({
             this.view.connect('button-press-event', Lang.bind(this, this._onButtonPressEvent));
             this.view.connect('load-changed', Lang.bind(this, this._onProgressChanged));
             this.view.connect('text-selection', Lang.bind(this, this._onTextSelection));
+            this.view.connect('notify::can-zoom-in', Lang.bind(this, this._onCanZoomInChanged));
+            this.view.connect('notify::can-zoom-out', Lang.bind(this, this._onCanZoomOutChanged));
         }
 
         this._navControls = new LOKViewNavControls(this, this._overlay);
