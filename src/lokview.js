@@ -139,6 +139,9 @@ const LOKView = new Lang.Class({
         this._zoomIn = Application.application.lookup_action('zoom-in');
         let zoomInId = this._zoomIn.connect('activate', Lang.bind(this,
             function() {
+                // FIXME: https://bugs.documentfoundation.org/show_bug.cgi?id=97301
+                if (!this._doc)
+                    return;
                 let zoomLevel = this.view.get_zoom() * ZOOM_IN_FACTOR;
                 this.view.set_zoom(zoomLevel);
             }));
@@ -146,6 +149,9 @@ const LOKView = new Lang.Class({
         this._zoomOut = Application.application.lookup_action('zoom-out');
         let zoomOutId = this._zoomOut.connect('activate', Lang.bind(this,
             function() {
+                // FIXME: https://bugs.documentfoundation.org/show_bug.cgi?id=97301
+                if (!this._doc)
+                    return;
                 let zoomLevel = this.view.get_zoom() * ZOOM_OUT_FACTOR;
                 this.view.set_zoom(zoomLevel);
             }));
