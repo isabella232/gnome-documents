@@ -222,7 +222,7 @@ const PreviewView = new Lang.Class({
         let bookmark = new GdPrivate.Bookmark({ page_number: page_number });
         let hasBookmark = (this._bookmarks.find_bookmark(bookmark) != null);
 
-        this._bookmarkPage.state = GLib.Variant.new('b', hasBookmark);
+        this._bookmarkPage.change_state(GLib.Variant.new('b', hasBookmark));
     },
 
     _setError: function(primary, secondary) {
