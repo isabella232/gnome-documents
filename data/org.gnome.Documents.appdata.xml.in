@@ -46,4 +46,5 @@
     </screenshot>
   </screenshots>
   <project_group>GNOME</project_group>
+  <translation type="gettext">gnome-documents</translation>
 </application>
