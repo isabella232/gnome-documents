@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-01-13 16:00+0000\n"
-"PO-Revision-Date: 2016-01-13 20:20+0100\n"
+"POT-Creation-Date: 2016-01-25 17:53+0000\n"
+"PO-Revision-Date: 2016-01-25 21:04+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de_DE\n"
@@ -311,7 +311,7 @@ msgstr "Neue Sammlung …"
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:208
+#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:209
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -567,7 +567,7 @@ msgstr ""
 "Christian Kirbach <christian.kirbach@gmail.com>"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/lokview.js:298 ../src/preview.js:916 ../src/selections.js:983
+#: ../src/lokview.js:333 ../src/preview.js:916 ../src/selections.js:983
 #, javascript-format
 msgid "Open with %s"
 msgstr "Öffnen mit »%s«"
@@ -576,22 +576,22 @@ msgstr "Öffnen mit »%s«"
 msgid "Back"
 msgstr "Zurück"
 
-#: ../src/mainToolbar.js:154
+#: ../src/mainToolbar.js:155
 msgid "View Menu"
 msgstr "Ansicht-Menü"
 
-#: ../src/mainToolbar.js:182
+#: ../src/mainToolbar.js:183
 msgid "Click on items to select them"
 msgstr "Klicken Sie auf Objekte, um Sie auszuwählen"
 
-#: ../src/mainToolbar.js:184
+#: ../src/mainToolbar.js:185
 #, javascript-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d ausgewählt"
 msgstr[1] "%d ausgewählt"
 
-#: ../src/mainToolbar.js:268
+#: ../src/mainToolbar.js:269
 msgid "Select Items"
 msgstr "Objekte auswählen"
 
@@ -913,70 +913,99 @@ msgstr "Unbenanntes Dokument"
 msgid "Unable to fetch the list of documents"
 msgstr "Liste der Dokumente kann nicht abgerufen werden"
 
-#: ../src/view.js:258
-msgid "No Books Found"
+#: ../src/view.js:271
+msgid "No collections found"
+msgstr "Keine Sammlungen gefunden"
+
+#: ../src/view.js:273
+msgid "No books found"
 msgstr "Keine Bücher gefunden"
 
-#: ../src/view.js:259
-msgid "No Documents Found"
+#: ../src/view.js:273
+msgid "No documents found"
 msgstr "Keine Dokumente gefunden"
 
-#. Translators: %s here is "Settings", which is in a separate string due to
-#. markup, and should be translated only in the context of this sentence
-#: ../src/view.js:281
+#: ../src/view.js:282
+msgid "Try a different search"
+msgstr "Mit veränderter Suche erneut versuchen"
+
+#: ../src/view.js:289
+msgid "You can create collections from the Books view"
+msgstr "Sie können Sammlungen aus der Bücher-Ansicht erstellen"
+
+#: ../src/view.js:291
+msgid "You can create collections from the Documents view"
+msgstr "Sie können Sammlungen aus der Dokumente-Ansicht erstellen"
+
+#. Translators: the %s's here are "Online Accounts" and "Documents folder", which are
+#. in a separate string due to markup, and should be translated only in the context of
+#. this sentence
+#: ../src/view.js:304
 #, javascript-format
-msgid "You can add your online accounts in %s"
-msgstr "Sie können Ihre Online-Konten in den %s hinzufügen"
+msgid "Documents from your %s and %s will appear here."
+msgstr "Dokumente aus Ihren %s und %s werden hier angezeigt."
 
 #. Translators: this should be translated in the context of the
-#. "You can add your online accounts in Settings" sentence above
-#: ../src/view.js:285
-msgid "Settings"
-msgstr "Einstellungen"
+#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
+#: ../src/view.js:308
+msgid "Online Accounts"
+msgstr "Online-Konten"
 
-#: ../src/view.js:505
+#. Translators: this should be translated in the context of the
+#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
+#: ../src/view.js:313
+msgid "Documents folder"
+msgstr "Dokumente-Ordner"
+
+#: ../src/view.js:529
 msgid "Yesterday"
 msgstr "Gestern"
 
-#: ../src/view.js:507
+#: ../src/view.js:531
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "vor %d Tag"
 msgstr[1] "vor %d Tagen"
 
-#: ../src/view.js:511
+#: ../src/view.js:535
 msgid "Last week"
 msgstr "Letzte Woche"
 
-#: ../src/view.js:513
+#: ../src/view.js:537
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "vor %d Woche"
 msgstr[1] "vor %d Wochen"
 
-#: ../src/view.js:517
+#: ../src/view.js:541
 msgid "Last month"
 msgstr "Letzten Monat"
 
-#: ../src/view.js:519
+#: ../src/view.js:543
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "vor %d Monat"
 msgstr[1] "vor %d Monaten"
 
-#: ../src/view.js:523
+#: ../src/view.js:547
 msgid "Last year"
 msgstr "Letztes Jahr"
 
-#: ../src/view.js:525
+#: ../src/view.js:549
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "vor %d Jahr"
 msgstr[1] "vor %d Jahren"
+
+#~ msgid "You can add your online accounts in %s"
+#~ msgstr "Sie können Ihre Online-Konten in den %s hinzufügen"
+
+#~ msgid "Settings"
+#~ msgstr "Einstellungen"
 
 #~ msgid "Recent"
 #~ msgstr "Zuletzt verwendet"
