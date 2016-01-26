@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-01-16 09:08+0000\n"
-"PO-Revision-Date: 2016-01-16 16:30+0100\n"
+"POT-Creation-Date: 2016-01-26 09:11+0000\n"
+"PO-Revision-Date: 2016-01-26 10:30+0100\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
@@ -316,7 +316,7 @@ msgstr "Nová zbierka…"
 msgid "Add"
 msgstr "Pridať"
 
-#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:208
+#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:209
 msgid "Cancel"
 msgstr "Zrušiť"
 
@@ -575,7 +575,7 @@ msgid "translator-credits"
 msgstr "Dušan Kazik <prescott66@gmail.com>"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/lokview.js:298 ../src/preview.js:916 ../src/selections.js:983
+#: ../src/lokview.js:333 ../src/preview.js:916 ../src/selections.js:983
 #, javascript-format
 msgid "Open with %s"
 msgstr "Otvoriť pomocou %s"
@@ -585,15 +585,15 @@ msgid "Back"
 msgstr "Späť"
 
 # gsettings summary; menu item
-#: ../src/mainToolbar.js:154
+#: ../src/mainToolbar.js:155
 msgid "View Menu"
 msgstr "Zobrazí ponuku"
 
-#: ../src/mainToolbar.js:182
+#: ../src/mainToolbar.js:183
 msgid "Click on items to select them"
 msgstr "Kliknutím na položky ich vyberiete"
 
-#: ../src/mainToolbar.js:184
+#: ../src/mainToolbar.js:185
 #, javascript-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -602,7 +602,7 @@ msgstr[1] "%d vybraná"
 msgstr[2] "%d vybrané"
 
 # DK: je to tooltip.prelozene na 100% spravne-overene
-#: ../src/mainToolbar.js:268
+#: ../src/mainToolbar.js:269
 msgid "Select Items"
 msgstr "Umožní výber položiek"
 
@@ -941,33 +941,56 @@ msgstr "Nepomenovaný dokument"
 msgid "Unable to fetch the list of documents"
 msgstr "Nepodarilo sa získať zoznam dokumentov."
 
-#: ../src/view.js:258
-msgid "No Books Found"
-msgstr "Neboli nájdené žiadne knihy"
+#: ../src/view.js:271
+msgid "No collections found"
+msgstr "Nenašli sa žiadne zbierky"
 
-#: ../src/view.js:259
-msgid "No Documents Found"
-msgstr "Neboli nájdené žiadne dokumenty"
+#: ../src/view.js:273
+msgid "No books found"
+msgstr "Nenašli sa žiadne knihy"
 
-#. Translators: %s here is "Settings", which is in a separate string due to
-#. markup, and should be translated only in the context of this sentence
-#: ../src/view.js:281
+#: ../src/view.js:273
+msgid "No documents found"
+msgstr "Nenašli sa žiadne dokumenty"
+
+#: ../src/view.js:282
+msgid "Try a different search"
+msgstr "Skúste vyhľadať niečo iné"
+
+#: ../src/view.js:289
+msgid "You can create collections from the Books view"
+msgstr "Môžete vytvoriť zbierky v zobrazení Knihy"
+
+#: ../src/view.js:291
+msgid "You can create collections from the Documents view"
+msgstr "Môžete vytvoriť zbierky v zobrazení Dokumenty"
+
+#. Translators: the %s's here are "Online Accounts" and "Documents folder", which are
+#. in a separate string due to markup, and should be translated only in the context of
+#. this sentence
+#: ../src/view.js:304
 #, javascript-format
-msgid "You can add your online accounts in %s"
-msgstr "Vaše účty služieb môžete pridať v %s"
+msgid "Documents from your %s and %s will appear here."
+msgstr "Dokumenty z vašich %s a %s budú zobrazené tu."
 
-# gramaticky apeluje na predoslu frazu "Mozete pridat Vase online ucty v %s"
 #. Translators: this should be translated in the context of the
-#. "You can add your online accounts in Settings" sentence above
-#: ../src/view.js:285
-msgid "Settings"
-msgstr "Nastaveniach"
+#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
+#: ../src/view.js:308
+msgid "Online Accounts"
+msgstr "účtov služieb"
 
-#: ../src/view.js:505
+# desktop entry name
+#. Translators: this should be translated in the context of the
+#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
+#: ../src/view.js:313
+msgid "Documents folder"
+msgstr "priečinku Dokumenty"
+
+#: ../src/view.js:529
 msgid "Yesterday"
 msgstr "Včera"
 
-#: ../src/view.js:507
+#: ../src/view.js:531
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -975,11 +998,11 @@ msgstr[0] "Pred %d dňami"
 msgstr[1] "Pred %d dňom"
 msgstr[2] "Pred %d dňami"
 
-#: ../src/view.js:511
+#: ../src/view.js:535
 msgid "Last week"
 msgstr "Minulý týždeň"
 
-#: ../src/view.js:513
+#: ../src/view.js:537
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
@@ -987,11 +1010,11 @@ msgstr[0] "Pred %d týždňami"
 msgstr[1] "Pred %d týždňom"
 msgstr[2] "Pred %d týždňami"
 
-#: ../src/view.js:517
+#: ../src/view.js:541
 msgid "Last month"
 msgstr "Minulý mesiac"
 
-#: ../src/view.js:519
+#: ../src/view.js:543
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
@@ -999,17 +1022,24 @@ msgstr[0] "Pred %d mesiacmi"
 msgstr[1] "Pred %d mesiacom"
 msgstr[2] "Pred %d mesiacmi"
 
-#: ../src/view.js:523
+#: ../src/view.js:547
 msgid "Last year"
 msgstr "Minulý rok"
 
-#: ../src/view.js:525
+#: ../src/view.js:549
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "Pred %d rokmi"
 msgstr[1] "Pred %d rokom"
 msgstr[2] "Pred %d rokmi"
+
+#~ msgid "You can add your online accounts in %s"
+#~ msgstr "Vaše účty služieb môžete pridať v %s"
+
+# gramaticky apeluje na predoslu frazu "Mozete pridat Vase online ucty v %s"
+#~ msgid "Settings"
+#~ msgstr "Nastaveniach"
 
 #~ msgid "Recent"
 #~ msgstr "Nedávne"
