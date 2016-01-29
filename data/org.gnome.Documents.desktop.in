@@ -2,7 +2,7 @@
 _Name=Documents
 _Comment=Access, manage and share documents
 Exec=gnome-documents
-Icon=gnome-documents
+Icon=org.gnome.Documents
 Terminal=false
 Type=Application
 StartupNotify=true
