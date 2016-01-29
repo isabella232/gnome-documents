@@ -5,28 +5,28 @@ public_icons_themes = \
 	$(NULL)
 
 public_icons = \
-	hicolor_apps_scalable_gnome-books-symbolic.svg \
-	hicolor_apps_scalable_gnome-documents-symbolic.svg \
-	hicolor_apps_16x16_gnome-books.png \
-	hicolor_apps_22x22_gnome-books.png \
-	hicolor_apps_24x24_gnome-books.png \
-	hicolor_apps_32x32_gnome-books.png \
-	hicolor_apps_48x48_gnome-books.png \
-	hicolor_apps_256x256_gnome-books.png \
-	hicolor_apps_512x512_gnome-books.png \
-	hicolor_apps_16x16_gnome-documents.png \
-	hicolor_apps_22x22_gnome-documents.png \
-	hicolor_apps_24x24_gnome-documents.png \
-	hicolor_apps_32x32_gnome-documents.png \
-	hicolor_apps_48x48_gnome-documents.png \
-	hicolor_apps_256x256_gnome-documents.png \
-	hicolor_apps_512x512_gnome-documents.png \
+	hicolor_apps_scalable_org.gnome.Books-symbolic.svg \
+	hicolor_apps_scalable_org.gnome.Documents-symbolic.svg \
+	hicolor_apps_16x16_org.gnome.Books.png \
+	hicolor_apps_22x22_org.gnome.Books.png \
+	hicolor_apps_24x24_org.gnome.Books.png \
+	hicolor_apps_32x32_org.gnome.Books.png \
+	hicolor_apps_48x48_org.gnome.Books.png \
+	hicolor_apps_256x256_org.gnome.Books.png \
+	hicolor_apps_512x512_org.gnome.Books.png \
+	hicolor_apps_16x16_org.gnome.Documents.png \
+	hicolor_apps_22x22_org.gnome.Documents.png \
+	hicolor_apps_24x24_org.gnome.Documents.png \
+	hicolor_apps_32x32_org.gnome.Documents.png \
+	hicolor_apps_48x48_org.gnome.Documents.png \
+	hicolor_apps_256x256_org.gnome.Documents.png \
+	hicolor_apps_512x512_org.gnome.Documents.png \
 	$(NULL)
 
 noinst_DATA = \
-  hicolor_gnome-books.blend \
-  hicolor_gnome-books.svg \
-	hicolor_gnome-documents.svg \
+	hicolor_org.gnome.Books.blend \
+	hicolor_org.gnome.Books.svg \
+	hicolor_org.gnome.Documents.svg \
 	$(NULL)
 
 EXTRA_DIST = \

@@ -410,14 +410,14 @@ gd_show_about_dialog (GtkWindow *parent,
     {
       program_name = _("Documents");
       comments = _("A document manager application");
-      logo_icon_name = "gnome-documents";
+      logo_icon_name = "org.gnome.Documents";
       website = "https://wiki.gnome.org/Apps/Documents";
     }
   else
     {
       program_name = _("Books");
       comments = _("An e-books manager application");
-      logo_icon_name = "gnome-books";
+      logo_icon_name = "org.gnome.Books";
       website = "https://wiki.gnome.org/Apps/Books";
     }
 
