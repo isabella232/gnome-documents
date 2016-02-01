@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-01-25 17:53+0000\n"
-"PO-Revision-Date: 2016-01-25 21:04+0100\n"
+"POT-Creation-Date: 2016-02-01 17:03+0000\n"
+"PO-Revision-Date: 2016-02-01 19:34+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de_DE\n"
@@ -203,7 +203,7 @@ msgstr "Auf Dokumente zugreifen, verwalten und freigeben"
 msgid "Docs;PDF;Document;"
 msgstr "PDF;Dokumente;"
 
-#: ../data/ui/app-menu.ui.h:1 ../data/ui/help-overlay.ui.h:20
+#: ../data/ui/app-menu.ui.h:1
 msgid "Fullscreen"
 msgstr "Vollbild"
 
@@ -223,81 +223,109 @@ msgstr "Hilfe"
 msgid "About"
 msgstr "Info"
 
-#: ../data/ui/app-menu.ui.h:6 ../data/ui/help-overlay.ui.h:3
+#: ../data/ui/app-menu.ui.h:6
 msgid "Quit"
 msgstr "Beenden"
 
 #: ../data/ui/help-overlay.ui.h:1
+msgctxt "shortcut window"
 msgid "General"
 msgstr "Allgemein"
 
 #: ../data/ui/help-overlay.ui.h:2
+msgctxt "shortcut window"
 msgid "Show help"
 msgstr "Hilfe anzeigen"
 
-#: ../data/ui/help-overlay.ui.h:4 ../src/mainToolbar.js:90
+#: ../data/ui/help-overlay.ui.h:3
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Beenden"
+
+#: ../data/ui/help-overlay.ui.h:4
+msgctxt "shortcut window"
 msgid "Search"
 msgstr "Suchen"
 
 #: ../data/ui/help-overlay.ui.h:5
+msgctxt "shortcut window"
 msgid "Print the current document"
 msgstr "Aktuelles Dokument drucken"
 
 #: ../data/ui/help-overlay.ui.h:6
+msgctxt "shortcut window"
 msgid "Navigation"
 msgstr "Navigation"
 
 #: ../data/ui/help-overlay.ui.h:7
+msgctxt "shortcut window"
 msgid "Go back"
 msgstr "Zurück gehen"
 
 #: ../data/ui/help-overlay.ui.h:8
+msgctxt "shortcut window"
 msgid "Preview"
 msgstr "Vorschau"
 
 #: ../data/ui/help-overlay.ui.h:9
+msgctxt "shortcut window"
 msgid "Zoom in"
 msgstr "Vergrößern"
 
 #: ../data/ui/help-overlay.ui.h:10
+msgctxt "shortcut window"
 msgid "Zoom out"
 msgstr "Verkleinern"
 
 #: ../data/ui/help-overlay.ui.h:11
+msgctxt "shortcut window"
 msgid "Bookmark the current page"
 msgstr "Lesezeichen für diese Seite anlegen"
 
 #: ../data/ui/help-overlay.ui.h:12
+msgctxt "shortcut window"
 msgid "Open places and bookmarks dialog"
 msgstr "Dialog »Orte und Lesezeichen« öffnen"
 
 #: ../data/ui/help-overlay.ui.h:13
+msgctxt "shortcut window"
 msgid "Copy selected text to clipboard"
 msgstr "Ausgewählten Text in die Zwischenablage kopieren"
 
 #: ../data/ui/help-overlay.ui.h:14
+msgctxt "shortcut window"
 msgid "Rotate anti-clockwise"
 msgstr "Gegen den Uhrzeigersinn drehen"
 
 #: ../data/ui/help-overlay.ui.h:15
+msgctxt "shortcut window"
 msgid "Rotate clockwise"
 msgstr "Im Uhrzeigersinn drehen"
 
 #: ../data/ui/help-overlay.ui.h:16
+msgctxt "shortcut window"
 msgid "Next occurrence of the search string"
 msgstr "Nächstes Auftreten des Suchbegriffs"
 
 #: ../data/ui/help-overlay.ui.h:17
+msgctxt "shortcut window"
 msgid "Previous occurrence of the search string"
 msgstr "Vorheriges Auftreten des Suchbegriffs"
 
 #: ../data/ui/help-overlay.ui.h:18
+msgctxt "shortcut window"
 msgid "Presentation mode"
 msgstr "Präsentationsmodus"
 
 #: ../data/ui/help-overlay.ui.h:19
+msgctxt "shortcut window"
 msgid "Open action menu"
 msgstr "Menü »Aktionen« öffnen"
+
+#: ../data/ui/help-overlay.ui.h:20
+msgctxt "shortcut window"
+msgid "Fullscreen"
+msgstr "Vollbild"
 
 #: ../data/ui/organize-collection-dialog.ui.h:1
 msgid "Enter a name for your first collection"
@@ -571,6 +599,10 @@ msgstr ""
 #, javascript-format
 msgid "Open with %s"
 msgstr "Öffnen mit »%s«"
+
+#: ../src/mainToolbar.js:90
+msgid "Search"
+msgstr "Suchen"
 
 #: ../src/mainToolbar.js:98
 msgid "Back"
