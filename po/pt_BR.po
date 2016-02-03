@@ -12,9 +12,9 @@ msgstr ""
 "Project-Id-Version: gnome-documents\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-01-30 21:10+0000\n"
-"PO-Revision-Date: 2016-01-30 22:01-0200\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>>\n"
+"POT-Creation-Date: 2016-02-02 21:11+0000\n"
+"PO-Revision-Date: 2016-02-02 18:38-0300\n"
+"Last-Translator: Fábio Nogueira <fnogueira@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -195,7 +195,7 @@ msgstr "Acesse, gerencie e compartilhe documentos"
 msgid "Docs;PDF;Document;"
 msgstr "Docs;PDF;Documento;Documentos;"
 
-#: ../data/ui/app-menu.ui.h:1 ../data/ui/help-overlay.ui.h:20
+#: ../data/ui/app-menu.ui.h:1
 msgid "Fullscreen"
 msgstr "Tela cheia"
 
@@ -215,81 +215,109 @@ msgstr "Ajuda"
 msgid "About"
 msgstr "Sobre"
 
-#: ../data/ui/app-menu.ui.h:6 ../data/ui/help-overlay.ui.h:3
+#: ../data/ui/app-menu.ui.h:6
 msgid "Quit"
 msgstr "Sair"
 
 #: ../data/ui/help-overlay.ui.h:1
+msgctxt "shortcut window"
 msgid "General"
 msgstr "Geral"
 
 #: ../data/ui/help-overlay.ui.h:2
+msgctxt "shortcut window"
 msgid "Show help"
 msgstr "Mostrar ajuda"
 
-#: ../data/ui/help-overlay.ui.h:4 ../src/mainToolbar.js:90
+#: ../data/ui/help-overlay.ui.h:3
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Sair"
+
+#: ../data/ui/help-overlay.ui.h:4
+msgctxt "shortcut window"
 msgid "Search"
 msgstr "Pesquisar"
 
 #: ../data/ui/help-overlay.ui.h:5
+msgctxt "shortcut window"
 msgid "Print the current document"
 msgstr "Imprimir o documento atual"
 
 #: ../data/ui/help-overlay.ui.h:6
+msgctxt "shortcut window"
 msgid "Navigation"
 msgstr "Navegação"
 
 #: ../data/ui/help-overlay.ui.h:7
+msgctxt "shortcut window"
 msgid "Go back"
 msgstr "Voltar"
 
 #: ../data/ui/help-overlay.ui.h:8
+msgctxt "shortcut window"
 msgid "Preview"
 msgstr "Visualizar"
 
 #: ../data/ui/help-overlay.ui.h:9
+msgctxt "shortcut window"
 msgid "Zoom in"
 msgstr "Ampliar"
 
 #: ../data/ui/help-overlay.ui.h:10
+msgctxt "shortcut window"
 msgid "Zoom out"
 msgstr "Reduzir"
 
 #: ../data/ui/help-overlay.ui.h:11
+msgctxt "shortcut window"
 msgid "Bookmark the current page"
 msgstr "Adicionar a página atual aos favoritos"
 
 #: ../data/ui/help-overlay.ui.h:12
+msgctxt "shortcut window"
 msgid "Open places and bookmarks dialog"
 msgstr "Abrir diálogo de locais e favoritos"
 
 #: ../data/ui/help-overlay.ui.h:13
+msgctxt "shortcut window"
 msgid "Copy selected text to clipboard"
 msgstr "Copiar texto selecionado para área de transferência"
 
 #: ../data/ui/help-overlay.ui.h:14
+msgctxt "shortcut window"
 msgid "Rotate anti-clockwise"
 msgstr "Girar no sentido anti-horário"
 
 #: ../data/ui/help-overlay.ui.h:15
+msgctxt "shortcut window"
 msgid "Rotate clockwise"
 msgstr "Girar no sentido horário"
 
 #: ../data/ui/help-overlay.ui.h:16
+msgctxt "shortcut window"
 msgid "Next occurrence of the search string"
 msgstr "Próxima ocorrência na string de pesquisa"
 
 #: ../data/ui/help-overlay.ui.h:17
+msgctxt "shortcut window"
 msgid "Previous occurrence of the search string"
 msgstr "Ocorrência anterior na string de pesquisa"
 
 #: ../data/ui/help-overlay.ui.h:18
+msgctxt "shortcut window"
 msgid "Presentation mode"
 msgstr "Modo apresentação"
 
 #: ../data/ui/help-overlay.ui.h:19
+msgctxt "shortcut window"
 msgid "Open action menu"
 msgstr "Abrir menu de ação"
+
+#: ../data/ui/help-overlay.ui.h:20
+msgctxt "shortcut window"
+msgid "Fullscreen"
+msgstr "Tela cheia"
 
 #: ../data/ui/organize-collection-dialog.ui.h:1
 msgid "Enter a name for your first collection"
@@ -553,13 +581,18 @@ msgid "translator-credits"
 msgstr ""
 "Felipe Borges <felipeborges@src.gnome.org>\n"
 "Rafael Ferreira <rafael.f.f1@gmail.com>\n"
-"Enrico Nicoletto <liverig@gmail.com>."
+"Enrico Nicoletto <liverig@gmail.com>\n"
+"Fábio Nogueira <fnogueira@gnome.org>."
 
 #. Translators: this is the Open action in a context menu
 #: ../src/lokview.js:333 ../src/preview.js:916 ../src/selections.js:983
 #, javascript-format
 msgid "Open with %s"
 msgstr "Abrir com %s"
+
+#: ../src/mainToolbar.js:90
+msgid "Search"
+msgstr "Pesquisar"
 
 #: ../src/mainToolbar.js:98
 msgid "Back"
@@ -810,7 +843,7 @@ msgstr "Excluir"
 #: ../src/selections.js:388
 #, javascript-format
 msgid "“%s” removed"
-msgstr "“%s” removido"
+msgstr "\"%s\" removido"
 
 #: ../src/selections.js:779
 msgid "Rename"
