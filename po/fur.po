@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents gnome-3-6\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-01-12 09:08+0000\n"
-"PO-Revision-Date: 2016-01-12 17:40+0100\n"
+"POT-Creation-Date: 2016-02-04 09:09+0000\n"
+"PO-Revision-Date: 2016-02-04 18:04+0100\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
@@ -190,7 +190,7 @@ msgstr "Acès, ministre e condivît documents"
 msgid "Docs;PDF;Document;"
 msgstr "Docs;PDF;Document;"
 
-#: ../data/ui/app-menu.ui.h:1 ../data/ui/help-overlay.ui.h:20
+#: ../data/ui/app-menu.ui.h:1
 msgid "Fullscreen"
 msgstr "A visôr plen"
 
@@ -210,81 +210,109 @@ msgstr "Jutori"
 msgid "About"
 msgstr "Informazions"
 
-#: ../data/ui/app-menu.ui.h:6 ../data/ui/help-overlay.ui.h:3
+#: ../data/ui/app-menu.ui.h:6
 msgid "Quit"
 msgstr "Jes"
 
 #: ../data/ui/help-overlay.ui.h:1
+msgctxt "shortcut window"
 msgid "General"
 msgstr "Gjenerâl"
 
 #: ../data/ui/help-overlay.ui.h:2
+msgctxt "shortcut window"
 msgid "Show help"
 msgstr "Mostre jutori"
 
-#: ../data/ui/help-overlay.ui.h:4 ../src/mainToolbar.js:90
+#: ../data/ui/help-overlay.ui.h:3
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Jes"
+
+#: ../data/ui/help-overlay.ui.h:4
+msgctxt "shortcut window"
 msgid "Search"
 msgstr "Cîr"
 
 #: ../data/ui/help-overlay.ui.h:5
+msgctxt "shortcut window"
 msgid "Print the current document"
 msgstr "Stampe chest document"
 
 #: ../data/ui/help-overlay.ui.h:6
+msgctxt "shortcut window"
 msgid "Navigation"
 msgstr "Navigazion"
 
 #: ../data/ui/help-overlay.ui.h:7
+msgctxt "shortcut window"
 msgid "Go back"
 msgstr "Torne indaûr"
 
 #: ../data/ui/help-overlay.ui.h:8
+msgctxt "shortcut window"
 msgid "Preview"
 msgstr "Anteprime"
 
 #: ../data/ui/help-overlay.ui.h:9
+msgctxt "shortcut window"
 msgid "Zoom in"
 msgstr "Aumente ingrandiment"
 
 #: ../data/ui/help-overlay.ui.h:10
+msgctxt "shortcut window"
 msgid "Zoom out"
 msgstr "Diminuìs ingrandiment"
 
 #: ../data/ui/help-overlay.ui.h:11
+msgctxt "shortcut window"
 msgid "Bookmark the current page"
 msgstr "Zonte cheste pagjine tai segnelibris"
 
 #: ../data/ui/help-overlay.ui.h:12
+msgctxt "shortcut window"
 msgid "Open places and bookmarks dialog"
 msgstr "Vierç il dialic puescj e segnelibris"
 
 #: ../data/ui/help-overlay.ui.h:13
+msgctxt "shortcut window"
 msgid "Copy selected text to clipboard"
 msgstr "Copie il test selezionât intes notis"
 
 #: ../data/ui/help-overlay.ui.h:14
+msgctxt "shortcut window"
 msgid "Rotate anti-clockwise"
 msgstr "Zire in sens antiorari"
 
 #: ../data/ui/help-overlay.ui.h:15
+msgctxt "shortcut window"
 msgid "Rotate clockwise"
 msgstr "Zire in sens orari"
 
 #: ../data/ui/help-overlay.ui.h:16
+msgctxt "shortcut window"
 msgid "Next occurrence of the search string"
 msgstr "Sucessîf câs de stringhe di ricercje"
 
 #: ../data/ui/help-overlay.ui.h:17
+msgctxt "shortcut window"
 msgid "Previous occurrence of the search string"
 msgstr "Precedent câs de stringhe di ricercje"
 
 #: ../data/ui/help-overlay.ui.h:18
+msgctxt "shortcut window"
 msgid "Presentation mode"
 msgstr "Modalitât presentazion"
 
 #: ../data/ui/help-overlay.ui.h:19
+msgctxt "shortcut window"
 msgid "Open action menu"
 msgstr "Vierç menù azion"
+
+#: ../data/ui/help-overlay.ui.h:20
+msgctxt "shortcut window"
+msgid "Fullscreen"
+msgstr "A visôr plen"
 
 #: ../data/ui/organize-collection-dialog.ui.h:1
 msgid "Enter a name for your first collection"
@@ -298,7 +326,7 @@ msgstr "Gnove colezion..."
 msgid "Add"
 msgstr "Zonte"
 
-#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:208
+#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:209
 msgid "Cancel"
 msgstr "Anule"
 
@@ -392,7 +420,7 @@ msgid "Failed to print document"
 msgstr "Impussibil stampâ il document"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:732 ../src/search.js:510
+#: ../src/documents.js:732 ../src/search.js:536
 msgid "Local"
 msgstr "Locâl"
 
@@ -546,31 +574,35 @@ msgid "translator-credits"
 msgstr "Fabio Tomat <f.t.public@gmail.com>"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/lokview.js:298 ../src/preview.js:916 ../src/selections.js:983
+#: ../src/lokview.js:333 ../src/preview.js:916 ../src/selections.js:983
 #, javascript-format
 msgid "Open with %s"
 msgstr "Vierç cun %s"
+
+#: ../src/mainToolbar.js:90
+msgid "Search"
+msgstr "Cîr"
 
 #: ../src/mainToolbar.js:98
 msgid "Back"
 msgstr "Indaûr"
 
-#: ../src/mainToolbar.js:154
+#: ../src/mainToolbar.js:155
 msgid "View Menu"
 msgstr "Menù viodude"
 
-#: ../src/mainToolbar.js:182
+#: ../src/mainToolbar.js:183
 msgid "Click on items to select them"
 msgstr "Fâs clic sui elements par selezionaju"
 
-#: ../src/mainToolbar.js:184
+#: ../src/mainToolbar.js:185
 #, javascript-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d selezionât"
 msgstr[1] "%d selezionâts"
 
-#: ../src/mainToolbar.js:268
+#: ../src/mainToolbar.js:269
 msgid "Select Items"
 msgstr "Selezione Elements"
 
@@ -715,8 +747,8 @@ msgstr "Categorie"
 
 #. Translators: this refers to new and recent documents
 #. Translators: this refers to documents
-#: ../src/search.js:131 ../src/search.js:200 ../src/search.js:333
-#: ../src/search.js:504
+#: ../src/search.js:131 ../src/search.js:200 ../src/search.js:337
+#: ../src/search.js:530
 msgid "All"
 msgstr "Ducj"
 
@@ -761,25 +793,32 @@ msgstr "Sfueis di calcul"
 msgid "Text Documents"
 msgstr "Documents di test"
 
-#. Translators: this is a verb that refers to "All", "Title" and "Author",
-#. as in "Match All", "Match Title" and "Match Author"
-#: ../src/search.js:330
+#. Translators: this is a verb that refers to "All", "Title", "Author",
+#. and "Content" as in "Match All", "Match Title", "Match Author", and
+#. "Match Content"
+#: ../src/search.js:334
 msgid "Match"
 msgstr "Corispuindince"
 
 #. Translators: "Title" refers to "Match Title" when searching
-#: ../src/search.js:336
+#: ../src/search.js:340
 msgctxt "Search Filter"
 msgid "Title"
 msgstr "Titul"
 
 #. Translators: "Author" refers to "Match Author" when searching
-#: ../src/search.js:339
+#: ../src/search.js:343
 msgctxt "Search Filter"
 msgid "Author"
 msgstr "Autôr"
 
-#: ../src/search.js:500
+#. Translators: "Content" refers to "Match Content" when searching
+#: ../src/search.js:346
+msgctxt "Search Filter"
+msgid "Content"
+msgstr "Indiç"
+
+#: ../src/search.js:526
 msgid "Sources"
 msgstr "Sorgints"
 
@@ -882,70 +921,99 @@ msgstr "Document cence titul"
 msgid "Unable to fetch the list of documents"
 msgstr "Impussibil recuperâ la liste dai documents"
 
-#: ../src/view.js:258
-msgid "No Books Found"
+#: ../src/view.js:271
+msgid "No collections found"
+msgstr "Nissune colezion cjatade"
+
+#: ../src/view.js:273
+msgid "No books found"
 msgstr "Nissun libri cjatât"
 
-#: ../src/view.js:259
-msgid "No Documents Found"
-msgstr "No son stâts cjatâts Documents"
+#: ../src/view.js:273
+msgid "No documents found"
+msgstr "Nissun document cjatât"
 
-#. Translators: %s here is "Settings", which is in a separate string due to
-#. markup, and should be translated only in the context of this sentence
-#: ../src/view.js:281
+#: ../src/view.js:282
+msgid "Try a different search"
+msgstr "Prove une ricercje diferente"
+
+#: ../src/view.js:289
+msgid "You can create collections from the Books view"
+msgstr "Tu puedis creâ colezions da le videade Libris"
+
+#: ../src/view.js:291
+msgid "You can create collections from the Documents view"
+msgstr "Tu puedis creâ colezions da le videade Documents"
+
+#. Translators: the %s's here are "Online Accounts" and "Documents folder", which are
+#. in a separate string due to markup, and should be translated only in the context of
+#. this sentence
+#: ../src/view.js:304
 #, javascript-format
-msgid "You can add your online accounts in %s"
-msgstr "Tu puedis giontâ i toi account online in %s"
+msgid "Documents from your %s and %s will appear here."
+msgstr "I documents di %s e %s a vegnaran fûr chi."
 
 #. Translators: this should be translated in the context of the
-#. "You can add your online accounts in Settings" sentence above
-#: ../src/view.js:285
-msgid "Settings"
-msgstr "Impostazions"
+#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
+#: ../src/view.js:308
+msgid "Online Accounts"
+msgstr "Account online"
 
-#: ../src/view.js:505
+#. Translators: this should be translated in the context of the
+#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
+#: ../src/view.js:313
+msgid "Documents folder"
+msgstr "Cartele Documents"
+
+#: ../src/view.js:529
 msgid "Yesterday"
 msgstr "Îr"
 
-#: ../src/view.js:507
+#: ../src/view.js:531
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d dì indaûr"
 msgstr[1] "%d dîs indaûr"
 
-#: ../src/view.js:511
+#: ../src/view.js:535
 msgid "Last week"
 msgstr "Ultime setemane"
 
-#: ../src/view.js:513
+#: ../src/view.js:537
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d setemane indaûr"
 msgstr[1] "%d setemanis indaûr"
 
-#: ../src/view.js:517
+#: ../src/view.js:541
 msgid "Last month"
 msgstr "Ultin mês"
 
-#: ../src/view.js:519
+#: ../src/view.js:543
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d mês indaûr"
 msgstr[1] "%d mês indaûr"
 
-#: ../src/view.js:523
+#: ../src/view.js:547
 msgid "Last year"
 msgstr "Ultin an"
 
-#: ../src/view.js:525
+#: ../src/view.js:549
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "%d an indaûr"
 msgstr[1] "%d agns indaûr"
+
+#~ msgid "You can add your online accounts in %s"
+#~ msgstr "Tu puedis giontâ i toi account online in %s"
+
+#~ msgid "Settings"
+#~ msgstr "Impostazions"
 
 #~ msgid "Recent"
 #~ msgstr "Recents"
