@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-01-26 09:11+0000\n"
-"PO-Revision-Date: 2016-01-26 10:30+0100\n"
+"POT-Creation-Date: 2016-02-05 21:10+0000\n"
+"PO-Revision-Date: 2016-02-06 08:36+0100\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
@@ -205,7 +205,7 @@ msgstr "Pristupovať, spravovať a sprístupňovať dokumenty"
 msgid "Docs;PDF;Document;"
 msgstr "Dokumenty;PDF;Dokument;"
 
-#: ../data/ui/app-menu.ui.h:1 ../data/ui/help-overlay.ui.h:20
+#: ../data/ui/app-menu.ui.h:1
 msgid "Fullscreen"
 msgstr "Režim na celú obrazovku"
 
@@ -225,83 +225,111 @@ msgstr "Pomocník"
 msgid "About"
 msgstr "O programe"
 
-#: ../data/ui/app-menu.ui.h:6 ../data/ui/help-overlay.ui.h:3
+#: ../data/ui/app-menu.ui.h:6
 msgid "Quit"
 msgstr "Ukončiť"
 
 #: ../data/ui/help-overlay.ui.h:1
+msgctxt "shortcut window"
 msgid "General"
 msgstr "Všeobecné"
 
 #: ../data/ui/help-overlay.ui.h:2
+msgctxt "shortcut window"
 msgid "Show help"
 msgstr "Zobrazenie pomocníka"
 
+#: ../data/ui/help-overlay.ui.h:3
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Ukončenie"
+
 # tooltip
-#: ../data/ui/help-overlay.ui.h:4 ../src/mainToolbar.js:90
+#: ../data/ui/help-overlay.ui.h:4
+msgctxt "shortcut window"
 msgid "Search"
-msgstr "Vyhľadá"
+msgstr "Vyhľadanie"
 
 #: ../data/ui/help-overlay.ui.h:5
+msgctxt "shortcut window"
 msgid "Print the current document"
 msgstr "Tlač aktuálneho dokumentu"
 
 #: ../data/ui/help-overlay.ui.h:6
+msgctxt "shortcut window"
 msgid "Navigation"
 msgstr "Navigácia"
 
 #: ../data/ui/help-overlay.ui.h:7
+msgctxt "shortcut window"
 msgid "Go back"
 msgstr "Prejdenie späť"
 
 #: ../data/ui/help-overlay.ui.h:8
+msgctxt "shortcut window"
 msgid "Preview"
 msgstr "Náhľad"
 
 #: ../data/ui/help-overlay.ui.h:9
+msgctxt "shortcut window"
 msgid "Zoom in"
 msgstr "Zväčšenie"
 
 #: ../data/ui/help-overlay.ui.h:10
+msgctxt "shortcut window"
 msgid "Zoom out"
 msgstr "Zmenšenie"
 
 # toggleButton tooltip
 #: ../data/ui/help-overlay.ui.h:11
+msgctxt "shortcut window"
 msgid "Bookmark the current page"
 msgstr "Pridanie aktuálnej stránky do záložiek"
 
 #: ../data/ui/help-overlay.ui.h:12
+msgctxt "shortcut window"
 msgid "Open places and bookmarks dialog"
 msgstr "Otvorenie dialógového okna s miestami a záložkami"
 
 #: ../data/ui/help-overlay.ui.h:13
+msgctxt "shortcut window"
 msgid "Copy selected text to clipboard"
 msgstr "Skopírovanie vybratého textu do schránky"
 
 #: ../data/ui/help-overlay.ui.h:14
+msgctxt "shortcut window"
 msgid "Rotate anti-clockwise"
 msgstr "Otočenie doľava"
 
 #: ../data/ui/help-overlay.ui.h:15
+msgctxt "shortcut window"
 msgid "Rotate clockwise"
 msgstr "Otočenie doprava"
 
 #: ../data/ui/help-overlay.ui.h:16
+msgctxt "shortcut window"
 msgid "Next occurrence of the search string"
 msgstr "Nasledujúci výskyt hľadanej frázy"
 
 #: ../data/ui/help-overlay.ui.h:17
+msgctxt "shortcut window"
 msgid "Previous occurrence of the search string"
 msgstr "Predchádzajúci výskyt hľadanej frázy"
 
 #: ../data/ui/help-overlay.ui.h:18
+msgctxt "shortcut window"
 msgid "Presentation mode"
 msgstr "Režim prezentácie"
 
 #: ../data/ui/help-overlay.ui.h:19
+msgctxt "shortcut window"
 msgid "Open action menu"
 msgstr "Otvorenie ponuky akcií"
+
+#: ../data/ui/help-overlay.ui.h:20
+msgctxt "shortcut window"
+msgid "Fullscreen"
+msgstr "Režim na celú obrazovku"
 
 #: ../data/ui/organize-collection-dialog.ui.h:1
 msgid "Enter a name for your first collection"
@@ -579,6 +607,11 @@ msgstr "Dušan Kazik <prescott66@gmail.com>"
 #, javascript-format
 msgid "Open with %s"
 msgstr "Otvoriť pomocou %s"
+
+# tooltip
+#: ../src/mainToolbar.js:90
+msgid "Search"
+msgstr "Vyhľadá"
 
 #: ../src/mainToolbar.js:98
 msgid "Back"
