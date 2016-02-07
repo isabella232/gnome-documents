@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-01-26 09:11+0000\n"
-"PO-Revision-Date: 2016-01-26 11:28+0100\n"
+"POT-Creation-Date: 2016-02-05 09:10+0000\n"
+"PO-Revision-Date: 2016-02-05 19:47+0100\n"
 "Last-Translator: Meskó Balázs <meskobalazs@gmail.com>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.5\n"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:1
 #: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:115
@@ -32,9 +32,9 @@ msgstr "Egy e-könyv kezelő alkalmazás a GNOME-hoz"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:3
 msgid ""
-"A simple application to access and organize your e-books on GNOME. It is "
-"meant to be a simple and elegant replacement for using a file manager to "
-"deal with e-books."
+"A simple application to access and organize your e-books on GNOME. It is meant "
+"to be a simple and elegant replacement for using a file manager to deal with e-"
+"books."
 msgstr ""
 "Egyszerű alkalmazás e-könyvek eléréséhez és rendszerezéséhez GNOME alatt. A "
 "fájlkezelő e-könyvek kezelésére való használatának egyszerű és elegáns "
@@ -141,15 +141,15 @@ msgstr "Dokumentumkezelő alkalmazás a GNOME-hoz"
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:3
 msgid ""
-"A simple application to access, organize and share your documents on GNOME. "
-"It is meant to be a simple and elegant replacement for using a file manager "
-"to deal with documents. Seamless cloud integration is offered through GNOME "
+"A simple application to access, organize and share your documents on GNOME. It "
+"is meant to be a simple and elegant replacement for using a file manager to "
+"deal with documents. Seamless cloud integration is offered through GNOME "
 "Online Accounts."
 msgstr ""
-"Egyszerű alkalmazás dokumentumok eléréséhez, rendszerezéséhez és "
-"megosztásához GNOME alatt. A fájlkezelő dokumentumok kezelésére való "
-"használatának egyszerű és elegáns helyettesítésére tervezték. A GNOME Online "
-"fiókok használatával sima felhőintegráció érhető el."
+"Egyszerű alkalmazás dokumentumok eléréséhez, rendszerezéséhez és megosztásához "
+"GNOME alatt. A fájlkezelő dokumentumok kezelésére való használatának egyszerű "
+"és elegáns helyettesítésére tervezték. A GNOME Online fiókok használatával "
+"sima felhőintegráció érhető el."
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:5
 msgid "View recent local and online documents"
@@ -193,7 +193,7 @@ msgstr "Dokumentumok elérése, kezelése és megosztása"
 msgid "Docs;PDF;Document;"
 msgstr "Dokumentum;PDF;Doksi;"
 
-#: ../data/ui/app-menu.ui.h:1 ../data/ui/help-overlay.ui.h:20
+#: ../data/ui/app-menu.ui.h:1
 msgid "Fullscreen"
 msgstr "Teljes képernyő"
 
@@ -213,81 +213,109 @@ msgstr "Súgó"
 msgid "About"
 msgstr "Névjegy"
 
-#: ../data/ui/app-menu.ui.h:6 ../data/ui/help-overlay.ui.h:3
+#: ../data/ui/app-menu.ui.h:6
 msgid "Quit"
 msgstr "Kilépés"
 
 #: ../data/ui/help-overlay.ui.h:1
+msgctxt "shortcut window"
 msgid "General"
 msgstr "Általános"
 
 #: ../data/ui/help-overlay.ui.h:2
+msgctxt "shortcut window"
 msgid "Show help"
 msgstr "Súgó megjelenítése"
 
-#: ../data/ui/help-overlay.ui.h:4 ../src/mainToolbar.js:90
+#: ../data/ui/help-overlay.ui.h:3
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Kilépés"
+
+#: ../data/ui/help-overlay.ui.h:4
+msgctxt "shortcut window"
 msgid "Search"
 msgstr "Keresés"
 
 #: ../data/ui/help-overlay.ui.h:5
+msgctxt "shortcut window"
 msgid "Print the current document"
 msgstr "Aktuális dokumentum nyomtatása"
 
 #: ../data/ui/help-overlay.ui.h:6
+msgctxt "shortcut window"
 msgid "Navigation"
 msgstr "Navigáció"
 
 #: ../data/ui/help-overlay.ui.h:7
+msgctxt "shortcut window"
 msgid "Go back"
 msgstr "Ugrás vissza"
 
 #: ../data/ui/help-overlay.ui.h:8
+msgctxt "shortcut window"
 msgid "Preview"
 msgstr "Előnézet"
 
 #: ../data/ui/help-overlay.ui.h:9
+msgctxt "shortcut window"
 msgid "Zoom in"
 msgstr "Nagyítás"
 
 #: ../data/ui/help-overlay.ui.h:10
+msgctxt "shortcut window"
 msgid "Zoom out"
 msgstr "Kicsinyítés"
 
 #: ../data/ui/help-overlay.ui.h:11
+msgctxt "shortcut window"
 msgid "Bookmark the current page"
 msgstr "Oldal könyvjelzőbe"
 
 #: ../data/ui/help-overlay.ui.h:12
+msgctxt "shortcut window"
 msgid "Open places and bookmarks dialog"
 msgstr "Helyek és könyvjelzők ablak megnyitása"
 
 #: ../data/ui/help-overlay.ui.h:13
+msgctxt "shortcut window"
 msgid "Copy selected text to clipboard"
 msgstr "Kijelölt szöveg másolása a vágólapra"
 
 #: ../data/ui/help-overlay.ui.h:14
+msgctxt "shortcut window"
 msgid "Rotate anti-clockwise"
 msgstr "Forgatás az óramutatóval ellentétesen"
 
 #: ../data/ui/help-overlay.ui.h:15
+msgctxt "shortcut window"
 msgid "Rotate clockwise"
 msgstr "Forgatás az óramutató irányába"
 
 #: ../data/ui/help-overlay.ui.h:16
+msgctxt "shortcut window"
 msgid "Next occurrence of the search string"
 msgstr "A keresőkifejezés következő előfordulása"
 
 #: ../data/ui/help-overlay.ui.h:17
+msgctxt "shortcut window"
 msgid "Previous occurrence of the search string"
 msgstr "A keresőkifejezés előző előfordulása"
 
 #: ../data/ui/help-overlay.ui.h:18
+msgctxt "shortcut window"
 msgid "Presentation mode"
 msgstr "Bemutató mód"
 
 #: ../data/ui/help-overlay.ui.h:19
+msgctxt "shortcut window"
 msgid "Open action menu"
 msgstr "Művelet menü megnyitása"
+
+#: ../data/ui/help-overlay.ui.h:20
+msgctxt "shortcut window"
+msgid "Fullscreen"
+msgstr "Teljes képernyő"
 
 #: ../data/ui/organize-collection-dialog.ui.h:1
 msgid "Enter a name for your first collection"
@@ -480,8 +508,7 @@ msgstr ""
 
 #: ../src/documents.js:1353
 msgid ""
-"LibreOffice support is not available. Please contact your system "
-"administrator."
+"LibreOffice support is not available. Please contact your system administrator."
 msgstr ""
 "A LibreOffice támogatás nem áll rendelkezésre. Vegye fel a kapcsolatot a "
 "rendszergazdával."
@@ -555,6 +582,10 @@ msgstr "Kelemen Gábor <kelemeng at gnome dot hu>"
 msgid "Open with %s"
 msgstr "Megnyitás ezzel: %s"
 
+#: ../src/mainToolbar.js:90
+msgid "Search"
+msgstr "Keresés"
+
 #: ../src/mainToolbar.js:98
 msgid "Back"
 msgstr "Vissza"
@@ -608,8 +639,7 @@ msgstr "Dokumentumai indexelése folyamatban"
 
 #: ../src/notifications.js:224
 msgid "Some documents might not be available during this process"
-msgstr ""
-"Egyes dokumentumok lehet, hogy nem lesznek elérhetők ezen folyamat alatt"
+msgstr "Egyes dokumentumok lehet, hogy nem lesznek elérhetők ezen folyamat alatt"
 
 #. Translators: %s refers to an online account provider, e.g.
 #. "Google", or "Windows Live".
@@ -996,8 +1026,7 @@ msgstr[1] "%d éve"
 #~ msgid "Share"
 #~ msgstr "Megosztás"
 
-#~ msgid ""
-#~ "You don't have any collections yet. Enter a new collection name above."
+#~ msgid "You don't have any collections yet. Enter a new collection name above."
 #~ msgstr ""
 #~ "Még nincs egyetlen gyűjteménye sem. Adjon meg egy új gyűjteménynevet fent."
 
@@ -1018,18 +1047,17 @@ msgstr[1] "%d éve"
 #~| "<li>Allow opening full featured editor for non-trivial changes</li>"
 #~ msgid ""
 #~ "<li>View recent local and online documents</li> <li>Access your Google, "
-#~ "ownCloud or OneDrive content</li> <li>Search through documents</li> "
-#~ "<li>See new documents shared by friends</li> <li>View documents "
-#~ "fullscreen</li> <li>Print documents</li> <li>Select favorites</li> "
-#~ "<li>Allow opening full featured editor for non-trivial changes</li>"
+#~ "ownCloud or OneDrive content</li> <li>Search through documents</li> <li>See "
+#~ "new documents shared by friends</li> <li>View documents fullscreen</li> "
+#~ "<li>Print documents</li> <li>Select favorites</li> <li>Allow opening full "
+#~ "featured editor for non-trivial changes</li>"
 #~ msgstr ""
 #~ "<li>Legutóbbi helyi és online dokumentumok megjelenítése</li> <li>Google, "
-#~ "ownCloud vagy OneDrive tartalom elérése</li> <li>Keresés a "
-#~ "dokumentumokban</li> <li>Ismerősei által megosztott új dokumentumok "
-#~ "megjelenítése</li> <li>Dokumentumok megjelenítése teljes képernyőn</li> "
-#~ "<li>Dokumentumok nyomtatása</li> <li>Kedvencek kiválasztása</li> <li>A "
-#~ "teljes felszereltségű szerkesztő megnyitása nem triviális "
-#~ "változtatásokhoz</li>"
+#~ "ownCloud vagy OneDrive tartalom elérése</li> <li>Keresés a dokumentumokban</"
+#~ "li> <li>Ismerősei által megosztott új dokumentumok megjelenítése</li> "
+#~ "<li>Dokumentumok megjelenítése teljes képernyőn</li> <li>Dokumentumok "
+#~ "nyomtatása</li> <li>Kedvencek kiválasztása</li> <li>A teljes felszereltségű "
+#~ "szerkesztő megnyitása nem triviális változtatásokhoz</li>"
 
 #~ msgid "Results for “%s”"
 #~ msgstr "Találatok erre: „%s”"
