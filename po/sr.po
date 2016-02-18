@@ -1,30 +1,28 @@
 # Serbian translation for gnome-documents.
 # Copyright (C) 2011 gnome-documents's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-documents package.
-# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2011—2015.
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2011—2016.
 # Милош Поповић <gpopac@gmail.com>, 2015.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-09-22 07:34+0000\n"
-"PO-Revision-Date: 2015-09-22 12:41+0200\n"
-"Last-Translator: Милош Поповић <gpopac@gmail.com>\n"
-"Language-Team: српски <gnom@prevod.org>\n"
+"POT-Creation-Date: 2016-02-18 09:09+0000\n"
+"PO-Revision-Date: 2016-02-18 19:24+0200\n"
+"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
+"Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : n"
-"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : "
+"n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Project-Style: gnome\n"
-"X-Generator: Gtranslator 2.91.7\n"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:1
-#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:117
-#: ../src/lib/gd-utils.c:418
+#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:115
+#: ../src/embed.js:81 ../src/lib/gd-utils.c:418
 msgid "Books"
 msgstr "Књиге"
 
@@ -49,24 +47,20 @@ msgstr "Омогућава вам да:"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:5
 msgid "View recent e-books"
-msgstr "Погледате скорашње ел. књиге"
+msgstr "Прегледате скорашње ел. књиге"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:6
 msgid "Search through e-books"
 msgstr "Претражујете ел. књиге"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:7
-msgid "View e-books fullscreen"
-msgstr "Прикажете ел. књиге преко целог екрана"
+#| msgid "View e-books fullscreen"
+msgid "View e-books (PDF and comics) fullscreen"
+msgstr "Прегледате ел. књиге (стрипове и ПДФ) преко целог екрана"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:8
 msgid "Print e-books"
 msgstr "Штампате ел. књиге"
-
-#: ../data/org.gnome.Books.appdata.xml.in.h:9
-#: ../data/org.gnome.Documents.appdata.xml.in.h:12
-msgid "Allow opening full featured editor for non-trivial changes"
-msgstr "Омогућава отварање потпунијег уређивача за напредније измене"
 
 #: ../data/org.gnome.Books.desktop.in.h:2
 msgid "Access, manage and share books"
@@ -88,47 +82,57 @@ msgstr "Приказивање према врсти"
 
 #: ../data/org.gnome.books.gschema.xml.h:3
 #: ../data/org.gnome.documents.gschema.xml.h:3
-msgid "Window size"
-msgstr "Величина прозора"
+msgid "Sort by"
+msgstr "Поређај према"
 
 #: ../data/org.gnome.books.gschema.xml.h:4
 #: ../data/org.gnome.documents.gschema.xml.h:4
-msgid "Window size (width and height)."
-msgstr "Величина прозора (ширина и висина)."
+msgid "Sort by type"
+msgstr "Поређај према врсти"
 
 #: ../data/org.gnome.books.gschema.xml.h:5
 #: ../data/org.gnome.documents.gschema.xml.h:5
-msgid "Window position"
-msgstr "Положај прозора"
+msgid "Window size"
+msgstr "Величина прозора"
 
 #: ../data/org.gnome.books.gschema.xml.h:6
 #: ../data/org.gnome.documents.gschema.xml.h:6
-msgid "Window position (x and y)."
-msgstr "Положај прозора (положено и усправно)."
+msgid "Window size (width and height)."
+msgstr "Величина прозора (ширина и висина)."
 
 #: ../data/org.gnome.books.gschema.xml.h:7
 #: ../data/org.gnome.documents.gschema.xml.h:7
-msgid "Window maximized"
-msgstr "Увећан прозор"
+msgid "Window position"
+msgstr "Положај прозора"
 
 #: ../data/org.gnome.books.gschema.xml.h:8
 #: ../data/org.gnome.documents.gschema.xml.h:8
-msgid "Window maximized state"
-msgstr "Стање увећања прозора"
+msgid "Window position (x and y)."
+msgstr "Положај прозора (положено и усправно)."
 
 #: ../data/org.gnome.books.gschema.xml.h:9
 #: ../data/org.gnome.documents.gschema.xml.h:9
-msgid "Night mode"
-msgstr "Ноћни режим"
+msgid "Window maximized"
+msgstr "Увећан прозор"
 
 #: ../data/org.gnome.books.gschema.xml.h:10
 #: ../data/org.gnome.documents.gschema.xml.h:10
+msgid "Window maximized state"
+msgstr "Стање увећања прозора"
+
+#: ../data/org.gnome.books.gschema.xml.h:11
+#: ../data/org.gnome.documents.gschema.xml.h:11
+msgid "Night mode"
+msgstr "Ноћни режим"
+
+#: ../data/org.gnome.books.gschema.xml.h:12
+#: ../data/org.gnome.documents.gschema.xml.h:12
 msgid "Whether the application is in night mode."
 msgstr "Да ли је програм у ноћном режиму."
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:1
-#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:114
-#: ../src/lib/gd-utils.c:411 ../src/mainWindow.js:53
+#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:118
+#: ../src/embed.js:81 ../src/lib/gd-utils.c:411 ../src/mainWindow.js:54
 msgid "Documents"
 msgstr "Документи"
 
@@ -176,6 +180,10 @@ msgstr "Штампајте документе"
 msgid "Select favorites"
 msgstr "Изаберите омиљене"
 
+#: ../data/org.gnome.Documents.appdata.xml.in.h:12
+msgid "Allow opening full featured editor for non-trivial changes"
+msgstr "Омогућава отварање потпунијег уређивача за напредније измене"
+
 #: ../data/org.gnome.Documents.desktop.in.h:2
 msgid "Access, manage and share documents"
 msgstr "Приступите, управљајте и делите документе"
@@ -193,23 +201,134 @@ msgid "Night Mode"
 msgstr "Ноћни режим"
 
 #: ../data/ui/app-menu.ui.h:3
+msgid "Keyboard Shortcuts"
+msgstr "Пречице тастатуре"
+
+#: ../data/ui/app-menu.ui.h:4
 msgid "Help"
 msgstr "Помоћ"
 
-#: ../data/ui/app-menu.ui.h:4
+#: ../data/ui/app-menu.ui.h:5
 msgid "About"
 msgstr "О програму"
 
-#: ../data/ui/app-menu.ui.h:5
+#: ../data/ui/app-menu.ui.h:6
 msgid "Quit"
 msgstr "Изађи"
+
+#: ../data/ui/help-overlay.ui.h:1
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Опште"
+
+#: ../data/ui/help-overlay.ui.h:2
+msgctxt "shortcut window"
+msgid "Show help"
+msgstr "Приказује помоћ"
+
+#: ../data/ui/help-overlay.ui.h:3
+#| msgid "Quit"
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Излази"
+
+#: ../data/ui/help-overlay.ui.h:4
+#| msgid "Search"
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Претрага"
+
+#: ../data/ui/help-overlay.ui.h:5
+#| msgid "Print documents"
+msgctxt "shortcut window"
+msgid "Print the current document"
+msgstr "Штампа текући документ"
+
+#: ../data/ui/help-overlay.ui.h:6
+msgctxt "shortcut window"
+msgid "Navigation"
+msgstr "Кретање"
+
+#: ../data/ui/help-overlay.ui.h:7
+msgctxt "shortcut window"
+msgid "Go back"
+msgstr "Иде назад"
+
+#: ../data/ui/help-overlay.ui.h:8
+msgctxt "shortcut window"
+msgid "Preview"
+msgstr "Претходно"
+
+#: ../data/ui/help-overlay.ui.h:9
+#| msgid "Zoom In"
+msgctxt "shortcut window"
+msgid "Zoom in"
+msgstr "Увећава"
+
+#: ../data/ui/help-overlay.ui.h:10
+#| msgid "Zoom Out"
+msgctxt "shortcut window"
+msgid "Zoom out"
+msgstr "Умањује"
+
+#: ../data/ui/help-overlay.ui.h:11
+#| msgid "Bookmark this page"
+msgctxt "shortcut window"
+msgid "Bookmark the current page"
+msgstr "Обележава текућу страницу"
+
+#: ../data/ui/help-overlay.ui.h:12
+msgctxt "shortcut window"
+msgid "Open places and bookmarks dialog"
+msgstr "Отвара места и прозорче обележивача"
+
+#: ../data/ui/help-overlay.ui.h:13
+msgctxt "shortcut window"
+msgid "Copy selected text to clipboard"
+msgstr "Умножава изабрани текст у оставу"
+
+#: ../data/ui/help-overlay.ui.h:14
+msgctxt "shortcut window"
+msgid "Rotate anti-clockwise"
+msgstr "Окреће супротно сказаљкама сата"
+
+#: ../data/ui/help-overlay.ui.h:15
+msgctxt "shortcut window"
+msgid "Rotate clockwise"
+msgstr "Окреће према сказаљкама сата"
+
+#: ../data/ui/help-overlay.ui.h:16
+msgctxt "shortcut window"
+msgid "Next occurrence of the search string"
+msgstr "Следећа појава ниске претраге"
+
+#: ../data/ui/help-overlay.ui.h:17
+msgctxt "shortcut window"
+msgid "Previous occurrence of the search string"
+msgstr "Претходна појава ниске претраге"
+
+#: ../data/ui/help-overlay.ui.h:18
+#| msgid "Presentation"
+msgctxt "shortcut window"
+msgid "Presentation mode"
+msgstr "Режим презентације"
+
+#: ../data/ui/help-overlay.ui.h:19
+msgctxt "shortcut window"
+msgid "Open action menu"
+msgstr "Отвара изборник радње"
+
+#: ../data/ui/help-overlay.ui.h:20
+#| msgid "Fullscreen"
+msgctxt "shortcut window"
+msgid "Fullscreen"
+msgstr "Преко целог екрана"
 
 #: ../data/ui/organize-collection-dialog.ui.h:1
 msgid "Enter a name for your first collection"
 msgstr "Унесите назив за вашу прву збирку"
 
 #: ../data/ui/organize-collection-dialog.ui.h:2
-#| msgid "Collection"
 msgid "New Collection…"
 msgstr "Нова збирка…"
 
@@ -217,7 +336,7 @@ msgstr "Нова збирка…"
 msgid "Add"
 msgstr "Додај"
 
-#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:218
+#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:209
 msgid "Cancel"
 msgstr "Откажи"
 
@@ -230,10 +349,9 @@ msgstr "Обављено"
 msgid "_Copy"
 msgstr "_Умножи"
 
-#. open button
 #. Translators: this is the Open action in a context menu
-#: ../data/ui/preview-menu.ui.h:1 ../src/selections.js:861
-#: ../src/selections.js:989
+#: ../data/ui/preview-menu.ui.h:1 ../data/ui/selection-toolbar.ui.h:1
+#: ../src/selections.js:986
 msgid "Open"
 msgstr "Отвори"
 
@@ -265,9 +383,8 @@ msgstr "Окрени на лево"
 msgid "Rotate ↷"
 msgstr "Окрени на десно"
 
-#. properties button
-#: ../data/ui/preview-menu.ui.h:9 ../src/properties.js:62
-#: ../src/selections.js:883
+#: ../data/ui/preview-menu.ui.h:9 ../data/ui/selection-toolbar.ui.h:2
+#: ../src/properties.js:62
 msgid "Properties"
 msgstr "Својства"
 
@@ -279,118 +396,146 @@ msgstr "Изабери све"
 msgid "Select None"
 msgstr "Поништи избор"
 
-#: ../src/documents.js:630
+#: ../data/ui/selection-toolbar.ui.h:3 ../src/embed.js:85 ../src/search.js:203
+#: ../src/search.js:209
+msgid "Collections"
+msgstr "Збирке"
+
+#: ../data/ui/view-menu.ui.h:1
+msgid "View items as a grid of icons"
+msgstr "Прегледајте ставке као иконице"
+
+#: ../data/ui/view-menu.ui.h:2
+msgid "View items as a list"
+msgstr "Прегледајте ставке као списак"
+
+#: ../data/ui/view-menu.ui.h:3
+msgid "Sort"
+msgstr "Поређај"
+
+#: ../data/ui/view-menu.ui.h:4
+#| msgctxt "Document Author"
+#| msgid "Author"
+msgid "Author"
+msgstr "Стваралац"
+
+#: ../data/ui/view-menu.ui.h:5
+msgid "Date"
+msgstr "Датум"
+
+#: ../data/ui/view-menu.ui.h:6
+msgid "Name"
+msgstr "Назив"
+
+#: ../src/documents.js:682
 msgid "Failed to print document"
 msgstr "Нисам успео да одштампам документ"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:667 ../src/search.js:509
+#: ../src/documents.js:732 ../src/search.js:536
 msgid "Local"
 msgstr "На рачунару"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:694
+#: ../src/documents.js:771
 msgid "GNOME"
 msgstr "Гном"
 
-#: ../src/documents.js:695
+#: ../src/documents.js:772
 msgid "Getting Started with Documents"
 msgstr "Започните рад са Документима"
 
-#: ../src/documents.js:711 ../src/documents.js:903 ../src/documents.js:966
-#: ../src/documents.js:1074
+#: ../src/documents.js:788 ../src/documents.js:972 ../src/documents.js:1040
+#: ../src/documents.js:1148
 msgid "Collection"
 msgstr "Збирка"
 
 #. overridden
-#: ../src/documents.js:781
+#: ../src/documents.js:850
 msgid "Google Docs"
 msgstr "Документи Гугла"
 
-#: ../src/documents.js:782
+#: ../src/documents.js:851
 msgid "Google"
 msgstr "Гугл"
 
-#: ../src/documents.js:905 ../src/documents.js:1076
+#: ../src/documents.js:974 ../src/documents.js:1150
 msgid "Spreadsheet"
 msgstr "Таблица"
 
-#: ../src/documents.js:907 ../src/documents.js:1078 ../src/presentation.js:49
+#: ../src/documents.js:976 ../src/documents.js:1152 ../src/presentation.js:49
 msgid "Presentation"
 msgstr "Презентација"
 
-#: ../src/documents.js:909 ../src/documents.js:1080
+#: ../src/documents.js:978 ../src/documents.js:1154
 msgid "e-Book"
 msgstr "ел. књига"
 
-#: ../src/documents.js:911 ../src/documents.js:1082
+#: ../src/documents.js:980 ../src/documents.js:1156
 msgid "Document"
 msgstr "Документ"
 
 #. overridden
-#: ../src/documents.js:945
+#: ../src/documents.js:1019
 msgid "ownCloud"
 msgstr "Властити облак"
 
 #. overridden
-#: ../src/documents.js:1008 ../src/documents.js:1009
+#: ../src/documents.js:1082 ../src/documents.js:1083
 msgid "OneDrive"
 msgstr "Један диск"
 
-#: ../src/documents.js:1253
+#: ../src/documents.js:1332
 msgid "Please check the network connection."
-msgstr "Молим проверите мрежну везу."
+msgstr "Проверите мрежну везу."
 
-#: ../src/documents.js:1256
+#: ../src/documents.js:1335
 msgid "Please check the network proxy settings."
-msgstr "Молим проверите подешавања мрежног посредника."
+msgstr "Проверите подешавања мрежног посредника."
 
-#: ../src/documents.js:1259
+#: ../src/documents.js:1338
 msgid "Unable to sign in to the document service."
 msgstr "Не могу да се пријавим на услугу докумената."
 
-#: ../src/documents.js:1262
+#: ../src/documents.js:1341
 msgid "Unable to locate this document."
 msgstr "Не могу да пронађем овај документ."
 
-#: ../src/documents.js:1265
+#: ../src/documents.js:1344
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Хмм, нешто овде није како треба (%d)."
 
-#: ../src/documents.js:1272
+#: ../src/documents.js:1351
 msgid ""
 "You are using a preview of Books. Full viewing capabilities are coming soon!"
 msgstr ""
 "Ово је само преглед комплетне књиге. Потпуни приказ ће ускоро бити доступан "
 "у програму!"
 
+#: ../src/documents.js:1353
+msgid ""
+"LibreOffice support is not available. Please contact your system "
+"administrator."
+msgstr ""
+"Подршка за Либре офис није доступна. Обратите се администратору система."
+
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1293
+#: ../src/documents.js:1374
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Упс! Не могу да учитам „%s“"
 
-#: ../src/edit.js:180
+#: ../src/edit.js:186
 msgid "View"
 msgstr "Преглед"
-
-#: ../src/embed.js:80
-msgid "Recent"
-msgstr "Скорашње"
-
-#. collections button
-#: ../src/embed.js:83 ../src/search.js:203 ../src/search.js:212
-#: ../src/selections.js:888
-msgid "Collections"
-msgstr "Збирке"
 
 #: ../src/lib/gd-nav-bar.c:242
 #, c-format
 msgid "Page %u of %u"
-msgstr "Страница %u од %u"
+msgstr "%u. страница од %u"
 
 #: ../src/lib/gd-pdf-loader.c:247
 msgid "Unable to load the document"
@@ -416,7 +561,7 @@ msgstr "Нема обележивача"
 msgid "Loading…"
 msgstr "Учитавам…"
 
-#: ../src/lib/gd-places-bookmarks.c:656 ../src/preview.js:631
+#: ../src/lib/gd-places-bookmarks.c:656 ../src/preview.js:646
 msgid "Bookmarks"
 msgstr "Обележивачи"
 
@@ -443,27 +588,30 @@ msgstr ""
 "\n"
 "http://prevod.org — превод на српски језик"
 
-#: ../src/mainToolbar.js:89
+#. Translators: this is the Open action in a context menu
+#: ../src/lokview.js:333 ../src/preview.js:916 ../src/selections.js:983
+#, javascript-format
+msgid "Open with %s"
+msgstr "Отвори програмом „%s“"
+
+#: ../src/mainToolbar.js:90
 msgid "Search"
 msgstr "Потражи"
 
-#: ../src/mainToolbar.js:97
+#: ../src/mainToolbar.js:98
 msgid "Back"
 msgstr "Назад"
 
-#: ../src/mainToolbar.js:156
-msgid "View items as a list"
-msgstr "Прегледајте ставке као списак"
+#: ../src/mainToolbar.js:155
+#| msgid "View as"
+msgid "View Menu"
+msgstr "Изборник прегледа"
 
-#: ../src/mainToolbar.js:162
-msgid "View items as a grid of icons"
-msgstr "Прегледајте ставке као иконице"
-
-#: ../src/mainToolbar.js:192
+#: ../src/mainToolbar.js:183
 msgid "Click on items to select them"
-msgstr "Кликните на ставке да их изаберете"
+msgstr "Притисните на ставке да их изаберете"
 
-#: ../src/mainToolbar.js:194
+#: ../src/mainToolbar.js:185
 #, javascript-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -472,7 +620,7 @@ msgstr[1] "%d изабрана"
 msgstr[2] "%d изабраних"
 msgstr[3] "%d изабран"
 
-#: ../src/mainToolbar.js:278
+#: ../src/mainToolbar.js:269
 msgid "Select Items"
 msgstr "Изаберите ставке"
 
@@ -486,8 +634,6 @@ msgstr "„%s“ је обрисано"
 #. is the count
 #: ../src/notifications.js:58
 #, javascript-format
-#| msgid "Selected item has been deleted"
-#| msgid_plural "Selected items have been deleted"
 msgid "%d item deleted"
 msgid_plural "%d items deleted"
 msgstr[0] "%d ставка је избирсана"
@@ -495,7 +641,7 @@ msgstr[1] "%d ставке су избирсане"
 msgstr[2] "%d ставки је избирсано"
 msgstr[3] "%d ставка је избирсана"
 
-#: ../src/notifications.js:67 ../src/selections.js:386
+#: ../src/notifications.js:67 ../src/selections.js:393
 msgid "Undo"
 msgstr "Опозови"
 
@@ -565,21 +711,15 @@ msgstr "Искљ."
 msgid "Secondary"
 msgstr "Споредно"
 
-#: ../src/preview.js:639
+#: ../src/preview.js:654
 msgid "Bookmark this page"
 msgstr "Обележите ову страницу"
 
-#. Translators: this is the Open action in a context menu
-#: ../src/preview.js:900 ../src/selections.js:986
-#, javascript-format
-msgid "Open with %s"
-msgstr "Отвори програмом %s"
-
-#: ../src/preview.js:963
+#: ../src/preview.js:973
 msgid "Find Previous"
 msgstr "Нађи претходно"
 
-#: ../src/preview.js:970
+#: ../src/preview.js:979
 msgid "Find Next"
 msgstr "Нађи следеће"
 
@@ -626,8 +766,8 @@ msgstr "Категорија"
 
 #. Translators: this refers to new and recent documents
 #. Translators: this refers to documents
-#: ../src/search.js:131 ../src/search.js:200 ../src/search.js:333
-#: ../src/search.js:503
+#: ../src/search.js:131 ../src/search.js:200 ../src/search.js:337
+#: ../src/search.js:530
 msgid "All"
 msgstr "Све"
 
@@ -648,84 +788,82 @@ msgctxt "Search Filter"
 msgid "Type"
 msgstr "Врста"
 
-#: ../src/search.js:207
+#: ../src/search.js:213
 msgid "PDF Documents"
 msgstr "ПДФ документи"
 
 #: ../src/search.js:220
-msgid "Presentations"
-msgstr "Презентације"
-
-#: ../src/search.js:223
-msgid "Spreadsheets"
-msgstr "Таблице"
-
-#: ../src/search.js:226
-msgid "Text Documents"
-msgstr "Документи текста"
-
-#: ../src/search.js:231
 msgid "e-Books"
 msgstr "ел. књиге"
 
-#: ../src/search.js:235
+#: ../src/search.js:224
 msgid "Comics"
 msgstr "Стрипови"
 
-#. Translators: this is a verb that refers to "All", "Title" and "Author",
-#. as in "Match All", "Match Title" and "Match Author"
-#: ../src/search.js:330
+#: ../src/search.js:229
+msgid "Presentations"
+msgstr "Презентације"
+
+#: ../src/search.js:232
+msgid "Spreadsheets"
+msgstr "Таблице"
+
+#: ../src/search.js:235
+msgid "Text Documents"
+msgstr "Документи текста"
+
+#. Translators: this is a verb that refers to "All", "Title", "Author",
+#. and "Content" as in "Match All", "Match Title", "Match Author", and
+#. "Match Content"
+#: ../src/search.js:334
 msgid "Match"
 msgstr "Поклопи"
 
 #. Translators: "Title" refers to "Match Title" when searching
-#: ../src/search.js:336
+#: ../src/search.js:340
 msgctxt "Search Filter"
 msgid "Title"
 msgstr "Назив"
 
 #. Translators: "Author" refers to "Match Author" when searching
-#: ../src/search.js:339
+#: ../src/search.js:343
 msgctxt "Search Filter"
 msgid "Author"
 msgstr "Стваралац"
 
-#: ../src/search.js:499
+#. Translators: "Content" refers to "Match Content" when searching
+#: ../src/search.js:346
+#| msgid "Contents"
+msgctxt "Search Filter"
+msgid "Content"
+msgstr "Садржај"
+
+#: ../src/search.js:526
 msgid "Sources"
 msgstr "Извори"
 
-#: ../src/selections.js:359 ../src/selections.js:361
+#: ../src/selections.js:366 ../src/selections.js:368
 msgid "Rename…"
 msgstr "Преименуј…"
 
-#. trash button
-#: ../src/selections.js:365 ../src/selections.js:367 ../src/selections.js:871
+#: ../src/selections.js:372 ../src/selections.js:374
 msgid "Delete"
 msgstr "Обриши"
 
-#: ../src/selections.js:381
+#: ../src/selections.js:388
 #, javascript-format
 msgid "“%s” removed"
 msgstr "„%s“ је уклоњено"
 
-#: ../src/selections.js:765
+#: ../src/selections.js:779
 msgid "Rename"
 msgstr "Преименуј"
 
 #. Translators: "Collections" refers to documents in this context
-#: ../src/selections.js:771
+#: ../src/selections.js:785
 msgctxt "Dialog Title"
 msgid "Collections"
 msgstr "Збирке"
-
-#. print button
-#: ../src/selections.js:866
-msgid "Print"
-msgstr "Штампајте"
-
-#: ../src/selections.js:877
-msgid "Share"
-msgstr "Дели"
 
 #: ../src/sharing.js:108
 msgid "Sharing Settings"
@@ -795,40 +933,67 @@ msgstr "Можете да питате „%s“ за приступ"
 msgid "The document was not updated"
 msgstr "Документ није освежен"
 
-#: ../src/shellSearchProvider.js:292
+#: ../src/shellSearchProvider.js:290
 msgid "Untitled Document"
 msgstr "Неименован документ"
 
-#: ../src/trackerController.js:172
+#: ../src/trackerController.js:177
 msgid "Unable to fetch the list of documents"
 msgstr "Не могу да довучем списак докумената"
 
-#: ../src/view.js:260
-msgid "No Books Found"
+#: ../src/view.js:271
+#| msgid "No Books Found"
+msgid "No collections found"
+msgstr "Нисам пронашао збирке"
+
+#: ../src/view.js:273
+#| msgid "No Books Found"
+msgid "No books found"
 msgstr "Нисам пронашао књиге"
 
-#: ../src/view.js:261
-msgid "No Documents Found"
-msgstr "Нема пронађених докумената"
+#: ../src/view.js:273
+#| msgid "No Documents Found"
+msgid "No documents found"
+msgstr "Нисам пронашао документа"
 
-#. Translators: %s here is "Settings", which is in a separate string due to
-#. markup, and should be translated only in the context of this sentence
-#: ../src/view.js:283
+#: ../src/view.js:282
+msgid "Try a different search"
+msgstr "Пробајте другачију претрагу"
+
+#: ../src/view.js:289
+msgid "You can create collections from the Books view"
+msgstr "Можете да направите збирке из прегледа књига"
+
+#: ../src/view.js:291
+msgid "You can create collections from the Documents view"
+msgstr "Можете да направите збирке из прегледа докумената"
+
+#. Translators: the %s's here are "Online Accounts" and "Documents folder", which are
+#. in a separate string due to markup, and should be translated only in the context of
+#. this sentence
+#: ../src/view.js:304
 #, javascript-format
-msgid "You can add your online accounts in %s"
-msgstr "Можете да додате ваше мрежне налоге у %s"
+msgid "Documents from your %s and %s will appear here."
+msgstr "Документи из „%s“ и „%s“ појавиће се овде."
 
 #. Translators: this should be translated in the context of the
-#. "You can add your online accounts in Settings" sentence above
-#: ../src/view.js:287
-msgid "Settings"
-msgstr "Подешавања"
+#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
+#: ../src/view.js:308
+msgid "Online Accounts"
+msgstr "Налога на мрежи"
 
-#: ../src/view.js:482
+#. Translators: this should be translated in the context of the
+#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
+#: ../src/view.js:313
+#| msgid "Documents"
+msgid "Documents folder"
+msgstr "Фасцикле докумената"
+
+#: ../src/view.js:529
 msgid "Yesterday"
 msgstr "Јуче"
 
-#: ../src/view.js:484
+#: ../src/view.js:531
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -837,11 +1002,11 @@ msgstr[1] "Пре %d дана"
 msgstr[2] "Пре %d дана"
 msgstr[3] "Пре %d дана"
 
-#: ../src/view.js:488
+#: ../src/view.js:535
 msgid "Last week"
 msgstr "Прошле седмице"
 
-#: ../src/view.js:490
+#: ../src/view.js:537
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
@@ -850,11 +1015,11 @@ msgstr[1] "Пре %d недеље"
 msgstr[2] "Пре %d недеља"
 msgstr[3] "Пре %d недеље"
 
-#: ../src/view.js:494
+#: ../src/view.js:541
 msgid "Last month"
 msgstr "Прошлог месеца"
 
-#: ../src/view.js:496
+#: ../src/view.js:543
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
@@ -863,11 +1028,11 @@ msgstr[1] "Пре %d месеца"
 msgstr[2] "Пре %d месеци"
 msgstr[3] "Пре %d месеца"
 
-#: ../src/view.js:500
+#: ../src/view.js:547
 msgid "Last year"
 msgstr "Прошле године"
 
-#: ../src/view.js:502
+#: ../src/view.js:549
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -875,6 +1040,21 @@ msgstr[0] "Пре %d године"
 msgstr[1] "Пре %d године"
 msgstr[2] "Пре %d година"
 msgstr[3] "Пре %d године"
+
+#~ msgid "Recent"
+#~ msgstr "Скорашње"
+
+#~ msgid "Print"
+#~ msgstr "Штампајте"
+
+#~ msgid "Share"
+#~ msgstr "Дели"
+
+#~ msgid "You can add your online accounts in %s"
+#~ msgstr "Можете да додате ваше мрежне налоге у %s"
+
+#~ msgid "Settings"
+#~ msgstr "Подешавања"
 
 #~ msgid ""
 #~ "You don't have any collections yet. Enter a new collection name above."
