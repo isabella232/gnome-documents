@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-01-13 16:00+0000\n"
-"PO-Revision-Date: 2016-01-18 21:16+0200\n"
+"POT-Creation-Date: 2016-02-02 09:09+0000\n"
+"PO-Revision-Date: 2016-02-23 22:32+0200\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -54,7 +54,6 @@ msgid "Search through e-books"
 msgstr "Ieškokite el. knygose"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:7
-#| msgid "View e-books fullscreen"
 msgid "View e-books (PDF and comics) fullscreen"
 msgstr "Rodyti el. knygas (PDF ir komiksus) visame ekrane"
 
@@ -193,7 +192,7 @@ msgstr "Prieikite, tvarkykite ir bendrinkite dokumentus"
 msgid "Docs;PDF;Document;"
 msgstr "Dokumentai;PDF;Dokumentas;"
 
-#: ../data/ui/app-menu.ui.h:1 ../data/ui/help-overlay.ui.h:20
+#: ../data/ui/app-menu.ui.h:1
 msgid "Fullscreen"
 msgstr "Visas ekranas"
 
@@ -213,81 +212,109 @@ msgstr "Žinynas"
 msgid "About"
 msgstr "Apie"
 
-#: ../data/ui/app-menu.ui.h:6 ../data/ui/help-overlay.ui.h:3
+#: ../data/ui/app-menu.ui.h:6
 msgid "Quit"
 msgstr "Išeiti"
 
 #: ../data/ui/help-overlay.ui.h:1
+msgctxt "shortcut window"
 msgid "General"
 msgstr "Bendra"
 
 #: ../data/ui/help-overlay.ui.h:2
+msgctxt "shortcut window"
 msgid "Show help"
 msgstr "Rodyti žinyną"
 
-#: ../data/ui/help-overlay.ui.h:4 ../src/mainToolbar.js:90
+#: ../data/ui/help-overlay.ui.h:3
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Išeiti"
+
+#: ../data/ui/help-overlay.ui.h:4
+msgctxt "shortcut window"
 msgid "Search"
 msgstr "Ieškoti"
 
 #: ../data/ui/help-overlay.ui.h:5
+msgctxt "shortcut window"
 msgid "Print the current document"
 msgstr "Spausdinti dabartinį dokumentą"
 
 #: ../data/ui/help-overlay.ui.h:6
+msgctxt "shortcut window"
 msgid "Navigation"
-msgstr "Judėjimas"
+msgstr "Naršymas"
 
 #: ../data/ui/help-overlay.ui.h:7
+msgctxt "shortcut window"
 msgid "Go back"
 msgstr "Grįžti atgal"
 
 #: ../data/ui/help-overlay.ui.h:8
+msgctxt "shortcut window"
 msgid "Preview"
 msgstr "Peržiūra"
 
 #: ../data/ui/help-overlay.ui.h:9
+msgctxt "shortcut window"
 msgid "Zoom in"
-msgstr "Priartinti"
+msgstr "Didinti"
 
 #: ../data/ui/help-overlay.ui.h:10
+msgctxt "shortcut window"
 msgid "Zoom out"
-msgstr "Atitolinti"
+msgstr "Mažinti"
 
 #: ../data/ui/help-overlay.ui.h:11
+msgctxt "shortcut window"
 msgid "Bookmark the current page"
 msgstr "Pažymėti šį puslapį"
 
 #: ../data/ui/help-overlay.ui.h:12
+msgctxt "shortcut window"
 msgid "Open places and bookmarks dialog"
-msgstr "Atverti vietų ir gairių dialogą"
+msgstr "Atverti vietų ir žymelių dialogą"
 
 #: ../data/ui/help-overlay.ui.h:13
+msgctxt "shortcut window"
 msgid "Copy selected text to clipboard"
 msgstr "Kopijuoti pažymėtą tekstą į iškarpinę"
 
 #: ../data/ui/help-overlay.ui.h:14
+msgctxt "shortcut window"
 msgid "Rotate anti-clockwise"
 msgstr "Pasukti prieš laikrodžio rodyklę"
 
 #: ../data/ui/help-overlay.ui.h:15
+msgctxt "shortcut window"
 msgid "Rotate clockwise"
 msgstr "Pasukti pagal laikrodžio rodyklę"
 
 #: ../data/ui/help-overlay.ui.h:16
+msgctxt "shortcut window"
 msgid "Next occurrence of the search string"
 msgstr "Kitas ieškomos eilutės pasikartojimas"
 
 #: ../data/ui/help-overlay.ui.h:17
+msgctxt "shortcut window"
 msgid "Previous occurrence of the search string"
 msgstr "Ankstesnis ieškomos eilutės pasikartojimas"
 
 #: ../data/ui/help-overlay.ui.h:18
+msgctxt "shortcut window"
 msgid "Presentation mode"
 msgstr "Pateikties veiksena"
 
 #: ../data/ui/help-overlay.ui.h:19
+msgctxt "shortcut window"
 msgid "Open action menu"
 msgstr "Atverti veiksmų meniu"
+
+#: ../data/ui/help-overlay.ui.h:20
+msgctxt "shortcut window"
+msgid "Fullscreen"
+msgstr "Visas ekranas"
 
 #: ../data/ui/organize-collection-dialog.ui.h:1
 msgid "Enter a name for your first collection"
@@ -301,7 +328,7 @@ msgstr "Nauja kolekcija…"
 msgid "Add"
 msgstr "Pridėti"
 
-#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:208
+#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:209
 msgid "Cancel"
 msgstr "Atsisakyti"
 
@@ -375,7 +402,6 @@ msgid "View items as a list"
 msgstr "Rodyti elementus kaip sąrašą"
 
 #: ../data/ui/view-menu.ui.h:3
-#| msgid "Sort by"
 msgid "Sort"
 msgstr "Rikiuoti"
 
@@ -550,25 +576,28 @@ msgstr ""
 "Aurimas Černius <aurisc4@gmail.com>"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/lokview.js:298 ../src/preview.js:916 ../src/selections.js:983
+#: ../src/lokview.js:333 ../src/preview.js:916 ../src/selections.js:983
 #, javascript-format
 msgid "Open with %s"
 msgstr "Atverti su %s"
+
+#: ../src/mainToolbar.js:90
+msgid "Search"
+msgstr "Ieškoti"
 
 #: ../src/mainToolbar.js:98
 msgid "Back"
 msgstr "Grįžti"
 
-#: ../src/mainToolbar.js:154
-#| msgid "View as"
+#: ../src/mainToolbar.js:155
 msgid "View Menu"
 msgstr "Rodyti meniu"
 
-#: ../src/mainToolbar.js:182
+#: ../src/mainToolbar.js:183
 msgid "Click on items to select them"
 msgstr "Spauskite ant elementų juos pažymėti"
 
-#: ../src/mainToolbar.js:184
+#: ../src/mainToolbar.js:185
 #, javascript-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -576,7 +605,7 @@ msgstr[0] "%d pažymėtas"
 msgstr[1] "%d pažymėti"
 msgstr[2] "%d pažymėta"
 
-#: ../src/mainToolbar.js:268
+#: ../src/mainToolbar.js:269
 msgid "Select Items"
 msgstr "Pasirinkite elementus"
 
@@ -788,7 +817,6 @@ msgstr "Autorius"
 
 #. Translators: "Content" refers to "Match Content" when searching
 #: ../src/search.js:346
-#| msgid "Contents"
 msgctxt "Search Filter"
 msgid "Content"
 msgstr "Turinys"
@@ -896,32 +924,55 @@ msgstr "Nepavadintas dokumentas"
 msgid "Unable to fetch the list of documents"
 msgstr "Nepavyksta gauti dokumentų sąrašo"
 
-#: ../src/view.js:258
-msgid "No Books Found"
-msgstr "Nerasta knygų"
+#: ../src/view.js:271
+msgid "No collections found"
+msgstr "Kolekcijų nerasta"
 
-#: ../src/view.js:259
-msgid "No Documents Found"
-msgstr "Nerasta dokumentų"
+#: ../src/view.js:273
+msgid "No books found"
+msgstr "Knygų nerasta"
 
-#. Translators: %s here is "Settings", which is in a separate string due to
-#. markup, and should be translated only in the context of this sentence
-#: ../src/view.js:281
+#: ../src/view.js:273
+msgid "No documents found"
+msgstr "Dokumentų nerasta"
+
+#: ../src/view.js:282
+msgid "Try a different search"
+msgstr "Bandykite kitokią paiešką"
+
+#: ../src/view.js:289
+msgid "You can create collections from the Books view"
+msgstr "Jūs galite kurti kolekcijas iš knygų rodinio"
+
+#: ../src/view.js:291
+msgid "You can create collections from the Documents view"
+msgstr "Jūs galite kurti kolekcijas iš dokumentų rodinio"
+
+#. Translators: the %s's here are "Online Accounts" and "Documents folder", which are
+#. in a separate string due to markup, and should be translated only in the context of
+#. this sentence
+#: ../src/view.js:304
 #, javascript-format
-msgid "You can add your online accounts in %s"
-msgstr "Internetines paskyras galite pridėti %s"
+msgid "Documents from your %s and %s will appear here."
+msgstr "Čia bus rodomi dokumentai iš jūsų %s ir %s."
 
 #. Translators: this should be translated in the context of the
-#. "You can add your online accounts in Settings" sentence above
-#: ../src/view.js:285
-msgid "Settings"
-msgstr "Nustatymai"
+#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
+#: ../src/view.js:308
+msgid "Online Accounts"
+msgstr "internetinių paskyrų"
 
-#: ../src/view.js:505
+#. Translators: this should be translated in the context of the
+#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
+#: ../src/view.js:313
+msgid "Documents folder"
+msgstr "Dokumentų aplanko"
+
+#: ../src/view.js:529
 msgid "Yesterday"
 msgstr "Vakar"
 
-#: ../src/view.js:507
+#: ../src/view.js:531
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -929,11 +980,11 @@ msgstr[0] "Prieš %d dieną"
 msgstr[1] "Prieš %d dienas"
 msgstr[2] "Prieš %d dienų"
 
-#: ../src/view.js:511
+#: ../src/view.js:535
 msgid "Last week"
 msgstr "Praeitą savaitę"
 
-#: ../src/view.js:513
+#: ../src/view.js:537
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
@@ -941,11 +992,11 @@ msgstr[0] "Prieš %d savaitę"
 msgstr[1] "Prieš %d savaites"
 msgstr[2] "Prieš %d savaičių"
 
-#: ../src/view.js:517
+#: ../src/view.js:541
 msgid "Last month"
 msgstr "Praeitą mėnesį"
 
-#: ../src/view.js:519
+#: ../src/view.js:543
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
@@ -953,17 +1004,23 @@ msgstr[0] "Prieš %d mėnesį"
 msgstr[1] "Prieš %d mėnesius"
 msgstr[2] "Prieš %d mėnesių"
 
-#: ../src/view.js:523
+#: ../src/view.js:547
 msgid "Last year"
 msgstr "Praeitais metais"
 
-#: ../src/view.js:525
+#: ../src/view.js:549
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "Prieš %d metus"
 msgstr[1] "Prieš %d metus"
 msgstr[2] "Prieš %d metų"
+
+#~ msgid "You can add your online accounts in %s"
+#~ msgstr "Internetines paskyras galite pridėti %s"
+
+#~ msgid "Settings"
+#~ msgstr "Nustatymai"
 
 #~ msgid "Print"
 #~ msgstr "Spausdinti"
