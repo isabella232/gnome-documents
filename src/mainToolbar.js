@@ -152,6 +152,7 @@ const OverviewToolbar = new Lang.Class({
         builder.add_from_resource('/org/gnome/Documents/ui/view-menu.ui');
         let viewMenu = builder.get_object('viewMenu');
 
+        // Translators: this is the menu to change view settings
         this._viewMenuButton = new Gtk.MenuButton({ tooltip_text: _("View Menu"),
                                                     popover: viewMenu });
         this.toolbar.pack_end(this._viewMenuButton);
