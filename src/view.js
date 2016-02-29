@@ -297,21 +297,9 @@ const EmptyResultsBox = new Lang.Class({
         if (Application.application.isBooks)
             return;
 
-        let detailsStr =
-            // Translators: the %s's here are "Online Accounts" and "Documents folder", which are
-            // in a separate string due to markup, and should be translated only in the context of
-            // this sentence
-            _("Documents from your %s and %s will appear here.").format(
-            "<a href=\"system-settings\">" +
-            // Translators: this should be translated in the context of the
-            // "Documents from your Online Accounts and Documents folder will appear here." sentence above
-            _("Online Accounts") +
-            "</a>",
-            "<a href=\"file://"+ GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DOCUMENTS) + "\">" +
-            // Translators: this should be translated in the context of the
-            // "Documents from your Online Accounts and Documents folder will appear here." sentence above
-            _("Documents folder") +
-            "</a>");
+        let documentsPath = GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DOCUMENTS);
+        let detailsStr = _("Documents from your <a href=\"system-settings\">Online Accounts</a> and " +
+                           "<a href=\"file://%s\">Documents folder</a> will appear here.").format(documentsPath);
         let details = new Gtk.Label({ label: detailsStr,
                                       use_markup: true });
         this.add(details);
