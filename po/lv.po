@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-do"
 "cuments&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-04 09:09+0000\n"
-"PO-Revision-Date: 2016-02-06 15:04+0200\n"
+"POT-Creation-Date: 2016-03-01 09:53+0000\n"
+"PO-Revision-Date: 2016-03-01 21:15+0200\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "Language: lv\n"
@@ -56,7 +56,6 @@ msgid "Search through e-books"
 msgstr "Meklēt e-grāmatās"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:7
-#| msgid "View e-books fullscreen"
 msgid "View e-books (PDF and comics) fullscreen"
 msgstr "Skatīt e-grāmatas (PDF un komiksus) pilnekrāna režīmā"
 
@@ -229,19 +228,16 @@ msgid "Show help"
 msgstr "Rādīt palīdzību"
 
 #: ../data/ui/help-overlay.ui.h:3
-#| msgid "Quit"
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Iziet"
 
 #: ../data/ui/help-overlay.ui.h:4
-#| msgid "Search"
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Meklēt"
 
 #: ../data/ui/help-overlay.ui.h:5
-#| msgid "Print documents"
 msgctxt "shortcut window"
 msgid "Print the current document"
 msgstr "Izdrukāt pašreizējo dokumentu"
@@ -262,19 +258,16 @@ msgid "Preview"
 msgstr "Priekšskatījums"
 
 #: ../data/ui/help-overlay.ui.h:9
-#| msgid "Zoom In"
 msgctxt "shortcut window"
 msgid "Zoom in"
 msgstr "Tuvināt"
 
 #: ../data/ui/help-overlay.ui.h:10
-#| msgid "Zoom Out"
 msgctxt "shortcut window"
 msgid "Zoom out"
 msgstr "Tālināt"
 
 #: ../data/ui/help-overlay.ui.h:11
-#| msgid "Bookmark this page"
 msgctxt "shortcut window"
 msgid "Bookmark the current page"
 msgstr "Pievienot lappusi grāmatzīmēm"
@@ -310,7 +303,6 @@ msgid "Previous occurrence of the search string"
 msgstr "Iepriekšējā meklētās virknes parādīšanās"
 
 #: ../data/ui/help-overlay.ui.h:18
-#| msgid "Presentation"
 msgctxt "shortcut window"
 msgid "Presentation mode"
 msgstr "Prezentācijas režīms"
@@ -321,7 +313,6 @@ msgid "Open action menu"
 msgstr "Atvērt darbības izvēlni"
 
 #: ../data/ui/help-overlay.ui.h:20
-#| msgid "Fullscreen"
 msgctxt "shortcut window"
 msgid "Fullscreen"
 msgstr "Pilnekrāns"
@@ -338,7 +329,7 @@ msgstr "Jauna kolekcija…"
 msgid "Add"
 msgstr "Pievienot"
 
-#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:209
+#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:210
 msgid "Cancel"
 msgstr "Atcelt"
 
@@ -416,8 +407,6 @@ msgid "Sort"
 msgstr "Kārtot"
 
 #: ../data/ui/view-menu.ui.h:4
-#| msgctxt "Document Author"
-#| msgid "Author"
 msgid "Author"
 msgstr "Autors"
 
@@ -602,16 +591,16 @@ msgstr "Meklēt"
 msgid "Back"
 msgstr "Atpakaļ"
 
-#: ../src/mainToolbar.js:155
-#| msgid "View as"
+#. Translators: this is the menu to change view settings
+#: ../src/mainToolbar.js:156
 msgid "View Menu"
 msgstr "Skata izvēlne"
 
-#: ../src/mainToolbar.js:183
+#: ../src/mainToolbar.js:184
 msgid "Click on items to select them"
 msgstr "Spiediet uz vienumiem, lai tos izvēlētos"
 
-#: ../src/mainToolbar.js:185
+#: ../src/mainToolbar.js:186
 #, javascript-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -619,7 +608,7 @@ msgstr[0] "%d izvēlēts"
 msgstr[1] "%d izvēlēti"
 msgstr[2] "%d izvēlētu"
 
-#: ../src/mainToolbar.js:269
+#: ../src/mainToolbar.js:270
 msgid "Select Items"
 msgstr "Izvēlēties vienumus"
 
@@ -831,7 +820,6 @@ msgstr "Autors"
 
 #. Translators: "Content" refers to "Match Content" when searching
 #: ../src/search.js:346
-#| msgid "Contents"
 msgctxt "Search Filter"
 msgid "Content"
 msgstr "Saturs"
@@ -940,17 +928,14 @@ msgid "Unable to fetch the list of documents"
 msgstr "Neizdevās saņemt dokumentu sarakstu"
 
 #: ../src/view.js:271
-#| msgid "No Books Found"
 msgid "No collections found"
 msgstr "Nav atrastu kolekciju"
 
 #: ../src/view.js:273
-#| msgid "No Books Found"
 msgid "No books found"
 msgstr "Nav atrastu grāmatu"
 
 #: ../src/view.js:273
-#| msgid "No Documents Found"
 msgid "No documents found"
 msgstr "Nav atrastu dokumentu"
 
@@ -966,32 +951,20 @@ msgstr "Varat izveidot kolekcijas no grāmatu skata"
 msgid "You can create collections from the Documents view"
 msgstr "Varat izveidot kolekcijas no dokumentu skata"
 
-#. Translators: the %s's here are "Online Accounts" and "Documents folder", which are
-#. in a separate string due to markup, and should be translated only in the context of
-#. this sentence
-#: ../src/view.js:304
+#: ../src/view.js:301
 #, javascript-format
-msgid "Documents from your %s and %s will appear here."
-msgstr "Dokumenti no “%s” un “%s” parādīsies šeit."
+msgid ""
+"Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
+"href=\"file://%s\">Documents folder</a> will appear here."
+msgstr ""
+"Dokumenti no <a href=\"system-settings\">tiešsaistes kontiem</a> un <a "
+"href=\"file://%s\">dokumentu mapes</a> parādīsies šeit."
 
-#. Translators: this should be translated in the context of the
-#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
-#: ../src/view.js:308
-msgid "Online Accounts"
-msgstr "Tiešsaistes konti"
-
-#. Translators: this should be translated in the context of the
-#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
-#: ../src/view.js:313
-#| msgid "Documents"
-msgid "Documents folder"
-msgstr "Dokumentu mape"
-
-#: ../src/view.js:529
+#: ../src/view.js:517
 msgid "Yesterday"
 msgstr "Vakar"
 
-#: ../src/view.js:531
+#: ../src/view.js:519
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -999,11 +972,11 @@ msgstr[0] "Pirms %d dienas"
 msgstr[1] "Pirms %d dienām"
 msgstr[2] "Pirms %d dienām"
 
-#: ../src/view.js:535
+#: ../src/view.js:523
 msgid "Last week"
 msgstr "Pagājušajā nedēļā"
 
-#: ../src/view.js:537
+#: ../src/view.js:525
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
@@ -1011,11 +984,11 @@ msgstr[0] "Pirms %d nedēļas"
 msgstr[1] "Pirms %d nedēļām"
 msgstr[2] "Pirms %d nedēļām"
 
-#: ../src/view.js:541
+#: ../src/view.js:529
 msgid "Last month"
 msgstr "Pagājušajā mēnesī"
 
-#: ../src/view.js:543
+#: ../src/view.js:531
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
@@ -1023,11 +996,11 @@ msgstr[0] "Pirms %d mēneša"
 msgstr[1] "Pirms %d mēnešiem"
 msgstr[2] "Pirms %d mēnešiem"
 
-#: ../src/view.js:547
+#: ../src/view.js:535
 msgid "Last year"
 msgstr "Pagājušajā gadā"
 
-#: ../src/view.js:549
+#: ../src/view.js:537
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
