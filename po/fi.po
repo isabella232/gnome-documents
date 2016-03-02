@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-05 09:10+0000\n"
-"PO-Revision-Date: 2016-02-05 22:38+0200\n"
+"POT-Creation-Date: 2016-03-02 09:10+0000\n"
+"PO-Revision-Date: 2016-03-02 22:24+0200\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
@@ -221,121 +221,101 @@ msgid "Quit"
 msgstr "Lopeta"
 
 #: ../data/ui/help-overlay.ui.h:1
-#| msgid "General"
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Yleiset"
 
 #: ../data/ui/help-overlay.ui.h:2
-#| msgid "Show help"
 msgctxt "shortcut window"
 msgid "Show help"
 msgstr "Näytä ohje"
 
 #: ../data/ui/help-overlay.ui.h:3
-#| msgid "Quit"
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Lopeta"
 
 #: ../data/ui/help-overlay.ui.h:4
-#| msgid "Search"
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Etsi"
 
 #: ../data/ui/help-overlay.ui.h:5
-#| msgid "Print the current document"
 msgctxt "shortcut window"
 msgid "Print the current document"
 msgstr "Tulosta nykyinen asiakirja"
 
 #: ../data/ui/help-overlay.ui.h:6
-#| msgid "Navigation"
 msgctxt "shortcut window"
 msgid "Navigation"
 msgstr "Liikkuminen"
 
 #: ../data/ui/help-overlay.ui.h:7
-#| msgid "Go back"
 msgctxt "shortcut window"
 msgid "Go back"
 msgstr "Siirry takaisin"
 
 #: ../data/ui/help-overlay.ui.h:8
-#| msgid "Preview"
 msgctxt "shortcut window"
 msgid "Preview"
 msgstr "Esikatselu"
 
 #: ../data/ui/help-overlay.ui.h:9
-#| msgid "Zoom in"
 msgctxt "shortcut window"
 msgid "Zoom in"
 msgstr "Lähennä"
 
 #: ../data/ui/help-overlay.ui.h:10
-#| msgid "Zoom out"
 msgctxt "shortcut window"
 msgid "Zoom out"
 msgstr "Loitonna"
 
 #: ../data/ui/help-overlay.ui.h:11
-#| msgid "Bookmark the current page"
 msgctxt "shortcut window"
 msgid "Bookmark the current page"
 msgstr "Lisää sivu kirjanmerkkeihin"
 
 #: ../data/ui/help-overlay.ui.h:12
-#| msgid "Open places and bookmarks dialog"
 msgctxt "shortcut window"
 msgid "Open places and bookmarks dialog"
 msgstr "Avaa sijainti- ja kirjanmerkki-ikkuna"
 
 #: ../data/ui/help-overlay.ui.h:13
-#| msgid "Copy selected text to clipboard"
 msgctxt "shortcut window"
 msgid "Copy selected text to clipboard"
 msgstr "Kopioi valittu teksti leikepöydälle"
 
 #: ../data/ui/help-overlay.ui.h:14
-#| msgid "Rotate anti-clockwise"
 msgctxt "shortcut window"
 msgid "Rotate anti-clockwise"
 msgstr "Kierrä vastapäivään"
 
 #: ../data/ui/help-overlay.ui.h:15
-#| msgid "Rotate clockwise"
 msgctxt "shortcut window"
 msgid "Rotate clockwise"
 msgstr "Kierrä myötäpäivään"
 
 #: ../data/ui/help-overlay.ui.h:16
-#| msgid "Next occurrence of the search string"
 msgctxt "shortcut window"
 msgid "Next occurrence of the search string"
 msgstr "Hakuehdon seuraava esiintymä"
 
 #: ../data/ui/help-overlay.ui.h:17
-#| msgid "Previous occurrence of the search string"
 msgctxt "shortcut window"
 msgid "Previous occurrence of the search string"
 msgstr "Hakuehdon edellinen esiintymä"
 
 #: ../data/ui/help-overlay.ui.h:18
-#| msgid "Presentation mode"
 msgctxt "shortcut window"
 msgid "Presentation mode"
 msgstr "Esitystila"
 
 #: ../data/ui/help-overlay.ui.h:19
-#| msgid "Open action menu"
 msgctxt "shortcut window"
 msgid "Open action menu"
 msgstr "Avaa toimintovalikko"
 
 #: ../data/ui/help-overlay.ui.h:20
-#| msgid "Fullscreen"
 msgctxt "shortcut window"
 msgid "Fullscreen"
 msgstr "Koko näyttö"
@@ -352,7 +332,7 @@ msgstr "Uusi kokoelma…"
 msgid "Add"
 msgstr "Lisää"
 
-#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:209
+#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:210
 msgid "Cancel"
 msgstr "Peru"
 
@@ -597,7 +577,7 @@ msgstr "Kirjojen hallintasovellus"
 
 #: ../src/lib/gd-utils.c:427
 msgid "translator-credits"
-msgstr "Jiri Grönroos, 2012-2015"
+msgstr "Jiri Grönroos, 2012-2016"
 
 #. Translators: this is the Open action in a context menu
 #: ../src/lokview.js:333 ../src/preview.js:916 ../src/selections.js:983
@@ -613,23 +593,23 @@ msgstr "Etsi"
 msgid "Back"
 msgstr "Takaisin"
 
-#: ../src/mainToolbar.js:155
-#| msgid "View as"
+#. Translators: this is the menu to change view settings
+#: ../src/mainToolbar.js:156
 msgid "View Menu"
 msgstr "Näkymävalikko"
 
-#: ../src/mainToolbar.js:183
+#: ../src/mainToolbar.js:184
 msgid "Click on items to select them"
 msgstr "Napsauta kohteita valitaksesi ne"
 
-#: ../src/mainToolbar.js:185
+#: ../src/mainToolbar.js:186
 #, javascript-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d valittu"
 msgstr[1] "%d valittu"
 
-#: ../src/mainToolbar.js:269
+#: ../src/mainToolbar.js:270
 msgid "Select Items"
 msgstr "Valitse kohteet"
 
@@ -842,7 +822,6 @@ msgstr "Tekijä"
 
 #. Translators: "Content" refers to "Match Content" when searching
 #: ../src/search.js:346
-#| msgid "Contents"
 msgctxt "Search Filter"
 msgid "Content"
 msgstr "Sisältö"
@@ -951,17 +930,14 @@ msgid "Unable to fetch the list of documents"
 msgstr "Asiakirjalistauksen nouto epäonnistui"
 
 #: ../src/view.js:271
-#| msgid "No Books Found"
 msgid "No collections found"
 msgstr "Kokoelmia ei löytynyt"
 
 #: ../src/view.js:273
-#| msgid "No Books Found"
 msgid "No books found"
 msgstr "Kirjoja ei löytynyt"
 
 #: ../src/view.js:273
-#| msgid "No Documents Found"
 msgid "No documents found"
 msgstr "Asiakirjoja ei löytynyt"
 
@@ -971,76 +947,71 @@ msgstr "Kokeile eri hakuehtoja"
 
 #: ../src/view.js:289
 msgid "You can create collections from the Books view"
-msgstr ""
+msgstr "Voit luoda kokoelmia kirjanäkymästä"
 
 #: ../src/view.js:291
 msgid "You can create collections from the Documents view"
-msgstr ""
+msgstr "Voit luoda kokoelmia asiakirjanäkymästä"
 
-#. Translators: the %s's here are "Online Accounts" and "Documents folder", which are
-#. in a separate string due to markup, and should be translated only in the context of
-#. this sentence
-#: ../src/view.js:304
+#: ../src/view.js:301
 #, javascript-format
-msgid "Documents from your %s and %s will appear here."
+msgid ""
+"Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
+"href=\"file://%s\">Documents folder</a> will appear here."
 msgstr ""
+"Asiakirjat <a href=\"system-settings\">verkkotileiltäsi</a> ja <a href="
+"\"file://%s\">Asiakirjat-kansiosta</a> ilmestyvät tänne."
 
-#. Translators: this should be translated in the context of the
-#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
-#: ../src/view.js:308
-msgid "Online Accounts"
-msgstr "Verkkotilit"
-
-#. Translators: this should be translated in the context of the
-#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
-#: ../src/view.js:313
-#| msgid "Documents"
-msgid "Documents folder"
-msgstr "Asiakirjat-kansio"
-
-#: ../src/view.js:529
+#: ../src/view.js:517
 msgid "Yesterday"
 msgstr "Eilen"
 
-#: ../src/view.js:531
+#: ../src/view.js:519
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d päivä sitten"
 msgstr[1] "%d päivää sitten"
 
-#: ../src/view.js:535
+#: ../src/view.js:523
 msgid "Last week"
 msgstr "Viime viikolla"
 
-#: ../src/view.js:537
+#: ../src/view.js:525
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d viikko sitten"
 msgstr[1] "%d viikkoa sitten"
 
-#: ../src/view.js:541
+#: ../src/view.js:529
 msgid "Last month"
 msgstr "Viime kuussa"
 
-#: ../src/view.js:543
+#: ../src/view.js:531
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d kuukausi sitten"
 msgstr[1] "%d kuukautta sitten"
 
-#: ../src/view.js:547
+#: ../src/view.js:535
 msgid "Last year"
 msgstr "Viime vuonna"
 
-#: ../src/view.js:549
+#: ../src/view.js:537
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "%d vuosi sitten"
 msgstr[1] "%d vuotta sitten"
+
+#~ msgid "Online Accounts"
+#~ msgstr "Verkkotilit"
+
+#~| msgid "Documents"
+#~ msgid "Documents folder"
+#~ msgstr "Asiakirjat-kansio"
 
 #~ msgid "You can add your online accounts in %s"
 #~ msgstr "Voit lisätä verkkotilisi %s"
