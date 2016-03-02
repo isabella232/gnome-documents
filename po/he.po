@@ -2,15 +2,15 @@
 # Copyright (C) 2011 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Yaron Shahrabani <sh.yaron@gmail.com>, 2011.
-# Yosef Or Boczko <yoseforb@gnome.org>, 2013, 2014, 2015.
+# Yosef Or Boczko <yoseforb@gnome.org>, 2013, 2014, 2015, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Gnome-Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-15 15:04+0200\n"
-"PO-Revision-Date: 2016-01-15 15:06+0200\n"
-"Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
+"POT-Creation-Date: 2016-03-02 13:11+0200\n"
+"PO-Revision-Date: 2016-03-02 13:14+0200\n"
+"Last-Translator: Yosef Or Boczko <yoseforb@gnome.org>\n"
 "Language-Team: עברית <>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
@@ -189,7 +189,7 @@ msgstr "גישה, ניהול ושיתוף של מסמכים"
 msgid "Docs;PDF;Document;"
 msgstr "מסמכים;PDF;מסמך;"
 
-#: ../data/ui/app-menu.ui.h:1 ../data/ui/help-overlay.ui.h:20
+#: ../data/ui/app-menu.ui.h:1
 msgid "Fullscreen"
 msgstr "מסך מלא"
 
@@ -209,81 +209,109 @@ msgstr "עזרה"
 msgid "About"
 msgstr "על אודות"
 
-#: ../data/ui/app-menu.ui.h:6 ../data/ui/help-overlay.ui.h:3
+#: ../data/ui/app-menu.ui.h:6
 msgid "Quit"
 msgstr "יציאה"
 
 #: ../data/ui/help-overlay.ui.h:1
+msgctxt "shortcut window"
 msgid "General"
 msgstr "כללי"
 
 #: ../data/ui/help-overlay.ui.h:2
+msgctxt "shortcut window"
 msgid "Show help"
 msgstr "הצגת עזרה"
 
-#: ../data/ui/help-overlay.ui.h:4 ../src/mainToolbar.js:90
+#: ../data/ui/help-overlay.ui.h:3
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "יציאה"
+
+#: ../data/ui/help-overlay.ui.h:4
+msgctxt "shortcut window"
 msgid "Search"
 msgstr "חיפוש"
 
 #: ../data/ui/help-overlay.ui.h:5
+msgctxt "shortcut window"
 msgid "Print the current document"
 msgstr "הדפסת המסמך הנוכחי"
 
 #: ../data/ui/help-overlay.ui.h:6
+msgctxt "shortcut window"
 msgid "Navigation"
 msgstr "ניווט"
 
 #: ../data/ui/help-overlay.ui.h:7
+msgctxt "shortcut window"
 msgid "Go back"
 msgstr "חזרה לאחור"
 
 #: ../data/ui/help-overlay.ui.h:8
+msgctxt "shortcut window"
 msgid "Preview"
 msgstr "תצוגה מקדימה"
 
 #: ../data/ui/help-overlay.ui.h:9
+msgctxt "shortcut window"
 msgid "Zoom in"
 msgstr "התקרבות"
 
 #: ../data/ui/help-overlay.ui.h:10
+msgctxt "shortcut window"
 msgid "Zoom out"
 msgstr "התרחקות"
 
 #: ../data/ui/help-overlay.ui.h:11
+msgctxt "shortcut window"
 msgid "Bookmark the current page"
 msgstr "סימון דף זה כסימנייה"
 
 #: ../data/ui/help-overlay.ui.h:12
+msgctxt "shortcut window"
 msgid "Open places and bookmarks dialog"
 msgstr "פתיחת מקומות ודו־שיח סימניות"
 
 #: ../data/ui/help-overlay.ui.h:13
+msgctxt "shortcut window"
 msgid "Copy selected text to clipboard"
 msgstr "העתקה הטקסט הנבחר ללוח הגזירים"
 
 #: ../data/ui/help-overlay.ui.h:14
+msgctxt "shortcut window"
 msgid "Rotate anti-clockwise"
 msgstr "סיבוב כנגד כיוון השעון"
 
 #: ../data/ui/help-overlay.ui.h:15
+msgctxt "shortcut window"
 msgid "Rotate clockwise"
 msgstr "סיבוב עם כיוון השעון"
 
 #: ../data/ui/help-overlay.ui.h:16
+msgctxt "shortcut window"
 msgid "Next occurrence of the search string"
 msgstr "מופע הבא של המחרוזת לחיפוש"
 
 #: ../data/ui/help-overlay.ui.h:17
+msgctxt "shortcut window"
 msgid "Previous occurrence of the search string"
 msgstr "מופע קודם של המחרוזת לחיפוש"
 
 #: ../data/ui/help-overlay.ui.h:18
+msgctxt "shortcut window"
 msgid "Presentation mode"
 msgstr "מצב מצגת"
 
 #: ../data/ui/help-overlay.ui.h:19
+msgctxt "shortcut window"
 msgid "Open action menu"
 msgstr "פתיחת תפריט פעולות"
+
+#: ../data/ui/help-overlay.ui.h:20
+msgctxt "shortcut window"
+msgid "Fullscreen"
+msgstr "מסך מלא"
 
 #: ../data/ui/organize-collection-dialog.ui.h:1
 msgid "Enter a name for your first collection"
@@ -297,7 +325,7 @@ msgstr "אוסף חדש…"
 msgid "Add"
 msgstr "הוספה"
 
-#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:208
+#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:210
 msgid "Cancel"
 msgstr "ביטול"
 
@@ -544,24 +572,29 @@ msgstr ""
 "יוסף אור בוצ׳קו <yoseforb@gnome.org>"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/lokview.js:298 ../src/preview.js:916 ../src/selections.js:983
+#: ../src/lokview.js:333 ../src/preview.js:916 ../src/selections.js:983
 #, javascript-format
 msgid "Open with %s"
 msgstr "פתיחה באמצעות %s"
+
+#: ../src/mainToolbar.js:90
+msgid "Search"
+msgstr "חיפוש"
 
 #: ../src/mainToolbar.js:98
 msgid "Back"
 msgstr "חזרה"
 
-#: ../src/mainToolbar.js:154
+#. Translators: this is the menu to change view settings
+#: ../src/mainToolbar.js:156
 msgid "View Menu"
 msgstr "תפריט תצוגה"
 
-#: ../src/mainToolbar.js:182
+#: ../src/mainToolbar.js:184
 msgid "Click on items to select them"
 msgstr "יש ללחוץ על פריטים כדי לבחור אותם"
 
-#: ../src/mainToolbar.js:184
+#: ../src/mainToolbar.js:186
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -569,7 +602,7 @@ msgstr[0] "אחד נבחר"
 msgstr[1] "%d נבחרו"
 msgstr[2] "%d נבחרו"
 
-#: ../src/mainToolbar.js:268
+#: ../src/mainToolbar.js:270
 msgid "Select Items"
 msgstr "בחירת פריטים"
 
@@ -888,32 +921,44 @@ msgstr "מסמך ללא שם"
 msgid "Unable to fetch the list of documents"
 msgstr "לא ניתן לקבל את רשימת המסמכים"
 
-#: ../src/view.js:258
-msgid "No Books Found"
+#: ../src/view.js:271
+msgid "No collections found"
+msgstr "לא נמצאו אוספים"
+
+#: ../src/view.js:273
+msgid "No books found"
 msgstr "לא נמצאו ספרים"
 
-#: ../src/view.js:259
-msgid "No Documents Found"
+#: ../src/view.js:273
+msgid "No documents found"
 msgstr "לא נמצאו מסמכים"
 
-#. Translators: %s here is "Settings", which is in a separate string due to
-#. markup, and should be translated only in the context of this sentence
-#: ../src/view.js:281
+#: ../src/view.js:282
+msgid "Try a different search"
+msgstr "לנסות חיפוש שונה"
+
+#: ../src/view.js:289
+msgid "You can create collections from the Books view"
+msgstr "ניתן ליצור אוספים מתצוגת הספרים"
+
+#: ../src/view.js:291
+msgid "You can create collections from the Documents view"
+msgstr "ניתן ליצור אוספים מתצוגת המסמכים"
+
+#: ../src/view.js:301
 #, javascript-format
-msgid "You can add your online accounts in %s"
-msgstr "ניתן להוסיף את החשבונות המקוונים שלך תחת %s"
+msgid ""
+"Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
+"href=\"file://%s\">Documents folder</a> will appear here."
+msgstr ""
+"מסמכים מה<a href=\"system-settings\">חשבונות המקוונים</a> שלך ומתיקיית ה<a "
+"href=\"file://%s\">מסמכים</a> שלך יופיעו כאן."
 
-#. Translators: this should be translated in the context of the
-#. "You can add your online accounts in Settings" sentence above
-#: ../src/view.js:285
-msgid "Settings"
-msgstr "הגדרות"
-
-#: ../src/view.js:505
+#: ../src/view.js:517
 msgid "Yesterday"
 msgstr "אתמול"
 
-#: ../src/view.js:507
+#: ../src/view.js:519
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -921,11 +966,11 @@ msgstr[0] "אתמול"
 msgstr[1] "לפני %d ימים"
 msgstr[2] "שלשום"
 
-#: ../src/view.js:511
+#: ../src/view.js:523
 msgid "Last week"
 msgstr "שבוע שעבר"
 
-#: ../src/view.js:513
+#: ../src/view.js:525
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
@@ -933,11 +978,11 @@ msgstr[0] "לפני שבוע"
 msgstr[1] "לפני %d שבועות"
 msgstr[2] "לפני שבועיים"
 
-#: ../src/view.js:517
+#: ../src/view.js:529
 msgid "Last month"
 msgstr "בחודש שעבר"
 
-#: ../src/view.js:519
+#: ../src/view.js:531
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
@@ -945,17 +990,23 @@ msgstr[0] "לפני חודש"
 msgstr[1] "לפני %d חודשים"
 msgstr[2] "לפני חודשיים"
 
-#: ../src/view.js:523
+#: ../src/view.js:535
 msgid "Last year"
 msgstr "שנה שעברה"
 
-#: ../src/view.js:525
+#: ../src/view.js:537
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "לפני שנה"
 msgstr[1] "לפני %d שנים"
 msgstr[2] "לפני שנתיים"
+
+#~ msgid "You can add your online accounts in %s"
+#~ msgstr "ניתן להוסיף את החשבונות המקוונים שלך תחת %s"
+
+#~ msgid "Settings"
+#~ msgstr "הגדרות"
 
 #~ msgid "Print"
 #~ msgstr "הדפסה"
