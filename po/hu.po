@@ -1,24 +1,24 @@
 # Hungarian translation for gnome-documents.
-# Copyright (C) 2011, 2012, 2013. Free Software Foundation, Inc.
+# Copyright (C) 2011-2016 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-documents package.
 #
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2011, 2012, 2013, 2016.
-# Balázs Úr <urbalazs at gmail dot com>, 2013, 2014, 2015.
+# Balázs Úr <urbalazs at gmail dot com>, 2013, 2014, 2015, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-05 09:10+0000\n"
-"PO-Revision-Date: 2016-02-05 19:47+0100\n"
-"Last-Translator: Meskó Balázs <meskobalazs@gmail.com>\n"
+"POT-Creation-Date: 2016-03-04 09:09+0000\n"
+"PO-Revision-Date: 2016-03-04 19:27+0100\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Lokalize 1.2\n"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:1
 #: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:115
@@ -32,9 +32,9 @@ msgstr "Egy e-könyv kezelő alkalmazás a GNOME-hoz"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:3
 msgid ""
-"A simple application to access and organize your e-books on GNOME. It is meant "
-"to be a simple and elegant replacement for using a file manager to deal with e-"
-"books."
+"A simple application to access and organize your e-books on GNOME. It is "
+"meant to be a simple and elegant replacement for using a file manager to "
+"deal with e-books."
 msgstr ""
 "Egyszerű alkalmazás e-könyvek eléréséhez és rendszerezéséhez GNOME alatt. A "
 "fájlkezelő e-könyvek kezelésére való használatának egyszerű és elegáns "
@@ -141,15 +141,15 @@ msgstr "Dokumentumkezelő alkalmazás a GNOME-hoz"
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:3
 msgid ""
-"A simple application to access, organize and share your documents on GNOME. It "
-"is meant to be a simple and elegant replacement for using a file manager to "
-"deal with documents. Seamless cloud integration is offered through GNOME "
+"A simple application to access, organize and share your documents on GNOME. "
+"It is meant to be a simple and elegant replacement for using a file manager "
+"to deal with documents. Seamless cloud integration is offered through GNOME "
 "Online Accounts."
 msgstr ""
-"Egyszerű alkalmazás dokumentumok eléréséhez, rendszerezéséhez és megosztásához "
-"GNOME alatt. A fájlkezelő dokumentumok kezelésére való használatának egyszerű "
-"és elegáns helyettesítésére tervezték. A GNOME Online fiókok használatával "
-"sima felhőintegráció érhető el."
+"Egyszerű alkalmazás dokumentumok eléréséhez, rendszerezéséhez és "
+"megosztásához GNOME alatt. A fájlkezelő dokumentumok kezelésére való "
+"használatának egyszerű és elegáns helyettesítésére tervezték. A GNOME Online "
+"fiókok használatával sima felhőintegráció érhető el."
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:5
 msgid "View recent local and online documents"
@@ -329,7 +329,7 @@ msgstr "Új gyűjtemény…"
 msgid "Add"
 msgstr "Hozzáadás"
 
-#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:209
+#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:210
 msgid "Cancel"
 msgstr "Mégse"
 
@@ -508,7 +508,8 @@ msgstr ""
 
 #: ../src/documents.js:1353
 msgid ""
-"LibreOffice support is not available. Please contact your system administrator."
+"LibreOffice support is not available. Please contact your system "
+"administrator."
 msgstr ""
 "A LibreOffice támogatás nem áll rendelkezésre. Vegye fel a kapcsolatot a "
 "rendszergazdával."
@@ -590,22 +591,23 @@ msgstr "Keresés"
 msgid "Back"
 msgstr "Vissza"
 
-#: ../src/mainToolbar.js:155
+#. Translators: this is the menu to change view settings
+#: ../src/mainToolbar.js:156
 msgid "View Menu"
 msgstr "Nézet menü"
 
-#: ../src/mainToolbar.js:183
+#: ../src/mainToolbar.js:184
 msgid "Click on items to select them"
 msgstr "Kattintson az elemekre a kiválasztásukhoz"
 
-#: ../src/mainToolbar.js:185
+#: ../src/mainToolbar.js:186
 #, javascript-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d kiválasztva"
 msgstr[1] "%d kiválasztva"
 
-#: ../src/mainToolbar.js:269
+#: ../src/mainToolbar.js:270
 msgid "Select Items"
 msgstr "Válasszon elemeket"
 
@@ -639,7 +641,8 @@ msgstr "Dokumentumai indexelése folyamatban"
 
 #: ../src/notifications.js:224
 msgid "Some documents might not be available during this process"
-msgstr "Egyes dokumentumok lehet, hogy nem lesznek elérhetők ezen folyamat alatt"
+msgstr ""
+"Egyes dokumentumok lehet, hogy nem lesznek elérhetők ezen folyamat alatt"
 
 #. Translators: %s refers to an online account provider, e.g.
 #. "Google", or "Windows Live".
@@ -947,69 +950,67 @@ msgstr "A Könyvek nézetben gyűjteményeket hozhat létre"
 msgid "You can create collections from the Documents view"
 msgstr "A Dokumentumok nézetben gyűjteményeket hozhat létre"
 
-#. Translators: the %s's here are "Online Accounts" and "Documents folder", which are
-#. in a separate string due to markup, and should be translated only in the context of
-#. this sentence
-#: ../src/view.js:304
+#: ../src/view.js:301
 #, javascript-format
-msgid "Documents from your %s and %s will appear here."
-msgstr "Az %s és a %s található dokumentumok itt fognak megjeleni."
+msgid ""
+"Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
+"href=\"file://%s\">Documents folder</a> will appear here."
+msgstr ""
+"Az <a href=\"system-settings\">online fiókok</a> és a <a href=\"file://%s\">"
+"dokumentumok mappa</a> dokumentumai itt fognak megjelenni."
 
-#. Translators: this should be translated in the context of the
-#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
-#: ../src/view.js:308
-msgid "Online Accounts"
-msgstr "online fiókokban"
-
-#. Translators: this should be translated in the context of the
-#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
-#: ../src/view.js:313
-msgid "Documents folder"
-msgstr "Dokumentumok mappában"
-
-#: ../src/view.js:529
+#: ../src/view.js:517
 msgid "Yesterday"
 msgstr "Tegnap"
 
-#: ../src/view.js:531
+#: ../src/view.js:519
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d napja"
 msgstr[1] "%d napja"
 
-#: ../src/view.js:535
+#: ../src/view.js:523
 msgid "Last week"
 msgstr "Múlt héten"
 
-#: ../src/view.js:537
+#: ../src/view.js:525
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d hete"
 msgstr[1] "%d hete"
 
-#: ../src/view.js:541
+#: ../src/view.js:529
 msgid "Last month"
 msgstr "Múlt hónapban"
 
-#: ../src/view.js:543
+#: ../src/view.js:531
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d hónapja"
 msgstr[1] "%d hónapja"
 
-#: ../src/view.js:547
+#: ../src/view.js:535
 msgid "Last year"
 msgstr "Múlt évben"
 
-#: ../src/view.js:549
+#: ../src/view.js:537
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "%d éve"
 msgstr[1] "%d éve"
+
+#~ msgid "Documents from your %s and %s will appear here."
+#~ msgstr "Az %s és a %s található dokumentumok itt fognak megjeleni."
+
+#~ msgid "Online Accounts"
+#~ msgstr "online fiókokban"
+
+#~ msgid "Documents folder"
+#~ msgstr "Dokumentumok mappában"
 
 #~ msgid "You can add your online accounts in %s"
 #~ msgstr "Felveheti online fiókjait a %s"
@@ -1026,7 +1027,8 @@ msgstr[1] "%d éve"
 #~ msgid "Share"
 #~ msgstr "Megosztás"
 
-#~ msgid "You don't have any collections yet. Enter a new collection name above."
+#~ msgid ""
+#~ "You don't have any collections yet. Enter a new collection name above."
 #~ msgstr ""
 #~ "Még nincs egyetlen gyűjteménye sem. Adjon meg egy új gyűjteménynevet fent."
 
@@ -1047,17 +1049,18 @@ msgstr[1] "%d éve"
 #~| "<li>Allow opening full featured editor for non-trivial changes</li>"
 #~ msgid ""
 #~ "<li>View recent local and online documents</li> <li>Access your Google, "
-#~ "ownCloud or OneDrive content</li> <li>Search through documents</li> <li>See "
-#~ "new documents shared by friends</li> <li>View documents fullscreen</li> "
-#~ "<li>Print documents</li> <li>Select favorites</li> <li>Allow opening full "
-#~ "featured editor for non-trivial changes</li>"
+#~ "ownCloud or OneDrive content</li> <li>Search through documents</li> "
+#~ "<li>See new documents shared by friends</li> <li>View documents "
+#~ "fullscreen</li> <li>Print documents</li> <li>Select favorites</li> "
+#~ "<li>Allow opening full featured editor for non-trivial changes</li>"
 #~ msgstr ""
 #~ "<li>Legutóbbi helyi és online dokumentumok megjelenítése</li> <li>Google, "
-#~ "ownCloud vagy OneDrive tartalom elérése</li> <li>Keresés a dokumentumokban</"
-#~ "li> <li>Ismerősei által megosztott új dokumentumok megjelenítése</li> "
-#~ "<li>Dokumentumok megjelenítése teljes képernyőn</li> <li>Dokumentumok "
-#~ "nyomtatása</li> <li>Kedvencek kiválasztása</li> <li>A teljes felszereltségű "
-#~ "szerkesztő megnyitása nem triviális változtatásokhoz</li>"
+#~ "ownCloud vagy OneDrive tartalom elérése</li> <li>Keresés a "
+#~ "dokumentumokban</li> <li>Ismerősei által megosztott új dokumentumok "
+#~ "megjelenítése</li> <li>Dokumentumok megjelenítése teljes képernyőn</li> "
+#~ "<li>Dokumentumok nyomtatása</li> <li>Kedvencek kiválasztása</li> <li>A "
+#~ "teljes felszereltségű szerkesztő megnyitása nem triviális "
+#~ "változtatásokhoz</li>"
 
 #~ msgid "Results for “%s”"
 #~ msgstr "Találatok erre: „%s”"
