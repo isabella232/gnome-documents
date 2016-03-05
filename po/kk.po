@@ -1,15 +1,15 @@
 # Kazakh translation for gnome-documents.
 # Copyright (C) 2015 gnome-documents's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-documents package.
-# Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2013-2015.
+# Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2013-2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-07 21:10+0000\n"
-"PO-Revision-Date: 2016-02-08 11:56+0500\n"
+"POT-Creation-Date: 2016-03-05 09:10+0000\n"
+"PO-Revision-Date: 2016-03-05 15:18+0500\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
 "Language: kk\n"
@@ -326,7 +326,7 @@ msgstr "Жаңа жинақ…"
 msgid "Add"
 msgstr "Қосу"
 
-#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:209
+#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:210
 msgid "Cancel"
 msgstr "Бас тарту"
 
@@ -586,21 +586,22 @@ msgstr "Іздеу"
 msgid "Back"
 msgstr "Артқа"
 
-#: ../src/mainToolbar.js:155
+#. Translators: this is the menu to change view settings
+#: ../src/mainToolbar.js:156
 msgid "View Menu"
 msgstr "Көрініс мәзірі"
 
-#: ../src/mainToolbar.js:183
+#: ../src/mainToolbar.js:184
 msgid "Click on items to select them"
 msgstr "Бірнәрсені таңдау үшін оның үстіне шертіңіз"
 
-#: ../src/mainToolbar.js:185
+#: ../src/mainToolbar.js:186
 #, javascript-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d таңдалды"
 
-#: ../src/mainToolbar.js:269
+#: ../src/mainToolbar.js:270
 msgid "Select Items"
 msgstr "Нәрселерді таңдау"
 
@@ -941,65 +942,63 @@ msgstr "Сіз жинақтарды кітаптар көрінісінен жа
 msgid "You can create collections from the Documents view"
 msgstr "Сіз жинақтарды құжаттар көрінісінен жасай аласыз"
 
-#. Translators: the %s's here are "Online Accounts" and "Documents folder", which are
-#. in a separate string due to markup, and should be translated only in the context of
-#. this sentence
-#: ../src/view.js:304
+#: ../src/view.js:301
 #, javascript-format
-msgid "Documents from your %s and %s will appear here."
-msgstr "Сіздің %s және %s ішіндегі құжаттар осында көрсетіледі."
+msgid ""
+"Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
+"href=\"file://%s\">Documents folder</a> will appear here."
+msgstr ""
+"Сіздің <a href=\"system-settings\">Желілік тіркелгілер</a> және <a href="
+"\"file://%s\">Құжаттар бумасы</a> ішінен құжаттар осында көрсетілетін болады."
 
-#. Translators: this should be translated in the context of the
-#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
-#: ../src/view.js:308
-msgid "Online Accounts"
-msgstr "Желілік тіркелгілер"
-
-#. Translators: this should be translated in the context of the
-#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
-#: ../src/view.js:313
-msgid "Documents folder"
-msgstr "Құжаттар бумасы"
-
-#: ../src/view.js:529
+#: ../src/view.js:517
 msgid "Yesterday"
 msgstr "Кеше"
 
-#: ../src/view.js:531
+#: ../src/view.js:519
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d күн бұрын"
 
-#: ../src/view.js:535
+#: ../src/view.js:523
 msgid "Last week"
 msgstr "Өткен апта"
 
-#: ../src/view.js:537
+#: ../src/view.js:525
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d апта бұрын"
 
-#: ../src/view.js:541
+#: ../src/view.js:529
 msgid "Last month"
 msgstr "Өткен ай"
 
-#: ../src/view.js:543
+#: ../src/view.js:531
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d ай бұрын"
 
-#: ../src/view.js:547
+#: ../src/view.js:535
 msgid "Last year"
 msgstr "Былтыр"
 
-#: ../src/view.js:549
+#: ../src/view.js:537
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "%d жыл бұрын"
+
+#~ msgid "Documents from your %s and %s will appear here."
+#~ msgstr "Сіздің %s және %s ішіндегі құжаттар осында көрсетіледі."
+
+#~ msgid "Online Accounts"
+#~ msgstr "Желілік тіркелгілер"
+
+#~ msgid "Documents folder"
+#~ msgstr "Құжаттар бумасы"
 
 #~ msgid "You can add your online accounts in %s"
 #~ msgstr "Сіз желідегі тіркелгілерді %s ішінен қоса аласыз"
