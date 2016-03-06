@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents gnome-3-6\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-04 09:09+0000\n"
-"PO-Revision-Date: 2016-02-04 18:04+0100\n"
+"POT-Creation-Date: 2016-03-06 09:05+0000\n"
+"PO-Revision-Date: 2016-03-06 21:39+0100\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
@@ -46,7 +46,7 @@ msgstr "A permet di:"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:5
 msgid "View recent e-books"
-msgstr "Viodi e-book recents"
+msgstr "Viodi e-book resints"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:6
 msgid "Search through e-books"
@@ -152,7 +152,7 @@ msgstr ""
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:5
 msgid "View recent local and online documents"
-msgstr "Visualizâ documents recents locâi e online"
+msgstr "Visualizâ documents locâi e online resints"
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:6
 msgid "Access your Google, ownCloud or OneDrive content"
@@ -326,7 +326,7 @@ msgstr "Gnove colezion..."
 msgid "Add"
 msgstr "Zonte"
 
-#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:209
+#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:210
 msgid "Cancel"
 msgstr "Anule"
 
@@ -587,22 +587,23 @@ msgstr "Cîr"
 msgid "Back"
 msgstr "Indaûr"
 
-#: ../src/mainToolbar.js:155
+#. Translators: this is the menu to change view settings
+#: ../src/mainToolbar.js:156
 msgid "View Menu"
 msgstr "Menù viodude"
 
-#: ../src/mainToolbar.js:183
+#: ../src/mainToolbar.js:184
 msgid "Click on items to select them"
 msgstr "Fâs clic sui elements par selezionaju"
 
-#: ../src/mainToolbar.js:185
+#: ../src/mainToolbar.js:186
 #, javascript-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d selezionât"
 msgstr[1] "%d selezionâts"
 
-#: ../src/mainToolbar.js:269
+#: ../src/mainToolbar.js:270
 msgid "Select Items"
 msgstr "Selezione Elements"
 
@@ -945,69 +946,67 @@ msgstr "Tu puedis creâ colezions da le videade Libris"
 msgid "You can create collections from the Documents view"
 msgstr "Tu puedis creâ colezions da le videade Documents"
 
-#. Translators: the %s's here are "Online Accounts" and "Documents folder", which are
-#. in a separate string due to markup, and should be translated only in the context of
-#. this sentence
-#: ../src/view.js:304
+#: ../src/view.js:301
 #, javascript-format
-msgid "Documents from your %s and %s will appear here."
-msgstr "I documents di %s e %s a vegnaran fûr chi."
+msgid ""
+"Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
+"href=\"file://%s\">Documents folder</a> will appear here."
+msgstr ""
+"I documents dai tiei <a href=\"system-settings\">Account Online</a> e de <a "
+"href=\"file://%s\">cartele Documents</a> a vegnaran fûr chi."
 
-#. Translators: this should be translated in the context of the
-#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
-#: ../src/view.js:308
-msgid "Online Accounts"
-msgstr "Account online"
-
-#. Translators: this should be translated in the context of the
-#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
-#: ../src/view.js:313
-msgid "Documents folder"
-msgstr "Cartele Documents"
-
-#: ../src/view.js:529
+#: ../src/view.js:517
 msgid "Yesterday"
 msgstr "Îr"
 
-#: ../src/view.js:531
+#: ../src/view.js:519
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d dì indaûr"
 msgstr[1] "%d dîs indaûr"
 
-#: ../src/view.js:535
+#: ../src/view.js:523
 msgid "Last week"
 msgstr "Ultime setemane"
 
-#: ../src/view.js:537
+#: ../src/view.js:525
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d setemane indaûr"
 msgstr[1] "%d setemanis indaûr"
 
-#: ../src/view.js:541
+#: ../src/view.js:529
 msgid "Last month"
 msgstr "Ultin mês"
 
-#: ../src/view.js:543
+#: ../src/view.js:531
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d mês indaûr"
 msgstr[1] "%d mês indaûr"
 
-#: ../src/view.js:547
+#: ../src/view.js:535
 msgid "Last year"
 msgstr "Ultin an"
 
-#: ../src/view.js:549
+#: ../src/view.js:537
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "%d an indaûr"
 msgstr[1] "%d agns indaûr"
+
+#~ msgid "Documents from your %s and %s will appear here."
+#~ msgstr "I documents di %s e %s a vegnaran fûr chi."
+
+#~ msgid "Online Accounts"
+#~ msgstr "Account online"
+
+#~ msgid "Documents folder"
+#~ msgstr "Cartele Documents"
 
 #~ msgid "You can add your online accounts in %s"
 #~ msgstr "Tu puedis giontâ i toi account online in %s"
