@@ -336,14 +336,6 @@ const Application = new Lang.Class({
             }));
     },
 
-    _initAppMenu: function() {
-        let builder = new Gtk.Builder();
-        builder.add_from_resource('/org/gnome/Documents/ui/app-menu.ui');
-
-        let menu = builder.get_object('app-menu');
-        this.set_app_menu(menu);
-    },
-
     _createMiners: function(callback) {
         let count = 3;
 
@@ -648,7 +640,6 @@ const Application = new Lang.Class({
         ];
 
         this._initActions();
-        this._initAppMenu();
 
         if (!this.isBooks)
             this._initGettingStarted();
