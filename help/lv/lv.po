@@ -5,13 +5,13 @@
 # Dāgs Ādams Grīnbergs <pepels1ns@gmail.com>, 2011.
 # Matīss Jānis Āboltiņš http://www.mja.lv/, 2011.
 # Viesturs Ružāns <viesty@exs.lv>, 2011.
-# Rūdofls Mazurs <rudolfs.mazurs@gmail.com>, 2011, 2012, 2013, 2014.
+# Rūdofls Mazurs <rudolfs.mazurs@gmail.com>, 2011, 2012, 2013, 2014, 2016.
 # Peteris Krisjanis <pecisk@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-user-docs master\n"
-"POT-Creation-Date: 2014-03-23 07:53+0000\n"
-"PO-Revision-Date: 2014-03-23 17:42+0200\n"
+"POT-Creation-Date: 2016-03-12 21:08+0000\n"
+"PO-Revision-Date: 2016-03-13 11:39+0200\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "Language: lv\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 2.0\n"
 
 #. (itstool) path: p/link
 #: C/legal.xml:3
@@ -72,7 +72,7 @@ msgstr "Michael Hill"
 #. (itstool) path: credit/name
 #: C/collections.page:22 C/filter.page:17 C/formats.page:17 C/index.page:24
 #: C/info.page:22 C/prob-no-show.page:22 C/prob-previews.page:22
-#: C/viewgrid.page:22 C/view.page:22
+#: C/viewgrid.page:22 C/view.page:22 C/view-add.page:13
 msgid "Ekaterina Gerasimova"
 msgstr "Ekaterina Gerasimova"
 
@@ -85,7 +85,6 @@ msgstr "2014"
 
 #. (itstool) path: info/desc
 #: C/collections.page:29
-#| msgid "Group related documents in a collection."
 msgid "Group related documents together to help sort them."
 msgstr "Apvienot saistītus dokumentus kopā, lai tos varētu vieglāk kārtot."
 
@@ -96,13 +95,6 @@ msgstr "Izveidot dokumentu kolekcijas"
 
 #. (itstool) path: page/p
 #: C/collections.page:45
-#| msgid ""
-#| "<app>Documents</app> lets you put together documents of different types "
-#| "in one place called a <em>collection</em>. If you have documents that are "
-#| "related, you can group them to make them easier to find. For example, if "
-#| "you had a business trip where you made a presentation, your slides, your "
-#| "flight itinerary (a PDF file), your budget spreadsheet, and other hybrid "
-#| "PDF/ODF documents, can be grouped in one collection."
 msgid ""
 "You can put together documents of different types in one place which is "
 "called a <em>collection</em>. If you have documents that are related, you "
@@ -111,12 +103,12 @@ msgid ""
 "flight itinerary, your budget spreadsheet, and other word processor and PDF "
 "documents can be grouped in one collection."
 msgstr ""
-"Jūs varat salikt kopā dažādus atšķirīgu veidu dokumentus "
-"vienā vietā, ko sauc par <gui>Kolekciju</gui>. Ja jums ir saistīti "
-"dokumenti, jūs varat tos sagrupēt, lai vēlāk būtu viegli atrast vajadzīgo. "
-"Piemēram, ja devāties komandējumā ar prezentāciju, jūs varat sagrupēt "
-"lidmašīnas e-biļetes PDF datni, komandējuma izmaksu tāmes izklājlapu "
-"un citus PDF vai teksta dokumentus vienā kolekcijā."
+"Jūs varat salikt kopā dažādus atšķirīgu veidu dokumentus vienā vietā, ko "
+"sauc par <gui>Kolekciju</gui>. Ja jums ir saistīti dokumenti, jūs varat tos "
+"sagrupēt, lai vēlāk būtu viegli atrast vajadzīgo. Piemēram, ja devāties "
+"komandējumā ar prezentāciju, jūs varat sagrupēt lidmašīnas e-biļetes PDF "
+"datni, komandējuma izmaksu tāmes izklājlapu un citus PDF vai teksta "
+"dokumentus vienā kolekcijā."
 
 #. (itstool) path: steps/title
 #: C/collections.page:53
@@ -125,13 +117,11 @@ msgstr "Lai izveidotu vai pievienotu kolekciju:"
 
 #. (itstool) path: item/p
 #: C/collections.page:55 C/collections.page:73 C/print.page:38
-#| msgid "Click the <gui>✓</gui> button."
 msgid "Press the <gui>✓</gui> button."
 msgstr "Spiediet <gui>✓</gui> pogu."
 
 #. (itstool) path: item/p
 #: C/collections.page:58
-#| msgid "In selection mode, check the document to be printed."
 msgid "In selection mode, select related documents."
 msgstr "Izvēles režīmā atzīmējiet saistītus dokumentus."
 
@@ -142,19 +132,14 @@ msgstr "Spiediet <gui>Pievienot kolekcijai</gui>."
 
 #. (itstool) path: item/p
 #: C/collections.page:64
-#| msgid ""
-#| "In the collection list, click <gui>Add</gui> and type a new collection "
-#| "name, or select an existing collection. The selected documents will be "
-#| "added to the collection."
 msgid ""
 "In the collection list, press on <gui>Create new collection</gui> twice and "
 "type a new collection name, or select an existing collection. The selected "
 "documents will be added to the collection."
 msgstr ""
 "Kolekciju sarakstā divas reizes spiediet <gui>Uzveidot jaunu kolekciju</gui> "
-"un rakstiet jaunu "
-"kolekcijas nosaukumu, vai izvēlieties esošu kolekciju. Izvēlētais dokuments "
-"tiks pievienots kolekcijai."
+"un rakstiet jaunu kolekcijas nosaukumu, vai izvēlieties esošu kolekciju. "
+"Izvēlētais dokuments tiks pievienots kolekcijai."
 
 #. (itstool) path: steps/title
 #: C/collections.page:71
@@ -163,32 +148,17 @@ msgstr "Lai dzēstu kolekciju:"
 
 #. (itstool) path: item/p
 #: C/collections.page:76
-#| msgid "In selection mode, check the collection to be deleted."
 msgid "In selection mode, select the collection that you want to delete."
 msgstr "Izvēles režīmā atzīmējiet kolekcijas, kuras vēlaties dzēst."
 
 #. (itstool) path: item/p
 #: C/collections.page:79
-#| msgid ""
-#| "Click the Trash button in the button bar. The collection will be deleted, "
-#| "leaving the original documents."
 msgid ""
 "Press <gui style=\"button\">Delete</gui>. The collection will be deleted, "
 "leaving the original documents as they are."
 msgstr ""
 "Spiediet <gui style=\"button\">Dzēst</gui>. Kolekcija tiks izdzēsta, "
 "neaiztiekot oriģinālos dokumentus."
-
-#. (itstool) path: media
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/filter.page:30 C/search.page:53
-msgctxt "_"
-msgid "external ref='media/go-down.png' md5='e8c16f5ab9ed933f4a537b740506f4d4'"
-msgstr ""
-"external ref='media/go-down.png' md5='e8c16f5ab9ed933f4a537b740506f4d4'"
 
 #. (itstool) path: info/desc
 #: C/filter.page:24
@@ -200,24 +170,32 @@ msgstr "Izvēlieties, kurus dokumentus attēlot."
 msgid "Filter documents"
 msgstr "Filtrēt dokumentu"
 
+#. (itstool) path: media/span
+#: C/filter.page:31 C/search.page:54
+msgid "down"
+msgstr "lejup"
+
 #. (itstool) path: page/p
 #: C/filter.page:29
+#| msgid ""
+#| "<link xref=\"search\">Open the search</link> and click the <media type="
+#| "\"image\" src=\"media/go-down.png\">down</media> button next to the "
+#| "search bar to limit the scope of the search in these categories:"
 msgid ""
-"<link xref=\"search\">Open the search</link> and click the <media type="
-"\"image\" src=\"media/go-down.png\">down</media> button next to the search "
-"bar to limit the scope of the search in these categories:"
+"<link xref=\"search\">Open the search</link> and click the <_:media-1/> "
+"button next to the search bar to limit the scope of the search in these "
+"categories:"
 msgstr ""
-"<link xref=\"search\">Atveriet meklēšanu</link> un spiediet <media "
-"type=\"image\" src=\"figures/go-down.png\">uz leju vērsto</"
-"media> pogu, lai ierobežotu meklēšanas tvērumu uz šīm kategorijām:"
+"<link xref=\"search\">Atveriet meklēšanu</link> un spiediet <_:media-1/> pogu "
+"pie meklēšanas joslas, lai ierobežotu meklēšanas tvērumu uz šīm kategorijām:"
 
 #. (itstool) path: item/title
-#: C/filter.page:35
+#: C/filter.page:36
 msgid "Sources"
 msgstr "Avoti"
 
 #. (itstool) path: item/p
-#: C/filter.page:36
+#: C/filter.page:37
 msgid ""
 "Chose to search documents that are <gui>Local</gui>, accessed through <link "
 "href=\"help:gnome-help/online-accounts\">online accounts</link> with "
@@ -230,15 +208,12 @@ msgstr ""
 "gui>."
 
 #. (itstool) path: item/title
-#: C/filter.page:42
+#: C/filter.page:43
 msgid "Type"
 msgstr "Tips"
 
 #. (itstool) path: item/p
-#: C/filter.page:43
-#| msgid ""
-#| "<em>Type</em>: Collections, PDF Documents, Presentations, Spreadsheets, "
-#| "Text Documents, or All."
+#: C/filter.page:44
 msgid ""
 "Search only documents that are <gui>Collections</gui>, <gui>PDF Documents</"
 "gui>, <gui>Presentations</gui>, <gui>Spreadsheets</gui>, <gui>Text "
@@ -249,12 +224,12 @@ msgstr ""
 "dokumenti</gui> vai <gui>Visi</gui>."
 
 #. (itstool) path: item/title
-#: C/filter.page:48
+#: C/filter.page:49
 msgid "Match"
 msgstr "Atbilst"
 
 #. (itstool) path: item/p
-#: C/filter.page:49
+#: C/filter.page:50
 msgid ""
 "Choose to search only the <gui>Title</gui>, the <gui>Author</gui>, or "
 "<gui>All</gui>."
@@ -263,16 +238,16 @@ msgstr ""
 "<gui>Visu</gui>."
 
 #. (itstool) path: note/p
-#: C/filter.page:55
+#: C/filter.page:56
 msgid ""
 "In order for <gui>Google</gui>, <gui>OneDrive</gui> or <gui>ownCloud</gui> "
 "to appear in the filter list, it is necessary to configure Google, ownCloud "
 "or Windows Live as an <link href=\"help:gnome-help/accounts-add\">online "
 "account</link>."
 msgstr ""
-"Lai filtru sarakstā parādītos <gui>Google</gui>, <gui>OneDrive</gui> vai <gui>"
-"ownCloud</gui>, Google, ownCloud vai Windows Live ir jākonfigurē kā <link "
-"xref=\"help:gnome-help/accounts-add\">tiešsaistes konti</link>."
+"Lai filtru sarakstā parādītos <gui>Google</gui>, <gui>OneDrive</gui> vai "
+"<gui>ownCloud</gui>, Google, ownCloud vai Windows Live ir jākonfigurē kā "
+"<link xref=\"help:gnome-help/accounts-add\">tiešsaistes konti</link>."
 
 #. (itstool) path: info/desc
 #: C/formats.page:24
@@ -286,10 +261,6 @@ msgstr "Atbalstītie formāti"
 
 #. (itstool) path: page/p
 #: C/formats.page:31
-#| msgid ""
-#| "<app>Documents</app> displays PDF, DVI, XPS, PostScript and the formats "
-#| "supported by <app>Document Viewer</app> (Evince), <app>Microsoft Office</"
-#| "app>, <app>LibreOffice</app> and <app>Google Docs</app>."
 msgid ""
 "<app>Documents</app> displays PDF, DVI, XPS, PostScript and the formats "
 "supported by <app href=\"help:evince\">Document Viewer</app>, <app>Microsoft "
@@ -297,27 +268,22 @@ msgid ""
 msgstr ""
 "<app>Dokumenti</app> attēlo PDF, DVI, XPS, PostScript un formātus, ko "
 "atbalsta <app href=\"help:evince\">Dokumentu skatītājs</app>, <app>Microsoft "
-"Office</"
-"app>, <app>LibreOffice</app> un <app>Google Docs</app>."
+"Office</app>, <app>LibreOffice</app> un <app>Google Docs</app>."
 
 #. (itstool) path: info/title
 #: C/index.page:7
-#| msgid "Documents"
 msgctxt "link"
 msgid "Documents"
 msgstr "Dokumenti"
 
 #. (itstool) path: info/title
 #: C/index.page:8
-#| msgid "Documents"
 msgctxt "text"
 msgid "Documents"
 msgstr "Dokumenti"
 
 #. (itstool) path: info/desc
 #: C/index.page:31
-#| msgid ""
-#| "Organize the documents stored locally on your computer or created online."
 msgid ""
 "Organize, view and edit the documents that are stored locally on your "
 "computer or online."
@@ -332,10 +298,6 @@ msgstr "<_:media-1/> Dokumenti"
 
 #. (itstool) path: page/p
 #: C/index.page:50
-#| msgid ""
-#| "<app>Documents</app> is a GNOME application that lets you display, "
-#| "organize, and print the documents on your computer or those created "
-#| "remotely using <em>Google Docs</em> or <em>SkyDrive</em>."
 msgid ""
 "<app>Documents</app> is a GNOME application that lets you display, organize "
 "and print the documents on your computer or those created remotely using "
@@ -343,18 +305,16 @@ msgid ""
 msgstr ""
 "<app>Dokumenti</app> ir GNOME lietotne, kas ļauj attēlot, organizēt un "
 "drukāt dokumentus, kas atrodas uz jūsu datora vai tos, kas veidoti "
-"attālināti, izmantojot <em>Google Docs</em>, <em>ownCloud</em> vai <em>"
-"OneDrive</em>."
+"attālināti, izmantojot <em>Google Docs</em>, <em>ownCloud</em> vai "
+"<em>OneDrive</em>."
 
 #. (itstool) path: section/title
 #: C/index.page:55
-#| msgid "View, Sort and Search"
 msgid "View, sort and search"
 msgstr "Skatīt, kārtot un meklēt"
 
 #. (itstool) path: section/title
 #: C/index.page:59
-#| msgid "Select, Organize, Print"
 msgid "Select, organize and print"
 msgstr "Izvēlēties, organizēt, drukāt"
 
@@ -376,13 +336,14 @@ msgstr "Atrast informāciju par dokumentiem"
 #. (itstool) path: page/p
 #: C/info.page:42
 #| msgid ""
-#| "When a document is created, it comes with <em>metadata</em>. "
+#| "When a document is created, it contains with <em>metadata</em>. "
 #| "<app>Documents</app> displays the following metadata for each document:"
 msgid ""
-"When a document is created, it contains with <em>metadata</em>. "
-"<app>Documents</app> displays the following metadata for each document:"
+"When a document is created, it contains <em>metadata</em>. <app>Documents</"
+"app> displays the following metadata for each document:"
 msgstr ""
-"Kad dokuments ir izveidots, tam ir <em>metadati</em>. <app>Dokumenti</app> "
+"Kad dokuments ir izveidots, tas satur <em>metadatus</em>. <app>Dokumenti</app>"
+" "
 "katram dokumentam attēlo šos metadatus:"
 
 #. (itstool) path: item/p
@@ -392,7 +353,6 @@ msgstr "Nosaukums — dokumenta nosaukums, ko var rediģēt;"
 
 #. (itstool) path: item/p
 #: C/info.page:50
-#| msgid "Source: the path of the folder containing the document;"
 msgid "Source: the path to the folder containing the document;"
 msgstr "Avots — ceļš uz mapi, kurā ir dokuments;"
 
@@ -413,7 +373,6 @@ msgstr "Lai redzētu dokumenta īpašības:"
 
 #. (itstool) path: item/p
 #: C/info.page:63
-#| msgid "Click the <gui>Check</gui> button to switch to selection mode."
 msgid "Click the check button to switch to selection mode."
 msgstr "Spiediet pogu ar ķeksi, lai pārslēgtos uz izvēles režīmu."
 
@@ -494,7 +453,6 @@ msgstr "Jūsu lokālie dokumenti neparādās <gui>Dokumentos</gui>."
 
 #. (itstool) path: page/title
 #: C/prob-no-show.page:32
-#| msgid "My documents cannot be seen"
 msgid "My documents are not shown"
 msgstr "Mani dokumenti netiek rādīti"
 
@@ -505,8 +463,8 @@ msgid ""
 "and office suite documents such as spreadsheets and word processor "
 "documents. It will not show text documents and photos."
 msgstr ""
-"<app>Dokumenti</app> atbalsta tikai noteiktus dokumentu veidus, piemēram, PDF "
-"un biroja programmatūras dokumentus, piemēram, izklājlapas un teksta "
+"<app>Dokumenti</app> atbalsta tikai noteiktus dokumentu veidus, piemēram, "
+"PDF un biroja programmatūras dokumentus, piemēram, izklājlapas un teksta "
 "redaktora dokumentus. Tas nerādīs teksta dokumentus un fotogrāfijas."
 
 #. (itstool) path: page/p
@@ -517,18 +475,12 @@ msgid ""
 "inside folders that are in those directories. Documents that are in other "
 "places on your computer will not be shown."
 msgstr ""
-"Lai lokālie dokumenti parādītos <app>Dokumentos</app>, tiem jāatrodas mapēs <"
-"file>Dokumenti</file> vai <file>Lejupielādes</file>, vai arī mapēs, kas ir "
+"Lai lokālie dokumenti parādītos <app>Dokumentos</app>, tiem jāatrodas mapēs "
+"<file>Dokumenti</file> vai <file>Lejupielādes</file>, vai arī mapēs, kas ir "
 "tajās direktorijās. Dokumenti, kas ir citās datora vietās, netiks rādīti."
 
 #. (itstool) path: page/p
 #: C/prob-no-show.page:55
-#| msgid ""
-#| "If your documents fail to display in <app>Documents</app>, <app>Tracker</"
-#| "app> may not be running or properly configured. Make sure Tracker is "
-#| "running in your session. The default configuration, set to index files in "
-#| "your home directory (non-recursively) and XDG folders (recursively), "
-#| "should be adequate. Ensure that your documents are in one of these paths."
 msgid ""
 "If your documents fail to display in <app>Documents</app>, <app>Tracker</"
 "app> may not be running or properly configured. Make sure <app>Tracker</app> "
@@ -539,13 +491,11 @@ msgstr ""
 "Ja <app>Dokumentu</app> lietotnē neparādās viens vai vairāki dokumenti, "
 "iespējams, ka <app>Tracker</app> nedarbojas vai nav pareizi konfigurēts. "
 "Pārliecinieties, ka <app>Tracker</app> darbojas. Pēc noklusējuma "
-"iestatījumiem tam "
-"vajadzētu veikt indeksēšanu jūsu mājas mapē (bet ne tās apakšmapēs) un XDG "
-"mapēs (ar apakšmapēm)."
+"iestatījumiem tam vajadzētu veikt indeksēšanu jūsu mājas mapē (bet ne tās "
+"apakšmapēs) un XDG mapēs (ar apakšmapēm)."
 
 #. (itstool) path: info/desc
 #: C/prob-previews.page:29
-#| msgid "You can only preview files stored locally."
 msgid "You can only preview files stored locally, on Google Drive or ownCloud."
 msgstr ""
 "Jūs varat priekšskatīt tikai datnes, kas saglabātas lokāli, Google Drive vai "
@@ -553,17 +503,11 @@ msgstr ""
 
 #. (itstool) path: page/title
 #: C/prob-previews.page:33
-#| msgid "Why don't some files have previews?"
 msgid "Why do some files not have previews?"
 msgstr "Kāpēc dažām datnēm nav priekšskatījumu?"
 
 #. (itstool) path: page/p
 #: C/prob-previews.page:41
-#| msgid ""
-#| "When you open <app>Documents</app>, a preview thumbnail is displayed for "
-#| "documents that are stored locally. Those stored on a remote server like "
-#| "<em>Google Docs</em> or <em>SkyDrive</em> show as missing (or blank) "
-#| "preview thumbnails."
 msgid ""
 "When you open <app>Documents</app>, a preview thumbnail is displayed for "
 "documents that are stored locally, on <em>Google Drive</em> or <em>ownCloud</"
@@ -571,37 +515,29 @@ msgid ""
 "thumbnails."
 msgstr ""
 "Atverot <app>Dokumentus</app>, lokāli saglabātajiem, <em>Google Drive</em> "
-"vai <em>ownCloud</em> dokumentiem tiek "
-"parādīts priekšskatījuma sīktēls. Uz <em>SkyDrive</em> saglabātajiem "
-"dokumentiem rāda "
-"trūkstošus vai tukšus priekšskatījuma sīktēlus."
+"vai <em>ownCloud</em> dokumentiem tiek parādīts priekšskatījuma sīktēls. Uz "
+"<em>SkyDrive</em> saglabātajiem dokumentiem rāda trūkstošus vai tukšus "
+"priekšskatījuma sīktēlus."
 
 #. (itstool) path: page/p
 #: C/prob-previews.page:46
-#| msgid ""
-#| "If you download a <em>Google Docs</em> or <em>SkyDrive</em> document to "
-#| "local storage, a thumbnail will be generated."
 msgid ""
 "If you download a <em>OneDrive</em> document to local storage through the "
 "web interface, a thumbnail will be generated."
 msgstr ""
-"Ja lejupielādējat  <em>OneDrive</em> dokumentu uz lokālu krātuvi caur tīmekļa "
-"saskarni, tiks ģenerēts sīktēls."
+"Ja lejupielādējat  <em>OneDrive</em> dokumentu uz lokālu krātuvi caur "
+"tīmekļa saskarni, tiks ģenerēts sīktēls."
 
 #. (itstool) path: note/p
 #: C/prob-previews.page:50
-#| msgid ""
-#| "The local copy of a document downloaded from <em>Google Docs</em> or "
-#| "<em>SkyDrive</em> will lose its ability to be updated online. If you want "
-#| "to continue to edit it online, it is better not to download it."
 msgid ""
 "The local copy of a document downloaded from an online account will lose its "
 "ability to be updated online. If you want to continue to edit it online, it "
 "is better not to download it."
 msgstr ""
-"No tiešsaistes kontiem lejupielādētā, lokāli "
-"saglabātā dokumenta kopija zaudēs iespēju tikt atjauninātai tiešsaistē. Ja "
-"vēlaties turpināt to rediģēt tiešsaistē, to labāk nelejupielādēt."
+"No tiešsaistes kontiem lejupielādētā, lokāli saglabātā dokumenta kopija "
+"zaudēs iespēju tikt atjauninātai tiešsaistē. Ja vēlaties turpināt to rediģēt "
+"tiešsaistē, to labāk nelejupielādēt."
 
 #. (itstool) path: info/desc
 #: C/search.page:23
@@ -638,13 +574,16 @@ msgstr ""
 
 #. (itstool) path: note/p
 #: C/search.page:52
+#| msgid ""
+#| "You can restrict or filter the search results by clicking the <media type="
+#| "\"image\" src=\"media/go-down.png\">down</media> button and selecting "
+#| "various <link xref=\"filter\">filters</link>."
 msgid ""
-"You can restrict or filter the search results by clicking the <media type="
-"\"image\" src=\"media/go-down.png\">down</media> button and selecting "
-"various <link xref=\"filter\">filters</link>."
+"You can restrict or filter the search results by clicking the <_:media-1/> "
+"button and selecting various <link xref=\"filter\">filters</link>."
 msgstr ""
-"Jūs varat ierobežot vai filtrēt meklēšanas rezultātus, spiežot <media type="
-"\"image\" src=\"media/go-down.png\">uz leju vērsto</media> pogu un "
+"Jūs varat ierobežot vai filtrēt meklēšanas rezultātus, spiežot <_:media-1/> "
+"pogu un "
 "izvēloties dažādus <link xref=\"filter\">filtrus</link>."
 
 #. (itstool) path: info/desc
@@ -673,10 +612,6 @@ msgstr "Spiediet saraksta pogu loga augšējā labajā stūrī."
 
 #. (itstool) path: note/p
 #: C/viewgrid.page:51
-#| msgid ""
-#| "List view has columns displaying the document type and date modified, and "
-#| "whether it's stored locally, or in <app>Google Docs</app> or "
-#| "<em>SkyDrive</em>."
 msgid ""
 "List view has columns displaying the document type and date modified, and "
 "whether it's stored locally or remotely in one of your online accounts."
@@ -690,168 +625,138 @@ msgid ""
 "Click the grid button in the top-right corner of the window to return to the "
 "grid view."
 msgstr ""
-"Spiediet režģa pogu loga augšējā labajā stūrī, lai atgrieztos pie režģa skata."
+"Spiediet režģa pogu loga augšējā labajā stūrī, lai atgrieztos pie režģa "
+"skata."
 
 #. (itstool) path: info/desc
 #: C/view.page:29
-#| msgid "Print documents that are stored locally or online."
 msgid "Open documents that are stored locally or online."
 msgstr "Atvērt lokāli saglabātos vai tiešsaistes dokumentus."
 
 #. (itstool) path: page/title
 #: C/view.page:32
-#| msgid "Filter documents"
 msgid "View your documents"
 msgstr "Skatīt savus dokumentu"
 
 #. (itstool) path: page/p
 #: C/view.page:42
+#| msgid ""
+#| "When you open <app>Documents</app>, all of your documents, those stored "
+#| "locally as well as online, are displayed as thumbnails."
 msgid ""
-"When you open <app>Documents</app>, all of your documents, those stored "
-"locally as well as online, are displayed as thumbnails."
+"When you open <app>Documents</app>, documents which are stored locally in "
+"one of the standard folders such as <file>Documents</file> or "
+"<file>Downloads</file> and in one of your online accounts, are displayed as "
+"thumbnails."
 msgstr ""
-"Atverot <app>Dokumentus</app>, visi jūsu dokumenti tiks attēloti kā sīktēli, "
-"gan lokāli saglabātie, gan tiešsaistē esošie."
+"Atverot <app>Dokumentus</app>, lokāli saglabātie dokumenti kādā no standarta "
+"mapēm, piemēram <file>Dokumenti</file> vai <file>Lejupielādes</file>, un "
+"tiešsaistes kontos esošie, tiks attēloti kā sīktēli."
 
 #. (itstool) path: note/p
-#: C/view.page:46
+#: C/view.page:48
 msgid ""
 "To see documents from your online accounts, it is necessary to <link href="
 "\"help:gnome-help/accounts-add\">set up the accounts</link>."
 msgstr ""
-"Lai skatītu dokumentus no saviem tiešsaistes kontiem, <link href="
-"\"help:gnome-help/accounts-add\">tie ir jāiestata</link>."
+"Lai skatītu dokumentus no saviem tiešsaistes kontiem, <link href=\"help:"
+"gnome-help/accounts-add\">tie ir jāiestata</link>."
 
 #. (itstool) path: page/p
-#: C/view.page:50
-#| msgid "To view the contents of a document:"
+#: C/view.page:52
 msgid "To view the contents of a document, press on the thumbnail."
 msgstr "Lai skatītu dokumenta saturu, spiediet uz sīktēla."
 
 #. (itstool) path: page/p
-#: C/view.page:52
-#| msgid "To exit the document, click the back arrow button."
+#: C/view.page:54
 msgid ""
 "To exit the document, click the back arrow button in the top-left of the "
 "window."
 msgstr ""
-"Lai izietu no dokumenta, spiediet atpakaļ bultiņas pogu loga augšējā kreisajā "
-"pusē."
+"Lai izietu no dokumenta, spiediet atpakaļ bultiņas pogu loga augšējā "
+"kreisajā pusē."
 
-#~ msgid "In selection mode, check the documents to be collected."
-#~ msgstr "Izvēles režīmā atzīmējiet dokumentus, ko likt vienā kolekcijā."
+#. (itstool) path: credit/years
+#: C/view-add.page:15
+msgid "2014–2015"
+msgstr "2014–2015"
 
-#~ msgid "Click the <gui>+</gui> button in the button bar."
-#~ msgstr "Spiediet pogu <gui>+</gui> pogu joslā."
+#. (itstool) path: info/desc
+#: C/view-add.page:20
+msgid ""
+"Add extra directories to those which are already searched by <app>Documents</"
+"app>."
+msgstr ""
+"Pievienojiet papildu direktorijas tām, kurās jau meklē <app>Dokumenti</app>."
 
-#~ msgid ""
-#~ "Collections do not behave like folders and their hierarchy: <em>you "
-#~ "cannot put collections inside collections.</em>"
-#~ msgstr ""
-#~ "Kolekcijas neuzvedas kā mapes un to hierarhijas — <em>kolekcijas nevar "
-#~ "ielikt kolekcijās</em>."
+#. (itstool) path: page/title
+#: C/view-add.page:25
+msgid "Add custom directories"
+msgstr "Pievienot pielāgotās direktorijas"
 
-#~ msgid "<em>Sources</em>: Local, Google, SkyDrive, or All."
-#~ msgstr "<em>Avoti</em> — lokālie, Google, SkyDrive vai visi."
+#. (itstool) path: page/p
+#: C/view-add.page:27
+msgid ""
+"<app>Documents</app> normally shows only documents that are in standard "
+"folders such as <file>Documents</file> or <file>Downloads</file>. You can "
+"add extra folders that you want to use from the <app>Search</app> preference "
+"panel. You may want to do this if you keep some of your documents in a non-"
+"standard location such as another folder on your computer or on an external "
+"hard disk."
+msgstr ""
+"<app>Dokumenti</app> parasti rāda tikai dokumentus, kas ir standarta mapēs, "
+"piemēram <file>Dokumenti</file> vai <file>Lejupielādes</file>. Jūs varat "
+"pievienot papildu mapes, ko vēlaties izmatot no <app>Meklēšanas</app> "
+"iestatījumu paneļa. Tas noder, ja glabājat savus dokumentus nestandarta "
+"vietās, piemēram, citās mapēs vai ārējā cietā diskā."
 
-#~ msgid "Title, Author, or All."
-#~ msgstr "Nosaukums, autors vai visi."
+#. (itstool) path: item/p
+#: C/view-add.page:36
+msgid ""
+"Open the <gui href=\"help:gnome-help/shell-terminology\">Activities</gui> "
+"overview and start typing <gui>Search</gui>."
+msgstr ""
+"Atveriet <gui href=\"help:gnome-help/shell-terminology\">Aktivitāšu</gui> "
+"pārskatu un sāciet rakstīt <gui>Meklēt</gui>."
 
-#~ msgid "Formats supported"
-#~ msgstr "Atbalstītie formāti"
+#. (itstool) path: item/p
+#: C/view-add.page:41
+#| msgid "Click the <gui>+</gui> button in the button bar."
+msgid "Click on <gui>Search</gui> to open the panel."
+msgstr "Spiediet pogu <gui>Meklēt</gui>, lai atvērtu paneli."
 
-#~ msgid "Questions"
-#~ msgstr "Jautājumi"
+#. (itstool) path: item/p
+#: C/view-add.page:44
+#| msgid "Press the list button in the top-right corner of the window."
+msgid ""
+"Press the button in the bottom-right of the window which will open "
+"<gui>Search Locations</gui>."
+msgstr ""
+"Spiediet pogu loga augšējā labajā stūrī, kas atvērs <gui>Meklēšanas vietas<"
+"/gui>."
 
-#~ msgid "Use selection mode to select more than one document or collection."
-#~ msgstr ""
-#~ "Lietojiet izvēles režīmu, lai izvēlētos vairāk kā vienu dokumentu vai "
-#~ "kolekciju."
+#. (itstool) path: item/p
+#: C/view-add.page:48
+msgid "Press <gui style=\"button\">+</gui> to add a new search location."
+msgstr ""
+"Spiediet <gui style=\"button\">+</gui>, lai pievienotu jaunu meklēšanas vietu."
 
-#~ msgid "Selecting documents"
-#~ msgstr "Dokumentu izvēlēšanās"
+#. (itstool) path: item/p
+#: C/view-add.page:51
+msgid ""
+"Select the folder that you want to add and press <gui style=\"button\">OK</"
+"gui> to add the folder."
+msgstr ""
+"Izvēlieties mapi, ko vēlaties pievienot, un spiediet <gui style=\"button\">"
+"Labi</"
+"gui>, lai pievienotu mapi."
 
-#~ msgid ""
-#~ "From <app>Documents</app> selection mode you can open, print, view or "
-#~ "make collections of your documents. To use selection mode:"
-#~ msgstr ""
-#~ "<app>Dokumentu</app> izvēles režīmā jūs varat atvērt, drukāt, skatīt vai "
-#~ "veidot savu dokumentu kolekcijas. Lai lietotu šo režīmu:"
-
-#~ msgid ""
-#~ "Select one or more documents or collections. The button bar appears with "
-#~ "the actions that are valid for your selection."
-#~ msgstr ""
-#~ "Izvēlieties vienu vai vairākus dokumentus vai kolekcijas. Parādīsies pogu "
-#~ "josla ar darbībām, ko var veikt ar šo izvēli."
-
-#~ msgid "Selection mode actions"
-#~ msgstr "Izvēles režīma darbības"
-
-#~ msgid "After selecting one or more documents you can:"
-#~ msgstr "Pēc viena vai vairāku dokumentu izvēlēšanās jūs varat:"
-
-#~ msgid "Open with Document Viewer (folder icon)."
-#~ msgstr "Atvērt ar dokumentu skatītāju (mapes ikona)."
-
-#~ msgid ""
-#~ "Print (printer icon): print a document (only available when a single "
-#~ "document is selected)."
-#~ msgstr ""
-#~ "Drukāt (printera ikona) — drukāt dokumentu (pieejams tikai tad, ja ir "
-#~ "izvēlēts viens dokuments)."
-
-#~ msgid "Organize (plus icon): create a collection of documents."
-#~ msgstr "Organizēt (plus ikona) — izveidot dokumentu kolekcijas."
-
-#~ msgid ""
-#~ "Properties (wrench icon): display the properties of a document (only "
-#~ "available when a single document is selected)."
-#~ msgstr ""
-#~ "Īpašības (uzgriežņu atslēgas ikona) — rādīt dokumenta īpašības (pieejams "
-#~ "tikai tad, ja ir izvēlēts viens dokuments)."
-
-#~ msgid "Delete (trash icon): delete one or more collections."
-#~ msgstr "Dzēst (miskastes ikona) — dzēst vienu vai vairākas kolekcijas."
-
-#~ msgid "Local or remote documents do not appear."
-#~ msgstr "Lokālais vai attālinātais dokuments neparādās."
-
-#~ msgid ""
-#~ "Go to the top bar and click <app>Documents</app> to display the app menu."
-#~ msgstr ""
-#~ "Augšējā joslā spiediet uz <app>Dokumenti</app>, lai parādītu lietotnes "
-#~ "izvēlni."
-
-#~ msgid "Click <gui>List</gui> from the <gui>View as</gui> section."
-#~ msgstr "Izvēlieties <gui>Saraksts</gui> sadaļā <gui>Skatīt kā</gui>."
-
-#~ msgid ""
-#~ "Click <gui>Grid</gui> in the app menu to return to the default format."
-#~ msgstr ""
-#~ "Izvēlieties <gui>Režģis</gui> lietotnes izvēlnē, lai atgrieztos pie "
-#~ "noklusējuma izkārtojuma."
-
-#~ msgid "View documents full-screen."
-#~ msgstr "Skatīt dokumentus pa visu ekrānu."
-
-#~ msgid "Display documents stored locally or online"
-#~ msgstr "Attēlot dokumentus, kas saglabāti lokāli vai tiešsaistē"
-
-#, fuzzy
-#~ msgid ""
-#~ "In order for your <em>Google Docs</em> or <em>SkyDrive</em> documents to "
-#~ "appear, it is necessary to configure Google or Windows Live, "
-#~ "respectively, as an <link href=\"gnome-help:accounts-add\">online "
-#~ "account</link>."
-#~ msgstr ""
-#~ "Lai parādītos <em>Google</em> vai <em>SkyDrive</em> dokumenti, attiecīgi "
-#~ "Google vai Windows Live ir jākonfigurē kā <link xref=\"accounts-add"
-#~ "\">tiešsaistes konti</link>."
-
-#~ msgid ""
-#~ "Click the thumbnail. The document is displayed full-width in the "
-#~ "<app>Documents</app> window (or full-screen if maximized)."
-#~ msgstr ""
-#~ "Spiediet uz sīktēla. Dokuments tiek attēlots pilnā izmērā <app>Dokumentu</"
-#~ "app> logā (vai pilnekrānā, ja tas ir maksimizēts)."
+#. (itstool) path: page/p
+#: C/view-add.page:63
+msgid ""
+"Adding a new folder to the search may let some of your other applications "
+"search that folder. Unfortunately, it is not possible to tell which "
+"applications will be affected without testing them."
+msgstr ""
+"Jaunas mapes pievienošana ļaus arī citām lietotnēm meklēt tajā mapē. Diemžēl "
+"nevar noteikt, kuras lietotnes tas ietekmēs, tās nepārbaudot."
