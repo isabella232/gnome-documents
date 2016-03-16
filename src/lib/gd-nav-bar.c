@@ -793,6 +793,7 @@ gd_nav_bar_class_init (GdNavBarClass *class)
                                                                G_PARAM_STATIC_STRINGS));
 
         g_type_class_add_private (oclass, sizeof (GdNavBarPrivate));
+        gtk_widget_class_set_css_name (wclass, "toolbar");
 }
 
 static void
