@@ -1041,15 +1041,12 @@ gd_nav_bar_init (GdNavBar *self)
                                                      (GDestroyNotify)cairo_surface_destroy);
 
         inner_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 5);
-        gtk_container_set_border_width (GTK_CONTAINER (inner_box), 10);
         gtk_box_set_spacing (GTK_BOX (inner_box), 10);
         gtk_widget_show (inner_box);
         gtk_widget_set_hexpand (GTK_WIDGET (inner_box), TRUE);
         gtk_container_add (GTK_CONTAINER (self), inner_box);
 
         priv->button_area = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
-        gtk_widget_set_margin_start (priv->button_area, 5);
-        gtk_widget_set_margin_end (priv->button_area, 5);
         gtk_widget_show (priv->button_area);
         gtk_box_pack_start (GTK_BOX (inner_box), priv->button_area, FALSE, FALSE, 0);
 
