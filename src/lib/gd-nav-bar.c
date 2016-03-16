@@ -1047,6 +1047,8 @@ gd_nav_bar_init (GdNavBar *self)
         gtk_container_add (GTK_CONTAINER (self), inner_box);
 
         priv->button_area = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+        gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (priv->button_area)),
+                                     GTK_STYLE_CLASS_LINKED);
         gtk_widget_show (priv->button_area);
         gtk_box_pack_start (GTK_BOX (inner_box), priv->button_area, FALSE, FALSE, 0);
 
