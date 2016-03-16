@@ -43,9 +43,7 @@ const DeleteNotification = new Lang.Class({
     _init: function(docs) {
         this._docs = docs;
         this.widget = new Gtk.Grid({ orientation: Gtk.Orientation.HORIZONTAL,
-                                     column_spacing: 12,
-                                     margin_start: 12,
-                                     margin_end: 12 });
+                                     column_spacing: 12 });
 
         let msg;
 
@@ -131,9 +129,7 @@ const PrintNotification = new Lang.Class({
 
     _onPrintBegin: function() {
         this.widget = new Gtk.Grid({ orientation: Gtk.Orientation.VERTICAL,
-                                     row_spacing: 6,
-                                     margin_start: 12,
-                                     margin_end: 12});
+                                     row_spacing: 6 });
 
         this._statusLabel = new Gtk.Label();
         this.widget.add(this._statusLabel);
@@ -262,8 +258,6 @@ const IndexingNotification = new Lang.Class({
 
     _buildWidget: function() {
         this.widget = new Gtk.Grid({ orientation: Gtk.Orientation.HORIZONTAL,
-                                     margin_start: 12,
-                                     margin_end: 12,
                                      column_spacing: 12 });
 
         let spinner = new Gtk.Spinner({ width_request: 16,
