@@ -14,21 +14,21 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-09-17 07:21+0000\n"
-"PO-Revision-Date: 2015-09-17 18:41+0300\n"
-"Last-Translator: Stas Solovey <whats_up@tut.by>\n"
+"POT-Creation-Date: 2016-03-17 09:12+0000\n"
+"PO-Revision-Date: 2016-03-17 19:23+0300\n"
+"Last-Translator: Yuri Myasoedov <ymyasoedov@yandex.ru>\n"
 "Language-Team: Русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.6.9\n"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:1
-#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:117
-#: ../src/lib/gd-utils.c:418
+#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:115
+#: ../src/embed.js:81 ../src/lib/gd-utils.c:418
 msgid "Books"
 msgstr "Книги"
 
@@ -60,17 +60,12 @@ msgid "Search through e-books"
 msgstr "выполнять поиск по электронными книгам"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:7
-msgid "View e-books fullscreen"
-msgstr "просматривать электронные книги в полноэкранном режиме"
+msgid "View e-books (PDF and comics) fullscreen"
+msgstr "Просмотр электронных книг (PDF и комиксы) в полноэкранном режиме"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:8
 msgid "Print e-books"
 msgstr "печатать электронные книги"
-
-#: ../data/org.gnome.Books.appdata.xml.in.h:9
-#: ../data/org.gnome.Documents.appdata.xml.in.h:12
-msgid "Allow opening full featured editor for non-trivial changes"
-msgstr "открывать электронные книги в полнофункциональных редакторах"
 
 #: ../data/org.gnome.Books.desktop.in.h:2
 msgid "Access, manage and share books"
@@ -92,47 +87,57 @@ msgstr "Вид"
 
 #: ../data/org.gnome.books.gschema.xml.h:3
 #: ../data/org.gnome.documents.gschema.xml.h:3
-msgid "Window size"
-msgstr "Размер окна"
+msgid "Sort by"
+msgstr "Упорядочить по"
 
 #: ../data/org.gnome.books.gschema.xml.h:4
 #: ../data/org.gnome.documents.gschema.xml.h:4
-msgid "Window size (width and height)."
-msgstr "Размер окна (ширина и высота)."
+msgid "Sort by type"
+msgstr "Упорядочить по типу"
 
 #: ../data/org.gnome.books.gschema.xml.h:5
 #: ../data/org.gnome.documents.gschema.xml.h:5
-msgid "Window position"
-msgstr "Положение окна"
+msgid "Window size"
+msgstr "Размер окна"
 
 #: ../data/org.gnome.books.gschema.xml.h:6
 #: ../data/org.gnome.documents.gschema.xml.h:6
-msgid "Window position (x and y)."
-msgstr "Положение окна (x, y)."
+msgid "Window size (width and height)."
+msgstr "Размер окна (ширина и высота)."
 
 #: ../data/org.gnome.books.gschema.xml.h:7
 #: ../data/org.gnome.documents.gschema.xml.h:7
-msgid "Window maximized"
-msgstr "Окно развёрнуто"
+msgid "Window position"
+msgstr "Положение окна"
 
 #: ../data/org.gnome.books.gschema.xml.h:8
 #: ../data/org.gnome.documents.gschema.xml.h:8
-msgid "Window maximized state"
-msgstr "Состояние развёрнутого окна"
+msgid "Window position (x and y)."
+msgstr "Положение окна (x, y)."
 
 #: ../data/org.gnome.books.gschema.xml.h:9
 #: ../data/org.gnome.documents.gschema.xml.h:9
-msgid "Night mode"
-msgstr "Ночной режим"
+msgid "Window maximized"
+msgstr "Окно развёрнуто"
 
 #: ../data/org.gnome.books.gschema.xml.h:10
 #: ../data/org.gnome.documents.gschema.xml.h:10
+msgid "Window maximized state"
+msgstr "Состояние развёрнутого окна"
+
+#: ../data/org.gnome.books.gschema.xml.h:11
+#: ../data/org.gnome.documents.gschema.xml.h:11
+msgid "Night mode"
+msgstr "Ночной режим"
+
+#: ../data/org.gnome.books.gschema.xml.h:12
+#: ../data/org.gnome.documents.gschema.xml.h:12
 msgid "Whether the application is in night mode."
 msgstr "Должно ли приложение использовать ночной режим."
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:1
-#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:114
-#: ../src/lib/gd-utils.c:411 ../src/mainWindow.js:53
+#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:118
+#: ../src/embed.js:81 ../src/lib/gd-utils.c:411 ../src/mainWindow.js:54
 msgid "Documents"
 msgstr "Документы"
 
@@ -180,6 +185,10 @@ msgstr "печатать документы"
 msgid "Select favorites"
 msgstr "добавлять документы в избранное"
 
+#: ../data/org.gnome.Documents.appdata.xml.in.h:12
+msgid "Allow opening full featured editor for non-trivial changes"
+msgstr "открывать электронные книги в полнофункциональных редакторах"
+
 #: ../data/org.gnome.Documents.desktop.in.h:2
 msgid "Access, manage and share documents"
 msgstr "Управление и предоставление доступа к документам"
@@ -197,23 +206,126 @@ msgid "Night Mode"
 msgstr "Ночной режим"
 
 #: ../data/ui/app-menu.ui.h:3
+msgid "Keyboard Shortcuts"
+msgstr "Комбинации клавиш"
+
+#: ../data/ui/app-menu.ui.h:4
 msgid "Help"
 msgstr "Справка"
 
-#: ../data/ui/app-menu.ui.h:4
+#: ../data/ui/app-menu.ui.h:5
 msgid "About"
 msgstr "О приложении"
 
-#: ../data/ui/app-menu.ui.h:5
+#: ../data/ui/app-menu.ui.h:6
 msgid "Quit"
 msgstr "Завершить"
+
+#: ../data/ui/help-overlay.ui.h:1
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Основные"
+
+#: ../data/ui/help-overlay.ui.h:2
+msgctxt "shortcut window"
+msgid "Show help"
+msgstr "Показать справку"
+
+#: ../data/ui/help-overlay.ui.h:3
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Завершить"
+
+#: ../data/ui/help-overlay.ui.h:4
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Поиск"
+
+#: ../data/ui/help-overlay.ui.h:5
+msgctxt "shortcut window"
+msgid "Print the current document"
+msgstr "Печать текущего документа"
+
+#: ../data/ui/help-overlay.ui.h:6
+msgctxt "shortcut window"
+msgid "Navigation"
+msgstr "Навигация"
+
+#: ../data/ui/help-overlay.ui.h:7
+msgctxt "shortcut window"
+msgid "Go back"
+msgstr "Назад"
+
+#: ../data/ui/help-overlay.ui.h:8
+msgctxt "shortcut window"
+msgid "Preview"
+msgstr "Предварительный просмотр"
+
+#: ../data/ui/help-overlay.ui.h:9
+msgctxt "shortcut window"
+msgid "Zoom in"
+msgstr "Увеличить"
+
+#: ../data/ui/help-overlay.ui.h:10
+msgctxt "shortcut window"
+msgid "Zoom out"
+msgstr "Уменьшить"
+
+#: ../data/ui/help-overlay.ui.h:11
+msgctxt "shortcut window"
+msgid "Bookmark the current page"
+msgstr "Добавить в закладки текущую страницу"
+
+#: ../data/ui/help-overlay.ui.h:12
+msgctxt "shortcut window"
+msgid "Open places and bookmarks dialog"
+msgstr "Открыть диалоговое окно закладок и мест"
+
+#: ../data/ui/help-overlay.ui.h:13
+msgctxt "shortcut window"
+msgid "Copy selected text to clipboard"
+msgstr "Копировать выделенный текст в буфер обмена"
+
+#: ../data/ui/help-overlay.ui.h:14
+msgctxt "shortcut window"
+msgid "Rotate anti-clockwise"
+msgstr "Повернуть против часовой стрелки"
+
+#: ../data/ui/help-overlay.ui.h:15
+msgctxt "shortcut window"
+msgid "Rotate clockwise"
+msgstr "Повернуть по часовой стрелке"
+
+#: ../data/ui/help-overlay.ui.h:16
+msgctxt "shortcut window"
+msgid "Next occurrence of the search string"
+msgstr "Следующее вхождение искомой строки"
+
+#: ../data/ui/help-overlay.ui.h:17
+msgctxt "shortcut window"
+msgid "Previous occurrence of the search string"
+msgstr "Предыдущее вхождение искомой строки"
+
+#: ../data/ui/help-overlay.ui.h:18
+msgctxt "shortcut window"
+msgid "Presentation mode"
+msgstr "Режим презентации"
+
+#: ../data/ui/help-overlay.ui.h:19
+msgctxt "shortcut window"
+msgid "Open action menu"
+msgstr "Открыть меню действий"
+
+#: ../data/ui/help-overlay.ui.h:20
+msgctxt "shortcut window"
+msgid "Fullscreen"
+msgstr "Полноэкранный режим"
 
 #: ../data/ui/organize-collection-dialog.ui.h:1
 msgid "Enter a name for your first collection"
 msgstr "Введите название для вашей первой коллекции"
 
 #: ../data/ui/organize-collection-dialog.ui.h:2
-#| msgid "Collection"
 msgid "New Collection…"
 msgstr "Создать коллекцию…"
 
@@ -221,10 +333,11 @@ msgstr "Создать коллекцию…"
 msgid "Add"
 msgstr "Добавить"
 
-#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:218
+#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:210
 msgid "Cancel"
 msgstr "Отмена"
 
+#. Label for Done button in Sharing dialog
 #: ../data/ui/organize-collection-dialog.ui.h:5 ../src/sharing.js:112
 msgid "Done"
 msgstr "Выполнено"
@@ -233,8 +346,9 @@ msgstr "Выполнено"
 msgid "_Copy"
 msgstr "_Копировать"
 
-#: ../data/ui/preview-menu.ui.h:1 ../src/selections.js:861
-#: ../src/selections.js:989
+#. Translators: this is the Open action in a context menu
+#: ../data/ui/preview-menu.ui.h:1 ../data/ui/selection-toolbar.ui.h:1
+#: ../src/selections.js:986
 msgid "Open"
 msgstr "Открыть"
 
@@ -266,8 +380,8 @@ msgstr "Повернуть ↶"
 msgid "Rotate ↷"
 msgstr "Повернуть ↷"
 
-#: ../data/ui/preview-menu.ui.h:9 ../src/properties.js:62
-#: ../src/selections.js:883
+#: ../data/ui/preview-menu.ui.h:9 ../data/ui/selection-toolbar.ui.h:2
+#: ../src/properties.js:62
 msgid "Properties"
 msgstr "Свойства"
 
@@ -279,104 +393,139 @@ msgstr "Выбрать все"
 msgid "Select None"
 msgstr "Отменить выбор"
 
-#: ../src/documents.js:630
+#: ../data/ui/selection-toolbar.ui.h:3 ../src/embed.js:85 ../src/search.js:203
+#: ../src/search.js:209
+msgid "Collections"
+msgstr "Коллекции"
+
+#: ../data/ui/view-menu.ui.h:1
+msgid "View items as a grid of icons"
+msgstr "Показывать в виде сетки значков"
+
+#: ../data/ui/view-menu.ui.h:2
+msgid "View items as a list"
+msgstr "Показывать в виде списка"
+
+#: ../data/ui/view-menu.ui.h:3
+msgid "Sort"
+msgstr "Упорядочить"
+
+#: ../data/ui/view-menu.ui.h:4
+msgid "Author"
+msgstr "Автор"
+
+#: ../data/ui/view-menu.ui.h:5
+msgid "Date"
+msgstr "Дата"
+
+#: ../data/ui/view-menu.ui.h:6
+msgid "Name"
+msgstr "Имя"
+
+#: ../src/documents.js:682
 msgid "Failed to print document"
 msgstr "Не удалось напечатать документ"
 
-#: ../src/documents.js:667 ../src/search.js:509
+#. Translators: this refers to local documents
+#: ../src/documents.js:732 ../src/search.js:536
 msgid "Local"
 msgstr "Локальные"
 
-#: ../src/documents.js:694
+#. Translators: Documents ships a "Getting Started with Documents"
+#. tutorial PDF. The "GNOME" string below is displayed as the author name
+#. of that document, and doesn't normally need to be translated.
+#: ../src/documents.js:771
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:695
+#: ../src/documents.js:772
 msgid "Getting Started with Documents"
 msgstr "Начало работы с приложением «Документы»"
 
-#: ../src/documents.js:711 ../src/documents.js:903 ../src/documents.js:966
-#: ../src/documents.js:1074
+#: ../src/documents.js:788 ../src/documents.js:972 ../src/documents.js:1040
+#: ../src/documents.js:1148
 msgid "Collection"
 msgstr "Коллекция"
 
-#: ../src/documents.js:781
+#. overridden
+#: ../src/documents.js:850
 msgid "Google Docs"
 msgstr "Документы Google"
 
-#: ../src/documents.js:782
+#: ../src/documents.js:851
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:905 ../src/documents.js:1076
+#: ../src/documents.js:974 ../src/documents.js:1150
 msgid "Spreadsheet"
 msgstr "Таблица"
 
-#: ../src/documents.js:907 ../src/documents.js:1078 ../src/presentation.js:49
+#: ../src/documents.js:976 ../src/documents.js:1152 ../src/presentation.js:49
 msgid "Presentation"
 msgstr "Презентация"
 
-#: ../src/documents.js:909 ../src/documents.js:1080
+#: ../src/documents.js:978 ../src/documents.js:1154
 msgid "e-Book"
 msgstr "Электронная книга"
 
-#: ../src/documents.js:911 ../src/documents.js:1082
+#: ../src/documents.js:980 ../src/documents.js:1156
 msgid "Document"
 msgstr "Документ"
 
-#: ../src/documents.js:945
+#. overridden
+#: ../src/documents.js:1019
 msgid "ownCloud"
 msgstr "ownCloud"
 
-#: ../src/documents.js:1008 ../src/documents.js:1009
+#. overridden
+#: ../src/documents.js:1082 ../src/documents.js:1083
 msgid "OneDrive"
 msgstr "OneDrive"
 
-#: ../src/documents.js:1253
+#: ../src/documents.js:1332
 msgid "Please check the network connection."
 msgstr "Проверьте подключение к сети."
 
-#: ../src/documents.js:1256
+#: ../src/documents.js:1335
 msgid "Please check the network proxy settings."
 msgstr "Проверьте параметры прокси-сервера."
 
-#: ../src/documents.js:1259
+#: ../src/documents.js:1338
 msgid "Unable to sign in to the document service."
 msgstr "Не удалось войти в службу документов."
 
-#: ../src/documents.js:1262
+#: ../src/documents.js:1341
 msgid "Unable to locate this document."
 msgstr "Не удалось определить расположение документа."
 
-#: ../src/documents.js:1265
+#: ../src/documents.js:1344
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Хм, что-то сомнительно (%d)."
 
-#: ../src/documents.js:1272
+#: ../src/documents.js:1351
 msgid ""
 "You are using a preview of Books. Full viewing capabilities are coming soon!"
 msgstr ""
 "Вы используете предварительную версию приложения Книги. Полный набор "
 "возможностей появится в ближайшее время!"
 
-#: ../src/documents.js:1293
+#: ../src/documents.js:1353
+msgid ""
+"LibreOffice support is not available. Please contact your system "
+"administrator."
+msgstr ""
+"Поддержка LibreOffice отсутствует. Обратитесь к системному администратору."
+
+#. Translators: %s is the title of a document
+#: ../src/documents.js:1374
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Ой! Не удалось загрузить «%s»"
 
-#: ../src/edit.js:180
+#: ../src/edit.js:186
 msgid "View"
 msgstr "Вид"
-
-#: ../src/embed.js:80
-msgid "Recent"
-msgstr "Недавние"
-
-#: ../src/embed.js:83 ../src/search.js:203 ../src/search.js:212
-#: ../src/selections.js:888
-msgid "Collections"
-msgstr "Коллекции"
 
 #: ../src/lib/gd-nav-bar.c:242
 #, c-format
@@ -407,7 +556,7 @@ msgstr "Нет закладок"
 msgid "Loading…"
 msgstr "Загрузка…"
 
-#: ../src/lib/gd-places-bookmarks.c:656 ../src/preview.js:631
+#: ../src/lib/gd-places-bookmarks.c:656 ../src/preview.js:646
 msgid "Bookmarks"
 msgstr "Закладки"
 
@@ -433,27 +582,30 @@ msgstr ""
 "Yuri Myasoedov <ymyasoedov@yandex.ru>, 2011-2015.\n"
 "Stas Solovey <whats_up@tut.by>, 2011-2015."
 
-#: ../src/mainToolbar.js:89
+#. Translators: this is the Open action in a context menu
+#: ../src/lokview.js:333 ../src/preview.js:916 ../src/selections.js:983
+#, javascript-format
+msgid "Open with %s"
+msgstr "Открыть с помощью %s"
+
+#: ../src/mainToolbar.js:90
 msgid "Search"
 msgstr "Поиск"
 
-#: ../src/mainToolbar.js:97
+#: ../src/mainToolbar.js:98
 msgid "Back"
 msgstr "Назад"
 
+#. Translators: this is the menu to change view settings
 #: ../src/mainToolbar.js:156
-msgid "View items as a list"
-msgstr "Показывать в виде списка"
+msgid "View Menu"
+msgstr "Меню «Вид»"
 
-#: ../src/mainToolbar.js:162
-msgid "View items as a grid of icons"
-msgstr "Показывать в виде сетки значков"
-
-#: ../src/mainToolbar.js:192
+#: ../src/mainToolbar.js:184
 msgid "Click on items to select them"
 msgstr "Щёлкните по элементам, чтобы выбрать их"
 
-#: ../src/mainToolbar.js:194
+#: ../src/mainToolbar.js:186
 #, javascript-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -461,16 +613,19 @@ msgstr[0] "Выбрано: %d"
 msgstr[1] "Выбрано: %d"
 msgstr[2] "Выбрано: %d"
 
-#: ../src/mainToolbar.js:278
+#: ../src/mainToolbar.js:270
 msgid "Select Items"
 msgstr "Выбрать элементы"
 
-#: ../src/notifications.js:54
+#. Translators: only one item has been deleted and %s is its name
+#: ../src/notifications.js:52
 #, javascript-format
 msgid "“%s” deleted"
 msgstr "Удалён объект «%s»"
 
-#: ../src/notifications.js:58
+#. Translators: one or more items might have been deleted, and %d
+#. is the count
+#: ../src/notifications.js:56
 #, javascript-format
 msgid "%d item deleted"
 msgid_plural "%d items deleted"
@@ -478,29 +633,31 @@ msgstr[0] "Удалён %d элемент"
 msgstr[1] "Удалено %d элемента"
 msgstr[2] "Удалено %d элементов"
 
-#: ../src/notifications.js:67 ../src/selections.js:386
+#: ../src/notifications.js:65 ../src/selections.js:393
 msgid "Undo"
 msgstr "Отменить"
 
-#: ../src/notifications.js:167
+#: ../src/notifications.js:163
 #, javascript-format
 msgid "Printing “%s”: %s"
 msgstr "Печать «%s»: %s"
 
-#: ../src/notifications.js:223
+#: ../src/notifications.js:219
 msgid "Your documents are being indexed"
 msgstr "Документы проиндексированы"
 
-#: ../src/notifications.js:224
+#: ../src/notifications.js:220
 msgid "Some documents might not be available during this process"
 msgstr "Некоторые документы могут быть недоступны во время данного процесса"
 
-#: ../src/notifications.js:246
+#. Translators: %s refers to an online account provider, e.g.
+#. "Google", or "Windows Live".
+#: ../src/notifications.js:242
 #, javascript-format
 msgid "Fetching documents from %s"
 msgstr "Получение документов из %s"
 
-#: ../src/notifications.js:248
+#: ../src/notifications.js:244
 msgid "Fetching documents from online accounts"
 msgstr "Получение документов из сетевых учётных записей"
 
@@ -529,6 +686,7 @@ msgstr "Запуск в режиме презентации"
 msgid "Present On"
 msgstr "Презентация"
 
+#. Translators: "Mirrored" describes when both displays show the same view
 #: ../src/presentation.js:166
 msgid "Mirrored"
 msgstr "Дублированный"
@@ -545,37 +703,39 @@ msgstr "Выкл."
 msgid "Secondary"
 msgstr "Дополнительный"
 
-#: ../src/preview.js:639
+#: ../src/preview.js:654
 msgid "Bookmark this page"
 msgstr "Добавить в закладки эту страницу"
 
-#: ../src/preview.js:900 ../src/selections.js:986
-#, javascript-format
-msgid "Open with %s"
-msgstr "Открыть с помощью %s"
-
-#: ../src/preview.js:963
+#: ../src/preview.js:973
 msgid "Find Previous"
 msgstr "Найти предыдущее"
 
-#: ../src/preview.js:970
+#: ../src/preview.js:979
 msgid "Find Next"
 msgstr "Найти следующее"
 
+#. Title item
+#. Translators: "Title" is the label next to the document title
+#. in the properties dialog
 #: ../src/properties.js:82
 msgctxt "Document Title"
 msgid "Title"
 msgstr "Заголовок"
 
+#. Translators: "Author" is the label next to the document author
+#. in the properties dialog
 #: ../src/properties.js:91
 msgctxt "Document Author"
 msgid "Author"
 msgstr "Автор"
 
+#. Source item
 #: ../src/properties.js:98
 msgid "Source"
 msgstr "Источник"
 
+#. Date Modified item
 #: ../src/properties.js:104
 msgid "Date Modified"
 msgstr "Дата последнего изменения"
@@ -584,6 +744,9 @@ msgstr "Дата последнего изменения"
 msgid "Date Created"
 msgstr "Дата создания"
 
+#. Document type item
+#. Translators: "Type" is the label next to the document type
+#. (PDF, spreadsheet, ...) in the properties dialog
 #: ../src/properties.js:120
 msgctxt "Document Type"
 msgid "Type"
@@ -593,109 +756,121 @@ msgstr "Тип"
 msgid "Category"
 msgstr "Категория"
 
-#: ../src/search.js:131 ../src/search.js:200 ../src/search.js:333
-#: ../src/search.js:503
+#. Translators: this refers to new and recent documents
+#. Translators: this refers to documents
+#: ../src/search.js:131 ../src/search.js:200 ../src/search.js:337
+#: ../src/search.js:530
 msgid "All"
 msgstr "Все"
 
+#. Translators: this refers to favorite documents
 #: ../src/search.js:137
 msgid "Favorites"
 msgstr "Избранное"
 
+#. Translators: this refers to shared documents
 #: ../src/search.js:142
 msgid "Shared with you"
 msgstr "В открытом для вас доступе"
 
+#. Translators: "Type" refers to a search filter on the document type
+#. (PDF, spreadsheet, ...)
 #: ../src/search.js:197
 msgctxt "Search Filter"
 msgid "Type"
 msgstr "Тип"
 
-#: ../src/search.js:207
+#: ../src/search.js:213
 msgid "PDF Documents"
 msgstr "Документы PDF"
 
 #: ../src/search.js:220
-msgid "Presentations"
-msgstr "Презентации"
-
-#: ../src/search.js:223
-msgid "Spreadsheets"
-msgstr "Таблицы"
-
-#: ../src/search.js:226
-msgid "Text Documents"
-msgstr "Текстовые документы"
-
-#: ../src/search.js:231
 msgid "e-Books"
 msgstr "Электронные книги"
 
-#: ../src/search.js:235
+#: ../src/search.js:224
 msgid "Comics"
 msgstr "Комиксы"
 
-#: ../src/search.js:330
+#: ../src/search.js:229
+msgid "Presentations"
+msgstr "Презентации"
+
+#: ../src/search.js:232
+msgid "Spreadsheets"
+msgstr "Таблицы"
+
+#: ../src/search.js:235
+msgid "Text Documents"
+msgstr "Текстовые документы"
+
+#. Translators: this is a verb that refers to "All", "Title", "Author",
+#. and "Content" as in "Match All", "Match Title", "Match Author", and
+#. "Match Content"
+#: ../src/search.js:334
 msgid "Match"
 msgstr "Совпадение"
 
-#: ../src/search.js:336
+#. Translators: "Title" refers to "Match Title" when searching
+#: ../src/search.js:340
 msgctxt "Search Filter"
 msgid "Title"
 msgstr "Заголовок"
 
-#: ../src/search.js:339
+#. Translators: "Author" refers to "Match Author" when searching
+#: ../src/search.js:343
 msgctxt "Search Filter"
 msgid "Author"
 msgstr "Автор"
 
-#: ../src/search.js:499
+#. Translators: "Content" refers to "Match Content" when searching
+#: ../src/search.js:346
+msgctxt "Search Filter"
+msgid "Content"
+msgstr "Содержимое"
+
+#: ../src/search.js:526
 msgid "Sources"
 msgstr "Источники"
 
-#: ../src/selections.js:359 ../src/selections.js:361
+#: ../src/selections.js:366 ../src/selections.js:368
 msgid "Rename…"
 msgstr "Переименовать…"
 
-#: ../src/selections.js:365 ../src/selections.js:367 ../src/selections.js:871
+#: ../src/selections.js:372 ../src/selections.js:374
 msgid "Delete"
 msgstr "Удалить"
 
-#: ../src/selections.js:381
+#: ../src/selections.js:388
 #, javascript-format
-#| msgid "“%s” deleted"
 msgid "“%s” removed"
 msgstr "«%s» удалён"
 
-#: ../src/selections.js:765
+#: ../src/selections.js:779
 msgid "Rename"
 msgstr "Переименовать"
 
-#: ../src/selections.js:771
+#. Translators: "Collections" refers to documents in this context
+#: ../src/selections.js:785
 msgctxt "Dialog Title"
 msgid "Collections"
 msgstr "Коллекции"
-
-#: ../src/selections.js:866
-msgid "Print"
-msgstr "Печать"
-
-#: ../src/selections.js:877
-msgid "Share"
-msgstr "Общий доступ"
 
 #: ../src/sharing.js:108
 msgid "Sharing Settings"
 msgstr "Параметры общего доступа"
 
+#. Label for widget group for changing document permissions
 #: ../src/sharing.js:145
 msgid "Document permissions"
 msgstr "Права доступа к документам"
 
+#. Label for permission change in Sharing dialog
 #: ../src/sharing.js:152 ../src/sharing.js:330
 msgid "Change"
 msgstr "Изменение"
 
+#. Label for radiobutton that sets doc permission to private
 #: ../src/sharing.js:176 ../src/sharing.js:305
 msgid "Private"
 msgstr "Личное"
@@ -704,14 +879,17 @@ msgstr "Личное"
 msgid "Public"
 msgstr "Публичное"
 
+#. Label for checkbutton that sets doc permission to Can edit
 #: ../src/sharing.js:190 ../src/sharing.js:300
 msgid "Everyone can edit"
 msgstr "Все могут изменять"
 
+#. Label for widget group used for adding new contacts
 #: ../src/sharing.js:197
 msgid "Add people"
 msgstr "Добавить человека"
 
+#. Editable text in entry field
 #: ../src/sharing.js:204
 msgid "Enter an email address"
 msgstr "Введите адрес эл. почты"
@@ -746,36 +924,52 @@ msgstr "Можно попросить %s для получения доступ�
 msgid "The document was not updated"
 msgstr "Документ не был обновлён"
 
-#: ../src/shellSearchProvider.js:292
+#: ../src/shellSearchProvider.js:290
 msgid "Untitled Document"
 msgstr "Безымянный документ"
 
-#: ../src/trackerController.js:172
+#: ../src/trackerController.js:177
 msgid "Unable to fetch the list of documents"
 msgstr "Не удалось получить список документов"
 
-#: ../src/view.js:260
-msgid "No Books Found"
+#: ../src/view.js:271
+msgid "No collections found"
+msgstr "Коллекции не найдены"
+
+#: ../src/view.js:273
+msgid "No books found"
 msgstr "Книги не найдены"
 
-#: ../src/view.js:261
-msgid "No Documents Found"
+#: ../src/view.js:273
+msgid "No documents found"
 msgstr "Документы не найдены"
 
-#: ../src/view.js:283
+#: ../src/view.js:282
+msgid "Try a different search"
+msgstr "Попробуйте изменить параметры поиска"
+
+#: ../src/view.js:289
+msgid "You can create collections from the Books view"
+msgstr "Вы можете создавать коллекции из режима просмотра книг"
+
+#: ../src/view.js:291
+msgid "You can create collections from the Documents view"
+msgstr "Вы можете создавать коллекции из режима просмотра документов"
+
+#: ../src/view.js:301
 #, javascript-format
-msgid "You can add your online accounts in %s"
-msgstr "Вы можете добавить сетевые учётные записи через приложение «%s»"
+msgid ""
+"Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
+"href=\"file://%s\">Documents folder</a> will appear here."
+msgstr ""
+"Здесь появятся документы из ваших <a href=\"system-settings\">сетевых "
+"учётных записей</a> и <a href=\"file://%s\">папки Документы</a>."
 
-#: ../src/view.js:287
-msgid "Settings"
-msgstr "Параметры"
-
-#: ../src/view.js:482
+#: ../src/view.js:517
 msgid "Yesterday"
 msgstr "Вчера"
 
-#: ../src/view.js:484
+#: ../src/view.js:519
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -783,11 +977,11 @@ msgstr[0] "%d день назад"
 msgstr[1] "%d дня назад"
 msgstr[2] "%d дней назад"
 
-#: ../src/view.js:488
+#: ../src/view.js:523
 msgid "Last week"
 msgstr "На прошлой неделе"
 
-#: ../src/view.js:490
+#: ../src/view.js:525
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
@@ -795,11 +989,11 @@ msgstr[0] "%d неделя назад"
 msgstr[1] "%d недели назад"
 msgstr[2] "%d недель назад"
 
-#: ../src/view.js:494
+#: ../src/view.js:529
 msgid "Last month"
 msgstr "В прошлом месяце"
 
-#: ../src/view.js:496
+#: ../src/view.js:531
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
@@ -807,24 +1001,14 @@ msgstr[0] "%d месяц назад"
 msgstr[1] "%d месяца назад"
 msgstr[2] "%d месяцев назад"
 
-#: ../src/view.js:500
+#: ../src/view.js:535
 msgid "Last year"
 msgstr "В прошлом году"
 
-#: ../src/view.js:502
+#: ../src/view.js:537
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "%d год назад"
 msgstr[1] "%d года назад"
 msgstr[2] "%d лет назад"
-
-#~ msgid ""
-#~ "You don't have any collections yet. Enter a new collection name above."
-#~ msgstr "Пока ещё нет ни одной коллекции. Введите имя новой коллекции выше."
-
-#~ msgid "Create new collection"
-#~ msgstr "Создать новую коллекцию"
-
-#~ msgid "Add to Collection"
-#~ msgstr "Добавить в коллекцию"
