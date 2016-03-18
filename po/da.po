@@ -2,7 +2,7 @@
 # Copyright (C) 2011-2015 Free Software Foundation and translators
 # This file is distributed under the same license as the gnome-documents package.
 #
-# Kris Thomsen <mail@kristhomsen.dk>, 2011-2015.
+# Kris Thomsen <mail@kristhomsen.dk>, 2011-2016.
 # Kenneth Nielsen <k.nielsen81@gmail.com>, 2012-2013.
 # Ask Hjorth Larsen <asklarsen@gmail.com>, 2012.
 # scootergrisen, 2016.
@@ -10,11 +10,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-11 09:10+0000\n"
-"PO-Revision-Date: 2016-02-11 23:38+0200\n"
-"Last-Translator: scootergrisen\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-18 11:21+0100\n"
+"PO-Revision-Date: 2016-03-16 19:48+0200\n"
+"Last-Translator: Kris Thomsen\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -58,7 +57,6 @@ msgid "Search through e-books"
 msgstr "Søge gennem e-bøger"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:7
-#| msgid "View e-books fullscreen"
 msgid "View e-books (PDF and comics) fullscreen"
 msgstr "Vis e-bøger (PDF og tegneserier) i fuldskærm"
 
@@ -233,19 +231,16 @@ msgid "Show help"
 msgstr "Vis hjælp"
 
 #: ../data/ui/help-overlay.ui.h:3
-#| msgid "Quit"
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Afslut"
 
 #: ../data/ui/help-overlay.ui.h:4
-#| msgid "Search"
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Søg"
 
 #: ../data/ui/help-overlay.ui.h:5
-#| msgid "Print documents"
 msgctxt "shortcut window"
 msgid "Print the current document"
 msgstr "Udskriv det nuværende dokument"
@@ -266,19 +261,16 @@ msgid "Preview"
 msgstr "Forhåndsvisning"
 
 #: ../data/ui/help-overlay.ui.h:9
-#| msgid "Zoom In"
 msgctxt "shortcut window"
 msgid "Zoom in"
 msgstr "Zoom ind"
 
 #: ../data/ui/help-overlay.ui.h:10
-#| msgid "Zoom Out"
 msgctxt "shortcut window"
 msgid "Zoom out"
 msgstr "Zoom ud"
 
 #: ../data/ui/help-overlay.ui.h:11
-#| msgid "Bookmark this page"
 msgctxt "shortcut window"
 msgid "Bookmark the current page"
 msgstr "Bogmærk den nuværende side"
@@ -314,7 +306,6 @@ msgid "Previous occurrence of the search string"
 msgstr "Forrige forekomst af søgestrengen"
 
 #: ../data/ui/help-overlay.ui.h:18
-#| msgid "Presentation"
 msgctxt "shortcut window"
 msgid "Presentation mode"
 msgstr "Præsentationstilstand"
@@ -325,7 +316,6 @@ msgid "Open action menu"
 msgstr "Åbn håndlingsmenu"
 
 #: ../data/ui/help-overlay.ui.h:20
-#| msgid "Fullscreen"
 msgctxt "shortcut window"
 msgid "Fullscreen"
 msgstr "Fuldskærm"
@@ -342,7 +332,7 @@ msgstr "Ny samling…"
 msgid "Add"
 msgstr "Tilføj"
 
-#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:209
+#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:210
 msgid "Cancel"
 msgstr "Annullér"
 
@@ -420,8 +410,6 @@ msgid "Sort"
 msgstr "Sortér"
 
 #: ../data/ui/view-menu.ui.h:4
-#| msgctxt "Document Author"
-#| msgid "Author"
 msgid "Author"
 msgstr "Forfatter"
 
@@ -612,66 +600,66 @@ msgstr "Søg"
 msgid "Back"
 msgstr "Tilbage"
 
-#: ../src/mainToolbar.js:155
-#| msgid "View as"
+#. Translators: this is the menu to change view settings
+#: ../src/mainToolbar.js:156
 msgid "View Menu"
 msgstr "Menuen Vis"
 
-#: ../src/mainToolbar.js:183
+#: ../src/mainToolbar.js:184
 msgid "Click on items to select them"
 msgstr "Klik på elementer for at vælge dem"
 
-#: ../src/mainToolbar.js:185
+#: ../src/mainToolbar.js:186
 #, javascript-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d valgt"
 msgstr[1] "%d valgte"
 
-#: ../src/mainToolbar.js:269
+#: ../src/mainToolbar.js:270
 msgid "Select Items"
 msgstr "Vælg elementer"
 
 #. Translators: only one item has been deleted and %s is its name
-#: ../src/notifications.js:54
+#: ../src/notifications.js:52
 #, javascript-format
 msgid "“%s” deleted"
 msgstr "“%s” slettet"
 
 #. Translators: one or more items might have been deleted, and %d
 #. is the count
-#: ../src/notifications.js:58
+#: ../src/notifications.js:56
 #, javascript-format
 msgid "%d item deleted"
 msgid_plural "%d items deleted"
 msgstr[0] "%d element er blevet slettet"
 msgstr[1] "%d elementer er blevet slettet"
 
-#: ../src/notifications.js:67 ../src/selections.js:393
+#: ../src/notifications.js:65 ../src/selections.js:393
 msgid "Undo"
 msgstr "Omgør"
 
-#: ../src/notifications.js:167
+#: ../src/notifications.js:163
 #, javascript-format
 msgid "Printing “%s”: %s"
 msgstr "Udskriver “%s”: %s"
 
-#: ../src/notifications.js:223
+#: ../src/notifications.js:219
 msgid "Your documents are being indexed"
 msgstr "Dine dokumenter bliver indekseret"
 
-#: ../src/notifications.js:224
+#: ../src/notifications.js:220
 msgid "Some documents might not be available during this process"
 msgstr "Visse dokumenter er måske ikke tilgængelige under processen"
 
 #. Translators: %s refers to an online account provider, e.g.
 #. "Google", or "Windows Live".
-#: ../src/notifications.js:246
+#: ../src/notifications.js:242
 #, javascript-format
 msgid "Fetching documents from %s"
 msgstr "Henter dokumenter fra %s"
 
-#: ../src/notifications.js:248
+#: ../src/notifications.js:244
 msgid "Fetching documents from online accounts"
 msgstr "Henter dokumenter fra online-konti"
 
@@ -839,7 +827,6 @@ msgstr "Forfatter"
 
 #. Translators: "Content" refers to "Match Content" when searching
 #: ../src/search.js:346
-#| msgid "Contents"
 msgctxt "Search Filter"
 msgid "Content"
 msgstr "Indhold"
@@ -948,17 +935,14 @@ msgid "Unable to fetch the list of documents"
 msgstr "Kunne ikke hente dokumentlisten"
 
 #: ../src/view.js:271
-#| msgid "No Books Found"
 msgid "No collections found"
 msgstr "Ingen samlinger fundet"
 
 #: ../src/view.js:273
-#| msgid "No Books Found"
 msgid "No books found"
 msgstr "Ingen bøger fundet"
 
 #: ../src/view.js:273
-#| msgid "No Documents Found"
 msgid "No documents found"
 msgstr "Ingen dokumenter fundet"
 
@@ -974,67 +958,65 @@ msgstr "Du kan oprette samlinger fra visningen Bøger"
 msgid "You can create collections from the Documents view"
 msgstr "Du kan oprette samlinger fra visningen Dokumenter"
 
-#. Translators: the %s's here are "Online Accounts" and "Documents folder", which are
-#. in a separate string due to markup, and should be translated only in the context of
-#. this sentence
-#: ../src/view.js:304
+#: ../src/view.js:301
 #, javascript-format
-msgid "Documents from your %s and %s will appear here."
-msgstr "Dokumenter fra din %s og %s vil blive vist her."
+msgid ""
+"Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
+"href=\"file://%s\">Documents folder</a> will appear here."
+msgstr ""
+"Dokumenter fra dine <a href=\"system-settings\">onlinekonti</a> og mappen <a "
+"href=\"file://%s\">Dokumenter</a> vil blive vist her."
 
-#. Translators: this should be translated in the context of the
-#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
-#: ../src/view.js:308
-msgid "Online Accounts"
-msgstr "Onlinekonti"
-
-#. Translators: this should be translated in the context of the
-#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
-#: ../src/view.js:313
-#| msgid "Documents"
-msgid "Documents folder"
-msgstr "mappen Dokumenter"
-
-#: ../src/view.js:529
+#: ../src/view.js:517
 msgid "Yesterday"
 msgstr "I går"
 
-#: ../src/view.js:531
+#: ../src/view.js:519
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d dag siden"
 msgstr[1] "%d dage siden"
 
-#: ../src/view.js:535
+#: ../src/view.js:523
 msgid "Last week"
 msgstr "Sidste uge"
 
-#: ../src/view.js:537
+#: ../src/view.js:525
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d uge siden"
 msgstr[1] "%d uger siden"
 
-#: ../src/view.js:541
+#: ../src/view.js:529
 msgid "Last month"
 msgstr "Sidste måned"
 
-#: ../src/view.js:543
+#: ../src/view.js:531
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d måned siden"
 msgstr[1] "%d måneder siden"
 
-#: ../src/view.js:547
+#: ../src/view.js:535
 msgid "Last year"
 msgstr "Sidste år"
 
-#: ../src/view.js:549
+#: ../src/view.js:537
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "%d år siden"
 msgstr[1] "%d år siden"
+
+#~ msgid "Documents from your %s and %s will appear here."
+#~ msgstr "Dokumenter fra din %s og %s vil blive vist her."
+
+#~ msgid "Online Accounts"
+#~ msgstr "Onlinekonti"
+
+#~| msgid "Documents"
+#~ msgid "Documents folder"
+#~ msgstr "mappen Dokumenter"
