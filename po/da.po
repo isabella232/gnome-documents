@@ -1,5 +1,5 @@
 # Danish translation for gnome-documents.
-# Copyright (C) 2011-2015 Free Software Foundation and translators
+# Copyright (C) 2011-2016 Free Software Foundation and translators
 # This file is distributed under the same license as the gnome-documents package.
 #
 # Kris Thomsen <mail@kristhomsen.dk>, 2011-2016.
@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-18 11:21+0100\n"
-"PO-Revision-Date: 2016-03-16 19:48+0200\n"
+"POT-Creation-Date: 2016-03-20 04:27+0100\n"
+"PO-Revision-Date: 2016-03-20 04:27+0100\n"
 "Last-Translator: Kris Thomsen\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -637,7 +637,7 @@ msgstr[1] "%d elementer er blevet slettet"
 
 #: ../src/notifications.js:65 ../src/selections.js:393
 msgid "Undo"
-msgstr "Omgør"
+msgstr "Fortryd"
 
 #: ../src/notifications.js:163
 #, javascript-format
