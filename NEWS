@@ -1,3 +1,11 @@
+3.18.3 - "Trickle Charge"
+=========================
+
+- Unbreak going back from preview when launched from search provider
+  (Alessandro Bono)
+- Disable Print menu item when unsupported (Bastien Nocera)
+- Try not to open PDFs in GIMP (Bastien Nocera)
+
 3.18.2 - "Siena"
 ================
 
