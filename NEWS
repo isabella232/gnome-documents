@@ -1,3 +1,10 @@
+3.16.6 - "Food Code"
+====================
+
+- Unbreak going back from preview when launched from search provider
+  (Alessandro Bono)
+- Try not to open PDFs in GIMP (Bastien Nocera)
+
 3.16.5 - "Maniktala"
 ====================
 
