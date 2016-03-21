@@ -1,6 +1,6 @@
 dnl -*- mode: m4 -*-
 AC_PREREQ(2.63)
-AC_INIT([gnome-documents],[3.19.4],[],[gnome-documents])
+AC_INIT([gnome-documents],[3.20.0],[],[gnome-documents])
 
 AC_CONFIG_HEADERS([config/config.h])
 AC_CONFIG_SRCDIR([src/main.js])

@@ -1,3 +1,12 @@
+3.20.0 - "Tickets"
+==================
+
+- Better empty states (Alessandro Bono)
+- Fix LOKDocView crashes during start-up (Pranav Kant)
+- Rename icons so that xdg-app bundles can be created
+- Theme fixes
+- Translation updates
+
 3.19.4 - "Walk the Dog"
 =======================
 
