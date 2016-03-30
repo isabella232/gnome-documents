@@ -101,7 +101,7 @@ const Searchbar = new Lang.Class({
 
         let retval = this.handle_event(event);
         if (retval == Gdk.EVENT_STOP)
-            this._searchEntry.grab_focus();
+            this._searchEntry.grab_focus_without_selecting();
         return retval;
     },
 
