@@ -17,18 +17,11 @@
  *
  */
 
-const Gio = imports.gi.Gio;
-const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
-const _ = imports.gettext.gettext;
-const Gd = imports.gi.Gd;
 
 const EvDocument = imports.gi.EvinceDocument;
 const GdPrivate = imports.gi.GdPrivate;
 const Application = imports.application;
-const Documents = imports.documents;
-const Mainloop = imports.mainloop;
-const MainToolbar = imports.mainToolbar;
 
 const Lang = imports.lang;
 

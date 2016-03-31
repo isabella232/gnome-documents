@@ -39,7 +39,6 @@ pkg.require({ 'EvinceDocument': '3.0',
 
 const Application = imports.application;
 const GLib = imports.gi.GLib;
-const System = imports.system;
 
 function main(args) {
     let application = new Application.Application(pkg.name == 'org.gnome.Books');

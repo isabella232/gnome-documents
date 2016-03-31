@@ -29,8 +29,6 @@ const Mainloop = imports.mainloop;
 
 const Application = imports.application;
 const Embed = imports.embed;
-const Selections = imports.selections;
-const Utils = imports.utils;
 const WindowMode = imports.windowMode;
 
 const _ = imports.gettext.gettext;

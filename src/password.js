@@ -19,15 +19,10 @@
  *
  */
 
-const Gio = imports.gi.Gio;
-const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
 const _ = imports.gettext.gettext;
-const C_ = imports.gettext.pgettext;
 
 const Application = imports.application;
-const Documents = imports.documents;
-const Mainloop = imports.mainloop;
 
 const Lang = imports.lang;
 

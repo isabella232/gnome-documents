@@ -21,12 +21,10 @@
 
 const Gd = imports.gi.Gd;
 const GdPrivate = imports.gi.GdPrivate;
-const Gdk = imports.gi.Gdk;
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
 
-const Documents = imports.documents;
 const Application = imports.application;
 
 const Lang = imports.lang;

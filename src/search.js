@@ -27,7 +27,6 @@ const Query = imports.query;
 const Lang = imports.lang;
 const Signals = imports.signals;
 
-const GdPrivate = imports.gi.GdPrivate;
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Tracker = imports.gi.Tracker;

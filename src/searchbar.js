@@ -23,16 +23,11 @@ const Gd = imports.gi.Gd;
 const Gdk = imports.gi.Gdk;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
-const Tracker = imports.gi.Tracker;
-const _ = imports.gettext.gettext;
 
 const Lang = imports.lang;
-const Mainloop = imports.mainloop;
-const Signals = imports.signals;
 
 const Application = imports.application;
 const Manager = imports.manager;
-const Tweener = imports.tweener.tweener;
 const Utils = imports.utils;
 
 const Searchbar = new Lang.Class({

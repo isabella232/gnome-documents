@@ -25,15 +25,11 @@ const Signals = imports.signals;
 const GdPrivate = imports.gi.GdPrivate;
 const GdkPixbuf = imports.gi.GdkPixbuf;
 const Gio = imports.gi.Gio;
-const Goa = imports.gi.Goa;
 const Gtk = imports.gi.Gtk;
 const GLib = imports.gi.GLib;
-const Tracker = imports.gi.Tracker;
 
 const Application = imports.application;
-const Format = imports.format;
 const Query = imports.query;
-const Search = imports.search;
 const TrackerUtils = imports.trackerUtils;
 const Utils = imports.utils;
 

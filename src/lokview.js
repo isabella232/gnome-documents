@@ -26,12 +26,7 @@ try {
     // use this to warn when LO files can't be opened
 }
 
-const Soup = imports.gi.Soup;
-const Gd = imports.gi.Gd;
-const GdPrivate = imports.gi.GdPrivate;
 const Gdk = imports.gi.Gdk;
-const Gio = imports.gi.Gio;
-const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
 const _ = imports.gettext.gettext;
 
@@ -43,10 +38,6 @@ const Tweener = imports.tweener.tweener;
 const Application = imports.application;
 const ErrorBox = imports.errorBox;
 const MainToolbar = imports.mainToolbar;
-const Searchbar = imports.searchbar;
-const Utils = imports.utils;
-const View = imports.view;
-const WindowMode = imports.windowMode;
 const Documents = imports.documents;
 
 const ZOOM_IN_FACTOR = 1.2;

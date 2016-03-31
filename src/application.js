@@ -21,11 +21,9 @@
 
 const Lang = imports.lang;
 const Mainloop = imports.mainloop;
-const Signals = imports.signals;
 const _ = imports.gettext.gettext;
 
 const EvDoc = imports.gi.EvinceDocument;
-const GdPrivate = imports.gi.GdPrivate;
 const Gdk = imports.gi.Gdk;
 const Gio = imports.gi.Gio;
 const Goa = imports.gi.Goa;
@@ -36,12 +34,8 @@ const Tracker = imports.gi.Tracker;
 const TrackerControl = imports.gi.TrackerControl;
 
 const ChangeMonitor = imports.changeMonitor;
-const Documents = imports.documents;
 const Format = imports.format;
-const Main = imports.main;
 const MainWindow = imports.mainWindow;
-const MainToolbar = imports.mainToolbar;
-const Manager = imports.manager;
 const Miners = imports.miners;
 const Notifications = imports.notifications;
 const Properties = imports.properties;

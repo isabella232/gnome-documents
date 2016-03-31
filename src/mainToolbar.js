@@ -21,16 +21,13 @@
  */
 
 const Gd = imports.gi.Gd;
-const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
-const Pango = imports.gi.Pango;
 
 const Gettext = imports.gettext;
 const _ = imports.gettext.gettext;
 
 const Lang = imports.lang;
-const Mainloop = imports.mainloop;
 
 const Application = imports.application;
 const Searchbar = imports.searchbar;

@@ -21,14 +21,11 @@
 
 const Gd = imports.gi.Gd;
 const Gettext = imports.gettext;
-const Gio = imports.gi.Gio;
-const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
 const TrackerControl = imports.gi.TrackerControl;
 const _ = imports.gettext.gettext;
 
 const Application = imports.application;
-const Utils = imports.utils;
 const WindowMode = imports.windowMode;
 
 const Lang = imports.lang;

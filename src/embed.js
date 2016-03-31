@@ -24,7 +24,6 @@ const Mainloop = imports.mainloop;
 
 const Application = imports.application;
 const MainToolbar = imports.mainToolbar;
-const Notifications = imports.notifications;
 const Password = imports.password;
 const Preview = imports.preview;
 const Edit = imports.edit;
@@ -36,9 +35,6 @@ const Documents = imports.documents;
 
 const EvView = imports.gi.EvinceView;
 const LOKView = imports.lokview;
-const Gd = imports.gi.Gd;
-const Gdk = imports.gi.Gdk;
-const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
 const _ = imports.gettext.gettext;

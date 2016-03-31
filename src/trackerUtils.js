@@ -19,7 +19,6 @@
  *
  */
 
-const GLib = imports.gi.GLib;
 const Lang = imports.lang;
 
 const Application = imports.application;

@@ -19,12 +19,8 @@
  *
  */
 
-const Gdk = imports.gi.Gdk;
-
 const Lang = imports.lang;
 const Signals = imports.signals;
-
-const Application = imports.application;
 
 const WindowMode = {
     NONE: 0,

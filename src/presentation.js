@@ -17,19 +17,14 @@
  *
  */
 
-const EvDocument = imports.gi.EvinceDocument;
 const EvView = imports.gi.EvinceView;
 const GnomeDesktop = imports.gi.GnomeDesktop;
 const GdPrivate = imports.gi.GdPrivate;
 const Gdk = imports.gi.Gdk;
-const Gio = imports.gi.Gio;
-const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
 const _ = imports.gettext.gettext;
 
 const Lang = imports.lang;
-const Mainloop = imports.mainloop;
-const Signals = imports.signals;
 const Utils = imports.utils;
 
 const Application = imports.application;

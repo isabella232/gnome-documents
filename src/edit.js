@@ -18,26 +18,16 @@
  */
 
 const WebKit = imports.gi.WebKit2;
-const Soup = imports.gi.Soup;
-const Gd = imports.gi.Gd;
-const GdPrivate = imports.gi.GdPrivate;
-const Gdk = imports.gi.Gdk;
-const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
 const _ = imports.gettext.gettext;
 
 const Lang = imports.lang;
 const Mainloop = imports.mainloop;
-const Signals = imports.signals;
 
 const Application = imports.application;
 const MainToolbar = imports.mainToolbar;
-const Searchbar = imports.searchbar;
-const Utils = imports.utils;
-const View = imports.view;
 const WindowMode = imports.windowMode;
-const Documents = imports.documents;
 
 const _BLANK_URI = "about:blank";
 
