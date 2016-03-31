@@ -104,7 +104,25 @@ LIBGD_INIT([
   gir
 ])
 
-AC_PATH_PROG([GJS],[gjs])
+AX_PROG_GJS
+AX_CHECK_GIRS_GJS([cairo], [1.0])
+AX_CHECK_GIRS_GJS([EvinceDocument], [3.0])
+AX_CHECK_GIRS_GJS([EvinceView], [3.0])
+AX_CHECK_GIRS_GJS([GData], [0.0])
+AX_CHECK_GIRS_GJS([Gdk], [3.0])
+AX_CHECK_GIRS_GJS([GdkPixbuf], [2.0])
+AX_CHECK_GIR_SYMBOLS_GJS([Gio], [2.0], [ActionMap.add_action])
+AX_CHECK_GIRS_GJS([GLib], [2.0])
+AX_CHECK_GIRS_GJS([GnomeDesktop], [3.0])
+AX_CHECK_GIRS_GJS([Goa], [1.0])
+AX_CHECK_GIRS_GJS([GObject], [2.0])
+AX_CHECK_GIR_SYMBOLS_GJS([Gtk], [3.0], [ShortcutsWindow ShortcutsSection
+  ShortcutsGroup ShortcutsShortcut])
+AX_CHECK_GIRS_GJS([Pango], [1.0])
+AX_CHECK_GIRS_GJS([Tracker], [1.0])
+AX_CHECK_GIRS_GJS([TrackerControl], [1.0])
+AX_CHECK_GIRS_GJS([WebKit2], [4.0])
+AX_CHECK_GIRS_GJS([Zpj], [0.0])
 
 GLIB_COMPILE_RESOURCES=`$PKG_CONFIG --variable glib_compile_resources gio-2.0`
 AC_SUBST(GLIB_COMPILE_RESOURCES)
