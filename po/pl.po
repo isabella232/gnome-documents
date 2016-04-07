@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-01 22:08+0100\n"
-"PO-Revision-Date: 2016-03-01 22:09+0100\n"
+"POT-Creation-Date: 2016-04-07 20:24+0200\n"
+"PO-Revision-Date: 2016-04-07 20:25+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -67,7 +67,7 @@ msgstr "Drukowanie e-booków"
 
 #: ../data/org.gnome.Books.desktop.in.h:2
 msgid "Access, manage and share books"
-msgstr "Czytanie, zarządzanie i współdzielenie książek"
+msgstr "Czytanie, zarządzanie i udostępnianie książek"
 
 #: ../data/org.gnome.Books.desktop.in.h:3
 msgid "Books;Comics;ePub;PDF;"
@@ -150,7 +150,7 @@ msgid ""
 "to deal with documents. Seamless cloud integration is offered through GNOME "
 "Online Accounts."
 msgstr ""
-"Prosty program umożliwiający przeglądanie, organizowanie i współdzielenie "
+"Prosty program umożliwiający przeglądanie, organizowanie i udostępnianie "
 "dokumentów w środowisku GNOME. Został on zaprojektowany jako prosty i "
 "elegancki interfejs do zarządzania dokumentami, zastępujący w tym celu "
 "menedżer plików. Dzięki usłudze Kont online GNOME oferuje on integrację z "
@@ -190,7 +190,7 @@ msgstr "Otwieranie rozbudowanego edytora w celu dokonania poważniejszych zmian"
 
 #: ../data/org.gnome.Documents.desktop.in.h:2
 msgid "Access, manage and share documents"
-msgstr "Dostęp, zarządzanie i współdzielenie dokumentów"
+msgstr "Dostęp, zarządzanie i udostępnianie dokumentów"
 
 #: ../data/org.gnome.Documents.desktop.in.h:3
 msgid "Docs;PDF;Document;"
@@ -619,14 +619,14 @@ msgid "Select Items"
 msgstr "Zaznacza elementy"
 
 #. Translators: only one item has been deleted and %s is its name
-#: ../src/notifications.js:54
+#: ../src/notifications.js:52
 #, javascript-format
 msgid "“%s” deleted"
 msgstr "Usunięto „%s”"
 
 #. Translators: one or more items might have been deleted, and %d
 #. is the count
-#: ../src/notifications.js:58
+#: ../src/notifications.js:56
 #, javascript-format
 msgid "%d item deleted"
 msgid_plural "%d items deleted"
@@ -634,31 +634,31 @@ msgstr[0] "Usunięto %d element"
 msgstr[1] "Usunięto %d elementy"
 msgstr[2] "Usunięto %d elementów"
 
-#: ../src/notifications.js:67 ../src/selections.js:393
+#: ../src/notifications.js:65 ../src/selections.js:393
 msgid "Undo"
 msgstr "Cofnij"
 
-#: ../src/notifications.js:167
+#: ../src/notifications.js:163
 #, javascript-format
 msgid "Printing “%s”: %s"
 msgstr "Drukowanie „%s”: %s"
 
-#: ../src/notifications.js:223
+#: ../src/notifications.js:219
 msgid "Your documents are being indexed"
 msgstr "Trwa indeksowanie dokumentów"
 
-#: ../src/notifications.js:224
+#: ../src/notifications.js:220
 msgid "Some documents might not be available during this process"
 msgstr "Niektóre dokumenty mogą być niedostępne podczas tego procesu"
 
 #. Translators: %s refers to an online account provider, e.g.
 #. "Google", or "Windows Live".
-#: ../src/notifications.js:246
+#: ../src/notifications.js:242
 #, javascript-format
 msgid "Fetching documents from %s"
 msgstr "Pobieranie dokumentów z %s"
 
-#: ../src/notifications.js:248
+#: ../src/notifications.js:244
 msgid "Fetching documents from online accounts"
 msgstr "Pobieranie dokumentów z kont online"
 
@@ -772,7 +772,7 @@ msgstr "Ulubione"
 #. Translators: this refers to shared documents
 #: ../src/search.js:142
 msgid "Shared with you"
-msgstr "Współdzielone"
+msgstr "Udostępnione"
 
 #. Translators: "Type" refers to a search filter on the document type
 #. (PDF, spreadsheet, ...)
@@ -859,7 +859,7 @@ msgstr "Kolekcje"
 
 #: ../src/sharing.js:108
 msgid "Sharing Settings"
-msgstr "Ustawienia współdzielenia"
+msgstr "Ustawienia udostępniania"
 
 #. Label for widget group for changing document permissions
 #: ../src/sharing.js:145
@@ -883,7 +883,7 @@ msgstr "Publiczne"
 #. Label for checkbutton that sets doc permission to Can edit
 #: ../src/sharing.js:190 ../src/sharing.js:300
 msgid "Everyone can edit"
-msgstr "Każdy może modyfikować"
+msgstr "Wszyscy mogą modyfikować"
 
 #. Label for widget group used for adding new contacts
 #: ../src/sharing.js:197
@@ -905,7 +905,7 @@ msgstr "Może wyświetlać"
 
 #: ../src/sharing.js:302
 msgid "Everyone can read"
-msgstr "Każdy może odczytywać"
+msgstr "Wszyscy mogą odczytywać"
 
 #: ../src/sharing.js:317
 msgid "Save"
