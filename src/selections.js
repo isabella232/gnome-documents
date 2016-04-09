@@ -549,12 +549,18 @@ const CollectionList = new Lang.Class({
     },
 
     _onCollectionAdded: function(manager, itemAdded) {
+        if (!itemAdded.collection)
+            return;
+
         let collection =  new CollectionRow(itemAdded, OrganizeCollectionState.ACTIVE);
         collection.show_all();
         this.add(collection);
     },
 
     _onCollectionRemoved: function(manager, itemRemoved) {
+        if (!itemRemoved.collection)
+            return;
+
         let rows = this.get_children();
         for (let i = 0; i < rows.length; i++) {
             if (rows[i].collection.id == itemRemoved.id) {
