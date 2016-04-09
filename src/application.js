@@ -185,7 +185,7 @@ const Application = new Lang.Class({
             function() {
                 let state = settings.get_value('view-as');
                 if (state.get_string()[0] != action.state.get_string()[0])
-                    action.state = state;
+                    action.change_state(state);
             }));
     },
 
@@ -194,7 +194,7 @@ const Application = new Lang.Class({
             function() {
                 let state = settings.get_value('night-mode');
                 if (state.get_boolean() != action.state.get_boolean())
-                    action.state = state;
+                    action.change_state(state);
 
                 let gtkSettings = Gtk.Settings.get_default();
                 gtkSettings.gtk_application_prefer_dark_theme = state.get_boolean();
@@ -210,7 +210,7 @@ const Application = new Lang.Class({
             function() {
                 let state = settings.get_value('sort-by');
                 if (state.get_string()[0] != action.state.get_string()[0])
-                    action.state = state;
+                    action.change_state(state);
             }));
     },
 
