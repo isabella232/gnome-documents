@@ -206,7 +206,7 @@ const OverviewSearchbar = new Lang.Class({
 
         // create the dropdown button
         this._dropdownButton = new Gtk.ToggleButton(
-            { child: new Gtk.Image({ icon_name: 'go-down-symbolic',
+            { child: new Gtk.Image({ icon_name: 'pan-down-symbolic',
                                      icon_size: Gtk.IconSize.MENU }) });
         this._dropdownButton.get_style_context().add_class('raised');
         this._dropdownButton.get_style_context().add_class('image-button');
