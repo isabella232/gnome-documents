@@ -94,9 +94,8 @@ const PreviewView = new Lang.Class({
 
         this._bookmarkPage = Application.application.lookup_action('bookmark-page');
         this._bookmarkPage.enabled = false;
-        let bookmarkPageId = this._bookmarkPage.connect('change-state',
+        let bookmarkPageId = Application.application.connect('action-state-changed::bookmark-page',
             Lang.bind(this, this._onActionStateChanged));
-        this._onActionStateChanged(this._bookmarkPage, this._bookmarkPage.state);
 
         this._zoomIn = Application.application.lookup_action('zoom-in');
         let zoomInId = this._zoomIn.connect('activate', Lang.bind(this,
@@ -159,7 +158,6 @@ const PreviewView = new Lang.Class({
 
         this.connect('destroy', Lang.bind(this,
             function() {
-                this._bookmarkPage.disconnect(bookmarkPageId);
                 this._zoomIn.disconnect(zoomInId);
                 this._zoomOut.disconnect(zoomOutId);
                 findPrev.disconnect(findPrevId);
@@ -169,6 +167,7 @@ const PreviewView = new Lang.Class({
                 rotRight.disconnect(rotRightId);
                 this._places.disconnect(placesId);
                 Application.application.disconnect(presentCurrentId);
+                Application.application.disconnect(bookmarkPageId);
                 Application.application.disconnect(nightModeId);
             }));
     },
@@ -189,7 +188,7 @@ const PreviewView = new Lang.Class({
         this._setError(message, exception.message);
     },
 
-    _onActionStateChanged: function(action, state) {
+    _onActionStateChanged: function(source, actionName, state) {
         if (!this._model)
             return;
 
@@ -573,6 +572,7 @@ const PreviewView = new Lang.Class({
             this._places.enabled = hasMultiplePages;
 
             this._model.connect('page-changed', Lang.bind(this, this._onPageChanged));
+            this._onPageChanged();
 
             this._updateNightMode();
 
