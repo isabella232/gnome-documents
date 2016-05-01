@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents 3.19.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-28 16:57+0100\n"
-"PO-Revision-Date: 2016-02-28 16:59+0100\n"
+"POT-Creation-Date: 2016-05-01 14:36+0200\n"
+"PO-Revision-Date: 2016-05-01 14:37+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: \n"
@@ -324,7 +324,7 @@ msgstr "Ny samling …"
 msgid "Add"
 msgstr "Legg til"
 
-#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:209
+#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:210
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -339,7 +339,7 @@ msgstr "_Kopier"
 
 #. Translators: this is the Open action in a context menu
 #: ../data/ui/preview-menu.ui.h:1 ../data/ui/selection-toolbar.ui.h:1
-#: ../src/selections.js:986
+#: ../src/selections.js:992
 msgid "Open"
 msgstr "Åpne"
 
@@ -572,7 +572,7 @@ msgid "translator-credits"
 msgstr "Kjartan Maraas <kmaraas@gnome.org>"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/lokview.js:333 ../src/preview.js:916 ../src/selections.js:983
+#: ../src/lokview.js:333 ../src/preview.js:916 ../src/selections.js:989
 #, javascript-format
 msgid "Open with %s"
 msgstr "Åpne med %s"
@@ -585,66 +585,67 @@ msgstr "Søk"
 msgid "Back"
 msgstr "Tilbake"
 
-#: ../src/mainToolbar.js:155
+#. Translators: this is the menu to change view settings
+#: ../src/mainToolbar.js:156
 msgid "View Menu"
 msgstr "Vis meny"
 
-#: ../src/mainToolbar.js:183
+#: ../src/mainToolbar.js:184
 msgid "Click on items to select them"
 msgstr "Klikk på oppføringer for å velge dem"
 
-#: ../src/mainToolbar.js:185
+#: ../src/mainToolbar.js:186
 #, javascript-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d valgt"
 msgstr[1] "%d valgt"
 
-#: ../src/mainToolbar.js:269
+#: ../src/mainToolbar.js:270
 msgid "Select Items"
 msgstr "Velg oppføringer"
 
 #. Translators: only one item has been deleted and %s is its name
-#: ../src/notifications.js:54
+#: ../src/notifications.js:52
 #, javascript-format
 msgid "“%s” deleted"
 msgstr "«%s» slettet"
 
 #. Translators: one or more items might have been deleted, and %d
 #. is the count
-#: ../src/notifications.js:58
+#: ../src/notifications.js:56
 #, javascript-format
 msgid "%d item deleted"
 msgid_plural "%d items deleted"
 msgstr[0] "%d oppføring er slettet"
 msgstr[1] "%d oppføringer er slettet"
 
-#: ../src/notifications.js:67 ../src/selections.js:393
+#: ../src/notifications.js:65 ../src/selections.js:393
 msgid "Undo"
 msgstr "Angre"
 
-#: ../src/notifications.js:167
+#: ../src/notifications.js:163
 #, javascript-format
 msgid "Printing “%s”: %s"
 msgstr "Skriver ut «%s»: %s"
 
-#: ../src/notifications.js:223
+#: ../src/notifications.js:219
 msgid "Your documents are being indexed"
 msgstr "Dokumentene dine blir indeksert"
 
-#: ../src/notifications.js:224
+#: ../src/notifications.js:220
 msgid "Some documents might not be available during this process"
 msgstr ""
 "Noen dokumenter vil kanskje ikke være tilgjengelig under denne prosessen"
 
 #. Translators: %s refers to an online account provider, e.g.
 #. "Google", or "Windows Live".
-#: ../src/notifications.js:246
+#: ../src/notifications.js:242
 #, javascript-format
 msgid "Fetching documents from %s"
 msgstr "Henter dokumenter fra %s"
 
-#: ../src/notifications.js:248
+#: ../src/notifications.js:244
 msgid "Fetching documents from online accounts"
 msgstr "Henter dokumenter fra kontoer på nettet"
 
@@ -833,12 +834,12 @@ msgstr "Slett"
 msgid "“%s” removed"
 msgstr "«%s» fjernet"
 
-#: ../src/selections.js:779
+#: ../src/selections.js:785
 msgid "Rename"
 msgstr "Endre navn"
 
 #. Translators: "Collections" refers to documents in this context
-#: ../src/selections.js:785
+#: ../src/selections.js:791
 msgctxt "Dialog Title"
 msgid "Collections"
 msgstr "Samlinger"
@@ -943,64 +944,51 @@ msgstr "Du kan lage samlinger fra bokvisningen"
 msgid "You can create collections from the Documents view"
 msgstr "Du kan lage samlinger fra dokumentvisningen"
 
-#. Translators: the %s's here are "Online Accounts" and "Documents folder", which are
-#. in a separate string due to markup, and should be translated only in the context of
-#. this sentence
-#: ../src/view.js:304
+#: ../src/view.js:301
 #, javascript-format
-msgid "Documents from your %s and %s will appear here."
-msgstr "Dokumenter fra %s og %s vil vises her."
+msgid ""
+"Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
+"href=\"file://%s\">Documents folder</a> will appear here."
+msgstr "Dokumenter fra dine <a href=\"system-settings\">Kontoer på nettet</a> og <a href=\"file://%s\">Dokumentmappe</a> vil vises her."
 
-#. Translators: this should be translated in the context of the
-#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
-#: ../src/view.js:308
-msgid "Online Accounts"
-msgstr "Kontoer på nettet"
-
-#. Translators: this should be translated in the context of the
-#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
-#: ../src/view.js:313
-msgid "Documents folder"
-msgstr "Dokumentmappe"
-
-#: ../src/view.js:529
+#: ../src/view.js:517
 msgid "Yesterday"
 msgstr "I går"
 
-#: ../src/view.js:531
+#: ../src/view.js:519
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d dag siden"
 msgstr[1] "%d dager siden"
 
-#: ../src/view.js:535
+#: ../src/view.js:523
 msgid "Last week"
 msgstr "Siste uke"
 
-#: ../src/view.js:537
+#: ../src/view.js:525
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d uke siden"
 msgstr[1] "%d uker siden"
 
-#: ../src/view.js:541
+#: ../src/view.js:529
 msgid "Last month"
 msgstr "Siste måned"
 
-#: ../src/view.js:543
+#: ../src/view.js:531
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d måned siden"
 msgstr[1] "%d måneder siden"
 
-#: ../src/view.js:547
+#: ../src/view.js:535
 msgid "Last year"
 msgstr "Siste år"
 
-#: ../src/view.js:549
+#: ../src/view.js:537
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
