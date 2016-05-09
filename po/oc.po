@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-01 17:03+0000\n"
-"PO-Revision-Date: 2016-02-24 18:44+0200\n"
+"POT-Creation-Date: 2016-04-29 08:33+0000\n"
+"PO-Revision-Date: 2016-05-08 18:36+0200\n"
 "Last-Translator: Cédric Valmary (totenoc.eu) <cvalmary@yahoo.fr>\n"
 "Language-Team: Tot En Òc\n"
 "Language: oc\n"
@@ -55,10 +55,9 @@ msgid "Search through e-books"
 msgstr "Cercar demest vòstra bibliotèca"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:7
-#, fuzzy
 #| msgid "View e-books fullscreen"
 msgid "View e-books (PDF and comics) fullscreen"
-msgstr "Legir vòstres libres numerics en ecran complet"
+msgstr "Legir vòstres libres numerics (PDF e comics) en ecran complet"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:8
 msgid "Print e-books"
@@ -125,12 +124,12 @@ msgstr "Estat maximizat de la fenèstra"
 #: ../data/org.gnome.books.gschema.xml.h:11
 #: ../data/org.gnome.documents.gschema.xml.h:11
 msgid "Night mode"
-msgstr "Mòde nuèch"
+msgstr "Mòde nuèit"
 
 #: ../data/org.gnome.books.gschema.xml.h:12
 #: ../data/org.gnome.documents.gschema.xml.h:12
 msgid "Whether the application is in night mode."
-msgstr "Indica se l'aplicacion es en mòde nuèch."
+msgstr "Indica se l'aplicacion es en mòde nuèit."
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:1
 #: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:118
@@ -200,7 +199,7 @@ msgstr "Ecran complet"
 
 #: ../data/ui/app-menu.ui.h:2
 msgid "Night Mode"
-msgstr "Mòde nuèch"
+msgstr "Mòde nuèit"
 
 #: ../data/ui/app-menu.ui.h:3
 msgid "Keyboard Shortcuts"
@@ -229,19 +228,16 @@ msgid "Show help"
 msgstr "Afichar l'ajuda"
 
 #: ../data/ui/help-overlay.ui.h:3
-#| msgid "Quit"
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Quitar"
 
 #: ../data/ui/help-overlay.ui.h:4
-#| msgid "Search"
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Recercar"
 
 #: ../data/ui/help-overlay.ui.h:5
-#| msgid "Print documents"
 msgctxt "shortcut window"
 msgid "Print the current document"
 msgstr "Imprimir lo document actual"
@@ -262,19 +258,16 @@ msgid "Preview"
 msgstr "Apercebut"
 
 #: ../data/ui/help-overlay.ui.h:9
-#| msgid "Zoom In"
 msgctxt "shortcut window"
 msgid "Zoom in"
 msgstr "Zoom avant"
 
 #: ../data/ui/help-overlay.ui.h:10
-#| msgid "Zoom Out"
 msgctxt "shortcut window"
 msgid "Zoom out"
 msgstr "Zoom arrièr"
 
 #: ../data/ui/help-overlay.ui.h:11
-#| msgid "Bookmark this page"
 msgctxt "shortcut window"
 msgid "Bookmark the current page"
 msgstr "Marcar aquesta pagina d'un signet"
@@ -310,7 +303,6 @@ msgid "Previous occurrence of the search string"
 msgstr ""
 
 #: ../data/ui/help-overlay.ui.h:18
-#| msgid "Presentation"
 msgctxt "shortcut window"
 msgid "Presentation mode"
 msgstr "Mòde Presentacion"
@@ -321,7 +313,6 @@ msgid "Open action menu"
 msgstr ""
 
 #: ../data/ui/help-overlay.ui.h:20
-#| msgid "Fullscreen"
 msgctxt "shortcut window"
 msgid "Fullscreen"
 msgstr "Ecran complet"
@@ -331,7 +322,6 @@ msgid "Enter a name for your first collection"
 msgstr ""
 
 #: ../data/ui/organize-collection-dialog.ui.h:2
-#| msgid "Collection"
 msgid "New Collection…"
 msgstr "Colleccion novèla..."
 
@@ -339,7 +329,7 @@ msgstr "Colleccion novèla..."
 msgid "Add"
 msgstr "Apondre"
 
-#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:209
+#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:210
 msgid "Cancel"
 msgstr "Anullar"
 
@@ -354,7 +344,7 @@ msgstr "_Copiar"
 
 #. Translators: this is the Open action in a context menu
 #: ../data/ui/preview-menu.ui.h:1 ../data/ui/selection-toolbar.ui.h:1
-#: ../src/selections.js:986
+#: ../src/selections.js:992
 msgid "Open"
 msgstr "Dobrir"
 
@@ -417,8 +407,6 @@ msgid "Sort"
 msgstr "Triar"
 
 #: ../data/ui/view-menu.ui.h:4
-#| msgctxt "Document Author"
-#| msgid "Author"
 msgid "Author"
 msgstr "Autor"
 
@@ -590,7 +578,7 @@ msgid "translator-credits"
 msgstr "Cédric Valmary <cvalmary@yahoo.fr>"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/lokview.js:333 ../src/preview.js:916 ../src/selections.js:983
+#: ../src/lokview.js:333 ../src/preview.js:916 ../src/selections.js:989
 #, javascript-format
 msgid "Open with %s"
 msgstr "Dobrir amb %s"
@@ -603,68 +591,68 @@ msgstr "Recercar"
 msgid "Back"
 msgstr "Precedent"
 
-#: ../src/mainToolbar.js:155
-#, fuzzy
+#. Translators: this is the menu to change view settings
+#: ../src/mainToolbar.js:156
 #| msgid "View as"
 msgid "View Menu"
 msgstr "Afichar lo Menú"
 
-#: ../src/mainToolbar.js:183
+#: ../src/mainToolbar.js:184
 msgid "Click on items to select them"
 msgstr "Clicar suls elements per los seleccionar"
 
-#: ../src/mainToolbar.js:185
+#: ../src/mainToolbar.js:186
 #, javascript-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d seleccionat"
 msgstr[1] "%d seleccionats"
 
-#: ../src/mainToolbar.js:269
+#: ../src/mainToolbar.js:270
 msgid "Select Items"
 msgstr "Seleccionar los elements"
 
 #. Translators: only one item has been deleted and %s is its name
-#: ../src/notifications.js:54
+#: ../src/notifications.js:52
 #, javascript-format
 msgid "“%s” deleted"
 msgstr "« %s » suprimit"
 
 #. Translators: one or more items might have been deleted, and %d
 #. is the count
-#: ../src/notifications.js:58
+#: ../src/notifications.js:56
 #, javascript-format
 msgid "%d item deleted"
 msgid_plural "%d items deleted"
 msgstr[0] "%d element es estat suprimit"
 msgstr[1] "%d elements son estats suprimits"
 
-#: ../src/notifications.js:67 ../src/selections.js:393
+#: ../src/notifications.js:65 ../src/selections.js:393
 msgid "Undo"
 msgstr "Anullar"
 
-#: ../src/notifications.js:167
+#: ../src/notifications.js:163
 #, javascript-format
 msgid "Printing “%s”: %s"
 msgstr "Impression de « %s » : %s"
 
-#: ../src/notifications.js:223
+#: ../src/notifications.js:219
 msgid "Your documents are being indexed"
 msgstr "Vòstres documents son en cors d'indexacion"
 
-#: ../src/notifications.js:224
+#: ../src/notifications.js:220
 msgid "Some documents might not be available during this process"
 msgstr ""
 "Certans documents pòdon èsser indisponibles al cors d'aqueste processus"
 
 #. Translators: %s refers to an online account provider, e.g.
 #. "Google", or "Windows Live".
-#: ../src/notifications.js:246
+#: ../src/notifications.js:242
 #, javascript-format
 msgid "Fetching documents from %s"
 msgstr "Recuperacion dels documents a partir de %s"
 
-#: ../src/notifications.js:248
+#: ../src/notifications.js:244
 msgid "Fetching documents from online accounts"
 msgstr "Recuperacion dels documents a partir de comptes en linha"
 
@@ -832,7 +820,6 @@ msgstr "Autor"
 
 #. Translators: "Content" refers to "Match Content" when searching
 #: ../src/search.js:346
-#| msgid "Contents"
 msgctxt "Search Filter"
 msgid "Content"
 msgstr "Contengut"
@@ -851,16 +838,15 @@ msgstr "Suprimir"
 
 #: ../src/selections.js:388
 #, javascript-format
-#| msgid "“%s” deleted"
 msgid "“%s” removed"
 msgstr "« %s » suprimit"
 
-#: ../src/selections.js:779
+#: ../src/selections.js:785
 msgid "Rename"
 msgstr "Renomenar"
 
 #. Translators: "Collections" refers to documents in this context
-#: ../src/selections.js:785
+#: ../src/selections.js:791
 msgctxt "Dialog Title"
 msgid "Collections"
 msgstr "Colleccions"
@@ -942,17 +928,14 @@ msgid "Unable to fetch the list of documents"
 msgstr "Impossible de recuperar la lista de documents"
 
 #: ../src/view.js:271
-#| msgid "No Books Found"
 msgid "No collections found"
 msgstr "Cap de colleccion pas trobada"
 
 #: ../src/view.js:273
-#| msgid "No Books Found"
 msgid "No books found"
 msgstr "Cap de libre pas trobat"
 
 #: ../src/view.js:273
-#| msgid "No Documents Found"
 msgid "No documents found"
 msgstr "Cap de document pas trobat"
 
@@ -968,70 +951,63 @@ msgstr ""
 msgid "You can create collections from the Documents view"
 msgstr ""
 
-#. Translators: the %s's here are "Online Accounts" and "Documents folder", which are
-#. in a separate string due to markup, and should be translated only in the context of
-#. this sentence
-#: ../src/view.js:304
+#: ../src/view.js:301
 #, javascript-format
-msgid "Documents from your %s and %s will appear here."
+msgid ""
+"Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
+"href=\"file://%s\">Documents folder</a> will appear here."
 msgstr ""
 
-#. Translators: this should be translated in the context of the
-#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
-#: ../src/view.js:308
-msgid "Online Accounts"
-msgstr "Comptes en linha"
-
-#. Translators: this should be translated in the context of the
-#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
-#: ../src/view.js:313
-#| msgid "Documents"
-msgid "Documents folder"
-msgstr "Dorsièr Documents"
-
-#: ../src/view.js:529
+#: ../src/view.js:517
 msgid "Yesterday"
 msgstr "Ièr"
 
-#: ../src/view.js:531
+#: ../src/view.js:519
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "I a %d jorn"
 msgstr[1] "I a %d jorns"
 
-#: ../src/view.js:535
+#: ../src/view.js:523
 msgid "Last week"
 msgstr "La setmana passada"
 
-#: ../src/view.js:537
+#: ../src/view.js:525
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "I a %d setmana"
 msgstr[1] "I a %d setmanas"
 
-#: ../src/view.js:541
+#: ../src/view.js:529
 msgid "Last month"
 msgstr "Lo mes passat"
 
-#: ../src/view.js:543
+#: ../src/view.js:531
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "I a %d mes"
 msgstr[1] "I a %d meses"
 
-#: ../src/view.js:547
+#: ../src/view.js:535
 msgid "Last year"
 msgstr "L'an passat"
 
-#: ../src/view.js:549
+#: ../src/view.js:537
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "I a %d an"
 msgstr[1] "I a %d ans"
+
+#~ msgid "Online Accounts"
+#~ msgstr "Comptes en linha"
+
+#~| msgid "Documents"
+#~ msgid "Documents folder"
+#~ msgstr "Dorsièr Documents"
 
 #~ msgid "Recent"
 #~ msgstr "Recent"
@@ -1061,7 +1037,7 @@ msgstr[1] "I a %d ans"
 #~ msgstr "Paramètres"
 
 #~ msgid "Load More"
-#~ msgstr "Charger plus"
+#~ msgstr "Cargar mai"
 
 #~ msgid ""
 #~ "<li>View recent local and online documents</li> <li>Access your Google, "
@@ -1070,16 +1046,16 @@ msgstr[1] "I a %d ans"
 #~ "fullscreen</li> <li>Print documents</li> <li>Select favorites</li> "
 #~ "<li>Allow opening full featured editor for non-trivial changes</li>"
 #~ msgstr ""
-#~ "<li>d'afichar los documents récents e en ligne</li> <li>d'accedir a vos "
-#~ "contenguts Google, ownCloud o OneDrive</li> <li>de rechercher dins vos "
-#~ "documents</li> <li>de consulter de nouveaux documents partagés per les "
-#~ "amis</li> <li>d'afichar los documents en ecran complet</li> "
-#~ "<li>d'imprimir les documents</li> <li>de seleccionar les favoris</li> "
-#~ "<li>d'autoriser l'ouverture d'un editor pleinement fonctionnel per des "
-#~ "modifications non triviales</li>"
+#~ "<li>d'afichar los documents recents e en linha</li> <li>d'accedir a vòstres "
+#~ "contenguts Google, ownCloud o OneDrive</li> <li>de recercar dins vòstres "
+#~ "documents</li> <li>de consulter de nouveaux documents partejats pels "
+#~ "amics</li> <li>d'afichar los documents en ecran complet</li> "
+#~ "<li>d'imprimir los documents</li> <li>de seleccionar los favorits</li> "
+#~ "<li>d'autorizar la dobertura d'un editor plenament foncional per de "
+#~ "modificacions non trivialas</li>"
 
 #~ msgid "Results for “%s”"
-#~ msgstr "Résultats per « %s »"
+#~ msgstr "Resultats per « %s »"
 
 #~ msgid "Close"
 #~ msgstr "Tampar"
@@ -1088,43 +1064,43 @@ msgstr[1] "I a %d ans"
 #~ msgstr "Skydrive"
 
 #~ msgid "Grid"
-#~ msgstr "Grille"
+#~ msgstr "Grasilha"
 
 #~ msgid "List"
-#~ msgstr "Liste"
+#~ msgstr "Lista"
 
 #~ msgid "About Documents"
-#~ msgstr "À propos de Documents"
+#~ msgstr "A prepaus de Documents"
 
 #~ msgctxt "Dialog Title"
 #~ msgid "Organize"
-#~ msgstr "Organisation"
+#~ msgstr "Organizacion"
 
 #~ msgctxt "Toolbar button tooltip"
 #~ msgid "Organize"
 #~ msgstr "Organizar"
 
 #~ msgid "Unable to load \"%s\" for preview"
-#~ msgstr "Impossible de charger « %s » per l'aperçu"
+#~ msgstr "Impossible de cargqr « %s » per l'apercebut"
 
 #~ msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
 #~ msgstr ""
-#~ "Impossible de trobar « unoconv », vérifiez votre installation de "
+#~ "Impossible de trobar « unoconv », verificatz vòstra installacion de "
 #~ "LibreOffice"
 
 #~ msgid "filtered by title"
-#~ msgstr "filtré per títol"
+#~ msgstr "filtrat per títol"
 
 #~ msgid "filtered by author"
-#~ msgstr "filtré per auteur"
+#~ msgstr "filtrat per autor"
 
 #~ msgid "Load %d more document"
 #~ msgid_plural "Load %d more documents"
-#~ msgstr[0] "Charger %d document supplémentaire"
-#~ msgstr[1] "Charger %d documents supplémentaires"
+#~ msgstr[0] "Cargar %d document suplementari"
+#~ msgstr[1] "Cargar %d documents suplementaris"
 
 #~ msgid "Print..."
 #~ msgstr "Imprimir..."
 
 #~ msgid "Rotate Right"
-#~ msgstr "Faire pivoter a droite"
+#~ msgstr "Far pivotar a dreita"
