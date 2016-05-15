@@ -1,31 +1,40 @@
-#
+# gnome-documents Swedish translation
+# Copyright © 2012-2015 the author of gnome-documents (msgids)
+# This file is distributed under the same license as the gnome-documents package.
+# Daniel Nylander <po@danielnylander.se>, 2012.
+# Sebastian Rasmussen <sebras@gmail.com>, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-help\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-07 21:40+0000\n"
-"PO-Revision-Date: 2012-03-27 23:52+0100\n"
-"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"documents&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-05-05 08:37+0000\n"
+"PO-Revision-Date: 2016-05-15 13:40+0200\n"
+"Last-Translator: Sebastian Rasmussen <sebras@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #. (itstool) path: p/link
 #: C/legal.xml:3
 msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
-msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+msgstr "licensen Creative Commons Erkännande-DelaLika 3.0 Unported"
 
 #. (itstool) path: license/p
 #: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
-msgstr "Detta arbete är licensierat under en <_:link-1/>."
+msgstr "Detta arbete är licensierat under <_:link-1/>."
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr "Daniel Nylander <po@danielnylander.se>, 2012"
+msgstr ""
+"Daniel Nylander <po@danielnylander.se>, 2012\n"
+"Sebastian Rasmussen <sebras@gmail.com>, 2015"
 
 #. (itstool) path: credit/name
 #: C/collections.page:12 C/index.page:14 C/info.page:12 C/print.page:11
@@ -56,24 +65,25 @@ msgstr "Michael Hill"
 #: C/info.page:22 C/prob-no-show.page:22 C/prob-previews.page:22
 #: C/viewgrid.page:22 C/view.page:22 C/view-add.page:13
 msgid "Ekaterina Gerasimova"
-msgstr ""
+msgstr "Ekaterina Gerasimova"
 
 #. (itstool) path: credit/years
 #: C/collections.page:24 C/filter.page:19 C/formats.page:19 C/index.page:26
 #: C/info.page:24 C/prob-no-show.page:24 C/prob-previews.page:24
 #: C/viewgrid.page:24 C/view.page:24
 msgid "2014"
-msgstr ""
+msgstr "2014"
 
 #. (itstool) path: info/desc
 #: C/collections.page:29
 msgid "Group related documents together to help sort them."
 msgstr ""
+"Gruppera relaterade dokument tillsammans för att hjälpa till att sortera dem."
 
 #. (itstool) path: page/title
 #: C/collections.page:32
 msgid "Make collections of documents"
-msgstr ""
+msgstr "Skapa samlingar av dokument"
 
 #. (itstool) path: page/p
 #: C/collections.page:45
@@ -85,29 +95,35 @@ msgid ""
 "flight itinerary, your budget spreadsheet, and other word processor and PDF "
 "documents can be grouped in one collection."
 msgstr ""
+"Du kan placera dokument av olika typer på ett ställe, kallat en <em>samling</"
+"em>. Om du har dokument som är relaterade kan du gruppera dem för att göra "
+"det enklare att hitta dem. Om du till exempel var på en affärsresa där du "
+"gjorde en presentation kan du gruppera din presentation, en PDF med din "
+"resplan, kalkylbladet med budgeten och andra ordbehandlar- och PDF-dokument "
+"i en samling."
 
 #. (itstool) path: steps/title
 #: C/collections.page:53
-#, fuzzy
 msgid "To create or add to a collection:"
-msgstr "Användbara tangentbordsgenvägar"
+msgstr "För att skapa eller lägga till i en samling:"
 
 #. (itstool) path: item/p
 #: C/collections.page:55 C/collections.page:73 C/print.page:38
-#, fuzzy
 msgid "Press the <gui>✓</gui> button."
-msgstr "Klicka på knappen <guibutton>Skriv</guibutton>."
+msgstr "Tryck på <gui>✓</gui>-knappen."
 
 #. (itstool) path: item/p
 #: C/collections.page:58
 msgid "In selection mode, select related documents."
-msgstr ""
+msgstr "I markeringsläget, markera relaterade dokument."
 
+# sebras: är detta Add numera?
 #. (itstool) path: item/p
 #: C/collections.page:61
 msgid "Press <gui>Add to Collection</gui>."
-msgstr ""
+msgstr "Tryck på <gui>Lägg till i samling</gui>."
 
+# sebras: has the button changed?
 #. (itstool) path: item/p
 #: C/collections.page:64
 msgid ""
@@ -115,16 +131,19 @@ msgid ""
 "type a new collection name, or select an existing collection. The selected "
 "documents will be added to the collection."
 msgstr ""
+"I samlingslistan, tryck på <gui>Skapa en ny samling</gui> två gånger och "
+"skriv in ett nytt samlingsnamn eller markera en existerande samling. De "
+"markerade dokumenten kommer att läggas till i samlingen."
 
 #. (itstool) path: steps/title
 #: C/collections.page:71
 msgid "To delete a collection:"
-msgstr ""
+msgstr "För att ta bort en samling:"
 
 #. (itstool) path: item/p
 #: C/collections.page:76
 msgid "In selection mode, select the collection that you want to delete."
-msgstr ""
+msgstr "I markeringsläget, markera samlingen som du vill ta bort."
 
 #. (itstool) path: item/p
 #: C/collections.page:79
@@ -132,22 +151,23 @@ msgid ""
 "Press <gui style=\"button\">Delete</gui>. The collection will be deleted, "
 "leaving the original documents as they are."
 msgstr ""
+"Tryck på <gui style=\"button\">Ta bort</gui>. Samlingen kommer att tas bort, "
+"men originaldokumenten kommer att lämnas orörda."
 
 #. (itstool) path: info/desc
 #: C/filter.page:24
 msgid "Choose which documents to display."
-msgstr ""
+msgstr "Välj vilka dokument som ska visas."
 
 #. (itstool) path: page/title
 #: C/filter.page:27
-#, fuzzy
 msgid "Filter documents"
-msgstr "Skriv ut ett dokument"
+msgstr "Filtrera dokument"
 
 #. (itstool) path: media/span
 #: C/filter.page:31 C/search.page:54
 msgid "down"
-msgstr ""
+msgstr "ner"
 
 #. (itstool) path: page/p
 #: C/filter.page:29
@@ -156,11 +176,14 @@ msgid ""
 "button next to the search bar to limit the scope of the search in these "
 "categories:"
 msgstr ""
+"<link xref=\"search\">Öppna sökningen</link> och klicka på <_:media-1/>-"
+"knappen intill sökfältet för att begränsa sökningens omfattning till dessa "
+"kategorier:"
 
 #. (itstool) path: item/title
 #: C/filter.page:36
 msgid "Sources"
-msgstr ""
+msgstr "Källor"
 
 #. (itstool) path: item/p
 #: C/filter.page:37
@@ -170,11 +193,15 @@ msgid ""
 "<gui>Google</gui>, <gui>OneDrive</gui>, <gui>ownCloud</gui>, or <gui>All</"
 "gui>."
 msgstr ""
+"Välj mellan att söka efter dokument som är <gui>Lokala</gui>, de som nås via "
+"<link href=\"help:gnome-help/online-accounts\">nätkonton</link> från "
+"<gui>Google</gui>, <gui>OneDrive</gui>, <gui>ownCloud</gui> eller <gui>Alla</"
+"gui>."
 
 #. (itstool) path: item/title
 #: C/filter.page:43
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 #. (itstool) path: item/p
 #: C/filter.page:44
@@ -183,11 +210,14 @@ msgid ""
 "gui>, <gui>Presentations</gui>, <gui>Spreadsheets</gui>, <gui>Text "
 "Documents</gui>, or <gui>All</gui>."
 msgstr ""
+"Sök bara efter dokument som är <gui>Samlingar</gui>, <gui>PDF-dokument</"
+"gui>, <gui>Presentationer</gui>, <gui>Kalkylark</gui>, <gui>Textdokument</"
+"gui> eller <gui>Alla</gui>."
 
 #. (itstool) path: item/title
 #: C/filter.page:49
 msgid "Match"
-msgstr ""
+msgstr "Matcha"
 
 #. (itstool) path: item/p
 #: C/filter.page:50
@@ -195,6 +225,8 @@ msgid ""
 "Choose to search only the <gui>Title</gui>, the <gui>Author</gui>, or "
 "<gui>All</gui>."
 msgstr ""
+"Välj att söka enbart efter <gui>Titel</gui>, <gui>Författare</gui> eller "
+"<gui>Alla</gui>."
 
 #. (itstool) path: note/p
 #: C/filter.page:56
@@ -204,16 +236,20 @@ msgid ""
 "or Windows Live as an <link href=\"help:gnome-help/accounts-add\">online "
 "account</link>."
 msgstr ""
+"För att <gui>Google</gui>, <gui>OneDrive</gui> eller <gui>ownCloud</gui> ska "
+"visas i filterlistan är det nödvändigt att konfigurera Google, ownCloud "
+"eller Windows Live som ett <link href=\"help:gnome-help/accounts-add"
+"\">nätkonto</link>."
 
 #. (itstool) path: info/desc
 #: C/formats.page:24
 msgid "<app>Documents</app> displays a number of popular document types."
-msgstr ""
+msgstr "<app>Dokument</app> visar ett antal populära dokumenttyper."
 
 #. (itstool) path: page/title
 #: C/formats.page:28
 msgid "Supported formats"
-msgstr ""
+msgstr "Format som stöds"
 
 #. (itstool) path: page/p
 #: C/formats.page:31
@@ -222,20 +258,21 @@ msgid ""
 "supported by <app href=\"help:evince\">Document Viewer</app>, <app>Microsoft "
 "Office</app>, <app>LibreOffice</app> and <app>Google Docs</app>."
 msgstr ""
+"<app>Dokument</app> visar PDF, DVI, XPS, PostScript samt de format som stöds "
+"av <app href=\"help:evince\">Dokumentvisare</app>, <app>Microsoft Office</"
+"app>, <app>LibreOffice</app> och <app>Google Docs</app>."
 
 #. (itstool) path: info/title
 #: C/index.page:7
-#, fuzzy
 msgctxt "link"
 msgid "Documents"
-msgstr "Skriv ut ett dokument"
+msgstr "Dokument"
 
 #. (itstool) path: info/title
 #: C/index.page:8
-#, fuzzy
 msgctxt "text"
 msgid "Documents"
-msgstr "Skriv ut ett dokument"
+msgstr "Dokument"
 
 #. (itstool) path: info/desc
 #: C/index.page:31
@@ -243,11 +280,13 @@ msgid ""
 "Organize, view and edit the documents that are stored locally on your "
 "computer or online."
 msgstr ""
+"Organisera, visa och redigera dokumenten som är lagrade lokalt på din dator "
+"eller på nätet."
 
 #. (itstool) path: page/title
 #: C/index.page:35
 msgid "<_:media-1/> Documents"
-msgstr ""
+msgstr "<_:media-1/> Dokument"
 
 #. (itstool) path: page/p
 #: C/index.page:50
@@ -256,32 +295,34 @@ msgid ""
 "and print the documents on your computer or those created remotely using "
 "<em>Google Docs</em>, <em>ownCloud</em> or <em>OneDrive</em>."
 msgstr ""
+"<app>Dokument</app> är ett GNOME-program som låter dig visa, organisera och "
+"skriva ut dokumenten på din dator eller de fjärrdokument som skapats via "
+"<em>Google Docs</em>, <em>ownCloud</em> eller <em>OneDrive</em>."
 
 #. (itstool) path: section/title
 #: C/index.page:55
-#, fuzzy
 msgid "View, sort and search"
-msgstr "Sortera och sök"
+msgstr "Visa, sortera och sök"
 
 #. (itstool) path: section/title
 #: C/index.page:59
 msgid "Select, organize and print"
-msgstr ""
+msgstr "Markera, organisera och skriv ut"
 
 #. (itstool) path: section/title
 #: C/index.page:63
 msgid "Problems"
-msgstr ""
+msgstr "Problem"
 
 #. (itstool) path: info/desc
 #: C/info.page:29
 msgid "See a document's name, location, date modified, or type."
-msgstr ""
+msgstr "Se ett dokuments namn, plats, ändringsdatum eller typ."
 
 #. (itstool) path: page/title
 #: C/info.page:32
 msgid "Find information about documents"
-msgstr ""
+msgstr "Hitta information om dokument"
 
 #. (itstool) path: page/p
 #: C/info.page:42
@@ -289,52 +330,50 @@ msgid ""
 "When a document is created, it contains <em>metadata</em>. <app>Documents</"
 "app> displays the following metadata for each document:"
 msgstr ""
+"När ett dokument skapas innehåller det <em>metadata</em>. <app>Dokument</"
+"app> visar följande metadata för varje dokument:"
 
 #. (itstool) path: item/p
 #: C/info.page:47
-#, fuzzy
 msgid "Title: the name of the document, which can be edited;"
-msgstr "För att skriva ut ett helt dokument:"
+msgstr "Titel: namnet på dokumentet, vilken kan redigeras;"
 
 #. (itstool) path: item/p
 #: C/info.page:50
 msgid "Source: the path to the folder containing the document;"
-msgstr ""
+msgstr "Källa: sökvägen till mappen som innehåller dokumentet;"
 
 #. (itstool) path: item/p
 #: C/info.page:53
-#, fuzzy
 msgid "Date Modified;"
-msgstr "Ändringsdatum"
+msgstr "Ändringsdatum;"
 
 #. (itstool) path: item/p
 #: C/info.page:56
 msgid "Type: the <link xref=\"formats\">file format</link> of the document."
-msgstr ""
+msgstr "Typ: dokumentets <link xref=\"formats\">filformat</link>."
 
 #. (itstool) path: page/p
 #: C/info.page:60
 msgid "To see a document's properties:"
-msgstr ""
+msgstr "För att se ett dokuments egenskaper:"
 
 #. (itstool) path: item/p
 #: C/info.page:63
-#, fuzzy
 msgid "Click the check button to switch to selection mode."
-msgstr "Klicka på verktygsfältsknappen <guibutton>Hem</guibutton>."
+msgstr "Klicka på bockknappen för att växla till markeringsläge."
 
 #. (itstool) path: item/p
 #: C/info.page:66
-#, fuzzy
 msgid "Select a document."
-msgstr "Skriv ut ett dokument"
+msgstr "Markera ett dokument."
 
 #. (itstool) path: item/p
 #: C/info.page:69
-#, fuzzy
 msgid ""
 "Click the <gui>Properties</gui> button at the right end of the button bar."
-msgstr "Klicka på verktygsfältsknappen <guibutton>Hem</guibutton>."
+msgstr ""
+"Klicka på knappen <gui>Egenskaper</gui> längst till höger i knappfältet."
 
 #. (itstool) path: note/p
 #: C/info.page:75
@@ -342,6 +381,8 @@ msgid ""
 "Some types of documents (e.g. PDF files) can be password protected, "
 "preventing access to their metadata or content."
 msgstr ""
+"Vissa typer av dokument (t.ex. PDF-filer) kan vara lösenordsskyddade vilket "
+"förhindrar tillgång till deras metadata och innehåll."
 
 #. (itstool) path: note/p
 #: C/info.page:80
@@ -351,11 +392,15 @@ msgid ""
 "create the document (e.g. <app>LibreOffice</app> or <app>Adobe Acrobat</"
 "app>)."
 msgstr ""
+"<app>Dokument</app> erbjuder för närvarande inte någon mekanism för att "
+"lägga till sekretess till ett dokument. Det kan vara möjligt för dig att "
+"göra detta från programmet du använde för att skapa dokumentet (t.ex. "
+"<app>LibreOffice</app> eller <app>Adobe Acrobat</app>)."
 
 #. (itstool) path: info/desc
 #: C/print.page:23
 msgid "Print documents that are stored locally or online."
-msgstr ""
+msgstr "Skriv ut dokument som är lagrade lokalt eller på nätet."
 
 #. (itstool) path: page/title
 #: C/print.page:26
@@ -364,23 +409,21 @@ msgstr "Skriv ut ett dokument"
 
 #. (itstool) path: steps/title
 #: C/print.page:36
-#, fuzzy
 msgid "To print a document:"
-msgstr "Skriv ut ett dokument"
+msgstr "För att skriva ut ett dokument:"
 
 #. (itstool) path: item/p
 #: C/print.page:41
 msgid "In selection mode, check the document to be printed."
-msgstr ""
+msgstr "I markeringsläget, kontrollera dokumentet som ska skrivas ut."
 
 #. (itstool) path: item/p
 #: C/print.page:44
-#, fuzzy
 msgid ""
 "Click the Print button in the button bar. The <gui>Print</gui> dialog opens."
 msgstr ""
-"Klicka på ditt namn på översta raden och klicka på <gui>Systeminställningar</"
-"gui>."
+"Klicka på Skriv ut-knappen i knappfältet. Dialogen <gui>Skriv ut</gui> "
+"öppnas."
 
 #. (itstool) path: note/p
 #: C/print.page:50
@@ -388,16 +431,18 @@ msgid ""
 "Printing is not available when more than one document is selected, or when a "
 "collection is selected."
 msgstr ""
+"Utskrift är inte möjligt när mer än ett dokument är markerat, eller när en "
+"samling är markerad."
 
 #. (itstool) path: info/desc
 #: C/prob-no-show.page:29
 msgid "Your local documents do not appear in <gui>Documents</gui>."
-msgstr ""
+msgstr "Dina lokala dokument visas inte i <gui>Dokument</gui>."
 
 #. (itstool) path: page/title
 #: C/prob-no-show.page:32
 msgid "My documents are not shown"
-msgstr ""
+msgstr "Mina dokument visas inte"
 
 #. (itstool) path: page/p
 #: C/prob-no-show.page:46
@@ -406,6 +451,9 @@ msgid ""
 "and office suite documents such as spreadsheets and word processor "
 "documents. It will not show text documents and photos."
 msgstr ""
+"<app>Dokument</app> har bara stöd för vissa typer av dokument, så som PDF:er "
+"och dokument från kontorspaket, så som kalkylark och ordbehandlingsdokument. "
+"Det kommer inte att visa textdokument och foton."
 
 #. (itstool) path: page/p
 #: C/prob-no-show.page:50
@@ -415,6 +463,10 @@ msgid ""
 "inside folders that are in those directories. Documents that are in other "
 "places on your computer will not be shown."
 msgstr ""
+"För att dina lokala dokument ska dyka upp i <app>Dokument</app> måste de "
+"finnas i mapparna <file>Dokument</file> eller <file>Hämtningar</file> eller "
+"i mappar som finns i de katalogerna. Dokument som finns på andra platser på "
+"din dator kommer inte att visas."
 
 #. (itstool) path: page/p
 #: C/prob-no-show.page:55
@@ -425,16 +477,23 @@ msgid ""
 "your home directory (non-recursively) and XDG folders (recursively), should "
 "be adequate."
 msgstr ""
+"Om dina dokument inte visas i <app>Dokument</app>, kör kanske <app>Tracker</"
+"app> inte eller är inte korrekt konfigurerat. Säkerställ att <app>Tracker</"
+"app> kör i din session. Standardkonfigurationen, som är inställd på att "
+"indexera filer i din hemkatalog (icke-rekursivt) och XDG-mappar (rekursivt), "
+"bör vara tillräcklig."
 
 #. (itstool) path: info/desc
 #: C/prob-previews.page:29
 msgid "You can only preview files stored locally, on Google Drive or ownCloud."
 msgstr ""
+"Du kan bara förhandsgranska filer som är lagrade lokalt, i Google Drive "
+"eller ownCloud."
 
 #. (itstool) path: page/title
 #: C/prob-previews.page:33
 msgid "Why do some files not have previews?"
-msgstr ""
+msgstr "Varför saknar vissa filer förhandsgranskningar?"
 
 #. (itstool) path: page/p
 #: C/prob-previews.page:41
@@ -444,6 +503,10 @@ msgid ""
 "em>. Those stored in <em>OneDrive</em> show as missing (or blank) preview "
 "thumbnails."
 msgstr ""
+"När du öppnar <app>Dokument</app> kommer en förhandsgranskningsbild att "
+"visas för dokument som är lagrade lokalt, på <em>Google Drive</em> eller "
+"<em>ownCloud</em>. De som lagras i <em>OneDrive</em> visas som saknade "
+"(eller tomma) förhandsgranskningar."
 
 #. (itstool) path: page/p
 #: C/prob-previews.page:46
@@ -451,6 +514,8 @@ msgid ""
 "If you download a <em>OneDrive</em> document to local storage through the "
 "web interface, a thumbnail will be generated."
 msgstr ""
+"Om du hämtar ner ett <em>OneDrive</em>-dokument till lokal lagring via "
+"webbgränssnittet kommer en miniatyrbild att genereras."
 
 #. (itstool) path: note/p
 #: C/prob-previews.page:50
@@ -459,11 +524,14 @@ msgid ""
 "ability to be updated online. If you want to continue to edit it online, it "
 "is better not to download it."
 msgstr ""
+"Den lokala kopian av ett dokument som hämtats ner från ett nätkonto kommer "
+"att förlora sin möjlighet att uppdateras på nätet. Om du vill fortsätta att "
+"redigera det på nätet är det bättre att inte hämta ner det."
 
 #. (itstool) path: info/desc
 #: C/search.page:23
 msgid "Find your documents by title or author."
-msgstr ""
+msgstr "Sök bland dina dokument efter titel eller författare."
 
 #. (itstool) path: page/title
 #: C/search.page:26
@@ -472,21 +540,17 @@ msgstr "Sök efter filer"
 
 #. (itstool) path: page/p
 #: C/search.page:38
-#, fuzzy
 msgid "To start a search in <app>Documents</app>:"
-msgstr ""
-"Klicka på ditt namn på översta raden och klicka på <gui>Systeminställningar</"
-"gui>."
+msgstr "För att påbörja en sökning i <app>Dokument</app>:"
 
 #. (itstool) path: item/p
 #: C/search.page:42
-#, fuzzy
 msgid ""
 "Press <keyseq><key>Ctrl</key><key>F</key></keyseq> to open the search bar at "
 "the top of the window."
 msgstr ""
-"Tryck <keyseq><key>Ctrl</key><key>Alt</key><key>↑</key></keyseq> för att "
-"flytta till en arbetsyta som är ovanför den aktuella arbetsytan."
+"Tryck på <keyseq><key>Ctrl</key><key>F</key></keyseq> för att öppna "
+"sökfältet längst upp i fönstret."
 
 #. (itstool) path: item/p
 #: C/search.page:46
@@ -494,6 +558,8 @@ msgid ""
 "Start typing keywords, and searching begins instantly. You will see a list "
 "of documents whose title or author matches the keywords."
 msgstr ""
+"Börja skriva nyckelord så börjar sökningen omedelbart. Du kommer att se en "
+"lista över dokument vars titlar eller författare matchar nyckelorden."
 
 #. (itstool) path: note/p
 #: C/search.page:52
@@ -501,16 +567,18 @@ msgid ""
 "You can restrict or filter the search results by clicking the <_:media-1/> "
 "button and selecting various <link xref=\"filter\">filters</link>."
 msgstr ""
+"Du kan begränsa eller filtrera sökresultaten genom att klicka på <_:media-1/"
+">-knappen och välja olika <link xref=\"filter\">filter</link>."
 
 #. (itstool) path: info/desc
 #: C/viewgrid.page:29
 msgid "Change the way documents are displayed."
-msgstr ""
+msgstr "Ändra sättet på vilket dokument visas."
 
 #. (itstool) path: page/title
 #: C/viewgrid.page:32
 msgid "View files in a list or grid"
-msgstr ""
+msgstr "Visa filer i en lista eller ett rutnät"
 
 #. (itstool) path: page/p
 #: C/viewgrid.page:41
@@ -518,11 +586,13 @@ msgid ""
 "Documents and collections are presented in <gui>Grid</gui> format by "
 "default. To view in <gui>List</gui> format:"
 msgstr ""
+"Dokument och samlingar presenteras i ett <gui>Rutnät</gui> som standard. För "
+"att visa dem i en <gui>Lista</gui>:"
 
 #. (itstool) path: item/p
 #: C/viewgrid.page:46
 msgid "Press the list button in the top-right corner of the window."
-msgstr ""
+msgstr "Tryck på listknappen i övre högra hörnet av fönstret."
 
 #. (itstool) path: note/p
 #: C/viewgrid.page:51
@@ -530,6 +600,8 @@ msgid ""
 "List view has columns displaying the document type and date modified, and "
 "whether it's stored locally or remotely in one of your online accounts."
 msgstr ""
+"Listvyn har kolumner som visar dokumenttypen, ändringsdatum och huruvida "
+"lokal- eller fjärrlagring via ett av dina nätkonton används."
 
 #. (itstool) path: page/p
 #: C/viewgrid.page:56
@@ -537,17 +609,18 @@ msgid ""
 "Click the grid button in the top-right corner of the window to return to the "
 "grid view."
 msgstr ""
+"Klicka på rutnätsknappen i övre högra hörnet av fönstret för att återgå till "
+"rutnätsvyn."
 
 #. (itstool) path: info/desc
 #: C/view.page:29
 msgid "Open documents that are stored locally or online."
-msgstr ""
+msgstr "Öppna dokument som är lagrade lokalt eller på nätet."
 
 #. (itstool) path: page/title
 #: C/view.page:32
-#, fuzzy
 msgid "View your documents"
-msgstr "Skriv ut ett dokument"
+msgstr "Visa dina dokument"
 
 #. (itstool) path: page/p
 #: C/view.page:42
@@ -557,6 +630,9 @@ msgid ""
 "<file>Downloads</file> and in one of your online accounts, are displayed as "
 "thumbnails."
 msgstr ""
+"När du öppnar <app>Dokument</app>, kommer dokument som är lagrade lokalt i "
+"en av standardmapparna så som <file>Dokument</file> eller <file>Hämtningar</"
+"file> och i något av dina nätkonton att visas som miniatyrbilder."
 
 #. (itstool) path: note/p
 #: C/view.page:48
@@ -564,12 +640,13 @@ msgid ""
 "To see documents from your online accounts, it is necessary to <link href="
 "\"help:gnome-help/accounts-add\">set up the accounts</link>."
 msgstr ""
+"För att se dokument från dina nätkonton är det nödvändigt att <link href="
+"\"help:gnome-help/accounts-add\">ställa in kontona</link>."
 
 #. (itstool) path: page/p
 #: C/view.page:52
-#, fuzzy
 msgid "To view the contents of a document, press on the thumbnail."
-msgstr "För att skriva ut ett helt dokument:"
+msgstr "För att visa innehållet i ett dokument, tryck på miniatyrbilden."
 
 #. (itstool) path: page/p
 #: C/view.page:54
@@ -577,11 +654,13 @@ msgid ""
 "To exit the document, click the back arrow button in the top-left of the "
 "window."
 msgstr ""
+"För att lämna dokumentet, klicka på knappen med en bakåtpil i övre vänstra "
+"hörnet av fönstret."
 
 #. (itstool) path: credit/years
 #: C/view-add.page:15
 msgid "2014–2015"
-msgstr ""
+msgstr "2014–2015"
 
 #. (itstool) path: info/desc
 #: C/view-add.page:20
@@ -589,11 +668,13 @@ msgid ""
 "Add extra directories to those which are already searched by <app>Documents</"
 "app>."
 msgstr ""
+"Lägg till extra kataloger utöver de som redan genomsöks av <app>Dokument</"
+"app>."
 
 #. (itstool) path: page/title
 #: C/view-add.page:25
 msgid "Add custom directories"
-msgstr ""
+msgstr "Lägg till anpassade kataloger"
 
 #. (itstool) path: page/p
 #: C/view-add.page:27
@@ -605,19 +686,27 @@ msgid ""
 "standard location such as another folder on your computer or on an external "
 "hard disk."
 msgstr ""
+"<app>Dokument</app> visar normalt bara dokument som finns i standardmappar "
+"så som <file>Dokument</file> eller <file>Hämtningar</file>. Du kan lägga "
+"till extra mappar som du vill kunna använda från <app>Sök</app>-panelen. Du "
+"kan också vilja göra detta om du har några av dina dokument på en annan "
+"plats än standardplatserna, som exempelvis en annan mapp på din dator eller "
+"på en extern hårddisk."
 
+# sebras: är inte detta introduction numera?
 #. (itstool) path: item/p
 #: C/view-add.page:36
 msgid ""
 "Open the <gui href=\"help:gnome-help/shell-terminology\">Activities</gui> "
 "overview and start typing <gui>Search</gui>."
 msgstr ""
+"Öppna översiktsvyn <gui href=\"help:gnome-help/shell-terminology"
+"\">Aktiviteter</gui> och börja skriv <gui>Sök</gui>."
 
 #. (itstool) path: item/p
 #: C/view-add.page:41
-#, fuzzy
 msgid "Click on <gui>Search</gui> to open the panel."
-msgstr "Klicka på verktygsfältsknappen <guibutton>Hem</guibutton>."
+msgstr "Klicka på <gui>Sök</gui> för att öppna panelen."
 
 #. (itstool) path: item/p
 #: C/view-add.page:44
@@ -625,11 +714,14 @@ msgid ""
 "Press the button in the bottom-right of the window which will open "
 "<gui>Search Locations</gui>."
 msgstr ""
+"Tryck på knappen i nedre högra hörnet av fönstret vilket öppnar <gui>Sök "
+"platser</gui>."
 
 #. (itstool) path: item/p
 #: C/view-add.page:48
 msgid "Press <gui style=\"button\">+</gui> to add a new search location."
 msgstr ""
+"Tryck på <gui style=\"button\">+</gui> för att lägga till en ny sökplats."
 
 #. (itstool) path: item/p
 #: C/view-add.page:51
@@ -637,6 +729,8 @@ msgid ""
 "Select the folder that you want to add and press <gui style=\"button\">OK</"
 "gui> to add the folder."
 msgstr ""
+"Markera mappen som du vill lägga till och tryck på <gui style=\"button\">OK</"
+"gui> för att lägga till mappen."
 
 #. (itstool) path: page/p
 #: C/view-add.page:63
@@ -645,6 +739,9 @@ msgid ""
 "search that folder. Unfortunately, it is not possible to tell which "
 "applications will be affected without testing them."
 msgstr ""
+"Att lägga till en ny mapp till sökning kan låta några andra av dina program "
+"genomsöka den mappen. Tyvärr är det inte möjligt att säga vilka program som "
+"kommer att påverkas utan att testa dem."
 
 #~ msgid "Questions"
 #~ msgstr "Frågor"
