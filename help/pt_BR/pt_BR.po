@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the gnome-user-docs package.
 # Rodolfo Ribeiro Gomes <rodolforg@gmail.com>, 2011, 2012.
 # Rafael Ferreira <rafael.f.f1@gmail.com, 2012, 2013, 2014.
-# Enrico Nicoletto <liverig@gmail.com>, 2013.
+# Enrico Nicoletto <liverig@gmail.com>, 2013, 2016.
 # João Santana <joaosantana@outlook.com>, 2013.
 # Felipe Braga <fbobraga@gmail.com>, 2015.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-user-docs\n"
-"POT-Creation-Date: 2016-05-05 08:36+0000\n"
-"PO-Revision-Date: 2016-05-18 12:50-0300\n"
+"POT-Creation-Date: 2016-05-18 15:53+0000\n"
+"PO-Revision-Date: 2016-05-18 12:59-0300\n"
 "Last-Translator: Enrico Nicoletto <liverig@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
@@ -24,7 +25,7 @@ msgstr ""
 #. (itstool) path: p/link
 #: C/legal.xml:3
 msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
-msgstr "Licença Creative Commons Atribuição-Compartilhada Igual 3.0 Não Adaptada"
+msgstr "Licença Creative Commons Atribuição-Compartilhada Igual 3.0 Não Portada"
 
 #. (itstool) path: license/p
 #: C/legal.xml:3
@@ -191,14 +192,14 @@ msgstr "Fontes"
 #. (itstool) path: item/p
 #: C/filter.page:37
 msgid ""
-"Chose to search documents that are <gui>Local</gui>, accessed through <link "
+"Choose to search documents that are <gui>Local</gui>, accessed through <link "
 "href=\"help:gnome-help/online-accounts\">online accounts</link> with "
 "<gui>Google</gui>, <gui>OneDrive</gui>, <gui>ownCloud</gui>, or <gui>All</gui>."
 msgstr ""
-"Escolha entre procurar apenas documentos que são locais (selecionando "
-"<gui>Local</gui>), apenas acessados através de <link href=\"help:gnome-help/"
-"online-accounts\">contas on-line</link> com o <gui>Google</gui>, <gui>OneDrive/"
-"SkyDrive</gui>, <gui>ownCloud</gui>, ou <gui>Todos</gui>."
+"Escolha entre procurar documentos que são do tipo <gui>Local</gui>, acessados "
+"através das <link href=\"help:gnome-help/online-accounts\">contas on-line</"
+"link> com o <gui>Google</gui>, <gui>OneDrive/SkyDrive</gui>, <gui>ownCloud</"
+"gui>, ou <gui>Todos</gui> eles."
 
 #. (itstool) path: item/title
 #: C/filter.page:43
