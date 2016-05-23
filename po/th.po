@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-12 22:31+0000\n"
-"PO-Revision-Date: 2016-02-16 15:46+0700\n"
+"POT-Creation-Date: 2016-05-15 22:19+0000\n"
+"PO-Revision-Date: 2016-05-23 14:44+0700\n"
 "Last-Translator: Akom Chotiphantawanon <knight2000@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "Language: th\n"
@@ -21,8 +21,8 @@ msgstr ""
 "X-Generator: Gtranslator 2.91.6\n"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:1
-#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:115
-#: ../src/embed.js:81 ../src/lib/gd-utils.c:418
+#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:109
+#: ../src/embed.js:77 ../src/lib/gd-utils.c:418
 msgid "Books"
 msgstr "หนังสือ"
 
@@ -129,8 +129,8 @@ msgid "Whether the application is in night mode."
 msgstr "กำหนดว่าโปรแกรมอยู่ในโหมดกลางคืนหรือไม่"
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:1
-#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:118
-#: ../src/embed.js:81 ../src/lib/gd-utils.c:411 ../src/mainWindow.js:54
+#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:112
+#: ../src/embed.js:77 ../src/lib/gd-utils.c:411 ../src/mainWindow.js:52
 msgid "Documents"
 msgstr "เอกสาร"
 
@@ -325,7 +325,7 @@ msgstr "ชุดเอกสารใหม่…"
 msgid "Add"
 msgstr "เพิ่ม"
 
-#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:209
+#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:207
 msgid "Cancel"
 msgstr "ยกเลิก"
 
@@ -373,7 +373,7 @@ msgid "Rotate ↷"
 msgstr "หมุน ↷"
 
 #: ../data/ui/preview-menu.ui.h:9 ../data/ui/selection-toolbar.ui.h:2
-#: ../src/properties.js:62
+#: ../src/properties.js:61
 msgid "Properties"
 msgstr "คุณสมบัติ"
 
@@ -385,8 +385,8 @@ msgstr "เลือกทั้งหมด"
 msgid "Select None"
 msgstr "ล้างการเลือก"
 
-#: ../data/ui/selection-toolbar.ui.h:3 ../src/embed.js:85 ../src/search.js:203
-#: ../src/search.js:209
+#: ../data/ui/selection-toolbar.ui.h:3 ../src/embed.js:81 ../src/search.js:202
+#: ../src/search.js:208
 msgid "Collections"
 msgstr "ชุดเอกสาร"
 
@@ -419,7 +419,7 @@ msgid "Failed to print document"
 msgstr "พิมพ์เอกสารไม่สำเร็จ"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:732 ../src/search.js:536
+#: ../src/documents.js:732 ../src/search.js:535
 msgid "Local"
 msgstr "ในเครื่อง"
 
@@ -452,7 +452,7 @@ msgstr "Google"
 msgid "Spreadsheet"
 msgstr "ตารางคำนวณ"
 
-#: ../src/documents.js:976 ../src/documents.js:1152 ../src/presentation.js:49
+#: ../src/documents.js:976 ../src/documents.js:1152 ../src/presentation.js:44
 msgid "Presentation"
 msgstr "งานนำเสนอ"
 
@@ -513,7 +513,7 @@ msgstr "การรองรับ LibreOffice ไม่สามารถใ�
 msgid "Oops! Unable to load “%s”"
 msgstr "ไม่สามารถโหลด “%s” ได้"
 
-#: ../src/edit.js:186
+#: ../src/edit.js:176
 msgid "View"
 msgstr "ดู"
 
@@ -546,7 +546,7 @@ msgstr "ไม่มีที่คั่นหน้า"
 msgid "Loading…"
 msgstr "กำลังโหลด…"
 
-#: ../src/lib/gd-places-bookmarks.c:656 ../src/preview.js:646
+#: ../src/lib/gd-places-bookmarks.c:656 ../src/preview.js:643
 msgid "Bookmarks"
 msgstr "ที่คั่นหน้า"
 
@@ -571,260 +571,261 @@ msgid "translator-credits"
 msgstr "Akom Chotiphantawanon <knight2000@gmail.com>"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/lokview.js:333 ../src/preview.js:916 ../src/selections.js:983
+#: ../src/lokview.js:324 ../src/preview.js:913 ../src/selections.js:983
 #, javascript-format
 msgid "Open with %s"
 msgstr "เปิดด้วย %s"
 
-#: ../src/mainToolbar.js:90
+#: ../src/mainToolbar.js:87
 msgid "Search"
 msgstr "ค้นหา"
 
-#: ../src/mainToolbar.js:98
+#: ../src/mainToolbar.js:95
 msgid "Back"
 msgstr "ถอยกลับ"
 
-#: ../src/mainToolbar.js:155
+#. Translators: this is the menu to change view settings
+#: ../src/mainToolbar.js:153
 msgid "View Menu"
 msgstr "เมนูมุมมอง"
 
-#: ../src/mainToolbar.js:183
+#: ../src/mainToolbar.js:181
 msgid "Click on items to select them"
 msgstr "คลิกที่รายการเพื่อเลือก"
 
-#: ../src/mainToolbar.js:185
+#: ../src/mainToolbar.js:183
 #, javascript-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "เลือกอยู่ %d รายการ"
 
-#: ../src/mainToolbar.js:269
+#: ../src/mainToolbar.js:267
 msgid "Select Items"
 msgstr "เลือกรายการ"
 
 #. Translators: only one item has been deleted and %s is its name
-#: ../src/notifications.js:54
+#: ../src/notifications.js:49
 #, javascript-format
 msgid "“%s” deleted"
 msgstr "ลบ “%s” แล้ว"
 
 #. Translators: one or more items might have been deleted, and %d
 #. is the count
-#: ../src/notifications.js:58
+#: ../src/notifications.js:53
 #, javascript-format
 msgid "%d item deleted"
 msgid_plural "%d items deleted"
 msgstr[0] "ลบแล้ว %d รายการ"
 
-#: ../src/notifications.js:67 ../src/selections.js:393
+#: ../src/notifications.js:62 ../src/selections.js:387
 msgid "Undo"
 msgstr "เรียกคืน"
 
-#: ../src/notifications.js:167
+#: ../src/notifications.js:160
 #, javascript-format
 msgid "Printing “%s”: %s"
 msgstr "กำลังพิมพ์ “%s”: %s"
 
-#: ../src/notifications.js:223
+#: ../src/notifications.js:216
 msgid "Your documents are being indexed"
 msgstr "กำลังทำดัชนีเอกสารของคุณ"
 
-#: ../src/notifications.js:224
+#: ../src/notifications.js:217
 msgid "Some documents might not be available during this process"
 msgstr "อาจไม่สามารถใช้เอกสารบางฉบับได้ในระหว่างกระบวนการนี้"
 
 #. Translators: %s refers to an online account provider, e.g.
 #. "Google", or "Windows Live".
-#: ../src/notifications.js:246
+#: ../src/notifications.js:239
 #, javascript-format
 msgid "Fetching documents from %s"
 msgstr "กำลังดึงเอกสารจาก %s"
 
-#: ../src/notifications.js:248
+#: ../src/notifications.js:241
 msgid "Fetching documents from online accounts"
 msgstr "กำลังดึงเอกสารจากบัญชีออนไลน์"
 
-#: ../src/password.js:47
+#: ../src/password.js:42
 msgid "Password Required"
 msgstr "ต้องการรหัสผ่าน"
 
-#: ../src/password.js:50
+#: ../src/password.js:45
 msgid "_Unlock"
 msgstr "_ปลดล็อค"
 
-#: ../src/password.js:66
+#: ../src/password.js:61
 #, javascript-format
 msgid "Document %s is locked and requires a password to be opened."
 msgstr "เอกสาร %s ถูกล็อคและต้องใช้รหัสผ่านในการเปิด"
 
-#: ../src/password.js:80
+#: ../src/password.js:75
 msgid "_Password"
 msgstr "_รหัสผ่าน"
 
-#: ../src/presentation.js:107
+#: ../src/presentation.js:102
 msgid "Running in presentation mode"
 msgstr "กำลังทำงานในแบบนำเสนอ"
 
-#: ../src/presentation.js:130
+#: ../src/presentation.js:125
 msgid "Present On"
 msgstr "นำเสนอออกที่"
 
 #. Translators: "Mirrored" describes when both displays show the same view
-#: ../src/presentation.js:166
+#: ../src/presentation.js:161
 msgid "Mirrored"
 msgstr "สำเนา"
 
-#: ../src/presentation.js:168
+#: ../src/presentation.js:163
 msgid "Primary"
 msgstr "หลัก"
 
-#: ../src/presentation.js:170
+#: ../src/presentation.js:165
 msgid "Off"
 msgstr "ปิด"
 
-#: ../src/presentation.js:172
+#: ../src/presentation.js:167
 msgid "Secondary"
 msgstr "รอง"
 
-#: ../src/preview.js:654
+#: ../src/preview.js:651
 msgid "Bookmark this page"
 msgstr "คั่นหน้านี้"
 
-#: ../src/preview.js:973
+#: ../src/preview.js:970
 msgid "Find Previous"
 msgstr "หาก่อนหน้า"
 
-#: ../src/preview.js:979
+#: ../src/preview.js:976
 msgid "Find Next"
 msgstr "หาต่อ"
 
 #. Title item
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
-#: ../src/properties.js:82
+#: ../src/properties.js:81
 msgctxt "Document Title"
 msgid "Title"
 msgstr "ชื่อเรื่อง"
 
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
-#: ../src/properties.js:91
+#: ../src/properties.js:90
 msgctxt "Document Author"
 msgid "Author"
 msgstr "ผู้เขียน"
 
 #. Source item
-#: ../src/properties.js:98
+#: ../src/properties.js:97
 msgid "Source"
 msgstr "แหล่ง"
 
 #. Date Modified item
-#: ../src/properties.js:104
+#: ../src/properties.js:103
 msgid "Date Modified"
 msgstr "วันที่แก้ไข"
 
-#: ../src/properties.js:111
+#: ../src/properties.js:110
 msgid "Date Created"
 msgstr "วันที่สร้าง"
 
 #. Document type item
 #. Translators: "Type" is the label next to the document type
 #. (PDF, spreadsheet, ...) in the properties dialog
-#: ../src/properties.js:120
+#: ../src/properties.js:119
 msgctxt "Document Type"
 msgid "Type"
 msgstr "ชนิด"
 
-#: ../src/search.js:126
+#: ../src/search.js:125
 msgid "Category"
 msgstr "หมวดหมู่"
 
 #. Translators: this refers to new and recent documents
 #. Translators: this refers to documents
-#: ../src/search.js:131 ../src/search.js:200 ../src/search.js:337
-#: ../src/search.js:530
+#: ../src/search.js:130 ../src/search.js:199 ../src/search.js:336
+#: ../src/search.js:529
 msgid "All"
 msgstr "ทั้งหมด"
 
 #. Translators: this refers to favorite documents
-#: ../src/search.js:137
+#: ../src/search.js:136
 msgid "Favorites"
 msgstr "รายการโปรด"
 
 #. Translators: this refers to shared documents
-#: ../src/search.js:142
+#: ../src/search.js:141
 msgid "Shared with you"
 msgstr "แบ่งปันกับคุณ"
 
 #. Translators: "Type" refers to a search filter on the document type
 #. (PDF, spreadsheet, ...)
-#: ../src/search.js:197
+#: ../src/search.js:196
 msgctxt "Search Filter"
 msgid "Type"
 msgstr "ชนิด"
 
-#: ../src/search.js:213
+#: ../src/search.js:212
 msgid "PDF Documents"
 msgstr "เอกสาร PDF"
 
-#: ../src/search.js:220
+#: ../src/search.js:219
 msgid "e-Books"
 msgstr "อีบุ๊ก"
 
-#: ../src/search.js:224
+#: ../src/search.js:223
 msgid "Comics"
 msgstr "การ์ตูน"
 
-#: ../src/search.js:229
+#: ../src/search.js:228
 msgid "Presentations"
 msgstr "งานนำเสนอ"
 
-#: ../src/search.js:232
+#: ../src/search.js:231
 msgid "Spreadsheets"
 msgstr "ตารางคำนวณ"
 
-#: ../src/search.js:235
+#: ../src/search.js:234
 msgid "Text Documents"
 msgstr "เอกสารข้อเขียน"
 
 #. Translators: this is a verb that refers to "All", "Title", "Author",
 #. and "Content" as in "Match All", "Match Title", "Match Author", and
 #. "Match Content"
-#: ../src/search.js:334
+#: ../src/search.js:333
 msgid "Match"
 msgstr "ตรวจหา"
 
 #. Translators: "Title" refers to "Match Title" when searching
-#: ../src/search.js:340
+#: ../src/search.js:339
 msgctxt "Search Filter"
 msgid "Title"
 msgstr "ชื่อเรื่อง"
 
 #. Translators: "Author" refers to "Match Author" when searching
-#: ../src/search.js:343
+#: ../src/search.js:342
 msgctxt "Search Filter"
 msgid "Author"
 msgstr "ผู้เขียน"
 
 #. Translators: "Content" refers to "Match Content" when searching
-#: ../src/search.js:346
+#: ../src/search.js:345
 msgctxt "Search Filter"
 msgid "Content"
 msgstr "เนื้อหา"
 
-#: ../src/search.js:526
+#: ../src/search.js:525
 msgid "Sources"
 msgstr "แหล่ง"
 
-#: ../src/selections.js:366 ../src/selections.js:368
+#: ../src/selections.js:360 ../src/selections.js:362
 msgid "Rename…"
 msgstr "เปลี่ยนชื่อ…"
 
-#: ../src/selections.js:372 ../src/selections.js:374
+#: ../src/selections.js:366 ../src/selections.js:368
 msgid "Delete"
 msgstr "ลบ"
 
-#: ../src/selections.js:388
+#: ../src/selections.js:382
 #, javascript-format
 msgid "“%s” removed"
 msgstr "ลบ “%s” แล้ว"
@@ -907,7 +908,7 @@ msgstr "คุณสามารถติดต่อ %s เพื่อขอ�
 msgid "The document was not updated"
 msgstr "เอกสารยังไม่เป็นฉบับล่าสุด"
 
-#: ../src/shellSearchProvider.js:290
+#: ../src/shellSearchProvider.js:286
 msgid "Untitled Document"
 msgstr "เอกสารไม่มีชื่อ"
 
@@ -915,89 +916,87 @@ msgstr "เอกสารไม่มีชื่อ"
 msgid "Unable to fetch the list of documents"
 msgstr "ไม่สามารถดึงข้อมูลรายชื่อเอกสาร"
 
-#: ../src/view.js:271
+#: ../src/view.js:269
 msgid "No collections found"
 msgstr "ไม่พบชุดเอกสาร"
 
-#: ../src/view.js:273
+#: ../src/view.js:271
 msgid "No books found"
 msgstr "ไม่พบหนังสือ"
 
-#: ../src/view.js:273
+#: ../src/view.js:271
 msgid "No documents found"
 msgstr "ไม่พบเอกสาร"
 
-#: ../src/view.js:282
+#: ../src/view.js:280
 msgid "Try a different search"
 msgstr "ลองค้นใหม่"
 
-#: ../src/view.js:289
+#: ../src/view.js:287
 msgid "You can create collections from the Books view"
 msgstr "คุณสามารถสร้างชุดเอกสารจากมุมมองหนังสือได้"
 
-#: ../src/view.js:291
+#: ../src/view.js:289
 msgid "You can create collections from the Documents view"
 msgstr "คุณสามารถสร้างชุดเอกสารจากมุมมองเอกสารได้"
 
-#. Translators: the %s's here are "Online Accounts" and "Documents folder", which are
-#. in a separate string due to markup, and should be translated only in the context of
-#. this sentence
-#: ../src/view.js:304
+#: ../src/view.js:299
 #, javascript-format
-msgid "Documents from your %s and %s will appear here."
-msgstr "เอกสารจาก %s และ %s ของคุณจะปรากฏที่นี่"
+msgid ""
+"Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
+"href=\"file://%s\">Documents folder</a> will appear here."
+msgstr ""
+"เอกสารจาก <a href=\"system-settings\">บัญชีออนไลน์</a> และ <a href=\"file://%s"
+"\">โฟลเดอร์เอกสาร</a> ของคุณจะปรากฏที่นี่"
 
-#. Translators: this should be translated in the context of the
-#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
-#: ../src/view.js:308
-msgid "Online Accounts"
-msgstr "บัญชีออนไลน์"
-
-#. Translators: this should be translated in the context of the
-#. "Documents from your Online Accounts and Documents folder will appear here." sentence above
-#: ../src/view.js:313
-msgid "Documents folder"
-msgstr "โฟลเดอร์เอกสาร"
-
-#: ../src/view.js:529
+#: ../src/view.js:515
 msgid "Yesterday"
 msgstr "เมื่อวาน"
 
-#: ../src/view.js:531
+#: ../src/view.js:517
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d วันที่แล้ว"
 
-#: ../src/view.js:535
+#: ../src/view.js:521
 msgid "Last week"
 msgstr "สัปดาห์ที่แล้ว"
 
-#: ../src/view.js:537
+#: ../src/view.js:523
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d สัปดาห์ที่แล้ว"
 
-#: ../src/view.js:541
+#: ../src/view.js:527
 msgid "Last month"
 msgstr "เดือนที่แล้ว"
 
-#: ../src/view.js:543
+#: ../src/view.js:529
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d เดือนที่แล้ว"
 
-#: ../src/view.js:547
+#: ../src/view.js:533
 msgid "Last year"
 msgstr "ปีที่แล้ว"
 
-#: ../src/view.js:549
+#: ../src/view.js:535
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "%d ปีที่แล้ว"
+
+#~ msgid "Documents from your %s and %s will appear here."
+#~ msgstr "เอกสารจาก %s และ %s ของคุณจะปรากฏที่นี่"
+
+#~ msgid "Online Accounts"
+#~ msgstr "บัญชีออนไลน์"
+
+#~ msgid "Documents folder"
+#~ msgstr "โฟลเดอร์เอกสาร"
 
 #~ msgid "You can add your online accounts in %s"
 #~ msgstr "คุณสามารถเพิ่มบัญชีออนไลน์ของคุณได้ใน %s"
