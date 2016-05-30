@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-04-29 08:33+0000\n"
+"POT-Creation-Date: 2016-05-18 16:01+0000\n"
 "PO-Revision-Date: 2016-05-08 18:36+0200\n"
 "Last-Translator: Cédric Valmary (totenoc.eu) <cvalmary@yahoo.fr>\n"
 "Language-Team: Tot En Òc\n"
@@ -22,8 +22,8 @@ msgstr ""
 "X-Project-Style: gnome\n"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:1
-#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:115
-#: ../src/embed.js:81 ../src/lib/gd-utils.c:418
+#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:109
+#: ../src/embed.js:77 ../src/lib/gd-utils.c:418
 msgid "Books"
 msgstr "Libres"
 
@@ -55,7 +55,6 @@ msgid "Search through e-books"
 msgstr "Cercar demest vòstra bibliotèca"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:7
-#| msgid "View e-books fullscreen"
 msgid "View e-books (PDF and comics) fullscreen"
 msgstr "Legir vòstres libres numerics (PDF e comics) en ecran complet"
 
@@ -132,8 +131,8 @@ msgid "Whether the application is in night mode."
 msgstr "Indica se l'aplicacion es en mòde nuèit."
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:1
-#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:118
-#: ../src/embed.js:81 ../src/lib/gd-utils.c:411 ../src/mainWindow.js:54
+#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:112
+#: ../src/embed.js:77 ../src/lib/gd-utils.c:411 ../src/mainWindow.js:52
 msgid "Documents"
 msgstr "Documents"
 
@@ -329,7 +328,7 @@ msgstr "Colleccion novèla..."
 msgid "Add"
 msgstr "Apondre"
 
-#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:210
+#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:207
 msgid "Cancel"
 msgstr "Anullar"
 
@@ -344,7 +343,7 @@ msgstr "_Copiar"
 
 #. Translators: this is the Open action in a context menu
 #: ../data/ui/preview-menu.ui.h:1 ../data/ui/selection-toolbar.ui.h:1
-#: ../src/selections.js:992
+#: ../src/selections.js:986
 msgid "Open"
 msgstr "Dobrir"
 
@@ -377,7 +376,7 @@ msgid "Rotate ↷"
 msgstr "Pivotar ↷"
 
 #: ../data/ui/preview-menu.ui.h:9 ../data/ui/selection-toolbar.ui.h:2
-#: ../src/properties.js:62
+#: ../src/properties.js:61
 msgid "Properties"
 msgstr "Proprietats"
 
@@ -389,8 +388,8 @@ msgstr "Seleccionar tot"
 msgid "Select None"
 msgstr "Deseleccionar tot"
 
-#: ../data/ui/selection-toolbar.ui.h:3 ../src/embed.js:85 ../src/search.js:203
-#: ../src/search.js:209
+#: ../data/ui/selection-toolbar.ui.h:3 ../src/embed.js:81 ../src/search.js:202
+#: ../src/search.js:208
 msgid "Collections"
 msgstr "Colleccions"
 
@@ -423,7 +422,7 @@ msgid "Failed to print document"
 msgstr "Impossible d'imprimir lo document"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:732 ../src/search.js:536
+#: ../src/documents.js:732 ../src/search.js:535
 msgid "Local"
 msgstr "Local"
 
@@ -456,7 +455,7 @@ msgstr "Google"
 msgid "Spreadsheet"
 msgstr "Tablador"
 
-#: ../src/documents.js:976 ../src/documents.js:1152 ../src/presentation.js:49
+#: ../src/documents.js:976 ../src/documents.js:1152 ../src/presentation.js:44
 msgid "Presentation"
 msgstr "Presentacion"
 
@@ -520,7 +519,7 @@ msgstr ""
 msgid "Oops! Unable to load “%s”"
 msgstr "Ops ! Impossible de cargar « %s »"
 
-#: ../src/edit.js:186
+#: ../src/edit.js:176
 msgid "View"
 msgstr "Afichatge"
 
@@ -553,7 +552,7 @@ msgstr "Pas de signet"
 msgid "Loading…"
 msgstr "Cargament en cors…"
 
-#: ../src/lib/gd-places-bookmarks.c:656 ../src/preview.js:646
+#: ../src/lib/gd-places-bookmarks.c:656 ../src/preview.js:643
 msgid "Bookmarks"
 msgstr "Signets"
 
@@ -578,275 +577,274 @@ msgid "translator-credits"
 msgstr "Cédric Valmary <cvalmary@yahoo.fr>"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/lokview.js:333 ../src/preview.js:916 ../src/selections.js:989
+#: ../src/lokview.js:324 ../src/preview.js:913 ../src/selections.js:983
 #, javascript-format
 msgid "Open with %s"
 msgstr "Dobrir amb %s"
 
-#: ../src/mainToolbar.js:90
+#: ../src/mainToolbar.js:87
 msgid "Search"
 msgstr "Recercar"
 
-#: ../src/mainToolbar.js:98
+#: ../src/mainToolbar.js:95
 msgid "Back"
 msgstr "Precedent"
 
 #. Translators: this is the menu to change view settings
-#: ../src/mainToolbar.js:156
-#| msgid "View as"
+#: ../src/mainToolbar.js:153
 msgid "View Menu"
 msgstr "Afichar lo Menú"
 
-#: ../src/mainToolbar.js:184
+#: ../src/mainToolbar.js:181
 msgid "Click on items to select them"
 msgstr "Clicar suls elements per los seleccionar"
 
-#: ../src/mainToolbar.js:186
+#: ../src/mainToolbar.js:183
 #, javascript-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d seleccionat"
 msgstr[1] "%d seleccionats"
 
-#: ../src/mainToolbar.js:270
+#: ../src/mainToolbar.js:267
 msgid "Select Items"
 msgstr "Seleccionar los elements"
 
 #. Translators: only one item has been deleted and %s is its name
-#: ../src/notifications.js:52
+#: ../src/notifications.js:49
 #, javascript-format
 msgid "“%s” deleted"
 msgstr "« %s » suprimit"
 
 #. Translators: one or more items might have been deleted, and %d
 #. is the count
-#: ../src/notifications.js:56
+#: ../src/notifications.js:53
 #, javascript-format
 msgid "%d item deleted"
 msgid_plural "%d items deleted"
 msgstr[0] "%d element es estat suprimit"
 msgstr[1] "%d elements son estats suprimits"
 
-#: ../src/notifications.js:65 ../src/selections.js:393
+#: ../src/notifications.js:62 ../src/selections.js:387
 msgid "Undo"
 msgstr "Anullar"
 
-#: ../src/notifications.js:163
+#: ../src/notifications.js:160
 #, javascript-format
 msgid "Printing “%s”: %s"
 msgstr "Impression de « %s » : %s"
 
-#: ../src/notifications.js:219
+#: ../src/notifications.js:216
 msgid "Your documents are being indexed"
 msgstr "Vòstres documents son en cors d'indexacion"
 
-#: ../src/notifications.js:220
+#: ../src/notifications.js:217
 msgid "Some documents might not be available during this process"
 msgstr ""
 "Certans documents pòdon èsser indisponibles al cors d'aqueste processus"
 
 #. Translators: %s refers to an online account provider, e.g.
 #. "Google", or "Windows Live".
-#: ../src/notifications.js:242
+#: ../src/notifications.js:239
 #, javascript-format
 msgid "Fetching documents from %s"
 msgstr "Recuperacion dels documents a partir de %s"
 
-#: ../src/notifications.js:244
+#: ../src/notifications.js:241
 msgid "Fetching documents from online accounts"
 msgstr "Recuperacion dels documents a partir de comptes en linha"
 
-#: ../src/password.js:47
+#: ../src/password.js:42
 msgid "Password Required"
 msgstr "Senhal requesit"
 
-#: ../src/password.js:50
+#: ../src/password.js:45
 msgid "_Unlock"
 msgstr "_Desverrolhar"
 
-#: ../src/password.js:66
+#: ../src/password.js:61
 #, javascript-format
 msgid "Document %s is locked and requires a password to be opened."
 msgstr "Lo document %s es verrolhat e necessita un senhal per èsser dobèrt."
 
-#: ../src/password.js:80
+#: ../src/password.js:75
 msgid "_Password"
 msgstr "_Senhal"
 
-#: ../src/presentation.js:107
+#: ../src/presentation.js:102
 msgid "Running in presentation mode"
 msgstr "Actualament en mòde presentacion"
 
-#: ../src/presentation.js:130
+#: ../src/presentation.js:125
 msgid "Present On"
 msgstr "Presentacion en cors"
 
 #. Translators: "Mirrored" describes when both displays show the same view
-#: ../src/presentation.js:166
+#: ../src/presentation.js:161
 msgid "Mirrored"
 msgstr "Mes en miralh"
 
-#: ../src/presentation.js:168
+#: ../src/presentation.js:163
 msgid "Primary"
 msgstr "Principal"
 
-#: ../src/presentation.js:170
+#: ../src/presentation.js:165
 msgid "Off"
 msgstr "Atudat"
 
-#: ../src/presentation.js:172
+#: ../src/presentation.js:167
 msgid "Secondary"
 msgstr "Segondari"
 
-#: ../src/preview.js:654
+#: ../src/preview.js:651
 msgid "Bookmark this page"
 msgstr "Marcar aquesta pagina d'un signet"
 
-#: ../src/preview.js:973
+#: ../src/preview.js:970
 msgid "Find Previous"
 msgstr "Recercar lo precedent"
 
-#: ../src/preview.js:979
+#: ../src/preview.js:976
 msgid "Find Next"
 msgstr "Recercar lo seguent"
 
 #. Title item
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
-#: ../src/properties.js:82
+#: ../src/properties.js:81
 msgctxt "Document Title"
 msgid "Title"
 msgstr "Títol"
 
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
-#: ../src/properties.js:91
+#: ../src/properties.js:90
 msgctxt "Document Author"
 msgid "Author"
 msgstr "Autor"
 
 #. Source item
-#: ../src/properties.js:98
+#: ../src/properties.js:97
 msgid "Source"
 msgstr "Fonts"
 
 #. Date Modified item
-#: ../src/properties.js:104
+#: ../src/properties.js:103
 msgid "Date Modified"
 msgstr "Data de modificacion"
 
-#: ../src/properties.js:111
+#: ../src/properties.js:110
 msgid "Date Created"
 msgstr "Data de creacion"
 
 #. Document type item
 #. Translators: "Type" is the label next to the document type
 #. (PDF, spreadsheet, ...) in the properties dialog
-#: ../src/properties.js:120
+#: ../src/properties.js:119
 msgctxt "Document Type"
 msgid "Type"
 msgstr "Tipe"
 
-#: ../src/search.js:126
+#: ../src/search.js:125
 msgid "Category"
 msgstr "Categoria"
 
 #. Translators: this refers to new and recent documents
 #. Translators: this refers to documents
-#: ../src/search.js:131 ../src/search.js:200 ../src/search.js:337
-#: ../src/search.js:530
+#: ../src/search.js:130 ../src/search.js:199 ../src/search.js:336
+#: ../src/search.js:529
 msgid "All"
 msgstr "Totes"
 
 #. Translators: this refers to favorite documents
-#: ../src/search.js:137
+#: ../src/search.js:136
 msgid "Favorites"
 msgstr "Favorits"
 
 #. Translators: this refers to shared documents
-#: ../src/search.js:142
+#: ../src/search.js:141
 msgid "Shared with you"
 msgstr "Partejats amb vos"
 
 #. Translators: "Type" refers to a search filter on the document type
 #. (PDF, spreadsheet, ...)
-#: ../src/search.js:197
+#: ../src/search.js:196
 msgctxt "Search Filter"
 msgid "Type"
 msgstr "Tipe"
 
-#: ../src/search.js:213
+#: ../src/search.js:212
 msgid "PDF Documents"
 msgstr "Documents PDF"
 
-#: ../src/search.js:220
+#: ../src/search.js:219
 msgid "e-Books"
 msgstr "Libres numerics"
 
-#: ../src/search.js:224
+#: ../src/search.js:223
 msgid "Comics"
 msgstr "Bendas dessenhadas"
 
-#: ../src/search.js:229
+#: ../src/search.js:228
 msgid "Presentations"
 msgstr "Presentacions"
 
-#: ../src/search.js:232
+#: ../src/search.js:231
 msgid "Spreadsheets"
 msgstr "Tabladors"
 
-#: ../src/search.js:235
+#: ../src/search.js:234
 msgid "Text Documents"
 msgstr "Documents Tèxte"
 
 #. Translators: this is a verb that refers to "All", "Title", "Author",
 #. and "Content" as in "Match All", "Match Title", "Match Author", and
 #. "Match Content"
-#: ../src/search.js:334
+#: ../src/search.js:333
 msgid "Match"
 msgstr "Correspond a"
 
 #. Translators: "Title" refers to "Match Title" when searching
-#: ../src/search.js:340
+#: ../src/search.js:339
 msgctxt "Search Filter"
 msgid "Title"
 msgstr "Títol"
 
 #. Translators: "Author" refers to "Match Author" when searching
-#: ../src/search.js:343
+#: ../src/search.js:342
 msgctxt "Search Filter"
 msgid "Author"
 msgstr "Autor"
 
 #. Translators: "Content" refers to "Match Content" when searching
-#: ../src/search.js:346
+#: ../src/search.js:345
 msgctxt "Search Filter"
 msgid "Content"
 msgstr "Contengut"
 
-#: ../src/search.js:526
+#: ../src/search.js:525
 msgid "Sources"
 msgstr "Fonts"
 
-#: ../src/selections.js:366 ../src/selections.js:368
+#: ../src/selections.js:360 ../src/selections.js:362
 msgid "Rename…"
 msgstr "Renomenar..."
 
-#: ../src/selections.js:372 ../src/selections.js:374
+#: ../src/selections.js:366 ../src/selections.js:368
 msgid "Delete"
 msgstr "Suprimir"
 
-#: ../src/selections.js:388
+#: ../src/selections.js:382
 #, javascript-format
 msgid "“%s” removed"
 msgstr "« %s » suprimit"
 
-#: ../src/selections.js:785
+#: ../src/selections.js:779
 msgid "Rename"
 msgstr "Renomenar"
 
 #. Translators: "Collections" refers to documents in this context
-#: ../src/selections.js:791
+#: ../src/selections.js:785
 msgctxt "Dialog Title"
 msgid "Collections"
 msgstr "Colleccions"
@@ -919,7 +917,7 @@ msgstr "Podètz demandar a %s per i accedir"
 msgid "The document was not updated"
 msgstr "Lo document es pas estat mes a jorn"
 
-#: ../src/shellSearchProvider.js:290
+#: ../src/shellSearchProvider.js:286
 msgid "Untitled Document"
 msgstr "Document sens nom"
 
@@ -927,75 +925,75 @@ msgstr "Document sens nom"
 msgid "Unable to fetch the list of documents"
 msgstr "Impossible de recuperar la lista de documents"
 
-#: ../src/view.js:271
+#: ../src/view.js:269
 msgid "No collections found"
 msgstr "Cap de colleccion pas trobada"
 
-#: ../src/view.js:273
+#: ../src/view.js:271
 msgid "No books found"
 msgstr "Cap de libre pas trobat"
 
-#: ../src/view.js:273
+#: ../src/view.js:271
 msgid "No documents found"
 msgstr "Cap de document pas trobat"
 
-#: ../src/view.js:282
+#: ../src/view.js:280
 msgid "Try a different search"
 msgstr "Ensajatz una recèrca diferenta"
 
-#: ../src/view.js:289
+#: ../src/view.js:287
 msgid "You can create collections from the Books view"
 msgstr ""
 
-#: ../src/view.js:291
+#: ../src/view.js:289
 msgid "You can create collections from the Documents view"
 msgstr ""
 
-#: ../src/view.js:301
+#: ../src/view.js:299
 #, javascript-format
 msgid ""
 "Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
 "href=\"file://%s\">Documents folder</a> will appear here."
 msgstr ""
 
-#: ../src/view.js:517
+#: ../src/view.js:515
 msgid "Yesterday"
 msgstr "Ièr"
 
-#: ../src/view.js:519
+#: ../src/view.js:517
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "I a %d jorn"
 msgstr[1] "I a %d jorns"
 
-#: ../src/view.js:523
+#: ../src/view.js:521
 msgid "Last week"
 msgstr "La setmana passada"
 
-#: ../src/view.js:525
+#: ../src/view.js:523
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "I a %d setmana"
 msgstr[1] "I a %d setmanas"
 
-#: ../src/view.js:529
+#: ../src/view.js:527
 msgid "Last month"
 msgstr "Lo mes passat"
 
-#: ../src/view.js:531
+#: ../src/view.js:529
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "I a %d mes"
 msgstr[1] "I a %d meses"
 
-#: ../src/view.js:535
+#: ../src/view.js:533
 msgid "Last year"
 msgstr "L'an passat"
 
-#: ../src/view.js:537
+#: ../src/view.js:535
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -1046,10 +1044,10 @@ msgstr[1] "I a %d ans"
 #~ "fullscreen</li> <li>Print documents</li> <li>Select favorites</li> "
 #~ "<li>Allow opening full featured editor for non-trivial changes</li>"
 #~ msgstr ""
-#~ "<li>d'afichar los documents recents e en linha</li> <li>d'accedir a vòstres "
-#~ "contenguts Google, ownCloud o OneDrive</li> <li>de recercar dins vòstres "
-#~ "documents</li> <li>de consulter de nouveaux documents partejats pels "
-#~ "amics</li> <li>d'afichar los documents en ecran complet</li> "
+#~ "<li>d'afichar los documents recents e en linha</li> <li>d'accedir a "
+#~ "vòstres contenguts Google, ownCloud o OneDrive</li> <li>de recercar dins "
+#~ "vòstres documents</li> <li>de consulter de nouveaux documents partejats "
+#~ "pels amics</li> <li>d'afichar los documents en ecran complet</li> "
 #~ "<li>d'imprimir los documents</li> <li>de seleccionar los favorits</li> "
 #~ "<li>d'autorizar la dobertura d'un editor plenament foncional per de "
 #~ "modificacions non trivialas</li>"
