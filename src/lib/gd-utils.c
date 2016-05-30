@@ -185,6 +185,10 @@ gd_filename_to_mime_type (const gchar *filename_with_extension)
 
   if (g_strcmp0 (extension, ".pdf") == 0)
     type = "application/pdf";
+  else if (g_strcmp0 (extension, ".djv") == 0)
+    type = "image/vnd.djvu+multipage";
+  else if (g_strcmp0 (extension, ".djvu") == 0)
+    type = "image/vnd.djvu+multipage";
   else if (g_strcmp0 (extension, ".epub") == 0)
     type = "application/epub+zip";
   else if (g_strcmp0 (extension, ".cbr") == 0)
@@ -235,6 +239,8 @@ gd_filename_to_rdf_type (const gchar *filename_with_extension)
     type = "nfo:PaginatedTextDocument";
 
   else if (g_strcmp0 (extension, ".epub") == 0
+           || g_strcmp0 (extension, ".djv") == 0
+           || g_strcmp0 (extension, ".djvu") == 0
            || g_strcmp0 (extension, ".cbr") == 0
            || g_strcmp0 (extension, ".cbz") == 0
            || g_strcmp0 (extension, ".cbt") == 0
