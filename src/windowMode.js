@@ -103,10 +103,6 @@ const ModeController = new Lang.Class({
         this.emit('fullscreen-changed', this._fullscreen);
     },
 
-    toggleFullscreen: function() {
-        this.setFullscreen(!this._fullscreen);
-    },
-
     getFullscreen: function() {
         return this._fullscreen;
     },

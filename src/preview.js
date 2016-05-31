@@ -873,6 +873,10 @@ const PreviewToolbar = new Lang.Class({
 
         // search button, on the right of the toolbar
         this.addSearchButton();
+        if (Application.application.isBooks) {
+            this.addFullscreenButton();
+            this.addNightmodeButton();
+        }
 
         this._setToolbarTitle();
         this.toolbar.show_all();

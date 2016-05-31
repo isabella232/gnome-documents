@@ -231,8 +231,11 @@ const Application = new Lang.Class({
         settings.set_value('night-mode', GLib.Variant.new('b', !state.get_boolean()));
     },
 
-    _onActionFullscreen: function() {
-        modeController.toggleFullscreen();
+    _onActionFullscreen: function(action) {
+        let state = action.get_state();
+        let newState = !state.get_boolean();
+        action.change_state(GLib.Variant.new('b', newState));
+        modeController.setFullscreen(newState);
     },
 
     _onActionViewAs: function(action, parameter) {
@@ -539,6 +542,7 @@ const Application = new Lang.Class({
               accels: ['F1'] },
             { name: 'fullscreen',
               callback: this._onActionFullscreen,
+              state: GLib.Variant.new('b', false),
               create_hook: this._fullscreenCreateHook,
               accels: ['F11'],
               window_mode: WindowMode.WindowMode.PREVIEW },
