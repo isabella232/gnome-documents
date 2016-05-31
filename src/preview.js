@@ -146,8 +146,10 @@ const PreviewView = new Lang.Class({
             Lang.bind(this, this._updateNightMode));
 
         this._togglePresentation = Application.application.lookup_action('present-current');
-        let presentCurrentId = Application.application.connect('action-state-changed::present-current',
-            Lang.bind(this, this._onPresentStateChanged));
+        if (!Application.application.isBooks) {
+            let presentCurrentId = Application.application.connect('action-state-changed::present-current',
+                Lang.bind(this, this._onPresentStateChanged));
+        }
 
         Application.documentManager.connect('load-started',
                                             Lang.bind(this, this._onLoadStarted));
@@ -165,7 +167,8 @@ const PreviewView = new Lang.Class({
                 rotLeft.disconnect(rotLeftId);
                 rotRight.disconnect(rotRightId);
                 this._places.disconnect(placesId);
-                Application.application.disconnect(presentCurrentId);
+                if (!Application.application.isBooks)
+                    Application.application.disconnect(presentCurrentId);
                 Application.application.disconnect(nightModeId);
             }));
     },
@@ -560,7 +563,8 @@ const PreviewView = new Lang.Class({
             this.view.set_model(this._model);
             this._navControls.setModel(model);
             this._navControls.show();
-            this._togglePresentation.enabled = true;
+            if (this._togglePresentation)
+                this._togglePresentation.enabled = true;
 
             if (Application.documentManager.metadata)
                 this._bookmarks = new GdPrivate.Bookmarks({ metadata: Application.documentManager.metadata });

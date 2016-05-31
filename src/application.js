@@ -573,11 +573,6 @@ const Application = new Lang.Class({
             { name: 'edit-current' },
             { name: 'view-current',
               window_mode: WindowMode.WindowMode.EDIT },
-            { name: 'present-current',
-              window_mode: WindowMode.WindowMode.PREVIEW,
-              callback: this._onActionToggle,
-              state: GLib.Variant.new('b', false),
-              accels: ['F5'] },
             { name: 'print-current', accels: ['<Primary>p'],
               callback: this._onActionPrintCurrent },
             { name: 'search',
@@ -641,11 +636,18 @@ const Application = new Lang.Class({
                              WindowMode.WindowMode.SEARCH] }
         ];
 
+        if (!this.isBooks) {
+            this._actionEntries.push (
+            { name: 'present-current',
+              window_mode: WindowMode.WindowMode.PREVIEW,
+              callback: this._onActionToggle,
+              state: GLib.Variant.new('b', false),
+              accels: ['F5'] });
+            this._initGettingStarted();
+        }
+
         this._initActions();
         this._initAppMenu();
-
-        if (!this.isBooks)
-            this._initGettingStarted();
     },
 
     _createWindow: function() {
