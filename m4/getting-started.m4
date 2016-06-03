@@ -109,7 +109,7 @@ install-pdfs:
 	  $(mkinstalldirs) "$(DESTDIR)$(HELP_DIR)/$$lc" || exit 1; \
 	done
 	@for lc in C $(_HELP_LINGUAS); do \
-	  if test -f "$$lc/$(_HELP_OUTPUT)"; then d=; else d="$(srcdir)/"; fi; \
+	  if test -f "$$lc/$(_HELP_OUTPUT)"; then d=; else d="$(builddir)/"; fi; \
 	  helpdir="$(DESTDIR)$(HELP_DIR)/$$lc/"; \
 	  if ! test -d "$$helpdir"; then $(mkinstalldirs) "$$helpdir"; fi; \
 	  echo "$(INSTALL_DATA) $$d$$lc/$(_HELP_OUTPUT) $$helpdir`basename $(_HELP_OUTPUT)`"; \
