@@ -147,7 +147,7 @@ const PreviewView = new Lang.Class({
 
         this._togglePresentation = Application.application.lookup_action('present-current');
         if (!Application.application.isBooks) {
-            let presentCurrentId = Application.application.connect('action-state-changed::present-current',
+            var presentCurrentId = Application.application.connect('action-state-changed::present-current',
                 Lang.bind(this, this._onPresentStateChanged));
         }
 
