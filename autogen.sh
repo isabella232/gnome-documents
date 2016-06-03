@@ -4,6 +4,8 @@
 srcdir=`dirname $0`
 test -z "$srcdir" && srcdir=.
 
+olddir=`pwd`
+
 PKG_NAME="gnome-documents"
 ACLOCAL_FLAGS="-I libgd $ACLOCAL_FLAGS"
 
@@ -18,8 +20,11 @@ which gnome-autogen.sh || {
     exit 1
 }
 
+# We need to run git submodule update inside the src directory
+cd "$srcdir"
 git submodule update --init --recursive
 
+cd "$olddir"
 REQUIRED_AUTOCONF_VERSION=2.59
 REQUIRED_AUTOMAKE_VERSION=1.9
 REQUIRED_INTLTOOL_VERSION=0.40.0
