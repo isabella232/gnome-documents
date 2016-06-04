@@ -1386,7 +1386,7 @@ const DocumentManager = new Lang.Class({
 
         // save loaded model and signal
         this._activeDocModel = docModel;
-        if (this._activeModel)
+        if (this._activeDocModel)
             this._activeDocModel.set_continuous(false);
 
         // load metadata
