@@ -1517,10 +1517,11 @@ const DocumentManager = new Lang.Class({
 
         this.metadata = new GdPrivate.Metadata({ file: file });
 
-        // save current page in metadata
         let [res, val] = this.metadata.get_int('page');
         if (res)
             docModel.set_page(val);
+
+        // save current page in metadata
         this._activeDocModelIds.push(
             docModel.connect('page-changed', Lang.bind(this,
                 function(source, oldPage, newPage) {
