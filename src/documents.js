@@ -1393,7 +1393,7 @@ const DocumentManager = new Lang.Class({
             this._activeDocModel.set_continuous(false);
 
         // load metadata
-        this._connectMetadata(docModel);
+        this._connectMetadata();
 
         this.emit('load-finished', doc, docModel);
     },
@@ -1507,10 +1507,10 @@ const DocumentManager = new Lang.Class({
         }
     },
 
-    _connectMetadata: function(docModel) {
-        if (!docModel)
+    _connectMetadata: function() {
+        if (!this._activeDocModel)
             return;
-        let evDoc = docModel.get_document();
+        let evDoc = this._activeDocModel.get_document();
         let file = Gio.File.new_for_uri(evDoc.get_uri());
         if (!GdPrivate.is_metadata_supported_for_file(file))
             return;
@@ -1519,11 +1519,11 @@ const DocumentManager = new Lang.Class({
 
         let [res, val] = this.metadata.get_int('page');
         if (res)
-            docModel.set_page(val);
+            this._activeDocModel.set_page(val);
 
         // save current page in metadata
         this._activeDocModelIds.push(
-            docModel.connect('page-changed', Lang.bind(this,
+            this._activeDocModel.connect('page-changed', Lang.bind(this,
                 function(source, oldPage, newPage) {
                     this.metadata.set_int('page', newPage);
                 }))
