@@ -25,7 +25,6 @@ const Mainloop = imports.mainloop;
 const Application = imports.application;
 const MainToolbar = imports.mainToolbar;
 const Password = imports.password;
-const Preview = imports.preview;
 const Edit = imports.edit;
 const Search = imports.search;
 const Selections = imports.selections;
@@ -34,6 +33,7 @@ const WindowMode = imports.windowMode;
 const Documents = imports.documents;
 
 const EvView = imports.gi.EvinceView;
+const EvinceView = imports.evinceview;
 const LOKView = imports.lokview;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
@@ -83,7 +83,7 @@ const Embed = new Lang.Class({
         this._search = new View.ViewContainer(WindowMode.WindowMode.SEARCH);
         this._stack.add_named(this._search, 'search');
 
-        this._previewEv = new Preview.PreviewView(this._stackOverlay);
+        this._previewEv = new EvinceView.EvinceView(this._stackOverlay);
         this._stack.add_named(this._previewEv, 'preview-ev');
 
         this._previewLok = new LOKView.LOKView(this._stackOverlay);
@@ -273,7 +273,7 @@ const Embed = new Lang.Class({
         case WindowMode.WindowMode.PREVIEW:
             if (oldMode == WindowMode.WindowMode.EDIT)
                 Application.documentManager.reloadActiveItem();
-            this._prepareForPreview();
+            this._prepareForEvinceView();
             break;
         case WindowMode.WindowMode.PREVIEW_LOK:
             if (oldMode == WindowMode.WindowMode.EDIT)
@@ -441,14 +441,14 @@ const Embed = new Lang.Class({
         this._stack.set_visible_child_name(visibleChildName);
     },
 
-    _prepareForPreview: function() {
+    _prepareForEvinceView: function() {
         if (this._edit)
             this._edit.setUri(null);
         if (this._toolbar)
             this._toolbar.destroy();
 
         // pack the toolbar
-        this._toolbar = new Preview.PreviewToolbar(this._previewEv);
+        this._toolbar = new EvinceView.EvinceViewToolbar(this._previewEv);
         this._titlebar.add(this._toolbar);
 
         this._stack.set_visible_child_name('preview-ev');
@@ -492,7 +492,7 @@ const Embed = new Lang.Class({
             return this._toolbar;
     },
 
-    getPreview: function() {
+    getEvinceView: function() {
         //FIXME When we can pass clicks and key presses
         //to the view, we'll need to grab the real current view
         return this._previewEv;

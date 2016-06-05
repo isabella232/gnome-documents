@@ -44,8 +44,8 @@ const Documents = imports.documents;
 
 const _FULLSCREEN_TOOLBAR_TIMEOUT = 2; // seconds
 
-const PreviewView = new Lang.Class({
-    Name: 'PreviewView',
+const EvinceView = new Lang.Class({
+    Name: 'EvinceView',
     Extends: Gtk.Stack,
 
     _init: function(overlay) {
@@ -83,7 +83,7 @@ const PreviewView = new Lang.Class({
         this._createView();
 
         // create context menu
-        let model = this._getPreviewContextMenu();
+        let model = this._getEvinceViewContextMenu();
         this._previewContextMenu = Gtk.Menu.new_from_model(model);
         this._previewContextMenu.attach_to_widget(this._sw, null);
 
@@ -370,11 +370,11 @@ const PreviewView = new Lang.Class({
         this.view.connect('external-link', Lang.bind(this,
             this._handleExternalLink));
 
-        this._navControls = new PreviewNavControls(this, this._overlay);
+        this._navControls = new EvinceViewNavControls(this, this._overlay);
         this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
     },
 
-    _getPreviewContextMenu: function() {
+    _getEvinceViewContextMenu: function() {
         let builder = new Gtk.Builder();
         builder.add_from_resource('/org/gnome/Documents/ui/preview-context-menu.ui');
         return builder.get_object('preview-context-menu');
@@ -404,7 +404,7 @@ const PreviewView = new Lang.Class({
 
         if (fullscreen) {
             // create fullscreen toolbar (hidden by default)
-            this._fsToolbar = new PreviewFullscreenToolbar(this);
+            this._fsToolbar = new EvinceViewFullscreenToolbar(this);
             this._fsToolbar.setModel(this._model);
             this._overlay.add_overlay(this._fsToolbar);
 
@@ -607,13 +607,13 @@ const PreviewView = new Lang.Class({
         return this._lastSearch;
     }
 });
-Utils.addJSSignalMethods(PreviewView.prototype);
+Utils.addJSSignalMethods(EvinceView.prototype);
 
 const _PREVIEW_NAVBAR_MARGIN = 30;
 const _AUTO_HIDE_TIMEOUT = 2;
 
-const PreviewNavControls = new Lang.Class({
-    Name: 'PreviewNavControls',
+const EvinceViewNavControls = new Lang.Class({
+    Name: 'EvinceViewNavControls',
 
     _init: function(previewView, overlay) {
         this._previewView = previewView;
@@ -837,8 +837,8 @@ const PreviewNavControls = new Lang.Class({
     }
 });
 
-const PreviewToolbar = new Lang.Class({
-    Name: 'PreviewToolbar',
+const EvinceViewToolbar = new Lang.Class({
+    Name: 'EvinceViewToolbar',
     Extends: MainToolbar.MainToolbar,
 
     _init: function(previewView) {
@@ -866,7 +866,7 @@ const PreviewToolbar = new Lang.Class({
             }));
 
         // menu button, on the right of the toolbar
-        let previewMenu = this._getPreviewMenu();
+        let previewMenu = this._getEvinceViewMenu();
         let menuButton = new Gtk.MenuButton({ image: new Gtk.Image ({ icon_name: 'open-menu-symbolic' }),
                                               menu_model: previewMenu,
                                               action_name: 'app.gear-menu' });
@@ -910,7 +910,7 @@ const PreviewToolbar = new Lang.Class({
         this._searchAction.enabled = (hasPages && isFind);
     },
 
-    _getPreviewMenu: function() {
+    _getEvinceViewMenu: function() {
         let builder = new Gtk.Builder();
         builder.add_from_resource('/org/gnome/Documents/ui/preview-menu.ui');
         let menu = builder.get_object('preview-menu');
@@ -926,7 +926,7 @@ const PreviewToolbar = new Lang.Class({
     },
 
     createSearchbar: function() {
-        return new PreviewSearchbar(this._previewView);
+        return new EvinceViewSearchbar(this._previewView);
     },
 
     _setToolbarTitle: function() {
@@ -950,8 +950,8 @@ const PreviewToolbar = new Lang.Class({
     }
 });
 
-const PreviewSearchbar = new Lang.Class({
-    Name: 'PreviewSearchbar',
+const EvinceViewSearchbar = new Lang.Class({
+    Name: 'EvinceViewSearchbar',
     Extends: Searchbar.Searchbar,
 
     _init: function(previewView) {
@@ -1021,14 +1021,14 @@ const PreviewSearchbar = new Lang.Class({
     }
 });
 
-const PreviewFullscreenToolbar = new Lang.Class({
-    Name: 'PreviewFullscreenToolbar',
+const EvinceViewFullscreenToolbar = new Lang.Class({
+    Name: 'EvinceViewFullscreenToolbar',
     Extends: Gtk.Revealer,
 
     _init: function(previewView) {
         this.parent({ valign: Gtk.Align.START });
 
-        this._toolbar = new PreviewToolbar(previewView);
+        this._toolbar = new EvinceViewToolbar(previewView);
 
         this.add(this._toolbar);
         this.show();
@@ -1076,4 +1076,4 @@ const PreviewFullscreenToolbar = new Lang.Class({
         Application.application.change_action_state('search', GLib.Variant.new('b', false));
     }
 });
-Utils.addJSSignalMethods(PreviewFullscreenToolbar.prototype);
+Utils.addJSSignalMethods(EvinceViewFullscreenToolbar.prototype);

@@ -29,7 +29,7 @@ src/notifications.js
 src/password.js
 src/places.js
 src/presentation.js
-src/preview.js
+src/evinceview.js
 src/properties.js
 src/searchbar.js
 src/search.js

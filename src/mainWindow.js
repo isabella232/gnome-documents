@@ -235,7 +235,7 @@ const MainWindow = new Lang.Class({
         let keyval = event.get_keyval()[1];
         let fullscreen = Application.modeController.getFullscreen();
         let def_mod_mask = Gtk.accelerator_get_default_mod_mask();
-        let preview = this._embed.getPreview();
+        let preview = this._embed.getEvinceView();
         let state = event.get_state()[1];
 
         if (keyval == Gdk.KEY_Escape) {
