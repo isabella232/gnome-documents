@@ -146,7 +146,7 @@ const Embed = new Lang.Class({
         case WindowMode.WindowMode.DOCUMENTS:
             view = this._documents;
             break;
-        case WindowMode.WindowMode.PREVIEW:
+        case WindowMode.WindowMode.PREVIEW_EV:
             view = this._previewEv;
             break;
         case WindowMode.WindowMode.PREVIEW_LOK:
@@ -183,7 +183,7 @@ const Embed = new Lang.Class({
         case WindowMode.WindowMode.DOCUMENTS:
             page = 'documents';
             break;
-        case WindowMode.WindowMode.PREVIEW:
+        case WindowMode.WindowMode.PREVIEW_EV:
             page = 'preview-ev';
             break;
         case WindowMode.WindowMode.SEARCH:
@@ -232,7 +232,7 @@ const Embed = new Lang.Class({
         let windowMode = Application.modeController.getWindowMode();
         if (windowMode == WindowMode.WindowMode.SEARCH && doc)
             return;
-        if (windowMode == WindowMode.WindowMode.PREVIEW)
+        if (windowMode == WindowMode.WindowMode.PREVIEW_EV)
             return;
 
         let searchType = Application.searchTypeManager.getActiveItem();
@@ -270,7 +270,7 @@ const Embed = new Lang.Class({
         case WindowMode.WindowMode.SEARCH:
             this._prepareForOverview(newMode, oldMode);
             break;
-        case WindowMode.WindowMode.PREVIEW:
+        case WindowMode.WindowMode.PREVIEW_EV:
             if (oldMode == WindowMode.WindowMode.EDIT)
                 Application.documentManager.reloadActiveItem();
             this._prepareForEvinceView();
@@ -319,7 +319,7 @@ const Embed = new Lang.Class({
 
     _onActiveItemChanged: function(manager, doc) {
         let windowMode = Application.modeController.getWindowMode();
-        let showSearch = (windowMode == WindowMode.WindowMode.PREVIEW && !doc
+        let showSearch = (windowMode == WindowMode.WindowMode.PREVIEW_EV && !doc
                           || windowMode == WindowMode.WindowMode.SEARCH && !doc);
         if (showSearch)
             this._restoreSearch();
@@ -340,7 +340,7 @@ const Embed = new Lang.Class({
         if (LOKView.isOpenDocumentFormat(doc.mimeType))
             Application.modeController.setWindowMode(WindowMode.WindowMode.PREVIEW_LOK);
         else
-            Application.modeController.setWindowMode(WindowMode.WindowMode.PREVIEW);
+            Application.modeController.setWindowMode(WindowMode.WindowMode.PREVIEW_EV);
 
         this._clearLoadTimer();
         this._loadShowId = Mainloop.timeout_add(_PDF_LOADER_TIMEOUT, Lang.bind(this,
@@ -486,7 +486,7 @@ const Embed = new Lang.Class({
         let windowMode = Application.modeController.getWindowMode();
         let fullscreen = Application.modeController.getFullscreen();
 
-        if (fullscreen && (windowMode == WindowMode.WindowMode.PREVIEW))
+        if (fullscreen && (windowMode == WindowMode.WindowMode.PREVIEW_EV))
             return this._previewEv.getFullscreenToolbar();
         else
             return this._toolbar;

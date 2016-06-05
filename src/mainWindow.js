@@ -151,7 +151,7 @@ const MainWindow = new Lang.Class({
             handled = false;
             break;
         case WindowMode.WindowMode.EDIT:
-        case WindowMode.WindowMode.PREVIEW:
+        case WindowMode.WindowMode.PREVIEW_EV:
             Application.documentManager.setActiveItem(null);
             Application.modeController.goBack();
             break;
@@ -193,7 +193,7 @@ const MainWindow = new Lang.Class({
         switch (Application.modeController.getWindowMode()) {
         case WindowMode.WindowMode.NONE:
             return false;
-        case WindowMode.WindowMode.PREVIEW:
+        case WindowMode.WindowMode.PREVIEW_EV:
             return this._handleKeyPreview(event);
         case WindowMode.WindowMode.COLLECTIONS:
         case WindowMode.WindowMode.DOCUMENTS:

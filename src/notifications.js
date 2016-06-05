@@ -191,7 +191,7 @@ const IndexingNotification = new Lang.Class({
     },
 
     _checkNotification: function() {
-        if (Application.modeController.getWindowMode() == WindowMode.WindowMode.PREVIEW) {
+        if (Application.modeController.getWindowMode() == WindowMode.WindowMode.PREVIEW_EV) {
             this._destroy(false);
             return;
         }

@@ -537,7 +537,7 @@ const Application = new Lang.Class({
               state: GLib.Variant.new('b', false),
               create_hook: this._fullscreenCreateHook,
               accels: ['F11'],
-              window_mode: WindowMode.WindowMode.PREVIEW },
+              window_mode: WindowMode.WindowMode.PREVIEW_EV },
             { name: 'night-mode',
               callback: this._onActionNightMode,
               create_hook: this._nightModeCreateHook,
@@ -564,7 +564,7 @@ const Application = new Lang.Class({
                              WindowMode.WindowMode.SEARCH] },
             { name: 'open-current',
               callback: this._onActionOpenCurrent,
-              window_modes: [WindowMode.WindowMode.PREVIEW,
+              window_modes: [WindowMode.WindowMode.PREVIEW_EV,
                              WindowMode.WindowMode.PREVIEW_LOK] },
             { name: 'edit-current' },
             { name: 'view-current',
@@ -576,19 +576,19 @@ const Application = new Lang.Class({
               state: GLib.Variant.new('b', false),
               accels: ['<Primary>f'] },
             { name: 'find-next', accels: ['<Primary>g'],
-              window_mode: WindowMode.WindowMode.PREVIEW },
+              window_mode: WindowMode.WindowMode.PREVIEW_EV },
             { name: 'find-prev', accels: ['<Shift><Primary>g'],
-              window_mode: WindowMode.WindowMode.PREVIEW },
+              window_mode: WindowMode.WindowMode.PREVIEW_EV },
             { name: 'zoom-in', accels: ['<Primary>plus', '<Primary>equal'],
-              window_modes: [WindowMode.WindowMode.PREVIEW,
+              window_modes: [WindowMode.WindowMode.PREVIEW_EV,
                              WindowMode.WindowMode.PREVIEW_LOK] },
             { name: 'zoom-out', accels: ['<Primary>minus'],
-              window_modes: [WindowMode.WindowMode.PREVIEW,
+              window_modes: [WindowMode.WindowMode.PREVIEW_EV,
                              WindowMode.WindowMode.PREVIEW_LOK] },
             { name: 'rotate-left', accels: ['<Primary>Left'],
-              window_mode: WindowMode.WindowMode.PREVIEW },
+              window_mode: WindowMode.WindowMode.PREVIEW_EV },
             { name: 'rotate-right', accels: ['<Primary>Right'],
-              window_mode: WindowMode.WindowMode.PREVIEW },
+              window_mode: WindowMode.WindowMode.PREVIEW_EV },
             { name: 'select-all', accels: ['<Primary>a'],
               window_modes: [WindowMode.WindowMode.COLLECTIONS,
                              WindowMode.WindowMode.DOCUMENTS,
@@ -599,19 +599,19 @@ const Application = new Lang.Class({
                              WindowMode.WindowMode.SEARCH] },
             { name: 'properties',
               callback: this._onActionProperties,
-              window_modes: [WindowMode.WindowMode.PREVIEW,
+              window_modes: [WindowMode.WindowMode.PREVIEW_EV,
                              WindowMode.WindowMode.PREVIEW_LOK] },
             { name: 'bookmark-page',
               callback: this._onActionToggle,
               state: GLib.Variant.new('b', false),
               accels: ['<Primary>d'],
-              window_mode: WindowMode.WindowMode.PREVIEW },
+              window_mode: WindowMode.WindowMode.PREVIEW_EV },
             { name: 'places',
               accels: ['<Primary>b'],
-              window_mode: WindowMode.WindowMode.PREVIEW },
+              window_mode: WindowMode.WindowMode.PREVIEW_EV },
             { name: 'copy',
               accels: ['<Primary>c'],
-              window_mode: WindowMode.WindowMode.PREVIEW },
+              window_mode: WindowMode.WindowMode.PREVIEW_EV },
             { name: 'search-source',
               parameter_type: 's',
               state: GLib.Variant.new('s', Search.SearchSourceStock.ALL),
@@ -635,7 +635,7 @@ const Application = new Lang.Class({
         if (!this.isBooks) {
             this._actionEntries.push (
             { name: 'present-current',
-              window_mode: WindowMode.WindowMode.PREVIEW,
+              window_mode: WindowMode.WindowMode.PREVIEW_EV,
               callback: this._onActionToggle,
               state: GLib.Variant.new('b', false),
               accels: ['F5'] });
@@ -726,7 +726,7 @@ const Application = new Lang.Class({
 
     _onActivateResult: function(provider, urn, terms, timestamp) {
         this._createWindow();
-        modeController.setWindowMode(WindowMode.WindowMode.PREVIEW);
+        modeController.setWindowMode(WindowMode.WindowMode.PREVIEW_EV);
 
         let doc = documentManager.getItemById(urn);
         if (doc) {
@@ -752,7 +752,7 @@ const Application = new Lang.Class({
             let modeChangeId = modeController.connect('window-mode-changed', Lang.bind(this,
                 function(object, newMode) {
                     if (newMode == WindowMode.WindowMode.EDIT
-                        || newMode == WindowMode.WindowMode.PREVIEW)
+                        || newMode == WindowMode.WindowMode.PREVIEW_EV)
                         return;
 
                     modeController.disconnect(modeChangeId);

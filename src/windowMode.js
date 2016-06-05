@@ -25,7 +25,7 @@ const Signals = imports.signals;
 const WindowMode = {
     NONE: 0,
     DOCUMENTS: 1,
-    PREVIEW: 2,
+    PREVIEW_EV: 2,
     PREVIEW_LOK: 3,
     EDIT: 4,
     COLLECTIONS: 5,
@@ -56,7 +56,7 @@ const ModeController = new Lang.Class({
          * provider. It is easier to special case it here instead of all
          * over the code.
          */
-        if (this._mode == WindowMode.PREVIEW && oldMode == WindowMode.NONE && steps == 1)
+        if (this._mode == WindowMode.PREVIEW_EV && oldMode == WindowMode.NONE && steps == 1)
           oldMode = WindowMode.DOCUMENTS;
 
         if (oldMode == WindowMode.NONE)
@@ -108,7 +108,7 @@ const ModeController = new Lang.Class({
     },
 
     getCanFullscreen: function() {
-        return (this._mode == WindowMode.PREVIEW || this._mode == WindowMode.EDIT);
+        return (this._mode == WindowMode.PREVIEW_EV || this._mode == WindowMode.EDIT);
     }
 });
 Signals.addSignalMethods(ModeController.prototype);

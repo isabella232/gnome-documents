@@ -392,7 +392,7 @@ const EvinceView = new Lang.Class({
 
     _onWindowModeChanged: function() {
         let windowMode = Application.modeController.getWindowMode();
-        if (windowMode != WindowMode.WindowMode.PREVIEW) {
+        if (windowMode != WindowMode.WindowMode.PREVIEW_EV) {
             this.controlsVisible = false;
             this._hidePresentation();
             this._navControls.hide();
