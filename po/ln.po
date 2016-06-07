@@ -1,0 +1,998 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Arnauld NEDATI <arnauldndt@gmail.com>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-documents&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-03-05 11:44+0000\n"
+"PO-Revision-Date: 2016-05-27 12:01+0100\n"
+"Last-Translator: Arnauld NEDATI <arnauldndt@gmail.com>\n"
+"Language-Team: lingala <ubuntu-cd@lists.ubuntu.com>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: ../data/org.gnome.Books.appdata.xml.in.h:1
+#: ../data/org.gnome.Books.desktop.in.h:1
+#: ../src/application.js:115
+#: ../src/embed.js:81
+#: ../src/lib/gd-utils.c:418
+msgid "Books"
+msgstr "Buku"
+
+#: ../data/org.gnome.Books.appdata.xml.in.h:2
+msgid "An e-book manager application for GNOME"
+msgstr "Esaleli ya koyangela ba buku nimeriki pona GNOME"
+
+#: ../data/org.gnome.Books.appdata.xml.in.h:3
+msgid "A simple application to access and organize your e-books on GNOME. It is meant to be a simple and elegant replacement for using a file manager to deal with e-books."
+msgstr "Esaleli ya mpamba pona koyingela na ba buku nimeriki na yo mpe koyangela  na GNOME. Ntina na ye ezali kozala boponi ya mpamba mpe ya kitoko na bosaleli moyangeli ya ba kasa pona kosala ba buku nimeriki."
+
+#: ../data/org.gnome.Books.appdata.xml.in.h:4
+#: ../data/org.gnome.Documents.appdata.xml.in.h:4
+msgid "It lets you:"
+msgstr "Ezo sunga yo pona:"
+
+#: ../data/org.gnome.Books.appdata.xml.in.h:5
+msgid "View recent e-books"
+msgstr "Tala ba buku nimeriki ya suka"
+
+#: ../data/org.gnome.Books.appdata.xml.in.h:6
+msgid "Search through e-books"
+msgstr "Luka nakati ya bibilyotèque"
+
+#: ../data/org.gnome.Books.appdata.xml.in.h:7
+msgid "View e-books (PDF and comics) fullscreen"
+msgstr "Tanga ba buku nimeriki (PDF mpe bandi ya koyema) na emɔ́niselo mobimba"
+
+#: ../data/org.gnome.Books.appdata.xml.in.h:8
+msgid "Print e-books"
+msgstr "Bimisa ba buku nimeriki"
+
+#: ../data/org.gnome.Books.desktop.in.h:2
+msgid "Access, manage and share books"
+msgstr "Yíngela na, yangela mpe kabola ba buku"
+
+#: ../data/org.gnome.Books.desktop.in.h:3
+msgid "Books;Comics;ePub;PDF;"
+msgstr "Buku; buku nimeriki;Bandi ya koyema;ePub;PDF;"
+
+#: ../data/org.gnome.books.gschema.xml.h:1
+#: ../data/org.gnome.documents.gschema.xml.h:1
+msgid "View as"
+msgstr "Monisa lokola"
+
+#: ../data/org.gnome.books.gschema.xml.h:2
+#: ../data/org.gnome.documents.gschema.xml.h:2
+msgid "View as type"
+msgstr "Monisa lokola típɛ"
+
+#: ../data/org.gnome.books.gschema.xml.h:3
+#: ../data/org.gnome.documents.gschema.xml.h:3
+msgid "Sort by"
+msgstr "Kolandisa na"
+
+#: ../data/org.gnome.books.gschema.xml.h:4
+#: ../data/org.gnome.documents.gschema.xml.h:4
+msgid "Sort by type"
+msgstr "Kolandisa na típɛ"
+
+#: ../data/org.gnome.books.gschema.xml.h:5
+#: ../data/org.gnome.documents.gschema.xml.h:5
+msgid "Window size"
+msgstr "Bonene ya lininisa"
+
+#: ../data/org.gnome.books.gschema.xml.h:6
+#: ../data/org.gnome.documents.gschema.xml.h:6
+msgid "Window size (width and height)."
+msgstr "Bonene ya lininisa (libale mpe bosanda)."
+
+#: ../data/org.gnome.books.gschema.xml.h:7
+#: ../data/org.gnome.documents.gschema.xml.h:7
+msgid "Window position"
+msgstr "Poziso ya lininisa"
+
+#: ../data/org.gnome.books.gschema.xml.h:8
+#: ../data/org.gnome.documents.gschema.xml.h:8
+msgid "Window position (x and y)."
+msgstr "Poziso ya lininisa (x mpe y)."
+
+#: ../data/org.gnome.books.gschema.xml.h:9
+#: ../data/org.gnome.documents.gschema.xml.h:9
+msgid "Window maximized"
+msgstr "Lininisa ya kongangola"
+
+#: ../data/org.gnome.books.gschema.xml.h:10
+#: ../data/org.gnome.documents.gschema.xml.h:10
+msgid "Window maximized state"
+msgstr "Ezaleli ya lininisa ya kongangola "
+
+#: ../data/org.gnome.books.gschema.xml.h:11
+#: ../data/org.gnome.documents.gschema.xml.h:11
+msgid "Night mode"
+msgstr "Mode ya butu"
+
+#: ../data/org.gnome.books.gschema.xml.h:12
+#: ../data/org.gnome.documents.gschema.xml.h:12
+msgid "Whether the application is in night mode."
+msgstr "Lakisa soki ésaleli ézali na mode ya butu."
+
+#: ../data/org.gnome.Documents.appdata.xml.in.h:1
+#: ../data/org.gnome.Documents.desktop.in.h:1
+#: ../src/application.js:118
+#: ../src/embed.js:81
+#: ../src/lib/gd-utils.c:411
+#: ../src/mainWindow.js:54
+msgid "Documents"
+msgstr "Dokima"
+
+#: ../data/org.gnome.Documents.appdata.xml.in.h:2
+msgid "A document manager application for GNOME"
+msgstr "Esaleli ya koyangela ba dokima pona GNOME"
+
+#: ../data/org.gnome.Documents.appdata.xml.in.h:3
+msgid "A simple application to access, organize and share your documents on GNOME. It is meant to be a simple and elegant replacement for using a file manager to deal with documents. Seamless cloud integration is offered through GNOME Online Accounts."
+msgstr "Esaleli ya mpamba pona koyingela, koyangela mpe kokabola ba dokima na yo na GNOME. Ntina na ye ezali kozala boponi ya mpamba mpe ya kitoko na bosaleli moyangeli ya ba kasa pona kosala ba dokima. Bokotisi ekokani na lipata ékoki kosela na konti Ɛtenɛ́ti ya GNOME."
+
+#: ../data/org.gnome.Documents.appdata.xml.in.h:5
+msgid "View recent local and online documents"
+msgstr "Monisa ba dokima ya kala tê na lokale to na Ɛtenɛ́ti"
+
+#: ../data/org.gnome.Documents.appdata.xml.in.h:6
+msgid "Access your Google, ownCloud or OneDrive content"
+msgstr "Yingela na kɔténi na yo ya  Google, ownCloud to OneDrive"
+
+#: ../data/org.gnome.Documents.appdata.xml.in.h:7
+msgid "Search through documents"
+msgstr "Luka na kati ya ba dokima na yo"
+
+#: ../data/org.gnome.Documents.appdata.xml.in.h:8
+msgid "See new documents shared by friends"
+msgstr "Tala ba dokima ya sika ekabolami na baninga"
+
+#: ../data/org.gnome.Documents.appdata.xml.in.h:9
+msgid "View documents fullscreen"
+msgstr "Tala ba dokima na emɔ́niselo mobimba"
+
+#: ../data/org.gnome.Documents.appdata.xml.in.h:10
+msgid "Print documents"
+msgstr "Bimisa dokima"
+
+#: ../data/org.gnome.Documents.appdata.xml.in.h:11
+msgid "Select favorites"
+msgstr "Pono ba favoli"
+
+#: ../data/org.gnome.Documents.appdata.xml.in.h:12
+msgid "Allow opening full featured editor for non-trivial changes"
+msgstr "Fungola na éditele ya lisaleli nionso pona mobongisi oyo ézali triviale tê "
+
+#: ../data/org.gnome.Documents.desktop.in.h:2
+msgid "Access, manage and share documents"
+msgstr "Yingela, Yangela mpe kabola ba dokima"
+
+#: ../data/org.gnome.Documents.desktop.in.h:3
+msgid "Docs;PDF;Document;"
+msgstr "Docs;PDF;Dokima;"
+
+#: ../data/ui/app-menu.ui.h:1
+msgid "Fullscreen"
+msgstr "Emɔ́niselo mobimba"
+
+#: ../data/ui/app-menu.ui.h:2
+msgid "Night Mode"
+msgstr "Mode ya butu"
+
+#: ../data/ui/app-menu.ui.h:3
+msgid "Keyboard Shortcuts"
+msgstr "Lakusi ya ekomelo "
+
+#: ../data/ui/app-menu.ui.h:4
+msgid "Help"
+msgstr "Lisálisi"
+
+#: ../data/ui/app-menu.ui.h:5
+msgid "About"
+msgstr "Oyo étali"
+
+#: ../data/ui/app-menu.ui.h:6
+msgid "Quit"
+msgstr "Bima"
+
+#: ../data/ui/help-overlay.ui.h:1
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Banso"
+
+#: ../data/ui/help-overlay.ui.h:2
+msgctxt "shortcut window"
+msgid "Show help"
+msgstr "Lakisa lisálisi"
+
+#: ../data/ui/help-overlay.ui.h:3
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Bima"
+
+#: ../data/ui/help-overlay.ui.h:4
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Luka"
+
+#: ../data/ui/help-overlay.ui.h:5
+msgctxt "shortcut window"
+msgid "Print the current document"
+msgstr "Bimisa dokima ya sikawa"
+
+#: ../data/ui/help-overlay.ui.h:6
+msgctxt "shortcut window"
+msgid "Navigation"
+msgstr "Bolúki"
+
+#: ../data/ui/help-overlay.ui.h:7
+msgctxt "shortcut window"
+msgid "Go back"
+msgstr "Zónga sima"
+
+#: ../data/ui/help-overlay.ui.h:8
+msgctxt "shortcut window"
+msgid "Preview"
+msgstr "Tála yambo"
+
+#: ../data/ui/help-overlay.ui.h:9
+msgctxt "shortcut window"
+msgid "Zoom in"
+msgstr "Kozúma likolo"
+
+#: ../data/ui/help-overlay.ui.h:10
+msgctxt "shortcut window"
+msgid "Zoom out"
+msgstr "Kozúma nsé"
+
+#: ../data/ui/help-overlay.ui.h:11
+msgctxt "shortcut window"
+msgid "Bookmark the current page"
+msgstr "Tíya lembete na lonkasa ya sikawa"
+
+#: ../data/ui/help-overlay.ui.h:12
+msgctxt "shortcut window"
+msgid "Open places and bookmarks dialog"
+msgstr "Fungola ésika ya lininísa lia bosololi mpe tíya lembete"
+
+#: ../data/ui/help-overlay.ui.h:13
+msgctxt "shortcut window"
+msgid "Copy selected text to clipboard"
+msgstr "Kopi nkoma éponami na zau"
+
+#: ../data/ui/help-overlay.ui.h:14
+msgctxt "shortcut window"
+msgid "Rotate anti-clockwise"
+msgstr "Kobongola na nzela ya ngonga tê"
+
+#: ../data/ui/help-overlay.ui.h:15
+msgctxt "shortcut window"
+msgid "Rotate clockwise"
+msgstr "Bongola na nzela ya ngonga"
+
+#: ../data/ui/help-overlay.ui.h:16
+msgctxt "shortcut window"
+msgid "Next occurrence of the search string"
+msgstr "Okilansɛ élandi ya nkoma ya boluki"
+
+#: ../data/ui/help-overlay.ui.h:17
+msgctxt "shortcut window"
+msgid "Previous occurrence of the search string"
+msgstr "Okilansɛ éleki ya nkoma ya boluki"
+
+#: ../data/ui/help-overlay.ui.h:18
+msgctxt "shortcut window"
+msgid "Presentation mode"
+msgstr "Mode ya bolakisi"
+
+#: ../data/ui/help-overlay.ui.h:19
+msgctxt "shortcut window"
+msgid "Open action menu"
+msgstr "Fungola ekela ya meni"
+
+#: ../data/ui/help-overlay.ui.h:20
+msgctxt "shortcut window"
+msgid "Fullscreen"
+msgstr "Emɔ́niselo mobimba"
+
+#: ../data/ui/organize-collection-dialog.ui.h:1
+msgid "Enter a name for your first collection"
+msgstr "Tiya kombo na kolɛkiso na yo ya yambo"
+
+#: ../data/ui/organize-collection-dialog.ui.h:2
+msgid "New Collection…"
+msgstr "Kolɛkiso ya sika..."
+
+#: ../data/ui/organize-collection-dialog.ui.h:3
+#: ../src/sharing.js:226
+msgid "Add"
+msgstr "Bakisa"
+
+#: ../data/ui/organize-collection-dialog.ui.h:4
+#: ../src/mainToolbar.js:210
+msgid "Cancel"
+msgstr "Longola"
+
+#. Label for Done button in Sharing dialog
+#: ../data/ui/organize-collection-dialog.ui.h:5
+#: ../src/sharing.js:112
+msgid "Done"
+msgstr "Sala"
+
+#: ../data/ui/preview-context-menu.ui.h:1
+msgid "_Copy"
+msgstr "_Kopi"
+
+#. Translators: this is the Open action in a context menu
+#: ../data/ui/preview-menu.ui.h:1
+#: ../data/ui/selection-toolbar.ui.h:1
+#: ../src/selections.js:986
+msgid "Open"
+msgstr "Fungola"
+
+#: ../data/ui/preview-menu.ui.h:2
+msgid "Edit"
+msgstr "Bongisa"
+
+#: ../data/ui/preview-menu.ui.h:3
+msgid "Print…"
+msgstr "Bimisa..."
+
+#: ../data/ui/preview-menu.ui.h:4
+msgid "Present"
+msgstr "Ya sikawa"
+
+#: ../data/ui/preview-menu.ui.h:5
+msgid "Zoom In"
+msgstr "Kozúma likoló"
+
+#: ../data/ui/preview-menu.ui.h:6
+msgid "Zoom Out"
+msgstr "Kozúma nsé"
+
+#: ../data/ui/preview-menu.ui.h:7
+msgid "Rotate ↶"
+msgstr "Balola ↶ "
+
+#: ../data/ui/preview-menu.ui.h:8
+msgid "Rotate ↷"
+msgstr "Balola ↷"
+
+#: ../data/ui/preview-menu.ui.h:9
+#: ../data/ui/selection-toolbar.ui.h:2
+#: ../src/properties.js:62
+msgid "Properties"
+msgstr "Propyéte"
+
+#: ../data/ui/selection-menu.ui.h:1
+msgid "Select All"
+msgstr "Pono nionso"
+
+#: ../data/ui/selection-menu.ui.h:2
+msgid "Select None"
+msgstr "Kopono moko tê"
+
+#: ../data/ui/selection-toolbar.ui.h:3
+#: ../src/embed.js:85
+#: ../src/search.js:203
+#: ../src/search.js:209
+msgid "Collections"
+msgstr "Kolɛkiso"
+
+#: ../data/ui/view-menu.ui.h:1
+msgid "View items as a grid of icons"
+msgstr "Monisa itema na eténiténi ya ikonɛ"
+
+#: ../data/ui/view-menu.ui.h:2
+msgid "View items as a list"
+msgstr "Tala iteme lokola lisite"
+
+#: ../data/ui/view-menu.ui.h:3
+msgid "Sort"
+msgstr "Landisa"
+
+#: ../data/ui/view-menu.ui.h:4
+msgid "Author"
+msgstr "Mokomi"
+
+#: ../data/ui/view-menu.ui.h:5
+msgid "Date"
+msgstr "Date"
+
+#: ../data/ui/view-menu.ui.h:6
+msgid "Name"
+msgstr "Nkombo"
+
+#: ../src/documents.js:682
+msgid "Failed to print document"
+msgstr "Okoki tê kobimisa kasa"
+
+#. Translators: this refers to local documents
+#: ../src/documents.js:732
+#: ../src/search.js:536
+msgid "Local"
+msgstr "Lokalɛ"
+
+#. Translators: Documents ships a "Getting Started with Documents"
+#. tutorial PDF. The "GNOME" string below is displayed as the author name
+#. of that document, and doesn't normally need to be translated.
+#: ../src/documents.js:771
+msgid "GNOME"
+msgstr "GNOME"
+
+#: ../src/documents.js:772
+msgid "Getting Started with Documents"
+msgstr "Kobanda sika na dokima"
+
+#: ../src/documents.js:788
+#: ../src/documents.js:972
+#: ../src/documents.js:1040
+#: ../src/documents.js:1148
+msgid "Collection"
+msgstr "Kolɛkiso"
+
+#. overridden
+#: ../src/documents.js:850
+msgid "Google Docs"
+msgstr "Google Docs"
+
+#: ../src/documents.js:851
+msgid "Google"
+msgstr "Google"
+
+#: ../src/documents.js:974
+#: ../src/documents.js:1150
+msgid "Spreadsheet"
+msgstr "Tablɛ̀rɛ"
+
+#: ../src/documents.js:976
+#: ../src/documents.js:1152
+#: ../src/presentation.js:49
+msgid "Presentation"
+msgstr "Lakisa"
+
+#: ../src/documents.js:978
+#: ../src/documents.js:1154
+msgid "e-Book"
+msgstr "Buku nimeriki"
+
+#: ../src/documents.js:980
+#: ../src/documents.js:1156
+msgid "Document"
+msgstr "Dokima"
+
+#. overridden
+#: ../src/documents.js:1019
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#. overridden
+#: ../src/documents.js:1082
+#: ../src/documents.js:1083
+msgid "OneDrive"
+msgstr "OneDrive"
+
+#: ../src/documents.js:1332
+msgid "Please check the network connection."
+msgstr "Tala kɔnɛkisió rézo."
+
+#: ../src/documents.js:1335
+msgid "Please check the network proxy settings."
+msgstr "Tala palamɛ́tɛlɛ ya proksi rézo."
+
+#: ../src/documents.js:1338
+msgid "Unable to sign in to the document service."
+msgstr "Okoki tê komikomisa na sɛ́visɛ ya dokima."
+
+#: ../src/documents.js:1341
+msgid "Unable to locate this document."
+msgstr "Okoki tê kokuta ésika ya dokima oyo."
+
+#: ../src/documents.js:1344
+msgid "Hmm, something is fishy (%d)."
+msgstr "Eloko moko ézali malamu tê (%d)"
+
+#: ../src/documents.js:1351
+msgid "You are using a preview of Books. Full viewing capabilities are coming soon!"
+msgstr "Ozali kosalela botáli yambo ya buku. Lisanga lia lisáleli bikokoma kala tê!"
+
+#: ../src/documents.js:1353
+msgid "LibreOffice support is not available. Please contact your system administrator."
+msgstr "Lisálisi lia LibreOffice ézali sei tê. Lobana moyángeli sistɛ́mɛ."
+
+#. Translators: %s is the title of a document
+#: ../src/documents.js:1374
+msgid "Oops! Unable to load “%s”"
+msgstr "Ooh! Okoki kotombisa “%s” tê  "
+
+#: ../src/edit.js:186
+msgid "View"
+msgstr "Monisa"
+
+#: ../src/lib/gd-nav-bar.c:242
+#, c-format
+msgid "Page %u of %u"
+msgstr "Lonkásá %u ya %u"
+
+#: ../src/lib/gd-pdf-loader.c:247
+msgid "Unable to load the document"
+msgstr "Okoki kotombisa dokima tê"
+
+#: ../src/lib/gd-pdf-loader.c:715
+msgid "LibreOffice is required to view this document"
+msgstr "LibreOffice ndé ébongi  pona komonisa dokima oyo"
+
+#. Translators: %s is the number of the page, already formatted
+#. * as a string, for example "Page 5".
+#.
+#: ../src/lib/gd-places-bookmarks.c:321
+#, c-format
+msgid "Page %s"
+msgstr "Lonkásá %s"
+
+#: ../src/lib/gd-places-bookmarks.c:384
+msgid "No bookmarks"
+msgstr "Lembete ézali tê"
+
+#: ../src/lib/gd-places-bookmarks.c:392
+#: ../src/lib/gd-places-links.c:257
+msgid "Loading…"
+msgstr "Kotómbisa..."
+
+#: ../src/lib/gd-places-bookmarks.c:656
+#: ../src/preview.js:646
+msgid "Bookmarks"
+msgstr "Lembete"
+
+#: ../src/lib/gd-places-links.c:342
+msgid "No table of contents"
+msgstr "Tablo ya biténi bya dokimá ézali tê"
+
+#: ../src/lib/gd-places-links.c:514
+msgid "Contents"
+msgstr "Koteni"
+
+#: ../src/lib/gd-utils.c:412
+msgid "A document manager application"
+msgstr "Esaleli ya koyangela ba dokima"
+
+#: ../src/lib/gd-utils.c:419
+msgid "An e-books manager application"
+msgstr "Esaleli ya koyangela ba buku nimeriki"
+
+#: ../src/lib/gd-utils.c:427
+msgid "translator-credits"
+msgstr "Arnauld NEDATI <arnauldndt@gmail.com>"
+
+#. Translators: this is the Open action in a context menu
+#: ../src/lokview.js:333
+#: ../src/preview.js:916
+#: ../src/selections.js:983
+msgid "Open with %s"
+msgstr "Fungola na %s"
+
+#: ../src/mainToolbar.js:90
+msgid "Search"
+msgstr "Luka"
+
+#: ../src/mainToolbar.js:98
+msgid "Back"
+msgstr "Bozóngi"
+
+#. Translators: this is the menu to change view settings
+#: ../src/mainToolbar.js:156
+msgid "View Menu"
+msgstr "Monisa meni"
+
+#: ../src/mainToolbar.js:184
+msgid "Click on items to select them"
+msgstr "Fina likola ya itɛmɛ pona kopona"
+
+#: ../src/mainToolbar.js:186
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d epɔnámí"
+msgstr[1] "%d epɔnámí"
+
+#: ../src/mainToolbar.js:270
+msgid "Select Items"
+msgstr "Pono itɛmɛ"
+
+#. Translators: only one item has been deleted and %s is its name
+#: ../src/notifications.js:54
+msgid "“%s” deleted"
+msgstr "“%s”  elímuísámí"
+
+#. Translators: one or more items might have been deleted, and %d
+#. is the count
+#: ../src/notifications.js:58
+msgid "%d item deleted"
+msgid_plural "%d items deleted"
+msgstr[0] "Itɛmɛ %d élimuisami"
+msgstr[1] "Ba itɛmɛ %d élimuisami"
+
+#: ../src/notifications.js:67
+#: ../src/selections.js:393
+msgid "Undo"
+msgstr "Bakwisa"
+
+#: ../src/notifications.js:167
+msgid "Printing “%s”: %s"
+msgstr "Bobimisi “%s”: %s"
+
+#: ../src/notifications.js:223
+msgid "Your documents are being indexed"
+msgstr "Dokima na yo ézali na nzela kozala indeksé"
+
+#: ../src/notifications.js:224
+msgid "Some documents might not be available during this process"
+msgstr "Ba dokima misusu bikoki kozala sei tê na etámboli oyo"
+
+#. Translators: %s refers to an online account provider, e.g.
+#. "Google", or "Windows Live".
+#: ../src/notifications.js:246
+msgid "Fetching documents from %s"
+msgstr "Kɛndɛ kozwa dokima na %s"
+
+#: ../src/notifications.js:248
+msgid "Fetching documents from online accounts"
+msgstr "Kɛndɛ kozwa dokima na konti ya Ɛtɛnɛti"
+
+#: ../src/password.js:47
+msgid "Password Required"
+msgstr "liloba-nzelá oyo ébongi"
+
+#: ../src/password.js:50
+msgid "_Unlock"
+msgstr "_Kokangola"
+
+#: ../src/password.js:66
+msgid "Document %s is locked and requires a password to be opened."
+msgstr "Dokima %s ékangami mpe ésengi liloba-nzelá mpona efungolama"
+
+#: ../src/password.js:80
+msgid "_Password"
+msgstr "_Liloba-nzelá"
+
+#: ../src/presentation.js:107
+msgid "Running in presentation mode"
+msgstr "Sikawa na mode ya bolakisi"
+
+#: ../src/presentation.js:130
+msgid "Present On"
+msgstr "Bolakisi ézali na nzela"
+
+#. Translators: "Mirrored" describes when both displays show the same view
+#: ../src/presentation.js:166
+msgid "Mirrored"
+msgstr "Botiyi na miluálɛ"
+
+#: ../src/presentation.js:168
+msgid "Primary"
+msgstr "Ya liboso"
+
+#: ../src/presentation.js:170
+msgid "Off"
+msgstr "Kanga"
+
+#: ../src/presentation.js:172
+msgid "Secondary"
+msgstr "Ya mibale"
+
+#: ../src/preview.js:654
+msgid "Bookmark this page"
+msgstr "Tiya lembete na lonkasa oyo"
+
+#: ../src/preview.js:973
+msgid "Find Previous"
+msgstr "kúta eléki"
+
+#: ../src/preview.js:979
+msgid "Find Next"
+msgstr "Kúta elándi"
+
+#. Title item
+#. Translators: "Title" is the label next to the document title
+#. in the properties dialog
+#: ../src/properties.js:82
+msgctxt "Document Title"
+msgid "Title"
+msgstr "Títɛlɛ"
+
+#. Translators: "Author" is the label next to the document author
+#. in the properties dialog
+#: ../src/properties.js:91
+msgctxt "Document Author"
+msgid "Author"
+msgstr "Mokomi"
+
+#. Source item
+#: ../src/properties.js:98
+msgid "Source"
+msgstr "Líziba"
+
+#. Date Modified item
+#: ../src/properties.js:104
+msgid "Date Modified"
+msgstr "Date ya bobóngoli"
+
+#: ../src/properties.js:111
+msgid "Date Created"
+msgstr "Date ya bokeli"
+
+#. Document type item
+#. Translators: "Type" is the label next to the document type
+#. (PDF, spreadsheet, ...) in the properties dialog
+#: ../src/properties.js:120
+msgctxt "Document Type"
+msgid "Type"
+msgstr "Típɛ"
+
+#: ../src/search.js:126
+msgid "Category"
+msgstr "Kategoli"
+
+#. Translators: this refers to new and recent documents
+#. Translators: this refers to documents
+#: ../src/search.js:131
+#: ../src/search.js:200
+#: ../src/search.js:337
+#: ../src/search.js:530
+msgid "All"
+msgstr "Nionso"
+
+#. Translators: this refers to favorite documents
+#: ../src/search.js:137
+msgid "Favorites"
+msgstr "Favoli"
+
+#. Translators: this refers to shared documents
+#: ../src/search.js:142
+msgid "Shared with you"
+msgstr "Ekabolámí na yo"
+
+#. Translators: "Type" refers to a search filter on the document type
+#. (PDF, spreadsheet, ...)
+#: ../src/search.js:197
+msgctxt "Search Filter"
+msgid "Type"
+msgstr "Tipe"
+
+#: ../src/search.js:213
+msgid "PDF Documents"
+msgstr "Dokima PDF"
+
+#: ../src/search.js:220
+msgid "e-Books"
+msgstr "Buku nimeriki"
+
+#: ../src/search.js:224
+msgid "Comics"
+msgstr "Bandi ya koyema"
+
+#: ../src/search.js:229
+msgid "Presentations"
+msgstr "Bolakisi"
+
+#: ../src/search.js:232
+msgid "Spreadsheets"
+msgstr "Tablɛ̀rɛ"
+
+#: ../src/search.js:235
+msgid "Text Documents"
+msgstr "Dokima ya nkomá"
+
+#. Translators: this is a verb that refers to "All", "Title", "Author",
+#. and "Content" as in "Match All", "Match Title", "Match Author", and
+#. "Match Content"
+#: ../src/search.js:334
+msgid "Match"
+msgstr "Ekokani na"
+
+#. Translators: "Title" refers to "Match Title" when searching
+#: ../src/search.js:340
+msgctxt "Search Filter"
+msgid "Title"
+msgstr "Titele"
+
+#. Translators: "Author" refers to "Match Author" when searching
+#: ../src/search.js:343
+msgctxt "Search Filter"
+msgid "Author"
+msgstr "Mokomi"
+
+#. Translators: "Content" refers to "Match Content" when searching
+#: ../src/search.js:346
+msgctxt "Search Filter"
+msgid "Content"
+msgstr "Kɔténi"
+
+#: ../src/search.js:526
+msgid "Sources"
+msgstr "Líziba"
+
+#: ../src/selections.js:366
+#: ../src/selections.js:368
+msgid "Rename…"
+msgstr "Pésa nkómbó lisúsu..."
+
+#: ../src/selections.js:372
+#: ../src/selections.js:374
+msgid "Delete"
+msgstr "Límuisa"
+
+#: ../src/selections.js:388
+msgid "“%s” removed"
+msgstr "“%s” elongólámí"
+
+#: ../src/selections.js:779
+msgid "Rename"
+msgstr "Pésa nkómbó lisúsu"
+
+#. Translators: "Collections" refers to documents in this context
+#: ../src/selections.js:785
+msgctxt "Dialog Title"
+msgid "Collections"
+msgstr "Kolɛkiso"
+
+#: ../src/sharing.js:108
+msgid "Sharing Settings"
+msgstr "Bokaboli palamɛ́tɛlɛ"
+
+#. Label for widget group for changing document permissions
+#: ../src/sharing.js:145
+msgid "Document permissions"
+msgstr "Ndingisa ya dokima"
+
+#. Label for permission change in Sharing dialog
+#: ../src/sharing.js:152
+#: ../src/sharing.js:330
+msgid "Change"
+msgstr "Bóngola"
+
+#. Label for radiobutton that sets doc permission to private
+#: ../src/sharing.js:176
+#: ../src/sharing.js:305
+msgid "Private"
+msgstr "Plívɛ"
+
+#: ../src/sharing.js:186
+#: ../src/sharing.js:298
+msgid "Public"
+msgstr "Ya bato bánsɔ"
+
+#. Label for checkbutton that sets doc permission to Can edit
+#: ../src/sharing.js:190
+#: ../src/sharing.js:300
+msgid "Everyone can edit"
+msgstr "Moto nionso akoki kobongisa"
+
+#. Label for widget group used for adding new contacts
+#: ../src/sharing.js:197
+msgid "Add people"
+msgstr "Bakisa bato"
+
+#. Editable text in entry field
+#: ../src/sharing.js:204
+msgid "Enter an email address"
+msgstr "Tiya adɛlɛ́sɛ ímɛlɛ"
+
+#: ../src/sharing.js:219
+#: ../src/sharing.js:371
+msgid "Can edit"
+msgstr "Okoki kobongisa"
+
+#: ../src/sharing.js:219
+#: ../src/sharing.js:374
+msgid "Can view"
+msgstr "Okoki komona"
+
+#: ../src/sharing.js:302
+msgid "Everyone can read"
+msgstr "Moto niono akoki ko tanga"
+
+#: ../src/sharing.js:317
+msgid "Save"
+msgstr "Bombisa"
+
+#: ../src/sharing.js:368
+msgid "Owner"
+msgstr "Nkóló"
+
+#: ../src/sharing.js:437
+msgid "You can ask %s for access"
+msgstr "Okoki kotuna %s pona koyingela"
+
+#: ../src/sharing.js:474
+#: ../src/sharing.js:510
+#: ../src/sharing.js:567
+#: ../src/sharing.js:584
+#: ../src/sharing.js:603
+msgid "The document was not updated"
+msgstr "Dokima étiyami sika tê"
+
+#: ../src/shellSearchProvider.js:290
+msgid "Untitled Document"
+msgstr "Dokima ézali na títɛlɛ tɛ̂"
+
+#: ../src/trackerController.js:177
+msgid "Unable to fetch the list of documents"
+msgstr "Okoki tê kozwa lisite ya ba dokima"
+
+#: ../src/view.js:271
+msgid "No collections found"
+msgstr "Kolɛkiso moko tê émonani"
+
+#: ../src/view.js:273
+msgid "No books found"
+msgstr "Buku moko tê émonani"
+
+#: ../src/view.js:273
+msgid "No documents found"
+msgstr "Dokima moko tê émonani"
+
+#: ../src/view.js:282
+msgid "Try a different search"
+msgstr "Meka koluka ndenge mosusu "
+
+#: ../src/view.js:289
+msgid "You can create collections from the Books view"
+msgstr "Okoki kokela ba kolɛkiso na emoniseli ya buku"
+
+#: ../src/view.js:291
+msgid "You can create collections from the Documents view"
+msgstr "Okoki kokela ba kolɛkiso na emoniseli ya dokima"
+
+#: ../src/view.js:301
+msgid "Documents from your <a href=\"system-settings\">Online Accounts</a> and <a href=\"file://%s\">Documents folder</a> will appear here."
+msgstr "Ba dokima biwuti na  <a href=\"palamɛ́tɛlɛ-sistɛ́mɛ\">Konti Eteneti na yo </a> mpe <a href=\"kasa://%s\">Dosíyé ya dokima</a>  bikomonana awa."
+
+#: ../src/view.js:517
+msgid "Yesterday"
+msgstr "Lóbi"
+
+#: ../src/view.js:519
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "Elekí mokolo %d"
+msgstr[1] "Elekí mikolo %d"
+
+#: ../src/view.js:523
+msgid "Last week"
+msgstr "Pɔ́sɔ ya suka"
+
+#: ../src/view.js:525
+msgid "%d week ago"
+msgid_plural "%d weeks ago"
+msgstr[0] "Pɔ́sɔ eleki %d"
+msgstr[1] "Pɔ́sɔ eleki %d"
+
+#: ../src/view.js:529
+msgid "Last month"
+msgstr "Sánzá ya suka"
+
+#: ../src/view.js:531
+msgid "%d month ago"
+msgid_plural "%d months ago"
+msgstr[0] "Eleki sánzá éleki %d"
+msgstr[1] "Eleki ba sánzá %d"
+
+#: ../src/view.js:535
+msgid "Last year"
+msgstr "Mbula ya suka"
+
+#: ../src/view.js:537
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] "Eleki mbula %d"
+msgstr[1] "Eleki ba mbula %d"
+
