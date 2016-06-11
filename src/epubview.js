@@ -60,12 +60,7 @@ const EPUBView = new Lang.Class({
         this._errorBox = new ErrorBox.ErrorBox();
         this.add_named(this._errorBox, 'error');
 
-        this._sw = new Gtk.ScrolledWindow({ hexpand: true,
-                                            vexpand: true });
-
-        this.add_named(this._sw, 'view');
         this._createView();
-
         this.show_all();
 
         Application.documentManager.connect('load-started',
@@ -142,7 +137,7 @@ const EPUBView = new Lang.Class({
         var ctx = this.view.get_context();
         ctx.register_uri_scheme("epub", Lang.bind(this, this._getResource));
 
-        this._sw.add(this.view);
+        this.add_named(this.view, 'view');
         this.view.show();
 
         this._navControls = new EPUBViewNavControls(this, this._overlay);
