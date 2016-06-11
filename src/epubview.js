@@ -28,8 +28,6 @@ const WebKit2 = imports.gi.WebKit2;
 
 const _ = imports.gettext.gettext;
 
-const Lang = imports.lang;
-
 const Application = imports.application;
 const Documents = imports.documents;
 const ErrorBox = imports.errorBox;
@@ -37,6 +35,7 @@ const MainToolbar = imports.mainToolbar;
 const Searchbar = imports.searchbar;
 const WindowMode = imports.windowMode;
 
+const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 const Signals = imports.signals;
 const Tweener = imports.tweener.tweener;
@@ -53,7 +52,6 @@ const EPUBView = new Lang.Class({
         this.parent({ homogeneous: true,
                       transition_type: Gtk.StackTransitionType.CROSSFADE });
 
-        this._uri = null;
         this._overlay = overlay;
         this.page = 1;
 
@@ -67,13 +65,13 @@ const EPUBView = new Lang.Class({
                                             Lang.bind(this, this._onLoadStarted));
         Application.documentManager.connect('load-error',
                                             Lang.bind(this, this._onLoadError));
-        Application.modeController.connect('window-mode-changed', Lang.bind(this,
-            this._onWindowModeChanged));
+        Application.modeController.connect('window-mode-changed',
+                                           Lang.bind(this, this._onWindowModeChanged));
 
         let findPrev = Application.application.lookup_action('find-prev');
-        let findPrevId = findPrev.connect('activate', Lang.bind(this, this._findPrev));
+        findPrev.connect('activate', Lang.bind(this, this._findPrev));
         let findNext = Application.application.lookup_action('find-next');
-        let findNextId = findNext.connect('activate',  Lang.bind(this, this._findNext));
+        findNext.connect('activate',  Lang.bind(this, this._findNext));
     },
 
     _findNext: function() {
@@ -88,9 +86,8 @@ const EPUBView = new Lang.Class({
 
     _onWindowModeChanged: function() {
         let windowMode = Application.modeController.getWindowMode();
-        if (windowMode != WindowMode.WindowMode.PREVIEW_EPUB) {
+        if (windowMode != WindowMode.WindowMode.PREVIEW_EPUB)
             this._navControls.hide();
-        }
     },
 
     _onLoadStarted: function(manager, doc) {
@@ -102,19 +99,20 @@ const EPUBView = new Lang.Class({
         this._epubdoc = new Gepub.Doc({ path: f.get_path() });
         this._epubdoc.init(null);
         this._epubSpine = this._epubdoc.get_spine();
-        this._load_current();
+        this._loadCurrent();
         this.set_visible_child_name('view');
     },
 
     _onLoadError: function(manager, doc, message, exception) {
         if (doc.viewType != Documents.ViewType.EPUB)
             return;
+
         this._setError(message, exception.message);
     },
 
     _getResource: function(req) {
         var uri = req.get_uri();
-        // removing "epub://"
+        // removing 'epub://'
         var path = uri.slice(7);
         var stream = new Gio.MemoryInputStream();
         var data = this._epubdoc.get_resource_v(path);
@@ -135,7 +133,7 @@ const EPUBView = new Lang.Class({
     _createView: function() {
         this.view = new WebKit2.WebView();
         var ctx = this.view.get_context();
-        ctx.register_uri_scheme("epub", Lang.bind(this, this._getResource));
+        ctx.register_uri_scheme('epub', Lang.bind(this, this._getResource));
 
         this.add_named(this.view, 'view');
         this.view.show();
@@ -149,24 +147,24 @@ const EPUBView = new Lang.Class({
         this.set_visible_child_name('error');
     },
 
+    _loadCurrent: function() {
+        var mime = this._epubdoc.get_current_mime();
+        var current = this._epubdoc.get_current_with_epub_uris ();
+        this.view.load_bytes(new GLib.Bytes(current), mime, 'UTF-8', null);
+    },
+
     goNext: function() {
         if (this._epubdoc.go_next()) {
             this.page++;
-            this._load_current();
+            this._loadCurrent();
         }
     },
 
     goPrev: function() {
         if (this._epubdoc.go_prev()) {
             this.page--;
-            this._load_current();
+            this._loadCurrent();
         }
-    },
-
-    _load_current: function() {
-        var mime = this._epubdoc.get_current_mime();
-        var current = this._epubdoc.get_current_with_epub_uris ();
-        this.view.load_bytes(new GLib.Bytes(current), mime, "UTF-8", null);
     }
 });
 
@@ -232,7 +230,7 @@ const EPUBSearchbar = new Lang.Class({
     },
 
     conceal: function() {
-        this._search("");
+        this._search('');
         let fc = this._previewView.view.get_find_controller();
         fc.search_finish();
 
@@ -351,14 +349,12 @@ const EPUBViewNavControls = new Lang.Class({
     },
 
     _onMotion: function(widget, event) {
-        if (this._motionId != 0) {
+        if (this._motionId != 0)
             return false;
-        }
 
         let device = event.get_source_device();
-        if (device.input_source == Gdk.InputSource.TOUCHSCREEN) {
+        if (device.input_source == Gdk.InputSource.TOUCHSCREEN)
             return false;
-        }
 
         this._motionId = Mainloop.idle_add(Lang.bind(this, this._motionTimeout));
         return false;
@@ -393,9 +389,8 @@ const EPUBViewNavControls = new Lang.Class({
     },
 
     _updateVisibility: function() {
-        if (!this._epubView) {
+        if (!this._epubView)
             return;
-        }
 
         if (!this._visible || !this._visibleInternal) {
             this._fadeOutButton(this.prev_widget);
@@ -403,18 +398,16 @@ const EPUBViewNavControls = new Lang.Class({
             return;
         }
 
-        if (this._epubView.page == 1) {
+        if (this._epubView.page == 1)
             this._fadeOutButton(this.prev_widget);
-        } else {
+        else
             this._fadeInButton(this.prev_widget);
-        }
 
         var l = this._epubView._epubSpine.length;
-        if (this._epubView.page >= l) {
+        if (this._epubView.page >= l)
             this._fadeOutButton(this.next_widget);
-        } else {
+        else
             this._fadeInButton(this.next_widget);
-        }
     },
 
     _fadeInButton: function(widget) {
