@@ -22,6 +22,7 @@
 const EvDocument = imports.gi.EvinceDocument;
 const EvView = imports.gi.EvinceView;
 const LOKView = imports.lokview;
+const EPUBView = imports.epubview;
 const GdkPixbuf = imports.gi.GdkPixbuf;
 const Gio = imports.gi.Gio;
 const Gd = imports.gi.Gd;
@@ -49,7 +50,8 @@ const Utils = imports.utils;
 const ViewType = {
     NONE: 0,
     EV: 1,
-    LOK: 2
+    LOK: 2,
+    EPUB: 3
 };
 
 const DeleteItemJob = new Lang.Class({
@@ -601,8 +603,7 @@ const DocCommon = new Lang.Class({
     },
 
     loadLocal: function(passwd, cancellable, callback) {
-        if (this.mimeType == 'application/epub+zip' ||
-            this.mimeType == 'application/x-mobipocket-ebook' ||
+        if (this.mimeType == 'application/x-mobipocket-ebook' ||
             this.mimeType == 'application/x-fictionbook+xml' ||
             this.mimeType == 'application/x-zip-compressed-fb2') {
             let exception = new GLib.Error(Gio.IOErrorEnum,
@@ -620,6 +621,11 @@ const DocCommon = new Lang.Class({
                                            "Internal error: LibreOffice isn't available");
             }
             callback (this, null, exception);
+            return;
+        }
+
+        if (EPUBView.isEpub(this.mimeType) && Application.application.isBooks) {
+            callback(this, null, null);
             return;
         }
 
@@ -704,6 +710,8 @@ const DocCommon = new Lang.Class({
     updateViewType: function() {
         if (LOKView.isOpenDocumentFormat(this.mimeType) && !Application.application.isBooks) {
             this.viewType = ViewType.LOK;
+        } else if (EPUBView.isEpub(this.mimeType) && Application.application.isBooks) {
+            this.viewType = ViewType.EPUB;
         } else {
             this.viewType = ViewType.EV;
         }

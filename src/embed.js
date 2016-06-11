@@ -35,6 +35,7 @@ const Documents = imports.documents;
 const EvView = imports.gi.EvinceView;
 const EvinceView = imports.evinceview;
 const LOKView = imports.lokview;
+const EPUBView = imports.epubview;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
 const _ = imports.gettext.gettext;
@@ -85,6 +86,9 @@ const Embed = new Lang.Class({
 
         this._previewEv = new EvinceView.EvinceView(this._stackOverlay);
         this._stack.add_named(this._previewEv, 'preview-ev');
+
+        this._previewEPUB = new EPUBView.EPUBView(this._stackOverlay);
+        this._stack.add_named(this._previewEPUB, 'preview-epub');
 
         this._previewLok = new LOKView.LOKView(this._stackOverlay);
         this._stack.add_named(this._previewLok, 'preview-lok');
@@ -152,6 +156,9 @@ const Embed = new Lang.Class({
         case WindowMode.WindowMode.PREVIEW_LOK:
             view = this._previewLok;
             break;
+        case WindowMode.WindowMode.PREVIEW_EPUB:
+            view = this._previewEPUB;
+            break;
         case WindowMode.WindowMode.SEARCH:
             view = this._search;
             break;
@@ -191,6 +198,9 @@ const Embed = new Lang.Class({
             break;
         case WindowMode.WindowMode.PREVIEW_LOK:
             page = 'preview-lok';
+            break;
+        case WindowMode.WindowMode.PREVIEW_EPUB:
+            page = 'preview-epub';
             break;
         default:
             throw(new Error('Not handled'));
@@ -280,6 +290,9 @@ const Embed = new Lang.Class({
                 Application.documentManager.reloadActiveItem();
             this._prepareForLOKView();
             break;
+        case WindowMode.WindowMode.PREVIEW_EPUB:
+            this._prepareForEPUBView();
+            break;
         case WindowMode.WindowMode.EDIT:
             this._prepareForEdit();
             break;
@@ -339,6 +352,8 @@ const Embed = new Lang.Class({
     _onLoadStarted: function(manager, doc) {
         if (LOKView.isOpenDocumentFormat(doc.mimeType))
             Application.modeController.setWindowMode(WindowMode.WindowMode.PREVIEW_LOK);
+        else if (EPUBView.isEpub(doc.mimeType))
+            Application.modeController.setWindowMode(WindowMode.WindowMode.PREVIEW_EPUB);
         else
             Application.modeController.setWindowMode(WindowMode.WindowMode.PREVIEW_EV);
 
@@ -373,6 +388,9 @@ const Embed = new Lang.Class({
             break;
         case Documents.ViewType.LOK:
             this._stack.set_visible_child_name('preview-lok');
+            break;
+        case Documents.ViewType.EPUB:
+            this._stack.set_visible_child_name('preview-epub');
             break;
         case Documents.ViewType.NONE:
         default:
@@ -480,6 +498,23 @@ const Embed = new Lang.Class({
         this._titlebar.add(this._toolbar);
 
         this._stack.set_visible_child_name('preview-lok');
+    },
+
+    _prepareForEPUBView: function() {
+        if (this._previewEv)
+            this._previewEv.setModel(null);
+        if (this._edit)
+            this._edit.setUri(null);
+        if (this._toolbar)
+            this._toolbar.destroy();
+
+        this._previewEPUB.reset();
+
+        // pack the toolbar
+        this._toolbar = new EPUBView.EPUBViewToolbar(this._previewEPUB);
+        this._titlebar.add(this._toolbar);
+
+        this._stack.set_visible_child_name('preview-epub');
     },
 
     getMainToolbar: function() {
