@@ -51,7 +51,7 @@ const EPUBView = new Lang.Class({
                       transition_type: Gtk.StackTransitionType.CROSSFADE });
 
         this._overlay = overlay;
-        this._page = 1;
+        this._page = 0;
 
         this._errorBox = new ErrorBox.ErrorBox();
         this.add_named(this._errorBox, 'error');
@@ -124,7 +124,7 @@ const EPUBView = new Lang.Class({
             return;
 
         this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
-        this._page = 1;
+        this._page = 0;
         this._navControls.show();
     },
 
