@@ -113,7 +113,7 @@ const EPUBView = new Lang.Class({
         // removing 'epub://'
         var path = uri.slice(7);
         var stream = new Gio.MemoryInputStream();
-        var data = this._epubdoc.get_resource_v(path);
+        var data = this._epubdoc.get_resource(path);
         var mime = this._epubdoc.get_resource_mime(path);
         stream.add_data(data);
         req.finish(stream, data.length, mime);
