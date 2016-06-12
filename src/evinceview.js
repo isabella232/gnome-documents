@@ -22,7 +22,6 @@
 const EvDocument = imports.gi.EvinceDocument;
 const EvView = imports.gi.EvinceView;
 const GdPrivate = imports.gi.GdPrivate;
-const Gdk = imports.gi.Gdk;
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
@@ -30,12 +29,12 @@ const _ = imports.gettext.gettext;
 
 const Lang = imports.lang;
 const Mainloop = imports.mainloop;
-const Tweener = imports.tweener.tweener;
 
 const Application = imports.application;
 const ErrorBox = imports.errorBox;
 const MainToolbar = imports.mainToolbar;
 const Places = imports.places;
+const Preview = imports.preview;
 const Searchbar = imports.searchbar;
 const Utils = imports.utils;
 const WindowMode = imports.windowMode;
@@ -605,41 +604,50 @@ const EvinceView = new Lang.Class({
 
     get lastSearch() {
         return this._lastSearch;
+    },
+
+    goPrev: function() {
+        this.view.previous_page();
+    },
+
+    goNext: function() {
+        this.view.next_page();
+    },
+
+    get hasPages() {
+        return this._model ? (this._model.document.get_n_pages() > 0) : false;
+    },
+
+    get page() {
+        return this._model ? this._model.page : 0;
+    },
+
+    get numPages() {
+        return this._model ? this._model.document.get_n_pages() : 0;
     }
 });
 Utils.addJSSignalMethods(EvinceView.prototype);
 
-const _PREVIEW_NAVBAR_MARGIN = 30;
-const _AUTO_HIDE_TIMEOUT = 2;
-
 const EvinceViewNavControls = new Lang.Class({
     Name: 'EvinceViewNavControls',
+    Extends: Preview.PreviewNavControls,
 
     _init: function(previewView, overlay) {
+        this._pageChangedId = 0;
+
         this._previewView = previewView;
         this._model = previewView.getModel();
-        this._overlay = overlay;
 
-        this._visible = false;
-        this._visibleInternal = false;
-        this._pageChangedId = 0;
-        this._autoHideId = 0;
-        this._motionId = 0;
+        this.parent(previewView, overlay);
+    },
 
-        this.bar_widget = new GdPrivate.NavBar({ document_model: this._model,
-                                                 margin: _PREVIEW_NAVBAR_MARGIN,
-                                                 valign: Gtk.Align.END,
-                                                 opacity: 0 });
-        this.bar_widget.get_style_context().add_class('osd');
-        this._overlay.add_overlay(this.bar_widget);
-        this.bar_widget.connect('notify::hover', Lang.bind(this, function() {
-            if (this.bar_widget.hover)
-                this._onEnterNotify();
-            else
-                this._onLeaveNotify();
-        }));
+    createBarWidget: function() {
+        let barWidget = new GdPrivate.NavBar({ document_model: this._model,
+                                               margin: Preview.PREVIEW_NAVBAR_MARGIN,
+                                               valign: Gtk.Align.END,
+                                               opacity: 0 });
 
-        let buttonArea = this.bar_widget.get_button_area();
+        let buttonArea = barWidget.get_button_area();
 
         let button = new Gtk.Button({ action_name: 'app.places',
                                       image: new Gtk.Image({ icon_name: 'view-list-symbolic',
@@ -657,131 +665,7 @@ const EvinceViewNavControls = new Lang.Class({
                                       });
         buttonArea.pack_start(button, false, false, 0);
 
-        this.prev_widget = new Gtk.Button({ image: new Gtk.Image ({ icon_name: 'go-previous-symbolic',
-                                                                    pixel_size: 16 }),
-                                            margin_start: _PREVIEW_NAVBAR_MARGIN,
-                                            margin_end: _PREVIEW_NAVBAR_MARGIN,
-                                            halign: Gtk.Align.START,
-                                            valign: Gtk.Align.CENTER });
-        this.prev_widget.get_style_context().add_class('osd');
-        this._overlay.add_overlay(this.prev_widget);
-        this.prev_widget.connect('clicked', Lang.bind(this, this._onPrevClicked));
-        this.prev_widget.connect('enter-notify-event', Lang.bind(this, this._onEnterNotify));
-        this.prev_widget.connect('leave-notify-event', Lang.bind(this, this._onLeaveNotify));
-
-        this.next_widget = new Gtk.Button({ image: new Gtk.Image ({ icon_name: 'go-next-symbolic',
-                                                                    pixel_size: 16 }),
-                                            margin_start: _PREVIEW_NAVBAR_MARGIN,
-                                            margin_end: _PREVIEW_NAVBAR_MARGIN,
-                                            halign: Gtk.Align.END,
-                                            valign: Gtk.Align.CENTER });
-        this.next_widget.get_style_context().add_class('osd');
-        this._overlay.add_overlay(this.next_widget);
-        this.next_widget.connect('clicked', Lang.bind(this, this._onNextClicked));
-        this.next_widget.connect('enter-notify-event', Lang.bind(this, this._onEnterNotify));
-        this.next_widget.connect('leave-notify-event', Lang.bind(this, this._onLeaveNotify));
-
-        this._overlay.connect('motion-notify-event', Lang.bind(this, this._onMotion));
-
-        this._tapGesture = new Gtk.GestureMultiPress({ propagation_phase: Gtk.PropagationPhase.CAPTURE,
-                                                       touch_only: true,
-                                                       widget: this._previewView.view });
-        this._tapGesture.connect('released', Lang.bind(this, this._onMultiPressReleased));
-        this._tapGesture.connect('stopped', Lang.bind(this, this._onMultiPressStopped));
-    },
-
-    _onEnterNotify: function() {
-        this._unqueueAutoHide();
-        return false;
-    },
-
-    _onLeaveNotify: function() {
-        this._queueAutoHide();
-        return false;
-    },
-
-    _motionTimeout: function() {
-        this._motionId = 0;
-        this._visibleInternal = true;
-        this._updateVisibility();
-        if (!this.bar_widget.hover)
-            this._queueAutoHide();
-        return false;
-    },
-
-    _onMotion: function(widget, event) {
-        if (this._motionId != 0) {
-            return false;
-        }
-
-        let device = event.get_source_device();
-        if (device.input_source == Gdk.InputSource.TOUCHSCREEN) {
-            return false;
-        }
-
-        this._motionId = Mainloop.idle_add(Lang.bind(this, this._motionTimeout));
-        return false;
-    },
-
-    _onMultiPressReleased: function() {
-        this._tapGesture.set_state(Gtk.EventSequenceState.CLAIMED);
-        this._visibleInternal = !this._visibleInternal;
-        this._unqueueAutoHide();
-        this._updateVisibility();
-    },
-
-    _onMultiPressStopped: function() {
-        this._tapGesture.set_state(Gtk.EventSequenceState.DENIED);
-    },
-
-    _onPrevClicked: function() {
-        this._previewView.view.previous_page();
-    },
-
-    _onNextClicked: function() {
-        this._previewView.view.next_page();
-    },
-
-    _autoHide: function() {
-        this._autoHideId = 0;
-        this._visibleInternal = false;
-        this._updateVisibility();
-        return false;
-    },
-
-    _unqueueAutoHide: function() {
-        if (this._autoHideId == 0)
-            return;
-
-        Mainloop.source_remove(this._autoHideId);
-        this._autoHideId = 0;
-    },
-
-    _queueAutoHide: function() {
-        this._unqueueAutoHide();
-        this._autoHideId = Mainloop.timeout_add_seconds(_AUTO_HIDE_TIMEOUT, Lang.bind(this, this._autoHide));
-    },
-
-    _updateVisibility: function() {
-        if (!this._model || !this._visible || !this._visibleInternal) {
-            this._fadeOutButton(this.bar_widget);
-            this._fadeOutButton(this.prev_widget);
-            this._fadeOutButton(this.next_widget);
-            return;
-        }
-
-        this._fadeInButton(this.bar_widget);
-
-        if (this._model.page > 0)
-            this._fadeInButton(this.prev_widget);
-        else
-            this._fadeOutButton(this.prev_widget);
-
-        let doc = this._model.document;
-        if (doc.get_n_pages() > this._model.page + 1)
-            this._fadeInButton(this.next_widget);
-        else
-            this._fadeOutButton(this.next_widget);
+        return barWidget;
     },
 
     setModel: function(model) {
@@ -795,45 +679,6 @@ const EvinceViewNavControls = new Lang.Class({
 
         if (this._model)
             this._pageChangedId = this._model.connect('page-changed', Lang.bind(this, this._updateVisibility));
-    },
-
-    _fadeInButton: function(widget) {
-        if (!this._model)
-            return;
-        widget.show_all();
-        Tweener.addTween(widget, { opacity: 1,
-                                   time: 0.30,
-                                   transition: 'easeOutQuad' });
-    },
-
-    _fadeOutButton: function(widget) {
-        Tweener.addTween(widget, { opacity: 0,
-                                   time: 0.30,
-                                   transition: 'easeOutQuad',
-                                   onComplete: function() {
-                                       widget.hide();
-                                   },
-                                   onCompleteScope: this });
-    },
-
-    show: function() {
-        this._visible = true;
-        this._visibleInternal = true;
-        this._updateVisibility();
-        this._queueAutoHide();
-    },
-
-    hide: function() {
-        this._visible = false;
-        this._visibleInternal = false;
-        this._updateVisibility();
-    },
-
-    destroy: function() {
-        this.bar_widget.destroy();
-        this.prev_widget.destroy();
-        this.next_widget.destroy();
-        this._tapGesture = null;
     }
 });
 
@@ -892,22 +737,21 @@ const EvinceViewToolbar = new Lang.Class({
         if (!this._model)
             return;
 
-        let evDoc = this._model.get_document();
-        let hasPages = (evDoc.get_n_pages() > 0);
         let isFind = true;
 
         try {
             // This is a hack to find out if evDoc implements the
             // EvDocument.DocumentFind interface or not. We don't expect
             // the following invocation to work.
+            let evDoc = this._model.get_document();
             evDoc.find_text();
         } catch (e if e instanceof TypeError) {
             isFind = false;
         } catch (e) {
         }
 
-        this._handleEvent = (hasPages && isFind);
-        this._searchAction.enabled = (hasPages && isFind);
+        this._handleEvent = (this._previewView.hasPages && isFind);
+        this._searchAction.enabled = (this._previewView.hasPages && isFind);
     },
 
     _getEvinceViewMenu: function() {
