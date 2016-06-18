@@ -51,7 +51,6 @@ const EPUBView = new Lang.Class({
                       transition_type: Gtk.StackTransitionType.CROSSFADE });
 
         this._overlay = overlay;
-        this._page = 0;
 
         this._errorBox = new ErrorBox.ErrorBox();
         this.add_named(this._errorBox, 'error');
@@ -93,11 +92,10 @@ const EPUBView = new Lang.Class({
             return;
 
         let f = Gio.File.new_for_uri(doc.uri);
-        this._doc = doc;
         this._epubdoc = new Gepub.Doc({ path: f.get_path() });
         this._epubdoc.init(null);
-        this._epubSpine = this._epubdoc.get_spine();
-        this._loadCurrent();
+        this.view.doc = this._epubdoc;
+
         this.set_visible_child_name('view');
     },
 
@@ -108,30 +106,16 @@ const EPUBView = new Lang.Class({
         this._setError(message, exception.message);
     },
 
-    _getResource: function(req) {
-        var uri = req.get_uri();
-        // removing 'epub://'
-        var path = uri.slice(7);
-        var stream = new Gio.MemoryInputStream();
-        var data = this._epubdoc.get_resource(path);
-        var mime = this._epubdoc.get_resource_mime(path);
-        stream.add_data(data);
-        req.finish(stream, data.length, mime);
-    },
-
     reset: function () {
         if (!this.view)
             return;
 
         this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
-        this._page = 0;
         this._navControls.show();
     },
 
     _createView: function() {
-        this.view = new WebKit2.WebView();
-        var ctx = this.view.get_context();
-        ctx.register_uri_scheme('epub', Lang.bind(this, this._getResource));
+        this.view = new Gepub.Widget();
 
         this.add_named(this.view, 'view');
         this.view.show();
@@ -145,24 +129,12 @@ const EPUBView = new Lang.Class({
         this.set_visible_child_name('error');
     },
 
-    _loadCurrent: function() {
-        var mime = this._epubdoc.get_current_mime();
-        var current = this._epubdoc.get_current_with_epub_uris ();
-        this.view.load_bytes(new GLib.Bytes(current), mime, 'UTF-8', null);
-    },
-
     goPrev: function() {
-        if (this._epubdoc.go_prev()) {
-            this._page--;
-            this._loadCurrent();
-        }
+        this._epubdoc.go_prev();
     },
 
     goNext: function() {
-        if (this._epubdoc.go_next()) {
-            this._page++;
-            this._loadCurrent();
-        }
+        this._epubdoc.go_next();
     },
 
     get hasPages() {
@@ -170,11 +142,11 @@ const EPUBView = new Lang.Class({
     },
 
     get page() {
-        return this._page;
+        return this._epubdoc ? this._epubdoc.get_page() : 0;
     },
 
     get numPages() {
-        return this._epubSpine ? this._epubSpine.length : 0;
+        return this._epubdoc ? this._epubdoc.get_n_pages() : 0;
     }
 });
 
