@@ -31,7 +31,6 @@ const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 
 const Application = imports.application;
-const ErrorBox = imports.errorBox;
 const MainToolbar = imports.mainToolbar;
 const Places = imports.places;
 const Preview = imports.preview;
@@ -45,7 +44,7 @@ const _FULLSCREEN_TOOLBAR_TIMEOUT = 2; // seconds
 
 const EvinceView = new Lang.Class({
     Name: 'EvinceView',
-    Extends: Gtk.Stack,
+    Extends: Preview.Preview,
 
     _init: function(overlay) {
         this._model = null;
@@ -56,37 +55,19 @@ const EvinceView = new Lang.Class({
         this._hasSelection = false;
         this._viewSelectionChanged = false;
         this._fsToolbar = null;
-        this._overlay = overlay;
         this._lastSearch = '';
+
+        this.parent(overlay);
 
         Application.modeController.connect('fullscreen-changed', Lang.bind(this,
             this._onFullscreenChanged));
         Application.modeController.connect('window-mode-changed', Lang.bind(this,
             this._onWindowModeChanged));
 
-        this.parent({ homogeneous: true,
-                      transition_type: Gtk.StackTransitionType.CROSSFADE });
-
-        this._errorBox = new ErrorBox.ErrorBox();
-        this.add_named(this._errorBox, 'error');
-
-        this._sw = new Gtk.ScrolledWindow({ hexpand: true,
-                                            vexpand: true });
-        this._sw.get_style_context().add_class('documents-scrolledwin');
-        this._sw.get_hscrollbar().connect('button-press-event', Lang.bind(this, this._onScrollbarClick));
-        this._sw.get_vscrollbar().connect('button-press-event', Lang.bind(this, this._onScrollbarClick));
-        this._sw.get_hadjustment().connect('value-changed', Lang.bind(this, this._onAdjustmentChanged));
-        this._sw.get_vadjustment().connect('value-changed', Lang.bind(this, this._onAdjustmentChanged));
-        this.add_named(this._sw, 'view');
-
-        this._createView();
-
         // create context menu
         let model = this._getEvinceViewContextMenu();
         this._previewContextMenu = Gtk.Menu.new_from_model(model);
-        this._previewContextMenu.attach_to_widget(this._sw, null);
-
-        this.show_all();
+        this._previewContextMenu.attach_to_widget(this.view, null);
 
         this._bookmarkPage = Application.application.lookup_action('bookmark-page');
         this._bookmarkPage.enabled = false;
@@ -99,7 +80,7 @@ const EvinceView = new Lang.Class({
                 if (!this._model)
                     return;
                 this._model.set_sizing_mode(EvView.SizingMode.FREE);
-                this.view.zoom_in();
+                this._evView.zoom_in();
             }));
 
         this._zoomOut = Application.application.lookup_action('zoom-out');
@@ -108,23 +89,23 @@ const EvinceView = new Lang.Class({
                 if (!this._model)
                     return;
                 this._model.set_sizing_mode(EvView.SizingMode.FREE);
-                this.view.zoom_out();
+                this._evView.zoom_out();
             }));
 
         let findPrev = Application.application.lookup_action('find-prev');
         let findPrevId = findPrev.connect('activate', Lang.bind(this,
             function() {
-                this.view.find_previous();
+                this._evView.find_previous();
             }));
         let findNext = Application.application.lookup_action('find-next');
         let findNextId = findNext.connect('activate', Lang.bind(this,
             function() {
-                this.view.find_next();
+                this._evView.find_next();
             }));
         this._copy = Application.application.lookup_action('copy');
         let copyId = this._copy.connect('activate', Lang.bind(this,
             function() {
-                this.view.copy();
+                this._evView.copy();
             }));
 
         let rotLeft = Application.application.lookup_action('rotate-left');
@@ -172,6 +153,39 @@ const EvinceView = new Lang.Class({
             }));
     },
 
+    createNavControls: function() {
+        return new EvinceViewNavControls(this, this.overlay);
+    },
+
+    createView: function() {
+        let sw = new Gtk.ScrolledWindow({ hexpand: true,
+                                          vexpand: true });
+        sw.get_style_context().add_class('documents-scrolledwin');
+        sw.get_hscrollbar().connect('button-press-event', Lang.bind(this, this._onScrollbarClick));
+        sw.get_vscrollbar().connect('button-press-event', Lang.bind(this, this._onScrollbarClick));
+        sw.get_hadjustment().connect('value-changed', Lang.bind(this, this._onAdjustmentChanged));
+        sw.get_vadjustment().connect('value-changed', Lang.bind(this, this._onAdjustmentChanged));
+
+        this._evView = EvView.View.new();
+        sw.add(this._evView);
+        this._evView.show();
+
+        this._evView.connect('notify::can-zoom-in', Lang.bind(this,
+            this._onCanZoomInChanged));
+        this._evView.connect('notify::can-zoom-out', Lang.bind(this,
+            this._onCanZoomOutChanged));
+        this._evView.connect('button-press-event', Lang.bind(this,
+            this._onButtonPressEvent));
+        this._evView.connect('button-release-event', Lang.bind(this,
+            this._onButtonReleaseEvent));
+        this._evView.connect('selection-changed', Lang.bind(this,
+            this._onViewSelectionChanged));
+        this._evView.connect('external-link', Lang.bind(this,
+            this._handleExternalLink));
+
+        return sw;
+    },
+
     _onLoadStarted: function(manager, doc) {
         if (doc.viewType != Documents.ViewType.EV)
             return;
@@ -185,7 +199,7 @@ const EvinceView = new Lang.Class({
             return;
         this._controlsVisible = true;
         this._syncControlsVisible();
-        this._setError(message, exception.message);
+        this.setError(message, exception.message);
     },
 
     _onActionStateChanged: function(source, actionName, state) {
@@ -222,11 +236,6 @@ const EvinceView = new Lang.Class({
         let hasBookmark = (this._bookmarks.find_bookmark(bookmark) != null);
 
         this._bookmarkPage.change_state(GLib.Variant.new('b', hasBookmark));
-    },
-
-    _setError: function(primary, secondary) {
-        this._errorBox.update(primary, secondary);
-        this.set_visible_child_name('error');
     },
 
     _showPlaces: function() {
@@ -272,7 +281,7 @@ const EvinceView = new Lang.Class({
     },
 
     _onViewSelectionChanged: function() {
-        let hasSelection = this.view.get_has_selection();
+        let hasSelection = this._evView.get_has_selection();
         this._copy.enabled = hasSelection;
 
         if (!hasSelection &&
@@ -344,33 +353,11 @@ const EvinceView = new Lang.Class({
     },
 
     _onCanZoomInChanged: function() {
-        this._zoomIn.enabled = this.view.can_zoom_in;
+        this._zoomIn.enabled = this._evView.can_zoom_in;
     },
 
     _onCanZoomOutChanged: function() {
-        this._zoomOut.enabled = this.view.can_zoom_out;
-    },
-
-    _createView: function() {
-        this.view = EvView.View.new();
-        this._sw.add(this.view);
-        this.view.show();
-
-        this.view.connect('notify::can-zoom-in', Lang.bind(this,
-            this._onCanZoomInChanged));
-        this.view.connect('notify::can-zoom-out', Lang.bind(this,
-            this._onCanZoomOutChanged));
-        this.view.connect('button-press-event', Lang.bind(this,
-            this._onButtonPressEvent));
-        this.view.connect('button-release-event', Lang.bind(this,
-            this._onButtonReleaseEvent));
-        this.view.connect('selection-changed', Lang.bind(this,
-            this._onViewSelectionChanged));
-        this.view.connect('external-link', Lang.bind(this,
-            this._handleExternalLink));
-
-        this._navControls = new EvinceViewNavControls(this, this._overlay);
-        this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
+        this._zoomOut.enabled = this._evView.can_zoom_out;
     },
 
     _getEvinceViewContextMenu: function() {
@@ -394,7 +381,7 @@ const EvinceView = new Lang.Class({
         if (windowMode != WindowMode.WindowMode.PREVIEW_EV) {
             this.controlsVisible = false;
             this._hidePresentation();
-            this._navControls.hide();
+            this.navControls.hide();
         }
     },
 
@@ -405,7 +392,7 @@ const EvinceView = new Lang.Class({
             // create fullscreen toolbar (hidden by default)
             this._fsToolbar = new EvinceViewFullscreenToolbar(this);
             this._fsToolbar.setModel(this._model);
-            this._overlay.add_overlay(this._fsToolbar);
+            this.overlay.add_overlay(this._fsToolbar);
 
             this._fsToolbar.connectJS('show-controls', Lang.bind(this,
                 function() {
@@ -505,7 +492,7 @@ const EvinceView = new Lang.Class({
     },
 
     activateResult: function() {
-        this.view.find_next();
+        this._evView.find_next();
     },
 
     startSearch: function(str) {
@@ -521,7 +508,7 @@ const EvinceView = new Lang.Class({
         this._lastSearch = str;
 
         if (!str) {
-            this.view.queue_draw();
+            this._evView.queue_draw();
             return;
         }
 
@@ -536,22 +523,28 @@ const EvinceView = new Lang.Class({
     _onSearchJobUpdated: function(job, page) {
         // FIXME: ev_job_find_get_results() returns a GList **
         // and thus is not introspectable
-        GdPrivate.ev_view_find_changed(this.view, job, page);
+        GdPrivate.ev_view_find_changed(this._evView, job, page);
         this.emitJS('search-changed', job.has_results());
     },
 
     reset: function() {
         this.setModel(null);
         this.view.destroy();
-        this._navControls.destroy();
-        this._createView();
+        this.navControls.destroy();
+
+        this.view = this.createView();
+        this.add_named(this.view, 'view');
+        this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
+
+        this.navControls = this.createNavControls();
+        this.show_all();
     },
 
     setModel: function(model) {
         if (this._model == model)
             return;
 
-        if (this.view) {
+        if (this._evView) {
             this.controlsVisible = false;
             this._lastSearch = '';
         }
@@ -559,9 +552,9 @@ const EvinceView = new Lang.Class({
         this._model = model;
 
         if (this._model) {
-            this.view.set_model(this._model);
-            this._navControls.setModel(model);
-            this._navControls.show();
+            this._evView.set_model(this._model);
+            this.navControls.setModel(model);
+            this.navControls.show();
             if (this._togglePresentation)
                 this._togglePresentation.enabled = true;
 
@@ -607,11 +600,11 @@ const EvinceView = new Lang.Class({
     },
 
     goPrev: function() {
-        this.view.previous_page();
+        this._evView.previous_page();
     },
 
     goNext: function() {
-        this.view.next_page();
+        this._evView.next_page();
     },
 
     get hasPages() {
@@ -624,6 +617,10 @@ const EvinceView = new Lang.Class({
 
     get numPages() {
         return this._model ? this._model.document.get_n_pages() : 0;
+    },
+
+    get evView() {
+        return this._evView;
     }
 });
 Utils.addJSSignalMethods(EvinceView.prototype);
@@ -840,7 +837,7 @@ const EvinceViewSearchbar = new Lang.Class({
     },
 
     entryChanged: function() {
-        this._previewView.view.find_search_changed();
+        this._previewView.evView.find_search_changed();
         this._previewView.startSearch(this._searchEntry.get_text());
     },
 
@@ -852,12 +849,12 @@ const EvinceViewSearchbar = new Lang.Class({
             this._searchEntry.select_region(0, -1);
         }
 
-        this._previewView.view.find_set_highlight_search(true);
+        this._previewView.evView.find_set_highlight_search(true);
         this._previewView.startSearch(this._searchEntry.get_text());
     },
 
     conceal: function() {
-        this._previewView.view.find_set_highlight_search(false);
+        this._previewView.evView.find_set_highlight_search(false);
 
         this.searchChangeBlocked = true;
         this.parent();

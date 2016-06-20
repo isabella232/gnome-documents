@@ -6,6 +6,63 @@ const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 const Tweener = imports.tweener.tweener;
 
+const ErrorBox = imports.errorBox;
+
+const Preview = new Lang.Class({
+    Name: 'Preview',
+    Extends: Gtk.Stack,
+
+    _init: function(overlay) {
+        this.overlay = overlay;
+
+        this.parent({ homogeneous: true,
+                      transition_type: Gtk.StackTransitionType.CROSSFADE });
+
+        this._errorBox = new ErrorBox.ErrorBox();
+        this.add_named(this._errorBox, 'error');
+
+        this.view = this.createView();
+        this.add_named(this.view, 'view');
+        this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
+
+        this.navControls = this.createNavControls();
+        this.show_all();
+    },
+
+    createNavControls: function() {
+        return new PreviewNavControls(this, this.overlay);
+    },
+
+    createView: function() {
+        throw(new Error('Not implemented'));
+    },
+
+    setError: function(primary, secondary) {
+        this._errorBox.update(primary, secondary);
+        this.set_visible_child_name('error');
+    },
+
+    goPrev: function() {
+        throw (new Error('Not implemented'));
+    },
+
+    goNext: function() {
+        throw (new Error('Not implemented'));
+    },
+
+    get hasPages() {
+        return false;
+    },
+
+    get page() {
+        return 0;
+    },
+
+    get numPages() {
+        return 0;
+    }
+});
+
 const _AUTO_HIDE_TIMEOUT = 2;
 const PREVIEW_NAVBAR_MARGIN = 30;
 

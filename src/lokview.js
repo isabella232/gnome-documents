@@ -34,7 +34,6 @@ const Lang = imports.lang;
 const Signals = imports.signals;
 
 const Application = imports.application;
-const ErrorBox = imports.errorBox;
 const MainToolbar = imports.mainToolbar;
 const Preview = imports.preview;
 const Documents = imports.documents;
@@ -95,36 +94,22 @@ function isOpenDocumentFormat(mimeType) {
 
 const LOKView = new Lang.Class({
     Name: 'LOKView',
-    Extends: Gtk.Stack,
+    Extends: Preview.Preview,
 
     _init: function(overlay) {
-        this.parent({ homogeneous: true,
-                      transition_type: Gtk.StackTransitionType.CROSSFADE });
+        this.parent(overlay);
 
         this._uri = null;
-        this._overlay = overlay;
-        this.get_style_context().add_class('documents-scrolledwin');
-
-        this._errorBox = new ErrorBox.ErrorBox();
-        this.add_named(this._errorBox, 'error');
-
-        this._sw = new Gtk.ScrolledWindow({hexpand: true,
-                                           vexpand: true});
 
         this._progressBar = new Gtk.ProgressBar({ halign: Gtk.Align.FILL,
                                                   valign: Gtk.Align.START });
         this._progressBar.get_style_context().add_class('osd');
-        this._overlay.add_overlay(this._progressBar);
-
-        this.add_named(this._sw, 'view');
-        this._createView();
+        this.overlay.add_overlay(this._progressBar);
 
         // create context menu
         let model = this._getPreviewContextMenu();
         this._previewContextMenu = Gtk.Menu.new_from_model(model);
-        this._previewContextMenu.attach_to_widget(this._sw, null);
-
-        this.show_all();
+        this._previewContextMenu.attach_to_widget(this.view, null);
 
         this._zoomIn = Application.application.lookup_action('zoom-in');
         let zoomInId = this._zoomIn.connect('activate', Lang.bind(this,
@@ -132,8 +117,8 @@ const LOKView = new Lang.Class({
                 // FIXME: https://bugs.documentfoundation.org/show_bug.cgi?id=97301
                 if (!this._doc)
                     return;
-                let zoomLevel = this.view.get_zoom() * ZOOM_IN_FACTOR;
-                this.view.set_zoom(zoomLevel);
+                let zoomLevel = this._lokview.get_zoom() * ZOOM_IN_FACTOR;
+                this._lokview.set_zoom(zoomLevel);
             }));
 
         this._zoomOut = Application.application.lookup_action('zoom-out');
@@ -142,8 +127,8 @@ const LOKView = new Lang.Class({
                 // FIXME: https://bugs.documentfoundation.org/show_bug.cgi?id=97301
                 if (!this._doc)
                     return;
-                let zoomLevel = this.view.get_zoom() * ZOOM_OUT_FACTOR;
-                this.view.set_zoom(zoomLevel);
+                let zoomLevel = this._lokview.get_zoom() * ZOOM_OUT_FACTOR;
+                this._lokview.set_zoom(zoomLevel);
             }));
 
         this._copy = Application.application.lookup_action('copy');
@@ -162,16 +147,36 @@ const LOKView = new Lang.Class({
            }));
     },
 
+    createView: function() {
+        let sw = new Gtk.ScrolledWindow({ hexpand: true,
+                                          vexpand: true });
+        sw.get_style_context().add_class('documents-scrolledwin');
+
+        if (isAvailable()) {
+            this._lokview = LOKDocView.View.new(null, null, null);
+            sw.add(this._lokview);
+
+            this._lokview.show();
+            this._lokview.connect('button-press-event', Lang.bind(this, this._onButtonPressEvent));
+            this._lokview.connect('load-changed', Lang.bind(this, this._onProgressChanged));
+            this._lokview.connect('text-selection', Lang.bind(this, this._onTextSelection));
+            this._lokview.connect('notify::can-zoom-in', Lang.bind(this, this._onCanZoomInChanged));
+            this._lokview.connect('notify::can-zoom-out', Lang.bind(this, this._onCanZoomOutChanged));
+        }
+
+        return sw;
+    },
+
     _onCanZoomInChanged: function() {
-        this._zoomIn.enabled = this.view.can_zoom_in;
+        this._zoomIn.enabled = this._lokview.can_zoom_in;
     },
 
     _onCanZoomOutChanged: function() {
-        this._zoomOut.enabled = this.view.can_zoom_out;
+        this._zoomOut.enabled = this._lokview.can_zoom_out;
     },
 
     _onCopyActivated: function() {
-        let [selectedText, mimeType] = this.view.copy_selection('text/plain;charset=utf-8');
+        let [selectedText, mimeType] = this._lokview.copy_selection('text/plain;charset=utf-8');
         let display = Gdk.Display.get_default();
         let clipboard = Gtk.Clipboard.get_default(display);
 
@@ -185,7 +190,7 @@ const LOKView = new Lang.Class({
             return;
         this._doc = doc;
         this._copy.enabled = false;
-        this.view.open_document(doc.uri, "{}", null, Lang.bind(this, this.open_document_cb));
+        this._lokview.open_document(doc.uri, "{}", null, Lang.bind(this, this.open_document_cb));
         this._progressBar.show();
     },
 
@@ -193,41 +198,25 @@ const LOKView = new Lang.Class({
         if (doc.viewType != Documents.ViewType.LOK)
             return;
         //FIXME we should hide controls
-        this._setError(message, exception.message);
+        this.setError(message, exception.message);
     },
 
     open_document_cb: function(res, doc) {
         // TODO: Call _finish and check failure
         this._progressBar.hide();
         this.set_visible_child_name('view');
-        this.view.set_edit(false);
+        this._lokview.set_edit(false);
     },
 
     reset: function () {
-        if (!this.view)
+        if (!this._lokview)
             return;
 
         // FIXME: https://bugs.documentfoundation.org/show_bug.cgi?id=97235
         if (this._doc)
-            this.view.reset_view();
+            this._lokview.reset_view();
         this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
         this._copy.enabled = false;
-    },
-
-    _createView: function() {
-        if (isAvailable()) {
-            this.view = LOKDocView.View.new(null, null, null);
-            this._sw.add(this.view);
-            this.view.show();
-            this.view.connect('button-press-event', Lang.bind(this, this._onButtonPressEvent));
-            this.view.connect('load-changed', Lang.bind(this, this._onProgressChanged));
-            this.view.connect('text-selection', Lang.bind(this, this._onTextSelection));
-            this.view.connect('notify::can-zoom-in', Lang.bind(this, this._onCanZoomInChanged));
-            this.view.connect('notify::can-zoom-out', Lang.bind(this, this._onCanZoomOutChanged));
-        }
-
-        this._navControls = new Preview.PreviewNavControls(this, this._overlay);
-        this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
     },
 
     _getPreviewContextMenu: function() {
@@ -249,37 +238,32 @@ const LOKView = new Lang.Class({
    },
 
     _onProgressChanged: function() {
-        this._progressBar.fraction = this.view.load_progress;
+        this._progressBar.fraction = this._lokview.load_progress;
     },
 
     _onTextSelection: function(hasSelection) {
         this._copy.enabled = hasSelection;
     },
 
-    _setError: function(primary, secondary) {
-        this._errorBox.update(primary, secondary);
-        this.set_visible_child_name('error');
-    },
-
     goPrev: function() {
-        let currentPart = this.view.get_part();
+        let currentPart = this._lokview.get_part();
         currentPart -= 1;
         if (currentPart < 0)
             return;
-        this.view.set_part(currentPart);
+        this._lokview.set_part(currentPart);
         // FIXME: https://bugs.documentfoundation.org/show_bug.cgi?id=97236
-        this.view.reset_view();
+        this._lokview.reset_view();
     },
 
     goNext: function() {
-        let totalParts  = this.view.get_parts();
-        let currentPart = this.view.get_part();
+        let totalParts  = this._lokview.get_parts();
+        let currentPart = this._lokview.get_part();
         currentPart += 1;
         if (currentPart > totalParts)
             return;
-        this.view.set_part(currentPart);
+        this._lokview.set_part(currentPart);
         // FIXME: https://bugs.documentfoundation.org/show_bug.cgi?id=97236
-        this.view.reset_view();
+        this._lokview.reset_view();
     },
 
     get hasPages() {
@@ -287,11 +271,11 @@ const LOKView = new Lang.Class({
     },
 
     get page() {
-        return this.view.get_part();
+        return this._lokview.get_part();
     },
 
     get numPages() {
-        return this.view.get_parts();
+        return this._lokview.get_parts();
     }
 });
 Signals.addSignalMethods(LOKView.prototype);

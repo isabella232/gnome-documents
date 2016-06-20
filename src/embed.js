@@ -380,8 +380,8 @@ const Embed = new Lang.Class({
                 else
                     docModel.set_sizing_mode(EvView.SizingMode.AUTOMATIC);
                 docModel.set_page_layout(EvView.PageLayout.AUTOMATIC);
-                this._toolbar.setModel(docModel);
                 this._previewEv.setModel(docModel);
+                this._toolbar.setModel(docModel);
                 this._previewEv.grab_focus();
             }
             this._stack.set_visible_child_name('preview-ev');

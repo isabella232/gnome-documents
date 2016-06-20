@@ -29,7 +29,6 @@ const _ = imports.gettext.gettext;
 
 const Application = imports.application;
 const Documents = imports.documents;
-const ErrorBox = imports.errorBox;
 const MainToolbar = imports.mainToolbar;
 const Preview = imports.preview;
 const Searchbar = imports.searchbar;
@@ -44,19 +43,10 @@ function isEpub(mimeType) {
 
 const EPUBView = new Lang.Class({
     Name: 'EPUBView',
-    Extends: Gtk.Stack,
+    Extends: Preview.Preview,
 
     _init: function(overlay) {
-        this.parent({ homogeneous: true,
-                      transition_type: Gtk.StackTransitionType.CROSSFADE });
-
-        this._overlay = overlay;
-
-        this._errorBox = new ErrorBox.ErrorBox();
-        this.add_named(this._errorBox, 'error');
-
-        this._createView();
-        this.show_all();
+        this.parent(overlay);
 
         Application.documentManager.connect('load-started',
                                             Lang.bind(this, this._onLoadStarted));
@@ -69,6 +59,10 @@ const EPUBView = new Lang.Class({
         findPrev.connect('activate', Lang.bind(this, this._findPrev));
         let findNext = Application.application.lookup_action('find-next');
         findNext.connect('activate',  Lang.bind(this, this._findNext));
+    },
+
+    createView: function() {
+        return new Gepub.Widget();
     },
 
     _findNext: function() {
@@ -84,7 +78,7 @@ const EPUBView = new Lang.Class({
     _onWindowModeChanged: function() {
         let windowMode = Application.modeController.getWindowMode();
         if (windowMode != WindowMode.WindowMode.PREVIEW_EPUB)
-            this._navControls.hide();
+            this.navControls.hide();
     },
 
     _onLoadStarted: function(manager, doc) {
@@ -103,30 +97,12 @@ const EPUBView = new Lang.Class({
         if (doc.viewType != Documents.ViewType.EPUB)
             return;
 
-        this._setError(message, exception.message);
+        this.setError(message, exception.message);
     },
 
     reset: function () {
-        if (!this.view)
-            return;
-
         this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
-        this._navControls.show();
-    },
-
-    _createView: function() {
-        this.view = new Gepub.Widget();
-
-        this.add_named(this.view, 'view');
-        this.view.show();
-
-        this._navControls = new Preview.PreviewNavControls(this, this._overlay);
-        this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
-    },
-
-    _setError: function(primary, secondary) {
-        this._errorBox.update(primary, secondary);
-        this.set_visible_child_name('error');
+        this.navControls.show();
     },
 
     goPrev: function() {
