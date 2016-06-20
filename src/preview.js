@@ -6,17 +6,26 @@ const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 const Tweener = imports.tweener.tweener;
 
+const Application = imports.application;
 const ErrorBox = imports.errorBox;
+const Searchbar = imports.searchbar;
 
 const Preview = new Lang.Class({
     Name: 'Preview',
     Extends: Gtk.Stack,
 
     _init: function(overlay) {
+        this._lastSearch = '';
         this.overlay = overlay;
 
         this.parent({ homogeneous: true,
                       transition_type: Gtk.StackTransitionType.CROSSFADE });
+
+        let findPrev = Application.application.lookup_action('find-prev');
+        let findPrevId = findPrev.connect('activate', Lang.bind(this, this.findPrev));
+
+        let findNext = Application.application.lookup_action('find-next');
+        let findNextId = findNext.connect('activate', Lang.bind(this, this.findNext));
 
         this._errorBox = new ErrorBox.ErrorBox();
         this.add_named(this._errorBox, 'error');
@@ -27,6 +36,11 @@ const Preview = new Lang.Class({
 
         this.navControls = this.createNavControls();
         this.show_all();
+
+        this.connect('destroy', Lang.bind(this, function() {
+            findPrev.disconnect(findPrevId);
+            findNext.disconnect(findNextId);
+        }));
     },
 
     createNavControls: function() {
@@ -60,6 +74,22 @@ const Preview = new Lang.Class({
 
     get numPages() {
         return 0;
+    },
+
+    search: function(str) {
+        this._lastSearch = str;
+    },
+
+    get lastSearch() {
+        return this._lastSearch;
+    },
+
+    findPrev: function() {
+        throw (new Error('Not implemented'));
+    },
+
+    findNext: function() {
+        throw (new Error('Not implemented'));
     }
 });
 
@@ -259,5 +289,63 @@ const PreviewNavControls = new Lang.Class({
         this.prev_widget.destroy();
         this.next_widget.destroy();
         this._tapGesture = null;
+    }
+});
+
+const PreviewSearchbar = new Lang.Class({
+    Name: 'PreviewSearchbar',
+    Extends: Searchbar.Searchbar,
+
+    _init: function(preview) {
+        this.preview = preview;
+
+        this.parent();
+    },
+
+    createSearchWidget: function() {
+        let box = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL,
+                                halign: Gtk.Align.CENTER});
+        box.get_style_context().add_class('linked');
+
+        this.searchEntry = new Gtk.SearchEntry({ width_request: 500 });
+        this.searchEntry.connect('activate', Lang.bind(this, function() {
+            Application.application.activate_action('find-next', null);
+        }));
+        box.add(this.searchEntry);
+
+        this._prev = new Gtk.Button({ action_name: 'app.find-prev' });
+        this._prev.set_image(new Gtk.Image({ icon_name: 'go-up-symbolic',
+                                             icon_size: Gtk.IconSize.MENU }));
+        this._prev.set_tooltip_text(_("Find Previous"));
+        box.add(this._prev);
+
+        this._next = new Gtk.Button({ action_name: 'app.find-next' });
+        this._next.set_image(new Gtk.Image({ icon_name: 'go-down-symbolic',
+                                             icon_size: Gtk.IconSize.MENU }));
+        this._next.set_tooltip_text(_("Find Next"));
+        box.add(this._next);
+
+        return box;
+    },
+
+    entryChanged: function() {
+        this.preview.search(this.searchEntry.get_text());
+    },
+
+    reveal: function() {
+        this.parent();
+
+        if (!this.searchEntry.get_text()) {
+            this.searchEntry.set_text(this.preview.lastSearch);
+            this.searchEntry.select_region(0, -1);
+        }
+
+        this.preview.search(this.searchEntry.get_text());
+    },
+
+    conceal: function() {
+        this.searchChangeBlocked = true;
+        this.parent();
+        this.searchChangeBlocked = false;
     }
 });

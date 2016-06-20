@@ -55,7 +55,6 @@ const EvinceView = new Lang.Class({
         this._hasSelection = false;
         this._viewSelectionChanged = false;
         this._fsToolbar = null;
-        this._lastSearch = '';
 
         this.parent(overlay);
 
@@ -92,16 +91,6 @@ const EvinceView = new Lang.Class({
                 this._evView.zoom_out();
             }));
 
-        let findPrev = Application.application.lookup_action('find-prev');
-        let findPrevId = findPrev.connect('activate', Lang.bind(this,
-            function() {
-                this._evView.find_previous();
-            }));
-        let findNext = Application.application.lookup_action('find-next');
-        let findNextId = findNext.connect('activate', Lang.bind(this,
-            function() {
-                this._evView.find_next();
-            }));
         this._copy = Application.application.lookup_action('copy');
         let copyId = this._copy.connect('activate', Lang.bind(this,
             function() {
@@ -139,8 +128,6 @@ const EvinceView = new Lang.Class({
             function() {
                 this._zoomIn.disconnect(zoomInId);
                 this._zoomOut.disconnect(zoomOutId);
-                findPrev.disconnect(findPrevId);
-                findNext.disconnect(findNextId);
                 this._copy.disconnect(copyId);
                 rotLeft.disconnect(rotLeftId);
                 rotRight.disconnect(rotRightId);
@@ -492,20 +479,20 @@ const EvinceView = new Lang.Class({
     },
 
     activateResult: function() {
-        this._evView.find_next();
+        this.findNext();
     },
 
-    startSearch: function(str) {
+    search: function(str) {
         if (!this._model)
             return;
+
+        this.parent(str);
 
         if (this._jobFind) {
             if (!this._jobFind.is_finished())
                 this._jobFind.cancel();
             this._jobFind = null;
         }
-
-        this._lastSearch = str;
 
         if (!str) {
             this._evView.queue_draw();
@@ -595,10 +582,6 @@ const EvinceView = new Lang.Class({
         return this._fsToolbar;
     },
 
-    get lastSearch() {
-        return this._lastSearch;
-    },
-
     goPrev: function() {
         this._evView.previous_page();
     },
@@ -617,6 +600,14 @@ const EvinceView = new Lang.Class({
 
     get numPages() {
         return this._model ? this._model.document.get_n_pages() : 0;
+    },
+
+    findPrev: function() {
+        this._evView.find_previous();
+    },
+
+    findNext: function() {
+        this._evView.find_next();
     },
 
     get evView() {
@@ -793,40 +784,13 @@ const EvinceViewToolbar = new Lang.Class({
 
 const EvinceViewSearchbar = new Lang.Class({
     Name: 'EvinceViewSearchbar',
-    Extends: Searchbar.Searchbar,
+    Extends: Preview.PreviewSearchbar,
 
-    _init: function(previewView) {
-        this._previewView = previewView;
-        this._previewView.connectJS('search-changed', Lang.bind(this, this._onSearchChanged));
+    _init: function(preview) {
+        this.parent(preview);
 
-        this.parent();
-    },
-
-    createSearchWidgets: function() {
-        this._searchContainer = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL,
-                                              halign: Gtk.Align.CENTER});
-        this._searchContainer.get_style_context().add_class('linked');
-
-        this._searchEntry = new Gtk.SearchEntry({ width_request: 500 });
-        this._searchEntry.connect('activate', Lang.bind(this,
-            function() {
-                Application.application.activate_action('find-next', null);
-            }));
-        this._searchContainer.add(this._searchEntry);
-
-        this._prev = new Gtk.Button({ action_name: 'app.find-prev' });
-        this._prev.set_image(new Gtk.Image({ icon_name: 'go-up-symbolic',
-                                             icon_size: Gtk.IconSize.MENU }));
-        this._prev.set_tooltip_text(_("Find Previous"));
-        this._searchContainer.add(this._prev);
-
-        this._next = new Gtk.Button({ action_name: 'app.find-next' });
-        this._next.set_image(new Gtk.Image({ icon_name: 'go-down-symbolic',
-                                             icon_size: Gtk.IconSize.MENU }));
-        this._next.set_tooltip_text(_("Find Next"));
-        this._searchContainer.add(this._next);
-
-        this._onSearchChanged(this._previewView, false);
+        this.preview.connectJS('search-changed', Lang.bind(this, this._onSearchChanged));
+        this._onSearchChanged(this.preview, false);
     },
 
     _onSearchChanged: function(view, hasResults) {
@@ -837,28 +801,18 @@ const EvinceViewSearchbar = new Lang.Class({
     },
 
     entryChanged: function() {
-        this._previewView.evView.find_search_changed();
-        this._previewView.startSearch(this._searchEntry.get_text());
+        this.preview.evView.find_search_changed();
+        this.parent();
     },
 
     reveal: function() {
+        this.preview.evView.find_set_highlight_search(true);
         this.parent();
-
-        if (!this._searchEntry.get_text()) {
-            this._searchEntry.set_text(this._previewView.lastSearch);
-            this._searchEntry.select_region(0, -1);
-        }
-
-        this._previewView.evView.find_set_highlight_search(true);
-        this._previewView.startSearch(this._searchEntry.get_text());
     },
 
     conceal: function() {
-        this._previewView.evView.find_set_highlight_search(false);
-
-        this.searchChangeBlocked = true;
+        this.preview.evView.find_set_highlight_search(false);
         this.parent();
-        this.searchChangeBlocked = false;
     }
 });
 

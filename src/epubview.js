@@ -54,25 +54,10 @@ const EPUBView = new Lang.Class({
                                             Lang.bind(this, this._onLoadError));
         Application.modeController.connect('window-mode-changed',
                                            Lang.bind(this, this._onWindowModeChanged));
-
-        let findPrev = Application.application.lookup_action('find-prev');
-        findPrev.connect('activate', Lang.bind(this, this._findPrev));
-        let findNext = Application.application.lookup_action('find-next');
-        findNext.connect('activate',  Lang.bind(this, this._findNext));
     },
 
     createView: function() {
         return new Gepub.Widget();
-    },
-
-    _findNext: function() {
-        let fc = this.view.get_find_controller();
-        fc.search_next();
-    },
-
-    _findPrev: function() {
-        let fc = this.view.get_find_controller();
-        fc.search_previous();
     },
 
     _onWindowModeChanged: function() {
@@ -123,78 +108,53 @@ const EPUBView = new Lang.Class({
 
     get numPages() {
         return this._epubdoc ? this._epubdoc.get_n_pages() : 0;
+    },
+
+    search: function(str) {
+        this.parent(str);
+
+        let fc = this.view.get_find_controller();
+        fc.search(str, WebKit2.FindOptions.CASE_INSENSITIVE, 0);
+    },
+
+    findNext: function() {
+        let fc = this.view.get_find_controller();
+        fc.search_next();
+    },
+
+    findPrev: function() {
+        let fc = this.view.get_find_controller();
+        fc.search_previous();
     }
 });
 
 const EPUBSearchbar = new Lang.Class({
     Name: 'EPUBSearchbar',
-    Extends: Searchbar.Searchbar,
+    Extends: Preview.PreviewSearchbar,
 
-    _init: function(previewView) {
-        this._previewView = previewView;
-        this.parent();
-    },
+    _init: function(preview) {
+        this.parent(preview);
 
-    createSearchWidgets: function() {
-        this._searchContainer = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL,
-                                              halign: Gtk.Align.CENTER});
-        this._searchContainer.get_style_context().add_class('linked');
-
-        this._searchEntry = new Gtk.SearchEntry({ width_request: 500 });
-        this._searchEntry.connect('activate', Lang.bind(this, function() {
-            Application.application.activate_action('find-next', null);
-        }));
-        this._searchContainer.add(this._searchEntry);
-
-        this._prev = new Gtk.Button({ action_name: 'app.find-prev' });
-        this._prev.set_image(new Gtk.Image({ icon_name: 'go-up-symbolic',
-                                             icon_size: Gtk.IconSize.MENU }));
-        this._prev.set_tooltip_text(_("Find Previous"));
-        this._searchContainer.add(this._prev);
-
-        this._next = new Gtk.Button({ action_name: 'app.find-next' });
-        this._next.set_image(new Gtk.Image({ icon_name: 'go-down-symbolic',
-                                             icon_size: Gtk.IconSize.MENU }));
-        this._next.set_tooltip_text(_("Find Next"));
-        this._searchContainer.add(this._next);
-
-        let fc = this._previewView.view.get_find_controller();
-        fc.connect('found-text', Lang.bind(this, function(w, match_count, data) {
-            this._onSearchChanged(this._previewView, match_count > 0);
+        let fc = this.preview.view.get_find_controller();
+        fc.connect('found-text', Lang.bind(this, function(view, matchCount, data) {
+            this._onSearchChanged(this.preview, matchCount > 0);
         }));
 
-        this._onSearchChanged(this._previewView, false);
+        this._onSearchChanged(this.preview, false);
     },
 
-    _onSearchChanged: function(view, results) {
+    _onSearchChanged: function(view, hasResults) {
         let findPrev = Application.application.lookup_action('find-prev');
         let findNext = Application.application.lookup_action('find-next');
-        findPrev.enabled = results;
-        findNext.enabled = results;
-    },
-
-    _search: function(str) {
-        let fc = this._previewView.view.get_find_controller();
-        fc.search(str, WebKit2.FindOptions.CASE_INSENSITIVE, 0);
-    },
-
-    entryChanged: function() {
-        this._search(this._searchEntry.get_text());
-    },
-
-    reveal: function() {
-        this.parent();
-        this._search(this._searchEntry.get_text());
+        findPrev.enabled = hasResults;
+        findNext.enabled = hasResults;
     },
 
     conceal: function() {
-        this._search('');
-        let fc = this._previewView.view.get_find_controller();
+        let fc = this.preview.view.get_find_controller();
         fc.search_finish();
 
-        this.searchChangeBlocked = true;
         this.parent();
-        this.searchChangeBlocked = false;
     }
 });
 

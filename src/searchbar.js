@@ -39,14 +39,13 @@ const Searchbar = new Lang.Class({
 
         this.parent();
 
-        // subclasses will create this._searchEntry and this._searchContainer
-        // GtkWidgets
-        this.createSearchWidgets();
+        // subclasses will create this.searchEntry
+        let searchWidget = this.createSearchWidget();
 
-        this.add(this._searchContainer);
-        this.connect_entry(this._searchEntry);
+        this.add(searchWidget);
+        this.connect_entry(this.searchEntry);
 
-        this._searchEntry.connect('search-changed', Lang.bind(this,
+        this.searchEntry.connect('search-changed', Lang.bind(this,
             function() {
                 if (this.searchChangeBlocked)
                     return;
@@ -80,8 +79,8 @@ const Searchbar = new Lang.Class({
             this.conceal();
     },
 
-    createSearchWidgets: function() {
-        log('Error: Searchbar implementations must override createSearchWidgets');
+    createSearchWidget: function() {
+        log('Error: Searchbar implementations must override createSearchWidget');
     },
 
     entryChanged: function() {
@@ -90,7 +89,7 @@ const Searchbar = new Lang.Class({
 
     handleEvent: function(event) {
         // Skip if the search bar is shown and the focus is elsewhere
-        if (this.search_mode_enabled && !this._searchEntry.is_focus)
+        if (this.search_mode_enabled && !this.searchEntry.is_focus)
             return false;
 
         let keyval = event.get_keyval()[1];
@@ -101,7 +100,7 @@ const Searchbar = new Lang.Class({
 
         let retval = this.handle_event(event);
         if (retval == Gdk.EVENT_STOP)
-            this._searchEntry.grab_focus_without_selecting();
+            this.searchEntry.grab_focus_without_selecting();
         return retval;
     },
 
@@ -113,7 +112,7 @@ const Searchbar = new Lang.Class({
         this.search_mode_enabled = false;
 
         // clear all the search properties when hiding the entry
-        this._searchEntry.set_text('');
+        this.searchEntry.set_text('');
     }
 });
 Utils.addJSSignalMethods(Searchbar.prototype);
@@ -169,7 +168,7 @@ const OverviewSearchbar = new Lang.Class({
         this._onActiveTypeChanged();
         this._onActiveMatchChanged();
 
-        this._searchEntry.set_text(Application.searchController.getString());
+        this.searchEntry.set_text(Application.searchController.getString());
         this.connect('destroy', Lang.bind(this,
             function() {
                 Application.sourceManager.disconnect(sourcesId);
@@ -179,12 +178,12 @@ const OverviewSearchbar = new Lang.Class({
             }));
     },
 
-    createSearchWidgets: function() {
+    createSearchWidget: function() {
         // create the search entry
-        this._searchEntry = new Gd.TaggedEntry({ width_request: 500 });
-        this._searchEntry.connect('tag-clicked',
+        this.searchEntry = new Gd.TaggedEntry({ width_request: 500 });
+        this.searchEntry.connect('tag-clicked',
             Lang.bind(this, this._onTagClicked));
-        this._searchEntry.connect('tag-button-clicked',
+        this.searchEntry.connect('tag-button-clicked',
             Lang.bind(this, this._onTagButtonClicked));
 
         this._sourceTag = new Gd.TaggedEntryTag();
@@ -195,7 +194,7 @@ const OverviewSearchbar = new Lang.Class({
         this._searchChangedId = Application.searchController.connect('search-string-changed',
             Lang.bind(this, this._onSearchStringChanged));
 
-        this._searchEntry.connect('destroy', Lang.bind(this,
+        this.searchEntry.connect('destroy', Lang.bind(this,
             function() {
                 Application.searchController.disconnect(this._searchChangedId);
             }));
@@ -204,17 +203,19 @@ const OverviewSearchbar = new Lang.Class({
         let dropdown = new Dropdown();
         this._dropdownButton = new Gtk.MenuButton({ popover: dropdown });
 
-        this._searchContainer = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL,
-                                              halign: Gtk.Align.CENTER });
-        this._searchContainer.get_style_context().add_class('linked');
+        let box = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL,
+                                halign: Gtk.Align.CENTER });
+        box.get_style_context().add_class('linked');
 
-        this._searchContainer.add(this._searchEntry);
-        this._searchContainer.add(this._dropdownButton);
-        this._searchContainer.show_all();
+        box.add(this.searchEntry);
+        box.add(this._dropdownButton);
+        box.show_all();
+
+        return box;
     },
 
     entryChanged: function() {
-        let currentText = this._searchEntry.get_text();
+        let currentText = this.searchEntry.get_text();
 
         Application.searchController.disconnect(this._searchChangedId);
         Application.searchController.setString(currentText);
@@ -225,7 +226,7 @@ const OverviewSearchbar = new Lang.Class({
     },
 
     _onSearchStringChanged: function(controller, string) {
-        this._searchEntry.set_text(string);
+        this.searchEntry.set_text(string);
     },
 
     _onActiveCollectionChanged: function(manager, collection) {
@@ -237,7 +238,7 @@ const OverviewSearchbar = new Lang.Class({
         if (Application.searchController.getString() != '' ||
             searchType.id != 'all') {
             Application.searchTypeManager.setActiveItemById('all');
-            this._searchEntry.set_text('');
+            this.searchEntry.set_text('');
         }
     },
 
@@ -245,13 +246,13 @@ const OverviewSearchbar = new Lang.Class({
         let item = manager.getActiveItem();
 
         if (item.id == 'all') {
-            this._searchEntry.remove_tag(tag);
+            this.searchEntry.remove_tag(tag);
         } else {
             tag.set_label(item.name);
-            this._searchEntry.add_tag(tag);
+            this.searchEntry.add_tag(tag);
         }
 
-        this._searchEntry.grab_focus_without_selecting();
+        this.searchEntry.grab_focus_without_selecting();
     },
 
     _onActiveSourceChanged: function() {
