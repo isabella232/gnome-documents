@@ -100,7 +100,7 @@ const PreviewNavControls = new Lang.Class({
     Name: 'PreviewNavControls',
 
     _init: function(preview, overlay) {
-        this._preview = preview;
+        this.preview = preview;
         this._overlay = overlay;
 
         this._visible = false;
@@ -149,7 +149,7 @@ const PreviewNavControls = new Lang.Class({
 
         this._tapGesture = new Gtk.GestureMultiPress({ propagation_phase: Gtk.PropagationPhase.CAPTURE,
                                                        touch_only: true,
-                                                       widget: this._preview.view });
+                                                       widget: this.preview.view });
         this._tapGesture.connect('released', Lang.bind(this, this._onMultiPressReleased));
         this._tapGesture.connect('stopped', Lang.bind(this, this._onMultiPressStopped));
     },
@@ -201,11 +201,11 @@ const PreviewNavControls = new Lang.Class({
     },
 
     _onPrevClicked: function() {
-        this._preview.goPrev();
+        this.preview.goPrev();
     },
 
     _onNextClicked: function() {
-        this._preview.goNext();
+        this.preview.goNext();
     },
 
     _autoHide: function() {
@@ -229,10 +229,10 @@ const PreviewNavControls = new Lang.Class({
     },
 
     _updateVisibility: function() {
-        let currentPage = this._preview.page;
-        let numPages = this._preview.numPages;
+        let currentPage = this.preview.page;
+        let numPages = this.preview.numPages;
 
-        if (!this._visible || !this._visibleInternal || !this._preview.hasPages) {
+        if (!this._visible || !this._visibleInternal || !this.preview.hasPages) {
             if (this.bar_widget)
                 this._fadeOutButton(this.bar_widget);
             this._fadeOutButton(this.prev_widget);
