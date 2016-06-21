@@ -194,14 +194,14 @@ const MainWindow = new Lang.Class({
         case WindowMode.WindowMode.NONE:
             return false;
         case WindowMode.WindowMode.PREVIEW_EV:
+        case WindowMode.WindowMode.PREVIEW_EPUB:
+        case WindowMode.WindowMode.PREVIEW_LOK:
             return this._handleKeyPreview(event);
         case WindowMode.WindowMode.COLLECTIONS:
         case WindowMode.WindowMode.DOCUMENTS:
         case WindowMode.WindowMode.SEARCH:
             return this._handleKeyOverview(event);
         case WindowMode.WindowMode.EDIT:
-        case WindowMode.WindowMode.PREVIEW_EPUB:
-        case WindowMode.WindowMode.PREVIEW_LOK: //FIXME should be same as preview
             return false;
         default:
             throw(new Error('Not handled'));
@@ -236,10 +236,12 @@ const MainWindow = new Lang.Class({
         let keyval = event.get_keyval()[1];
         let fullscreen = Application.modeController.getFullscreen();
         let def_mod_mask = Gtk.accelerator_get_default_mod_mask();
-        let preview = this._embed.getEvinceView();
+        let preview = this._embed.getPreview();
         let state = event.get_state()[1];
+        let windowMode = Application.modeController.getWindowMode();
 
-        if (keyval == Gdk.KEY_Escape) {
+        if (keyval == Gdk.KEY_Escape &&
+            windowMode == WindowMode.WindowMode.PREVIEW_EV) {
             let model = preview.getModel();
 
             if (preview.controlsVisible && (model != null)) {
@@ -255,26 +257,32 @@ const MainWindow = new Lang.Class({
         if (((keyval == Gdk.KEY_Page_Up) &&
             ((state & Gdk.ModifierType.CONTROL_MASK) != 0)) ||
             ((keyval == Gdk.KEY_Left) && ((state & def_mod_mask) == 0))) {
-            preview.view.previous_page();
+            preview.goPrev();
             return true;
         }
 
         if (((keyval == Gdk.KEY_Page_Down) &&
             ((state & Gdk.ModifierType.CONTROL_MASK) != 0)) ||
             ((keyval == Gdk.KEY_Right) && ((state & def_mod_mask) == 0))) {
-            preview.view.next_page();
+            preview.goNext();
             return true;
         }
 
         if (keyval == Gdk.KEY_Page_Up) {
-            preview.view.scroll(Gtk.ScrollType.PAGE_BACKWARD, false);
-            return true;
+            try {
+                preview.scroll(Gtk.ScrollType.PAGE_BACKWARD);
+                return true;
+            } catch (e) {
+            }
         }
 
         if (keyval == Gdk.KEY_space ||
             keyval == Gdk.KEY_Page_Down) {
-            preview.view.scroll(Gtk.ScrollType.PAGE_FORWARD, false);
-            return true;
+            try {
+                preview.scroll(Gtk.ScrollType.PAGE_FORWARD);
+                return true;
+            } catch (e) {
+            }
         }
 
         return false;

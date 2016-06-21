@@ -32,7 +32,6 @@ const Documents = imports.documents;
 const MainToolbar = imports.mainToolbar;
 const Preview = imports.preview;
 const Searchbar = imports.searchbar;
-const WindowMode = imports.windowMode;
 
 const Lang = imports.lang;
 const Signals = imports.signals;
@@ -45,28 +44,17 @@ const EPUBView = new Lang.Class({
     Name: 'EPUBView',
     Extends: Preview.Preview,
 
-    _init: function(overlay) {
-        this.parent(overlay);
-
-        Application.documentManager.connect('load-started',
-                                            Lang.bind(this, this._onLoadStarted));
-        Application.documentManager.connect('load-error',
-                                            Lang.bind(this, this._onLoadError));
-        Application.modeController.connect('window-mode-changed',
-                                           Lang.bind(this, this._onWindowModeChanged));
+    createToolbar: function() {
+        return new EPUBViewToolbar(this);
     },
 
     createView: function() {
         return new Gepub.Widget();
     },
 
-    _onWindowModeChanged: function() {
-        let windowMode = Application.modeController.getWindowMode();
-        if (windowMode != WindowMode.WindowMode.PREVIEW_EPUB)
-            this.navControls.hide();
-    },
+    onLoadFinished: function(manager, doc) {
+        this.parent(manager, doc);
 
-    _onLoadStarted: function(manager, doc) {
         if (doc.viewType != Documents.ViewType.EPUB)
             return;
 
@@ -74,20 +62,7 @@ const EPUBView = new Lang.Class({
         this._epubdoc = new Gepub.Doc({ path: f.get_path() });
         this._epubdoc.init(null);
         this.view.doc = this._epubdoc;
-
         this.set_visible_child_name('view');
-    },
-
-    _onLoadError: function(manager, doc, message, exception) {
-        if (doc.viewType != Documents.ViewType.EPUB)
-            return;
-
-        this.setError(message, exception.message);
-    },
-
-    reset: function () {
-        this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
-        this.navControls.show();
     },
 
     goPrev: function() {

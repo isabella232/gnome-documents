@@ -84,15 +84,6 @@ const Embed = new Lang.Class({
         this._search = new View.ViewContainer(WindowMode.WindowMode.SEARCH);
         this._stack.add_named(this._search, 'search');
 
-        this._previewEv = new EvinceView.EvinceView(this._stackOverlay);
-        this._stack.add_named(this._previewEv, 'preview-ev');
-
-        this._previewEPUB = new EPUBView.EPUBView(this._stackOverlay);
-        this._stack.add_named(this._previewEPUB, 'preview-epub');
-
-        this._previewLok = new LOKView.LOKView(this._stackOverlay);
-        this._stack.add_named(this._previewLok, 'preview-lok');
-
         this._edit = new Edit.EditView();
         this._stack.add_named(this._edit, 'edit');
 
@@ -151,13 +142,9 @@ const Embed = new Lang.Class({
             view = this._documents;
             break;
         case WindowMode.WindowMode.PREVIEW_EV:
-            view = this._previewEv;
-            break;
         case WindowMode.WindowMode.PREVIEW_LOK:
-            view = this._previewLok;
-            break;
         case WindowMode.WindowMode.PREVIEW_EPUB:
-            view = this._previewEPUB;
+            view = this._preview;
             break;
         case WindowMode.WindowMode.SEARCH:
             view = this._search;
@@ -190,17 +177,13 @@ const Embed = new Lang.Class({
         case WindowMode.WindowMode.DOCUMENTS:
             page = 'documents';
             break;
-        case WindowMode.WindowMode.PREVIEW_EV:
-            page = 'preview-ev';
-            break;
         case WindowMode.WindowMode.SEARCH:
             page = 'search';
             break;
+        case WindowMode.WindowMode.PREVIEW_EV:
         case WindowMode.WindowMode.PREVIEW_LOK:
-            page = 'preview-lok';
-            break;
         case WindowMode.WindowMode.PREVIEW_EPUB:
-            page = 'preview-epub';
+            page = 'preview';
             break;
         default:
             throw(new Error('Not handled'));
@@ -283,15 +266,15 @@ const Embed = new Lang.Class({
         case WindowMode.WindowMode.PREVIEW_EV:
             if (oldMode == WindowMode.WindowMode.EDIT)
                 Application.documentManager.reloadActiveItem();
-            this._prepareForEvinceView();
+            this._prepareForPreview(EvinceView.EvinceView);
             break;
         case WindowMode.WindowMode.PREVIEW_LOK:
             if (oldMode == WindowMode.WindowMode.EDIT)
                 Application.documentManager.reloadActiveItem();
-            this._prepareForLOKView();
+            this._prepareForPreview(LOKView.LOKView);
             break;
         case WindowMode.WindowMode.PREVIEW_EPUB:
-            this._prepareForEPUBView();
+            this._prepareForPreview(EPUBView.EPUBView);
             break;
         case WindowMode.WindowMode.EDIT:
             this._prepareForEdit();
@@ -371,31 +354,7 @@ const Embed = new Lang.Class({
         this._clearLoadTimer();
         this._spinner.stop();
 
-        switch (doc.viewType) {
-        case Documents.ViewType.EV:
-            if (docModel) {
-                if (Application.application.isBooks)
-                    docModel.set_sizing_mode(EvView.SizingMode.FIT_PAGE);
-                else
-                    docModel.set_sizing_mode(EvView.SizingMode.AUTOMATIC);
-                docModel.set_page_layout(EvView.PageLayout.AUTOMATIC);
-                this._previewEv.setModel(docModel);
-                this._toolbar.setModel(docModel);
-                this._previewEv.grab_focus();
-            }
-            this._stack.set_visible_child_name('preview-ev');
-            break;
-        case Documents.ViewType.LOK:
-            this._stack.set_visible_child_name('preview-lok');
-            break;
-        case Documents.ViewType.EPUB:
-            this._stack.set_visible_child_name('preview-epub');
-            break;
-        case Documents.ViewType.NONE:
-        default:
-            log('Something bad happened and the document type is unset');
-            break;
-        }
+        this._stack.set_visible_child_name('preview');
     },
 
     _onLoadError: function(manager, doc, message, exception) {
@@ -438,10 +397,11 @@ const Embed = new Lang.Class({
             break;
         }
 
-        if (this._previewEv)
-            this._previewEv.reset();
-        if (this._previewLok)
-            this._previewLok.reset();
+        if (this._preview) {
+            this._preview.destroy();
+            this._preview = null;
+        }
+
         if (this._edit)
             this._edit.setUri(null);
 
@@ -458,62 +418,39 @@ const Embed = new Lang.Class({
         this._stack.set_visible_child_name(visibleChildName);
     },
 
-    _prepareForEvinceView: function() {
+    _prepareForPreview: function(constructor) {
+        if (this._preview) {
+            this._preview.destroy();
+            this._preview = null;
+        }
         if (this._edit)
             this._edit.setUri(null);
         if (this._toolbar)
             this._toolbar.destroy();
 
+        this._preview = new constructor(this._stackOverlay);
+        this._stack.add_named(this._preview, 'preview');
+
         // pack the toolbar
-        this._toolbar = new EvinceView.EvinceViewToolbar(this._previewEv);
+        this._toolbar = this._preview.createToolbar();
         this._titlebar.add(this._toolbar);
 
-        this._stack.set_visible_child_name('preview-ev');
+        this._stack.set_visible_child_name('preview');
     },
 
     _prepareForEdit: function() {
-        if (this._previewEv)
-            this._previewEv.setModel(null);
+        if (this._preview) {
+            this._preview.destroy();
+            this._preview = null;
+        }
         if (this._toolbar)
             this._toolbar.destroy();
 
         // pack the toolbar
-        this._toolbar = new Edit.EditToolbar(this._previewEv);
+        this._toolbar = new Edit.EditToolbar(this._preview);
         this._titlebar.add(this._toolbar);
 
         this._stack.set_visible_child_name('edit');
-    },
-
-    _prepareForLOKView: function() {
-        if (this._previewEv)
-            this._previewEv.setModel(null);
-        if (this._edit)
-            this._edit.setUri(null);
-        if (this._toolbar)
-            this._toolbar.destroy();
-
-        // pack the toolbar
-        this._toolbar = new LOKView.LOKViewToolbar(this._previewLok);
-        this._titlebar.add(this._toolbar);
-
-        this._stack.set_visible_child_name('preview-lok');
-    },
-
-    _prepareForEPUBView: function() {
-        if (this._previewEv)
-            this._previewEv.setModel(null);
-        if (this._edit)
-            this._edit.setUri(null);
-        if (this._toolbar)
-            this._toolbar.destroy();
-
-        this._previewEPUB.reset();
-
-        // pack the toolbar
-        this._toolbar = new EPUBView.EPUBViewToolbar(this._previewEPUB);
-        this._titlebar.add(this._toolbar);
-
-        this._stack.set_visible_child_name('preview-epub');
     },
 
     getMainToolbar: function() {
@@ -521,14 +458,12 @@ const Embed = new Lang.Class({
         let fullscreen = Application.modeController.getFullscreen();
 
         if (fullscreen && (windowMode == WindowMode.WindowMode.PREVIEW_EV))
-            return this._previewEv.getFullscreenToolbar();
+            return this._preview.getFullscreenToolbar();
         else
             return this._toolbar;
     },
 
-    getEvinceView: function() {
-        //FIXME When we can pass clicks and key presses
-        //to the view, we'll need to grab the real current view
-        return this._previewEv;
+    getPreview: function() {
+        return this._preview;
     }
 });

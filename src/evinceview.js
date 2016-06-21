@@ -119,11 +119,6 @@ const EvinceView = new Lang.Class({
                 Lang.bind(this, this._onPresentStateChanged));
         }
 
-        Application.documentManager.connect('load-started',
-                                            Lang.bind(this, this._onLoadStarted));
-        Application.documentManager.connect('load-error',
-                                            Lang.bind(this, this._onLoadError));
-
         this.connect('destroy', Lang.bind(this,
             function() {
                 this._zoomIn.disconnect(zoomInId);
@@ -142,6 +137,11 @@ const EvinceView = new Lang.Class({
 
     createNavControls: function() {
         return new EvinceViewNavControls(this, this.overlay);
+    },
+
+    createToolbar: function() {
+        this._toolbar = new EvinceViewToolbar(this);
+        return this._toolbar;
     },
 
     createView: function() {
@@ -173,7 +173,7 @@ const EvinceView = new Lang.Class({
         return sw;
     },
 
-    _onLoadStarted: function(manager, doc) {
+    onLoadStarted: function(manager, doc) {
         if (doc.viewType != Documents.ViewType.EV)
             return;
         this._bookmarkPage.enabled = false;
@@ -181,12 +181,26 @@ const EvinceView = new Lang.Class({
         this._copy.enabled = false;
     },
 
-    _onLoadError: function(manager, doc, message, exception) {
+    onLoadFinished: function(manager, doc, docModel) {
+        this.parent(manager, doc, docModel);
+
         if (doc.viewType != Documents.ViewType.EV)
             return;
+
+        if (Application.application.isBooks)
+            docModel.set_sizing_mode(EvView.SizingMode.FIT_PAGE);
+        else
+            docModel.set_sizing_mode(EvView.SizingMode.AUTOMATIC);
+        docModel.set_page_layout(EvView.PageLayout.AUTOMATIC);
+        this._setModel(docModel);
+        this.grab_focus();
+    },
+
+    onLoadError: function(manager, doc, message, exception) {
         this._controlsVisible = true;
         this._syncControlsVisible();
-        this.setError(message, exception.message);
+
+        this.parent(manager, doc, message, exception);
     },
 
     _onActionStateChanged: function(source, actionName, state) {
@@ -368,7 +382,6 @@ const EvinceView = new Lang.Class({
         if (windowMode != WindowMode.WindowMode.PREVIEW_EV) {
             this.controlsVisible = false;
             this._hidePresentation();
-            this.navControls.hide();
         }
     },
 
@@ -478,10 +491,6 @@ const EvinceView = new Lang.Class({
         this._syncControlsVisible();
     },
 
-    activateResult: function() {
-        this.findNext();
-    },
-
     search: function(str) {
         if (!this._model)
             return;
@@ -514,34 +523,19 @@ const EvinceView = new Lang.Class({
         this.emitJS('search-changed', job.has_results());
     },
 
-    reset: function() {
-        this.setModel(null);
-        this.view.destroy();
-        this.navControls.destroy();
-
-        this.view = this.createView();
-        this.add_named(this.view, 'view');
-        this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
-
-        this.navControls = this.createNavControls();
-        this.show_all();
-    },
-
-    setModel: function(model) {
+    _setModel: function(model) {
         if (this._model == model)
             return;
 
-        if (this._evView) {
-            this.controlsVisible = false;
-            this._lastSearch = '';
-        }
-
+        this.controlsVisible = false;
+        this._lastSearch = '';
         this._model = model;
 
+        this._evView.set_model(this._model);
+        this.navControls.setModel(this._model);
+        this._toolbar.setModel(this._model);
+
         if (this._model) {
-            this._evView.set_model(this._model);
-            this.navControls.setModel(model);
-            this.navControls.show();
             if (this._togglePresentation)
                 this._togglePresentation.enabled = true;
 
@@ -608,6 +602,10 @@ const EvinceView = new Lang.Class({
 
     findNext: function() {
         this._evView.find_next();
+    },
+
+    scroll: function(direction) {
+        this._evView.scroll(direction, false);
     },
 
     get evView() {
@@ -681,7 +679,6 @@ const EvinceViewToolbar = new Lang.Class({
         this.toolbar.set_show_close_button(true);
 
         this._handleEvent = false;
-        this._model = null;
 
         this._searchAction = Application.application.lookup_action('search');
         this._searchAction.enabled = false;
@@ -722,24 +719,22 @@ const EvinceViewToolbar = new Lang.Class({
     },
 
     _enableSearch: function() {
-        if (!this._model)
-            return;
-
-        let isFind = true;
+        let hasPages = this._previewView.hasPages;
+        let canFind = true;
 
         try {
             // This is a hack to find out if evDoc implements the
             // EvDocument.DocumentFind interface or not. We don't expect
             // the following invocation to work.
-            let evDoc = this._model.get_document();
+            let evDoc = this.preview.getModel().get_document();
             evDoc.find_text();
         } catch (e if e instanceof TypeError) {
-            isFind = false;
+            canFind = false;
         } catch (e) {
         }
 
-        this._handleEvent = (this._previewView.hasPages && isFind);
-        this._searchAction.enabled = (this._previewView.hasPages && isFind);
+        this._handleEvent = (hasPages && canFind);
+        this._searchAction.enabled = (hasPages && canFind);
     },
 
     _getEvinceViewMenu: function() {
@@ -771,11 +766,7 @@ const EvinceViewToolbar = new Lang.Class({
         this.toolbar.set_title(primary);
     },
 
-    setModel: function(model) {
-        if (!model)
-            return;
-
-        this._model = model;
+    setModel: function() {
         this._gearMenu.enabled = true;
         this._enableSearch();
         this._setToolbarTitle();

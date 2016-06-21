@@ -112,7 +112,7 @@ const LOKView = new Lang.Class({
         this._previewContextMenu.attach_to_widget(this.view, null);
 
         this._zoomIn = Application.application.lookup_action('zoom-in');
-        let zoomInId = this._zoomIn.connect('activate', Lang.bind(this,
+        this._zoomInId = this._zoomIn.connect('activate', Lang.bind(this,
             function() {
                 // FIXME: https://bugs.documentfoundation.org/show_bug.cgi?id=97301
                 if (!this._doc)
@@ -122,7 +122,7 @@ const LOKView = new Lang.Class({
             }));
 
         this._zoomOut = Application.application.lookup_action('zoom-out');
-        let zoomOutId = this._zoomOut.connect('activate', Lang.bind(this,
+        this._zoomOutId = this._zoomOut.connect('activate', Lang.bind(this,
             function() {
                 // FIXME: https://bugs.documentfoundation.org/show_bug.cgi?id=97301
                 if (!this._doc)
@@ -132,19 +132,28 @@ const LOKView = new Lang.Class({
             }));
 
         this._copy = Application.application.lookup_action('copy');
-        let copyId = this._copy.connect('activate', Lang.bind(this, this._onCopyActivated));
+        this._copyId = this._copy.connect('activate', Lang.bind(this, this._onCopyActivated));
+    },
 
-        Application.documentManager.connect('load-started',
-                                            Lang.bind(this, this._onLoadStarted));
-        Application.documentManager.connect('load-error',
-                                            Lang.bind(this, this._onLoadError));
+    vfunc_destroy: function() {
+        if (this._zoomInId > 0) {
+            this._zoomIn.disconnect(this._zoomInId);
+            this._zoomInId = 0;
+        }
+        if (this._zoomOutId > 0) {
+            this._zoomOut.disconnect(this._zoomOutId);
+            this._zoomOutId = 0;
+        }
+        if (this._copyId > 0) {
+            this._copy.disconnect(this._copyId);
+            this._copyId = 0;
+        }
 
-        this.connect('destroy', Lang.bind(this,
-           function() {
-               this._zoomIn.disconnect(zoomInId);
-               this._zoomOut.disconnect(zoomOutId);
-               this._copy.disconnect(copyId);
-           }));
+        this.parent();
+    },
+
+    createToolbar: function() {
+        return new LOKViewToolbar(this);
     },
 
     createView: function() {
@@ -183,7 +192,9 @@ const LOKView = new Lang.Class({
         clipboard.set_text(selectedText, selectedText.length);
     },
 
-    _onLoadStarted: function(manager, doc) {
+    onLoadFinished: function(manager, doc) {
+        this.parent(manager, doc);
+
         if (doc.viewType != Documents.ViewType.LOK)
             return;
         if (!isAvailable())
@@ -194,29 +205,11 @@ const LOKView = new Lang.Class({
         this._progressBar.show();
     },
 
-    _onLoadError: function(manager, doc, message, exception) {
-        if (doc.viewType != Documents.ViewType.LOK)
-            return;
-        //FIXME we should hide controls
-        this.setError(message, exception.message);
-    },
-
     open_document_cb: function(res, doc) {
         // TODO: Call _finish and check failure
         this._progressBar.hide();
         this.set_visible_child_name('view');
         this._lokview.set_edit(false);
-    },
-
-    reset: function () {
-        if (!this._lokview)
-            return;
-
-        // FIXME: https://bugs.documentfoundation.org/show_bug.cgi?id=97235
-        if (this._doc)
-            this._lokview.reset_view();
-        this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
-        this._copy.enabled = false;
     },
 
     _getPreviewContextMenu: function() {
@@ -267,7 +260,7 @@ const LOKView = new Lang.Class({
     },
 
     get hasPages() {
-        return isOpenDocumentPartDocument(this._doc.mimeType);
+        return this._doc ? isOpenDocumentPartDocument(this._doc.mimeType) : false;
     },
 
     get page() {

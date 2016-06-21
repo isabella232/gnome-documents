@@ -21,38 +21,81 @@ const Preview = new Lang.Class({
         this.parent({ homogeneous: true,
                       transition_type: Gtk.StackTransitionType.CROSSFADE });
 
-        let findPrev = Application.application.lookup_action('find-prev');
-        let findPrevId = findPrev.connect('activate', Lang.bind(this, this.findPrev));
+        this._findPrev = Application.application.lookup_action('find-prev');
+        this._findPrevId = this._findPrev.connect('activate', Lang.bind(this, this.findPrev));
 
-        let findNext = Application.application.lookup_action('find-next');
-        let findNextId = findNext.connect('activate', Lang.bind(this, this.findNext));
+        this._findNext = Application.application.lookup_action('find-next');
+        this._findNextId = this._findNext.connect('activate', Lang.bind(this, this.findNext));
 
         this._errorBox = new ErrorBox.ErrorBox();
         this.add_named(this._errorBox, 'error');
 
         this.view = this.createView();
         this.add_named(this.view, 'view');
+        this.view.show();
         this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
 
         this.navControls = this.createNavControls();
+        this.navControls.show();
         this.show_all();
 
-        this.connect('destroy', Lang.bind(this, function() {
-            findPrev.disconnect(findPrevId);
-            findNext.disconnect(findNextId);
-        }));
+        this._loadStartedId = Application.documentManager.connect('load-started',
+                                                                  Lang.bind(this, this.onLoadStarted));
+        this._loadFinishedId = Application.documentManager.connect('load-finished',
+                                                                   Lang.bind(this, this.onLoadFinished));
+        this._loadErrorId = Application.documentManager.connect('load-error',
+                                                                Lang.bind(this, this.onLoadError));
+    },
+
+    vfunc_destroy: function() {
+        if (this._findPrevId > 0) {
+            this._findPrev.disconnect(this._findPrevId);
+            this._findPrevId = 0;
+        }
+        if (this._findNextId > 0) {
+            this._findNext.disconnect(this._findNextId);
+            this._findNextId = 0;
+        }
+        if (this._loadStartedId > 0) {
+            Application.documentManager.disconnect(this._loadStartedId);
+            this._loadStartedId = 0;
+        }
+        if (this._loadFinishedId > 0) {
+            Application.documentManager.disconnect(this._loadFinishedId);
+            this._loadFinishedId = 0;
+        }
+        if (this._loadErrorId > 0) {
+            Application.documentManager.disconnect(this._loadErrorId);
+            this._loadErrorId = 0;
+        }
+        if (this.navControls) {
+            this.navControls.destroy();
+            this.navControls = null;
+        }
+
+        this.parent();
     },
 
     createNavControls: function() {
         return new PreviewNavControls(this, this.overlay);
     },
 
+    createToolbar: function() {
+        throw(new Error('Not implemented'));
+    },
+
     createView: function() {
         throw(new Error('Not implemented'));
     },
 
-    setError: function(primary, secondary) {
-        this._errorBox.update(primary, secondary);
+    onLoadStarted: function(manager, doc) {
+    },
+
+    onLoadFinished: function(manager, doc, docModel) {
+    },
+
+    onLoadError: function(manager, doc, message, exception) {
+        this._errorBox.update(message, exception.message);
         this.set_visible_child_name('error');
     },
 
@@ -90,6 +133,14 @@ const Preview = new Lang.Class({
 
     findNext: function() {
         throw (new Error('Not implemented'));
+    },
+
+    scroll: function(direction) {
+        throw (new Error('Not implemented'));
+    },
+
+    activateResult: function() {
+        this.findNext();
     }
 });
 
