@@ -319,14 +319,8 @@ const Application = new Lang.Class({
                     modeController.connect('window-mode-changed', Lang.bind(this,
                         function() {
                             let mode = modeController.getWindowMode();
+                            let enable = actionEntry.window_modes.indexOf(mode) != -1;
                             let action = this.lookup_action(actionEntry.name);
-                            let enable = false;
-                            for (let idx in actionEntry.window_modes) {
-                                if (mode == actionEntry.window_modes[idx]) {
-                                    enable = true;
-                                    break;
-                                }
-                            }
                             action.set_enabled(enable);
                         }));
                 }
