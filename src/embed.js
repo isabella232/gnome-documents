@@ -303,10 +303,9 @@ const Embed = new Lang.Class({
             break;
         }
 
-        if (this._toolbar.searchbar) {
+        if (this._toolbar.searchbar)
             this._toolbar.searchbar.connectJS('activate-result',
-                                               Lang.bind(this, this._onActivateResult));
-        }
+                                              Lang.bind(this, this._onActivateResult));
     },
 
     _restoreSearch: function() {
