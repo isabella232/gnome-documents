@@ -315,9 +315,6 @@ const LOKViewToolbar = new Lang.Class({
                                               action_name: 'app.gear-menu' });
         this.toolbar.pack_end(menuButton);
 
-        // search button, on the right of the toolbar
-        this.addSearchButton();
-
         this._setToolbarTitle();
         this.toolbar.show_all();
     },
