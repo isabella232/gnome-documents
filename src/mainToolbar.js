@@ -70,6 +70,10 @@ const MainToolbar = new Lang.Class({
             }));
     },
 
+    createSearchbar: function() {
+        return null;
+    },
+
     _onLoadErrorOrPassword: function() {
         this._handleEvent = false;
     },

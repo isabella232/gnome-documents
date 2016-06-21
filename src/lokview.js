@@ -318,9 +318,6 @@ const LOKViewToolbar = new Lang.Class({
         this.toolbar.show_all();
     },
 
-    createSearchbar: function() {
-    },
-
     _getLOKViewMenu: function() {
         let builder = new Gtk.Builder();
         builder.add_from_resource('/org/gnome/Documents/ui/preview-menu.ui');
