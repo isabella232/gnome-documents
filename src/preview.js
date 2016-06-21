@@ -109,41 +109,41 @@ const PreviewNavControls = new Lang.Class({
         this._autoHideId = 0;
         this._motionId = 0;
 
-        this.bar_widget = this.createBarWidget();
-        if (this.bar_widget) {
-            this.bar_widget.get_style_context().add_class('osd');
-            this._overlay.add_overlay(this.bar_widget);
-            this.bar_widget.connect('notify::hover', Lang.bind(this, function() {
-                if (this.bar_widget.hover)
+        this.barWidget = this.createBarWidget();
+        if (this.barWidget) {
+            this.barWidget.get_style_context().add_class('osd');
+            this._overlay.add_overlay(this.barWidget);
+            this.barWidget.connect('notify::hover', Lang.bind(this, function() {
+                if (this.barWidget.hover)
                     this._onEnterNotify();
                 else
                     this._onLeaveNotify();
             }));
         }
 
-        this.prev_widget = new Gtk.Button({ image: new Gtk.Image ({ icon_name: 'go-previous-symbolic',
+        this._prevWidget = new Gtk.Button({ image: new Gtk.Image ({ icon_name: 'go-previous-symbolic',
                                                                     pixel_size: 16 }),
                                             margin_start: PREVIEW_NAVBAR_MARGIN,
                                             margin_end: PREVIEW_NAVBAR_MARGIN,
                                             halign: Gtk.Align.START,
                                             valign: Gtk.Align.CENTER });
-        this.prev_widget.get_style_context().add_class('osd');
-        this._overlay.add_overlay(this.prev_widget);
-        this.prev_widget.connect('clicked', Lang.bind(this, this._onPrevClicked));
-        this.prev_widget.connect('enter-notify-event', Lang.bind(this, this._onEnterNotify));
-        this.prev_widget.connect('leave-notify-event', Lang.bind(this, this._onLeaveNotify));
+        this._prevWidget.get_style_context().add_class('osd');
+        this._overlay.add_overlay(this._prevWidget);
+        this._prevWidget.connect('clicked', Lang.bind(this, this._onPrevClicked));
+        this._prevWidget.connect('enter-notify-event', Lang.bind(this, this._onEnterNotify));
+        this._prevWidget.connect('leave-notify-event', Lang.bind(this, this._onLeaveNotify));
 
-        this.next_widget = new Gtk.Button({ image: new Gtk.Image ({ icon_name: 'go-next-symbolic',
+        this._nextWidget = new Gtk.Button({ image: new Gtk.Image ({ icon_name: 'go-next-symbolic',
                                                                     pixel_size: 16 }),
                                             margin_start: PREVIEW_NAVBAR_MARGIN,
                                             margin_end: PREVIEW_NAVBAR_MARGIN,
                                             halign: Gtk.Align.END,
                                             valign: Gtk.Align.CENTER });
-        this.next_widget.get_style_context().add_class('osd');
-        this._overlay.add_overlay(this.next_widget);
-        this.next_widget.connect('clicked', Lang.bind(this, this._onNextClicked));
-        this.next_widget.connect('enter-notify-event', Lang.bind(this, this._onEnterNotify));
-        this.next_widget.connect('leave-notify-event', Lang.bind(this, this._onLeaveNotify));
+        this._nextWidget.get_style_context().add_class('osd');
+        this._overlay.add_overlay(this._nextWidget);
+        this._nextWidget.connect('clicked', Lang.bind(this, this._onNextClicked));
+        this._nextWidget.connect('enter-notify-event', Lang.bind(this, this._onEnterNotify));
+        this._nextWidget.connect('leave-notify-event', Lang.bind(this, this._onLeaveNotify));
 
         this._overlay.connect('motion-notify-event', Lang.bind(this, this._onMotion));
 
@@ -172,7 +172,7 @@ const PreviewNavControls = new Lang.Class({
         this._motionId = 0;
         this._visibleInternal = true;
         this._updateVisibility();
-        if (this.bar_widget && !this.bar_widget.hover)
+        if (this.barWidget && !this.barWidget.hover)
             this._queueAutoHide();
         return false;
     },
@@ -233,25 +233,25 @@ const PreviewNavControls = new Lang.Class({
         let numPages = this.preview.numPages;
 
         if (!this._visible || !this._visibleInternal || !this.preview.hasPages) {
-            if (this.bar_widget)
-                this._fadeOutButton(this.bar_widget);
-            this._fadeOutButton(this.prev_widget);
-            this._fadeOutButton(this.next_widget);
+            if (this.barWidget)
+                this._fadeOutButton(this.barWidget);
+            this._fadeOutButton(this._prevWidget);
+            this._fadeOutButton(this._nextWidget);
             return;
         }
 
-        if (this.bar_widget)
-            this._fadeInButton(this.bar_widget);
+        if (this.barWidget)
+            this._fadeInButton(this.barWidget);
 
         if (currentPage > 0)
-            this._fadeInButton(this.prev_widget);
+            this._fadeInButton(this._prevWidget);
         else
-            this._fadeOutButton(this.prev_widget);
+            this._fadeOutButton(this._prevWidget);
 
         if (numPages > currentPage + 1)
-            this._fadeInButton(this.next_widget);
+            this._fadeInButton(this._nextWidget);
         else
-            this._fadeOutButton(this.next_widget);
+            this._fadeOutButton(this._nextWidget);
     },
 
     _fadeInButton: function(widget) {
@@ -284,10 +284,10 @@ const PreviewNavControls = new Lang.Class({
     },
 
     destroy: function() {
-        if (this.bar_widget)
-            this.bar_widget.destroy();
-        this.prev_widget.destroy();
-        this.next_widget.destroy();
+        if (this.barWidget)
+            this.barWidget.destroy();
+        this._prevWidget.destroy();
+        this._nextWidget.destroy();
         this._tapGesture = null;
     }
 });

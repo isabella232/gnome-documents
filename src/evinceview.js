@@ -663,7 +663,7 @@ const EvinceViewNavControls = new Lang.Class({
         }
 
         this._model = model;
-        this.bar_widget.document_model = model;
+        this.barWidget.document_model = model;
 
         if (this._model)
             this._pageChangedId = this._model.connect('page-changed', Lang.bind(this, this._updateVisibility));
