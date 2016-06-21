@@ -635,18 +635,8 @@ const EvinceViewNavControls = new Lang.Class({
     Name: 'EvinceViewNavControls',
     Extends: Preview.PreviewNavControls,
 
-    _init: function(previewView, overlay) {
-        this._pageChangedId = 0;
-
-        this._previewView = previewView;
-        this._model = previewView.getModel();
-
-        this.parent(previewView, overlay);
-    },
-
     createBarWidget: function() {
-        let barWidget = new GdPrivate.NavBar({ document_model: this._model,
-                                               margin: Preview.PREVIEW_NAVBAR_MARGIN,
+        let barWidget = new GdPrivate.NavBar({ margin: Preview.PREVIEW_NAVBAR_MARGIN,
                                                valign: Gtk.Align.END,
                                                opacity: 0 });
 
@@ -672,16 +662,8 @@ const EvinceViewNavControls = new Lang.Class({
     },
 
     setModel: function(model) {
-        if (this._pageChangedId != 0) {
-            this._model.disconnect(this._pageChangedId);
-            this._pageChangedId = 0;
-        }
-
-        this._model = model;
         this.barWidget.document_model = model;
-
-        if (this._model)
-            this._pageChangedId = this._model.connect('page-changed', Lang.bind(this, this._updateVisibility));
+        model.connect('page-changed', Lang.bind(this, this._updateVisibility));
     }
 });
 
