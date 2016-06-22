@@ -31,14 +31,12 @@ const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 
 const Application = imports.application;
-const MainToolbar = imports.mainToolbar;
+const Documents = imports.documents;
 const Places = imports.places;
+const Presentation = imports.presentation;
 const Preview = imports.preview;
-const Searchbar = imports.searchbar;
 const Utils = imports.utils;
 const WindowMode = imports.windowMode;
-const Presentation = imports.presentation;
-const Documents = imports.documents;
 
 const _FULLSCREEN_TOOLBAR_TIMEOUT = 2; // seconds
 

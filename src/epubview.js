@@ -19,22 +19,16 @@
  *
  */
 
-const GLib = imports.gi.GLib;
 const Gepub = imports.gi.Gepub;
 const Gio = imports.gi.Gio;
-const Gtk = imports.gi.Gtk;
 const WebKit2 = imports.gi.WebKit2;
 
 const _ = imports.gettext.gettext;
 
-const Application = imports.application;
 const Documents = imports.documents;
-const MainToolbar = imports.mainToolbar;
 const Preview = imports.preview;
-const Searchbar = imports.searchbar;
 
 const Lang = imports.lang;
-const Signals = imports.signals;
 
 function isEpub(mimeType) {
     return (mimeType == 'application/epub+zip');

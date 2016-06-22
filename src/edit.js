@@ -39,7 +39,6 @@ const EditView = new Lang.Class({
         this._uri = null;
 
         this.parent();
-        this.get_style_context().add_class('documents-scrolledwin');
 
         let context = WebKit.WebContext.get_default();
 

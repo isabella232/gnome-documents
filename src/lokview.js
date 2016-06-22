@@ -32,12 +32,9 @@ const Gtk = imports.gi.Gtk;
 const _ = imports.gettext.gettext;
 
 const Lang = imports.lang;
-const Signals = imports.signals;
 
-const Application = imports.application;
-const MainToolbar = imports.mainToolbar;
-const Preview = imports.preview;
 const Documents = imports.documents;
+const Preview = imports.preview;
 const Utils = imports.utils;
 
 const ZOOM_IN_FACTOR = 1.2;
@@ -101,8 +98,6 @@ const LOKView = new Lang.Class({
     _init: function(overlay, mainWindow) {
         this.parent(overlay, mainWindow);
 
-        this._uri = null;
-
         this._progressBar = new Gtk.ProgressBar({ halign: Gtk.Align.FILL,
                                                   valign: Gtk.Align.START });
         this._progressBar.get_style_context().add_class('osd');
@@ -151,11 +146,11 @@ const LOKView = new Lang.Class({
         if (!isAvailable())
             return;
         this._doc = doc;
-        this._lokview.open_document(doc.uri, "{}", null, Lang.bind(this, this.open_document_cb));
+        this._lokview.open_document(doc.uri, '{}', null, Lang.bind(this, this._onDocumentOpened));
         this._progressBar.show();
     },
 
-    open_document_cb: function(res, doc) {
+    _onDocumentOpened: function(res, doc) {
         // TODO: Call _finish and check failure
         this._progressBar.hide();
         this.set_visible_child_name('view');
@@ -247,4 +242,3 @@ const LOKView = new Lang.Class({
         return this._lokview.get_parts();
     }
 });
-Signals.addSignalMethods(LOKView.prototype);
