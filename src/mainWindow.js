@@ -80,7 +80,7 @@ const MainWindow = new Lang.Class({
         this._fsId = Application.modeController.connect('fullscreen-changed',
             Lang.bind(this, this._onFullscreenChanged));
 
-        this._embed = new Embed.Embed();
+        this._embed = new Embed.Embed(this);
         this.add(this._embed);
     },
 

@@ -27,6 +27,7 @@ try {
 }
 
 const Gdk = imports.gi.Gdk;
+const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
 const _ = imports.gettext.gettext;
 
@@ -37,6 +38,7 @@ const Application = imports.application;
 const MainToolbar = imports.mainToolbar;
 const Preview = imports.preview;
 const Documents = imports.documents;
+const Utils = imports.utils;
 
 const ZOOM_IN_FACTOR = 1.2;
 const ZOOM_OUT_FACTOR = (1.0/ZOOM_IN_FACTOR);
@@ -96,8 +98,8 @@ const LOKView = new Lang.Class({
     Name: 'LOKView',
     Extends: Preview.Preview,
 
-    _init: function(overlay) {
-        this.parent(overlay);
+    _init: function(overlay, mainWindow) {
+        this.parent(overlay, mainWindow);
 
         this._uri = null;
 
@@ -110,46 +112,20 @@ const LOKView = new Lang.Class({
         let model = this._getPreviewContextMenu();
         this._previewContextMenu = Gtk.Menu.new_from_model(model);
         this._previewContextMenu.attach_to_widget(this.view, null);
-
-        this._zoomIn = Application.application.lookup_action('zoom-in');
-        this._zoomInId = this._zoomIn.connect('activate', Lang.bind(this,
-            function() {
-                // FIXME: https://bugs.documentfoundation.org/show_bug.cgi?id=97301
-                if (!this._doc)
-                    return;
-                let zoomLevel = this._lokview.get_zoom() * ZOOM_IN_FACTOR;
-                this._lokview.set_zoom(zoomLevel);
-            }));
-
-        this._zoomOut = Application.application.lookup_action('zoom-out');
-        this._zoomOutId = this._zoomOut.connect('activate', Lang.bind(this,
-            function() {
-                // FIXME: https://bugs.documentfoundation.org/show_bug.cgi?id=97301
-                if (!this._doc)
-                    return;
-                let zoomLevel = this._lokview.get_zoom() * ZOOM_OUT_FACTOR;
-                this._lokview.set_zoom(zoomLevel);
-            }));
-
-        this._copy = Application.application.lookup_action('copy');
-        this._copyId = this._copy.connect('activate', Lang.bind(this, this._onCopyActivated));
     },
 
-    vfunc_destroy: function() {
-        if (this._zoomInId > 0) {
-            this._zoomIn.disconnect(this._zoomInId);
-            this._zoomInId = 0;
-        }
-        if (this._zoomOutId > 0) {
-            this._zoomOut.disconnect(this._zoomOutId);
-            this._zoomOutId = 0;
-        }
-        if (this._copyId > 0) {
-            this._copy.disconnect(this._copyId);
-            this._copyId = 0;
-        }
-
-        this.parent();
+    createActions: function() {
+        return [
+            { name: 'zoom-in',
+              callback: Lang.bind(this, this._zoomIn),
+              accels: ['<Primary>plus', '<Primary>equal'] },
+            { name: 'zoom-out',
+              callback: Lang.bind(this, this._zoomOut),
+              accels: ['<Primary>minus'] },
+            { name: 'copy',
+              callback: Lang.bind(this, this._copy),
+              accels: ['<Primary>c'] }
+        ];
     },
 
     createToolbar: function() {
@@ -176,22 +152,6 @@ const LOKView = new Lang.Class({
         return sw;
     },
 
-    _onCanZoomInChanged: function() {
-        this._zoomIn.enabled = this._lokview.can_zoom_in;
-    },
-
-    _onCanZoomOutChanged: function() {
-        this._zoomOut.enabled = this._lokview.can_zoom_out;
-    },
-
-    _onCopyActivated: function() {
-        let [selectedText, mimeType] = this._lokview.copy_selection('text/plain;charset=utf-8');
-        let display = Gdk.Display.get_default();
-        let clipboard = Gtk.Clipboard.get_default(display);
-
-        clipboard.set_text(selectedText, selectedText.length);
-    },
-
     onLoadFinished: function(manager, doc) {
         this.parent(manager, doc);
 
@@ -200,7 +160,6 @@ const LOKView = new Lang.Class({
         if (!isAvailable())
             return;
         this._doc = doc;
-        this._copy.enabled = false;
         this._lokview.open_document(doc.uri, "{}", null, Lang.bind(this, this.open_document_cb));
         this._progressBar.show();
     },
@@ -210,6 +169,38 @@ const LOKView = new Lang.Class({
         this._progressBar.hide();
         this.set_visible_child_name('view');
         this._lokview.set_edit(false);
+    },
+
+    _copy: function() {
+        let [selectedText, mimeType] = this._lokview.copy_selection('text/plain;charset=utf-8');
+        let display = Gdk.Display.get_default();
+        let clipboard = Gtk.Clipboard.get_default(display);
+
+        clipboard.set_text(selectedText, selectedText.length);
+    },
+
+    _zoomIn: function() {
+        // FIXME: https://bugs.documentfoundation.org/show_bug.cgi?id=97301
+        if (!this._doc)
+            return;
+        let zoomLevel = this._lokview.get_zoom() * ZOOM_IN_FACTOR;
+        this._lokview.set_zoom(zoomLevel);
+    },
+
+    _zoomOut: function() {
+        // FIXME: https://bugs.documentfoundation.org/show_bug.cgi?id=97301
+        if (!this._doc)
+            return;
+        let zoomLevel = this._lokview.get_zoom() * ZOOM_OUT_FACTOR;
+        this._lokview.set_zoom(zoomLevel);
+    },
+
+    _onCanZoomInChanged: function() {
+        this.getAction('zoom-in').enabled = this._lokview.can_zoom_in;
+    },
+
+    _onCanZoomOutChanged: function() {
+        this.getAction('zoom-out').enabled = this._lokview.can_zoom_out;
     },
 
     _getPreviewContextMenu: function() {
@@ -235,7 +226,7 @@ const LOKView = new Lang.Class({
     },
 
     _onTextSelection: function(hasSelection) {
-        this._copy.enabled = hasSelection;
+        this.getAction('copy').enabled = hasSelection;
     },
 
     goPrev: function() {
@@ -283,12 +274,6 @@ const LOKViewToolbar = new Lang.Class({
         this.parent();
         this.toolbar.set_show_close_button(true);
 
-        this._gearMenu = Application.application.lookup_action('gear-menu');
-        this._gearMenu.enabled = true;
-
-        this._lokView._zoomIn.enabled = true;
-        this._lokView._zoomOut.enabled = true;
-
         // back button, on the left of the toolbar
         let backButton = this.addBackButton();
         backButton.connect('clicked', Lang.bind(this,
@@ -301,7 +286,7 @@ const LOKViewToolbar = new Lang.Class({
         let lokViewMenu = this._getLOKViewMenu();
         let menuButton = new Gtk.MenuButton({ image: new Gtk.Image ({ icon_name: 'open-menu-symbolic' }),
                                               menu_model: lokViewMenu,
-                                              action_name: 'app.gear-menu' });
+                                              action_name: 'view.gear-menu' });
         this.toolbar.pack_end(menuButton);
 
         this._setToolbarTitle();
@@ -317,20 +302,8 @@ const LOKViewToolbar = new Lang.Class({
         let doc = Application.documentManager.getActiveItem();
         if (doc && doc.defaultAppName) {
             section.remove(0);
-            section.prepend(_("Open with %s").format(doc.defaultAppName), 'app.open-current');
+            section.prepend(_("Open with %s").format(doc.defaultAppName), 'view.open-current');
         }
-
-        // No edit support yet
-        section.remove(1);
-        // No print support yet
-        section.remove(1);
-        // No present support yet
-        section.remove(1);
-
-        // No rotate support
-        section = builder.get_object('rotate-section');
-        section.remove(0);
-        section.remove(0);
 
         return menu;
     },

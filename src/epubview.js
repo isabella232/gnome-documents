@@ -44,6 +44,17 @@ const EPUBView = new Lang.Class({
     Name: 'EPUBView',
     Extends: Preview.Preview,
 
+    createActions: function() {
+        return [
+            { name: 'find-prev',
+              callback: Lang.bind(this, this.findPrev),
+              accels: ['<Shift><Primary>g'] },
+            { name: 'find-next',
+              callback: Lang.bind(this, this.findNext),
+              accels: ['<Primary>g'] },
+        ];
+    },
+
     createToolbar: function() {
         return new EPUBViewToolbar(this);
     },
@@ -119,10 +130,8 @@ const EPUBSearchbar = new Lang.Class({
     },
 
     _onSearchChanged: function(view, hasResults) {
-        let findPrev = Application.application.lookup_action('find-prev');
-        let findNext = Application.application.lookup_action('find-next');
-        findPrev.enabled = hasResults;
-        findNext.enabled = hasResults;
+        this.preview.getAction('find-prev').enabled = hasResults;
+        this.preview.getAction('find-next').enabled = hasResults;
     },
 
     conceal: function() {
@@ -148,9 +157,6 @@ const EPUBViewToolbar = new Lang.Class({
 
         this._searchAction = Application.application.lookup_action('search');
         this._searchAction.enabled = true;
-
-        this._gearMenu = Application.application.lookup_action('gear-menu');
-        this._gearMenu.enabled = true;
 
         // back button, on the left of the toolbar
         let backButton = this.addBackButton();

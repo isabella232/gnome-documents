@@ -59,26 +59,12 @@ const EditView = new Lang.Class({
 
         this.show_all();
 
-        this._editAction = Application.application.lookup_action('edit-current');
-        this._editAction.enabled = false;
-        this._editAction.connect('activate', Lang.bind(this,
-            function() {
-                let doc = Application.documentManager.getActiveItem();
-                if (!doc)
-                    return;
-                Application.modeController.setWindowMode(WindowMode.WindowMode.EDIT);
-                this.setUri (doc.uri);
-            }));
-
         this._viewAction = Application.application.lookup_action('view-current');
         this._viewAction.enabled = false;
         this._viewAction.connect('activate', Lang.bind(this,
             function() {
                 Application.modeController.goBack();
             }));
-
-        this._printAction = Application.application.lookup_action('print-current');
-        this._printAction.set_enabled(false);
 
         Application.documentManager.connect('load-started',
                                             Lang.bind(this, this._onLoadStarted));
@@ -88,19 +74,12 @@ const EditView = new Lang.Class({
     },
 
     _onLoadStarted: function() {
-        this._editAction.enabled = false;
         this._viewAction.enabled = false;
-        this._printAction.set_enabled(false);
     },
 
     _onLoadFinished: function(manager, doc, docModel) {
-        if (doc.uri) {
-            if (doc.canEdit())
-                this._editAction.enabled = true;
+        if (doc.uri)
             this._viewAction.enabled = true;
-            if (doc.canPrint(docModel))
-                this._printAction.set_enabled(true);
-        }
     },
 
     _createView: function() {

@@ -46,7 +46,7 @@ const EvinceView = new Lang.Class({
     Name: 'EvinceView',
     Extends: Preview.Preview,
 
-    _init: function(overlay) {
+    _init: function(overlay, mainWindow) {
         this._model = null;
         this._jobFind = null;
         this._controlsFlipId = 0;
@@ -56,7 +56,7 @@ const EvinceView = new Lang.Class({
         this._viewSelectionChanged = false;
         this._fsToolbar = null;
 
-        this.parent(overlay);
+        this.parent(overlay, mainWindow);
 
         Application.modeController.connect('fullscreen-changed', Lang.bind(this,
             this._onFullscreenChanged));
@@ -68,71 +68,136 @@ const EvinceView = new Lang.Class({
         this._previewContextMenu = Gtk.Menu.new_from_model(model);
         this._previewContextMenu.attach_to_widget(this.view, null);
 
-        this._bookmarkPage = Application.application.lookup_action('bookmark-page');
-        this._bookmarkPage.enabled = false;
-        let bookmarkPageId = Application.application.connect('action-state-changed::bookmark-page',
-            Lang.bind(this, this._onActionStateChanged));
-
-        this._zoomIn = Application.application.lookup_action('zoom-in');
-        let zoomInId = this._zoomIn.connect('activate', Lang.bind(this,
-            function() {
-                if (!this._model)
-                    return;
-                this._model.set_sizing_mode(EvView.SizingMode.FREE);
-                this._evView.zoom_in();
-            }));
-
-        this._zoomOut = Application.application.lookup_action('zoom-out');
-        let zoomOutId = this._zoomOut.connect('activate', Lang.bind(this,
-            function() {
-                if (!this._model)
-                    return;
-                this._model.set_sizing_mode(EvView.SizingMode.FREE);
-                this._evView.zoom_out();
-            }));
-
-        this._copy = Application.application.lookup_action('copy');
-        let copyId = this._copy.connect('activate', Lang.bind(this,
-            function() {
-                this._evView.copy();
-            }));
-
-        let rotLeft = Application.application.lookup_action('rotate-left');
-        let rotLeftId = rotLeft.connect('activate', Lang.bind(this,
-            function() {
-                this._changeRotation(-90);
-            }));
-        let rotRight = Application.application.lookup_action('rotate-right');
-        let rotRightId = rotRight.connect('activate', Lang.bind(this,
-            function() {
-                this._changeRotation(90);
-            }));
-        this._places = Application.application.lookup_action('places');
-        let placesId = this._places.connect('activate', Lang.bind(this, this._showPlaces));
+        this.getAction('bookmark-page').enabled = false;
 
         let nightModeId = Application.application.connect('action-state-changed::night-mode',
             Lang.bind(this, this._updateNightMode));
 
-        this._togglePresentation = Application.application.lookup_action('present-current');
-        if (!Application.application.isBooks) {
-            var presentCurrentId = Application.application.connect('action-state-changed::present-current',
-                Lang.bind(this, this._onPresentStateChanged));
-        }
-
         this.connect('destroy', Lang.bind(this,
             function() {
-                this._zoomIn.disconnect(zoomInId);
-                this._zoomOut.disconnect(zoomOutId);
-                this._copy.disconnect(copyId);
-                rotLeft.disconnect(rotLeftId);
-                rotRight.disconnect(rotRightId);
-                this._places.disconnect(placesId);
-                if (!Application.application.isBooks)
-                    Application.application.disconnect(presentCurrentId);
-
-                Application.application.disconnect(bookmarkPageId);
                 Application.application.disconnect(nightModeId);
             }));
+    },
+
+    _copy: function() {
+        this._evView.copy();
+    },
+
+    _zoomIn: function() {
+        if (!this._model)
+            return;
+        this._model.set_sizing_mode(EvView.SizingMode.FREE);
+        this._evView.zoom_in();
+    },
+
+    _zoomOut: function() {
+        if (!this._model)
+            return;
+        this._model.set_sizing_mode(EvView.SizingMode.FREE);
+        this._evView.zoom_out();
+    },
+
+    _rotateLeft: function() {
+        let rotation = this._model.get_rotation();
+        this._model.set_rotation(rotation - 90);
+    },
+
+    _rotateRight: function() {
+        let rotation = this._model.get_rotation();
+        this._model.set_rotation(rotation + 90);
+    },
+
+    findPrev: function() {
+        this._evView.find_previous();
+    },
+
+    findNext: function() {
+        this._evView.find_next();
+    },
+
+    _places: function() {
+        let dialog = new Places.PlacesDialog(this._model, this._bookmarks);
+        dialog.connect('response', Lang.bind(this, function(widget, response) {
+            widget.destroy();
+        }));
+    },
+
+    _bookmarkStateChanged: function(action) {
+        let pageNumber = this._model.page;
+        let bookmark = new GdPrivate.Bookmark({ page_number: pageNumber });
+
+        if (action.state.get_boolean())
+            this._bookmarks.add(bookmark);
+        else
+            this._bookmarks.remove(bookmark);
+    },
+
+    _presentStateChanged: function(action) {
+        if (!this._model)
+            return;
+
+        if (action.state.get_boolean())
+            this._promptPresentation();
+        else
+            this._hidePresentation();
+    },
+
+    _edit: function() {
+        Application.modeController.setWindowMode(WindowMode.WindowMode.EDIT);
+    },
+
+    _print: function() {
+        let doc = Application.documentManager.getActiveItem();
+        if (doc)
+            doc.print(this.mainWindow);
+    },
+
+    createActions: function() {
+        let actions = [
+            { name: 'zoom-in',
+              callback: Lang.bind(this, this._zoomIn),
+              accels: ['<Primary>plus', '<Primary>equal'] },
+            { name: 'zoom-out',
+              callback: Lang.bind(this, this._zoomOut),
+              accels: ['<Primary>minus'] },
+            { name: 'copy',
+              callback: Lang.bind(this, this._copy),
+              accels: ['<Primary>c'] },
+            { name: 'rotate-left',
+              callback: Lang.bind(this, this._rotateLeft),
+              accels: ['<Primary>Left'] },
+            { name: 'rotate-right',
+              callback: Lang.bind(this, this._rotateRight),
+              accels: ['<Primary>Right'] },
+            { name: 'find-prev',
+              callback: Lang.bind(this, this.findPrev),
+              accels: ['<Shift><Primary>g'] },
+            { name: 'find-next',
+              callback: Lang.bind(this, this.findNext),
+              accels: ['<Primary>g'] },
+            { name: 'places',
+              callback: Lang.bind(this, this._places),
+              accels: ['<Primary>b'] },
+            { name: 'bookmark-page',
+              callback: Utils.actionToggleCallback,
+              state: GLib.Variant.new('b', false),
+              stateChanged: Lang.bind(this, this._bookmarkStateChanged),
+              accels: ['<Primary>d'] },
+            { name: 'edit-current',
+              callback: Lang.bind(this, this._edit) },
+            { name: 'print-current',
+              callback: Lang.bind(this, this._print),
+              accels: ['<Primary>p'] }
+        ];
+
+        if (!Application.application.isBooks)
+            actions.push({ name: 'present-current',
+                           callback: Utils.actionToggleCallback,
+                           state: GLib.Variant.new('b', false),
+                           stateChanged: Lang.bind(this, this._presentStateChanged),
+                           accels: ['F5'] });
+
+        return actions;
     },
 
     createNavControls: function() {
@@ -176,9 +241,9 @@ const EvinceView = new Lang.Class({
     onLoadStarted: function(manager, doc) {
         if (doc.viewType != Documents.ViewType.EV)
             return;
-        this._bookmarkPage.enabled = false;
-        this._places.enabled = false;
-        this._copy.enabled = false;
+
+        this.getAction('bookmark-page').enabled = false;
+        this.getAction('places').enabled = false;
     },
 
     onLoadFinished: function(manager, doc, docModel) {
@@ -186,6 +251,10 @@ const EvinceView = new Lang.Class({
 
         if (doc.viewType != Documents.ViewType.EV)
             return;
+
+        this.getAction('copy').enabled = false;
+        this.getAction('edit-current').enabled = doc.canEdit();
+        this.getAction('print-current').enabled = doc.canPrint(docModel);
 
         if (Application.application.isBooks)
             docModel.set_sizing_mode(EvView.SizingMode.FIT_PAGE);
@@ -203,48 +272,17 @@ const EvinceView = new Lang.Class({
         this.parent(manager, doc, message, exception);
     },
 
-    _onActionStateChanged: function(source, actionName, state) {
-        if (!this._model)
-            return;
-
-        let page_number = this._model.page;
-        let bookmark = new GdPrivate.Bookmark({ page_number: page_number });
-
-        if (state.get_boolean())
-            this._bookmarks.add(bookmark);
-        else
-            this._bookmarks.remove(bookmark);
-    },
-
-    _onPresentStateChanged: function(source, actionName, state) {
-        if (!this._model)
-            return;
-
-        if (state.get_boolean())
-            this._promptPresentation();
-        else
-            this._hidePresentation();
-    },
-
     _onPageChanged: function() {
         this._pageChanged = true;
 
         if (!this._bookmarks)
             return;
 
-        let page_number = this._model.page;
-        let bookmark = new GdPrivate.Bookmark({ page_number: page_number });
+        let pageNumber = this._model.page;
+        let bookmark = new GdPrivate.Bookmark({ page_number: pageNumber });
         let hasBookmark = (this._bookmarks.find_bookmark(bookmark) != null);
 
-        this._bookmarkPage.change_state(GLib.Variant.new('b', hasBookmark));
-    },
-
-    _showPlaces: function() {
-        let dialog = new Places.PlacesDialog(this._model, this._bookmarks);
-        dialog.connect('response', Lang.bind(this,
-            function(widget, response) {
-                widget.destroy();
-            }));
+        this.getAction('bookmark-page').change_state(GLib.Variant.new('b', hasBookmark));
     },
 
     _hidePresentation: function() {
@@ -253,7 +291,7 @@ const EvinceView = new Lang.Class({
             this._presentation = null;
         }
 
-        Application.application.change_action_state('present-current', GLib.Variant.new('b', false));
+        this.getAction('present-current').change_state(GLib.Variant.new('b', false));
     },
 
     _showPresentation: function(output) {
@@ -283,7 +321,7 @@ const EvinceView = new Lang.Class({
 
     _onViewSelectionChanged: function() {
         let hasSelection = this._evView.get_has_selection();
-        this._copy.enabled = hasSelection;
+        this.getAction('copy').enabled = hasSelection;
 
         if (!hasSelection &&
             hasSelection == this._hasSelection) {
@@ -354,11 +392,11 @@ const EvinceView = new Lang.Class({
     },
 
     _onCanZoomInChanged: function() {
-        this._zoomIn.enabled = this._evView.can_zoom_in;
+        this.getAction('zoom-in').enabled = this._evView.can_zoom_in;
     },
 
     _onCanZoomOutChanged: function() {
-        this._zoomOut.enabled = this._evView.can_zoom_out;
+        this.getAction('zoom-out').enabled = this._evView.can_zoom_out;
     },
 
     _getEvinceViewContextMenu: function() {
@@ -471,11 +509,6 @@ const EvinceView = new Lang.Class({
         this._pageChanged = false;
     },
 
-    _changeRotation: function(offset) {
-        let rotation = this._model.get_rotation();
-        this._model.set_rotation(rotation + offset);
-    },
-
     get controlsVisible() {
         return this._controlsVisible;
     },
@@ -536,15 +569,16 @@ const EvinceView = new Lang.Class({
         this._toolbar.setModel(this._model);
 
         if (this._model) {
-            if (this._togglePresentation)
-                this._togglePresentation.enabled = true;
+            let presentCurrent = this.getAction('present-current');
+            if (presentCurrent)
+                presentCurrent.enabled = true;
 
             if (Application.documentManager.metadata)
                 this._bookmarks = new GdPrivate.Bookmarks({ metadata: Application.documentManager.metadata });
 
             let hasMultiplePages = (this._model.document.get_n_pages() > 1);
-            this._bookmarkPage.enabled = hasMultiplePages && this._bookmarks;
-            this._places.enabled = hasMultiplePages;
+            this.getAction('bookmark-page').enabled = hasMultiplePages && this._bookmarks;
+            this.getAction('places').enabled = hasMultiplePages;
 
             this._model.connect('page-changed', Lang.bind(this, this._onPageChanged));
             this._onPageChanged();
@@ -596,14 +630,6 @@ const EvinceView = new Lang.Class({
         return this._model ? this._model.document.get_n_pages() : 0;
     },
 
-    findPrev: function() {
-        this._evView.find_previous();
-    },
-
-    findNext: function() {
-        this._evView.find_next();
-    },
-
     scroll: function(direction) {
         this._evView.scroll(direction, false);
     },
@@ -635,7 +661,7 @@ const EvinceViewNavControls = new Lang.Class({
 
         let buttonArea = barWidget.get_button_area();
 
-        let button = new Gtk.Button({ action_name: 'app.places',
+        let button = new Gtk.Button({ action_name: 'view.places',
                                       image: new Gtk.Image({ icon_name: 'view-list-symbolic',
                                                              pixel_size: 16 }),
                                       valign: Gtk.Align.CENTER,
@@ -643,7 +669,7 @@ const EvinceViewNavControls = new Lang.Class({
                                     });
         buttonArea.pack_start(button, false, false, 0);
 
-        button = new Gtk.ToggleButton({ action_name: 'app.bookmark-page',
+        button = new Gtk.ToggleButton({ action_name: 'view.bookmark-page',
                                         image: new Gtk.Image({ icon_name: 'bookmark-new-symbolic',
                                                                pixel_size: 16 }),
                                         valign: Gtk.Align.CENTER,
@@ -683,8 +709,7 @@ const EvinceViewToolbar = new Lang.Class({
         this._searchAction = Application.application.lookup_action('search');
         this._searchAction.enabled = false;
 
-        this._gearMenu = Application.application.lookup_action('gear-menu');
-        this._gearMenu.enabled = false;
+        this._previewView.getAction('gear-menu').enabled = false;
 
         // back button, on the left of the toolbar
         let backButton = this.addBackButton();
@@ -699,7 +724,7 @@ const EvinceViewToolbar = new Lang.Class({
         let previewMenu = this._getEvinceViewMenu();
         let menuButton = new Gtk.MenuButton({ image: new Gtk.Image ({ icon_name: 'open-menu-symbolic' }),
                                               menu_model: previewMenu,
-                                              action_name: 'app.gear-menu' });
+                                              action_name: 'view.gear-menu' });
         this.toolbar.pack_end(menuButton);
 
         // search button, on the right of the toolbar
@@ -746,7 +771,7 @@ const EvinceViewToolbar = new Lang.Class({
         if (doc && doc.defaultAppName) {
             let section = builder.get_object('open-section');
             section.remove(0);
-            section.prepend(_("Open with %s").format(doc.defaultAppName), 'app.open-current');
+            section.prepend(_("Open with %s").format(doc.defaultAppName), 'view.open-current');
         }
 
         return menu;
@@ -767,7 +792,7 @@ const EvinceViewToolbar = new Lang.Class({
     },
 
     setModel: function() {
-        this._gearMenu.enabled = true;
+        this._previewView.getAction('gear-menu').enabled = true;
         this._enableSearch();
         this._setToolbarTitle();
     }
@@ -785,10 +810,8 @@ const EvinceViewSearchbar = new Lang.Class({
     },
 
     _onSearchChanged: function(view, hasResults) {
-        let findPrev = Application.application.lookup_action('find-prev');
-        let findNext = Application.application.lookup_action('find-next');
-        findPrev.enabled = hasResults;
-        findNext.enabled = hasResults;
+        this.preview.getAction('find-prev').enabled = hasResults;
+        this.preview.getAction('find-next').enabled = hasResults;
     },
 
     entryChanged: function() {

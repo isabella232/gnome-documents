@@ -47,9 +47,10 @@ const Embed = new Lang.Class({
     Name: 'Embed',
     Extends: Gtk.Box,
 
-    _init: function() {
+    _init: function(mainWindow) {
         this._loadShowId = 0;
         this._searchState = null;
+        this._window = mainWindow;
 
         this.parent({ orientation: Gtk.Orientation.VERTICAL,
                       visible: true });
@@ -316,6 +317,7 @@ const Embed = new Lang.Class({
         let windowMode = Application.modeController.getWindowMode();
         let showSearch = (windowMode == WindowMode.WindowMode.PREVIEW_EV && !doc
                           || windowMode == WindowMode.WindowMode.SEARCH && !doc);
+
         if (showSearch)
             this._restoreSearch();
         else
@@ -375,6 +377,15 @@ const Embed = new Lang.Class({
             }));
     },
 
+    _clearPreview: function() {
+        if (this._preview) {
+            this._preview.destroy();
+            this._preview = null;
+        }
+
+        this._window.insert_action_group('view', null);
+    },
+
     _prepareForOverview: function(newMode, oldMode) {
         let createToolbar = (oldMode != WindowMode.WindowMode.COLLECTIONS &&
                              oldMode != WindowMode.WindowMode.DOCUMENTS &&
@@ -397,11 +408,7 @@ const Embed = new Lang.Class({
             break;
         }
 
-        if (this._preview) {
-            this._preview.destroy();
-            this._preview = null;
-        }
-
+        this._clearPreview();
         if (this._edit)
             this._edit.setUri(null);
 
@@ -419,16 +426,14 @@ const Embed = new Lang.Class({
     },
 
     _prepareForPreview: function(constructor) {
-        if (this._preview) {
-            this._preview.destroy();
-            this._preview = null;
-        }
+        this._clearPreview();
         if (this._edit)
             this._edit.setUri(null);
         if (this._toolbar)
             this._toolbar.destroy();
 
-        this._preview = new constructor(this._stackOverlay);
+        this._preview = new constructor(this._stackOverlay, this._window);
+        this._window.insert_action_group('view', this._preview.actionGroup);
         this._stack.add_named(this._preview, 'preview');
 
         // pack the toolbar
@@ -439,10 +444,7 @@ const Embed = new Lang.Class({
     },
 
     _prepareForEdit: function() {
-        if (this._preview) {
-            this._preview.destroy();
-            this._preview = null;
-        }
+        this._clearPreview();
         if (this._toolbar)
             this._toolbar.destroy();
 
@@ -450,6 +452,8 @@ const Embed = new Lang.Class({
         this._toolbar = new Edit.EditToolbar(this._preview);
         this._titlebar.add(this._toolbar);
 
+        let doc = Application.documentManager.getActiveItem();
+        this._edit.setUri(doc.uri);
         this._stack.set_visible_child_name('edit');
     },
 

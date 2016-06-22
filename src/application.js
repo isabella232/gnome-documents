@@ -248,63 +248,6 @@ const Application = new Lang.Class({
             settings.set_value('sort-by', parameter);
     },
 
-    _onActionOpenCurrent: function() {
-        let doc = documentManager.getActiveItem();
-        if (doc)
-            doc.open(this._mainWindow.get_screen(), Gtk.get_current_event_time());
-    },
-
-    _onActionPrintCurrent: function() {
-        let doc = documentManager.getActiveItem();
-        if (doc)
-            doc.print(this._mainWindow);
-    },
-
-    _onActionToggle: function(action) {
-        let state = action.get_state();
-        action.change_state(GLib.Variant.new('b', !state.get_boolean()));
-    },
-
-    _onActionProperties: function() {
-        let doc = documentManager.getActiveItem();
-        if (!doc)
-            return;
-
-        let dialog = new Properties.PropertiesDialog(doc.id);
-        dialog.connect('response', Lang.bind(this,
-            function(widget, response) {
-                widget.destroy();
-            }));
-    },
-
-    _initActions: function() {
-        this._actionEntries.forEach(Lang.bind(this,
-            function(actionEntry) {
-                let state = actionEntry.state;
-                let parameterType = actionEntry.parameter_type ?
-                    GLib.VariantType.new(actionEntry.parameter_type) : null;
-                let action;
-
-                if (state)
-                    action = Gio.SimpleAction.new_stateful(actionEntry.name,
-                        parameterType, actionEntry.state);
-                else
-                    action = new Gio.SimpleAction({ name: actionEntry.name,
-                        parameter_type: parameterType });
-
-                if (actionEntry.create_hook)
-                    actionEntry.create_hook.apply(this, [action]);
-
-                if (actionEntry.callback)
-                    action.connect('activate', Lang.bind(this, actionEntry.callback));
-
-                if (actionEntry.accels)
-                    this.set_accels_for_action('app.' + actionEntry.name, actionEntry.accels);
-
-                this.add_action(action);
-            }));
-    },
-
     _connectActionsToMode: function() {
         this._actionEntries.forEach(Lang.bind(this,
             function(actionEntry) {
@@ -519,70 +462,49 @@ const Application = new Lang.Class({
 
         this._actionEntries = [
             { name: 'quit',
-              callback: this._onActionQuit,
+              callback: Lang.bind(this, this._onActionQuit),
               accels: ['<Primary>q'] },
             { name: 'about',
-              callback: this._onActionAbout },
+              callback: Lang.bind(this, this._onActionAbout) },
             { name: 'help',
-              callback: this._onActionHelp,
+              callback: Lang.bind(this, this._onActionHelp),
               accels: ['F1'] },
             { name: 'fullscreen',
-              callback: this._onActionFullscreen,
+              callback: Lang.bind(this, this._onActionFullscreen),
               state: GLib.Variant.new('b', false),
-              create_hook: this._fullscreenCreateHook,
+              create_hook: Lang.bind(this, this._fullscreenCreateHook),
               accels: ['F11'],
               window_mode: WindowMode.WindowMode.PREVIEW_EV },
             { name: 'night-mode',
-              callback: this._onActionNightMode,
-              create_hook: this._nightModeCreateHook,
+              callback: Lang.bind(this, this._onActionNightMode),
+              create_hook: Lang.bind(this, this._nightModeCreateHook),
               state: settings.get_value('night-mode') },
             { name: 'gear-menu',
-              callback: this._onActionToggle,
+              callback: Utils.actionToggleCallback,
               state: GLib.Variant.new('b', false),
               accels: ['F10'] },
             { name: 'view-as',
-              callback: this._onActionViewAs,
-              create_hook: this._viewAsCreateHook,
+              callback: Lang.bind(this, this._onActionViewAs),
+              create_hook: Lang.bind(this, this._viewAsCreateHook),
               parameter_type: 's',
               state: settings.get_value('view-as'),
               window_modes: [WindowMode.WindowMode.COLLECTIONS,
                              WindowMode.WindowMode.DOCUMENTS,
                              WindowMode.WindowMode.SEARCH] },
             { name: 'sort-by',
-              callback: this._onActionSortBy,
-              create_hook: this._sortByCreateHook,
+              callback: Lang.bind(this, this._onActionSortBy),
+              create_hook: Lang.bind(this, this._sortByCreateHook),
               parameter_type: 's',
               state: settings.get_value('sort-by'),
               window_modes: [WindowMode.WindowMode.COLLECTIONS,
                              WindowMode.WindowMode.DOCUMENTS,
                              WindowMode.WindowMode.SEARCH] },
-            { name: 'open-current',
-              callback: this._onActionOpenCurrent,
-              window_modes: [WindowMode.WindowMode.PREVIEW_EV,
-                             WindowMode.WindowMode.PREVIEW_LOK] },
-            { name: 'edit-current' },
             { name: 'view-current',
               window_mode: WindowMode.WindowMode.EDIT },
-            { name: 'print-current', accels: ['<Primary>p'],
-              callback: this._onActionPrintCurrent },
             { name: 'search',
-              callback: this._onActionToggle,
+              callback: Utils.actionToggleCallback,
               state: GLib.Variant.new('b', false),
               accels: ['<Primary>f'] },
-            { name: 'find-next', accels: ['<Primary>g'],
-              window_mode: WindowMode.WindowMode.PREVIEW_EV },
-            { name: 'find-prev', accels: ['<Shift><Primary>g'],
-              window_mode: WindowMode.WindowMode.PREVIEW_EV },
-            { name: 'zoom-in', accels: ['<Primary>plus', '<Primary>equal'],
-              window_modes: [WindowMode.WindowMode.PREVIEW_EV,
-                             WindowMode.WindowMode.PREVIEW_LOK] },
-            { name: 'zoom-out', accels: ['<Primary>minus'],
-              window_modes: [WindowMode.WindowMode.PREVIEW_EV,
-                             WindowMode.WindowMode.PREVIEW_LOK] },
-            { name: 'rotate-left', accels: ['<Primary>Left'],
-              window_mode: WindowMode.WindowMode.PREVIEW_EV },
-            { name: 'rotate-right', accels: ['<Primary>Right'],
-              window_mode: WindowMode.WindowMode.PREVIEW_EV },
             { name: 'select-all', accels: ['<Primary>a'],
               window_modes: [WindowMode.WindowMode.COLLECTIONS,
                              WindowMode.WindowMode.DOCUMENTS,
@@ -591,21 +513,6 @@ const Application = new Lang.Class({
               window_modes: [WindowMode.WindowMode.COLLECTIONS,
                              WindowMode.WindowMode.DOCUMENTS,
                              WindowMode.WindowMode.SEARCH] },
-            { name: 'properties',
-              callback: this._onActionProperties,
-              window_modes: [WindowMode.WindowMode.PREVIEW_EV,
-                             WindowMode.WindowMode.PREVIEW_LOK] },
-            { name: 'bookmark-page',
-              callback: this._onActionToggle,
-              state: GLib.Variant.new('b', false),
-              accels: ['<Primary>d'],
-              window_mode: WindowMode.WindowMode.PREVIEW_EV },
-            { name: 'places',
-              accels: ['<Primary>b'],
-              window_mode: WindowMode.WindowMode.PREVIEW_EV },
-            { name: 'copy',
-              accels: ['<Primary>c'],
-              window_mode: WindowMode.WindowMode.PREVIEW_EV },
             { name: 'search-source',
               parameter_type: 's',
               state: GLib.Variant.new('s', Search.SearchSourceStock.ALL),
@@ -626,17 +533,10 @@ const Application = new Lang.Class({
                              WindowMode.WindowMode.SEARCH] }
         ];
 
-        if (!this.isBooks) {
-            this._actionEntries.push (
-            { name: 'present-current',
-              window_mode: WindowMode.WindowMode.PREVIEW_EV,
-              callback: this._onActionToggle,
-              state: GLib.Variant.new('b', false),
-              accels: ['F5'] });
+        if (!this.isBooks)
             this._initGettingStarted();
-        }
 
-        this._initActions();
+        Utils.populateActionGroup(this, this._actionEntries, 'app');
     },
 
     _createWindow: function() {

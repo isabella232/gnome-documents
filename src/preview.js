@@ -1,5 +1,7 @@
 const GdPrivate = imports.gi.GdPrivate;
+const Gio = imports.gi.Gio;
 const Gdk = imports.gi.Gdk;
+const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
 
 const Lang = imports.lang;
@@ -8,24 +10,25 @@ const Tweener = imports.tweener.tweener;
 
 const Application = imports.application;
 const ErrorBox = imports.errorBox;
+const Properties = imports.properties;
 const Searchbar = imports.searchbar;
+const Utils = imports.utils;
 
 const Preview = new Lang.Class({
     Name: 'Preview',
     Extends: Gtk.Stack,
 
-    _init: function(overlay) {
+    _init: function(overlay, mainWindow) {
         this._lastSearch = '';
         this.overlay = overlay;
+        this.mainWindow = mainWindow;
 
         this.parent({ homogeneous: true,
                       transition_type: Gtk.StackTransitionType.CROSSFADE });
 
-        this._findPrev = Application.application.lookup_action('find-prev');
-        this._findPrevId = this._findPrev.connect('activate', Lang.bind(this, this.findPrev));
-
-        this._findNext = Application.application.lookup_action('find-next');
-        this._findNextId = this._findNext.connect('activate', Lang.bind(this, this.findNext));
+        let actions = this.createActions().concat(this._getDefaultActions());
+        this.actionGroup = new Gio.SimpleActionGroup();
+        Utils.populateActionGroup(this.actionGroup, actions, 'view');
 
         this._errorBox = new ErrorBox.ErrorBox();
         this.add_named(this._errorBox, 'error');
@@ -47,15 +50,37 @@ const Preview = new Lang.Class({
                                                                 Lang.bind(this, this.onLoadError));
     },
 
+    _getDefaultActions: function() {
+        return [
+            { name: 'gear-menu',
+              callback: Utils.actionToggleCallback,
+              state: GLib.Variant.new('b', false),
+              accels: ['F10'] },
+            { name: 'properties',
+              callback: Lang.bind(this, this._properties) },
+            { name: 'open-current',
+              callback: Lang.bind(this, this._openCurrent) }
+        ];
+    },
+
+    _properties: function() {
+        let doc = Application.documentManager.getActiveItem();
+        if (!doc)
+            return;
+
+        let dialog = new Properties.PropertiesDialog(doc.id);
+        dialog.connect('response', Lang.bind(this, function(widget, response) {
+            widget.destroy();
+        }));
+    },
+
+    _openCurrent: function() {
+        let doc = Application.documentManager.getActiveItem();
+        if (doc)
+            doc.open(this.mainWindow.get_screen(), Gtk.get_current_event_time());
+    },
+
     vfunc_destroy: function() {
-        if (this._findPrevId > 0) {
-            this._findPrev.disconnect(this._findPrevId);
-            this._findPrevId = 0;
-        }
-        if (this._findNextId > 0) {
-            this._findNext.disconnect(this._findNextId);
-            this._findNextId = 0;
-        }
         if (this._loadStartedId > 0) {
             Application.documentManager.disconnect(this._loadStartedId);
             this._loadStartedId = 0;
@@ -76,6 +101,10 @@ const Preview = new Lang.Class({
         this.parent();
     },
 
+    createActions: function() {
+        return [];
+    },
+
     createNavControls: function() {
         return new PreviewNavControls(this, this.overlay);
     },
@@ -92,11 +121,16 @@ const Preview = new Lang.Class({
     },
 
     onLoadFinished: function(manager, doc, docModel) {
+        this.getAction('open-current').enabled = (doc.defaultApp != null);
     },
 
     onLoadError: function(manager, doc, message, exception) {
         this._errorBox.update(message, exception.message);
         this.set_visible_child_name('error');
+    },
+
+    getAction: function(name) {
+        return this.actionGroup.lookup_action(name);
     },
 
     goPrev: function() {
@@ -360,17 +394,17 @@ const PreviewSearchbar = new Lang.Class({
 
         this.searchEntry = new Gtk.SearchEntry({ width_request: 500 });
         this.searchEntry.connect('activate', Lang.bind(this, function() {
-            Application.application.activate_action('find-next', null);
+            this.preview.activateResult();
         }));
         box.add(this.searchEntry);
 
-        this._prev = new Gtk.Button({ action_name: 'app.find-prev' });
+        this._prev = new Gtk.Button({ action_name: 'view.find-prev' });
         this._prev.set_image(new Gtk.Image({ icon_name: 'go-up-symbolic',
                                              icon_size: Gtk.IconSize.MENU }));
         this._prev.set_tooltip_text(_("Find Previous"));
         box.add(this._prev);
 
-        this._next = new Gtk.Button({ action_name: 'app.find-next' });
+        this._next = new Gtk.Button({ action_name: 'view.find-next' });
         this._next.set_image(new Gtk.Image({ icon_name: 'go-down-symbolic',
                                              icon_size: Gtk.IconSize.MENU }));
         this._next.set_tooltip_text(_("Find Next"));

@@ -2,20 +2,22 @@
   <menu id="preview-menu">
     <section id="open-section">
       <item>
-        <attribute name="action">app.open-current</attribute>
+        <attribute name="action">view.open-current</attribute>
         <attribute name="label" translatable="yes">Open</attribute>
       </item>
       <item>
-        <attribute name="action">app.edit-current</attribute>
+        <attribute name="action">view.edit-current</attribute>
         <attribute name="label" translatable="yes">Edit</attribute>
+        <attribute name='hidden-when'>action-missing</attribute>
       </item>
       <item>
-        <attribute name="action">app.print-current</attribute>
+        <attribute name="action">view.print-current</attribute>
         <attribute name="label" translatable="yes">Print…</attribute>
         <attribute name="accel">&lt;Primary&gt;p</attribute>
+        <attribute name='hidden-when'>action-missing</attribute>
       </item>
       <item>
-        <attribute name="action">app.present-current</attribute>
+        <attribute name="action">view.present-current</attribute>
         <attribute name='hidden-when'>action-missing</attribute>
         <attribute name="label" translatable="yes">Present</attribute>
         <attribute name="accel">F5</attribute>
@@ -23,31 +25,35 @@
     </section>
     <section>
       <item>
-        <attribute name="action">app.zoom-in</attribute>
+        <attribute name="action">view.zoom-in</attribute>
+        <attribute name='hidden-when'>action-missing</attribute>
         <attribute name="label" translatable="yes">Zoom In</attribute>
         <attribute name="accel">&lt;Primary&gt;plus</attribute>
       </item>
       <item>
-        <attribute name="action">app.zoom-out</attribute>
+        <attribute name="action">view.zoom-out</attribute>
+        <attribute name='hidden-when'>action-missing</attribute>
         <attribute name="label" translatable="yes">Zoom Out</attribute>
         <attribute name="accel">&lt;Primary&gt;minus</attribute>
       </item>
     </section>
     <section id='rotate-section'>
       <item>
-        <attribute name="action">app.rotate-left</attribute>
+        <attribute name="action">view.rotate-left</attribute>
+        <attribute name='hidden-when'>action-missing</attribute>
         <attribute name="label" translatable="yes">Rotate ↶</attribute>
         <attribute name="accel">&lt;Primary&gt;Left</attribute>
       </item>
       <item>
-        <attribute name="action">app.rotate-right</attribute>
+        <attribute name="action">view.rotate-right</attribute>
+        <attribute name='hidden-when'>action-missing</attribute>
         <attribute name="label" translatable="yes">Rotate ↷</attribute>
         <attribute name="accel">&lt;Primary&gt;Right</attribute>
       </item>
     </section>
     <section>
       <item>
-        <attribute name="action">app.properties</attribute>
+        <attribute name="action">view.properties</attribute>
         <attribute name="label" translatable="yes">Properties</attribute>
       </item>
     </section>
