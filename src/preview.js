@@ -10,6 +10,7 @@ const Tweener = imports.tweener.tweener;
 
 const Application = imports.application;
 const ErrorBox = imports.errorBox;
+const MainToolbar = imports.mainToolbar;
 const Properties = imports.properties;
 const Searchbar = imports.searchbar;
 const Utils = imports.utils;
@@ -110,7 +111,7 @@ const Preview = new Lang.Class({
     },
 
     createToolbar: function() {
-        throw(new Error('Not implemented'));
+        return new PreviewToolbar(this);
     },
 
     createView: function() {
@@ -161,6 +162,10 @@ const Preview = new Lang.Class({
         return this._lastSearch;
     },
 
+    get canFind() {
+        return false;
+    },
+
     findPrev: function() {
         throw (new Error('Not implemented'));
     },
@@ -175,6 +180,68 @@ const Preview = new Lang.Class({
 
     activateResult: function() {
         this.findNext();
+    }
+});
+
+const PreviewToolbar = new Lang.Class({
+    Name: 'PreviewToolbar',
+    Extends: MainToolbar.MainToolbar,
+
+    _init: function(preview) {
+        this.preview = preview;
+
+        this.parent();
+        this.toolbar.set_show_close_button(true);
+
+        // back button, on the left of the toolbar
+        let backButton = this.addBackButton();
+        backButton.connect('clicked', Lang.bind(this,
+            function() {
+                Application.documentManager.setActiveItem(null);
+                Application.modeController.goBack();
+            }));
+
+        // menu button, on the right of the toolbar
+        let menuButton = new Gtk.MenuButton({ image: new Gtk.Image ({ icon_name: 'open-menu-symbolic' }),
+                                              menu_model: this._getPreviewMenu(),
+                                              action_name: 'view.gear-menu' });
+        this.toolbar.pack_end(menuButton);
+
+        // search button, on the right of the toolbar
+        if (this.preview.canFind)
+            this.addSearchButton();
+
+        this.updateTitle();
+        this.toolbar.show_all();
+    },
+
+    _getPreviewMenu: function() {
+        let builder = new Gtk.Builder();
+        builder.add_from_resource('/org/gnome/Documents/ui/preview-menu.ui');
+        let menu = builder.get_object('preview-menu');
+
+        let doc = Application.documentManager.getActiveItem();
+        if (doc && doc.defaultAppName) {
+            let section = builder.get_object('open-section');
+            section.remove(0);
+            section.prepend(_("Open with %s").format(doc.defaultAppName), 'view.open-current');
+        }
+
+        return menu;
+    },
+
+    createSearchbar: function() {
+        return new PreviewSearchbar(this.preview);
+    },
+
+    updateTitle: function() {
+        let primary = null;
+        let doc = Application.documentManager.getActiveItem();
+
+        if (doc)
+            primary = doc.name;
+
+        this.toolbar.set_title(primary);
     }
 });
 

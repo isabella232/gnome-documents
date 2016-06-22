@@ -103,6 +103,10 @@ const EPUBView = new Lang.Class({
         fc.search(str, WebKit2.FindOptions.CASE_INSENSITIVE, 0);
     },
 
+    get canFind() {
+        return true;
+    },
+
     findNext: function() {
         let fc = this.view.get_find_controller();
         fc.search_next();
@@ -144,45 +148,9 @@ const EPUBSearchbar = new Lang.Class({
 
 const EPUBViewToolbar = new Lang.Class({
     Name: 'EPUBViewToolbar',
-    Extends: MainToolbar.MainToolbar,
-
-    _init: function(previewView) {
-        this._previewView = previewView;
-
-        this.parent();
-        this.toolbar.set_show_close_button(true);
-
-        this._handleEvent = false;
-        this._model = null;
-
-        this._searchAction = Application.application.lookup_action('search');
-        this._searchAction.enabled = true;
-
-        // back button, on the left of the toolbar
-        let backButton = this.addBackButton();
-        backButton.connect('clicked', Lang.bind(this, function() {
-            Application.documentManager.setActiveItem(null);
-            Application.modeController.goBack();
-        }));
-
-        // search button, on the right of the toolbar
-        this.addSearchButton();
-
-        this._setToolbarTitle();
-        this.toolbar.show_all();
-    },
+    Extends: Preview.PreviewToolbar,
 
     createSearchbar: function() {
-        return new EPUBSearchbar(this._previewView);
-    },
-
-    _setToolbarTitle: function() {
-        let primary = null;
-        let doc = Application.documentManager.getActiveItem();
-
-        if (doc)
-            primary = doc.name;
-
-        this.toolbar.set_title(primary);
-    },
+        return new EPUBSearchbar(this.preview);
+    }
 });

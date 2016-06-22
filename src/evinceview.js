@@ -630,6 +630,10 @@ const EvinceView = new Lang.Class({
         return this._model ? this._model.document.get_n_pages() : 0;
     },
 
+    get canFind() {
+        return true;
+    },
+
     scroll: function(direction) {
         this._evView.scroll(direction, false);
     },
@@ -696,55 +700,29 @@ const EvinceViewNavControls = new Lang.Class({
 
 const EvinceViewToolbar = new Lang.Class({
     Name: 'EvinceViewToolbar',
-    Extends: MainToolbar.MainToolbar,
+    Extends: Preview.PreviewToolbar,
 
-    _init: function(previewView) {
-        this._previewView = previewView;
-
-        this.parent();
-        this.toolbar.set_show_close_button(true);
+    _init: function(preview) {
+        this.parent(preview);
 
         this._handleEvent = false;
-
         this._searchAction = Application.application.lookup_action('search');
         this._searchAction.enabled = false;
 
-        this._previewView.getAction('gear-menu').enabled = false;
+        this.preview.getAction('gear-menu').enabled = false;
 
-        // back button, on the left of the toolbar
-        let backButton = this.addBackButton();
-        backButton.connect('clicked', Lang.bind(this,
-            function() {
-                Application.documentManager.setActiveItem(null);
-                Application.modeController.goBack();
-                this._searchAction.enabled = true;
-            }));
-
-        // menu button, on the right of the toolbar
-        let previewMenu = this._getEvinceViewMenu();
-        let menuButton = new Gtk.MenuButton({ image: new Gtk.Image ({ icon_name: 'open-menu-symbolic' }),
-                                              menu_model: previewMenu,
-                                              action_name: 'view.gear-menu' });
-        this.toolbar.pack_end(menuButton);
-
-        // search button, on the right of the toolbar
-        this.addSearchButton();
         if (Application.application.isBooks) {
             this.addFullscreenButton();
             this.addNightmodeButton();
         }
 
-        this._setToolbarTitle();
-        this.toolbar.show_all();
-
-        this.connect('destroy', Lang.bind(this,
-            function() {
-                this._searchAction.enabled = true;
-            }));
+        this.connect('destroy', Lang.bind(this, function() {
+            this._searchAction.enabled = true;
+        }));
     },
 
     _enableSearch: function() {
-        let hasPages = this._previewView.hasPages;
+        let hasPages = this.preview.hasPages;
         let canFind = true;
 
         try {
@@ -762,39 +740,14 @@ const EvinceViewToolbar = new Lang.Class({
         this._searchAction.enabled = (hasPages && canFind);
     },
 
-    _getEvinceViewMenu: function() {
-        let builder = new Gtk.Builder();
-        builder.add_from_resource('/org/gnome/Documents/ui/preview-menu.ui');
-        let menu = builder.get_object('preview-menu');
-
-        let doc = Application.documentManager.getActiveItem();
-        if (doc && doc.defaultAppName) {
-            let section = builder.get_object('open-section');
-            section.remove(0);
-            section.prepend(_("Open with %s").format(doc.defaultAppName), 'view.open-current');
-        }
-
-        return menu;
-    },
-
     createSearchbar: function() {
-        return new EvinceViewSearchbar(this._previewView);
-    },
-
-    _setToolbarTitle: function() {
-        let primary = null;
-        let doc = Application.documentManager.getActiveItem();
-
-        if (doc)
-            primary = doc.name;
-
-        this.toolbar.set_title(primary);
+        return new EvinceViewSearchbar(this.preview);
     },
 
     setModel: function() {
-        this._previewView.getAction('gear-menu').enabled = true;
+        this.preview.getAction('gear-menu').enabled = true;
         this._enableSearch();
-        this._setToolbarTitle();
+        this.updateTitle();
     }
 });
 

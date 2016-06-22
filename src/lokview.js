@@ -128,10 +128,6 @@ const LOKView = new Lang.Class({
         ];
     },
 
-    createToolbar: function() {
-        return new LOKViewToolbar(this);
-    },
-
     createView: function() {
         let sw = new Gtk.ScrolledWindow({ hexpand: true,
                                           vexpand: true });
@@ -263,62 +259,3 @@ const LOKView = new Lang.Class({
     }
 });
 Signals.addSignalMethods(LOKView.prototype);
-
-const LOKViewToolbar = new Lang.Class({
-    Name: 'LOKViewToolbar',
-    Extends: MainToolbar.MainToolbar,
-
-    _init: function(lokView) {
-        this._lokView = lokView;
-
-        this.parent();
-        this.toolbar.set_show_close_button(true);
-
-        // back button, on the left of the toolbar
-        let backButton = this.addBackButton();
-        backButton.connect('clicked', Lang.bind(this,
-            function() {
-                Application.documentManager.setActiveItem(null);
-                Application.modeController.goBack();
-            }));
-
-        // menu button, on the right of the toolbar
-        let lokViewMenu = this._getLOKViewMenu();
-        let menuButton = new Gtk.MenuButton({ image: new Gtk.Image ({ icon_name: 'open-menu-symbolic' }),
-                                              menu_model: lokViewMenu,
-                                              action_name: 'view.gear-menu' });
-        this.toolbar.pack_end(menuButton);
-
-        this._setToolbarTitle();
-        this.toolbar.show_all();
-    },
-
-    _getLOKViewMenu: function() {
-        let builder = new Gtk.Builder();
-        builder.add_from_resource('/org/gnome/Documents/ui/preview-menu.ui');
-        let menu = builder.get_object('preview-menu');
-        let section = builder.get_object('open-section');
-
-        let doc = Application.documentManager.getActiveItem();
-        if (doc && doc.defaultAppName) {
-            section.remove(0);
-            section.prepend(_("Open with %s").format(doc.defaultAppName), 'view.open-current');
-        }
-
-        return menu;
-    },
-
-    handleEvent: function(event) {
-        return false;
-    },
-
-    _setToolbarTitle: function() {
-        let primary = null;
-        let doc = Application.documentManager.getActiveItem();
-
-        if (doc)
-            primary = doc.name;
-
-        this.toolbar.set_title(primary);
-    }
-});
