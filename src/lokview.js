@@ -107,11 +107,6 @@ const LOKView = new Lang.Class({
                                                   valign: Gtk.Align.START });
         this._progressBar.get_style_context().add_class('osd');
         this.overlay.add_overlay(this._progressBar);
-
-        // create context menu
-        let model = this._getPreviewContextMenu();
-        this._previewContextMenu = Gtk.Menu.new_from_model(model);
-        this._previewContextMenu.attach_to_widget(this.view, null);
     },
 
     createActions: function() {
@@ -199,18 +194,12 @@ const LOKView = new Lang.Class({
         this.getAction('zoom-out').enabled = this._lokview.can_zoom_out;
     },
 
-    _getPreviewContextMenu: function() {
-        let builder = new Gtk.Builder();
-        builder.add_from_resource('/org/gnome/Documents/ui/preview-context-menu.ui');
-        return builder.get_object('preview-context-menu');
-    },
-
     _onButtonPressEvent: function(widget, event) {
         let button = event.get_button()[1];
 
         if (button == 3) {
             let time = event.get_time();
-            this._previewContextMenu.popup(null, null, null, button, time);
+            this.contextMenu.popup(null, null, null, button, time);
             return true;
         }
 

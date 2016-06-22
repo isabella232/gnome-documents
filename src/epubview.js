@@ -63,6 +63,10 @@ const EPUBView = new Lang.Class({
         return new Gepub.Widget();
     },
 
+    createContextMenu: function() {
+        return null;
+    },
+
     onLoadFinished: function(manager, doc) {
         this.parent(manager, doc);
 

@@ -63,11 +63,6 @@ const EvinceView = new Lang.Class({
         Application.modeController.connect('window-mode-changed', Lang.bind(this,
             this._onWindowModeChanged));
 
-        // create context menu
-        let model = this._getEvinceViewContextMenu();
-        this._previewContextMenu = Gtk.Menu.new_from_model(model);
-        this._previewContextMenu.attach_to_widget(this.view, null);
-
         this.getAction('bookmark-page').enabled = false;
 
         let nightModeId = Application.application.connect('action-state-changed::night-mode',
@@ -399,12 +394,6 @@ const EvinceView = new Lang.Class({
         this.getAction('zoom-out').enabled = this._evView.can_zoom_out;
     },
 
-    _getEvinceViewContextMenu: function() {
-        let builder = new Gtk.Builder();
-        builder.add_from_resource('/org/gnome/Documents/ui/preview-context-menu.ui');
-        return builder.get_object('preview-context-menu');
-    },
-
     _syncControlsVisible: function() {
         if (this._controlsVisible) {
             if (this._fsToolbar)
@@ -474,7 +463,7 @@ const EvinceView = new Lang.Class({
 
         if (button == 3) {
             let time = event.get_time();
-            this._previewContextMenu.popup(null, null, null, button, time);
+            this.contextMenu.popup(null, null, null, button, time);
             return true;
         }
 

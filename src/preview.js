@@ -39,6 +39,10 @@ const Preview = new Lang.Class({
         this.view.show();
         this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
 
+        this.contextMenu = this.createContextMenu();
+        if (this.contextMenu)
+            this.contextMenu.attach_to_widget(this.view, null);
+
         this.navControls = this.createNavControls();
         this.navControls.show();
         this.show_all();
@@ -116,6 +120,13 @@ const Preview = new Lang.Class({
 
     createView: function() {
         throw(new Error('Not implemented'));
+    },
+
+    createContextMenu: function() {
+        let builder = new Gtk.Builder();
+        builder.add_from_resource('/org/gnome/Documents/ui/preview-context-menu.ui');
+        let model = builder.get_object('preview-context-menu');
+        return Gtk.Menu.new_from_model(model);
     },
 
     onLoadStarted: function(manager, doc) {
