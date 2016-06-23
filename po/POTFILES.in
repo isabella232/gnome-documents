@@ -1,3 +1,5 @@
+# List of source files containing translatable strings.
+# Please keep this file sorted alphabetically.
 [encoding: UTF-8]
 data/org.gnome.Books.appdata.xml.in
 data/org.gnome.Books.desktop.in
@@ -17,21 +19,19 @@ src/application.js
 src/documents.js
 src/edit.js
 src/embed.js
+src/evinceview.js
 src/lib/gd-nav-bar.c
 src/lib/gd-pdf-loader.c
 src/lib/gd-places-bookmarks.c
 src/lib/gd-places-links.c
 src/lib/gd-utils.c
-src/lokview.js
 src/mainToolbar.js
 src/mainWindow.js
 src/notifications.js
 src/password.js
-src/places.js
 src/presentation.js
-src/evinceview.js
+src/preview.js
 src/properties.js
-src/searchbar.js
 src/search.js
 src/selections.js
 src/sharing.js
