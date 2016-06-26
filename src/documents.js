@@ -1194,8 +1194,6 @@ const DocumentManager = new Lang.Class({
     _init: function() {
         this.parent();
 
-        this._activeDocModel = null;
-        this._activeDocModelIds = [];
         this._loaderCancellable = null;
 
         this._activeCollection = null;
@@ -1395,14 +1393,6 @@ const DocumentManager = new Lang.Class({
             return;
         }
 
-        // save loaded model and signal
-        this._activeDocModel = docModel;
-        if (this._activeDocModel)
-            this._activeDocModel.set_continuous(false);
-
-        // load metadata
-        this._connectMetadata();
-
         this.emit('load-finished', doc, docModel);
     },
 
@@ -1501,40 +1491,5 @@ const DocumentManager = new Lang.Class({
             this._loaderCancellable.cancel();
             this._loaderCancellable = null;
         }
-
-        // clear any previously loaded document model
-        if (this._activeDocModel) {
-            this._activeDocModelIds.forEach(Lang.bind(this,
-                function(id) {
-                    this._activeDocModel.disconnect(id);
-                }));
-
-            this.metadata = null;
-            this._activeDocModel = null;
-            this._activeDocModelIds = [];
-        }
-    },
-
-    _connectMetadata: function() {
-        if (!this._activeDocModel)
-            return;
-        let evDoc = this._activeDocModel.get_document();
-        let file = Gio.File.new_for_uri(evDoc.get_uri());
-        if (!GdPrivate.is_metadata_supported_for_file(file))
-            return;
-
-        this.metadata = new GdPrivate.Metadata({ file: file });
-
-        let [res, val] = this.metadata.get_int('page');
-        if (res)
-            this._activeDocModel.set_page(val);
-
-        // save current page in metadata
-        this._activeDocModelIds.push(
-            this._activeDocModel.connect('page-changed', Lang.bind(this,
-                function(source, oldPage, newPage) {
-                    this.metadata.set_int('page', newPage);
-                }))
-        );
     }
 });

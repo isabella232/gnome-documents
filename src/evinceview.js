@@ -245,16 +245,43 @@ const EvinceView = new Lang.Class({
         if (doc.viewType != Documents.ViewType.EV)
             return;
 
-        this.getAction('copy').enabled = false;
-        this.getAction('edit-current').enabled = doc.canEdit();
-        this.getAction('print-current').enabled = doc.canPrint(docModel);
+        this.controlsVisible = false;
+        this._lastSearch = '';
+        this._model = docModel;
 
         if (Application.application.isBooks)
             docModel.set_sizing_mode(EvView.SizingMode.FIT_PAGE);
         else
             docModel.set_sizing_mode(EvView.SizingMode.AUTOMATIC);
+
+        docModel.set_continuous(false);
         docModel.set_page_layout(EvView.PageLayout.AUTOMATIC);
-        this._setModel(docModel);
+        this._updateNightMode();
+
+        this._model.connect('page-changed', Lang.bind(this, this._onPageChanged));
+
+        this._metadata = this._loadMetadata();
+        if (this._metadata)
+            this._bookmarks = new GdPrivate.Bookmarks({ metadata: this._metadata });
+
+        this._onPageChanged();
+
+        this.getAction('copy').enabled = false;
+        this.getAction('edit-current').enabled = doc.canEdit();
+        this.getAction('print-current').enabled = doc.canPrint(docModel);
+        let presentCurrent = this.getAction('present-current');
+        if (presentCurrent)
+            presentCurrent.enabled = true;
+
+        let hasMultiplePages = (this.numPages > 1);
+        this.getAction('bookmark-page').enabled = hasMultiplePages && this._bookmarks;
+        this.getAction('places').enabled = hasMultiplePages;
+
+        this._evView.set_model(this._model);
+        this.navControls.setModel(this._model);
+        this._toolbar.setModel(this._model);
+
+        this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
         this.grab_focus();
     },
 
@@ -266,12 +293,14 @@ const EvinceView = new Lang.Class({
     },
 
     _onPageChanged: function() {
+        let pageNumber = this._model.page;
         this._pageChanged = true;
+        if (this._metadata)
+            this._metadata.set_int('page', pageNumber);
 
         if (!this._bookmarks)
             return;
 
-        let pageNumber = this._model.page;
         let bookmark = new GdPrivate.Bookmark({ page_number: pageNumber });
         let hasBookmark = (this._bookmarks.find_bookmark(bookmark) != null);
 
@@ -543,43 +572,19 @@ const EvinceView = new Lang.Class({
         this.emitJS('search-changed', job.has_results());
     },
 
-    _setModel: function(model) {
-        if (this._model == model)
-            return;
+    _loadMetadata: function() {
+        let evDoc = this._model.get_document();
+        let file = Gio.File.new_for_uri(evDoc.get_uri());
+        if (!GdPrivate.is_metadata_supported_for_file(file))
+            return null;
 
-        this.controlsVisible = false;
-        this._lastSearch = '';
-        this._model = model;
+        let metadata = new GdPrivate.Metadata({ file: file });
 
-        this._evView.set_model(this._model);
-        this.navControls.setModel(this._model);
-        this._toolbar.setModel(this._model);
+        let [res, val] = metadata.get_int('page');
+        if (res)
+            this._model.set_page(val);
 
-        if (this._model) {
-            let presentCurrent = this.getAction('present-current');
-            if (presentCurrent)
-                presentCurrent.enabled = true;
-
-            if (Application.documentManager.metadata)
-                this._bookmarks = new GdPrivate.Bookmarks({ metadata: Application.documentManager.metadata });
-
-            let hasMultiplePages = (this._model.document.get_n_pages() > 1);
-            this.getAction('bookmark-page').enabled = hasMultiplePages && this._bookmarks;
-            this.getAction('places').enabled = hasMultiplePages;
-
-            this._model.connect('page-changed', Lang.bind(this, this._onPageChanged));
-            this._onPageChanged();
-
-            this._updateNightMode();
-
-            this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
-        } else {
-	    if (this._jobFind) {
-	        if (!this._jobFind.is_finished())
-	            this._jobFind.cancel();
-	        this._jobFind = null;
-	    }
-        }
+        return metadata;
     },
 
     _updateNightMode: function() {
