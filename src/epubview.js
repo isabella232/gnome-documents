@@ -19,6 +19,7 @@
  *
  */
 
+const GdPrivate = imports.gi.GdPrivate;
 const Gepub = imports.gi.Gepub;
 const Gio = imports.gi.Gio;
 const WebKit2 = imports.gi.WebKit2;
@@ -70,8 +71,33 @@ const EPUBView = new Lang.Class({
         let f = Gio.File.new_for_uri(doc.uri);
         this._epubdoc = new Gepub.Doc({ path: f.get_path() });
         this._epubdoc.init(null);
+
         this.view.doc = this._epubdoc;
+        this._epubdoc.connect('notify::page', Lang.bind(this, this._onPageChanged));
+
+        this._metadata = this._loadMetadata();
+
         this.set_visible_child_name('view');
+    },
+
+    _loadMetadata: function() {
+        let file = Gio.File.new_for_path(this._epubdoc.path);
+        if (!GdPrivate.is_metadata_supported_for_file(file))
+            return null;
+
+        let metadata = new GdPrivate.Metadata({ file: file });
+
+        let [res, val] = metadata.get_int('page');
+        if (res)
+            this._epubdoc.page = val;
+
+        return metadata;
+    },
+
+    _onPageChanged: function() {
+        let pageNumber = this._epubdoc.page;
+        if (this._metadata)
+            this._metadata.set_int('page', pageNumber);
     },
 
     goPrev: function() {
