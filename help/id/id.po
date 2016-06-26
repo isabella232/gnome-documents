@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-documents master\n"
-"POT-Creation-Date: 2014-09-17 06:48+0000\n"
-"PO-Revision-Date: 2014-09-18 08:10+0700\n"
+"Project-Id-Version: gnome-documents-help gnome-3-20\n"
+"POT-Creation-Date: 2016-05-13 17:58+0000\n"
+"PO-Revision-Date: 2016-06-22 00:37+0700\n"
 "Last-Translator: Andika Triwidada <andika@gmail.com>\n"
 "Language-Team: Indonesian <gnome@i15n.org>\n"
 "Language: id\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.6.9\n"
+"X-Generator: Poedit 1.8.8\n"
 
 #. (itstool) path: p/link
 #: C/legal.xml:3
@@ -59,7 +59,7 @@ msgstr "Michael Hill"
 #. (itstool) path: credit/name
 #: C/collections.page:22 C/filter.page:17 C/formats.page:17 C/index.page:24
 #: C/info.page:22 C/prob-no-show.page:22 C/prob-previews.page:22
-#: C/viewgrid.page:22 C/view.page:22 C/view-add.page:12
+#: C/viewgrid.page:22 C/view.page:22 C/view-add.page:13
 msgid "Ekaterina Gerasimova"
 msgstr "Ekaterina Gerasimova"
 
@@ -182,13 +182,13 @@ msgstr "Sumber"
 #. (itstool) path: item/p
 #: C/filter.page:37
 msgid ""
-"Chose to search documents that are <gui>Local</gui>, accessed through <link "
+"Choose to search documents that are <gui>Local</gui>, accessed through <link "
 "href=\"help:gnome-help/online-accounts\">online accounts</link> with "
 "<gui>Google</gui>, <gui>OneDrive</gui>, <gui>ownCloud</gui>, or <gui>All</"
 "gui>."
 msgstr ""
-"Pilih untuk mencari dokumen yang <gui>Lokal</gui>, yang diakses melalui "
-"<link href=\"help:gnome-help/online-accounts\">akun daring</link> dengan "
+"Pilih untuk mencari dokumen <gui>Lokal</gui>, yang diakses melalui <link "
+"href=\"help:gnome-help/online-accounts\">akun daring</link> dengan "
 "<gui>Google</gui>, <gui>OneDrive</gui>, <gui>ownCloud</gui>, atau "
 "<gui>Semua</gui>."
 
@@ -650,8 +650,13 @@ msgstr ""
 "Untuk keluar dari dokumen, klik tombol panah mundur di pojok kiri atas "
 "jendela."
 
+#. (itstool) path: credit/years
+#: C/view-add.page:15
+msgid "2014–2015"
+msgstr "2014–2015"
+
 #. (itstool) path: info/desc
-#: C/view-add.page:18
+#: C/view-add.page:20
 msgid ""
 "Add extra directories to those which are already searched by <app>Documents</"
 "app>."
@@ -659,12 +664,12 @@ msgstr ""
 "Menambah direktori ekstra ke yang sudah dicari oleh <app>Dokumen</app>."
 
 #. (itstool) path: page/title
-#: C/view-add.page:23
+#: C/view-add.page:25
 msgid "Add custom directories"
 msgstr "Tambah direktori ubahan"
 
 #. (itstool) path: page/p
-#: C/view-add.page:25
+#: C/view-add.page:27
 msgid ""
 "<app>Documents</app> normally shows only documents that are in standard "
 "folders such as <file>Documents</file> or <file>Downloads</file>. You can "
@@ -681,7 +686,7 @@ msgstr ""
 "pada komputer Anda atau pada hard disk eksternal."
 
 #. (itstool) path: item/p
-#: C/view-add.page:34
+#: C/view-add.page:36
 msgid ""
 "Open the <gui href=\"help:gnome-help/shell-terminology\">Activities</gui> "
 "overview and start typing <gui>Search</gui>."
@@ -690,28 +695,28 @@ msgstr ""
 "gui> Mulailah mengetikkan <gui>Cari</gui>."
 
 #. (itstool) path: item/p
-#: C/view-add.page:39
+#: C/view-add.page:41
 msgid "Click on <gui>Search</gui> to open the panel."
 msgstr "Klik pada <gui>Cari</gui> untuk membuka panel."
 
 #. (itstool) path: item/p
-#: C/view-add.page:42
+#: C/view-add.page:44
 msgid ""
-"Press the button in the bottom-left of the window which will open "
+"Press the button in the bottom-right of the window which will open "
 "<gui>Search Locations</gui>."
 msgstr ""
-"Tekan tombol di kiri bawah jendela yang akan membuka <gui>Lokasi Pencarian</"
+"Tekan tombol di kanan bawah jendela yang akan membuka <gui>Lokasi Pencarian</"
 "gui>."
 
 #. (itstool) path: item/p
-#: C/view-add.page:46
+#: C/view-add.page:48
 msgid "Press <gui style=\"button\">+</gui> to add a new search location."
 msgstr ""
 "Tekan <gui style=\"button\">+</gui> untuk menambah sebuah lokasi pencarian "
 "baru."
 
 #. (itstool) path: item/p
-#: C/view-add.page:49
+#: C/view-add.page:51
 msgid ""
 "Select the folder that you want to add and press <gui style=\"button\">OK</"
 "gui> to add the folder."
@@ -720,7 +725,7 @@ msgstr ""
 "gui> untuk menambah folder."
 
 #. (itstool) path: page/p
-#: C/view-add.page:61
+#: C/view-add.page:63
 msgid ""
 "Adding a new folder to the search may let some of your other applications "
 "search that folder. Unfortunately, it is not possible to tell which "
@@ -729,8 +734,3 @@ msgstr ""
 "Menambahkan folder baru ke pencarian dapat menyebabkan beberapa aplikasi "
 "lain Anda mencari ke folder tersebut. Sayang sekali, tak mungkin mengatakan "
 "aplikasi mana yang akan dipengaruhi tanpa menguji mereka."
-
-#~ msgctxt "_"
-#~ msgid ""
-#~ "external ref='media/go-down.png' md5='e8c16f5ab9ed933f4a537b740506f4d4'"
-#~ msgstr "-"
