@@ -8,13 +8,13 @@
 #
 # Jorge González <jorgegonz@svn.gnome.org>, 2011.
 # Milagros Alessandra Infante Montero <maim92@gmail.com>, 2012.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012, 2013, 2014, 2015.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012, 2013, 2014, 2015, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-help.master\n"
-"POT-Creation-Date: 2015-02-17 07:48+0000\n"
-"PO-Revision-Date: 2015-02-17 18:06+0100\n"
+"POT-Creation-Date: 2016-05-18 15:53+0000\n"
+"PO-Revision-Date: 2016-06-27 16:08+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -39,7 +39,7 @@ msgstr "Este trabajo está licenciado bajo una <_:link-1/>."
 msgctxt "_"
 msgid "translator-credits"
 msgstr ""
-"Daniel Mustieles <daniel.mustieles@gmail.com>, 2011 - 2015\n"
+"Daniel Mustieles <daniel.mustieles@gmail.com>, 2011 - 2016\n"
 "Nicolás Satragno <nsatragno@gnome.org>, 2012\n"
 "Francisco Molinero <paco@byasl.com>, 2011\n"
 "Jorge González <jorgegonz@svn.gnome.org>, 2011, 2012"
@@ -192,8 +192,13 @@ msgstr "Fuentes"
 
 #. (itstool) path: item/p
 #: C/filter.page:37
+#| msgid ""
+#| "Chose to search documents that are <gui>Local</gui>, accessed through "
+#| "<link href=\"help:gnome-help/online-accounts\">online accounts</link> "
+#| "with <gui>Google</gui>, <gui>OneDrive</gui>, <gui>ownCloud</gui>, or "
+#| "<gui>All</gui>."
 msgid ""
-"Chose to search documents that are <gui>Local</gui>, accessed through <link "
+"Choose to search documents that are <gui>Local</gui>, accessed through <link "
 "href=\"help:gnome-help/online-accounts\">online accounts</link> with "
 "<gui>Google</gui>, <gui>OneDrive</gui>, <gui>ownCloud</gui>, or <gui>All</"
 "gui>."
@@ -723,9 +728,6 @@ msgstr "Pulse en <gui>Buscar</gui> para abrir el panel."
 
 #. (itstool) path: item/p
 #: C/view-add.page:44
-#| msgid ""
-#| "Press the button in the bottom-left of the window which will open "
-#| "<gui>Search Locations</gui>."
 msgid ""
 "Press the button in the bottom-right of the window which will open "
 "<gui>Search Locations</gui>."
