@@ -36,15 +36,11 @@ function isEpub(mimeType) {
     return (mimeType == 'application/epub+zip');
 }
 
+const _ZOOM_STEP = 0.2;
+
 const EPUBView = new Lang.Class({
     Name: 'EPUBView',
     Extends: Preview.Preview,
-
-    _init: function(preview) {
-        this.invertedColors = false;
-
-        this.parent(preview);
-    },
 
     createActions: function() {
         return [
@@ -54,18 +50,12 @@ const EPUBView = new Lang.Class({
             { name: 'find-next',
               callback: Lang.bind(this, this.findNext),
               accels: ['<Primary>g'] },
-            { name: 'font-increase',
-              callback: Lang.bind(this, function() {
-                this.increaseFontSize();
-              }) },
-            { name: 'font-decrease',
-              callback: Lang.bind(this, function() {
-                this.decreaseFontSize();
-              }) },
-            { name: 'font-normal',
-              callback: Lang.bind(this, function() {
-                this.defaultFontSize();
-              }) },
+            { name: 'zoom-in',
+              callback: Lang.bind(this, this._zoomIn),
+              accels: ['<Primary>plus', '<Primary>equal'] },
+            { name: 'zoom-out',
+              callback: Lang.bind(this, this._zoomOut),
+              accels: ['<Primary>minus'] },
             { name: 'font-invert-colors',
               callback: Lang.bind(this, function() {
                 this.invertColors();
@@ -80,7 +70,7 @@ const EPUBView = new Lang.Class({
     createView: function() {
         let view = new Gepub.Widget();
         let settings = view.get_settings();
-        settings.set_zoom_text_only(true);
+        settings.zoom_text_only = true;
 
         view.connect('load-changed', Lang.bind(this, function(wview, ev, data) {
             if (ev == WebKit2.LoadEvent.FINISHED) {
@@ -112,9 +102,6 @@ const EPUBView = new Lang.Class({
 
         this.set_visible_child_name('view');
 
-        this.getAction('font-increase').enabled = true;
-        this.getAction('font-decrease').enabled = true;
-        this.getAction('font-normal').enabled = true;
         this.getAction('font-invert-colors').enabled = true;
     },
 
@@ -180,18 +167,14 @@ const EPUBView = new Lang.Class({
         fc.search_previous();
     },
 
-    increaseFontSize: function() {
+    _zoomIn: function() {
         var zoom = this.view.get_zoom_level();
-        this.view.set_zoom_level(zoom + 0.2);
+        this.view.set_zoom_level(zoom + _ZOOM_STEP);
     },
 
-    decreaseFontSize: function() {
+    _zoomOut: function() {
         var zoom = this.view.get_zoom_level();
-        this.view.set_zoom_level(zoom - 0.2);
-    },
-
-    defaultFontSize: function() {
-        this.view.set_zoom_level(1);
+        this.view.set_zoom_level(zoom - _ZOOM_STEP);
     },
 
     setInvertedColors: function() {
