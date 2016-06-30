@@ -22,6 +22,7 @@
 const GdPrivate = imports.gi.GdPrivate;
 const Gepub = imports.gi.Gepub;
 const Gio = imports.gi.Gio;
+const Gtk = imports.gi.Gtk;
 const WebKit2 = imports.gi.WebKit2;
 
 const _ = imports.gettext.gettext;
@@ -39,6 +40,12 @@ const EPUBView = new Lang.Class({
     Name: 'EPUBView',
     Extends: Preview.Preview,
 
+    _init: function(preview) {
+        this.invertedColors = false;
+
+        this.parent(preview);
+    },
+
     createActions: function() {
         return [
             { name: 'find-prev',
@@ -47,6 +54,22 @@ const EPUBView = new Lang.Class({
             { name: 'find-next',
               callback: Lang.bind(this, this.findNext),
               accels: ['<Primary>g'] },
+            { name: 'font-increase',
+              callback: Lang.bind(this, function() {
+                this.increaseFontSize();
+              }) },
+            { name: 'font-decrease',
+              callback: Lang.bind(this, function() {
+                this.decreaseFontSize();
+              }) },
+            { name: 'font-normal',
+              callback: Lang.bind(this, function() {
+                this.defaultFontSize();
+              }) },
+            { name: 'font-invert-colors',
+              callback: Lang.bind(this, function() {
+                this.invertColors();
+              }) }
         ];
     },
 
@@ -55,7 +78,17 @@ const EPUBView = new Lang.Class({
     },
 
     createView: function() {
-        return new Gepub.Widget();
+        let view = new Gepub.Widget();
+        let settings = view.get_settings();
+        settings.set_zoom_text_only(true);
+
+        view.connect('load-changed', Lang.bind(this, function(wview, ev, data) {
+            if (ev == WebKit2.LoadEvent.FINISHED) {
+               this.setInvertedColors();
+            }
+        }));
+
+        return view;
     },
 
     createContextMenu: function() {
@@ -78,6 +111,11 @@ const EPUBView = new Lang.Class({
         this._metadata = this._loadMetadata();
 
         this.set_visible_child_name('view');
+
+        this.getAction('font-increase').enabled = true;
+        this.getAction('font-decrease').enabled = true;
+        this.getAction('font-normal').enabled = true;
+        this.getAction('font-invert-colors').enabled = true;
     },
 
     _loadMetadata: function() {
@@ -106,6 +144,7 @@ const EPUBView = new Lang.Class({
 
     goNext: function() {
         this._epubdoc.go_next();
+
     },
 
     get hasPages() {
@@ -139,7 +178,38 @@ const EPUBView = new Lang.Class({
     findPrev: function() {
         let fc = this.view.get_find_controller();
         fc.search_previous();
-    }
+    },
+
+    increaseFontSize: function() {
+        var zoom = this.view.get_zoom_level();
+        this.view.set_zoom_level(zoom + 0.2);
+    },
+
+    decreaseFontSize: function() {
+        var zoom = this.view.get_zoom_level();
+        this.view.set_zoom_level(zoom - 0.2);
+    },
+
+    defaultFontSize: function() {
+        this.view.set_zoom_level(1);
+    },
+
+    setInvertedColors: function() {
+        let script;
+        if (this.invertedColors) {
+            script = "document.querySelector('body').style.backgroundColor = 'black';";
+            script += "document.querySelector('body').style.color = 'white';";
+        } else {
+            script = "document.querySelector('body').style.backgroundColor = '';";
+            script += "document.querySelector('body').style.color = '';";
+        }
+        this.view.run_javascript(script, null, null);
+    },
+
+    invertColors: function(change) {
+        this.invertedColors = !this.invertedColors;
+        this.setInvertedColors();
+    },
 });
 
 const EPUBSearchbar = new Lang.Class({
@@ -173,6 +243,32 @@ const EPUBSearchbar = new Lang.Class({
 const EPUBViewToolbar = new Lang.Class({
     Name: 'EPUBViewToolbar',
     Extends: Preview.PreviewToolbar,
+
+    _init: function(preview) {
+        this.parent(preview);
+
+        let fontButton = new Gtk.MenuButton({ image: new Gtk.Image ({ icon_name: 'font-select-symbolic' }),
+                                              menu_model: this._getFontMenu(),
+                                              action_name: 'view.font-menu' });
+        fontButton.set_sensitive(true);
+        this.toolbar.pack_end(fontButton);
+        this.toolbar.show_all();
+    },
+
+    _getFontMenu: function() {
+        let new_action;
+        let menuItem;
+        let menu = new Gio.Menu();
+        let application = Gio.Application.get_default();
+
+        menu.append(_('increase font size'), 'view.font-increase');
+        menu.append(_('decrease font size'), 'view.font-decrease');
+        menu.append(_('default font size'), 'view.font-normal');
+
+        menu.append(_('invert colors'), 'view.font-invert-colors');
+
+        return menu;
+    },
 
     createSearchbar: function() {
         return new EPUBSearchbar(this.preview);
