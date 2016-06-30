@@ -27,6 +27,7 @@ const WebKit2 = imports.gi.WebKit2;
 
 const _ = imports.gettext.gettext;
 
+const Application = imports.application;
 const Documents = imports.documents;
 const Preview = imports.preview;
 
@@ -42,6 +43,18 @@ const EPUBView = new Lang.Class({
     Name: 'EPUBView',
     Extends: Preview.Preview,
 
+    _init: function(overlay, mainWindow) {
+        this.parent(overlay, mainWindow);
+
+        let nightModeId = Application.application.connect('action-state-changed::night-mode',
+            Lang.bind(this, this._updateNightMode));
+
+        this.connect('destroy', Lang.bind(this,
+            function() {
+                Application.application.disconnect(nightModeId);
+            }));
+    },
+
     createActions: function() {
         return [
             { name: 'find-prev',
@@ -55,11 +68,7 @@ const EPUBView = new Lang.Class({
               accels: ['<Primary>plus', '<Primary>equal'] },
             { name: 'zoom-out',
               callback: Lang.bind(this, this._zoomOut),
-              accels: ['<Primary>minus'] },
-            { name: 'font-invert-colors',
-              callback: Lang.bind(this, function() {
-                this.invertColors();
-              }) }
+              accels: ['<Primary>minus'] }
         ];
     },
 
@@ -74,7 +83,7 @@ const EPUBView = new Lang.Class({
 
         view.connect('load-changed', Lang.bind(this, function(wview, ev, data) {
             if (ev == WebKit2.LoadEvent.FINISHED) {
-               this.setInvertedColors();
+               this._updateNightMode();
             }
         }));
 
@@ -101,8 +110,25 @@ const EPUBView = new Lang.Class({
         this._metadata = this._loadMetadata();
 
         this.set_visible_child_name('view');
+    },
 
-        this.getAction('font-invert-colors').enabled = true;
+    _setInvertedColors: function(invert) {
+        let script;
+        if (invert) {
+            script = "document.querySelector('body').style.backgroundColor = 'black';";
+            script += "document.querySelector('body').style.color = 'white';";
+        } else {
+            script = "document.querySelector('body').style.backgroundColor = '';";
+            script += "document.querySelector('body').style.color = '';";
+        }
+        this.view.run_javascript(script, null, null);
+    },
+
+    _updateNightMode: function() {
+        if (Application.application.isBooks) {
+            let nightMode = Application.settings.get_boolean('night-mode');
+            this._setInvertedColors(nightMode);
+        }
     },
 
     _loadMetadata: function() {
@@ -175,24 +201,7 @@ const EPUBView = new Lang.Class({
     _zoomOut: function() {
         var zoom = this.view.get_zoom_level();
         this.view.set_zoom_level(zoom - _ZOOM_STEP);
-    },
-
-    setInvertedColors: function() {
-        let script;
-        if (this.invertedColors) {
-            script = "document.querySelector('body').style.backgroundColor = 'black';";
-            script += "document.querySelector('body').style.color = 'white';";
-        } else {
-            script = "document.querySelector('body').style.backgroundColor = '';";
-            script += "document.querySelector('body').style.color = '';";
-        }
-        this.view.run_javascript(script, null, null);
-    },
-
-    invertColors: function(change) {
-        this.invertedColors = !this.invertedColors;
-        this.setInvertedColors();
-    },
+    }
 });
 
 const EPUBSearchbar = new Lang.Class({
@@ -230,27 +239,10 @@ const EPUBViewToolbar = new Lang.Class({
     _init: function(preview) {
         this.parent(preview);
 
-        let fontButton = new Gtk.MenuButton({ image: new Gtk.Image ({ icon_name: 'font-select-symbolic' }),
-                                              menu_model: this._getFontMenu(),
-                                              action_name: 'view.font-menu' });
-        fontButton.set_sensitive(true);
-        this.toolbar.pack_end(fontButton);
-        this.toolbar.show_all();
-    },
-
-    _getFontMenu: function() {
-        let new_action;
-        let menuItem;
-        let menu = new Gio.Menu();
-        let application = Gio.Application.get_default();
-
-        menu.append(_('increase font size'), 'view.font-increase');
-        menu.append(_('decrease font size'), 'view.font-decrease');
-        menu.append(_('default font size'), 'view.font-normal');
-
-        menu.append(_('invert colors'), 'view.font-invert-colors');
-
-        return menu;
+        if (Application.application.isBooks) {
+            let nightButton = this.addNightmodeButton();
+            nightButton.show();
+        }
     },
 
     createSearchbar: function() {
