@@ -22,7 +22,7 @@
 const GdPrivate = imports.gi.GdPrivate;
 const Gepub = imports.gi.Gepub;
 const Gio = imports.gi.Gio;
-const Gtk = imports.gi.Gtk;
+const Gdk = imports.gi.Gdk;
 const WebKit2 = imports.gi.WebKit2;
 
 const _ = imports.gettext.gettext;
@@ -114,12 +114,18 @@ const EPUBView = new Lang.Class({
 
     _setInvertedColors: function(invert) {
         let script;
+        let bgcolor;
+
         if (invert) {
             script = "document.querySelector('body').style.backgroundColor = 'black';";
             script += "document.querySelector('body').style.color = 'white';";
+            bgcolor = new Gdk.RGBA({red: 0, green: 0, blue: 0, alpha: 1});
+            this.view.set_background_color(bgcolor);
         } else {
             script = "document.querySelector('body').style.backgroundColor = '';";
             script += "document.querySelector('body').style.color = '';";
+            bgcolor = new Gdk.RGBA({red: 255, green: 255, blue: 255, alpha: 1});
+            this.view.set_background_color(bgcolor);
         }
         this.view.run_javascript(script, null, null);
     },
