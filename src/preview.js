@@ -132,7 +132,7 @@ const Preview = new Lang.Class({
     onLoadStarted: function(manager, doc) {
     },
 
-    onLoadFinished: function(manager, doc, docModel) {
+    onLoadFinished: function(manager, doc) {
         this.getAction('open-current').enabled = (doc.defaultApp != null);
     },
 

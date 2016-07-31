@@ -232,6 +232,8 @@ const EvinceView = new Lang.Class({
     },
 
     onLoadStarted: function(manager, doc) {
+        this.parent(manager, doc);
+
         if (doc.viewType != Documents.ViewType.EV)
             return;
 
