@@ -88,7 +88,7 @@ const MainToolbar = new Lang.Class({
 
     addSearchButton: function() {
         let searchButton = new Gtk.ToggleButton({ image: new Gtk.Image ({ icon_name: 'edit-find-symbolic' }),
-                                                  tooltip_text: _("Search"),
+                                                  tooltip_text: Gettext.pgettext("toolbar button tooltip", "Search"),
                                                   action_name: 'app.search' });
         this.toolbar.pack_end(searchButton);
         return searchButton;
