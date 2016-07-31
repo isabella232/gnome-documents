@@ -119,6 +119,9 @@ const Application = new Lang.Class({
         this.parent({ application_id: appid,
                       inactivity_timeout: 12000 });
 
+        this.add_main_option('version', 'v'.charCodeAt(0), GLib.OptionFlags.NONE, GLib.OptionArg.NONE,
+                             _("Show the version of the program"), null);
+
         this._searchProvider = new ShellSearchProvider.ShellSearchProvider();
         this._searchProvider.connect('activate-result', Lang.bind(this, this._onActivateResult));
         this._searchProvider.connect('launch-search', Lang.bind(this, this._onLaunchSearch));
@@ -570,6 +573,15 @@ const Application = new Lang.Class({
         this._searchProvider.unexport(connection);
 
         this.parent(connection, path);
+    },
+
+    vfunc_handle_local_options: function(options) {
+        if (options.contains('version')) {
+            print(pkg.version);
+            return 0;
+        }
+
+        return -1;
     },
 
     vfunc_activate: function() {
