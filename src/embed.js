@@ -417,7 +417,7 @@ const Embed = new Lang.Class({
                 this._toolbar.destroy();
 
             // pack the toolbar
-            this._toolbar = new MainToolbar.OverviewToolbar(this._stackOverlay, this._stack);
+            this._toolbar = new MainToolbar.OverviewToolbar(this._stack);
             this._titlebar.add(this._toolbar);
         }
 

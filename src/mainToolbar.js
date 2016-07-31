@@ -134,8 +134,7 @@ const OverviewToolbar = new Lang.Class({
     Name: 'OverviewToolbar',
     Extends: MainToolbar,
 
-    _init: function(overlay, stack) {
-        this._overlay = overlay;
+    _init: function(stack) {
         this._collBackButton = null;
         this._collectionId = 0;
         this._selectionChangedId = 0;
