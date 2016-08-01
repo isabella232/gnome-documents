@@ -262,8 +262,8 @@ const DocCommon = new Lang.Class({
         this.populateFromCursor(cursor);
 
         this._refreshIconId =
-            Application.application.connect('action-state-changed::view-as',
-                                            Lang.bind(this, this.refreshIcon));
+            Application.settings.connect('changed::view-as',
+                                         Lang.bind(this, this.refreshIcon));
         this._filterId =
             Application.searchCategoryManager.connect('active-changed',
                                                       Lang.bind(this, this.refreshIcon));
@@ -598,7 +598,7 @@ const DocCommon = new Lang.Class({
             this._collectionIconWatcher = null;
         }
 
-        Application.application.disconnect(this._refreshIconId);
+        Application.settings.disconnect(this._refreshIconId);
         Application.searchCategoryManager.disconnect(this._filterId);
     },
 

@@ -185,7 +185,7 @@ const OverviewToolbar = new Lang.Class({
                                                     popover: viewMenu });
         this.toolbar.pack_end(this._viewMenuButton);
 
-        this._viewSettingsId = Application.application.connect('action-state-changed::view-as',
+        this._viewSettingsId = Application.settings.connect('changed::view-as',
             Lang.bind(this, this._updateViewMenuButton));
         this._updateViewMenuButton();
     },
@@ -332,7 +332,7 @@ const OverviewToolbar = new Lang.Class({
         }
 
         if (this._viewSettingsId != 0) {
-            Application.application.disconnect(this._viewSettingsId);
+            Application.settings.disconnect(this._viewSettingsId);
             this._viewSettingsId = 0;
         }
     },
