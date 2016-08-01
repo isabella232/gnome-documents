@@ -354,11 +354,11 @@ const ViewContainer = new Lang.Class({
         this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
 
         this.view.connect('item-activated',
-                            Lang.bind(this, this._onItemActivated));
+                          Lang.bind(this, this._onItemActivated));
         this.view.connect('selection-mode-request',
-                            Lang.bind(this, this._onSelectionModeRequest));
+                          Lang.bind(this, this._onSelectionModeRequest));
         this.view.connect('view-selection-changed',
-                            Lang.bind(this, this._onViewSelectionChanged));
+                          Lang.bind(this, this._onViewSelectionChanged));
 
         // connect to settings change for list/grid view
         let viewSettingsId = Application.application.connect('action-state-changed::view-as',
