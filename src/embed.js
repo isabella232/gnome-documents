@@ -393,17 +393,17 @@ const Embed = new Lang.Class({
                              oldMode != WindowMode.WindowMode.DOCUMENTS &&
                              oldMode != WindowMode.WindowMode.SEARCH);
 
-        let visibleChildName;
+        let visibleChild;
 
         switch (newMode) {
         case WindowMode.WindowMode.COLLECTIONS:
-            visibleChildName = 'collections';
+            visibleChild = this._collections;
             break;
         case WindowMode.WindowMode.DOCUMENTS:
-            visibleChildName = 'documents';
+            visibleChild = this._documents;
             break;
         case WindowMode.WindowMode.SEARCH:
-            visibleChildName = 'search';
+            visibleChild = this._search;
             break;
         default:
             throw(new Error('Not handled'));
@@ -422,7 +422,7 @@ const Embed = new Lang.Class({
         }
 
         this._spinner.stop();
-        this._stack.set_visible_child_name(visibleChildName);
+        this._stack.set_visible_child(visibleChild);
     },
 
     _prepareForPreview: function(constructor) {
