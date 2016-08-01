@@ -55,9 +55,8 @@ const Embed = new Lang.Class({
         this.parent({ orientation: Gtk.Orientation.VERTICAL,
                       visible: true });
 
-        let toplevel = Application.application.get_windows()[0];
         this._titlebar = new Gtk.Grid({ visible: true });
-        toplevel.set_titlebar(this._titlebar);
+        this._window.set_titlebar(this._titlebar);
 
         // create the toolbar for selected items, it's hidden by default
         this._selectionToolbar = new Selections.SelectionToolbar();
