@@ -377,11 +377,13 @@ const Embed = new Lang.Class({
             }));
     },
 
-    _clearPreview: function() {
+    _clearViewState: function() {
         if (this._preview) {
             this._preview.destroy();
             this._preview = null;
         }
+        if (this._edit)
+            this._edit.setUri(null);
 
         this._window.insert_action_group('view', null);
     },
@@ -408,9 +410,7 @@ const Embed = new Lang.Class({
             break;
         }
 
-        this._clearPreview();
-        if (this._edit)
-            this._edit.setUri(null);
+        this._clearViewState();
 
         if (createToolbar) {
             if (this._toolbar)
@@ -426,9 +426,7 @@ const Embed = new Lang.Class({
     },
 
     _prepareForPreview: function(constructor) {
-        this._clearPreview();
-        if (this._edit)
-            this._edit.setUri(null);
+        this._clearViewState();
         if (this._toolbar)
             this._toolbar.destroy();
 
@@ -444,7 +442,7 @@ const Embed = new Lang.Class({
     },
 
     _prepareForEdit: function() {
-        this._clearPreview();
+        this._clearViewState();
         if (this._toolbar)
             this._toolbar.destroy();
 
