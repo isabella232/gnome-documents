@@ -137,8 +137,7 @@ const TrackerController = new Lang.Class({
         this._offsetController = this.getOffsetController();
         this._offsetController.connect('offset-changed', Lang.bind(this, this._performCurrentQuery));
 
-        this._sortSettingsId = Application.application.connect('action-state-changed::sort-by',
-            Lang.bind(this, this._updateSortForSettings));
+        Application.settings.connect('changed::sort-by', Lang.bind(this, this._updateSortForSettings));
         this._updateSortForSettings();
     },
 
