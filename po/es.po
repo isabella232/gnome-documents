@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-07-31 22:34+0000\n"
-"PO-Revision-Date: 2016-03-03 09:52+0100\n"
+"POT-Creation-Date: 2016-08-02 14:49+0000\n"
+"PO-Revision-Date: 2016-08-03 13:58+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -212,7 +212,6 @@ msgid "About"
 msgstr "Acerca de"
 
 #: ../data/ui/app-menu.ui.h:6
-#, fuzzy
 #| msgid "Quit"
 msgctxt "app menu"
 msgid "Quit"
@@ -421,7 +420,7 @@ msgstr "Nombre"
 
 #: ../src/application.js:123
 msgid "Show the version of the program"
-msgstr ""
+msgstr "Mostrar la versión del programa"
 
 #: ../src/documents.js:688
 msgid "Failed to print document"
@@ -587,7 +586,6 @@ msgid "translator-credits"
 msgstr "Daniel Mustieles <daniel.mustieles@gmail.com>, 2011-2012"
 
 #: ../src/mainToolbar.js:91
-#, fuzzy
 #| msgid "Search"
 msgctxt "toolbar button tooltip"
 msgid "Search"
