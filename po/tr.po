@@ -5,15 +5,16 @@
 # Osman Karagöz <osmank3@gmail.com>, 2012, 2013.
 # Yaşar Şentürk <yasarix@gmail.com>, 2015.
 # Muhammet Kara <muhammetk@gmail.com>, 2011, 2012, 2013, 2014, 2015, 2016.
+# Neriman Kara <nerimankaraa@gmail.com>, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-06-23 15:12+0000\n"
-"PO-Revision-Date: 2016-07-09 21:17+0300\n"
-"Last-Translator: Muhammet Kara <muhammetk@gmail.com>\n"
+"POT-Creation-Date: 2016-07-31 22:34+0000\n"
+"PO-Revision-Date: 2016-08-06 21:52+0300\n"
+"Last-Translator: Neriman Kara <nerimankaraa@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -215,95 +216,82 @@ msgid "About"
 msgstr "Hakkında"
 
 #: ../data/ui/app-menu.ui.h:6
+#| msgid "Quit"
+msgctxt "app menu"
 msgid "Quit"
 msgstr "Çıkış"
 
 #: ../data/ui/help-overlay.ui.h:1
-#| msgid "General"
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Genel"
 
 #: ../data/ui/help-overlay.ui.h:2
-#| msgid "Show help"
 msgctxt "shortcut window"
 msgid "Show help"
 msgstr "Yardımı göster"
 
 #: ../data/ui/help-overlay.ui.h:3
-#| msgid "Quit"
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Çıkış"
 
 #: ../data/ui/help-overlay.ui.h:4
-#| msgid "Search"
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Ara"
 
 #: ../data/ui/help-overlay.ui.h:5
-#| msgid "Print the current document"
 msgctxt "shortcut window"
 msgid "Print the current document"
 msgstr "Geçerli belgeyi yazdır"
 
 #: ../data/ui/help-overlay.ui.h:6
-#| msgid "Navigation"
 msgctxt "shortcut window"
 msgid "Navigation"
 msgstr "Gezinme"
 
 #: ../data/ui/help-overlay.ui.h:7
-#| msgid "Go back"
 msgctxt "shortcut window"
 msgid "Go back"
 msgstr "Geri git"
 
 #: ../data/ui/help-overlay.ui.h:8
-#| msgid "Preview"
 msgctxt "shortcut window"
 msgid "Preview"
 msgstr "Önizleme"
 
 #: ../data/ui/help-overlay.ui.h:9
-#| msgid "Zoom in"
 msgctxt "shortcut window"
 msgid "Zoom in"
 msgstr "Yakınlaştır"
 
 #: ../data/ui/help-overlay.ui.h:10
-#| msgid "Zoom out"
 msgctxt "shortcut window"
 msgid "Zoom out"
 msgstr "Uzaklaştır"
 
 #: ../data/ui/help-overlay.ui.h:11
-#| msgid "Bookmark the current page"
 msgctxt "shortcut window"
 msgid "Bookmark the current page"
 msgstr "Geçerli sayfayı yer imlerine ekle"
 
 #: ../data/ui/help-overlay.ui.h:12
-#| msgid "Open places and bookmarks dialog"
 msgctxt "shortcut window"
 msgid "Open places and bookmarks dialog"
 msgstr "Konumlar ve yer imleri iletişim penceresini aç"
 
 #: ../data/ui/help-overlay.ui.h:13
-#| msgid "Copy selected text to clipboard"
 msgctxt "shortcut window"
 msgid "Copy selected text to clipboard"
 msgstr "Seçili metni panoya kopyala"
 
 #: ../data/ui/help-overlay.ui.h:14
-#| msgid "Rotate anti-clockwise"
 msgctxt "shortcut window"
 msgid "Rotate anti-clockwise"
 msgstr "Saat yönünün tersine döndür"
 
 #: ../data/ui/help-overlay.ui.h:15
-#| msgid "Rotate clockwise"
 msgctxt "shortcut window"
 msgid "Rotate clockwise"
 msgstr "Saat yönünde döndür"
@@ -319,19 +307,16 @@ msgid "Previous occurrence of the search string"
 msgstr "Arama dizgisinin belirdiği bir önceki yer"
 
 #: ../data/ui/help-overlay.ui.h:18
-#| msgid "Presentation mode"
 msgctxt "shortcut window"
 msgid "Presentation mode"
 msgstr "Sunum kipi"
 
 #: ../data/ui/help-overlay.ui.h:19
-#| msgid "Open action menu"
 msgctxt "shortcut window"
 msgid "Open action menu"
 msgstr "Eylem menüsünü aç"
 
 #: ../data/ui/help-overlay.ui.h:20
-#| msgid "Fullscreen"
 msgctxt "shortcut window"
 msgid "Fullscreen"
 msgstr "Tam ekran"
@@ -437,6 +422,10 @@ msgstr "Tarih"
 msgid "Name"
 msgstr "Ad"
 
+#: ../src/application.js:123
+msgid "Show the version of the program"
+msgstr "Programın sürümünü göster"
+
 #: ../src/documents.js:688
 msgid "Failed to print document"
 msgstr "Belge yazdırma başarısız oldu"
@@ -497,35 +486,35 @@ msgstr "ownCloud"
 msgid "OneDrive"
 msgstr "OneDrive"
 
-#: ../src/documents.js:1343
+#: ../src/documents.js:1341
 msgid "Please check the network connection."
 msgstr "Lütfen internet bağlantınızı kontrol edin."
 
-#: ../src/documents.js:1346
+#: ../src/documents.js:1344
 msgid "Please check the network proxy settings."
 msgstr "Lütfen vekil sunucu ayarlarınızı kontrol edin."
 
-#: ../src/documents.js:1349
+#: ../src/documents.js:1347
 msgid "Unable to sign in to the document service."
 msgstr "Belge servisinde oturum açılamadı."
 
-#: ../src/documents.js:1352
+#: ../src/documents.js:1350
 msgid "Unable to locate this document."
 msgstr "Belge bulunamadı."
 
-#: ../src/documents.js:1355
+#: ../src/documents.js:1353
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Hmm, şüpheli bir durum var (%d)."
 
-#: ../src/documents.js:1362
+#: ../src/documents.js:1360
 msgid ""
 "You are using a preview of Books. Full viewing capabilities are coming soon!"
 msgstr ""
 "Kitaplar uygulamasının bir önizlemesini kullanıyorsunuz. Tam kapsamlı "
 "görüntüleme yetenekleri yakında geliyor!"
 
-#: ../src/documents.js:1364
+#: ../src/documents.js:1362
 msgid ""
 "LibreOffice support is not available. Please contact your system "
 "administrator."
@@ -534,7 +523,7 @@ msgstr ""
 "başvurun."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1385
+#: ../src/documents.js:1383
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Ahh! “%s” yüklenemedi."
@@ -543,11 +532,11 @@ msgstr "Ahh! “%s” yüklenemedi."
 msgid "View"
 msgstr "Görünüm"
 
-#: ../src/evinceview.js:649 ../src/lib/gd-places-bookmarks.c:656
+#: ../src/evinceview.js:654 ../src/lib/gd-places-bookmarks.c:656
 msgid "Bookmarks"
 msgstr "Yer İmleri"
 
-#: ../src/evinceview.js:657
+#: ../src/evinceview.js:662
 msgid "Bookmark this page"
 msgstr "Bu sayfayı yer imlerine ekle"
 
@@ -603,6 +592,8 @@ msgstr ""
 "GNOME Türkiye Çeviri Takımı <gnome-turk@gnome.org>"
 
 #: ../src/mainToolbar.js:91
+#| msgid "Search"
+msgctxt "toolbar button tooltip"
 msgid "Search"
 msgstr "Ara"
 
@@ -837,7 +828,6 @@ msgstr "Yazar"
 
 #. Translators: "Content" refers to "Match Content" when searching
 #: ../src/search.js:345
-#| msgid "Contents"
 msgctxt "Search Filter"
 msgid "Content"
 msgstr "İçerik"
@@ -946,17 +936,14 @@ msgid "Unable to fetch the list of documents"
 msgstr "Belgelerin listesi alınamadı"
 
 #: ../src/view.js:269
-#| msgid "No Books Found"
 msgid "No collections found"
 msgstr "Hiç koleksiyon bulunamadı"
 
 #: ../src/view.js:271
-#| msgid "No Books Found"
 msgid "No books found"
 msgstr "Hiç kitap bulunamadı"
 
 #: ../src/view.js:271
-#| msgid "No Documents Found"
 msgid "No documents found"
 msgstr "Hiç belge bulunamadı"
 
