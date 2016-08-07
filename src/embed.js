@@ -97,11 +97,8 @@ const Embed = new Lang.Class({
 
         Application.modeController.connect('window-mode-changed',
                                            Lang.bind(this, this._onWindowModeChanged));
-
         Application.modeController.connect('fullscreen-changed',
                                            Lang.bind(this, this._onFullscreenChanged));
-        Application.trackerDocumentsController.connect('query-status-changed',
-                                                       Lang.bind(this, this._onQueryStatusChanged));
 
         Application.documentManager.connect('active-changed',
                                             Lang.bind(this, this._onActiveItemChanged));
@@ -121,8 +118,6 @@ const Embed = new Lang.Class({
 
         Application.searchController.connect('search-string-changed',
                                              Lang.bind(this, this._onSearchChanged));
-
-        this._onQueryStatusChanged();
 
         let windowMode = Application.modeController.getWindowMode();
         if (windowMode != WindowMode.WindowMode.NONE)
@@ -162,18 +157,6 @@ const Embed = new Lang.Class({
         }
 
         this._stack.set_visible_child_name(page);
-    },
-
-    _onQueryStatusChanged: function() {
-        let queryStatus = Application.trackerDocumentsController.getQueryStatus();
-
-        if (queryStatus) {
-            this._spinner.start();
-            this._stack.set_visible_child_name('spinner');
-        } else {
-            this._spinner.stop();
-            this._restoreLastPage();
-        }
     },
 
     _onFullscreenChanged: function(controller, fullscreen) {

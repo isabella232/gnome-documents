@@ -37,6 +37,8 @@ const ErrorBox = imports.errorBox;
 const WindowMode = imports.windowMode;
 const Utils = imports.utils;
 
+const _ICON_SIZE = 32;
+
 function getController(windowMode) {
     let offsetController;
     let trackerController;
@@ -350,6 +352,12 @@ const ViewContainer = new Lang.Class({
         this._errorBox = new ErrorBox.ErrorBox();
         this.add_named(this._errorBox, 'error');
 
+        this._spinner = new Gtk.Spinner({ width_request: _ICON_SIZE,
+                                          height_request: _ICON_SIZE,
+                                          halign: Gtk.Align.CENTER,
+                                          valign: Gtk.Align.CENTER });
+        this.add_named(this._spinner, 'spinner');
+
         this.show_all();
         this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
 
@@ -561,6 +569,10 @@ const ViewContainer = new Lang.Class({
             // unfreeze selection
             Application.selectionController.freezeSelection(false);
             this._updateSelection();
+
+            // hide the spinner
+            this._spinner.stop();
+            this.set_visible_child_name('view');
         } else {
             // save the last selection
             Application.selectionController.freezeSelection(true);
@@ -568,6 +580,10 @@ const ViewContainer = new Lang.Class({
             // if we're querying, clear the model from the view,
             // so that we don't uselessly refresh the rows
             this.view.set_model(null);
+
+            // kick off the spinner
+            this._spinner.start();
+            this.set_visible_child_name('spinner');
         }
     },
 
