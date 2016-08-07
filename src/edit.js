@@ -27,73 +27,78 @@ const Mainloop = imports.mainloop;
 
 const Application = imports.application;
 const MainToolbar = imports.mainToolbar;
+const Preview = imports.preview;
 const WindowMode = imports.windowMode;
 
 const _BLANK_URI = "about:blank";
 
 const EditView = new Lang.Class({
     Name: 'EditView',
-    Extends: Gtk.Overlay,
+    Extends: Preview.Preview,
 
-    _init: function() {
-        this._uri = null;
+    _init: function(overlay, mainWindow) {
+        this.parent(overlay, mainWindow);
 
-        this.parent();
+        let doc = Application.documentManager.getActiveItem();
+        if (doc.uri)
+            this._webView.load_uri(doc.uri);
+    },
 
-        let context = WebKit.WebContext.get_default();
+    createActions: function() {
+        return [
+            { name: 'view-current',
+              callback: Lang.bind(this, this._viewCurrent) }
+        ];
+    },
 
+    createView: function() {
+        let overlay = new Gtk.Overlay();
+
+        this._webView = new WebKit.WebView();
+        overlay.add(this._webView);
+        this._webView.show();
+        this._webView.connect('notify::estimated-load-progress', Lang.bind(this, this._onProgressChanged));
+
+        this._progressBar = new Gtk.ProgressBar({ halign: Gtk.Align.FILL,
+                                                  valign: Gtk.Align.START });
+        this._progressBar.get_style_context().add_class('osd');
+        overlay.add_overlay(this._progressBar);
+        this._progressBar.show();
+
+        let context = this._webView.get_context();
         let cacheDir = GLib.build_filenamev([GLib.get_user_cache_dir(), 'gnome-documents', 'webkit']);
         context.set_disk_cache_directory(cacheDir);
 
         let cookie_manager = context.get_cookie_manager();
         let jarfile = GLib.build_filenamev([GLib.get_user_cache_dir(), 'gnome-documents', 'cookies.sqlite']);
         cookie_manager.set_persistent_storage(jarfile, WebKit.CookiePersistentStorage.SQLITE);
-
-        this._progressBar = new Gtk.ProgressBar({ halign: Gtk.Align.FILL,
-                                                  valign: Gtk.Align.START });
-        this._progressBar.get_style_context().add_class('osd');
-        this.add_overlay(this._progressBar);
-
-        this._createView();
-
-        this.show_all();
-
-        this._viewAction = Application.application.lookup_action('view-current');
-        this._viewAction.enabled = false;
-        this._viewAction.connect('activate', Lang.bind(this,
-            function() {
-                Application.modeController.goBack();
-            }));
-
-        Application.documentManager.connect('load-started',
-                                            Lang.bind(this, this._onLoadStarted));
-        Application.documentManager.connect('load-finished',
-                                            Lang.bind(this, this._onLoadFinished));
-
+        overlay.show_all();
+        return overlay;
     },
 
-    _onLoadStarted: function() {
-        this._viewAction.enabled = false;
+    createToolbar: function() {
+        return new EditToolbar();
     },
 
-    _onLoadFinished: function(manager, doc, docModel) {
+    onLoadStarted: function() {
+        this.getAction('view-current').enabled = false;
+    },
+
+    onLoadFinished: function(manager, doc) {
         if (doc.uri)
-            this._viewAction.enabled = true;
+            this.getAction('view-current').enabled = true;
     },
 
-    _createView: function() {
-        this.view = new WebKit.WebView();
-        this.add(this.view);
-        this.view.show();
-        this.view.connect('notify::estimated-load-progress', Lang.bind(this, this._onProgressChanged));
+    _viewCurrent: function() {
+        Application.modeController.goBack();
     },
 
     _onProgressChanged: function() {
-        if (!this.view.uri || this.view.uri == _BLANK_URI)
+        if (!this._webView.uri || this._webView.uri == _BLANK_URI)
             return;
 
-        let progress = this.view.estimated_load_progress;
-        let loading = this.view.is_loading;
+        let progress = this._webView.estimated_load_progress;
+        let loading = this._webView.is_loading;
 
         if (progress == 1.0 || !loading) {
             if (!this._timeoutId)
@@ -115,31 +120,14 @@ const EditView = new Lang.Class({
         this._timeoutId = 0;
         this._progressBar.hide();
         return false;
-    },
-
-    setUri: function(uri) {
-        if (this._uri == uri)
-            return;
-
-        if (!uri)
-            uri = _BLANK_URI;
-
-        this._uri = uri;
-        this.view.load_uri (uri);
-    },
-
-    getUri: function() {
-        return this._uri;
-    },
+    }
 });
 
 const EditToolbar = new Lang.Class({
     Name: 'EditToolbar',
     Extends: MainToolbar.MainToolbar,
 
-    _init: function(editView) {
-        this._editView = editView;
-
+    _init: function() {
         this.parent();
         this.toolbar.set_show_close_button(true);
 
@@ -152,7 +140,7 @@ const EditToolbar = new Lang.Class({
             }));
 
         let viewButton = new Gtk.Button({ label: _("View"),
-                                          action_name: 'app.view-current' });
+                                          action_name: 'view.view-current' });
         viewButton.get_style_context().add_class('suggested-action');
         this.toolbar.pack_end(viewButton);
 

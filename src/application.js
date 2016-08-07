@@ -502,8 +502,6 @@ const Application = new Lang.Class({
               window_modes: [WindowMode.WindowMode.COLLECTIONS,
                              WindowMode.WindowMode.DOCUMENTS,
                              WindowMode.WindowMode.SEARCH] },
-            { name: 'view-current',
-              window_mode: WindowMode.WindowMode.EDIT },
             { name: 'search',
               callback: Utils.actionToggleCallback,
               state: GLib.Variant.new('b', false),

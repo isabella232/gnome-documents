@@ -85,9 +85,6 @@ const Embed = new Lang.Class({
         this._search = new View.ViewContainer(WindowMode.WindowMode.SEARCH);
         this._stack.add_named(this._search, 'search');
 
-        this._edit = new Edit.EditView();
-        this._stack.add_named(this._edit, 'edit');
-
         this._spinner = new Gtk.Spinner({ width_request: _ICON_SIZE,
                                           height_request: _ICON_SIZE,
                                           halign: Gtk.Align.CENTER,
@@ -216,6 +213,11 @@ const Embed = new Lang.Class({
     },
 
     _onVisibleChildChanged: function() {
+        // Avoid switching by accident if we just happen to destroy
+        // the previous view
+        if (this._clearingView)
+            return;
+
         let visibleChild = this._stack.visible_child;
         let windowMode = WindowMode.WindowMode.NONE;
 
@@ -251,7 +253,7 @@ const Embed = new Lang.Class({
             this._prepareForPreview(EPUBView.EPUBView);
             break;
         case WindowMode.WindowMode.EDIT:
-            this._prepareForEdit();
+            this._prepareForPreview(Edit.EditView);
             break;
         case WindowMode.WindowMode.NONE:
             break;
@@ -351,14 +353,14 @@ const Embed = new Lang.Class({
     },
 
     _clearViewState: function() {
+        this._clearingView = true;
         if (this._preview) {
             this._preview.destroy();
             this._preview = null;
         }
-        if (this._edit)
-            this._edit.setUri(null);
 
         this._window.insert_action_group('view', null);
+        this._clearingView = false;
     },
 
     _prepareForOverview: function(newMode, oldMode) {
@@ -414,22 +416,6 @@ const Embed = new Lang.Class({
 
         this._stack.set_visible_child_name('preview');
         this._currentView = this._preview;
-    },
-
-    _prepareForEdit: function() {
-        this._clearViewState();
-        if (this._toolbar)
-            this._toolbar.destroy();
-
-        let doc = Application.documentManager.getActiveItem();
-        this._edit.setUri(doc.uri);
-
-        // pack the toolbar
-        this._toolbar = new Edit.EditToolbar(this._preview);
-        this._titlebar.add(this._toolbar);
-
-        this._stack.set_visible_child_name('edit');
-        this._currentView = this._edit;
     },
 
     getMainToolbar: function() {
