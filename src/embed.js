@@ -48,6 +48,7 @@ const Embed = new Lang.Class({
     Extends: Gtk.Box,
 
     _init: function(mainWindow) {
+        this._currentView = null;
         this._loadShowId = 0;
         this._searchState = null;
         this._window = mainWindow;
@@ -131,36 +132,9 @@ const Embed = new Lang.Class({
             this._onWindowModeChanged(Application.modeController, windowMode, WindowMode.WindowMode.NONE);
     },
 
-    _getViewFromMode: function(windowMode) {
-        let view;
-
-        switch (windowMode) {
-        case WindowMode.WindowMode.COLLECTIONS:
-            view = this._collections;
-            break;
-        case WindowMode.WindowMode.DOCUMENTS:
-            view = this._documents;
-            break;
-        case WindowMode.WindowMode.PREVIEW_EV:
-        case WindowMode.WindowMode.PREVIEW_LOK:
-        case WindowMode.WindowMode.PREVIEW_EPUB:
-            view = this._preview;
-            break;
-        case WindowMode.WindowMode.SEARCH:
-            view = this._search;
-            break;
-        default:
-            throw(new Error('Not handled'));
-            break;
-        }
-
-        return view;
-    },
-
     _onActivateResult: function() {
-        let windowMode = Application.modeController.getWindowMode();
-        let view = this._getViewFromMode(windowMode);
-        view.activateResult();
+        if (this._currentView)
+            this._currentView.activateResult();
     },
 
     _restoreLastPage: function() {
@@ -422,6 +396,7 @@ const Embed = new Lang.Class({
 
         this._spinner.stop();
         this._stack.set_visible_child(visibleChild);
+        this._currentView = visibleChild;
     },
 
     _prepareForPreview: function(constructor) {
@@ -438,6 +413,7 @@ const Embed = new Lang.Class({
         this._titlebar.add(this._toolbar);
 
         this._stack.set_visible_child_name('preview');
+        this._currentView = this._preview;
     },
 
     _prepareForEdit: function() {
@@ -453,6 +429,7 @@ const Embed = new Lang.Class({
         this._titlebar.add(this._toolbar);
 
         this._stack.set_visible_child_name('edit');
+        this._currentView = this._edit;
     },
 
     getMainToolbar: function() {
