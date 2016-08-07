@@ -11,9 +11,13 @@ const Tweener = imports.tweener.tweener;
 const Application = imports.application;
 const ErrorBox = imports.errorBox;
 const MainToolbar = imports.mainToolbar;
+const Password = imports.password;
 const Properties = imports.properties;
 const Searchbar = imports.searchbar;
 const Utils = imports.utils;
+
+const _ICON_SIZE = 32;
+const _PDF_LOADER_TIMEOUT = 400;
 
 const Preview = new Lang.Class({
     Name: 'Preview',
@@ -21,6 +25,7 @@ const Preview = new Lang.Class({
 
     _init: function(overlay, mainWindow) {
         this._lastSearch = '';
+        this._loadShowId = 0;
         this.overlay = overlay;
         this.mainWindow = mainWindow;
 
@@ -33,6 +38,12 @@ const Preview = new Lang.Class({
 
         this._errorBox = new ErrorBox.ErrorBox();
         this.add_named(this._errorBox, 'error');
+
+        this._spinner = new Gtk.Spinner({ width_request: _ICON_SIZE,
+                                          height_request: _ICON_SIZE,
+                                          halign: Gtk.Align.CENTER,
+                                          valign: Gtk.Align.CENTER });
+        this.add_named(this._spinner, 'spinner');
 
         this.view = this.createView();
         this.add_named(this.view, 'view');
@@ -53,6 +64,8 @@ const Preview = new Lang.Class({
                                                                    Lang.bind(this, this.onLoadFinished));
         this._loadErrorId = Application.documentManager.connect('load-error',
                                                                 Lang.bind(this, this.onLoadError));
+        this._passwordNeededId = Application.documentManager.connect('password-needed',
+                                                                     Lang.bind(this, this.onPasswordNeeded));
     },
 
     _getDefaultActions: function() {
@@ -98,6 +111,10 @@ const Preview = new Lang.Class({
             Application.documentManager.disconnect(this._loadErrorId);
             this._loadErrorId = 0;
         }
+        if (this._passwordNeededId > 0) {
+            Application.documentManager.disconnect(this._passwordNeededId);
+            this._passwordNeededId = 0;
+        }
         if (this.navControls) {
             this.navControls.destroy();
             this.navControls = null;
@@ -129,14 +146,48 @@ const Preview = new Lang.Class({
         return Gtk.Menu.new_from_model(model);
     },
 
+    _clearLoadTimer: function() {
+        if (this._loadShowId != 0) {
+            Mainloop.source_remove(this._loadShowId);
+            this._loadShowId = 0;
+        }
+    },
+
+    onPasswordNeeded: function(manager, doc) {
+        this._clearLoadTimer();
+        this._spinner.stop();
+
+        let dialog = new Password.PasswordDialog(doc);
+        dialog.connect('response', Lang.bind(this, function(widget, response) {
+            dialog.destroy();
+            if (response == Gtk.ResponseType.CANCEL || response == Gtk.ResponseType.DELETE_EVENT)
+                Application.documentManager.setActiveItem(null);
+        }));
+    },
+
     onLoadStarted: function(manager, doc) {
+        this._clearLoadTimer();
+        this._loadShowId = Mainloop.timeout_add(_PDF_LOADER_TIMEOUT, Lang.bind(this, function() {
+            this._loadShowId = 0;
+
+            this.set_visible_child_name('spinner');
+            this._spinner.start();
+            return false;
+        }));
     },
 
     onLoadFinished: function(manager, doc) {
+        this._clearLoadTimer();
+        this._spinner.stop();
+
+        this.set_visible_child_name('view');
         this.getAction('open-current').enabled = (doc.defaultApp != null);
     },
 
     onLoadError: function(manager, doc, message, exception) {
+        this._clearLoadTimer();
+        this._spinner.stop();
+
         this._errorBox.update(message, exception.message);
         this.set_visible_child_name('error');
     },

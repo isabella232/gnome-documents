@@ -24,7 +24,6 @@ const Mainloop = imports.mainloop;
 
 const Application = imports.application;
 const MainToolbar = imports.mainToolbar;
-const Password = imports.password;
 const Edit = imports.edit;
 const Search = imports.search;
 const Selections = imports.selections;
@@ -40,16 +39,12 @@ const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
 const _ = imports.gettext.gettext;
 
-const _ICON_SIZE = 32;
-const _PDF_LOADER_TIMEOUT = 400;
-
 const Embed = new Lang.Class({
     Name: 'Embed',
     Extends: Gtk.Box,
 
     _init: function(mainWindow) {
         this._currentView = null;
-        this._loadShowId = 0;
         this._searchState = null;
         this._window = mainWindow;
 
@@ -85,13 +80,6 @@ const Embed = new Lang.Class({
         this._search = new View.ViewContainer(WindowMode.WindowMode.SEARCH);
         this._stack.add_named(this._search, 'search');
 
-        this._spinner = new Gtk.Spinner({ width_request: _ICON_SIZE,
-                                          height_request: _ICON_SIZE,
-                                          halign: Gtk.Align.CENTER,
-                                          valign: Gtk.Align.CENTER });
-        this._spinner.show();
-        this._stack.add_named(this._spinner, 'spinner');
-
         this._stack.connect('notify::visible-child',
                             Lang.bind(this, this._onVisibleChildChanged));
 
@@ -102,14 +90,6 @@ const Embed = new Lang.Class({
 
         Application.documentManager.connect('active-changed',
                                             Lang.bind(this, this._onActiveItemChanged));
-        Application.documentManager.connect('load-started',
-                                            Lang.bind(this, this._onLoadStarted));
-        Application.documentManager.connect('load-finished',
-                                            Lang.bind(this, this._onLoadFinished));
-        Application.documentManager.connect('load-error',
-                                            Lang.bind(this, this._onLoadError));
-        Application.documentManager.connect('password-needed',
-                                            Lang.bind(this, this._onPasswordNeeded));
 
         Application.searchTypeManager.connect('active-changed',
                                               Lang.bind(this, this._onSearchChanged));
@@ -284,50 +264,6 @@ const Embed = new Lang.Class({
         Application.application.change_action_state('search', GLib.Variant.new('b', showSearch));
     },
 
-    _clearLoadTimer: function() {
-        if (this._loadShowId != 0) {
-            Mainloop.source_remove(this._loadShowId);
-            this._loadShowId = 0;
-        }
-    },
-
-    _onLoadStarted: function(manager, doc) {
-        this._clearLoadTimer();
-        this._loadShowId = Mainloop.timeout_add(_PDF_LOADER_TIMEOUT, Lang.bind(this,
-            function() {
-                this._loadShowId = 0;
-
-                this._stack.set_visible_child_name('spinner');
-                this._spinner.start();
-                return false;
-            }));
-    },
-
-    _onLoadFinished: function(manager, doc, docModel) {
-        this._clearLoadTimer();
-        this._spinner.stop();
-
-        this._stack.set_visible_child_name('preview');
-    },
-
-    _onLoadError: function(manager, doc, message, exception) {
-        this._clearLoadTimer();
-        this._spinner.stop();
-    },
-
-    _onPasswordNeeded: function(manager, doc) {
-        this._clearLoadTimer();
-        this._spinner.stop();
-
-        let dialog = new Password.PasswordDialog(doc);
-        dialog.connect('response', Lang.bind(this,
-            function(widget, response) {
-                dialog.destroy();
-                if (response == Gtk.ResponseType.CANCEL || response == Gtk.ResponseType.DELETE_EVENT)
-                    Application.documentManager.setActiveItem(null);
-            }));
-    },
-
     _clearViewState: function() {
         this._clearingView = true;
         if (this._preview) {
@@ -372,7 +308,6 @@ const Embed = new Lang.Class({
             this._titlebar.add(this._toolbar);
         }
 
-        this._spinner.stop();
         this._stack.set_visible_child(visibleChild);
         this._currentView = visibleChild;
     },
