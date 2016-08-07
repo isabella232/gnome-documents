@@ -65,9 +65,6 @@ const EPUBView = new Lang.Class({
     onLoadFinished: function(manager, doc) {
         this.parent(manager, doc);
 
-        if (doc.viewType != Documents.ViewType.EPUB)
-            return;
-
         let f = Gio.File.new_for_uri(doc.uri);
         this._epubdoc = new Gepub.Doc({ path: f.get_path() });
         this._epubdoc.init(null);

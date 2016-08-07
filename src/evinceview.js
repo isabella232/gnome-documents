@@ -234,18 +234,12 @@ const EvinceView = new Lang.Class({
     onLoadStarted: function(manager, doc) {
         this.parent(manager, doc);
 
-        if (doc.viewType != Documents.ViewType.EV)
-            return;
-
         this.getAction('bookmark-page').enabled = false;
         this.getAction('places').enabled = false;
     },
 
     onLoadFinished: function(manager, doc, docModel) {
         this.parent(manager, doc, docModel);
-
-        if (doc.viewType != Documents.ViewType.EV)
-            return;
 
         this.controlsVisible = false;
         this._lastSearch = '';

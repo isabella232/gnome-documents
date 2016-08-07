@@ -292,13 +292,6 @@ const Embed = new Lang.Class({
     },
 
     _onLoadStarted: function(manager, doc) {
-        if (LOKView.isOpenDocumentFormat(doc.mimeType))
-            Application.modeController.setWindowMode(WindowMode.WindowMode.PREVIEW_LOK);
-        else if (EPUBView.isEpub(doc.mimeType))
-            Application.modeController.setWindowMode(WindowMode.WindowMode.PREVIEW_EPUB);
-        else
-            Application.modeController.setWindowMode(WindowMode.WindowMode.PREVIEW_EV);
-
         this._clearLoadTimer();
         this._loadShowId = Mainloop.timeout_add(_PDF_LOADER_TIMEOUT, Lang.bind(this,
             function() {

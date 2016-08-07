@@ -45,14 +45,7 @@ const Query = imports.query;
 const Search = imports.search;
 const TrackerUtils = imports.trackerUtils;
 const Utils = imports.utils;
-
-// Those are the per-document-type views
-const ViewType = {
-    NONE: 0,
-    EV: 1,
-    LOK: 2,
-    EPUB: 3
-};
+const WindowMode = imports.windowMode;
 
 const DeleteItemJob = new Lang.Class({
     Name: 'DeleteItemJob',
@@ -243,7 +236,6 @@ const DocCommon = new Lang.Class({
         this.origPixbuf = null;
         this.defaultApp = null;
         this.defaultAppName = null;
-        this.viewType = ViewType.NONE;
 
         this.mimeType = null;
         this.rdfType = null;
@@ -705,16 +697,6 @@ const DocCommon = new Lang.Class({
     getSourceLink: function() {
         // This should return an array of URI and source name
         log('Error: DocCommon implementations must override getSourceLink');
-    },
-
-    updateViewType: function() {
-        if (LOKView.isOpenDocumentFormat(this.mimeType) && !Application.application.isBooks) {
-            this.viewType = ViewType.LOK;
-        } else if (EPUBView.isEpub(this.mimeType) && Application.application.isBooks) {
-            this.viewType = ViewType.EPUB;
-        } else {
-            this.viewType = ViewType.EV;
-        }
     },
 
     getWhere: function() {
@@ -1396,6 +1378,19 @@ const DocumentManager = new Lang.Class({
         this.emit('load-finished', doc, docModel);
     },
 
+    _requestPreview: function(doc) {
+        let windowMode;
+        if (LOKView.isOpenDocumentFormat(doc.mimeType) && !Application.application.isBooks) {
+            windowMode = WindowMode.WindowMode.PREVIEW_LOK;
+        } else if (EPUBView.isEpub(doc.mimeType) && Application.application.isBooks) {
+            windowMode = WindowMode.WindowMode.PREVIEW_EPUB;
+        } else {
+            windowMode = WindowMode.WindowMode.PREVIEW_EV;
+        }
+
+        Application.modeController.setWindowMode(windowMode);
+    },
+
     reloadActiveItem: function(passwd) {
         let doc = this.getActiveItem();
 
@@ -1409,7 +1404,7 @@ const DocumentManager = new Lang.Class({
         this._clearActiveDocModel();
 
         this._loaderCancellable = new Gio.Cancellable();
-        doc.updateViewType();
+        this._requestPreview(doc);
         this.emit('load-started', doc);
         doc.load(passwd, this._loaderCancellable, Lang.bind(this, this._onDocumentLoaded));
     },
@@ -1468,7 +1463,7 @@ const DocumentManager = new Lang.Class({
             recentManager.add_item(doc.uri);
 
             this._loaderCancellable = new Gio.Cancellable();
-            doc.updateViewType();
+            this._requestPreview(doc);
             this.emit('load-started', doc);
             doc.load(null, this._loaderCancellable, Lang.bind(this, this._onDocumentLoaded));
         }

@@ -141,8 +141,6 @@ const LOKView = new Lang.Class({
     onLoadFinished: function(manager, doc) {
         this.parent(manager, doc);
 
-        if (doc.viewType != Documents.ViewType.LOK)
-            return;
         if (!isAvailable())
             return;
         this._doc = doc;
