@@ -445,12 +445,13 @@ const Embed = new Lang.Class({
         if (this._toolbar)
             this._toolbar.destroy();
 
+        let doc = Application.documentManager.getActiveItem();
+        this._edit.setUri(doc.uri);
+
         // pack the toolbar
         this._toolbar = new Edit.EditToolbar(this._preview);
         this._titlebar.add(this._toolbar);
 
-        let doc = Application.documentManager.getActiveItem();
-        this._edit.setUri(doc.uri);
         this._stack.set_visible_child_name('edit');
     },
 
