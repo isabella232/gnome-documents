@@ -132,7 +132,10 @@ const Preview = new Lang.Class({
     },
 
     createToolbar: function() {
-        return new PreviewToolbar(this);
+        let toolbar = new PreviewToolbar(this);
+        toolbar.searchbar.connectJS('activate-result',
+                                    Lang.bind(this, this.findNext));
+        return toolbar;
     },
 
     createView: function() {
@@ -238,10 +241,6 @@ const Preview = new Lang.Class({
 
     scroll: function(direction) {
         throw (new Error('Not implemented'));
-    },
-
-    activateResult: function() {
-        this.findNext();
     }
 });
 

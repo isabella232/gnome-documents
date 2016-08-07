@@ -23,13 +23,11 @@ const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 
 const Application = imports.application;
-const MainToolbar = imports.mainToolbar;
 const Edit = imports.edit;
 const Search = imports.search;
 const Selections = imports.selections;
 const View = imports.view;
 const WindowMode = imports.windowMode;
-const Documents = imports.documents;
 
 const EvView = imports.gi.EvinceView;
 const EvinceView = imports.evinceview;
@@ -102,11 +100,6 @@ const Embed = new Lang.Class({
         let windowMode = Application.modeController.getWindowMode();
         if (windowMode != WindowMode.WindowMode.NONE)
             this._onWindowModeChanged(Application.modeController, windowMode, WindowMode.WindowMode.NONE);
-    },
-
-    _onActivateResult: function() {
-        if (this._currentView)
-            this._currentView.activateResult();
     },
 
     _restoreLastPage: function() {
@@ -224,10 +217,6 @@ const Embed = new Lang.Class({
             throw(new Error('Not handled'));
             break;
         }
-
-        if (this._toolbar.searchbar)
-            this._toolbar.searchbar.connectJS('activate-result',
-                                              Lang.bind(this, this._onActivateResult));
     },
 
     _restoreSearch: function() {
@@ -304,7 +293,7 @@ const Embed = new Lang.Class({
                 this._toolbar.destroy();
 
             // pack the toolbar
-            this._toolbar = new MainToolbar.OverviewToolbar(this._stack);
+            this._toolbar = visibleChild.createToolbar(this._stack);
             this._titlebar.add(this._toolbar);
         }
 

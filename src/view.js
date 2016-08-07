@@ -34,6 +34,7 @@ const Mainloop = imports.mainloop;
 
 const Application = imports.application;
 const ErrorBox = imports.errorBox;
+const MainToolbar = imports.mainToolbar;
 const WindowMode = imports.windowMode;
 const Utils = imports.utils;
 
@@ -458,7 +459,7 @@ const ViewContainer = new Lang.Class({
         this._model.set_sort_column_id(sortBy, sortType);
     },
 
-    activateResult: function() {
+    _activateResult: function() {
         let doc = this._getFirstDocument();
         if (doc)
             Application.documentManager.setActiveItem(doc)
@@ -662,5 +663,12 @@ const ViewContainer = new Lang.Class({
             this.view.disconnect(this._edgeHitId);
             this._edgeHitId = 0;
         }
+    },
+
+    createToolbar: function(stack) {
+        let toolbar = new MainToolbar.OverviewToolbar(stack);
+        toolbar.searchbar.connectJS('activate-result',
+                                    Lang.bind(this, this._activateResult));
+        return toolbar;
     }
 });
