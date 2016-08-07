@@ -459,8 +459,8 @@ const ViewContainer = new Lang.Class({
     _getFirstDocument: function() {
         let doc = null;
 
-        let iter = this._model.get_iter_first()[1];
-        if (iter) {
+        let [success, iter] = this._model.get_iter_first();
+        if (success) {
             let id = this._model.get_value(iter, Gd.MainColumns.ID);
             doc = Application.documentManager.getItemById(id);
         }
