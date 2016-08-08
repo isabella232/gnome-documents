@@ -348,6 +348,10 @@ const ViewContainer = new Lang.Class({
         this.parent({ homogeneous: true,
                       transition_type: Gtk.StackTransitionType.CROSSFADE });
 
+        let actions = this._getDefaultActions();
+        this.actionGroup = new Gio.SimpleActionGroup();
+        Utils.populateActionGroup(this.actionGroup, actions, 'view');
+
         this.view = new Gd.MainView({ shadow_type: Gtk.ShadowType.NONE });
         this.add_named(this.view, 'view');
 
@@ -373,13 +377,7 @@ const ViewContainer = new Lang.Class({
         this.view.connect('view-selection-changed',
                           Lang.bind(this, this._onViewSelectionChanged));
 
-        // connect to settings change for list/grid view
-        let viewSettingsId = Application.application.connect('action-state-changed::view-as',
-            Lang.bind(this, this._updateTypeForSettings));
         this._updateTypeForSettings();
-
-        this._sortSettingsId = Application.application.connect('action-state-changed::sort-by',
-            Lang.bind(this, this._updateSortForSettings));
         this._updateSortForSettings();
 
         // setup selection controller => view
@@ -390,19 +388,6 @@ const ViewContainer = new Lang.Class({
         Application.modeController.connect('window-mode-changed',
             Lang.bind(this, this._onWindowModeChanged));
         this._onWindowModeChanged();
-
-        let selectAll = Application.application.lookup_action('select-all');
-        let selectAllId = selectAll.connect('activate', Lang.bind(this,
-            function() {
-                Application.selectionController.setSelectionMode(true);
-                this.view.select_all();
-            }));
-
-        let selectNone = Application.application.lookup_action('select-none');
-        let selectNoneId = selectNone.connect('activate', Lang.bind(this,
-            function() {
-                this.view.unselect_all();
-            }));
 
         [ this._offsetController, this._trackerController ] = getController(this._mode);
 
@@ -423,13 +408,29 @@ const ViewContainer = new Lang.Class({
 
         // this will create the model if we're done querying
         this._onQueryStatusChanged();
+    },
 
-        this.connect('destroy', Lang.bind(this,
-            function() {
-                Application.application.disconnect(viewSettingsId);
-                selectAll.disconnect(selectAllId);
-                selectNone.disconnect(selectNoneId);
-            }));
+    _getDefaultActions: function() {
+        return [
+            { name: 'select-all',
+              callback: Lang.bind(this, this._selectAll),
+              accels: ['<Primary>a'] },
+            { name: 'select-none',
+              callback: Lang.bind(this, this._selectNone) },
+            { settingsKey: 'view-as',
+              stateChanged: Lang.bind(this, this._updateTypeForSettings) },
+            { settingsKey: 'sort-by',
+              stateChanged: Lang.bind(this, this._updateSortForSettings) }
+        ];
+    },
+
+    _selectAll: function() {
+        Application.selectionController.setSelectionMode(true);
+        this.view.select_all();
+    },
+
+    _selectNone: function() {
+        this.view.unselect_all();
     },
 
     _updateTypeForSettings: function() {
@@ -788,11 +789,7 @@ const View = new Lang.Class({
         }
 
         this._stack.set_visible_child(visibleChild);
-
-        if (visibleChild.actionGroup)
-            this._window.insert_action_group('view', visibleChild.actionGroup);
-        else
-            this._window.insert_action_group('view', null);
+        this._window.insert_action_group('view', visibleChild.actionGroup);
     },
 
     get view() {

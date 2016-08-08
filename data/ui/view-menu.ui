@@ -21,7 +21,7 @@
                 <property name="visible">True</property>
                 <property name="text">Grid</property>
                 <property name="tooltip-text" translatable="yes">View items as a grid of icons</property>
-                <property name="action-name">app.view-as</property>
+                <property name="action-name">view.view-as</property>
                 <property name="action-target">'icon'</property>
                 <property name="iconic">True</property>
                 <property name="centered">True</property>
@@ -38,7 +38,7 @@
                 <property name="visible">True</property>
                 <property name="text">List</property>
                 <property name="tooltip-text" translatable="yes">View items as a list</property>
-                <property name="action-name">app.view-as</property>
+                <property name="action-name">view.view-as</property>
                 <property name="action-target">'list'</property>
                 <property name="iconic">True</property>
                 <property name="centered">True</property>
@@ -82,7 +82,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="text" translatable="yes">Author</property>
-                <property name="action-name">app.sort-by</property>
+                <property name="action-name">view.sort-by</property>
                 <property name="action-target">'secondary-text'</property>
               </object>
             </child>
@@ -91,7 +91,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="text" translatable="yes">Date</property>
-                <property name="action-name">app.sort-by</property>
+                <property name="action-name">view.sort-by</property>
                 <property name="action-target">'mtime'</property>
               </object>
             </child>
@@ -100,7 +100,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="text" translatable="yes">Name</property>
-                <property name="action-name">app.sort-by</property>
+                <property name="action-name">view.sort-by</property>
                 <property name="action-target">'primary-text'</property>
               </object>
             </child>

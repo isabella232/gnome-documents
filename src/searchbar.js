@@ -151,8 +151,6 @@ const OverviewSearchbar = new Lang.Class({
     Extends: Searchbar,
 
     _init: function() {
-        this._selectAll = Application.application.lookup_action('select-all');
-
         this.parent();
 
         let sourcesId = Application.sourceManager.connect('active-changed',
@@ -287,14 +285,8 @@ const OverviewSearchbar = new Lang.Class({
         this._dropdownButton.set_active(true);
     },
 
-    reveal: function() {
-        this._selectAll.enabled = false;
-        this.parent();
-    },
-
     conceal: function() {
         this._dropdownButton.set_active(false);
-        this._selectAll.enabled = true;
 
         Application.searchTypeManager.setActiveItemById('all');
         Application.searchMatchManager.setActiveItemById('all');
