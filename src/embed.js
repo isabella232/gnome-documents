@@ -29,10 +29,6 @@ const Selections = imports.selections;
 const View = imports.view;
 const WindowMode = imports.windowMode;
 
-const EvView = imports.gi.EvinceView;
-const EvinceView = imports.evinceview;
-const LOKView = imports.lokview;
-const EPUBView = imports.epubview;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
 const _ = imports.gettext.gettext;
@@ -42,44 +38,20 @@ const Embed = new Lang.Class({
     Extends: Gtk.Box,
 
     _init: function(mainWindow) {
-        this._currentView = null;
         this._searchState = null;
-        this._window = mainWindow;
 
         this.parent({ orientation: Gtk.Orientation.VERTICAL,
                       visible: true });
 
         this._titlebar = new Gtk.Grid({ visible: true });
-        this._window.set_titlebar(this._titlebar);
+        mainWindow.set_titlebar(this._titlebar);
 
         // create the toolbar for selected items, it's hidden by default
         this._selectionToolbar = new Selections.SelectionToolbar();
         this.pack_end(this._selectionToolbar, false, false, 0);
 
-        this._stackOverlay = new Gtk.Overlay({ visible: true });
-        this.pack_end(this._stackOverlay, true, true, 0);
-
-        this._stack = new Gtk.Stack({ visible: true,
-                                      homogeneous: true,
-                                      transition_type: Gtk.StackTransitionType.CROSSFADE });
-        this._stackOverlay.add(this._stack);
-
-        // pack the OSD notification widget
-        this._stackOverlay.add_overlay(Application.notificationManager);
-
-        // now create the actual content widgets
-        this._documents = new View.ViewContainer(WindowMode.WindowMode.DOCUMENTS);
-        let label = Application.application.isBooks ? _('Books') : _("Documents");
-        this._stack.add_titled(this._documents, 'documents', label);
-
-        this._collections = new View.ViewContainer(WindowMode.WindowMode.COLLECTIONS);
-        this._stack.add_titled(this._collections, 'collections', _("Collections"));
-
-        this._search = new View.ViewContainer(WindowMode.WindowMode.SEARCH);
-        this._stack.add_named(this._search, 'search');
-
-        this._stack.connect('notify::visible-child',
-                            Lang.bind(this, this._onVisibleChildChanged));
+        this._view = new View.View(mainWindow);
+        this.pack_end(this._view, true, true, 0);
 
         Application.modeController.connect('window-mode-changed',
                                            Lang.bind(this, this._onWindowModeChanged));
@@ -100,36 +72,6 @@ const Embed = new Lang.Class({
         let windowMode = Application.modeController.getWindowMode();
         if (windowMode != WindowMode.WindowMode.NONE)
             this._onWindowModeChanged(Application.modeController, windowMode, WindowMode.WindowMode.NONE);
-    },
-
-    _restoreLastPage: function() {
-        let windowMode = Application.modeController.getWindowMode();
-        if (windowMode == WindowMode.WindowMode.NONE)
-            return;
-
-        let page;
-
-        switch (windowMode) {
-        case WindowMode.WindowMode.COLLECTIONS:
-            page = 'collections';
-            break;
-        case WindowMode.WindowMode.DOCUMENTS:
-            page = 'documents';
-            break;
-        case WindowMode.WindowMode.SEARCH:
-            page = 'search';
-            break;
-        case WindowMode.WindowMode.PREVIEW_EV:
-        case WindowMode.WindowMode.PREVIEW_LOK:
-        case WindowMode.WindowMode.PREVIEW_EPUB:
-            page = 'preview';
-            break;
-        default:
-            throw(new Error('Not handled'));
-            break;
-        }
-
-        this._stack.set_visible_child_name(page);
     },
 
     _onFullscreenChanged: function(controller, fullscreen) {
@@ -168,54 +110,26 @@ const Embed = new Lang.Class({
         }
     },
 
-    _onVisibleChildChanged: function() {
-        // Avoid switching by accident if we just happen to destroy
-        // the previous view
-        if (this._clearingView)
-            return;
-
-        let visibleChild = this._stack.visible_child;
-        let windowMode = WindowMode.WindowMode.NONE;
-
-        if (visibleChild == this._collections)
-            windowMode = WindowMode.WindowMode.COLLECTIONS;
-        else if (visibleChild == this._documents)
-            windowMode = WindowMode.WindowMode.DOCUMENTS;
-
-        if (windowMode == WindowMode.WindowMode.NONE)
-            return;
-
-        Application.modeController.setWindowMode(windowMode);
-    },
-
     _onWindowModeChanged: function(object, newMode, oldMode) {
-        switch (newMode) {
-        case WindowMode.WindowMode.COLLECTIONS:
-        case WindowMode.WindowMode.DOCUMENTS:
-        case WindowMode.WindowMode.SEARCH:
-            this._prepareForOverview(newMode, oldMode);
-            break;
-        case WindowMode.WindowMode.PREVIEW_EV:
-            if (oldMode == WindowMode.WindowMode.EDIT)
-                Application.documentManager.reloadActiveItem();
-            this._prepareForPreview(EvinceView.EvinceView);
-            break;
-        case WindowMode.WindowMode.PREVIEW_LOK:
-            if (oldMode == WindowMode.WindowMode.EDIT)
-                Application.documentManager.reloadActiveItem();
-            this._prepareForPreview(LOKView.LOKView);
-            break;
-        case WindowMode.WindowMode.PREVIEW_EPUB:
-            this._prepareForPreview(EPUBView.EPUBView);
-            break;
-        case WindowMode.WindowMode.EDIT:
-            this._prepareForPreview(Edit.EditView);
-            break;
-        case WindowMode.WindowMode.NONE:
-            break;
-         default:
-            throw(new Error('Not handled'));
-            break;
+        let createToolbar = true;
+
+        if (newMode == WindowMode.WindowMode.COLLECTIONS ||
+            newMode == WindowMode.WindowMode.DOCUMENTS ||
+            newMode == WindowMode.WindowMode.SEARCH) {
+            createToolbar = (oldMode != WindowMode.WindowMode.COLLECTIONS &&
+                             oldMode != WindowMode.WindowMode.DOCUMENTS &&
+                             oldMode != WindowMode.WindowMode.SEARCH);
+        }
+
+        this._view.windowMode = newMode;
+
+        if (createToolbar) {
+            if (this._toolbar)
+                this._toolbar.destroy();
+
+            // pack the toolbar
+            this._toolbar = this._view.createToolbar();
+            this._titlebar.add(this._toolbar);
         }
     },
 
@@ -253,82 +167,17 @@ const Embed = new Lang.Class({
         Application.application.change_action_state('search', GLib.Variant.new('b', showSearch));
     },
 
-    _clearViewState: function() {
-        this._clearingView = true;
-        if (this._preview) {
-            this._preview.destroy();
-            this._preview = null;
-        }
-
-        this._window.insert_action_group('view', null);
-        this._clearingView = false;
-    },
-
-    _prepareForOverview: function(newMode, oldMode) {
-        let createToolbar = (oldMode != WindowMode.WindowMode.COLLECTIONS &&
-                             oldMode != WindowMode.WindowMode.DOCUMENTS &&
-                             oldMode != WindowMode.WindowMode.SEARCH);
-
-        let visibleChild;
-
-        switch (newMode) {
-        case WindowMode.WindowMode.COLLECTIONS:
-            visibleChild = this._collections;
-            break;
-        case WindowMode.WindowMode.DOCUMENTS:
-            visibleChild = this._documents;
-            break;
-        case WindowMode.WindowMode.SEARCH:
-            visibleChild = this._search;
-            break;
-        default:
-            throw(new Error('Not handled'));
-            break;
-        }
-
-        this._clearViewState();
-
-        if (createToolbar) {
-            if (this._toolbar)
-                this._toolbar.destroy();
-
-            // pack the toolbar
-            this._toolbar = visibleChild.createToolbar(this._stack);
-            this._titlebar.add(this._toolbar);
-        }
-
-        this._stack.set_visible_child(visibleChild);
-        this._currentView = visibleChild;
-    },
-
-    _prepareForPreview: function(constructor) {
-        this._clearViewState();
-        if (this._toolbar)
-            this._toolbar.destroy();
-
-        this._preview = new constructor(this._stackOverlay, this._window);
-        this._window.insert_action_group('view', this._preview.actionGroup);
-        this._stack.add_named(this._preview, 'preview');
-
-        // pack the toolbar
-        this._toolbar = this._preview.createToolbar();
-        this._titlebar.add(this._toolbar);
-
-        this._stack.set_visible_child_name('preview');
-        this._currentView = this._preview;
-    },
-
     getMainToolbar: function() {
         let windowMode = Application.modeController.getWindowMode();
         let fullscreen = Application.modeController.getFullscreen();
 
         if (fullscreen && (windowMode == WindowMode.WindowMode.PREVIEW_EV))
-            return this._preview.getFullscreenToolbar();
+            return this.getPreview().getFullscreenToolbar();
         else
             return this._toolbar;
     },
 
     getPreview: function() {
-        return this._preview;
+        return this._view.view;
     }
 });

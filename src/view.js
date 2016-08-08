@@ -20,6 +20,9 @@
  */
 
 const Cairo = imports.gi.cairo;
+const Edit = imports.edit;
+const EvinceView = imports.evinceview;
+const EPUBView = imports.epubview;
 const Gd = imports.gi.Gd;
 const Gdk = imports.gi.Gdk;
 const Gettext = imports.gettext;
@@ -27,6 +30,7 @@ const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const GObject = imports.gi.GObject;
 const Gtk = imports.gi.Gtk;
+const LOKView = imports.lokview;
 const _ = imports.gettext.gettext;
 
 const Lang = imports.lang;
@@ -670,5 +674,128 @@ const ViewContainer = new Lang.Class({
         toolbar.searchbar.connectJS('activate-result',
                                     Lang.bind(this, this._activateResult));
         return toolbar;
+    }
+});
+
+const View = new Lang.Class({
+    Name: 'View',
+    Extends: Gtk.Overlay,
+
+    _init: function(window) {
+        this._window = window;
+
+        this.parent();
+
+        this._stack = new Gtk.Stack({ visible: true,
+                                      homogeneous: true,
+                                      transition_type: Gtk.StackTransitionType.CROSSFADE });
+        this.add(this._stack);
+
+        // pack the OSD notification widget
+        this.add_overlay(Application.notificationManager);
+
+        // now create the actual content widgets
+        this._documents = new ViewContainer(WindowMode.WindowMode.DOCUMENTS);
+        let label = Application.application.isBooks ? _('Books') : _("Documents");
+        this._stack.add_titled(this._documents, 'documents', label);
+
+        this._collections = new ViewContainer(WindowMode.WindowMode.COLLECTIONS);
+        this._stack.add_titled(this._collections, 'collections', _("Collections"));
+
+        this._search = new ViewContainer(WindowMode.WindowMode.SEARCH);
+        this._stack.add_named(this._search, 'search');
+
+        this.connect('notify::visible-child',
+                     Lang.bind(this, this._onVisibleChildChanged));
+
+        this.show();
+    },
+
+    _onVisibleChildChanged: function() {
+        let visibleChild = this.visible_child;
+        let windowMode;
+
+        if (visibleChild == this._collections)
+            windowMode = WindowMode.WindowMode.COLLECTIONS;
+        else if (visibleChild == this._documents)
+            windowMode = WindowMode.WindowMode.DOCUMENTS;
+        else
+            return;
+
+        Application.modeController.setWindowMode(windowMode);
+    },
+
+    _clearPreview: function() {
+        if (this._preview) {
+            this._preview.destroy();
+            this._preview = null;
+        }
+    },
+
+    _createPreview: function(mode) {
+        this._clearPreview();
+
+        let constructor;
+        switch (mode) {
+        case WindowMode.WindowMode.PREVIEW_EV:
+            constructor = EvinceView.EvinceView;
+            break;
+        case WindowMode.WindowMode.PREVIEW_LOK:
+            constructor = LOKView.LOKView;
+            break;
+        case WindowMode.WindowMode.PREVIEW_EPUB:
+            constructor = EPUBView.EPUBView;
+            break;
+        case WindowMode.WindowMode.EDIT:
+            constructor = Edit.EditView;
+            break;
+        default:
+            return;
+        }
+
+        this._preview = new constructor(this, this._window);
+        this._stack.add_named(this._preview, 'preview');
+    },
+
+    createToolbar: function() {
+        return this.view.createToolbar(this._stack);
+    },
+
+    set windowMode(mode) {
+        this._clearPreview();
+
+        let visibleChild;
+
+        switch (mode) {
+        case WindowMode.WindowMode.COLLECTIONS:
+            visibleChild = this._collections;
+            break;
+        case WindowMode.WindowMode.DOCUMENTS:
+            visibleChild = this._documents;
+            break;
+        case WindowMode.WindowMode.SEARCH:
+            visibleChild = this._search;
+            break;
+        case WindowMode.WindowMode.PREVIEW_EV:
+        case WindowMode.WindowMode.PREVIEW_LOK:
+        case WindowMode.WindowMode.PREVIEW_EPUB:
+        case WindowMode.WindowMode.EDIT:
+            this._createPreview(mode);
+            visibleChild = this._preview;
+            break;
+        default:
+            return;
+        }
+
+        this._stack.set_visible_child(visibleChild);
+
+        if (visibleChild.actionGroup)
+            this._window.insert_action_group('view', visibleChild.actionGroup);
+        else
+            this._window.insert_action_group('view', null);
+    },
+
+    get view() {
+        return this._stack.visible_child;
     }
 });
