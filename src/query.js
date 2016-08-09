@@ -70,7 +70,6 @@ const QueryBuilder = new Lang.Class({
         if (!isFtsEnabled)
             filters.push(this._context.searchMatchManager.getFilter(flags));
         filters.push(this._context.sourceManager.getFilter(flags));
-        filters.push(this._context.searchCategoryManager.getFilter(flags));
 
         if (currentType) {
             filters.push(currentType.getFilter());
@@ -97,8 +96,7 @@ const QueryBuilder = new Lang.Class({
 
                 if ((flags & QueryFlags.UNFILTERED) == 0) {
                     if (global)
-                        part += this._context.searchCategoryManager.getWhere() +
-                                this._context.documentManager.getWhere();
+                        part += this._context.documentManager.getWhere();
 
                     part += this._buildFilterString(currentType, flags, ftsQuery.length > 0);
                 }

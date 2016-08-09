@@ -256,9 +256,6 @@ const DocCommon = new Lang.Class({
         this._refreshIconId =
             Application.settings.connect('changed::view-as',
                                          Lang.bind(this, this.refreshIcon));
-        this._filterId =
-            Application.searchCategoryManager.connect('active-changed',
-                                                      Lang.bind(this, this.refreshIcon));
     },
 
     refresh: function() {
@@ -534,13 +531,8 @@ const DocCommon = new Lang.Class({
 
         let emblemIcons = [];
         let emblemedPixbuf = this.origPixbuf;
-        let activeItem;
 
-        activeItem = Application.searchCategoryManager.getActiveItem();
-
-        if (this.shared &&
-            (!activeItem ||
-             (activeItem.id != Search.SearchCategoryStock.SHARED)))
+        if (this.shared)
             emblemIcons.push(this._createSymbolicEmblem('emblem-shared'));
 
         if (emblemIcons.length > 0) {
@@ -591,7 +583,6 @@ const DocCommon = new Lang.Class({
         }
 
         Application.settings.disconnect(this._refreshIconId);
-        Application.searchCategoryManager.disconnect(this._filterId);
     },
 
     loadLocal: function(passwd, cancellable, callback) {

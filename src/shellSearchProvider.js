@@ -35,7 +35,6 @@ const Utils = imports.utils;
 
 let documentManager = null;
 let queryBuilder = null;
-let searchCategoryManager = null;
 let searchMatchManager = null;
 let searchTypeManager = null;
 let searchController = null;

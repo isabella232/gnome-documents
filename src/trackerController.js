@@ -364,7 +364,6 @@ const TrackerSearchController = new Lang.Class({
 
         Application.sourceManager.connect('active-changed', Lang.bind(this, this.refreshForObject));
         Application.searchController.connect('search-string-changed', Lang.bind(this, this.refreshForObject));
-        Application.searchCategoryManager.connect('active-changed', Lang.bind(this, this.refreshForObject));
         Application.searchTypeManager.connect('active-changed', Lang.bind(this, this.refreshForObject));
 
         Application.searchMatchManager.connect('active-changed', Lang.bind(this, this._onSearchMatchChanged));

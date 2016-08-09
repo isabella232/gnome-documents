@@ -36,7 +36,6 @@ const C_ = imports.gettext.pgettext;
 function initSearch(context) {
     context.documentManager = new Documents.DocumentManager();
     context.sourceManager = new SourceManager(context);
-    context.searchCategoryManager = new SearchCategoryManager(context);
     context.searchMatchManager = new SearchMatchManager(context);
     context.searchTypeManager = new SearchTypeManager(context);
     context.searchController = new SearchController(context);
@@ -80,81 +79,6 @@ const SearchController = new Lang.Class({
     }
 });
 Signals.addSignalMethods(SearchController.prototype);
-
-const SearchCategoryStock = {
-    ALL: 'all',
-    FAVORITES: 'favorites',
-    SHARED: 'shared',
-    PRIVATE: 'private'
-};
-
-const SearchCategory = new Lang.Class({
-    Name: 'SearchCategory',
-
-    _init: function(params) {
-        this.id = params.id;
-        this.name = params.name;
-        this.icon = params.icon;
-    },
-
-    getWhere: function() {
-        if (this.id == SearchCategoryStock.FAVORITES)
-            return '{ ?urn nao:hasTag nao:predefined-tag-favorite }';
-
-        // require to have a contributor, and creator, and they should be different
-        if (this.id == SearchCategoryStock.SHARED)
-            return '{ ?urn nco:contributor ?contributor . ?urn nco:creator ?creator FILTER (?contributor != ?creator ) }';
-
-        return '';
-    },
-
-    getFilter: function() {
-        // require to be not local
-        if (this.id == SearchCategoryStock.SHARED)
-            return this._manager.context.sourceManager.getFilterNotLocal();
-
-        return '(true)';
-    }
-});
-
-const SearchCategoryManager = new Lang.Class({
-    Name: 'SearchCategoryManager',
-    Extends: Manager.BaseManager,
-
-    _init: function(context) {
-        this.parent(_("Category"), 'search-category', context);
-
-        let category, recent;
-        recent = new SearchCategory({ id: SearchCategoryStock.ALL,
-        // Translators: this refers to new and recent documents
-                                      name: _("All"),
-                                      icon: '' });
-        this.addItem(recent);
-
-        category = new SearchCategory({ id: SearchCategoryStock.FAVORITES,
-        // Translators: this refers to favorite documents
-                                        name: _("Favorites"),
-                                        icon: 'emblem-favorite-symbolic' });
-        this.addItem(category);
-        category = new SearchCategory({ id: SearchCategoryStock.SHARED,
-        // Translators: this refers to shared documents
-                                        name: _("Shared with you"),
-                                        icon: 'emblem-shared-symbolic' });
-        this.addItem(category);
-
-        // Private category: currently unimplemented
-        // category = new SearchCategory(SearchCategoryStock.PRIVATE, _("Private"), 'channel-secure-symbolic');
-        // this._categories[category.id] = category;
-
-        this.setActiveItem(recent);
-    },
-
-    getFilter: function(flags) {
-        // Since we don't expose the SearchCategoryManager in the UI,
-        // this is a placeholder for the moment.
-        return '(true)';
-    }
-});
 
 const SearchType = new Lang.Class({
     Name: 'SearchType',

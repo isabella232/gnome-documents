@@ -65,7 +65,6 @@ let offsetCollectionsController = null;
 let offsetDocumentsController = null;
 let offsetSearchController = null;
 let queryBuilder = null;
-let searchCategoryManager = null;
 let searchController = null;
 let searchMatchManager = null;
 let searchTypeManager = null;
