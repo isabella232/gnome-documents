@@ -184,16 +184,6 @@ const BaseModel = new Lang.Class({
         this._manager.connect('item-added', Lang.bind(this, this._refreshModel));
         this._manager.connect('item-removed', Lang.bind(this, this._refreshModel));
 
-        let application = Gio.Application.get_default();
-        let actionId = this._manager.getActionId();
-        application.connect('action-state-changed::' + actionId, Lang.bind(this, function(actionGroup, actionName, value) {
-            let itemId = value.get_string()[0];
-            this._manager.setActiveItemById(itemId);
-        }));
-        this._manager.connect('active-changed', Lang.bind(this, function(manager, activeItem) {
-            application.change_action_state(actionId, GLib.Variant.new('s', activeItem.id));
-        }));
-
         this._refreshModel();
     },
 

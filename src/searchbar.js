@@ -136,7 +136,7 @@ const Dropdown = new Lang.Class({
 
              // HACK: see https://bugzilla.gnome.org/show_bug.cgi?id=733977
              let popover = new Gtk.Popover();
-             popover.bind_model(model, 'app');
+             popover.bind_model(model, 'view');
              let w = popover.get_child();
              w.reparent(grid);
              w.valign = Gtk.Align.START;

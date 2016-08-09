@@ -39,6 +39,7 @@ const Mainloop = imports.mainloop;
 const Application = imports.application;
 const ErrorBox = imports.errorBox;
 const MainToolbar = imports.mainToolbar;
+const Search = imports.search;
 const WindowMode = imports.windowMode;
 const Utils = imports.utils;
 
@@ -420,7 +421,22 @@ const ViewContainer = new Lang.Class({
             { settingsKey: 'view-as',
               stateChanged: Lang.bind(this, this._updateTypeForSettings) },
             { settingsKey: 'sort-by',
-              stateChanged: Lang.bind(this, this._updateSortForSettings) }
+              stateChanged: Lang.bind(this, this._updateSortForSettings) },
+            { name: 'search-source',
+              parameter_type: 's',
+              state: GLib.Variant.new('s', Search.SearchSourceStock.ALL),
+              stateChanged: Lang.bind(this, this._updateSearchSource),
+              create_hook: Lang.bind(this, this._initSearchSource) },
+            { name: 'search-type',
+              parameter_type: 's',
+              state: GLib.Variant.new('s', Search.SearchTypeStock.ALL),
+              stateChanged: Lang.bind(this, this._updateSearchType),
+              create_hook: Lang.bind(this, this._initSearchType) },
+            { name: 'search-match',
+              parameter_type: 's',
+              state: GLib.Variant.new('s', Search.SearchMatchStock.ALL),
+              stateChanged: Lang.bind(this, this._updateSearchMatch),
+              create_hook: Lang.bind(this, this._initSearchMatch) }
         ];
     },
 
@@ -462,6 +478,39 @@ const ViewContainer = new Lang.Class({
         }
 
         this._model.set_sort_column_id(sortBy, sortType);
+    },
+
+    _initSearchSource: function(action) {
+        Application.sourceManager.connect('active-changed', Lang.bind(this, function(manager, activeItem) {
+            action.state = GLib.Variant.new('s', activeItem.id);
+        }));
+    },
+
+    _initSearchType: function(action) {
+        Application.searchTypeManager.connect('active-changed', Lang.bind(this, function(manager, activeItem) {
+            action.state = GLib.Variant.new('s', activeItem.id);
+        }));
+    },
+
+    _initSearchMatch: function(action) {
+        Application.searchMatchManager.connect('active-changed', Lang.bind(this, function(manager, activeItem) {
+            action.state = GLib.Variant.new('s', activeItem.id);
+        }));
+    },
+
+    _updateSearchSource: function(action) {
+        let itemId = action.state.get_string()[0];
+        Application.sourceManager.setActiveItemById(itemId);
+    },
+
+    _updateSearchType: function(action) {
+        let itemId = action.state.get_string()[0];
+        Application.searchTypeManager.setActiveItemById(itemId);
+    },
+
+    _updateSearchMatch: function(action) {
+        let itemId = action.state.get_string()[0];
+        Application.searchMatchManager.setActiveItemById(itemId);
     },
 
     _activateResult: function() {

@@ -484,25 +484,7 @@ const Application = new Lang.Class({
             { name: 'search',
               callback: Utils.actionToggleCallback,
               state: GLib.Variant.new('b', false),
-              accels: ['<Primary>f'] },
-            { name: 'search-source',
-              parameter_type: 's',
-              state: GLib.Variant.new('s', Search.SearchSourceStock.ALL),
-              window_modes: [WindowMode.WindowMode.COLLECTIONS,
-                             WindowMode.WindowMode.DOCUMENTS,
-                             WindowMode.WindowMode.SEARCH] },
-            { name: 'search-type',
-              parameter_type: 's',
-              state: GLib.Variant.new('s', Search.SearchTypeStock.ALL),
-              window_modes: [WindowMode.WindowMode.COLLECTIONS,
-                             WindowMode.WindowMode.DOCUMENTS,
-                             WindowMode.WindowMode.SEARCH] },
-            { name: 'search-match',
-              parameter_type: 's',
-              state: GLib.Variant.new('s', Search.SearchMatchStock.ALL),
-              window_modes: [WindowMode.WindowMode.COLLECTIONS,
-                             WindowMode.WindowMode.DOCUMENTS,
-                             WindowMode.WindowMode.SEARCH] }
+              accels: ['<Primary>f'] }
         ];
 
         if (!this.isBooks)
