@@ -1,3 +1,17 @@
+3.21.90 - "Don't"
+==================
+
+- Add initial epub support in Books (Cosimo Cecchi, Daniel Garcia Moreno)
+- Fix bookmarking (Alessandro Bono)
+- Fix continuous mode never being disabled (Bastien Nocera)
+- Don't offer to open in file-roller (Bastien Nocera)
+- Add fullscreen and nightmode to toolbar (Bastien Nocera)
+- Hide the "Present" menu item in Books (Bastien Nocera)
+- Don't select when focusing the search entry (Dimitrios Christidis)
+- Use GtkMenuButton in OverviewSearchbar (Alessandro Bono)
+- Don't show documents in the collection dialog (Alessandro Bono)
+- Translation updates
+
 3.20.0 - "Tickets"
 ==================
 
