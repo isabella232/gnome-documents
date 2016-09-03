@@ -23,7 +23,6 @@ const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 
 const Application = imports.application;
-const Edit = imports.edit;
 const Search = imports.search;
 const Selections = imports.selections;
 const View = imports.view;
