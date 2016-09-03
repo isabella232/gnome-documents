@@ -176,15 +176,6 @@ const Application = new Lang.Class({
             }));
     },
 
-    _viewAsCreateHook: function(action) {
-        settings.connect('changed::view-as', Lang.bind(this,
-            function() {
-                let state = settings.get_value('view-as');
-                if (state.get_string()[0] != action.state.get_string()[0])
-                    action.change_state(state);
-            }));
-    },
-
     _nightModeCreateHook: function(action) {
         settings.connect('changed::night-mode', Lang.bind(this,
             function() {
@@ -199,15 +190,6 @@ const Application = new Lang.Class({
         let state = settings.get_value('night-mode');
         let gtkSettings = Gtk.Settings.get_default();
         gtkSettings.gtk_application_prefer_dark_theme = state.get_boolean();
-    },
-
-    _sortByCreateHook: function(action) {
-        settings.connect('changed::sort-by', Lang.bind(this,
-            function() {
-                let state = settings.get_value('sort-by');
-                if (state.get_string()[0] != action.state.get_string()[0])
-                    action.change_state(state);
-            }));
     },
 
     _onActionQuit: function() {
@@ -238,16 +220,6 @@ const Application = new Lang.Class({
         let newState = !state.get_boolean();
         action.change_state(GLib.Variant.new('b', newState));
         modeController.setFullscreen(newState);
-    },
-
-    _onActionViewAs: function(action, parameter) {
-        if (parameter.get_string()[0] != action.state.get_string()[0])
-            settings.set_value('view-as', parameter);
-    },
-
-    _onActionSortBy: function(action, parameter) {
-        if (parameter.get_string()[0] != action.state.get_string()[0])
-            settings.set_value('sort-by', parameter);
     },
 
     _connectActionsToMode: function() {
