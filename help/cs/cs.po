@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the gnome-user-docs package.
 #
 # Adam Matoušek <adamatousek@gmail.com>, 2012.
-# Marek Černocký <marek@manet.cz>, 2014, 2015.
+# Marek Černocký <marek@manet.cz>, 2014, 2015, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-user-docs master\n"
-"POT-Creation-Date: 2015-02-16 19:45+0000\n"
-"PO-Revision-Date: 2015-02-16 20:59+0100\n"
+"POT-Creation-Date: 2016-05-18 15:53+0000\n"
+"PO-Revision-Date: 2016-09-04 22:59+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -185,7 +185,7 @@ msgstr "Zdroje"
 #. (itstool) path: item/p
 #: C/filter.page:37
 msgid ""
-"Chose to search documents that are <gui>Local</gui>, accessed through <link "
+"Choose to search documents that are <gui>Local</gui>, accessed through <link "
 "href=\"help:gnome-help/online-accounts\">online accounts</link> with "
 "<gui>Google</gui>, <gui>OneDrive</gui>, <gui>ownCloud</gui>, or <gui>All</"
 "gui>."
@@ -706,9 +706,6 @@ msgstr "Kliknutím na <gui>Hledání</gui> otevřete příslušný panel."
 
 #. (itstool) path: item/p
 #: C/view-add.page:44
-#| msgid ""
-#| "Press the button in the bottom-left of the window which will open "
-#| "<gui>Search Locations</gui>."
 msgid ""
 "Press the button in the bottom-right of the window which will open "
 "<gui>Search Locations</gui>."
