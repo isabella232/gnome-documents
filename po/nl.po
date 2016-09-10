@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gnome-documents\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-10-15 14:51+0000\n"
+"POT-Creation-Date: 2016-01-05 10:36+0000\n"
 "PO-Revision-Date: 2015-04-03 19:24+0100\n"
 "Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -184,99 +184,99 @@ msgstr "Documenten gebruiken, beheren en delen"
 msgid "Docs;PDF;Document;"
 msgstr "Docs;PDF;Document;"
 
-#: ../src/documents.js:631
+#: ../src/documents.js:641
 msgid "Failed to print document"
 msgstr "Afdrukken document is mislukt"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:668 ../src/search.js:509
+#: ../src/documents.js:678 ../src/search.js:509
 msgid "Local"
 msgstr "Lokaal"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:695
+#: ../src/documents.js:717
 msgid "GNOME"
 msgstr "Gnome"
 
-#: ../src/documents.js:696
+#: ../src/documents.js:718
 msgid "Getting Started with Documents"
 msgstr "Aan de slag met Documenten"
 
-#: ../src/documents.js:712 ../src/documents.js:904 ../src/documents.js:967
-#: ../src/documents.js:1075
+#: ../src/documents.js:734 ../src/documents.js:926 ../src/documents.js:989
+#: ../src/documents.js:1097
 msgid "Collection"
 msgstr "Verzameling"
 
 #. overridden
-#: ../src/documents.js:782
+#: ../src/documents.js:804
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:783
+#: ../src/documents.js:805
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:906 ../src/documents.js:1077
+#: ../src/documents.js:928 ../src/documents.js:1099
 msgid "Spreadsheet"
 msgstr "Werkblad"
 
-#: ../src/documents.js:908 ../src/documents.js:1079 ../src/presentation.js:47
+#: ../src/documents.js:930 ../src/documents.js:1101 ../src/presentation.js:47
 msgid "Presentation"
 msgstr "Presentatie"
 
-#: ../src/documents.js:910 ../src/documents.js:1081
+#: ../src/documents.js:932 ../src/documents.js:1103
 msgid "e-Book"
 msgstr "E-book"
 
-#: ../src/documents.js:912 ../src/documents.js:1083
+#: ../src/documents.js:934 ../src/documents.js:1105
 msgid "Document"
 msgstr "Document"
 
 #. overridden
-#: ../src/documents.js:946
+#: ../src/documents.js:968
 msgid "ownCloud"
 msgstr "ownCloud"
 
 #. overridden
-#: ../src/documents.js:1009 ../src/documents.js:1010
+#: ../src/documents.js:1031 ../src/documents.js:1032
 msgid "OneDrive"
 msgstr "OneDrive"
 
-#: ../src/documents.js:1254
+#: ../src/documents.js:1276
 msgid "Please check the network connection."
 msgstr "Controleer de netwerkverbinding."
 
-#: ../src/documents.js:1257
+#: ../src/documents.js:1279
 msgid "Please check the network proxy settings."
 msgstr "Controleer de netwerkproxy-instellingen."
 
-#: ../src/documents.js:1260
+#: ../src/documents.js:1282
 msgid "Unable to sign in to the document service."
 msgstr "Kan niet aanmelden bij de documentservice."
 
-#: ../src/documents.js:1263
+#: ../src/documents.js:1285
 msgid "Unable to locate this document."
 msgstr "Kan dit document niet vinden."
 
-#: ../src/documents.js:1266
+#: ../src/documents.js:1288
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Hmm, er lijkt iets mis te gaan (%d)."
 
-#: ../src/documents.js:1273
+#: ../src/documents.js:1295
 msgid ""
 "You are using a preview of Books. Full viewing capabilities are coming soon!"
 msgstr "U gebruikt een voorbeeld van Boeken."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1294
+#: ../src/documents.js:1316
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Oeps! Niet in staat ‘%s’ te laden"
 
-#: ../src/edit.js:180
+#: ../src/edit.js:186
 msgid "View"
 msgstr "Beeld"
 
