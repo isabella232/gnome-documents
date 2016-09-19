@@ -101,7 +101,10 @@ const MainWindow = new Lang.Class({
     },
 
     _onConfigureEvent: function(widget, event) {
-        if (Application.modeController.getFullscreen())
+        let window = this.get_window();
+        let state = window.get_state();
+
+        if (state & Gdk.WindowState.FULLSCREEN)
             return;
 
         if (this._configureId != 0) {
