@@ -780,8 +780,6 @@ const View = new Lang.Class({
     },
 
     _createPreview: function(mode) {
-        this._clearPreview();
-
         let constructor;
         switch (mode) {
         case WindowMode.WindowMode.PREVIEW_EV:
