@@ -37,7 +37,7 @@
         <attribute name="accel">&lt;Primary&gt;minus</attribute>
       </item>
     </section>
-    <section id='rotate-section'>
+    <section>
       <item>
         <attribute name="action">view.rotate-left</attribute>
         <attribute name='hidden-when'>action-missing</attribute>
