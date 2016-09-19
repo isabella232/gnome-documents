@@ -94,26 +94,6 @@ const MainToolbar = new Lang.Class({
         return searchButton;
     },
 
-    _onFullscreenStateChanged: function() {
-        let state = Application.application.get_action_state('fullscreen');
-        if (state.get_boolean())
-            this._fullscreenButton.image.icon_name ='view-restore-symbolic';
-        else
-            this._fullscreenButton.image.icon_name ='view-fullscreen-symbolic';
-    },
-
-    addFullscreenButton: function() {
-        let fullscreenButton = new Gtk.Button({ image: new Gtk.Image ({ icon_name: 'view-fullscreen-symbolic' }),
-                                                tooltip_text: _("Fullscreen"),
-                                                action_name: 'app.fullscreen' });
-        this.toolbar.pack_end(fullscreenButton);
-        Application.application.connect('action-state-changed::fullscreen',
-            Lang.bind(this, this._onFullscreenStateChanged));
-        this._fullscreenButton = fullscreenButton;
-        this._onFullscreenStateChanged();
-        return fullscreenButton;
-    },
-
     addNightmodeButton: function() {
         let nightmodeButton = new Gtk.ToggleButton({ image: new Gtk.Image ({ icon_name: 'display-brightness-symbolic' }),
                                                      tooltip_text: _("Night Mode"),

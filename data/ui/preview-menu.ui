@@ -17,6 +17,11 @@
         <attribute name='hidden-when'>action-missing</attribute>
       </item>
       <item>
+        <attribute name="action">view.fullscreen</attribute>
+        <attribute name="label" translatable="yes">Fullscreen</attribute>
+        <attribute name="accel">F11</attribute>
+      </item>
+      <item>
         <attribute name="action">view.present-current</attribute>
         <attribute name='hidden-when'>action-missing</attribute>
         <attribute name="label" translatable="yes">Present</attribute>

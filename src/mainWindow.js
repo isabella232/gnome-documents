@@ -76,9 +76,6 @@ const MainWindow = new Lang.Class({
         this.connect('configure-event', Lang.bind(this, this._onConfigureEvent));
         this.connect('window-state-event', Lang.bind(this, this._onWindowStateEvent));
 
-        this._fsId = Application.modeController.connect('fullscreen-changed',
-            Lang.bind(this, this._onFullscreenChanged));
-
         this._embed = new Embed.Embed(this);
         this.add(this._embed);
     },
@@ -123,23 +120,8 @@ const MainWindow = new Lang.Class({
     _onWindowStateEvent: function(widget, event) {
         let window = widget.get_window();
         let state = window.get_state();
-
-        if (state & Gdk.WindowState.FULLSCREEN) {
-            Application.modeController.setFullscreen(true);
-            return;
-        }
-
-        Application.modeController.setFullscreen(false);
-
         let maximized = (state & Gdk.WindowState.MAXIMIZED);
         Application.settings.set_boolean('window-maximized', maximized);
-    },
-
-    _onFullscreenChanged: function(controller, fullscreen) {
-        if (fullscreen)
-            this.fullscreen();
-        else
-            this.unfullscreen();
     },
 
     _goBack: function() {
@@ -236,9 +218,8 @@ const MainWindow = new Lang.Class({
 
     _handleKeyPreview: function(event) {
         let keyval = event.get_keyval()[1];
-        let fullscreen = Application.modeController.getFullscreen();
-        let def_mod_mask = Gtk.accelerator_get_default_mod_mask();
         let preview = this._embed.getPreview();
+        let def_mod_mask = Gtk.accelerator_get_default_mod_mask();
         let state = event.get_state()[1];
         let windowMode = Application.modeController.getWindowMode();
 
@@ -248,7 +229,7 @@ const MainWindow = new Lang.Class({
 
             if (preview.controlsVisible && (model != null)) {
                 preview.controlsVisible = false;
-            } else if (fullscreen) {
+            } else if (preview.fullscreen) {
                 Application.documentManager.setActiveItem(null);
                 Application.modeController.goBack();
             }

@@ -38,7 +38,6 @@ const ModeController = new Lang.Class({
 
     _init: function() {
         this._mode = WindowMode.NONE;
-        this._fullscreen = false;
         this._history = [];
     },
 
@@ -68,7 +67,6 @@ const ModeController = new Lang.Class({
         oldMode = this._mode;
         this._mode = tmp;
 
-        this._updateFullscreen();
         this.emit('window-mode-changed', this._mode, oldMode);
     },
 
@@ -81,35 +79,11 @@ const ModeController = new Lang.Class({
         this._history.push(oldMode);
         this._mode = mode;
 
-        this._updateFullscreen();
         this.emit('window-mode-changed', this._mode, oldMode);
     },
 
     getWindowMode: function() {
         return this._mode;
-    },
-
-    _updateFullscreen: function() {
-        if (!this.getCanFullscreen() && this._fullscreen)
-            this.setFullscreen(false);
-
-        this.emit('can-fullscreen-changed');
-    },
-
-    setFullscreen: function(fullscreen) {
-        if (this._fullscreen == fullscreen)
-            return;
-
-        this._fullscreen = fullscreen;
-        this.emit('fullscreen-changed', this._fullscreen);
-    },
-
-    getFullscreen: function() {
-        return this._fullscreen;
-    },
-
-    getCanFullscreen: function() {
-        return (this._mode == WindowMode.PREVIEW_EV || this._mode == WindowMode.EDIT);
     }
 });
 Signals.addSignalMethods(ModeController.prototype);

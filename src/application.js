@@ -168,14 +168,6 @@ const Application = new Lang.Class({
         checkNextFile.apply(this);
     },
 
-    _fullscreenCreateHook: function(action) {
-        modeController.connect('can-fullscreen-changed', Lang.bind(this,
-            function() {
-                let canFullscreen = modeController.getCanFullscreen();
-                action.set_enabled(canFullscreen);
-            }));
-    },
-
     _nightModeCreateHook: function(action) {
         settings.connect('changed::night-mode', Lang.bind(this,
             function() {
@@ -213,13 +205,6 @@ const Application = new Lang.Class({
     _onActionNightMode: function(action) {
         let state = action.get_state();
         settings.set_value('night-mode', GLib.Variant.new('b', !state.get_boolean()));
-    },
-
-    _onActionFullscreen: function(action) {
-        let state = action.get_state();
-        let newState = !state.get_boolean();
-        action.change_state(GLib.Variant.new('b', newState));
-        modeController.setFullscreen(newState);
     },
 
     _connectActionsToMode: function() {
@@ -443,12 +428,6 @@ const Application = new Lang.Class({
             { name: 'help',
               callback: Lang.bind(this, this._onActionHelp),
               accels: ['F1'] },
-            { name: 'fullscreen',
-              callback: Lang.bind(this, this._onActionFullscreen),
-              state: GLib.Variant.new('b', false),
-              create_hook: Lang.bind(this, this._fullscreenCreateHook),
-              accels: ['F11'],
-              window_mode: WindowMode.WindowMode.PREVIEW_EV },
             { name: 'night-mode',
               callback: Lang.bind(this, this._onActionNightMode),
               create_hook: Lang.bind(this, this._nightModeCreateHook),

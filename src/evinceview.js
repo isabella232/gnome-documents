@@ -32,6 +32,7 @@ const Mainloop = imports.mainloop;
 
 const Application = imports.application;
 const Documents = imports.documents;
+const FullscreenAction = imports.fullscreenAction;
 const Places = imports.places;
 const Presentation = imports.presentation;
 const Preview = imports.preview;
@@ -56,10 +57,13 @@ const EvinceView = new Lang.Class({
 
         this.parent(overlay, mainWindow);
 
-        Application.modeController.connect('fullscreen-changed', Lang.bind(this,
-            this._onFullscreenChanged));
         Application.modeController.connect('window-mode-changed', Lang.bind(this,
             this._onWindowModeChanged));
+
+        let fullscreenAction = new FullscreenAction.FullscreenAction({ window: mainWindow });
+        fullscreenAction.connect('notify::state', Lang.bind(this, this._onFullscreenChanged));
+        this.actionGroup.add_action(fullscreenAction);
+        Application.application.set_accels_for_action('view.fullscreen', ['F11']);
 
         this.getAction('bookmark-page').enabled = false;
 
@@ -69,6 +73,7 @@ const EvinceView = new Lang.Class({
         this.connect('destroy', Lang.bind(this,
             function() {
                 Application.application.disconnect(nightModeId);
+                fullscreenAction.change_state(new GLib.Variant('b', false));
             }));
     },
 
@@ -435,8 +440,11 @@ const EvinceView = new Lang.Class({
         }
     },
 
-    _onFullscreenChanged: function() {
-        let fullscreen = Application.modeController.getFullscreen();
+    _onFullscreenChanged: function(action) {
+        let fullscreen = action.state.get_boolean();
+
+        this._toolbar.visible = !fullscreen;
+        this._toolbar.sensitive = !fullscreen;
 
         if (fullscreen) {
             // create fullscreen toolbar (hidden by default)
@@ -628,6 +636,10 @@ const EvinceView = new Lang.Class({
 
     get evView() {
         return this._evView;
+    },
+
+    get fullscreen() {
+        return this.getAction('fullscreen').state.get_boolean();
     }
 });
 Utils.addJSSignalMethods(EvinceView.prototype);
@@ -682,13 +694,37 @@ const EvinceViewToolbar = new Lang.Class({
         this.preview.getAction('gear-menu').enabled = false;
 
         if (Application.application.isBooks) {
-            this.addFullscreenButton();
+            this._addFullscreenButton();
             this.addNightmodeButton();
         }
 
         this.connect('destroy', Lang.bind(this, function() {
             this._searchAction.enabled = true;
+            if (this._fsStateId > 0)
+                this.preview.getAction('fullscreen').disconnect(this._fsStateId);
         }));
+    },
+
+    _addFullscreenButton: function() {
+        this._fullscreenButton = new Gtk.Button({ image: new Gtk.Image ({ icon_name: 'view-fullscreen-symbolic' }),
+                                                  tooltip_text: _("Fullscreen"),
+                                                  action_name: 'view.fullscreen',
+                                                  visible: true });
+        this.toolbar.pack_end(this._fullscreenButton);
+
+        let action = this.preview.getAction('fullscreen');
+        this._fsStateId = action.connect('notify::state', Lang.bind(this, this._fullscreenStateChanged));
+        this._fullscreenStateChanged();
+    },
+
+    _fullscreenStateChanged: function() {
+        let action = this.preview.getAction('fullscreen');
+        let fullscreen = action.state.get_boolean();
+
+        if (fullscreen)
+            this._fullscreenButton.image.icon_name = 'view-restore-symbolic';
+        else
+            this._fullscreenButton.image.icon_name ='view-fullscreen-symbolic';
     },
 
     _enableSearch: function() {

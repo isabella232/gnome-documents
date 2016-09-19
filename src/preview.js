@@ -232,6 +232,10 @@ const Preview = new Lang.Class({
         return false;
     },
 
+    get fullscreen() {
+        return false;
+    },
+
     findPrev: function() {
         throw (new Error('Not implemented'));
     },

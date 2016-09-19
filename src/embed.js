@@ -54,8 +54,6 @@ const Embed = new Lang.Class({
 
         Application.modeController.connect('window-mode-changed',
                                            Lang.bind(this, this._onWindowModeChanged));
-        Application.modeController.connect('fullscreen-changed',
-                                           Lang.bind(this, this._onFullscreenChanged));
 
         Application.documentManager.connect('active-changed',
                                             Lang.bind(this, this._onActiveItemChanged));
@@ -71,11 +69,6 @@ const Embed = new Lang.Class({
         let windowMode = Application.modeController.getWindowMode();
         if (windowMode != WindowMode.WindowMode.NONE)
             this._onWindowModeChanged(Application.modeController, windowMode, WindowMode.WindowMode.NONE);
-    },
-
-    _onFullscreenChanged: function(controller, fullscreen) {
-        this._toolbar.visible = !fullscreen;
-        this._toolbar.sensitive = !fullscreen;
     },
 
     _onSearchChanged: function() {
@@ -175,12 +168,15 @@ const Embed = new Lang.Class({
 
     getMainToolbar: function() {
         let windowMode = Application.modeController.getWindowMode();
-        let fullscreen = Application.modeController.getFullscreen();
 
-        if (fullscreen && (windowMode == WindowMode.WindowMode.PREVIEW_EV))
-            return this.getPreview().getFullscreenToolbar();
-        else
-            return this._toolbar;
+        if (windowMode == WindowMode.WindowMode.PREVIEW_EV) {
+            let preview = this.getPreview();
+            let fullscreen = preview.fullscreen;
+            if (fullscreen)
+                return preview.getFullscreenToolbar();
+        }
+
+        return this._toolbar;
     },
 
     getPreview: function() {
