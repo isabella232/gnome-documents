@@ -9,6 +9,7 @@
     <file>epubview.js</file>
     <file>embed.js</file>
     <file>errorBox.js</file>
+    <file>fullscreenAction.js</file>
     <file>main.js</file>
     <file>mainToolbar.js</file>
     <file>mainWindow.js</file>
