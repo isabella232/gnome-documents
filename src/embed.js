@@ -42,8 +42,8 @@ const Embed = new Lang.Class({
         this.parent({ orientation: Gtk.Orientation.VERTICAL,
                       visible: true });
 
-        this._titlebar = new Gtk.Grid({ visible: true });
-        mainWindow.set_titlebar(this._titlebar);
+        let titlebar = new Gtk.Grid({ visible: true });
+        mainWindow.set_titlebar(titlebar);
 
         // create the toolbar for selected items, it's hidden by default
         this._selectionToolbar = new Selections.SelectionToolbar();
@@ -103,33 +103,7 @@ const Embed = new Lang.Class({
     },
 
     _onWindowModeChanged: function(object, newMode, oldMode) {
-        let createToolbar = true;
-
-        if (newMode == WindowMode.WindowMode.COLLECTIONS ||
-            newMode == WindowMode.WindowMode.DOCUMENTS ||
-            newMode == WindowMode.WindowMode.SEARCH) {
-            createToolbar = (oldMode != WindowMode.WindowMode.COLLECTIONS &&
-                             oldMode != WindowMode.WindowMode.DOCUMENTS &&
-                             oldMode != WindowMode.WindowMode.SEARCH);
-        }
-
         this._view.windowMode = newMode;
-
-        if (createToolbar) {
-            if (this._toolbar)
-                this._toolbar.destroy();
-
-            // pack the toolbar
-            this._toolbar = this._view.createToolbar();
-            if (this._toolbar.searchbar)
-                this._toolbar.searchbar.connectJS('activate-result',
-                                                  Lang.bind(this, this._onActivateResult));
-            this._titlebar.add(this._toolbar);
-        }
-    },
-
-    _onActivateResult: function() {
-        this._view.activateResult();
     },
 
     _restoreSearch: function() {
@@ -176,7 +150,7 @@ const Embed = new Lang.Class({
                 return preview.getFullscreenToolbar();
         }
 
-        return this._toolbar;
+        return this._view.toolbar;
     },
 
     getPreview: function() {

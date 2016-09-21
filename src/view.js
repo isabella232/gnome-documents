@@ -729,6 +729,7 @@ const View = new Lang.Class({
     Extends: Gtk.Overlay,
 
     _init: function(window) {
+        this._toolbar = null;
         this._window = window;
 
         this.parent();
@@ -802,15 +803,12 @@ const View = new Lang.Class({
         this._stack.add_named(this._preview, 'preview');
     },
 
-    activateResult: function() {
+    _onActivateResult: function() {
         this.view.activateResult();
     },
 
-    createToolbar: function() {
-        return this.view.createToolbar(this._stack);
-    },
-
     set windowMode(mode) {
+        let fromPreview = !!this._preview;
         this._clearPreview();
 
         let visibleChild;
@@ -838,6 +836,25 @@ const View = new Lang.Class({
 
         this._stack.set_visible_child(visibleChild);
         this._window.insert_action_group('view', visibleChild.actionGroup);
+
+        let createToolbar = true;
+        if (!this._preview)
+            createToolbar = fromPreview || !this._toolbar;
+
+        if (createToolbar) {
+            if (this._toolbar)
+                this._toolbar.destroy();
+
+            this._toolbar = this.view.createToolbar(this._stack);
+            if (this._toolbar.searchbar)
+                this._toolbar.searchbar.connectJS('activate-result',
+                                                  Lang.bind(this, this._onActivateResult));
+            this._window.get_titlebar().add(this._toolbar);
+        }
+    },
+
+    get toolbar() {
+        return this._toolbar;
     },
 
     get view() {
