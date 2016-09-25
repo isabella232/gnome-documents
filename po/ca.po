@@ -99,7 +99,7 @@ msgstr "Mida de la finestra"
 #: ../data/org.gnome.books.gschema.xml.h:6
 #: ../data/org.gnome.documents.gschema.xml.h:6
 msgid "Window size (width and height)."
-msgstr "Mida de la finestra (amplada i alçada)"
+msgstr "Mida de la finestra (amplada i alçada)."
 
 #: ../data/org.gnome.books.gschema.xml.h:7
 #: ../data/org.gnome.documents.gschema.xml.h:7
@@ -109,7 +109,7 @@ msgstr "Posició de la finestra"
 #: ../data/org.gnome.books.gschema.xml.h:8
 #: ../data/org.gnome.documents.gschema.xml.h:8
 msgid "Window position (x and y)."
-msgstr "Posició de la finestra (x i y)"
+msgstr "Posició de la finestra (x i y)."
 
 #: ../data/org.gnome.books.gschema.xml.h:9
 #: ../data/org.gnome.documents.gschema.xml.h:9
@@ -296,12 +296,12 @@ msgstr "Gira en sentit horari"
 #: ../data/ui/help-overlay.ui.h:16
 msgctxt "shortcut window"
 msgid "Next occurrence of the search string"
-msgstr "Coincidència següent a la cadena de cerca"
+msgstr "Coincidència següent de la cadena de cerca"
 
 #: ../data/ui/help-overlay.ui.h:17
 msgctxt "shortcut window"
 msgid "Previous occurrence of the search string"
-msgstr "Coincidència prèvia a la cadena de cerca"
+msgstr "Coincidència prèvia de la cadena de cerca"
 
 #: ../data/ui/help-overlay.ui.h:18
 msgctxt "shortcut window"
@@ -320,7 +320,7 @@ msgstr "Pantalla completa"
 
 #: ../data/ui/organize-collection-dialog.ui.h:1
 msgid "Enter a name for your first collection"
-msgstr "Introduïu un nom per la vostre primera col·lecció"
+msgstr "Introduïu un nom per la vostra primera col·lecció"
 
 #: ../data/ui/organize-collection-dialog.ui.h:2
 msgid "New Collection…"
@@ -632,7 +632,7 @@ msgstr[1] "S'han suprimit %d elements"
 
 #: ../src/notifications.js:62 ../src/selections.js:387
 msgid "Undo"
-msgstr "Desfés"
+msgstr "Desfés"
 
 #: ../src/notifications.js:160
 #, javascript-format
