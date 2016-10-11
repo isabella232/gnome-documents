@@ -128,8 +128,15 @@ const Embed = new Lang.Class({
 
             // pack the toolbar
             this._toolbar = this._view.createToolbar();
+            if (this._toolbar.searchbar)
+                this._toolbar.searchbar.connectJS('activate-result',
+                                                  Lang.bind(this, this._onActivateResult));
             this._titlebar.add(this._toolbar);
         }
+    },
+
+    _onActivateResult: function() {
+        this._view.activateResult();
     },
 
     _restoreSearch: function() {

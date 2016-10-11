@@ -131,11 +131,12 @@ const Preview = new Lang.Class({
         return new PreviewNavControls(this, this.overlay);
     },
 
+    activateResult: function() {
+        this.findNext();
+    },
+
     createToolbar: function() {
-        let toolbar = new PreviewToolbar(this);
-        toolbar.searchbar.connectJS('activate-result',
-                                    Lang.bind(this, this.findNext));
-        return toolbar;
+        return new PreviewToolbar(this);
     },
 
     createView: function() {
