@@ -207,28 +207,6 @@ const Application = new Lang.Class({
         settings.set_value('night-mode', GLib.Variant.new('b', !state.get_boolean()));
     },
 
-    _connectActionsToMode: function() {
-        this._actionEntries.forEach(Lang.bind(this,
-            function(actionEntry) {
-                if (actionEntry.window_mode) {
-                    modeController.connect('window-mode-changed', Lang.bind(this,
-                        function() {
-                            let mode = modeController.getWindowMode();
-                            let action = this.lookup_action(actionEntry.name);
-                            action.set_enabled(mode == actionEntry.window_mode);
-                        }));
-                } else if (actionEntry.window_modes) {
-                    modeController.connect('window-mode-changed', Lang.bind(this,
-                        function() {
-                            let mode = modeController.getWindowMode();
-                            let enable = actionEntry.window_modes.indexOf(mode) != -1;
-                            let action = this.lookup_action(actionEntry.name);
-                            action.set_enabled(enable);
-                        }));
-                }
-            }));
-    },
-
     _createMiners: function(callback) {
         let count = 3;
 
@@ -419,7 +397,7 @@ const Application = new Lang.Class({
         trackerSearchController = new TrackerController.TrackerSearchController();
         selectionController = new Selections.SelectionController();
 
-        this._actionEntries = [
+        let actionEntries = [
             { name: 'quit',
               callback: Lang.bind(this, this._onActionQuit),
               accels: ['<Primary>q'] },
@@ -441,7 +419,7 @@ const Application = new Lang.Class({
         if (!this.isBooks)
             this._initGettingStarted();
 
-        Utils.populateActionGroup(this, this._actionEntries, 'app');
+        Utils.populateActionGroup(this, actionEntries, 'app');
     },
 
     _createWindow: function() {
@@ -449,7 +427,6 @@ const Application = new Lang.Class({
             return;
 
         notificationManager = new Notifications.NotificationManager();
-        this._connectActionsToMode();
         this._mainWindow = new MainWindow.MainWindow(this);
         this._mainWindow.connect('destroy', Lang.bind(this, this._onWindowDestroy));
 
