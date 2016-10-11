@@ -752,14 +752,14 @@ const View = new Lang.Class({
         this._search = new ViewContainer(WindowMode.WindowMode.SEARCH);
         this._stack.add_named(this._search, 'search');
 
-        this.connect('notify::visible-child',
-                     Lang.bind(this, this._onVisibleChildChanged));
+        this._stack.connect('notify::visible-child',
+                            Lang.bind(this, this._onVisibleChildChanged));
 
         this.show();
     },
 
     _onVisibleChildChanged: function() {
-        let visibleChild = this.visible_child;
+        let visibleChild = this._stack.visible_child;
         let windowMode;
 
         if (visibleChild == this._collections)
