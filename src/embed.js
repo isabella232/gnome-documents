@@ -66,9 +66,7 @@ const Embed = new Lang.Class({
         Application.searchController.connect('search-string-changed',
                                              Lang.bind(this, this._onSearchChanged));
 
-        let windowMode = Application.modeController.getWindowMode();
-        if (windowMode != WindowMode.WindowMode.NONE)
-            this._onWindowModeChanged(Application.modeController, windowMode, WindowMode.WindowMode.NONE);
+        this._view.windowMode = Application.modeController.getWindowMode();
     },
 
     _onSearchChanged: function() {
