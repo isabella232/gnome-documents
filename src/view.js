@@ -513,12 +513,6 @@ const ViewContainer = new Lang.Class({
         Application.searchMatchManager.setActiveItemById(itemId);
     },
 
-    _activateResult: function() {
-        let doc = this._getFirstDocument();
-        if (doc)
-            Application.documentManager.setActiveItem(doc)
-    },
-
     _getFirstDocument: function() {
         let doc = null;
 
@@ -719,11 +713,14 @@ const ViewContainer = new Lang.Class({
         }
     },
 
+    activateResult: function() {
+        let doc = this._getFirstDocument();
+        if (doc)
+            Application.documentManager.setActiveItem(doc)
+    },
+
     createToolbar: function(stack) {
-        let toolbar = new MainToolbar.OverviewToolbar(stack);
-        toolbar.searchbar.connectJS('activate-result',
-                                    Lang.bind(this, this._activateResult));
-        return toolbar;
+        return new MainToolbar.OverviewToolbar(stack);
     }
 });
 
@@ -805,6 +802,10 @@ const View = new Lang.Class({
 
         this._preview = new constructor(this, this._window);
         this._stack.add_named(this._preview, 'preview');
+    },
+
+    activateResult: function() {
+        this.view.activateResult();
     },
 
     createToolbar: function() {
