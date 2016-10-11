@@ -349,10 +349,6 @@ const ViewContainer = new Lang.Class({
         this.parent({ homogeneous: true,
                       transition_type: Gtk.StackTransitionType.CROSSFADE });
 
-        let actions = this._getDefaultActions();
-        this.actionGroup = new Gio.SimpleActionGroup();
-        Utils.populateActionGroup(this.actionGroup, actions, 'view');
-
         this.view = new Gd.MainView({ shadow_type: Gtk.ShadowType.NONE });
         this.add_named(this.view, 'view');
 
@@ -377,9 +373,8 @@ const ViewContainer = new Lang.Class({
                           Lang.bind(this, this._onSelectionModeRequest));
         this.view.connect('view-selection-changed',
                           Lang.bind(this, this._onViewSelectionChanged));
-
-        this._updateTypeForSettings();
-        this._updateSortForSettings();
+        this.view.connect('notify::view-type',
+                          Lang.bind(this, this._onViewTypeChanged));
 
         // setup selection controller => view
         Application.selectionController.connect('selection-mode-changed',
@@ -411,106 +406,9 @@ const ViewContainer = new Lang.Class({
         this._onQueryStatusChanged();
     },
 
-    _getDefaultActions: function() {
-        return [
-            { name: 'select-all',
-              callback: Lang.bind(this, this._selectAll),
-              accels: ['<Primary>a'] },
-            { name: 'select-none',
-              callback: Lang.bind(this, this._selectNone) },
-            { settingsKey: 'view-as',
-              stateChanged: Lang.bind(this, this._updateTypeForSettings) },
-            { settingsKey: 'sort-by',
-              stateChanged: Lang.bind(this, this._updateSortForSettings) },
-            { name: 'search-source',
-              parameter_type: 's',
-              state: GLib.Variant.new('s', Search.SearchSourceStock.ALL),
-              stateChanged: Lang.bind(this, this._updateSearchSource),
-              create_hook: Lang.bind(this, this._initSearchSource) },
-            { name: 'search-type',
-              parameter_type: 's',
-              state: GLib.Variant.new('s', Search.SearchTypeStock.ALL),
-              stateChanged: Lang.bind(this, this._updateSearchType),
-              create_hook: Lang.bind(this, this._initSearchType) },
-            { name: 'search-match',
-              parameter_type: 's',
-              state: GLib.Variant.new('s', Search.SearchMatchStock.ALL),
-              stateChanged: Lang.bind(this, this._updateSearchMatch),
-              create_hook: Lang.bind(this, this._initSearchMatch) }
-        ];
-    },
-
-    _selectAll: function() {
-        Application.selectionController.setSelectionMode(true);
-        this.view.select_all();
-    },
-
-    _selectNone: function() {
-        this.view.unselect_all();
-    },
-
-    _updateTypeForSettings: function() {
-        let viewType = Application.settings.get_enum('view-as');
-        this.view.set_view_type(viewType);
-
-        if (viewType == Gd.MainViewType.LIST)
+    _onViewTypeChanged: function() {
+        if (this.view.view_type == Gd.MainViewType.LIST)
             this._addListRenderers();
-    },
-
-    _updateSortForSettings: function() {
-        let sortBy = Application.settings.get_enum('sort-by');
-        let sortType;
-
-        switch (sortBy) {
-        case Gd.MainColumns.PRIMARY_TEXT:
-            sortType = Gtk.SortType.ASCENDING;
-            break;
-        case Gd.MainColumns.SECONDARY_TEXT:
-            sortType = Gtk.SortType.ASCENDING;
-            break;
-        case Gd.MainColumns.MTIME:
-            sortType = Gtk.SortType.DESCENDING;
-            break;
-        default:
-            sortBy = Gd.MainColumns.MTIME;
-            sortType = Gtk.SortType.DESCENDING;
-            break;
-        }
-
-        this._model.set_sort_column_id(sortBy, sortType);
-    },
-
-    _initSearchSource: function(action) {
-        Application.sourceManager.connect('active-changed', Lang.bind(this, function(manager, activeItem) {
-            action.state = GLib.Variant.new('s', activeItem.id);
-        }));
-    },
-
-    _initSearchType: function(action) {
-        Application.searchTypeManager.connect('active-changed', Lang.bind(this, function(manager, activeItem) {
-            action.state = GLib.Variant.new('s', activeItem.id);
-        }));
-    },
-
-    _initSearchMatch: function(action) {
-        Application.searchMatchManager.connect('active-changed', Lang.bind(this, function(manager, activeItem) {
-            action.state = GLib.Variant.new('s', activeItem.id);
-        }));
-    },
-
-    _updateSearchSource: function(action) {
-        let itemId = action.state.get_string()[0];
-        Application.sourceManager.setActiveItemById(itemId);
-    },
-
-    _updateSearchType: function(action) {
-        let itemId = action.state.get_string()[0];
-        Application.searchTypeManager.setActiveItemById(itemId);
-    },
-
-    _updateSearchMatch: function(action) {
-        let itemId = action.state.get_string()[0];
-        Application.searchMatchManager.setActiveItemById(itemId);
     },
 
     _getFirstDocument: function() {
@@ -719,9 +617,179 @@ const ViewContainer = new Lang.Class({
             Application.documentManager.setActiveItem(doc)
     },
 
-    createToolbar: function(stack) {
-        return new MainToolbar.OverviewToolbar(stack);
+    get model() {
+        return this._model;
     }
+});
+
+const OverviewStack = new Lang.Class({
+    Name: 'OverviewStack',
+    Extends: Gtk.Stack,
+
+    _init: function() {
+        this.parent({ visible: true });
+
+        let actions = this._getDefaultActions();
+        this.actionGroup = new Gio.SimpleActionGroup();
+        Utils.populateActionGroup(this.actionGroup, actions, 'view');
+
+        // now create the actual content widgets
+        this._documents = new ViewContainer(WindowMode.WindowMode.DOCUMENTS);
+        let label = Application.application.isBooks ? _('Books') : _("Documents");
+        this.add_titled(this._documents, 'documents', label);
+
+        this._collections = new ViewContainer(WindowMode.WindowMode.COLLECTIONS);
+        this.add_titled(this._collections, 'collections', _("Collections"));
+
+        this._search = new ViewContainer(WindowMode.WindowMode.SEARCH);
+        this.add_named(this._search, 'search');
+
+        this.connect('notify::visible-child',
+                     Lang.bind(this, this._onVisibleChildChanged));
+    },
+
+    _getDefaultActions: function() {
+        return [
+            { name: 'select-all',
+              callback: Lang.bind(this, this._selectAll),
+              accels: ['<Primary>a'] },
+            { name: 'select-none',
+              callback: Lang.bind(this, this._selectNone) },
+            { settingsKey: 'view-as',
+              stateChanged: Lang.bind(this, this._updateTypeForSettings) },
+            { settingsKey: 'sort-by',
+              stateChanged: Lang.bind(this, this._updateSortForSettings) },
+            { name: 'search-source',
+              parameter_type: 's',
+              state: GLib.Variant.new('s', Search.SearchSourceStock.ALL),
+              stateChanged: Lang.bind(this, this._updateSearchSource),
+              create_hook: Lang.bind(this, this._initSearchSource) },
+            { name: 'search-type',
+              parameter_type: 's',
+              state: GLib.Variant.new('s', Search.SearchTypeStock.ALL),
+              stateChanged: Lang.bind(this, this._updateSearchType),
+              create_hook: Lang.bind(this, this._initSearchType) },
+            { name: 'search-match',
+              parameter_type: 's',
+              state: GLib.Variant.new('s', Search.SearchMatchStock.ALL),
+              stateChanged: Lang.bind(this, this._updateSearchMatch),
+              create_hook: Lang.bind(this, this._initSearchMatch) }
+        ];
+    },
+
+    _selectAll: function() {
+        Application.selectionController.setSelectionMode(true);
+        this.visible_child.view.select_all();
+    },
+
+    _selectNone: function() {
+        this.visible_child.view.unselect_all();
+    },
+
+    _updateTypeForSettings: function() {
+        let viewType = Application.settings.get_enum('view-as');
+        this.visible_child.view.set_view_type(viewType);
+    },
+
+    _updateSortForSettings: function() {
+        let sortBy = Application.settings.get_enum('sort-by');
+        let sortType;
+
+        switch (sortBy) {
+        case Gd.MainColumns.PRIMARY_TEXT:
+            sortType = Gtk.SortType.ASCENDING;
+            break;
+        case Gd.MainColumns.SECONDARY_TEXT:
+            sortType = Gtk.SortType.ASCENDING;
+            break;
+        case Gd.MainColumns.MTIME:
+            sortType = Gtk.SortType.DESCENDING;
+            break;
+        default:
+            sortBy = Gd.MainColumns.MTIME;
+            sortType = Gtk.SortType.DESCENDING;
+            break;
+        }
+
+        this.visible_child.model.set_sort_column_id(sortBy, sortType);
+    },
+
+    _initSearchSource: function(action) {
+        Application.sourceManager.connect('active-changed', Lang.bind(this, function(manager, activeItem) {
+            action.state = GLib.Variant.new('s', activeItem.id);
+        }));
+    },
+
+    _initSearchType: function(action) {
+        Application.searchTypeManager.connect('active-changed', Lang.bind(this, function(manager, activeItem) {
+            action.state = GLib.Variant.new('s', activeItem.id);
+        }));
+    },
+
+    _initSearchMatch: function(action) {
+        Application.searchMatchManager.connect('active-changed', Lang.bind(this, function(manager, activeItem) {
+            action.state = GLib.Variant.new('s', activeItem.id);
+        }));
+    },
+
+    _updateSearchSource: function(action) {
+        let itemId = action.state.get_string()[0];
+        Application.sourceManager.setActiveItemById(itemId);
+    },
+
+    _updateSearchType: function(action) {
+        let itemId = action.state.get_string()[0];
+        Application.searchTypeManager.setActiveItemById(itemId);
+    },
+
+    _updateSearchMatch: function(action) {
+        let itemId = action.state.get_string()[0];
+        Application.searchMatchManager.setActiveItemById(itemId);
+    },
+
+    _onVisibleChildChanged: function() {
+        let visibleChild = this.visible_child;
+        let windowMode;
+
+        if (visibleChild == this._collections)
+            windowMode = WindowMode.WindowMode.COLLECTIONS;
+        else if (visibleChild == this._documents)
+            windowMode = WindowMode.WindowMode.DOCUMENTS;
+        else
+            return;
+
+        Application.modeController.setWindowMode(windowMode);
+    },
+
+    set windowMode(mode) {
+        let visibleChild;
+
+        switch (mode) {
+        case WindowMode.WindowMode.COLLECTIONS:
+            visibleChild = this._collections;
+            break;
+        case WindowMode.WindowMode.DOCUMENTS:
+            visibleChild = this._documents;
+            break;
+        case WindowMode.WindowMode.SEARCH:
+            visibleChild = this._search;
+            break;
+        default:
+            return;
+        }
+
+        this.visible_child = visibleChild;
+        this._updateSortForSettings();
+        this._updateTypeForSettings();
+    },
+
+    activateResult: function() {
+        this.visible_child.activateResult();
+    },
+
+    createToolbar: function() {
+        return new MainToolbar.OverviewToolbar(this);
+    },
 });
 
 const View = new Lang.Class({
@@ -742,35 +810,7 @@ const View = new Lang.Class({
         // pack the OSD notification widget
         this.add_overlay(Application.notificationManager);
 
-        // now create the actual content widgets
-        this._documents = new ViewContainer(WindowMode.WindowMode.DOCUMENTS);
-        let label = Application.application.isBooks ? _('Books') : _("Documents");
-        this._stack.add_titled(this._documents, 'documents', label);
-
-        this._collections = new ViewContainer(WindowMode.WindowMode.COLLECTIONS);
-        this._stack.add_titled(this._collections, 'collections', _("Collections"));
-
-        this._search = new ViewContainer(WindowMode.WindowMode.SEARCH);
-        this._stack.add_named(this._search, 'search');
-
-        this._stack.connect('notify::visible-child',
-                            Lang.bind(this, this._onVisibleChildChanged));
-
         this.show();
-    },
-
-    _onVisibleChildChanged: function() {
-        let visibleChild = this._stack.visible_child;
-        let windowMode;
-
-        if (visibleChild == this._collections)
-            windowMode = WindowMode.WindowMode.COLLECTIONS;
-        else if (visibleChild == this._documents)
-            windowMode = WindowMode.WindowMode.DOCUMENTS;
-        else
-            return;
-
-        Application.modeController.setWindowMode(windowMode);
     },
 
     _clearPreview: function() {
@@ -803,6 +843,15 @@ const View = new Lang.Class({
         this._stack.add_named(this._preview, 'preview');
     },
 
+    _ensureOverview: function(mode) {
+        if (!this._overview) {
+            this._overview = new OverviewStack();
+            this._stack.add_named(this._overview, 'overview');
+        }
+
+        this._overview.windowMode = mode;
+    },
+
     _onActivateResult: function() {
         this.view.activateResult();
     },
@@ -811,31 +860,25 @@ const View = new Lang.Class({
         let fromPreview = !!this._preview;
         this._clearPreview();
 
-        let visibleChild;
-
         switch (mode) {
         case WindowMode.WindowMode.COLLECTIONS:
-            visibleChild = this._collections;
-            break;
         case WindowMode.WindowMode.DOCUMENTS:
-            visibleChild = this._documents;
-            break;
         case WindowMode.WindowMode.SEARCH:
-            visibleChild = this._search;
+            this._ensureOverview(mode);
+            this._stack.visible_child = this._overview;
             break;
         case WindowMode.WindowMode.PREVIEW_EV:
         case WindowMode.WindowMode.PREVIEW_LOK:
         case WindowMode.WindowMode.PREVIEW_EPUB:
         case WindowMode.WindowMode.EDIT:
             this._createPreview(mode);
-            visibleChild = this._preview;
+            this._stack.visible_child = this._preview;
             break;
         default:
             return;
         }
 
-        this._stack.set_visible_child(visibleChild);
-        this._window.insert_action_group('view', visibleChild.actionGroup);
+        this._window.insert_action_group('view', this.view.actionGroup);
 
         let createToolbar = true;
         if (!this._preview)
