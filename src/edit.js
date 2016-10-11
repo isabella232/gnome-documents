@@ -149,6 +149,7 @@ const EditToolbar = new Lang.Class({
     },
 
     createSearchbar: function() {
+        return null;
     },
 
     handleEvent: function(event) {
