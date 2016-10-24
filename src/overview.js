@@ -20,9 +20,6 @@
  */
 
 const Cairo = imports.gi.cairo;
-const Edit = imports.edit;
-const EvinceView = imports.evinceview;
-const EPUBView = imports.epubview;
 const Gd = imports.gi.Gd;
 const Gdk = imports.gi.Gdk;
 const Gettext = imports.gettext;
@@ -30,7 +27,6 @@ const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const GObject = imports.gi.GObject;
 const Gtk = imports.gi.Gtk;
-const LOKView = imports.lokview;
 const _ = imports.gettext.gettext;
 
 const Lang = imports.lang;
@@ -790,121 +786,4 @@ const OverviewStack = new Lang.Class({
     createToolbar: function() {
         return new MainToolbar.OverviewToolbar(this);
     },
-});
-
-const View = new Lang.Class({
-    Name: 'View',
-    Extends: Gtk.Overlay,
-
-    _init: function(window) {
-        this._toolbar = null;
-        this._window = window;
-
-        this.parent();
-
-        this._stack = new Gtk.Stack({ visible: true,
-                                      homogeneous: true,
-                                      transition_type: Gtk.StackTransitionType.CROSSFADE });
-        this.add(this._stack);
-
-        // pack the OSD notification widget
-        this.add_overlay(Application.notificationManager);
-
-        this.show();
-    },
-
-    _clearPreview: function() {
-        if (this._preview) {
-            this._preview.destroy();
-            this._preview = null;
-        }
-    },
-
-    _createPreview: function(mode) {
-        let constructor;
-        switch (mode) {
-        case WindowMode.WindowMode.PREVIEW_EV:
-            constructor = EvinceView.EvinceView;
-            break;
-        case WindowMode.WindowMode.PREVIEW_LOK:
-            constructor = LOKView.LOKView;
-            break;
-        case WindowMode.WindowMode.PREVIEW_EPUB:
-            constructor = EPUBView.EPUBView;
-            break;
-        case WindowMode.WindowMode.EDIT:
-            constructor = Edit.EditView;
-            break;
-        default:
-            return;
-        }
-
-        this._preview = new constructor(this, this._window);
-        this._stack.add_named(this._preview, 'preview');
-    },
-
-    _ensureOverview: function(mode) {
-        if (!this._overview) {
-            this._overview = new OverviewStack();
-            this._stack.add_named(this._overview, 'overview');
-        }
-
-        this._overview.windowMode = mode;
-    },
-
-    _onActivateResult: function() {
-        this.view.activateResult();
-    },
-
-    set windowMode(mode) {
-        let fromPreview = !!this._preview;
-        this._clearPreview();
-
-        switch (mode) {
-        case WindowMode.WindowMode.COLLECTIONS:
-        case WindowMode.WindowMode.DOCUMENTS:
-        case WindowMode.WindowMode.SEARCH:
-            this._ensureOverview(mode);
-            this._stack.visible_child = this._overview;
-            break;
-        case WindowMode.WindowMode.PREVIEW_EV:
-        case WindowMode.WindowMode.PREVIEW_LOK:
-        case WindowMode.WindowMode.PREVIEW_EPUB:
-        case WindowMode.WindowMode.EDIT:
-            this._createPreview(mode);
-            this._stack.visible_child = this._preview;
-            break;
-        default:
-            return;
-        }
-
-        this._window.insert_action_group('view', this.view.actionGroup);
-
-        let createToolbar = true;
-        if (!this._preview)
-            createToolbar = fromPreview || !this._toolbar;
-
-        if (createToolbar) {
-            if (this._toolbar)
-                this._toolbar.destroy();
-
-            if (this._preview)
-                this._toolbar = this._preview.toolbar;
-            else
-                this._toolbar = this.view.createToolbar(this._stack);
-
-            if (this._toolbar.searchbar)
-                this._toolbar.searchbar.connectJS('activate-result',
-                                                  Lang.bind(this, this._onActivateResult));
-            this._window.get_titlebar().add(this._toolbar);
-        }
-    },
-
-    get toolbar() {
-        return this._toolbar;
-    },
-
-    get view() {
-        return this._stack.visible_child;
-    }
 });

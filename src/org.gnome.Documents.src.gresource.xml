@@ -16,6 +16,7 @@
     <file>manager.js</file>
     <file>miners.js</file>
     <file>notifications.js</file>
+    <file>overview.js</file>
     <file>password.js</file>
     <file>places.js</file>
     <file>preview.js</file>
@@ -32,7 +33,6 @@
     <file>trackerController.js</file>
     <file>trackerUtils.js</file>
     <file>utils.js</file>
-    <file>view.js</file>
     <file>windowMode.js</file>
   </gresource>
 </gresources>
