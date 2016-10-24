@@ -203,8 +203,7 @@ const EvinceView = new Lang.Class({
     },
 
     createToolbar: function() {
-        this._toolbar = new EvinceViewToolbar(this);
-        return this._toolbar;
+        return new EvinceViewToolbar(this);
     },
 
     createView: function() {
@@ -280,7 +279,7 @@ const EvinceView = new Lang.Class({
 
         this._evView.set_model(this._model);
         this.navControls.setModel(this._model);
-        this._toolbar.setModel(this._model);
+        this.toolbar.setModel(this._model);
 
         this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
         this.grab_focus();
@@ -443,8 +442,8 @@ const EvinceView = new Lang.Class({
     _onFullscreenChanged: function(action) {
         let fullscreen = action.state.get_boolean();
 
-        this._toolbar.visible = !fullscreen;
-        this._toolbar.sensitive = !fullscreen;
+        this.toolbar.visible = !fullscreen;
+        this.toolbar.sensitive = !fullscreen;
 
         if (fullscreen) {
             // create fullscreen toolbar (hidden by default)

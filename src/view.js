@@ -845,7 +845,11 @@ const View = new Lang.Class({
             if (this._toolbar)
                 this._toolbar.destroy();
 
-            this._toolbar = this.view.createToolbar(this._stack);
+            if (this._preview)
+                this._toolbar = this._preview.toolbar;
+            else
+                this._toolbar = this.view.createToolbar(this._stack);
+
             if (this._toolbar.searchbar)
                 this._toolbar.searchbar.connectJS('activate-result',
                                                   Lang.bind(this, this._onActivateResult));

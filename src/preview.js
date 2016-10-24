@@ -50,6 +50,8 @@ const Preview = new Lang.Class({
         this.view.show();
         this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
 
+        this.toolbar = this.createToolbar();
+
         this.contextMenu = this.createContextMenu();
         if (this.contextMenu)
             this.contextMenu.attach_to_widget(this.view, null);
