@@ -28,6 +28,7 @@ src/lib/gd-utils.c
 src/mainToolbar.js
 src/mainWindow.js
 src/notifications.js
+src/overview.js
 src/password.js
 src/presentation.js
 src/preview.js
@@ -37,4 +38,3 @@ src/selections.js
 src/sharing.js
 src/shellSearchProvider.js
 src/trackerController.js
-src/view.js
