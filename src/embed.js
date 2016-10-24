@@ -158,8 +158,6 @@ const Embed = new Lang.Class({
     Extends: Gtk.Box,
 
     _init: function(mainWindow) {
-        this._searchState = null;
-
         this.parent({ orientation: Gtk.Orientation.VERTICAL,
                       visible: true });
 
@@ -175,9 +173,6 @@ const Embed = new Lang.Class({
 
         Application.modeController.connect('window-mode-changed',
                                            Lang.bind(this, this._onWindowModeChanged));
-
-        Application.documentManager.connect('active-changed',
-                                            Lang.bind(this, this._onActiveItemChanged));
 
         Application.searchTypeManager.connect('active-changed',
                                               Lang.bind(this, this._onSearchChanged));
@@ -198,14 +193,10 @@ const Embed = new Lang.Class({
         //
         // However there are some exceptions, which are taken care of
         // elsewhere:
-        //  - when moving from search to preview or collection view
-        //  - when in preview or coming out of it
-
+        //  - when moving from search to collection view
         let doc = Application.documentManager.getActiveItem();
         let windowMode = Application.modeController.getWindowMode();
         if (windowMode == WindowMode.WindowMode.SEARCH && doc)
-            return;
-        if (windowMode == WindowMode.WindowMode.PREVIEW_EV)
             return;
 
         let searchType = Application.searchTypeManager.getActiveItem();
@@ -225,42 +216,6 @@ const Embed = new Lang.Class({
 
     _onWindowModeChanged: function(object, newMode, oldMode) {
         this._view.windowMode = newMode;
-    },
-
-    _restoreSearch: function() {
-        if (!this._searchState)
-            return;
-
-        Application.searchMatchManager.setActiveItem(this._searchState.searchMatch);
-        Application.searchTypeManager.setActiveItem(this._searchState.searchType);
-        Application.sourceManager.setActiveItem(this._searchState.source);
-        Application.searchController.setString(this._searchState.str);
-        this._searchState = null;
-    },
-
-    _saveSearch: function() {
-        if (this._searchState)
-            return;
-
-        this._searchState = new Search.SearchState(Application.searchMatchManager.getActiveItem(),
-                                                   Application.searchTypeManager.getActiveItem(),
-                                                   Application.sourceManager.getActiveItem(),
-                                                   Application.searchController.getString());
-    },
-
-    _onActiveItemChanged: function(manager, doc) {
-        let windowMode = Application.modeController.getWindowMode();
-        let showSearch = (windowMode == WindowMode.WindowMode.PREVIEW_EV && !doc
-                          || windowMode == WindowMode.WindowMode.SEARCH && !doc);
-
-        if (showSearch)
-            this._restoreSearch();
-        else
-            this._saveSearch();
-
-        let searchAction = this._view.view.getAction('search');
-        if (searchAction)
-            searchAction.change_state(GLib.Variant.new('b', showSearch));
     },
 
     getMainToolbar: function() {
