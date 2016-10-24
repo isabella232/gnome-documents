@@ -36,6 +36,7 @@ const Application = imports.application;
 const ErrorBox = imports.errorBox;
 const MainToolbar = imports.mainToolbar;
 const Search = imports.search;
+const Searchbar = imports.searchbar;
 const WindowMode = imports.windowMode;
 const Utils = imports.utils;
 
@@ -329,6 +330,421 @@ const EmptyResultsBox = new Lang.Class({
 
                 return true;
             }));
+    }
+});
+
+const OverviewSearchbar = new Lang.Class({
+    Name: 'OverviewSearchbar',
+    Extends: Searchbar.Searchbar,
+
+    _init: function() {
+        this.parent();
+
+        let sourcesId = Application.sourceManager.connect('active-changed',
+            Lang.bind(this, this._onActiveSourceChanged));
+        let searchTypeId = Application.searchTypeManager.connect('active-changed',
+            Lang.bind(this, this._onActiveTypeChanged));
+        let searchMatchId = Application.searchMatchManager.connect('active-changed',
+            Lang.bind(this, this._onActiveMatchChanged));
+        let collectionId = Application.documentManager.connect('active-collection-changed',
+            Lang.bind(this, this._onActiveCollectionChanged));
+
+        this._onActiveSourceChanged();
+        this._onActiveTypeChanged();
+        this._onActiveMatchChanged();
+
+        this.connect('notify::search-mode-enabled', Lang.bind(this,
+            function() {
+                let searchEnabled = this.search_mode_enabled;
+                Application.application.change_action_state('search', GLib.Variant.new('b', searchEnabled));
+            }));
+
+        // connect to the search action state for visibility
+        let searchStateId = Application.application.connect('action-state-changed::search',
+            Lang.bind(this, this._onActionStateChanged));
+        this._onActionStateChanged(Application.application, 'search', Application.application.get_action_state('search'));
+
+        this.searchEntry.set_text(Application.searchController.getString());
+        this.connect('destroy', Lang.bind(this,
+            function() {
+                Application.sourceManager.disconnect(sourcesId);
+                Application.searchTypeManager.disconnect(searchTypeId);
+                Application.searchMatchManager.disconnect(searchMatchId);
+                Application.documentManager.disconnect(collectionId);
+                Application.application.disconnect(searchStateId);
+                Application.application.change_action_state('search', GLib.Variant.new('b', false));
+            }));
+    },
+
+    createSearchWidget: function() {
+        // create the search entry
+        this.searchEntry = new Gd.TaggedEntry({ width_request: 500 });
+        this.searchEntry.connect('tag-clicked',
+            Lang.bind(this, this._onTagClicked));
+        this.searchEntry.connect('tag-button-clicked',
+            Lang.bind(this, this._onTagButtonClicked));
+
+        this._sourceTag = new Gd.TaggedEntryTag();
+        this._typeTag = new Gd.TaggedEntryTag();
+        this._matchTag = new Gd.TaggedEntryTag();
+
+        // connect to search string changes in the controller
+        this._searchChangedId = Application.searchController.connect('search-string-changed',
+            Lang.bind(this, this._onSearchStringChanged));
+
+        this.searchEntry.connect('destroy', Lang.bind(this,
+            function() {
+                Application.searchController.disconnect(this._searchChangedId);
+            }));
+
+        // create the dropdown button
+        let dropdown = new Searchbar.Dropdown();
+        this._dropdownButton = new Gtk.MenuButton({ popover: dropdown });
+
+        let box = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL,
+                                halign: Gtk.Align.CENTER });
+        box.get_style_context().add_class('linked');
+
+        box.add(this.searchEntry);
+        box.add(this._dropdownButton);
+        box.show_all();
+
+        return box;
+    },
+
+    entryChanged: function() {
+        let currentText = this.searchEntry.get_text();
+
+        Application.searchController.disconnect(this._searchChangedId);
+        Application.searchController.setString(currentText);
+
+        // connect to search string changes in the controller
+        this._searchChangedId = Application.searchController.connect('search-string-changed',
+            Lang.bind(this, this._onSearchStringChanged));
+    },
+
+    _onSearchStringChanged: function(controller, string) {
+        this.searchEntry.set_text(string);
+    },
+
+    _onActiveCollectionChanged: function(manager, collection) {
+        if (!collection)
+            return;
+
+        let searchType = Application.searchTypeManager.getActiveItem();
+
+        if (Application.searchController.getString() != '' ||
+            searchType.id != 'all') {
+            Application.searchTypeManager.setActiveItemById('all');
+            this.searchEntry.set_text('');
+        }
+    },
+
+    _onActiveChangedCommon: function(id, manager, tag) {
+        let item = manager.getActiveItem();
+
+        if (item.id == 'all') {
+            this.searchEntry.remove_tag(tag);
+        } else {
+            tag.set_label(item.name);
+            this.searchEntry.add_tag(tag);
+        }
+
+        this.searchEntry.grab_focus_without_selecting();
+    },
+
+    _onActiveSourceChanged: function() {
+        this._onActiveChangedCommon('source', Application.sourceManager, this._sourceTag);
+    },
+
+    _onActiveTypeChanged: function() {
+        this._onActiveChangedCommon('type', Application.searchTypeManager, this._typeTag);
+    },
+
+    _onActiveMatchChanged: function() {
+        this._onActiveChangedCommon('match', Application.searchMatchManager, this._matchTag);
+    },
+
+    _onTagButtonClicked: function(entry, tag) {
+        let manager = null;
+
+        if (tag == this._matchTag) {
+            manager = Application.searchMatchManager;
+        } else if (tag == this._typeTag) {
+            manager = Application.searchTypeManager;
+        } else if (tag == this._sourceTag) {
+            manager = Application.sourceManager;
+        }
+
+        if (manager) {
+            manager.setActiveItemById('all');
+        }
+    },
+
+    _onTagClicked: function() {
+        this._dropdownButton.set_active(true);
+    },
+
+    _onActionStateChanged: function(source, actionName, state) {
+        if (state.get_boolean())
+            this.reveal();
+        else
+            this.conceal();
+    },
+
+    conceal: function() {
+        this._dropdownButton.set_active(false);
+
+        Application.searchTypeManager.setActiveItemById('all');
+        Application.searchMatchManager.setActiveItemById('all');
+        Application.sourceManager.setActiveItemById('all');
+
+        this.parent();
+    }
+});
+
+const OverviewToolbar = new Lang.Class({
+    Name: 'OverviewToolbar',
+    Extends: MainToolbar.MainToolbar,
+
+    _init: function(stack) {
+        this._collBackButton = null;
+        this._collectionId = 0;
+        this._selectionChangedId = 0;
+        this._viewMenuButton = null;
+        this._viewSettingsId = 0;
+        this._activeCollection = null;
+        this._infoUpdatedId = 0;
+        this._countChangedId = 0;
+
+        this.parent();
+
+        let builder = new Gtk.Builder();
+        builder.add_from_resource('/org/gnome/Documents/ui/selection-menu.ui');
+        let selectionMenu = builder.get_object('selection-menu');
+        this._selectionMenu = new Gtk.MenuButton({ menu_model: selectionMenu });
+        this._selectionMenu.get_style_context().add_class('selection-menu');
+
+        this._stackSwitcher = new Gtk.StackSwitcher({ no_show_all: true,
+                                                      stack: stack });
+        this._stackSwitcher.show();
+
+        // setup listeners to mode changes that affect the toolbar layout
+        let selectionModeId = Application.selectionController.connect('selection-mode-changed',
+            Lang.bind(this, this._resetToolbarMode));
+        this._resetToolbarMode();
+
+        this._activeCollection = Application.documentManager.getActiveCollection();
+        if (this._activeCollection)
+            this._activeCollection.connect('info-updated', Lang.bind(this, this._setToolbarTitle));
+
+        this.connect('destroy', Lang.bind(this,
+            function() {
+                if (this._infoUpdatedId != 0)
+                    this._activeCollection.disconnect(this._infoUpdatedId);
+
+                this._clearStateData();
+                Application.selectionController.disconnect(selectionModeId);
+            }));
+    },
+
+    _addViewMenuButton: function() {
+        let builder = new Gtk.Builder();
+        builder.add_from_resource('/org/gnome/Documents/ui/view-menu.ui');
+        let viewMenu = builder.get_object('viewMenu');
+
+        // Translators: this is the menu to change view settings
+        this._viewMenuButton = new Gtk.MenuButton({ tooltip_text: _("View Menu"),
+                                                    popover: viewMenu });
+        this.toolbar.pack_end(this._viewMenuButton);
+
+        this._viewSettingsId = Application.settings.connect('changed::view-as',
+            Lang.bind(this, this._updateViewMenuButton));
+        this._updateViewMenuButton();
+    },
+
+    _updateViewMenuButton: function() {
+        let viewType = Application.settings.get_enum('view-as');
+        let iconName = viewType == Gd.MainViewType.ICON ? 'view-grid-symbolic' : 'view-list-symbolic';
+        this._viewMenuButton.image = new Gtk.Image({ icon_name: iconName, pixel_size: 16 })
+    },
+
+    _setToolbarTitle: function() {
+        let selectionMode = Application.selectionController.getSelectionMode();
+        let activeCollection = Application.documentManager.getActiveCollection();
+        let primary = null;
+
+        if (!selectionMode) {
+            if (activeCollection)
+                primary = activeCollection.name;
+        } else {
+            let length = Application.selectionController.getSelection().length;
+            let label = null;
+
+            if (length == 0)
+                label = _("Click on items to select them");
+            else
+                label = Gettext.ngettext("%d selected",
+                                         "%d selected",
+                                         length).format(length);
+
+            if (activeCollection)
+                primary = ("<b>%s</b>  (%s)").format(activeCollection.name, label);
+            else
+                primary = label;
+        }
+
+        if (selectionMode) {
+            if (primary) {
+                this._selectionMenu.set_label(primary);
+                this._selectionMenu.get_child().use_markup = true;
+            }
+        } else {
+            this.toolbar.set_title(primary);
+        }
+    },
+
+    _populateForSelectionMode: function() {
+        this.toolbar.get_style_context().add_class('selection-mode');
+        this.toolbar.set_custom_title(this._selectionMenu);
+
+        let selectionButton = new Gtk.Button({ label: _("Cancel") });
+        this.toolbar.pack_end(selectionButton);
+        selectionButton.connect('clicked', Lang.bind(this,
+            function() {
+                Application.selectionController.setSelectionMode(false);
+            }));
+
+        // connect to selection changes while in this mode
+        this._selectionChangedId =
+            Application.selectionController.connect('selection-changed',
+                                               Lang.bind(this, this._setToolbarTitle));
+
+        this.addSearchButton('app.search');
+    },
+
+    _checkCollectionWidgets: function() {
+        let customTitle;
+        let item = Application.documentManager.getActiveCollection();
+
+        if (item) {
+            customTitle = null;
+            if (!this._collBackButton) {
+                this._collBackButton = this.addBackButton();
+                this._collBackButton.show();
+                this._collBackButton.connect('clicked', Lang.bind(this,
+                    function() {
+                        Application.documentManager.activatePreviousCollection();
+                    }));
+            }
+        } else {
+            customTitle = this._stackSwitcher;
+            if (this._collBackButton) {
+                this._collBackButton.destroy();
+                this._collBackButton = null;
+            }
+        }
+
+        this.toolbar.set_custom_title(customTitle);
+    },
+
+    _onActiveCollectionChanged: function(manager, activeCollection) {
+        if (activeCollection) {
+            this._infoUpdatedId = activeCollection.connect('info-updated', Lang.bind(this, this._setToolbarTitle));
+        } else {
+            if (this._infoUpdatedId != 0) {
+                this._activeCollection.disconnect(this._infoUpdatedId);
+                this._infoUpdatedId = 0;
+            }
+        }
+        this._activeCollection = activeCollection;
+        this._checkCollectionWidgets();
+        this._setToolbarTitle();
+    },
+
+    _populateForOverview: function() {
+        this.toolbar.set_show_close_button(true);
+        this.toolbar.set_custom_title(this._stackSwitcher);
+        this._checkCollectionWidgets();
+
+        let selectionButton = new Gtk.Button({ image: new Gtk.Image ({ icon_name: 'object-select-symbolic' }),
+                                               tooltip_text: _("Select Items") });
+        this.toolbar.pack_end(selectionButton);
+        selectionButton.connect('clicked', Lang.bind(this,
+            function() {
+                Application.selectionController.setSelectionMode(true);
+            }));
+
+        this._addViewMenuButton();
+        this.addSearchButton('app.search');
+
+        // connect to active collection changes while in this mode
+        this._collectionId =
+            Application.documentManager.connect('active-collection-changed',
+                                             Lang.bind(this, this._onActiveCollectionChanged));
+    },
+
+    _clearStateData: function() {
+        this._collBackButton = null;
+        this._viewMenuButton = null;
+        this.toolbar.set_custom_title(null);
+
+        if (this._countChangedId != 0) {
+            Application.offsetDocumentsController.disconnect(this._countChangedId);
+            this._countChangedId = 0;
+        }
+
+        if (this._collectionId != 0) {
+            Application.documentManager.disconnect(this._collectionId);
+            this._collectionId = 0;
+        }
+
+        if (this._selectionChangedId != 0) {
+            Application.selectionController.disconnect(this._selectionChangedId);
+            this._selectionChangedId = 0;
+        }
+
+        if (this._viewSettingsId != 0) {
+            Application.settings.disconnect(this._viewSettingsId);
+            this._viewSettingsId = 0;
+        }
+    },
+
+    _clearToolbar: function() {
+        this._clearStateData();
+        this.toolbar.set_show_close_button(false);
+
+        this.toolbar.get_style_context().remove_class('selection-mode');
+        let children = this.toolbar.get_children();
+        children.forEach(function(child) { child.destroy(); });
+    },
+
+    _resetToolbarMode: function() {
+        this._clearToolbar();
+
+        let selectionMode = Application.selectionController.getSelectionMode();
+        if (selectionMode)
+            this._populateForSelectionMode();
+        else
+            this._populateForOverview();
+
+        this._setToolbarTitle();
+        this.toolbar.show_all();
+
+        this._countChangedId = Application.offsetDocumentsController.connect('item-count-changed', Lang.bind(this,
+            function(controller, count) {
+                this.toolbar.foreach(Lang.bind(this,
+                    function(child) {
+                        child.set_sensitive(count != 0);
+                    }));
+            }));
+
+        if (Application.searchController.getString() != '')
+            Application.application.change_action_state('search', GLib.Variant.new('b', true));
+    },
+
+    createSearchbar: function() {
+        return new OverviewSearchbar();
     }
 });
 
@@ -784,6 +1200,6 @@ const OverviewStack = new Lang.Class({
     },
 
     createToolbar: function() {
-        return new MainToolbar.OverviewToolbar(this);
+        return new OverviewToolbar(this);
     },
 });
