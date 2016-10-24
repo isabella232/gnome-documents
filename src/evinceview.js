@@ -39,8 +39,6 @@ const Preview = imports.preview;
 const Utils = imports.utils;
 const WindowMode = imports.windowMode;
 
-const _FULLSCREEN_TOOLBAR_TIMEOUT = 2; // seconds
-
 const EvinceView = new Lang.Class({
     Name: 'EvinceView',
     Extends: Preview.Preview,
