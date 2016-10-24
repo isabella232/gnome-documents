@@ -28,7 +28,6 @@ const Mainloop = imports.mainloop;
 const Application = imports.application;
 const MainToolbar = imports.mainToolbar;
 const Preview = imports.preview;
-const WindowMode = imports.windowMode;
 
 const _BLANK_URI = "about:blank";
 

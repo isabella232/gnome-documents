@@ -55,9 +55,6 @@ const EvinceView = new Lang.Class({
 
         this.parent(overlay, mainWindow);
 
-        Application.modeController.connect('window-mode-changed', Lang.bind(this,
-            this._onWindowModeChanged));
-
         let fullscreenAction = new FullscreenAction.FullscreenAction({ window: mainWindow });
         fullscreenAction.connect('notify::state', Lang.bind(this, this._onFullscreenChanged));
         this.actionGroup.add_action(fullscreenAction);
@@ -446,14 +443,6 @@ const EvinceView = new Lang.Class({
         } else {
             if (this._fsToolbar)
                 this._fsToolbar.conceal();
-        }
-    },
-
-    _onWindowModeChanged: function() {
-        let windowMode = Application.modeController.getWindowMode();
-        if (windowMode != WindowMode.WindowMode.PREVIEW_EV) {
-            this.controlsVisible = false;
-            this._hidePresentation();
         }
     },
 

@@ -56,7 +56,7 @@ const ModeController = new Lang.Class({
          * provider. It is easier to special case it here instead of all
          * over the code.
          */
-        if (this._mode == WindowMode.PREVIEW_EV && oldMode == WindowMode.NONE && steps == 1)
+        if (oldMode == WindowMode.NONE && steps == 1)
           oldMode = WindowMode.DOCUMENTS;
 
         if (oldMode == WindowMode.NONE)

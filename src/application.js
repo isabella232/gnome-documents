@@ -507,7 +507,6 @@ const Application = new Lang.Class({
 
     _onActivateResult: function(provider, urn, terms, timestamp) {
         this._createWindow();
-        modeController.setWindowMode(WindowMode.WindowMode.PREVIEW_EV);
 
         let doc = documentManager.getItemById(urn);
         if (doc) {
@@ -532,13 +531,10 @@ const Application = new Lang.Class({
             // forward the search terms next time we enter the overview
             let modeChangeId = modeController.connect('window-mode-changed', Lang.bind(this,
                 function(object, newMode) {
-                    if (newMode == WindowMode.WindowMode.EDIT
-                        || newMode == WindowMode.WindowMode.PREVIEW_EV)
-                        return;
-
-                    modeController.disconnect(modeChangeId);
-
-                    searchController.setString(terms.join(' '));
+                    if (newMode == WindowMode.WindowMode.DOCUMENTS) {
+                        modeController.disconnect(modeChangeId);
+                        searchController.setString(terms.join(' '));
+                    }
                 }));
         }
     },
