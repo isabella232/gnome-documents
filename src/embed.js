@@ -218,6 +218,8 @@ const Embed = new Lang.Class({
             Application.modeController.goBack();
         } else {
             Application.modeController.setWindowMode(WindowMode.WindowMode.SEARCH);
+            let searchAction = this._view.view.getAction('search');
+            searchAction.change_state(GLib.Variant.new('b', true));
         }
     },
 
@@ -256,7 +258,9 @@ const Embed = new Lang.Class({
         else
             this._saveSearch();
 
-        Application.application.change_action_state('search', GLib.Variant.new('b', showSearch));
+        let searchAction = this._view.view.getAction('search');
+        if (searchAction)
+            searchAction.change_state(GLib.Variant.new('b', showSearch));
     },
 
     getMainToolbar: function() {

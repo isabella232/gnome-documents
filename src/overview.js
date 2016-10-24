@@ -337,7 +337,9 @@ const OverviewSearchbar = new Lang.Class({
     Name: 'OverviewSearchbar',
     Extends: Searchbar.Searchbar,
 
-    _init: function() {
+    _init: function(view) {
+        this._view = view;
+
         this.parent();
 
         let sourcesId = Application.sourceManager.connect('active-changed',
@@ -353,16 +355,15 @@ const OverviewSearchbar = new Lang.Class({
         this._onActiveTypeChanged();
         this._onActiveMatchChanged();
 
-        this.connect('notify::search-mode-enabled', Lang.bind(this,
-            function() {
-                let searchEnabled = this.search_mode_enabled;
-                Application.application.change_action_state('search', GLib.Variant.new('b', searchEnabled));
-            }));
+        let searchAction = this._view.getAction('search');
+        this.connect('notify::search-mode-enabled', Lang.bind(this, function() {
+            let searchEnabled = this.search_mode_enabled;
+            searchAction.change_state(GLib.Variant.new('b', searchEnabled));
+        }));
 
         // connect to the search action state for visibility
-        let searchStateId = Application.application.connect('action-state-changed::search',
-            Lang.bind(this, this._onActionStateChanged));
-        this._onActionStateChanged(Application.application, 'search', Application.application.get_action_state('search'));
+        let searchStateId = searchAction.connect('notify::state', Lang.bind(this, this._onActionStateChanged));
+        this._onActionStateChanged(searchAction);
 
         this.searchEntry.set_text(Application.searchController.getString());
         this.connect('destroy', Lang.bind(this,
@@ -371,8 +372,8 @@ const OverviewSearchbar = new Lang.Class({
                 Application.searchTypeManager.disconnect(searchTypeId);
                 Application.searchMatchManager.disconnect(searchMatchId);
                 Application.documentManager.disconnect(collectionId);
-                Application.application.disconnect(searchStateId);
-                Application.application.change_action_state('search', GLib.Variant.new('b', false));
+
+                searchAction.disconnect(searchStateId);
             }));
     },
 
@@ -485,8 +486,8 @@ const OverviewSearchbar = new Lang.Class({
         this._dropdownButton.set_active(true);
     },
 
-    _onActionStateChanged: function(source, actionName, state) {
-        if (state.get_boolean())
+    _onActionStateChanged: function(action) {
+        if (action.state.get_boolean())
             this.reveal();
         else
             this.conceal();
@@ -517,6 +518,8 @@ const OverviewToolbar = new Lang.Class({
         this._infoUpdatedId = 0;
         this._countChangedId = 0;
 
+        this._view = stack;
+
         this.parent();
 
         let builder = new Gtk.Builder();
@@ -526,7 +529,7 @@ const OverviewToolbar = new Lang.Class({
         this._selectionMenu.get_style_context().add_class('selection-menu');
 
         this._stackSwitcher = new Gtk.StackSwitcher({ no_show_all: true,
-                                                      stack: stack });
+                                                      stack: this._view });
         this._stackSwitcher.show();
 
         // setup listeners to mode changes that affect the toolbar layout
@@ -620,7 +623,7 @@ const OverviewToolbar = new Lang.Class({
             Application.selectionController.connect('selection-changed',
                                                Lang.bind(this, this._setToolbarTitle));
 
-        this.addSearchButton('app.search');
+        this.addSearchButton('view.search');
     },
 
     _checkCollectionWidgets: function() {
@@ -676,7 +679,7 @@ const OverviewToolbar = new Lang.Class({
             }));
 
         this._addViewMenuButton();
-        this.addSearchButton('app.search');
+        this.addSearchButton('view.search');
 
         // connect to active collection changes while in this mode
         this._collectionId =
@@ -740,11 +743,11 @@ const OverviewToolbar = new Lang.Class({
             }));
 
         if (Application.searchController.getString() != '')
-            Application.application.change_action_state('search', GLib.Variant.new('b', true));
+            this._view.getAction('search').change_state(GLib.Variant.new('b', true));
     },
 
     createSearchbar: function() {
-        return new OverviewSearchbar();
+        return new OverviewSearchbar(this._view);
     }
 });
 
@@ -1071,6 +1074,10 @@ const OverviewStack = new Lang.Class({
               stateChanged: Lang.bind(this, this._updateTypeForSettings) },
             { settingsKey: 'sort-by',
               stateChanged: Lang.bind(this, this._updateSortForSettings) },
+            { name: 'search',
+              callback: Utils.actionToggleCallback,
+              state: GLib.Variant.new('b', false),
+              accels: ['<Primary>f'] },
             { name: 'search-source',
               parameter_type: 's',
               state: GLib.Variant.new('s', Search.SearchSourceStock.ALL),
@@ -1202,4 +1209,12 @@ const OverviewStack = new Lang.Class({
     createToolbar: function() {
         return new OverviewToolbar(this);
     },
+
+    getAction: function(name) {
+        return this.actionGroup.lookup_action(name);
+    },
+
+    get view() {
+        return this.visible_child;
+    }
 });

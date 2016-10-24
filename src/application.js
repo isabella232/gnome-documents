@@ -410,10 +410,6 @@ const Application = new Lang.Class({
               callback: Lang.bind(this, this._onActionNightMode),
               create_hook: Lang.bind(this, this._nightModeCreateHook),
               state: settings.get_value('night-mode') },
-            { name: 'search',
-              callback: Utils.actionToggleCallback,
-              state: GLib.Variant.new('b', false),
-              accels: ['<Primary>f'] }
         ];
 
         if (!this.isBooks)
@@ -543,7 +539,6 @@ const Application = new Lang.Class({
                     modeController.disconnect(modeChangeId);
 
                     searchController.setString(terms.join(' '));
-                    this.change_action_state('search', GLib.Variant.new('b', true));
                 }));
         }
     },
@@ -552,7 +547,6 @@ const Application = new Lang.Class({
         this._createWindow();
         modeController.setWindowMode(WindowMode.WindowMode.DOCUMENTS);
         searchController.setString(terms.join(' '));
-        this.change_action_state('search', GLib.Variant.new('b', true));
 
         this._activationTimestamp = timestamp;
         this.activate();
