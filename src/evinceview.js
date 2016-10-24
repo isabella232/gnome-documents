@@ -121,9 +121,6 @@ const EvinceView = new Lang.Class({
             toolbar = this._fsToolbar.toolbar;
 
         if (action.state.get_boolean()) {
-            if (this.fullscreen)
-                this.controlsVisible = true;
-
             toolbar.searchbar.reveal();
         } else {
             toolbar.searchbar.conceal();
@@ -804,29 +801,26 @@ const EvinceViewFullscreenToolbar = new Lang.Class({
         this.show();
 
         // make controls show when a toolbar action is activated in fullscreen
-        let actionNames = ['gear-menu'];
+        let actionNames = ['gear-menu', 'find'];
         let signalIds = [];
 
-        actionNames.forEach(Lang.bind(this,
-            function(actionName) {
-                let signalName = 'action-state-changed::' + actionName;
-                let signalId = Application.application.connect(signalName, Lang.bind(this,
-                    function(actionGroup, actionName, value) {
-                        let state = value.get_boolean();
-                        if (state)
-                            this.emitJS('show-controls');
-                    }));
+        actionNames.forEach(Lang.bind(this, function(actionName) {
+            let signalName = 'action-state-changed::' + actionName;
+            let signalId = previewView.actionGroup.connect(signalName, Lang.bind(this,
+                function(actionGroup, actionName, value) {
+                    let state = value.get_boolean();
+                    if (state)
+                        this.emitJS('show-controls');
+                }));
 
-                signalIds.push(signalId);
-            }));
+            signalIds.push(signalId);
+        }));
 
-        this.toolbar.connect('destroy', Lang.bind(this,
-            function() {
-                signalIds.forEach(
-                    function(signalId) {
-                        Application.application.disconnect(signalId);
-                    });
-            }));
+        this.toolbar.connect('destroy', Lang.bind(this, function() {
+            signalIds.forEach(function(signalId) {
+                previewView.actionGroup.disconnect(signalId);
+            });
+        }));
     },
 
     handleEvent: function(event) {
