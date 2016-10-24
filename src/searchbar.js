@@ -52,31 +52,8 @@ const Searchbar = new Lang.Class({
 
                 this.entryChanged();
             }));
-        this.connect('notify::search-mode-enabled', Lang.bind(this,
-            function() {
-                let searchEnabled = this.search_mode_enabled;
-                Application.application.change_action_state('search', GLib.Variant.new('b', searchEnabled));
-            }));
-
-        // connect to the search action state for visibility
-        let searchStateId = Application.application.connect('action-state-changed::search',
-            Lang.bind(this, this._onActionStateChanged));
-        this._onActionStateChanged(Application.application, 'search', Application.application.get_action_state('search'));
-
-        this.connect('destroy', Lang.bind(this,
-            function() {
-                Application.application.disconnect(searchStateId);
-                Application.application.change_action_state('search', GLib.Variant.new('b', false));
-            }));
 
         this.show_all();
-    },
-
-    _onActionStateChanged: function(source, actionName, state) {
-        if (state.get_boolean())
-            this.reveal();
-        else
-            this.conceal();
     },
 
     createSearchWidget: function() {
@@ -166,6 +143,17 @@ const OverviewSearchbar = new Lang.Class({
         this._onActiveTypeChanged();
         this._onActiveMatchChanged();
 
+        this.connect('notify::search-mode-enabled', Lang.bind(this,
+            function() {
+                let searchEnabled = this.search_mode_enabled;
+                Application.application.change_action_state('search', GLib.Variant.new('b', searchEnabled));
+            }));
+
+        // connect to the search action state for visibility
+        let searchStateId = Application.application.connect('action-state-changed::search',
+            Lang.bind(this, this._onActionStateChanged));
+        this._onActionStateChanged(Application.application, 'search', Application.application.get_action_state('search'));
+
         this.searchEntry.set_text(Application.searchController.getString());
         this.connect('destroy', Lang.bind(this,
             function() {
@@ -173,6 +161,8 @@ const OverviewSearchbar = new Lang.Class({
                 Application.searchTypeManager.disconnect(searchTypeId);
                 Application.searchMatchManager.disconnect(searchMatchId);
                 Application.documentManager.disconnect(collectionId);
+                Application.application.disconnect(searchStateId);
+                Application.application.change_action_state('search', GLib.Variant.new('b', false));
             }));
     },
 
@@ -283,6 +273,13 @@ const OverviewSearchbar = new Lang.Class({
 
     _onTagClicked: function() {
         this._dropdownButton.set_active(true);
+    },
+
+    _onActionStateChanged: function(source, actionName, state) {
+        if (state.get_boolean())
+            this.reveal();
+        else
+            this.conceal();
     },
 
     conceal: function() {

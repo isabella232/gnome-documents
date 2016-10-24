@@ -22,12 +22,14 @@
 const GdPrivate = imports.gi.GdPrivate;
 const Gepub = imports.gi.Gepub;
 const Gio = imports.gi.Gio;
+const GLib = imports.gi.GLib;
 const WebKit2 = imports.gi.WebKit2;
 
 const _ = imports.gettext.gettext;
 
 const Documents = imports.documents;
 const Preview = imports.preview;
+const Utils = imports.utils;
 
 const Lang = imports.lang;
 
@@ -41,6 +43,11 @@ const EPUBView = new Lang.Class({
 
     createActions: function() {
         return [
+            { name: 'find',
+              callback: Utils.actionToggleCallback,
+              state: GLib.Variant.new('b', false),
+              stateChanged: Lang.bind(this, this._findStateChanged),
+              accels: ['<Primary>f'] },
             { name: 'find-prev',
               callback: Lang.bind(this, this.findPrev),
               accels: ['<Shift><Primary>g'] },
@@ -124,8 +131,12 @@ const EPUBView = new Lang.Class({
         fc.search(str, WebKit2.FindOptions.CASE_INSENSITIVE, 0);
     },
 
-    get canFind() {
-        return true;
+    _findStateChanged: function(action) {
+        if (action.state.get_boolean()) {
+            this.toolbar.searchbar.reveal();
+        } else {
+            this.toolbar.searchbar.conceal();
+        }
     },
 
     findNext: function() {
@@ -170,6 +181,12 @@ const EPUBSearchbar = new Lang.Class({
 const EPUBViewToolbar = new Lang.Class({
     Name: 'EPUBViewToolbar',
     Extends: Preview.PreviewToolbar,
+
+    _init: function(preview) {
+        this.parent(preview);
+
+        this.addSearchButton('view.find');
+    },
 
     createSearchbar: function() {
         return new EPUBSearchbar(this.preview);

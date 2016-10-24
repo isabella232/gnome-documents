@@ -86,10 +86,11 @@ const MainToolbar = new Lang.Class({
         return res;
     },
 
-    addSearchButton: function() {
+    addSearchButton: function(actionName) {
         let searchButton = new Gtk.ToggleButton({ image: new Gtk.Image ({ icon_name: 'edit-find-symbolic' }),
                                                   tooltip_text: Gettext.pgettext("toolbar button tooltip", "Search"),
-                                                  action_name: 'app.search' });
+                                                  action_name: actionName,
+                                                  visible: true });
         this.toolbar.pack_end(searchButton);
         return searchButton;
     },
@@ -227,7 +228,7 @@ const OverviewToolbar = new Lang.Class({
             Application.selectionController.connect('selection-changed',
                                                Lang.bind(this, this._setToolbarTitle));
 
-        this.addSearchButton();
+        this.addSearchButton('app.search');
     },
 
     _checkCollectionWidgets: function() {
@@ -283,7 +284,7 @@ const OverviewToolbar = new Lang.Class({
             }));
 
         this._addViewMenuButton();
-        this.addSearchButton();
+        this.addSearchButton('app.search');
 
         // connect to active collection changes while in this mode
         this._collectionId =

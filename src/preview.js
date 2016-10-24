@@ -230,10 +230,6 @@ const Preview = new Lang.Class({
         return this._lastSearch;
     },
 
-    get canFind() {
-        return false;
-    },
-
     get fullscreen() {
         return false;
     },
@@ -274,10 +270,6 @@ const PreviewToolbar = new Lang.Class({
                                               menu_model: this._getPreviewMenu(),
                                               action_name: 'view.gear-menu' });
         this.toolbar.pack_end(menuButton);
-
-        // search button, on the right of the toolbar
-        if (this.preview.canFind)
-            this.addSearchButton();
 
         this.updateTitle();
         this.toolbar.show_all();
@@ -520,6 +512,11 @@ const PreviewSearchbar = new Lang.Class({
         this.preview = preview;
 
         this.parent();
+
+        this.connect('notify::search-mode-enabled', Lang.bind(this, function() {
+            let action = this.preview.getAction('find');
+            action.change_state(GLib.Variant.new('b', this.search_mode_enabled));
+        }));
     },
 
     createSearchWidget: function() {

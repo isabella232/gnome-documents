@@ -118,6 +118,21 @@ const EvinceView = new Lang.Class({
         }));
     },
 
+    _findStateChanged: function(action) {
+        let toolbar = this.toolbar;
+        if (this.fullscreen)
+            toolbar = this._fsToolbar.toolbar;
+
+        if (action.state.get_boolean()) {
+            if (this.fullscreen)
+                this.controlsVisible = true;
+
+            toolbar.searchbar.reveal();
+        } else {
+            toolbar.searchbar.conceal();
+        }
+    },
+
     _bookmarkStateChanged: function(action) {
         let pageNumber = this._model.page;
         let bookmark = new GdPrivate.Bookmark({ page_number: pageNumber });
@@ -165,6 +180,11 @@ const EvinceView = new Lang.Class({
             { name: 'rotate-right',
               callback: Lang.bind(this, this._rotateRight),
               accels: ['<Primary>Right'] },
+            { name: 'find',
+              callback: Utils.actionToggleCallback,
+              state: GLib.Variant.new('b', false),
+              stateChanged: Lang.bind(this, this._findStateChanged),
+              accels: ['<Primary>f'] },
             { name: 'find-prev',
               callback: Lang.bind(this, this.findPrev),
               accels: ['<Shift><Primary>g'] },
@@ -623,10 +643,6 @@ const EvinceView = new Lang.Class({
         return this._model ? this._model.document.get_n_pages() : 0;
     },
 
-    get canFind() {
-        return true;
-    },
-
     scroll: function(direction) {
         this._evView.scroll(direction, false);
     },
@@ -685,10 +701,11 @@ const EvinceViewToolbar = new Lang.Class({
         this.parent(preview);
 
         this._handleEvent = false;
-        this._searchAction = Application.application.lookup_action('search');
-        this._searchAction.enabled = false;
 
+        this.preview.getAction('find').enabled = false;
         this.preview.getAction('gear-menu').enabled = false;
+
+        this.addSearchButton('view.find');
 
         if (Application.application.isBooks) {
             this._addFullscreenButton();
@@ -696,7 +713,6 @@ const EvinceViewToolbar = new Lang.Class({
         }
 
         this.connect('destroy', Lang.bind(this, function() {
-            this._searchAction.enabled = true;
             if (this._fsStateId > 0)
                 this.preview.getAction('fullscreen').disconnect(this._fsStateId);
         }));
@@ -740,7 +756,7 @@ const EvinceViewToolbar = new Lang.Class({
         }
 
         this._handleEvent = (hasPages && canFind);
-        this._searchAction.enabled = (hasPages && canFind);
+        this.preview.getAction('find').enabled = (hasPages && canFind);
     },
 
     createSearchbar: function() {
@@ -793,13 +809,13 @@ const EvinceViewFullscreenToolbar = new Lang.Class({
     _init: function(previewView) {
         this.parent({ valign: Gtk.Align.START });
 
-        this._toolbar = new EvinceViewToolbar(previewView);
+        this.toolbar = new EvinceViewToolbar(previewView);
 
-        this.add(this._toolbar);
+        this.add(this.toolbar);
         this.show();
 
         // make controls show when a toolbar action is activated in fullscreen
-        let actionNames = ['gear-menu', 'search'];
+        let actionNames = ['gear-menu'];
         let signalIds = [];
 
         actionNames.forEach(Lang.bind(this,
@@ -815,7 +831,7 @@ const EvinceViewFullscreenToolbar = new Lang.Class({
                 signalIds.push(signalId);
             }));
 
-        this._toolbar.connect('destroy', Lang.bind(this,
+        this.toolbar.connect('destroy', Lang.bind(this,
             function() {
                 signalIds.forEach(
                     function(signalId) {
@@ -825,11 +841,11 @@ const EvinceViewFullscreenToolbar = new Lang.Class({
     },
 
     handleEvent: function(event) {
-        this._toolbar.handleEvent(event);
+        this.toolbar.handleEvent(event);
     },
 
     setModel: function(model) {
-        this._toolbar.setModel(model);
+        this.toolbar.setModel(model);
     },
 
     reveal: function() {
@@ -838,7 +854,7 @@ const EvinceViewFullscreenToolbar = new Lang.Class({
 
     conceal: function() {
         this.set_reveal_child(false);
-        Application.application.change_action_state('search', GLib.Variant.new('b', false));
+        this.toolbar.preview.getAction('find').change_state(GLib.Variant.new('b', false));
     }
 });
 Utils.addJSSignalMethods(EvinceViewFullscreenToolbar.prototype);
