@@ -35,10 +35,6 @@ const char *gd_filename_get_extension_offset (const char *filename);
 
 char *gd_filename_strip_extension (const char * filename_with_extension);
 
-const char *gd_filename_to_mime_type (const gchar *filename_with_extension);
-
-const char *gd_filename_to_rdf_type (const gchar *filename_with_extension);
-
 gchar *gd_iso8601_from_timestamp (gint64 timestamp);
 
 GIcon *gd_create_collection_icon (gint base_size,
