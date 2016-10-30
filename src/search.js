@@ -145,7 +145,7 @@ const SearchTypeManager = new Lang.Class({
                                         where: '?urn rdf:type nfo:EBook .' }));
           this.addItem(new SearchType({ id: SearchTypeStock.COMICS,
                                         name: _("Comics"),
-                                        filter: '(nie:mimeType(?urn) IN (\"application/x-cbr\", \"application/x-cbz\", \"application/x-cbt\", \"application/x-cb7\"))',
+                                        filter: '(nie:mimeType(?urn) IN (\"application/x-cbr\", \"application/x-cbz\", \"application/vnd.comicbook+zip\", \"application/x-cbt\", \"application/x-cb7\"))',
                                         where: '?urn rdf:type nfo:EBook .' }));
         } else {
             this.addItem(new SearchType({ id: SearchTypeStock.PRESENTATIONS,
