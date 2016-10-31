@@ -271,8 +271,7 @@ const MainWindow = new Lang.Class({
             return true;
         }
 
-        if (keyval == Gdk.KEY_space ||
-            keyval == Gdk.KEY_Page_Down) {
+        if (keyval == Gdk.KEY_Page_Down) {
             preview.view.scroll(Gtk.ScrollType.PAGE_FORWARD, false);
             return true;
         }
