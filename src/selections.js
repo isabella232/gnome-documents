@@ -798,7 +798,6 @@ const SelectionController = new Lang.Class({
 
     _init: function() {
         this._selection = [];
-        this._selectionMode = false;
 
         Application.documentManager.connect('item-removed',
             Lang.bind(this, this._onDocumentRemoved));
@@ -840,18 +839,6 @@ const SelectionController = new Lang.Class({
             return;
 
         this._isFrozen = freeze;
-    },
-
-    setSelectionMode: function(setting) {
-        if (this._selectionMode == setting)
-            return;
-
-        this._selectionMode = setting;
-        this.emit('selection-mode-changed', this._selectionMode);
-    },
-
-    getSelectionMode: function() {
-        return this._selectionMode;
     }
 });
 Signals.addSignalMethods(SelectionController.prototype);
@@ -869,9 +856,10 @@ const SelectionToolbar = new Lang.Class({
                         'toolbarProperties',
                         'toolbarCollection' ],
 
-    _init: function() {
+    _init: function(overview) {
         this._itemListeners = {};
         this._insideRefresh = false;
+        this._overview = overview;
 
         this.parent();
 
@@ -892,10 +880,9 @@ const SelectionToolbar = new Lang.Class({
         Application.documentManager.connect('active-collection-changed',
             Lang.bind(this, this._updateCollectionsButton));
 
-        Application.selectionController.connect('selection-mode-changed',
-            Lang.bind(this, this._onSelectionModeChanged));
         Application.selectionController.connect('selection-changed',
             Lang.bind(this, this._onSelectionChanged));
+        this._onSelectionChanged();
     },
 
     _updateCollectionsButton: function() {
@@ -907,22 +894,11 @@ const SelectionToolbar = new Lang.Class({
             this._toolbarCollection.show();
     },
 
-    _onSelectionModeChanged: function(controller, mode) {
-        if (mode)
-            this._onSelectionChanged();
-        else
-            this.hide();
-    },
-
     _onSelectionChanged: function() {
-        if (!Application.selectionController.getSelectionMode())
-            return;
-
         let selection = Application.selectionController.getSelection();
         this._setItemListeners(selection);
 
         this._setItemVisibility();
-        this.show();
     },
 
     _setItemListeners: function(selection) {
@@ -1004,16 +980,15 @@ const SelectionToolbar = new Lang.Class({
             return;
 
         let dialog = new OrganizeCollectionDialog(toplevel);
-        dialog.connect('destroy', Lang.bind(this,
-            function() {
-                Application.selectionController.setSelectionMode(false);
-            }));
+        dialog.connect('destroy', Lang.bind(this, function() {
+            this._overview.getAction('selection-mode').change_state(GLib.Variant.new('b', false));
+        }));
     },
 
     _onToolbarOpen: function(widget) {
-        let selection = Application.selectionController.getSelection();
-        Application.selectionController.setSelectionMode(false);
+        this._overview.getAction('selection-mode').change_state(GLib.Variant.new('b', false));
 
+        let selection = Application.selectionController.getSelection();
         selection.forEach(Lang.bind(this,
             function(urn) {
                 let doc = Application.documentManager.getItemById(urn);
@@ -1039,7 +1014,7 @@ const SelectionToolbar = new Lang.Class({
             }));
 
         let deleteNotification = new Notifications.DeleteNotification(docs);
-        Application.selectionController.setSelectionMode(false);
+        this._overview.getAction('selection-mode').change_state(GLib.Variant.new('b', false));
     },
 
     _onToolbarProperties: function(widget) {
@@ -1049,7 +1024,7 @@ const SelectionToolbar = new Lang.Class({
         dialog.connect('response', Lang.bind(this,
             function(widget, response) {
                 dialog.destroy();
-                Application.selectionController.setSelectionMode(false);
+                this._overview.getAction('selection-mode').change_state(GLib.Variant.new('b', false));
             }));
     },
 
@@ -1059,7 +1034,7 @@ const SelectionToolbar = new Lang.Class({
        dialog.connect('response', Lang.bind(this,
            function(widget, response) {
                dialog.destroy();
-               Application.selectionController.setSelectionMode(false);
+               this._overview.getAction('selection-mode').change_state(GLib.Variant.new('b', false));
            }));
     },
 
@@ -1071,5 +1046,6 @@ const SelectionToolbar = new Lang.Class({
 
         let doc = Application.documentManager.getItemById(selection[0]);
         doc.print(this.get_toplevel());
+        this._overview.getAction('selection-mode').change_state(GLib.Variant.new('b', false));
     },
 });

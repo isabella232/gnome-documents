@@ -184,7 +184,6 @@ const MainWindow = new Lang.Class({
         case WindowMode.WindowMode.COLLECTIONS:
         case WindowMode.WindowMode.DOCUMENTS:
         case WindowMode.WindowMode.SEARCH:
-            return this._handleKeyOverview(event);
         case WindowMode.WindowMode.EDIT:
             return false;
         default:
@@ -265,18 +264,6 @@ const MainWindow = new Lang.Class({
                 return true;
             } catch (e) {
             }
-        }
-
-        return false;
-    },
-
-    _handleKeyOverview: function(event) {
-        let keyval = event.get_keyval()[1];
-
-        if (Application.selectionController.getSelectionMode() &&
-            keyval == Gdk.KEY_Escape) {
-            Application.selectionController.setSelectionMode(false);
-            return true;
         }
 
         return false;

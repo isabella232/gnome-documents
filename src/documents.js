@@ -652,11 +652,6 @@ const DocCommon = new Lang.Class({
 
                 let printOp = EvView.PrintOperation.new(docModel.get_document());
 
-                printOp.connect('begin-print', Lang.bind(this,
-                    function() {
-                        Application.selectionController.setSelectionMode(false);
-                    }));
-
                 printOp.connect('done', Lang.bind(this,
                     function(op, res) {
                         if (res == Gtk.PrintOperationResult.ERROR) {

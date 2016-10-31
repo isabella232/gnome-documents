@@ -534,7 +534,8 @@ const OverviewToolbar = new Lang.Class({
         this._stackSwitcher.show();
 
         // setup listeners to mode changes that affect the toolbar layout
-        let selectionModeId = Application.selectionController.connect('selection-mode-changed',
+        let selectionModeAction = this._view.getAction('selection-mode');
+        let selectionModeStateId = selectionModeAction.connect('notify::state',
             Lang.bind(this, this._resetToolbarMode));
         this._resetToolbarMode();
 
@@ -548,7 +549,7 @@ const OverviewToolbar = new Lang.Class({
                     this._activeCollection.disconnect(this._infoUpdatedId);
 
                 this._clearStateData();
-                Application.selectionController.disconnect(selectionModeId);
+                selectionModeAction.disconnect(selectionModeStateId);
             }));
     },
 
@@ -574,7 +575,7 @@ const OverviewToolbar = new Lang.Class({
     },
 
     _setToolbarTitle: function() {
-        let selectionMode = Application.selectionController.getSelectionMode();
+        let selectionMode = this._view.getAction('selection-mode').state.get_boolean();
         let activeCollection = Application.documentManager.getActiveCollection();
         let primary = null;
 
@@ -612,12 +613,9 @@ const OverviewToolbar = new Lang.Class({
         this.toolbar.get_style_context().add_class('selection-mode');
         this.toolbar.set_custom_title(this._selectionMenu);
 
-        let selectionButton = new Gtk.Button({ label: _("Cancel") });
+        let selectionButton = new Gtk.Button({ label: _("Cancel"),
+                                               action_name: 'view.selection-mode' });
         this.toolbar.pack_end(selectionButton);
-        selectionButton.connect('clicked', Lang.bind(this,
-            function() {
-                Application.selectionController.setSelectionMode(false);
-            }));
 
         // connect to selection changes while in this mode
         this._selectionChangedId =
@@ -672,12 +670,9 @@ const OverviewToolbar = new Lang.Class({
         this._checkCollectionWidgets();
 
         let selectionButton = new Gtk.Button({ image: new Gtk.Image ({ icon_name: 'object-select-symbolic' }),
-                                               tooltip_text: _("Select Items") });
+                                               tooltip_text: _("Select Items"),
+                                               action_name: 'view.selection-mode' });
         this.toolbar.pack_end(selectionButton);
-        selectionButton.connect('clicked', Lang.bind(this,
-            function() {
-                Application.selectionController.setSelectionMode(true);
-            }));
 
         this._addViewMenuButton();
         this.addSearchButton('view.search');
@@ -726,7 +721,7 @@ const OverviewToolbar = new Lang.Class({
     _resetToolbarMode: function() {
         this._clearToolbar();
 
-        let selectionMode = Application.selectionController.getSelectionMode();
+        let selectionMode = this._view.getAction('selection-mode').state.get_boolean();
         if (selectionMode)
             this._populateForSelectionMode();
         else
@@ -756,9 +751,10 @@ const ViewContainer = new Lang.Class({
     Name: 'ViewContainer',
     Extends: Gtk.Stack,
 
-    _init: function(windowMode) {
+    _init: function(overview, windowMode) {
         this._edgeHitId = 0;
         this._mode = windowMode;
+        this._overview = overview;
 
         this._model = new ViewModel(this._mode);
 
@@ -792,10 +788,9 @@ const ViewContainer = new Lang.Class({
         this.view.connect('notify::view-type',
                           Lang.bind(this, this._onViewTypeChanged));
 
-        // setup selection controller => view
-        Application.selectionController.connect('selection-mode-changed',
-            Lang.bind(this, this._onSelectionModeChanged));
-        this._onSelectionModeChanged();
+        let selectionModeAction = this._overview.getAction('selection-mode');
+        selectionModeAction.connect('notify::state', Lang.bind(this, this._onSelectionModeChanged));
+        this._onSelectionModeChanged(selectionModeAction);
 
         Application.modeController.connect('window-mode-changed',
             Lang.bind(this, this._onWindowModeChanged));
@@ -911,7 +906,7 @@ const ViewContainer = new Lang.Class({
     },
 
     _onSelectionModeRequest: function() {
-        Application.selectionController.setSelectionMode(true);
+        this._overview.getAction('selection-mode').change_state(GLib.Variant.new('b', true));
     },
 
     _onItemActivated: function(widget, id, path) {
@@ -988,8 +983,8 @@ const ViewContainer = new Lang.Class({
         Application.selectionController.setSelection(newSelection);
     },
 
-    _onSelectionModeChanged: function() {
-        let selectionMode = Application.selectionController.getSelectionMode();
+    _onSelectionModeChanged: function(action) {
+        let selectionMode = action.state.get_boolean();
         this.view.set_selection_mode(selectionMode);
     },
 
@@ -1050,7 +1045,7 @@ const OverviewStack = new Lang.Class({
         this.pack_start(this._stack, true, true, 0);
 
         // create the toolbar for selected items, it's hidden by default
-        this._selectionToolbar = new Selections.SelectionToolbar();
+        this._selectionToolbar = new Selections.SelectionToolbar(this);
         this.pack_end(this._selectionToolbar, false, false, 0);
 
         let actions = this._getDefaultActions();
@@ -1058,14 +1053,14 @@ const OverviewStack = new Lang.Class({
         Utils.populateActionGroup(this.actionGroup, actions, 'view');
 
         // now create the actual content widgets
-        this._documents = new ViewContainer(WindowMode.WindowMode.DOCUMENTS);
+        this._documents = new ViewContainer(this, WindowMode.WindowMode.DOCUMENTS);
         let label = Application.application.isBooks ? _('Books') : _("Documents");
         this._stack.add_titled(this._documents, 'documents', label);
 
-        this._collections = new ViewContainer(WindowMode.WindowMode.COLLECTIONS);
+        this._collections = new ViewContainer(this, WindowMode.WindowMode.COLLECTIONS);
         this._stack.add_titled(this._collections, 'collections', _("Collections"));
 
-        this._search = new ViewContainer(WindowMode.WindowMode.SEARCH);
+        this._search = new ViewContainer(this, WindowMode.WindowMode.SEARCH);
         this._stack.add_named(this._search, 'search');
 
         this._stack.connect('notify::visible-child',
@@ -1074,6 +1069,10 @@ const OverviewStack = new Lang.Class({
 
     _getDefaultActions: function() {
         return [
+            { name: 'selection-mode',
+              callback: Utils.actionToggleCallback,
+              state: GLib.Variant.new('b', false),
+              stateChanged: Lang.bind(this, this._updateSelectionMode) },
             { name: 'select-all',
               callback: Lang.bind(this, this._selectAll),
               accels: ['<Primary>a'] },
@@ -1106,7 +1105,7 @@ const OverviewStack = new Lang.Class({
     },
 
     _selectAll: function() {
-        Application.selectionController.setSelectionMode(true);
+        this.getAction('selection-mode').change_state(GLib.Variant.new('b', true));
         this.view.view.select_all();
     },
 
@@ -1140,6 +1139,18 @@ const OverviewStack = new Lang.Class({
         }
 
         this.view.model.set_sort_column_id(sortBy, sortType);
+    },
+
+    _updateSelectionMode: function(action) {
+        let selectionMode = action.state.get_boolean();
+
+        if (selectionMode) {
+            Application.application.set_accels_for_action('view.selection-mode', ['Escape']);
+            this._selectionToolbar.show();
+        } else {
+            Application.application.set_accels_for_action('view.selection-mode', []);
+            this._selectionToolbar.hide();
+        }
     },
 
     _initSearchSource: function(action) {
