@@ -135,7 +135,7 @@ const MainWindow = new Lang.Class({
         if (button != 8)
             return false;
 
-        let view = this._embed.getPreview();
+        let view = this._embed.view.view;
         let action = view.getAction('go-back');
         if (action) {
             action.activate(null);

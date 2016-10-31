@@ -217,16 +217,15 @@ const Embed = new Lang.Class({
         let windowMode = Application.modeController.getWindowMode();
 
         if (windowMode == WindowMode.WindowMode.PREVIEW_EV) {
-            let preview = this.getPreview();
-            let fullscreen = preview.fullscreen;
+            let fullscreen = this._view.view.fullscreen;
             if (fullscreen)
-                return preview.getFullscreenToolbar();
+                return this._view.view.getFullscreenToolbar();
         }
 
         return this._view.toolbar;
     },
 
-    getPreview: function() {
-        return this._view.view;
+    get view() {
+        return this._view;
     }
 });
