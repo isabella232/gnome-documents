@@ -79,7 +79,13 @@ const Preview = new Lang.Class({
             { name: 'properties',
               callback: Lang.bind(this, this._properties) },
             { name: 'open-current',
-              callback: Lang.bind(this, this._openCurrent) }
+              callback: Lang.bind(this, this._openCurrent) },
+            { name: 'prev-page',
+              callback: Lang.bind(this, this.goPrev),
+              accels: ['<Primary>Page_Up', 'Left'] },
+            { name: 'next-page',
+              callback: Lang.bind(this, this.goNext),
+              accels: ['<Primary>Page_Down', 'Right'] }
         ];
     },
 
