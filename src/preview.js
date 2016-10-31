@@ -185,7 +185,7 @@ const Preview = new Lang.Class({
         this._spinner.stop();
 
         this.set_visible_child_name('view');
-        this.getAction('open-current').enabled = (doc.defaultApp != null);
+        this.getAction('open-current').enabled = (doc.defaultAppName != null);
     },
 
     onLoadError: function(manager, doc, message, exception) {
