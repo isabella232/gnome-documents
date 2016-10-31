@@ -234,22 +234,6 @@ const MainWindow = new Lang.Class({
             return false;
         }
 
-        if (keyval == Gdk.KEY_Page_Up) {
-            try {
-                preview.scroll(Gtk.ScrollType.PAGE_BACKWARD);
-                return true;
-            } catch (e) {
-            }
-        }
-
-        if (keyval == Gdk.KEY_Page_Down) {
-            try {
-                preview.scroll(Gtk.ScrollType.PAGE_FORWARD);
-                return true;
-            } catch (e) {
-            }
-        }
-
         return false;
     },
 

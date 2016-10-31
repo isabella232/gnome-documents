@@ -157,6 +157,14 @@ const EvinceView = new Lang.Class({
             doc.print(this.mainWindow);
     },
 
+    _scrollUp: function() {
+        this._evView.scroll(Gtk.ScrollType.PAGE_BACKWARD, false);
+    },
+
+    _scrollDown: function() {
+        this._evView.scroll(Gtk.ScrollType.PAGE_FORWARD, false);
+    },
+
     createActions: function() {
         let actions = [
             { name: 'zoom-in',
@@ -197,7 +205,13 @@ const EvinceView = new Lang.Class({
               callback: Lang.bind(this, this._edit) },
             { name: 'print-current',
               callback: Lang.bind(this, this._print),
-              accels: ['<Primary>p'] }
+              accels: ['<Primary>p'] },
+            { name: 'scroll-up',
+              callback: Lang.bind(this, this._scrollUp),
+              accels: ['Page_Up'] },
+            { name: 'scroll-down',
+              callback: Lang.bind(this, this._scrollDown),
+              accels: ['Page_Down'] }
         ];
 
         if (!Application.application.isBooks)
@@ -627,10 +641,6 @@ const EvinceView = new Lang.Class({
 
     get numPages() {
         return this._model ? this._model.document.get_n_pages() : 0;
-    },
-
-    scroll: function(direction) {
-        this._evView.scroll(direction, false);
     },
 
     get evView() {

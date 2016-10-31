@@ -246,10 +246,6 @@ const Preview = new Lang.Class({
 
     findNext: function() {
         throw (new Error('Not implemented'));
-    },
-
-    scroll: function(direction) {
-        throw (new Error('Not implemented'));
     }
 });
 
