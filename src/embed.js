@@ -28,7 +28,6 @@ const Edit = imports.edit;
 const EvinceView = imports.evinceview;
 const LOKView = imports.lokview;
 const Search = imports.search;
-const Selections = imports.selections;
 const Overview = imports.overview;
 const WindowMode = imports.windowMode;
 
@@ -163,10 +162,6 @@ const Embed = new Lang.Class({
 
         let titlebar = new Gtk.Grid({ visible: true });
         mainWindow.set_titlebar(titlebar);
-
-        // create the toolbar for selected items, it's hidden by default
-        this._selectionToolbar = new Selections.SelectionToolbar();
-        this.pack_end(this._selectionToolbar, false, false, 0);
 
         this._view = new View(mainWindow);
         this.pack_end(this._view, true, true, 0);

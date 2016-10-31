@@ -37,6 +37,7 @@ const ErrorBox = imports.errorBox;
 const MainToolbar = imports.mainToolbar;
 const Search = imports.search;
 const Searchbar = imports.searchbar;
+const Selections = imports.selections;
 const WindowMode = imports.windowMode;
 const Utils = imports.utils;
 
@@ -508,7 +509,7 @@ const OverviewToolbar = new Lang.Class({
     Name: 'OverviewToolbar',
     Extends: MainToolbar.MainToolbar,
 
-    _init: function(stack) {
+    _init: function(view) {
         this._collBackButton = null;
         this._collectionId = 0;
         this._selectionChangedId = 0;
@@ -518,7 +519,7 @@ const OverviewToolbar = new Lang.Class({
         this._infoUpdatedId = 0;
         this._countChangedId = 0;
 
-        this._view = stack;
+        this._view = view;
 
         this.parent();
 
@@ -529,7 +530,7 @@ const OverviewToolbar = new Lang.Class({
         this._selectionMenu.get_style_context().add_class('selection-menu');
 
         this._stackSwitcher = new Gtk.StackSwitcher({ no_show_all: true,
-                                                      stack: this._view });
+                                                      stack: this._view.stack });
         this._stackSwitcher.show();
 
         // setup listeners to mode changes that affect the toolbar layout
@@ -1039,10 +1040,18 @@ const ViewContainer = new Lang.Class({
 
 const OverviewStack = new Lang.Class({
     Name: 'OverviewStack',
-    Extends: Gtk.Stack,
+    Extends: Gtk.Box,
 
     _init: function() {
-        this.parent({ visible: true });
+        this.parent({ orientation: Gtk.Orientation.VERTICAL,
+                      visible: true });
+
+        this._stack = new Gtk.Stack({ visible: true });
+        this.pack_start(this._stack, true, true, 0);
+
+        // create the toolbar for selected items, it's hidden by default
+        this._selectionToolbar = new Selections.SelectionToolbar();
+        this.pack_end(this._selectionToolbar, false, false, 0);
 
         let actions = this._getDefaultActions();
         this.actionGroup = new Gio.SimpleActionGroup();
@@ -1051,16 +1060,16 @@ const OverviewStack = new Lang.Class({
         // now create the actual content widgets
         this._documents = new ViewContainer(WindowMode.WindowMode.DOCUMENTS);
         let label = Application.application.isBooks ? _('Books') : _("Documents");
-        this.add_titled(this._documents, 'documents', label);
+        this._stack.add_titled(this._documents, 'documents', label);
 
         this._collections = new ViewContainer(WindowMode.WindowMode.COLLECTIONS);
-        this.add_titled(this._collections, 'collections', _("Collections"));
+        this._stack.add_titled(this._collections, 'collections', _("Collections"));
 
         this._search = new ViewContainer(WindowMode.WindowMode.SEARCH);
-        this.add_named(this._search, 'search');
+        this._stack.add_named(this._search, 'search');
 
-        this.connect('notify::visible-child',
-                     Lang.bind(this, this._onVisibleChildChanged));
+        this._stack.connect('notify::visible-child',
+                            Lang.bind(this, this._onVisibleChildChanged));
     },
 
     _getDefaultActions: function() {
@@ -1098,16 +1107,16 @@ const OverviewStack = new Lang.Class({
 
     _selectAll: function() {
         Application.selectionController.setSelectionMode(true);
-        this.visible_child.view.select_all();
+        this.view.view.select_all();
     },
 
     _selectNone: function() {
-        this.visible_child.view.unselect_all();
+        this.view.view.unselect_all();
     },
 
     _updateTypeForSettings: function() {
         let viewType = Application.settings.get_enum('view-as');
-        this.visible_child.view.set_view_type(viewType);
+        this.view.view.set_view_type(viewType);
     },
 
     _updateSortForSettings: function() {
@@ -1130,7 +1139,7 @@ const OverviewStack = new Lang.Class({
             break;
         }
 
-        this.visible_child.model.set_sort_column_id(sortBy, sortType);
+        this.view.model.set_sort_column_id(sortBy, sortType);
     },
 
     _initSearchSource: function(action) {
@@ -1167,12 +1176,11 @@ const OverviewStack = new Lang.Class({
     },
 
     _onVisibleChildChanged: function() {
-        let visibleChild = this.visible_child;
         let windowMode;
 
-        if (visibleChild == this._collections)
+        if (this.view == this._collections)
             windowMode = WindowMode.WindowMode.COLLECTIONS;
-        else if (visibleChild == this._documents)
+        else if (this.view == this._documents)
             windowMode = WindowMode.WindowMode.DOCUMENTS;
         else
             return;
@@ -1197,13 +1205,13 @@ const OverviewStack = new Lang.Class({
             return;
         }
 
-        this.visible_child = visibleChild;
+        this._stack.visible_child = visibleChild;
         this._updateSortForSettings();
         this._updateTypeForSettings();
     },
 
     activateResult: function() {
-        this.visible_child.activateResult();
+        this.view.activateResult();
     },
 
     createToolbar: function() {
@@ -1214,7 +1222,11 @@ const OverviewStack = new Lang.Class({
         return this.actionGroup.lookup_action(name);
     },
 
+    get stack() {
+        return this._stack;
+    },
+
     get view() {
-        return this.visible_child;
+        return this._stack.visible_child;
     }
 });
