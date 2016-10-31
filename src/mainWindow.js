@@ -174,23 +174,6 @@ const MainWindow = new Lang.Class({
         if (toolbar.handleEvent(event))
             return true;
 
-        switch (Application.modeController.getWindowMode()) {
-        case WindowMode.WindowMode.NONE:
-            return false;
-        case WindowMode.WindowMode.PREVIEW_EV:
-        case WindowMode.WindowMode.PREVIEW_EPUB:
-        case WindowMode.WindowMode.PREVIEW_LOK:
-            return this._handleKeyPreview(event);
-        case WindowMode.WindowMode.COLLECTIONS:
-        case WindowMode.WindowMode.DOCUMENTS:
-        case WindowMode.WindowMode.SEARCH:
-        case WindowMode.WindowMode.EDIT:
-            return false;
-        default:
-            throw(new Error('Not handled'));
-            break;
-        }
-
         return false;
     },
 
@@ -213,28 +196,6 @@ const MainWindow = new Lang.Class({
             return false;
 
         return this._goBack();
-    },
-
-    _handleKeyPreview: function(event) {
-        let keyval = event.get_keyval()[1];
-        let preview = this._embed.getPreview();
-        let windowMode = Application.modeController.getWindowMode();
-
-        if (keyval == Gdk.KEY_Escape &&
-            windowMode == WindowMode.WindowMode.PREVIEW_EV) {
-            let model = preview.getModel();
-
-            if (preview.controlsVisible && (model != null)) {
-                preview.controlsVisible = false;
-            } else if (preview.fullscreen) {
-                Application.documentManager.setActiveItem(null);
-                Application.modeController.goBack();
-            }
-
-            return false;
-        }
-
-        return false;
     },
 
     _quit: function() {

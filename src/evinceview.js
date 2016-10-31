@@ -473,9 +473,14 @@ const EvinceView = new Lang.Class({
                 function() {
                     this.controlsVisible = true;
                 }));
+
+            Application.application.set_accels_for_action('view.fullscreen',
+                                                          ['F11', 'Escape']);
         } else {
             this._fsToolbar.destroy();
             this._fsToolbar = null;
+
+            Application.application.set_accels_for_action('view.fullscreen', ['F11']);
         }
 
         this._syncControlsVisible();
