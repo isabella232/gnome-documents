@@ -634,10 +634,6 @@ const OverviewToolbar = new Lang.Class({
             if (!this._collBackButton) {
                 this._collBackButton = this.addBackButton();
                 this._collBackButton.show();
-                this._collBackButton.connect('clicked', Lang.bind(this,
-                    function() {
-                        Application.documentManager.activatePreviousCollection();
-                    }));
             }
         } else {
             customTitle = this._stackSwitcher;
@@ -1069,6 +1065,8 @@ const OverviewStack = new Lang.Class({
 
     _getDefaultActions: function() {
         return [
+            { name: 'go-back',
+              callback: Lang.bind(this, this._goBack) },
             { name: 'selection-mode',
               callback: Utils.actionToggleCallback,
               state: GLib.Variant.new('b', false),
@@ -1102,6 +1100,10 @@ const OverviewStack = new Lang.Class({
               stateChanged: Lang.bind(this, this._updateSearchMatch),
               create_hook: Lang.bind(this, this._initSearchMatch) }
         ];
+    },
+
+    _goBack: function() {
+        Application.documentManager.activatePreviousCollection();
     },
 
     _selectAll: function() {

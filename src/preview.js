@@ -71,6 +71,12 @@ const Preview = new Lang.Class({
     },
 
     _getDefaultActions: function() {
+        let backAccels = ['Back'];
+        if (this.get_direction() == Gtk.TextDirection.LTR)
+            backAccels.push('<Alt>Left');
+        else
+            backAccels.push('<Alt>Right');
+
         return [
             { name: 'gear-menu',
               callback: Utils.actionToggleCallback,
@@ -85,7 +91,10 @@ const Preview = new Lang.Class({
               accels: ['<Primary>Page_Up', 'Left'] },
             { name: 'next-page',
               callback: Lang.bind(this, this.goNext),
-              accels: ['<Primary>Page_Down', 'Right'] }
+              accels: ['<Primary>Page_Down', 'Right'] },
+            { name: 'go-back',
+              callback: Lang.bind(this, this.goBack),
+              accels: backAccels }
         ];
     },
 
@@ -208,6 +217,11 @@ const Preview = new Lang.Class({
         return this.actionGroup.lookup_action(name);
     },
 
+    goBack: function() {
+        Application.documentManager.setActiveItem(null);
+        Application.modeController.goBack();
+    },
+
     goPrev: function() {
         throw (new Error('Not implemented'));
     },
@@ -260,12 +274,7 @@ const PreviewToolbar = new Lang.Class({
         this.toolbar.set_show_close_button(true);
 
         // back button, on the left of the toolbar
-        let backButton = this.addBackButton();
-        backButton.connect('clicked', Lang.bind(this,
-            function() {
-                Application.documentManager.setActiveItem(null);
-                Application.modeController.goBack();
-            }));
+        this.addBackButton();
 
         // menu button, on the right of the toolbar
         let menuButton = new Gtk.MenuButton({ image: new Gtk.Image ({ icon_name: 'open-menu-symbolic' }),

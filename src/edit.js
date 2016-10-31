@@ -88,6 +88,11 @@ const EditView = new Lang.Class({
             this.getAction('view-current').enabled = true;
     },
 
+    goBack: function() {
+        Application.documentManager.setActiveItem(null);
+        Application.modeController.goBack(2);
+    },
+
     _viewCurrent: function() {
         Application.modeController.goBack();
     },
@@ -131,12 +136,7 @@ const EditToolbar = new Lang.Class({
         this.toolbar.set_show_close_button(true);
 
         // back button, on the left of the toolbar
-        let backButton = this.addBackButton();
-        backButton.connect('clicked', Lang.bind(this,
-            function() {
-                Application.documentManager.setActiveItem(null);
-                Application.modeController.goBack(2);
-            }));
+        this.addBackButton();
 
         let viewButton = new Gtk.Button({ label: _("View"),
                                           action_name: 'view.view-current' });

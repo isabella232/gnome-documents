@@ -124,34 +124,6 @@ const MainWindow = new Lang.Class({
         Application.settings.set_boolean('window-maximized', maximized);
     },
 
-    _goBack: function() {
-        let windowMode = Application.modeController.getWindowMode();
-        let activeCollection = Application.documentManager.getActiveCollection();
-        let handled = true;
-
-        switch (windowMode) {
-        case WindowMode.WindowMode.NONE:
-        case WindowMode.WindowMode.DOCUMENTS:
-            handled = false;
-            break;
-        case WindowMode.WindowMode.EDIT:
-        case WindowMode.WindowMode.PREVIEW_EV:
-            Application.documentManager.setActiveItem(null);
-            Application.modeController.goBack();
-            break;
-        case WindowMode.WindowMode.COLLECTIONS:
-        case WindowMode.WindowMode.SEARCH:
-            if (activeCollection)
-                Application.documentManager.activatePreviousCollection();
-            break;
-        default:
-            throw(new Error('Not handled'));
-            break;
-        }
-
-        return handled;
-    },
-
     _onButtonPressEvent: function(widget, event) {
         let button = event.get_button()[1];
         let clickCount = event.get_click_count()[1];
@@ -163,39 +135,19 @@ const MainWindow = new Lang.Class({
         if (button != 8)
             return false;
 
-        return this._goBack();
-    },
-
-    _onKeyPressEvent: function(widget, event) {
-        if (this._handleBackKey(event))
+        let view = this._embed.getPreview();
+        let action = view.getAction('go-back');
+        if (action) {
+            action.activate(null);
             return true;
-
-        let toolbar = this._embed.getMainToolbar();
-        if (toolbar.handleEvent(event))
-            return true;
+        }
 
         return false;
     },
 
-    _isBackKey: function(event) {
-        let direction = this.get_direction();
-        let keyval = event.get_keyval()[1];
-        let state = event.get_state()[1];
-
-        let isBack = (((state & Gdk.ModifierType.MOD1_MASK) != 0 &&
-                       ((direction == Gtk.TextDirection.LTR && keyval == Gdk.KEY_Left) ||
-                       (direction == Gtk.TextDirection.RTL && keyval == Gdk.KEY_Right))) ||
-                      keyval == Gdk.KEY_Back);
-
-        return isBack;
-    },
-
-    _handleBackKey: function(event) {
-        let isBack = this._isBackKey(event);
-        if (!isBack)
-            return false;
-
-        return this._goBack();
+    _onKeyPressEvent: function(widget, event) {
+        let toolbar = this._embed.getMainToolbar();
+        return toolbar.handleEvent(event);
     },
 
     _quit: function() {

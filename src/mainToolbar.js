@@ -105,7 +105,8 @@ const MainToolbar = new Lang.Class({
 
     addBackButton: function() {
         let backButton = new Gtk.Button({ image: new Gtk.Image({ icon_name: 'go-previous-symbolic' }),
-                                          tooltip_text: _("Back") });
+                                          tooltip_text: _("Back"),
+                                          action_name: 'view.go-back' });
         this.toolbar.pack_start(backButton);
         return backButton;
     }
