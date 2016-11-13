@@ -62,7 +62,17 @@ const EPUBView = new Lang.Class({
     },
 
     createView: function() {
-        return new Gepub.Widget();
+        let view = new Gepub.Widget();
+
+        let fc = view.get_find_controller();
+        fc.connect('found-text', Lang.bind(this, function(view, matchCount, data) {
+            let hasResults = matchCount > 0;
+
+            this.getAction('find-prev').enabled = hasResults;
+            this.getAction('find-next').enabled = hasResults;
+        }));
+
+        return view;
     },
 
     createContextMenu: function() {
@@ -136,6 +146,9 @@ const EPUBView = new Lang.Class({
             this.toolbar.searchbar.reveal();
         } else {
             this.toolbar.searchbar.conceal();
+
+            let fc = this.view.get_find_controller();
+            fc.search_finish();
         }
     },
 
@@ -150,34 +163,6 @@ const EPUBView = new Lang.Class({
     }
 });
 
-const EPUBSearchbar = new Lang.Class({
-    Name: 'EPUBSearchbar',
-    Extends: Preview.PreviewSearchbar,
-
-    _init: function(preview) {
-        this.parent(preview);
-
-        let fc = this.preview.view.get_find_controller();
-        fc.connect('found-text', Lang.bind(this, function(view, matchCount, data) {
-            this._onSearchChanged(this.preview, matchCount > 0);
-        }));
-
-        this._onSearchChanged(this.preview, false);
-    },
-
-    _onSearchChanged: function(view, hasResults) {
-        this.preview.getAction('find-prev').enabled = hasResults;
-        this.preview.getAction('find-next').enabled = hasResults;
-    },
-
-    conceal: function() {
-        let fc = this.preview.view.get_find_controller();
-        fc.search_finish();
-
-        this.parent();
-    }
-});
-
 const EPUBViewToolbar = new Lang.Class({
     Name: 'EPUBViewToolbar',
     Extends: Preview.PreviewToolbar,
@@ -186,9 +171,5 @@ const EPUBViewToolbar = new Lang.Class({
         this.parent(preview);
 
         this.addSearchButton('view.find');
-    },
-
-    createSearchbar: function() {
-        return new EPUBSearchbar(this.preview);
     }
 });
