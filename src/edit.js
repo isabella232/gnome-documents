@@ -76,7 +76,7 @@ const EditView = new Lang.Class({
     },
 
     createToolbar: function() {
-        return new EditToolbar();
+        return new EditToolbar(this);
     },
 
     onLoadStarted: function() {
@@ -129,22 +129,17 @@ const EditView = new Lang.Class({
 
 const EditToolbar = new Lang.Class({
     Name: 'EditToolbar',
-    Extends: MainToolbar.MainToolbar,
+    Extends: Preview.PreviewToolbar,
 
-    _init: function() {
-        this.parent();
-        this.toolbar.set_show_close_button(true);
+    _init: function(preview) {
+        this.parent(preview);
 
-        // back button, on the left of the toolbar
-        this.addBackButton();
-
+        // view button, on the right of the toolbar
         let viewButton = new Gtk.Button({ label: _("View"),
-                                          action_name: 'view.view-current' });
+                                          action_name: 'view.view-current',
+                                          visible: true });
         viewButton.get_style_context().add_class('suggested-action');
         this.toolbar.pack_end(viewButton);
-
-        this._setToolbarTitle();
-        this.show_all();
     },
 
     createSearchbar: function() {
@@ -153,15 +148,5 @@ const EditToolbar = new Lang.Class({
 
     handleEvent: function(event) {
         return false;
-    },
-
-    _setToolbarTitle: function() {
-        let primary = null;
-        let doc = Application.documentManager.getActiveItem();
-
-        if (doc)
-            primary = doc.name;
-
-        this.toolbar.set_title(primary);
     }
 });
