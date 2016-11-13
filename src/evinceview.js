@@ -267,6 +267,8 @@ const EvinceView = new Lang.Class({
         this.parent(manager, doc);
 
         this.getAction('bookmark-page').enabled = false;
+        this.getAction('find').enabled = false;
+        this.getAction('gear-menu').enabled = false;
         this.getAction('places').enabled = false;
     },
 
@@ -305,6 +307,9 @@ const EvinceView = new Lang.Class({
         this.getAction('bookmark-page').enabled = hasMultiplePages && this._bookmarks;
         this.getAction('places').enabled = hasMultiplePages;
 
+        this._enableSearch();
+        this.getAction('gear-menu').enabled = true;
+
         this._evView.set_model(this._model);
         this.navControls.setModel(this._model);
         this.toolbar.setModel(this._model);
@@ -318,6 +323,23 @@ const EvinceView = new Lang.Class({
         this._syncControlsVisible();
 
         this.parent(manager, doc, message, exception);
+    },
+
+    _enableSearch: function() {
+        let canFind = true;
+
+        try {
+            // This is a hack to find out if evDoc implements the
+            // EvDocument.DocumentFind interface or not. We don't expect
+            // the following invocation to work.
+            let evDoc = this._model.get_document();
+            evDoc.find_text();
+        } catch (e if e instanceof TypeError) {
+            canFind = false;
+        } catch (e) {
+        }
+
+        this.getAction('find').enabled = (this.hasPages && canFind);
     },
 
     _onPageChanged: function() {
@@ -705,9 +727,6 @@ const EvinceViewToolbar = new Lang.Class({
 
         this._handleEvent = false;
 
-        this.preview.getAction('find').enabled = false;
-        this.preview.getAction('gear-menu').enabled = false;
-
         this.addSearchButton('view.find');
 
         if (Application.application.isBooks) {
@@ -743,28 +762,7 @@ const EvinceViewToolbar = new Lang.Class({
             this._fullscreenButton.image.icon_name ='view-fullscreen-symbolic';
     },
 
-    _enableSearch: function() {
-        let hasPages = this.preview.hasPages;
-        let canFind = true;
-
-        try {
-            // This is a hack to find out if evDoc implements the
-            // EvDocument.DocumentFind interface or not. We don't expect
-            // the following invocation to work.
-            let evDoc = this.preview.getModel().get_document();
-            evDoc.find_text();
-        } catch (e if e instanceof TypeError) {
-            canFind = false;
-        } catch (e) {
-        }
-
-        this._handleEvent = (hasPages && canFind);
-        this.preview.getAction('find').enabled = (hasPages && canFind);
-    },
-
     setModel: function() {
-        this.preview.getAction('gear-menu').enabled = true;
-        this._enableSearch();
         this.updateTitle();
     }
 });
