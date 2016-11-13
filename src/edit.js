@@ -95,6 +95,7 @@ const EditView = new Lang.Class({
 
     _viewCurrent: function() {
         Application.modeController.goBack();
+        Application.documentManager.reloadActiveItem();
     },
 
     _onProgressChanged: function() {
