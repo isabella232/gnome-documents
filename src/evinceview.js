@@ -122,8 +122,10 @@ const EvinceView = new Lang.Class({
 
         if (action.state.get_boolean()) {
             toolbar.searchbar.reveal();
+            this._evView.find_set_highlight_search(true);
         } else {
             toolbar.searchbar.conceal();
+            this._evView.find_set_highlight_search(false);
         }
     },
 
@@ -567,6 +569,8 @@ const EvinceView = new Lang.Class({
     },
 
     search: function(str) {
+        this._evView.find_search_changed();
+
         if (!this._model)
             return;
 
@@ -595,7 +599,10 @@ const EvinceView = new Lang.Class({
         // FIXME: ev_job_find_get_results() returns a GList **
         // and thus is not introspectable
         GdPrivate.ev_view_find_changed(this._evView, job, page);
-        this.emitJS('search-changed', job.has_results());
+
+        let hasResults = job.has_results();
+        this.getAction('find-prev').enabled = hasResults;
+        this.getAction('find-next').enabled = hasResults;
     },
 
     _loadMetadata: function() {
@@ -648,15 +655,10 @@ const EvinceView = new Lang.Class({
         return this._model ? this._model.document.get_n_pages() : 0;
     },
 
-    get evView() {
-        return this._evView;
-    },
-
     get fullscreen() {
         return this.getAction('fullscreen').state.get_boolean();
     }
 });
-Utils.addJSSignalMethods(EvinceView.prototype);
 
 const EvinceViewNavControls = new Lang.Class({
     Name: 'EvinceViewNavControls',
@@ -760,46 +762,10 @@ const EvinceViewToolbar = new Lang.Class({
         this.preview.getAction('find').enabled = (hasPages && canFind);
     },
 
-    createSearchbar: function() {
-        return new EvinceViewSearchbar(this.preview);
-    },
-
     setModel: function() {
         this.preview.getAction('gear-menu').enabled = true;
         this._enableSearch();
         this.updateTitle();
-    }
-});
-
-const EvinceViewSearchbar = new Lang.Class({
-    Name: 'EvinceViewSearchbar',
-    Extends: Preview.PreviewSearchbar,
-
-    _init: function(preview) {
-        this.parent(preview);
-
-        this.preview.connectJS('search-changed', Lang.bind(this, this._onSearchChanged));
-        this._onSearchChanged(this.preview, false);
-    },
-
-    _onSearchChanged: function(view, hasResults) {
-        this.preview.getAction('find-prev').enabled = hasResults;
-        this.preview.getAction('find-next').enabled = hasResults;
-    },
-
-    entryChanged: function() {
-        this.preview.evView.find_search_changed();
-        this.parent();
-    },
-
-    reveal: function() {
-        this.preview.evView.find_set_highlight_search(true);
-        this.parent();
-    },
-
-    conceal: function() {
-        this.preview.evView.find_set_highlight_search(false);
-        this.parent();
     }
 });
 
