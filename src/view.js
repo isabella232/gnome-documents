@@ -377,6 +377,8 @@ const ViewContainer = new Lang.Class({
                           Lang.bind(this, this._onSelectionModeRequest));
         this.view.connect('view-selection-changed',
                           Lang.bind(this, this._onViewSelectionChanged));
+        this.view.connect('notify::view-type',
+                          Lang.bind(this, this._onViewTypeChanged));
 
         this._updateTypeForSettings();
         this._updateSortForSettings();
@@ -452,9 +454,6 @@ const ViewContainer = new Lang.Class({
     _updateTypeForSettings: function() {
         let viewType = Application.settings.get_enum('view-as');
         this.view.set_view_type(viewType);
-
-        if (viewType == Gd.MainViewType.LIST)
-            this._addListRenderers();
     },
 
     _updateSortForSettings: function() {
@@ -523,6 +522,11 @@ const ViewContainer = new Lang.Class({
         }
 
         return doc;
+    },
+
+    _onViewTypeChanged: function() {
+        if (this.view.view_type == Gd.MainViewType.LIST)
+            this._addListRenderers();
     },
 
     _addListRenderers: function() {
