@@ -31,7 +31,7 @@ function setEditedName(newTitle, docId, callback) {
             try {
                 object.update_finish(res);
             } catch (e) {
-                log('Unable to set the new title on ' + docId + ' to : ' + e.toString());
+                logError(e, 'Unable to set the new title on ' + docId + ' to ' + newTitle);
             }
 
             if (callback)
@@ -59,7 +59,7 @@ const SingleItemJob = new Lang.Class({
                     let cursor = object.query_finish(res);
                     cursor.next_async(null, Lang.bind(this, this._onCursorNext));
                 } catch (e) {
-                    log('Unable to query single item ' + e.message);
+                    logError(e, 'Unable to query single item');
                     this._emitCallback();
                 }
             }));
@@ -71,7 +71,7 @@ const SingleItemJob = new Lang.Class({
         try {
             valid = cursor.next_finish(res);
         } catch (e) {
-            log('Unable to query single item ' + e.message);
+            logError(e, 'Unable to query single item');
         }
 
         if (!valid) {

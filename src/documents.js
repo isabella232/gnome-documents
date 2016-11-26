@@ -64,7 +64,7 @@ const DeleteItemJob = new Lang.Class({
                 try {
                     object.update_finish(res);
                 } catch (e) {
-                    log(e);
+                    logError(e, 'Failed to delete resource ' + this._urn);
                 }
 
                 if (this._callback)
@@ -100,7 +100,7 @@ const CollectionIconWatcher = new Lang.Class({
                 try {
                     cursor = object.query_finish(res);
                 } catch (e) {
-                    log('Unable to query collection items ' + e.toString());
+                    logError(e, 'Unable to query collection items');
                     return;
                 }
 
@@ -114,7 +114,7 @@ const CollectionIconWatcher = new Lang.Class({
         try {
             valid = cursor.next_finish(res);
         } catch (e) {
-            log('Unable to query collection items ' + e.toString());
+            logError(e, 'Unable to query collection items');
             cursor.close();
             return;
         }
@@ -339,7 +339,7 @@ const DocCommon = new Lang.Class({
                 pixbuf = iconInfo.load_icon();
                 this._setOrigPixbuf(pixbuf);
             } catch (e) {
-                log('Unable to load pixbuf: ' + e.toString());
+                logError(e, 'Unable to load pixbuf');
             }
         }
     },
@@ -423,7 +423,7 @@ const DocCommon = new Lang.Class({
         try {
             info = object.query_info_finish(res);
         } catch (e) {
-            log('Unable to query info for file at ' + this.uri + ': ' + e.toString());
+            logError(e, 'Unable to query info for file at ' + this.uri);
             this._failedThumbnailing = true;
             return;
         }
@@ -454,7 +454,7 @@ const DocCommon = new Lang.Class({
         try {
             info = object.query_info_finish(res);
         } catch (e) {
-            log('Unable to query info for file at ' + this.uri + ': ' + e.toString());
+            logError(e, 'Unable to query info for file at ' + this.uri);
             this._failedThumbnailing = true;
             return;
         }
@@ -482,7 +482,7 @@ const DocCommon = new Lang.Class({
                                     let pixbuf = GdkPixbuf.Pixbuf.new_from_stream_finish(res);
                                     this._setOrigPixbuf(pixbuf);
                                 } catch (e) {
-                                    log('Unable to create pixbuf from ' + thumbFile.get_uri() + ': ' + e.toString());
+                                    logError(e, 'Unable to create pixbuf from ' + thumbFile.get_uri());
                                     this._failedThumbnailing = true;
                                     this._thumbPath = null;
                                     thumbFile.delete_async(GLib.PRIORITY_DEFAULT, null, null);
@@ -492,7 +492,7 @@ const DocCommon = new Lang.Class({
                                 stream.close_async(0, null, null);
                             }));
                 } catch (e) {
-                    log('Unable to read file at ' + thumbFile.get_uri() + ': ' + e.toString());
+                    logError(e, 'Unable to read file at ' + thumbFile.get_uri());
                     this._failedThumbnailing = true;
                     this._thumbPath = null;
                     thumbFile.delete_async(GLib.PRIORITY_DEFAULT, null, null);
@@ -554,7 +554,7 @@ const DocCommon = new Lang.Class({
 
                 emblemedPixbuf = iconInfo.load_icon();
             } catch (e) {
-                log('Unable to render the emblem: ' + e.toString());
+                logError(e, 'Unable to render the emblem');
             }
         }
 
@@ -635,7 +635,7 @@ const DocCommon = new Lang.Class({
             else
                 Gtk.show_uri(screen, this.uri, timestamp);
         } catch (e) {
-            log('Unable to show URI ' + this.uri + ': ' + e.toString());
+            logError(e, 'Unable to show URI ' + this.uri);
         }
     },
 
@@ -643,7 +643,7 @@ const DocCommon = new Lang.Class({
         this.load(null, null, Lang.bind(this,
             function(doc, docModel, error) {
                 if (error) {
-                    log('Unable to print document ' + this.uri + ': ' + error);
+                    logError(error, 'Unable to print document ' + this.uri);
                     return;
                 }
 
@@ -797,7 +797,7 @@ const LocalDocument = new Lang.Class({
                 try {
                     file.trash_finish(res);
                 } catch(e) {
-                    log('Unable to trash ' + this.uri + ': ' + e.message);
+                    logError(e, 'Unable to trash ' + this.uri);
                 }
             }));
     },

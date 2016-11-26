@@ -454,7 +454,7 @@ const EvinceView = new Lang.Class({
         try {
             Gio.AppInfo.launch_default_for_uri(uri, context);
         } catch (e) {
-            log('Unable to open external link: ' + e.message);
+            logError(e, 'Unable to open external link');
         }
     },
 

@@ -82,7 +82,7 @@ function _createThumbnailIcon(uri) {
         if (path)
             return new Gio.FileIcon({ file: Gio.file_new_for_path(path) });
     } catch(e) {
-        log('Unable to create thumbnail icon: ' + e.message);
+        logError(e, 'Unable to create thumbnail icon');
     }
     return null;
 }
@@ -141,7 +141,7 @@ const CreateCollectionIconJob = new Lang.Class({
                     cursor = object.query_finish(res);
                     cursor.next_async(null, Lang.bind(this, this._onCursorNext));
                 } catch (e) {
-                    log('Unable to run CreateCollectionIconJob: ' + e.message);
+                    logError(e, 'Unable to run CreateCollectionIconJob');
                     this._hasItemIds();
                 }
             }));
@@ -161,7 +161,7 @@ const CreateCollectionIconJob = new Lang.Class({
             try {
                 pixbuf = info.load_icon();
             } catch(e) {
-                log("Unable to load pixbuf: " + e.message);
+                logError(e, 'Unable to load pixbuf');
             }
         } else if (icon instanceof Gio.FileIcon) {
             try {
@@ -169,7 +169,7 @@ const CreateCollectionIconJob = new Lang.Class({
                 pixbuf = GdkPixbuf.Pixbuf.new_from_stream(stream,
                                                           null);
             } catch(e) {
-                log("Unable to load pixbuf: " + e.message);
+                logError(e, 'Unable to load pixbuf');
             }
         }
 
@@ -183,7 +183,7 @@ const CreateCollectionIconJob = new Lang.Class({
             valid = cursor.next_finish(res);
         } catch (e) {
             cursor.close();
-            log('Unable to read results of CreateCollectionIconJob: ' + e.message);
+            logError(e, 'Unable to read results of CreateCollectionIconJob');
 
             this._hasItemIds();
         }
@@ -320,7 +320,7 @@ const FetchIdsJob = new Lang.Class({
                     cursor = object.query_finish(res);
                     cursor.next_async(this._cancellable, Lang.bind(this, this._onCursorNext));
                 } catch (e) {
-                    log('Unable to run FetchIdsJob: ' + e.message);
+                    logError(e, 'Unable to run FetchIdsJob');
                     callback(this._ids);
                 }
             }));
@@ -333,7 +333,7 @@ const FetchIdsJob = new Lang.Class({
             valid = cursor.next_finish(res);
         } catch (e) {
             cursor.close();
-            log('Unable to read results of FetchIdsJob: ' + e.message);
+            logError(e, 'Unable to read results of FetchIdsJob');
 
             this._callback(this._ids);
         }

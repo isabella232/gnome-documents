@@ -61,7 +61,7 @@ const FetchCollectionsJob = new Lang.Class({
                     cursor = object.query_finish(res);
                     cursor.next_async(null, Lang.bind(this, this._onCursorNext));
                 } catch (e) {
-                    log('Unable to run FetchCollectionsJob: ' + e.message);
+                    logError(e, 'Unable to run FetchCollectionsJob');
                     this._emitCallback();
                 }
             }));
@@ -73,7 +73,7 @@ const FetchCollectionsJob = new Lang.Class({
         try {
             valid = cursor.next_finish(res);
         } catch (e) {
-            log('Unable to read results of FetchCollectionsJob: ' + e.message);
+            logError(e, 'Unable to read results of FetchCollectionsJob');
         }
 
         if (!valid) {
@@ -214,7 +214,7 @@ const UpdateMtimeJob = new Lang.Class({
                 try {
                     object.update_finish(res);
                 } catch (e) {
-                    log('Unable to run UpdateMtimeJob: ' + e.message);
+                    logError(e, 'Unable to run UpdateMtimeJob');
                 }
 
                 if (this._callback)
@@ -252,7 +252,7 @@ const SetCollectionForSelectionJob = new Lang.Class({
                         try {
                             object.update_finish(res);
                         } catch (e) {
-                            log('Unable to run SetCollectionForSelectionJob: ' + e.message);
+                            logError(e, 'Unable to run SetCollectionForSelectionJob');
                         }
 
                         this._jobCollector();
@@ -294,7 +294,7 @@ const CreateCollectionJob = new Lang.Class({
                 try {
                     variant = object.update_blank_finish(res); // variant is aaa{ss}
                 } catch (e) {
-                    log('Unable to run CreateCollectionJob: ' + e.message);
+                    logError(e, 'Unable to run CreateCollectionJob');
                 }
 
                 variant = variant.get_child_value(0); // variant is now aa{ss}

@@ -583,7 +583,7 @@ const OffsetController = new Lang.Class({
                     try {
                         cursor = object.query_finish(res);
                     } catch (e) {
-                        log('Unable to execute count query: ' + e.toString());
+                        logError(e, 'Unable to execute count query');
                         return;
                     }
 

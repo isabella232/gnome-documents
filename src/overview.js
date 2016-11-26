@@ -326,7 +326,7 @@ const EmptyResultsBox = new Lang.Class({
 
                     app.launch([], ctx);
                 } catch(e) {
-                    log('Unable to launch gnome-control-center: ' + e.message);
+                    logError(e, 'Unable to launch gnome-control-center');
                 }
 
                 return true;

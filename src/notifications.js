@@ -181,8 +181,8 @@ const IndexingNotification = new Lang.Class({
             this._manager = TrackerControl.MinerManager.new_full(false);
             this._manager.connect('miner-progress', Lang.bind(this, this._checkNotification));
         } catch(e) {
-            log('Unable to create a TrackerMinerManager, indexing progress ' +
-                'notification won\'t work: ' + e.message);
+            logError(e, 'Unable to create a TrackerMinerManager, indexing progress ' +
+                     'notification won\'t work');
             return;
         }
 

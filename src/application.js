@@ -156,7 +156,7 @@ const Application = new Lang.Class({
                                 try {
                                     manager.index_file_finish(res);
                                 } catch (e) {
-                                    log('Error indexing the getting started PDF: ' + e.message);
+                                    logError(e, 'Error indexing the getting started PDF');
                                 }
                             });
                     } catch (e) {
@@ -198,7 +198,7 @@ const Application = new Lang.Class({
                          'help:gnome-documents',
                          Gtk.get_current_event_time());
         } catch (e) {
-            log('Unable to display help: ' + e.message);
+            logError(e, 'Unable to display help');
         }
     },
 
@@ -254,7 +254,7 @@ const Application = new Lang.Class({
 
                 if (error) {
                     if (!error.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                        log('Error updating the cache: ' + error.toString());
+                        logError(error, 'Error updating the cache');
 
                     return;
                 }
@@ -274,7 +274,7 @@ const Application = new Lang.Class({
                 // startup a refresh of the gdocs cache
                 this._refreshMinerNow(this.gdataMiner);
             } catch (e) {
-                log('Unable to start GData miner: ' + e.message);
+                logError(e, 'Unable to start GData miner');
             }
         }
 
@@ -283,7 +283,7 @@ const Application = new Lang.Class({
                 // startup a refresh of the owncloud cache
                 this._refreshMinerNow(this.owncloudMiner);
             } catch (e) {
-                log('Unable to start Owncloud miner: ' + e.message);
+                logError(e, 'Unable to start Owncloud miner');
             }
         }
 
@@ -292,7 +292,7 @@ const Application = new Lang.Class({
                 // startup a refresh of the skydrive cache
                 this._refreshMinerNow(this.zpjMiner);
             } catch (e) {
-                log('Unable to start Zpj miner: ' + e.message);
+                logError(e, 'Unable to start Zpj miner');
             }
         }
     },
@@ -368,7 +368,7 @@ const Application = new Lang.Class({
         try {
             connection = Tracker.SparqlConnection.get(null);
         } catch (e) {
-            log('Unable to connect to the tracker database: ' + e.toString());
+            logError(e, 'Unable to connect to the tracker database');
             return;
         }
 
@@ -376,7 +376,7 @@ const Application = new Lang.Class({
             try {
                 goaClient = Goa.Client.new_sync(null);
             } catch (e) {
-                log('Unable to create the GOA client: ' + e.toString());
+                logError(e, 'Unable to create the GOA client');
                 return;
             }
         }
@@ -430,7 +430,7 @@ const Application = new Lang.Class({
             this._extractPriority = TrackerExtractPriority();
             this._extractPriority.SetRdfTypesRemote(['nfo:Document']);
         } catch (e) {
-            log('Unable to connect to the tracker extractor: ' + e.toString());
+            logError(e, 'Unable to connect to the tracker extractor');
         }
 
         // start miners

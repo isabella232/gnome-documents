@@ -86,7 +86,7 @@ const SharingDialog = new Lang.Class({
         this._doc.createGDataEntry(null, Lang.bind(this,
             function(entry, service, exception) {
                 if (exception) {
-                    log("Error getting GData Entry " + exception.message);
+                    logError(exception, 'Error getting GData Entry');
                     return;
                 }
                 this._entry = entry;
@@ -344,7 +344,7 @@ const SharingDialog = new Lang.Class({
                     this._feed = this._service.query_finish(result);
                     this._getScopeRulesEntry();
                 } catch(e) {
-                    log("Error getting ACL Feed " + e.message);
+                    logError(e, 'Error getting ACL Feed');
                 }
             }));
     },
@@ -470,7 +470,7 @@ const SharingDialog = new Lang.Class({
                         this._service.insert_entry_finish(res);
                         this._refreshEntryACL();
                     } catch(e) {
-                        log("Error inserting new ACL rule " + e.message);
+                        logError(e, 'Error inserting new ACL rule');
                         this._showErrorDialog(_("The document was not updated"));
                     }
                 }));
@@ -506,7 +506,7 @@ const SharingDialog = new Lang.Class({
                         service.insert_entry_finish(res);
                         this._refreshEntryACL();
                     } catch(e) {
-                        log('Error inserting new ACL scope for document ' + e.message);
+                        logError(e, 'Error inserting new ACL scope for document');
                         this._showErrorDialog(_("The document was not updated"));
                     }
 
@@ -563,7 +563,7 @@ const SharingDialog = new Lang.Class({
                             service.update_entry_finish(res);
                             this._refreshEntryACL();
                         } catch(e) {
-                            log('Error updating ACL scope for document ' + e.message);
+                            logError(e, 'Error updating ACL scope for document');
                             this._showErrorDialog(_("The document was not updated"));
                         }
 
@@ -580,7 +580,7 @@ const SharingDialog = new Lang.Class({
                             service.delete_entry_finish(res);
                             this._refreshEntryACL();
                         } catch(e) {
-                            log('Error deleting ACL scope for document  ' + e.message);
+                            logError(e, 'Error deleting ACL scope for document');
                             this._showErrorDialog(_("The document was not updated"));
                         }
 
@@ -599,7 +599,7 @@ const SharingDialog = new Lang.Class({
                             // Workaround if the doc is shared with link: step 2 add the new public permisssion.
                             this._insertNewPermission(newScopeType, newRole);
                         } catch(e) {
-                            log('Error deleting ACL scope for document ' + e.message);
+                            logError(e, 'Error deleting ACL scope for document');
                             this._showErrorDialog(_("The document was not updated"));
                         }
                     }));

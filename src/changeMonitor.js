@@ -151,7 +151,7 @@ const TrackerChangeMonitor = new Lang.Class({
                         try {
                             valid = cursor.next_finish(res);
                         } catch(e) {
-                            log('Unable to resolve item URNs for graph changes ' + e.message);
+                            logError(e, 'Unable to resolve item URNs for graph changes');
                         }
 
                         if (valid) {
