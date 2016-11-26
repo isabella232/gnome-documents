@@ -194,8 +194,13 @@ const CollectionIconWatcher = new Lang.Class({
 
         this._docs.forEach(
             function(doc) {
-                if (doc.origPixbuf)
+                if (doc.origPixbuf) {
+                    if (doc._thumbPath && !doc._failedThumbnailing)
+                        doc.origPixbuf.set_option('-documents-has-thumb', 'true');
+                    else
+                        doc.origPixbuf.remove_option('-documents-has-thumb');
                     pixbufs.push(doc.origPixbuf);
+                }
             });
 
         this._pixbuf = GdPrivate.create_collection_icon(

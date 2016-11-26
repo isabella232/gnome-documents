@@ -1,5 +1,5 @@
 @define-color documents_emblem_bg #3465a4;
-@define-color documents_collection_bg #d3d7cf;
+@define-color documents_collection_bg #ffffff;
 @define-color theme_base_color #ffffff;
 @define-color theme_bg_color #ededed;
 @define-color theme_selected_bg_color #4a90d9;
@@ -37,7 +37,14 @@ GdMainIconView.content-view.cell:active {
 
 .documents-collection-icon {
     background-color: @documents_collection_bg;
-    border-radius: 8px;
+    border: 2px solid @borders;
+    border-radius: 2px;
+}
+
+.documents-collection-icon-tile {
+    background-color: @documents_collection_bg;
+    border: 2px solid @borders;
+    border-radius: 1px;
 }
 
 .documents-counter {

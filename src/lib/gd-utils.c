@@ -199,18 +199,10 @@ gd_create_collection_icon (gint base_size,
   cairo_t *cr;
   GtkStyleContext *context;
   GtkWidgetPath *path;
-  gint padding, tile_size, scale_size;
-  gint pix_width, pix_height;
+  GtkBorder tile_border;
+  gint padding, tile_size;
   gint idx, cur_x, cur_y;
   GList *l;
-  GdkPixbuf *pix;
-
-  /* TODO: do not hardcode 4, but scale to another layout if more
-   * pixbufs are provided.
-   */
-
-  padding = MAX (floor (base_size / 10), 4);
-  tile_size = (base_size - (3 * padding)) / 2;
 
   context = gtk_style_context_new ();
   gtk_style_context_add_class (context, "documents-collection-icon");
@@ -223,8 +215,23 @@ gd_create_collection_icon (gint base_size,
   surface = cairo_image_surface_create (CAIRO_FORMAT_ARGB32, base_size, base_size);
   cr = cairo_create (surface);
 
+  /* Render the thumbnail itself */
   gtk_render_background (context, cr,
                          0, 0, base_size, base_size);
+  gtk_render_frame (context, cr,
+                    0, 0, base_size, base_size);
+
+  /* Now, render the tiles inside */
+  gtk_style_context_remove_class (context, "documents-collection-icon");
+  gtk_style_context_add_class (context, "documents-collection-icon-tile");
+
+  /* TODO: do not hardcode 4, but scale to another layout if more
+   * pixbufs are provided.
+   */
+  padding = MAX (floor (base_size / 10), 4);
+  gtk_style_context_get_border (context, GTK_STATE_FLAG_NORMAL, &tile_border);
+  tile_size = (base_size - (3 * padding)) / 2 -
+    MAX (tile_border.left + tile_border.right, tile_border.top + tile_border.bottom);
 
   l = pixbufs;
   idx = 0;
@@ -233,34 +240,50 @@ gd_create_collection_icon (gint base_size,
 
   while (l != NULL && idx < 4)
     {
+      GdkPixbuf *pix;
+      gboolean is_thumbnail;
+      gint pix_width, pix_height, scale_size;
+
       pix = l->data;
+      is_thumbnail = (gdk_pixbuf_get_option (pix, "-documents-has-thumb") != NULL);
+
+      /* Only draw a box for thumbnails */
+      if (is_thumbnail)
+        {
+          gtk_render_background (context, cr,
+                                 cur_x, cur_y,
+                                 tile_size + tile_border.left + tile_border.right,
+                                 tile_size + tile_border.top + tile_border.bottom);
+          gtk_render_frame (context, cr,
+                            cur_x, cur_y,
+                            tile_size + tile_border.left + tile_border.right,
+                            tile_size + tile_border.top + tile_border.bottom);
+        }
+
       pix_width = gdk_pixbuf_get_width (pix);
       pix_height = gdk_pixbuf_get_height (pix);
-
       scale_size = MIN (pix_width, pix_height);
 
       cairo_save (cr);
 
-      cairo_translate (cr, cur_x, cur_y);
-
-      cairo_rectangle (cr, 0, 0,
-                       tile_size, tile_size);
+      cairo_translate (cr, cur_x + tile_border.left, cur_y + tile_border.top);
+      cairo_rectangle (cr, 0, 0, tile_size, tile_size);
       cairo_clip (cr);
 
       cairo_scale (cr, (gdouble) tile_size / (gdouble) scale_size, (gdouble) tile_size / (gdouble) scale_size);
       gdk_cairo_set_source_pixbuf (cr, pix, 0, 0);
-
       cairo_paint (cr);
+
       cairo_restore (cr);
 
       if ((idx % 2) == 0)
         {
-          cur_x += tile_size + padding;
+          cur_x += tile_size + padding + tile_border.left + tile_border.right;
         }
       else
         {
           cur_x = padding;
-          cur_y += tile_size + padding;
+          cur_y += tile_size + padding + tile_border.top + tile_border.bottom;
         }
 
       idx++;
