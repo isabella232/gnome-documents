@@ -30,7 +30,6 @@ const WindowMode = imports.windowMode;
 
 const Lang = imports.lang;
 const Mainloop = imports.mainloop;
-const Signals = imports.signals;
 
 const DELETE_TIMEOUT = 10; // seconds
 
@@ -361,4 +360,3 @@ const NotificationManager = new Lang.Class({
             this.reveal_child = false;
     }
 });
-Signals.addSignalMethods(NotificationManager.prototype);
