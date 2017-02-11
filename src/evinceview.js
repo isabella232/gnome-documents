@@ -725,6 +725,7 @@ const EvinceViewToolbar = new Lang.Class({
     _init: function(preview) {
         this.parent(preview);
 
+        this._fsStateId = 0;
         this._handleEvent = false;
 
         this.addSearchButton('view.find');
