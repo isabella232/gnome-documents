@@ -10,8 +10,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-13 01:56+0200\n"
+"Report-Msgid-Bugs-To: "
+"http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-documents&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-10-22 20:50+0000\n"
 "PO-Revision-Date: 2016-09-13 01:22+0200\n"
 "Last-Translator: Kris Thomsen\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -25,7 +26,7 @@ msgstr ""
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:1
 #: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:108
-#: ../src/lib/gd-utils.c:424 ../src/view.js:749
+#: ../src/lib/gd-utils.c:424 ../src/view.js:746
 msgid "Books"
 msgstr "Bøger"
 
@@ -134,7 +135,7 @@ msgstr "Om programmet er i nattilstand."
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:1
 #: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:111
-#: ../src/lib/gd-utils.c:417 ../src/view.js:749
+#: ../src/lib/gd-utils.c:417 ../src/view.js:746
 msgid "Documents"
 msgstr "Dokumenter"
 
@@ -151,8 +152,8 @@ msgid ""
 msgstr ""
 "En simpel applikation til at tilgå, organisere og dele dine dokumenter i "
 "GNOME. Det er påtænkt at være en simpel og elegant erstatning for at bruge "
-"et filhåndteringsprogram til at håndtere dokumenter. Problemfri cloud-"
-"integration tilbydes gennem GNOME online-konti."
+"et filhåndteringsprogram til at håndtere dokumenter. Problemfri "
+"cloud-integration tilbydes gennem GNOME online-konti."
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:5
 msgid "View recent local and online documents"
@@ -327,7 +328,7 @@ msgstr "Indtast et navn til din første samling"
 
 #: ../data/ui/organize-collection-dialog.ui.h:2
 msgid "New Collection…"
-msgstr "Ny samling…"
+msgstr "Ny samling …"
 
 #: ../data/ui/organize-collection-dialog.ui.h:3 ../src/sharing.js:226
 msgid "Add"
@@ -358,7 +359,7 @@ msgstr "Redigér"
 
 #: ../data/ui/preview-menu.ui.h:3
 msgid "Print…"
-msgstr "Udskriv…"
+msgstr "Udskriv …"
 
 #: ../data/ui/preview-menu.ui.h:4
 msgid "Present"
@@ -394,7 +395,7 @@ msgid "Select None"
 msgstr "Vælg ingen"
 
 #: ../data/ui/selection-toolbar.ui.h:3 ../src/search.js:126
-#: ../src/search.js:132 ../src/view.js:753
+#: ../src/search.js:132 ../src/view.js:750
 msgid "Collections"
 msgstr "Samlinger"
 
@@ -567,7 +568,7 @@ msgstr "Ingen bogmærker"
 
 #: ../src/lib/gd-places-bookmarks.c:392 ../src/lib/gd-places-links.c:257
 msgid "Loading…"
-msgstr "Indlæser…"
+msgstr "Indlæser …"
 
 #: ../src/lib/gd-places-links.c:342
 msgid "No table of contents"
@@ -710,16 +711,16 @@ msgid "Secondary"
 msgstr "Sekundær"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/preview.js:288 ../src/selections.js:983
+#: ../src/preview.js:289 ../src/selections.js:983
 #, javascript-format
 msgid "Open with %s"
 msgstr "Åbn med %s"
 
-#: ../src/preview.js:532
+#: ../src/preview.js:533
 msgid "Find Previous"
 msgstr "Find forrige"
 
-#: ../src/preview.js:538
+#: ../src/preview.js:539
 msgid "Find Next"
 msgstr "Find næste"
 
@@ -827,7 +828,7 @@ msgstr "Kilder"
 
 #: ../src/selections.js:360 ../src/selections.js:362
 msgid "Rename…"
-msgstr "Omdøb…"
+msgstr "Omdøb …"
 
 #: ../src/selections.js:366 ../src/selections.js:368
 msgid "Delete"
@@ -957,44 +958,44 @@ msgstr ""
 "Dokumenter fra dine <a href=\"system-settings\">onlinekonti</a> og mappen <a "
 "href=\"file://%s\">Dokumenter</a> vil blive vist her."
 
-#: ../src/view.js:578
+#: ../src/view.js:572
 msgid "Yesterday"
 msgstr "I går"
 
-#: ../src/view.js:580
+#: ../src/view.js:574
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d dag siden"
 msgstr[1] "%d dage siden"
 
-#: ../src/view.js:584
+#: ../src/view.js:578
 msgid "Last week"
 msgstr "Sidste uge"
 
-#: ../src/view.js:586
+#: ../src/view.js:580
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d uge siden"
 msgstr[1] "%d uger siden"
 
-#: ../src/view.js:590
+#: ../src/view.js:584
 msgid "Last month"
 msgstr "Sidste måned"
 
-#: ../src/view.js:592
+#: ../src/view.js:586
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d måned siden"
 msgstr[1] "%d måneder siden"
 
-#: ../src/view.js:596
+#: ../src/view.js:590
 msgid "Last year"
 msgstr "Sidste år"
 
-#: ../src/view.js:598
+#: ../src/view.js:592
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -1016,6 +1017,6 @@ msgstr[1] "%d år siden"
 #~ msgid "Online Accounts"
 #~ msgstr "Onlinekonti"
 
-#~| msgid "Documents"
 #~ msgid "Documents folder"
 #~ msgstr "mappen Dokumenter"
+
