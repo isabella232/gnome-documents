@@ -487,7 +487,9 @@ const DocCommon = new Lang.Class({
                                     let pixbuf = GdkPixbuf.Pixbuf.new_from_stream_finish(res);
                                     this._setOrigPixbuf(pixbuf);
                                 } catch (e) {
-                                    logError(e, 'Unable to create pixbuf from ' + thumbFile.get_uri());
+                                    if (!e.matches(GdkPixbuf.PixbufError, GdkPixbuf.PixbufError.UNKNOWN_TYPE))
+                                        logError(e, 'Unable to create pixbuf from ' + thumbFile.get_uri());
+
                                     this._failedThumbnailing = true;
                                     this._thumbPath = null;
                                     thumbFile.delete_async(GLib.PRIORITY_DEFAULT, null, null);
