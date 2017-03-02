@@ -1,3 +1,13 @@
+3.23.91 - "White Moth"
+======================
+
+- Port user interactions and keybindings to GAction
+- Update theming for collection icons
+- Rewrite fullscreen controller code
+- Fix scrubbar preview positioning under Wayland
+- Stop using GdNotification
+- Add support for IANA-registered comicbook mime types
+
 3.22.0
 ==================
 
