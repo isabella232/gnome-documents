@@ -1,13 +1,13 @@
 # Korean translation for gnome-documents.
 # Copyright (C) 2014 gnome-documents's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-documents package.
-# Seong-ho Cho <shcho@gnome.org>, 2014, 2016.
+# Seong-ho Cho <shcho@gnome.org>, 2014, 2016, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
-"POT-Creation-Date: 2016-03-03 09:06+0000\n"
-"PO-Revision-Date: 2016-03-03 19:07+0900\n"
+"POT-Creation-Date: 2017-03-01 22:26+0000\n"
+"PO-Revision-Date: 2017-03-04 15:08+0900\n"
 "Last-Translator: Seong-ho Cho <shcho@gnome.org>\n"
 "Language-Team: Korean <gnome-kr@googlegroups.com>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"X-Generator: Poedit 1.8.7\n"
 
 #. (itstool) path: p/link
 #: C/legal.xml:3
@@ -30,7 +30,7 @@ msgstr "이 문서는  <_:link-1/>에 따른 활용을 허가합니다."
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr "조성호 <shcho@gnome.org>, 2014, 2016."
+msgstr "조성호 <shcho@gnome.org>, 2014, 2016, 2017."
 
 #. (itstool) path: credit/name
 #: C/collections.page:12 C/index.page:14 C/info.page:12 C/print.page:11
@@ -177,15 +177,15 @@ msgstr "원본"
 #. (itstool) path: item/p
 #: C/filter.page:37
 msgid ""
-"Chose to search documents that are <gui>Local</gui>, accessed through <link "
+"Choose to search documents that are <gui>Local</gui>, accessed through <link "
 "href=\"help:gnome-help/online-accounts\">online accounts</link> with "
 "<gui>Google</gui>, <gui>OneDrive</gui>, <gui>ownCloud</gui>, or <gui>All</"
 "gui>."
 msgstr ""
 "<gui>로컬</gui> 있는 문서를 검색할지, <gui>구글</gui>, <gui>원드라이브</"
-"gui>, <gui>오운클라우드</gui>, 계정 <gui>모두</gui>에 해당하는 <link href="
-"\"help:gnome-help/online-accounts\">온라인 계정</link>에 접근하여 검색할지 선"
-"택하십시오."
+"gui>, <gui>오운클라우드</gui>, 또는 <gui>모든</gui> 계정을 <link href=\"help:"
+"gnome-help/online-accounts\">온라인 계정</link>에서 접근하여 검색할 지 선택하"
+"십시오."
 
 #. (itstool) path: item/title
 #: C/filter.page:43
@@ -680,9 +680,6 @@ msgstr "<gui>검색</gui>을 눌러 패널을 여십시오."
 
 #. (itstool) path: item/p
 #: C/view-add.page:44
-#| msgid ""
-#| "Press the button in the bottom-left of the window which will open "
-#| "<gui>Search Locations</gui>."
 msgid ""
 "Press the button in the bottom-right of the window which will open "
 "<gui>Search Locations</gui>."
