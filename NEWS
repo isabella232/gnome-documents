@@ -1,3 +1,10 @@
+3.22.1 - "Saint Alicia"
+=======================
+
+- Don't steal space keypress in preview
+- Only add list renderers when view type is notified
+- Translation updates
+
 3.22.0
 ==================
 
