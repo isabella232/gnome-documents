@@ -52,7 +52,10 @@ const Documents = imports.documents;
 const ZOOM_IN_FACTOR = 1.2;
 const ZOOM_OUT_FACTOR = (1.0/ZOOM_IN_FACTOR);
 
-const openDocumentFormats = ['application/vnd.oasis.opendocument.text',
+const openDocumentFormats = ['application/msword',
+                             'application/vnd.ms-excel',
+                             'application/vnd.ms-powerpoint',
+                             'application/vnd.oasis.opendocument.text',
                              'application/vnd.oasis.opendocument.text-template',
                              'application/vnd.oasis.opendocument.text-web',
                              'application/vnd.oasis.opendocument.text-master',
@@ -75,9 +78,10 @@ const openDocumentFormats = ['application/vnd.oasis.opendocument.text',
                              'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
                              'application/vnd.openxmlformats-officedocument.wordprocessingml.template',];
 
-
 // These are the documents consisting of document parts.
-const openDocumentPartFormats = ['application/vnd.oasis.opendocument.presentation',
+const openDocumentPartFormats = ['application/vnd.ms-excel',
+                                 'application/vnd.ms-powerpoint',
+                                 'application/vnd.oasis.opendocument.presentation',
                                  'application/vnd.oasis.opendocument.presentation-template',
                                  'application/vnd.oasis.opendocument.spreadsheet',
                                  'application/vnd.oasis.opendocument.spreadsheet-template',
