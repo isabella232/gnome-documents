@@ -194,9 +194,9 @@ const Application = new Lang.Class({
 
     _onActionHelp: function() {
         try {
-            Gtk.show_uri(this._mainWindow.get_screen(),
-                         'help:gnome-documents',
-                         Gtk.get_current_event_time());
+            Gtk.show_uri_on_window(this._mainWindow,
+                                   'help:gnome-documents',
+                                   Gtk.get_current_event_time());
         } catch (e) {
             logError(e, 'Unable to display help');
         }

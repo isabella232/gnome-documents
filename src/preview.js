@@ -112,7 +112,7 @@ const Preview = new Lang.Class({
     _openCurrent: function() {
         let doc = Application.documentManager.getActiveItem();
         if (doc)
-            doc.open(this.mainWindow.get_screen(), Gtk.get_current_event_time());
+            doc.open(this.mainWindow, Gtk.get_current_event_time());
     },
 
     vfunc_destroy: function() {

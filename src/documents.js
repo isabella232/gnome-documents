@@ -634,7 +634,7 @@ const DocCommon = new Lang.Class({
             }));
     },
 
-    open: function(screen, timestamp) {
+    open: function(parent, timestamp) {
         if (!this.defaultAppName)
             return;
 
@@ -644,7 +644,7 @@ const DocCommon = new Lang.Class({
             if (this.defaultApp)
                 this.defaultApp.launch_uris( [ this.uri ], null);
             else
-                Gtk.show_uri(screen, this.uri, timestamp);
+                Gtk.show_uri_on_window(parent, this.uri, timestamp);
         } catch (e) {
             logError(e, 'Unable to show URI ' + this.uri);
         }

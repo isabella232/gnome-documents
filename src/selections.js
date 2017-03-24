@@ -992,7 +992,11 @@ const SelectionToolbar = new Lang.Class({
         selection.forEach(Lang.bind(this,
             function(urn) {
                 let doc = Application.documentManager.getItemById(urn);
-                doc.open(widget.get_screen(), Gtk.get_current_event_time());
+                let toplevel = this.get_toplevel();
+                if (!toplevel.is_toplevel())
+                    throw(new Error('Code should not be reached'));
+
+                doc.open(toplevel, Gtk.get_current_event_time());
             }));
     },
 
