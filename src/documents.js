@@ -357,6 +357,10 @@ const DocCommon = new Lang.Class({
         }
     },
 
+    load: function() {
+        log('Error: DocCommon implementations must override load');
+    },
+
     canEdit: function() {
         log('Error: DocCommon implementations must override canEdit');
     },
