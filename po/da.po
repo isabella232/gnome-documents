@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: "
 "http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-documents&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2016-10-22 20:50+0000\n"
-"PO-Revision-Date: 2016-09-13 01:22+0200\n"
+"PO-Revision-Date: 2017-03-25 17:37+0100\n"
 "Last-Translator: Kris Thomsen\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -285,7 +285,7 @@ msgstr "Åbn dialogen Steder og bogmærker"
 #: ../data/ui/help-overlay.ui.h:13
 msgctxt "shortcut window"
 msgid "Copy selected text to clipboard"
-msgstr "Kopiér den markerede  tekst til udklipsholder"
+msgstr "Kopiér den markerede tekst til udklipsholder"
 
 #: ../data/ui/help-overlay.ui.h:14
 msgctxt "shortcut window"
