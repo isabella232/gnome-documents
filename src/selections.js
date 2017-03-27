@@ -986,9 +986,9 @@ const SelectionToolbar = new Lang.Class({
     },
 
     _onToolbarOpen: function(widget) {
+        let selection = Application.selectionController.getSelection();
         this._overview.getAction('selection-mode').change_state(GLib.Variant.new('b', false));
 
-        let selection = Application.selectionController.getSelection();
         selection.forEach(Lang.bind(this,
             function(urn) {
                 let doc = Application.documentManager.getItemById(urn);
