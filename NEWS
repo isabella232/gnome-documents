@@ -1,3 +1,10 @@
+3.22.2 - "Worthington 1000"
+===========================
+
+- Use LOKDocView for pre-OOXML MS Office formats (Pranav Kant)
+- Fix scrubbar preview positioning under Wayland
+- Reload the active item when viewing edits
+
 3.22.1 - "Saint Alicia"
 =======================
 
