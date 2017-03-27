@@ -977,7 +977,7 @@ const SelectionToolbar = new Lang.Class({
     _onToolbarCollection: function() {
         let toplevel = this.get_toplevel();
         if (!toplevel.is_toplevel())
-            return;
+            throw(new Error('Code should not be reached'));
 
         let dialog = new OrganizeCollectionDialog(toplevel);
         dialog.connect('destroy', Lang.bind(this, function() {
