@@ -1206,7 +1206,7 @@ const SkydriveDocument = new Lang.Class({
     Extends: DocCommon,
 
     _init: function(cursor) {
-        this._failedThumbnailing = true;
+        this._failedThumbnailing = false;
 
         this.parent(cursor);
 
@@ -1228,6 +1228,54 @@ const SkydriveDocument = new Lang.Class({
         let localPath = GLib.build_filenamev([localDir, localFilename]);
         let localFile = Gio.File.new_for_path(localPath);
         this.uriToLoad = localFile.get_uri();
+    },
+
+    _createThumbnailFromEvDocument: function(evDoc, cancellable, callback) {
+        let thumbnailPath = GnomeDesktop.desktop_thumbnail_path_for_uri (this.uri,
+                                                                         GnomeDesktop.DesktopThumbnailSize.LARGE);
+        let thumbnailFile = Gio.File.new_for_path(thumbnailPath);
+
+        let thumbnailDir = GLib.path_get_dirname(thumbnailPath);
+        GLib.mkdir_with_parents(thumbnailDir, 448);
+
+        thumbnailFile.replace_async(null,
+                                    false,
+                                    Gio.FileCreateFlags.PRIVATE,
+                                    GLib.PRIORITY_DEFAULT,
+                                    cancellable,
+                                    Lang.bind(this,
+            function(source, res) {
+                let outputStream;
+
+                try {
+                    outputStream = thumbnailFile.replace_finish(res);
+                } catch (e) {
+                    callback(e);
+                    return;
+                }
+
+                let [width, height] = evDoc.get_page_size(0);
+                let maxDimension = Math.max(width, height);
+                let scale = Application.application.getScaleFactor();
+                let size = 128 * scale;
+                let zoom = size / maxDimension;
+
+                let page = evDoc.get_page(0);
+
+                let rc = EvDocument.RenderContext.new(page, 0, zoom);
+                let pixbuf = evDoc.get_thumbnail(rc);
+                pixbuf.save_to_streamv_async(outputStream, "png", [], [], cancellable, Lang.bind(this,
+                    function(source, res) {
+                        try {
+                            GdkPixbuf.Pixbuf.save_to_stream_finish(res);
+                        } catch (e) {
+                            callback(e);
+                            return;
+                        }
+
+                        callback(null);
+                    }));
+            }));
     },
 
     _createZpjEntry: function(cancellable, callback) {
@@ -1331,7 +1379,16 @@ const SkydriveDocument = new Lang.Class({
                                             return;
                                         }
 
-                                        this.loadLocal(passwd, cancellable, callback);
+                                        this.loadLocal(passwd, cancellable, Lang.bind(this,
+                                            function(doc, docModel, error) {
+                                                if (error) {
+                                                    callback(this, null, error);
+                                                    return;
+                                                }
+
+                                                callback(this, docModel, null);
+                                                this._postLoad(docModel);
+                                            }));
                                     }));
                             } else {
                                 callback(this, null, error);
@@ -1341,6 +1398,56 @@ const SkydriveDocument = new Lang.Class({
                         }
 
                         callback(this, docModel, null);
+                        this._postLoad(docModel);
+                    }));
+            }));
+    },
+
+    _postLoad: function(docModel) {
+        if (this._thumbPath)
+            return;
+
+        if (!docModel)
+            return;
+
+        this._createThumbnailFromEvDocument(docModel.document, null, Lang.bind(this,
+            function(error) {
+                if (error) {
+                    logError(error, 'Unable to create thumbnail from EvDocument');
+                    return;
+                }
+
+                this._failedThumbnailing = false;
+                this.refreshIcon();
+            }));
+    },
+
+    createThumbnail: function(callback) {
+        // try loading from the most recent cache, if any
+        this.loadLocal(null, null, Lang.bind(this,
+            function(doc, docModel, error) {
+                if (error) {
+                    if (!error.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND) &&
+                        !error.matches(EvDocument.DocumentError, EvDocument.DocumentError.ENCRYPTED)) {
+                        logError(error, 'Unable to load document from the cache');
+                        callback(false);
+                        return;
+                    }
+                }
+
+                if (!docModel) {
+                    callback(false);
+                    return;
+                }
+
+                this._createThumbnailFromEvDocument(docModel.document, null, Lang.bind(this,
+                    function(error) {
+                        if (error) {
+                            logError(error, 'Unable to create thumbnail from EvDocument');
+                            return;
+                        }
+
+                        callback(true);
                     }));
             }));
     },
