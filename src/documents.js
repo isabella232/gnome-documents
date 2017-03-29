@@ -30,6 +30,7 @@ const GdPrivate = imports.gi.GdPrivate;
 const Gdk = imports.gi.Gdk;
 const GData = imports.gi.GData;
 const GLib = imports.gi.GLib;
+const GnomeDesktop = imports.gi.GnomeDesktop;
 const Gtk = imports.gi.Gtk;
 const Zpj = imports.gi.Zpj;
 const _ = imports.gettext.gettext;
@@ -918,12 +919,10 @@ const GoogleDocument = new Lang.Class({
                                                              authorization_domain: authorizationDomain,
                                                              download_uri: uri });
 
-                let checksum = new GLib.Checksum(GLib.ChecksumType.MD5);
-                checksum.update(this.uri, -1);
-                let dirPath = GLib.build_filenamev([GLib.get_user_cache_dir(), "thumbnails", "normal"]);
+                let path = GnomeDesktop.desktop_thumbnail_path_for_uri (this.uri,
+                                                                        GnomeDesktop.DesktopThumbnailSize.NORMAL);
+                let dirPath = GLib.path_get_dirname(path);
                 GLib.mkdir_with_parents(dirPath, 448);
-                let basename = checksum.get_string() + '.png';
-                let path = GLib.build_filenamev([dirPath, basename])
 
                 let downloadFile = Gio.File.new_for_path(path);
                 downloadFile.replace_async
