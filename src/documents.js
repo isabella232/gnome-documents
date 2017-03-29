@@ -1059,6 +1059,8 @@ const OwncloudDocument = new Lang.Class({
     }
 });
 
+const SKYDRIVE_PREFIX = 'windows-live:skydrive:';
+
 const SkydriveDocument = new Lang.Class({
     Name: 'SkydriveDocument',
     Extends: DocCommon,
@@ -1078,9 +1080,7 @@ const SkydriveDocument = new Lang.Class({
 
         let authorizer = new Zpj.GoaAuthorizer({ goa_object: source.object });
         let service = new Zpj.Skydrive({ authorizer: authorizer });
-
-        const zpj_prefix = "windows-live:skydrive:";
-        let zpj_id = this.identifier.substring(zpj_prefix.length);
+        let zpj_id = this.identifier.substring(SKYDRIVE_PREFIX.length);
 
         service.query_info_from_id_async
             (zpj_id, cancellable,
@@ -1231,7 +1231,7 @@ const DocumentManager = new Lang.Class({
 
     _identifierIsSkydrive: function(identifier) {
         return (identifier &&
-                (identifier.indexOf('windows-live:skydrive:') != -1));
+                (identifier.indexOf(SKYDRIVE_PREFIX) != -1));
     },
 
     createDocumentFromCursor: function(cursor) {
