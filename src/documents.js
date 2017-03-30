@@ -1163,6 +1163,62 @@ const SkydriveDocument = new Lang.Class({
                  }));
     },
 
+    downloadImpl: function(localFile, cancellable, callback) {
+        this._createZpjEntry(cancellable, Lang.bind(this,
+            function(entry, service, error) {
+                if (error) {
+                    callback(false, error);
+                    return;
+                }
+
+                service.download_file_to_stream_async(entry, cancellable, Lang.bind(this,
+                    function(object, res) {
+                        let inputStream;
+
+                        try {
+                            inputStream = object.download_file_to_stream_finish(res);
+                        } catch (e) {
+                            callback(false, e);
+                            return;
+                        }
+
+                        localFile.replace_async(null,
+                                                false,
+                                                Gio.FileCreateFlags.PRIVATE,
+                                                GLib.PRIORITY_DEFAULT,
+                                                cancellable,
+                                                Lang.bind(this,
+                            function(object, res) {
+                                let outputStream;
+
+                                try {
+                                    outputStream = object.replace_finish(res);
+                                } catch (e) {
+                                    callback(false, e);
+                                    return;
+                                }
+
+                                outputStream.splice_async(inputStream,
+                                                          Gio.OutputStreamSpliceFlags.CLOSE_SOURCE |
+                                                          Gio.OutputStreamSpliceFlags.CLOSE_TARGET,
+                                                          GLib.PRIORITY_DEFAULT,
+                                                          cancellable,
+                                                          Lang.bind(this,
+                                    function(object, res) {
+                                        try {
+                                            object.splice_finish(res);
+                                        } catch (e) {
+                                            callback(false, e);
+                                            return;
+                                        }
+
+                                        callback(false, null);
+                                    }));
+                            }));
+                    }));
+            }));
+    },
+
     load: function(passwd, cancellable, callback) {
         this._createZpjEntry(cancellable, Lang.bind(this,
             function(entry, service, exception) {
