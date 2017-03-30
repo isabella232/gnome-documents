@@ -85,7 +85,7 @@ const EPUBView = new Lang.Class({
     onLoadFinished: function(manager, doc) {
         this.parent(manager, doc);
 
-        let f = Gio.File.new_for_uri(doc.uri);
+        let f = Gio.File.new_for_uri(doc.uriToLoad);
         this._epubdoc = new Gepub.Doc({ path: f.get_path() });
         this._epubdoc.init(null);
 

@@ -234,6 +234,7 @@ const DocCommon = new Lang.Class({
     _init: function(cursor) {
         this.id = null;
         this.uri = null;
+        this.uriToLoad = null;
         this.filename = null;
         this.name = null;
         this.author = null;
@@ -625,7 +626,7 @@ const DocCommon = new Lang.Class({
             return;
         }
 
-        GdPrivate.pdf_loader_load_uri_async(this.uri, passwd, cancellable, Lang.bind(this,
+        GdPrivate.pdf_loader_load_uri_async(this.uriToLoad, passwd, cancellable, Lang.bind(this,
             function(source, res) {
                 try {
                     let docModel = GdPrivate.pdf_loader_load_uri_finish(res);
@@ -751,6 +752,7 @@ const LocalDocument = new Lang.Class({
 
     populateFromCursor: function(cursor) {
         this.parent(cursor);
+        this.uriToLoad = this.uri;
 
         if (!Application.application.gettingStartedLocation)
             return;
@@ -1024,6 +1026,11 @@ const OwncloudDocument = new Lang.Class({
             this.defaultAppName = this.defaultApp.get_name();
     },
 
+    populateFromCursor: function(cursor) {
+        this.parent(cursor);
+        this.uriToLoad = this.uri;
+    },
+
     createThumbnail: function(callback) {
         GdPrivate.queue_thumbnail_job_for_file_async(this._file, Lang.bind(this,
             function(object, res) {
@@ -1091,6 +1098,21 @@ const SkydriveDocument = new Lang.Class({
         // overridden
         this.defaultAppName = _("OneDrive");
         this.sourceName = _("OneDrive");
+    },
+
+    populateFromCursor: function(cursor) {
+        this.parent(cursor);
+
+        let localDir = GLib.build_filenamev([GLib.get_user_cache_dir(), "gnome-documents", "skydrive"]);
+
+        let identifierHash = GLib.compute_checksum_for_string(GLib.ChecksumType.SHA1, this.identifier, -1);
+        let filenameStripped = GdPrivate.filename_strip_extension(this.filename);
+        let extension = this.filename.substring(filenameStripped.length);
+        let localFilename = identifierHash + extension;
+
+        let localPath = GLib.build_filenamev([localDir, localFilename]);
+        let localFile = Gio.File.new_for_path(localPath);
+        this.uriToLoad = localFile.get_uri();
     },
 
     _createZpjEntry: function(cancellable, callback) {
