@@ -1238,34 +1238,36 @@ const SkydriveDocument = new Lang.Class({
     },
 
     load: function(passwd, cancellable, callback) {
-        this._createZpjEntry(cancellable, Lang.bind(this,
-            function(entry, service, exception) {
-                if (exception) {
-                    // try loading from the most recent cache, if any
-                    GdPrivate.pdf_loader_load_uri_async(this.identifier, passwd, cancellable, Lang.bind(this,
-                        function(source, res) {
-                            try {
-                                let docModel = GdPrivate.pdf_loader_load_uri_finish(res);
-                                callback(this, docModel, null);
-                            } catch (e) {
-                                // report the outmost error only
-                                callback(this, null, exception);
-                            }
-                        }));
-
+        this.download(true, cancellable, Lang.bind(this,
+            function(fromCache, error) {
+                if (error) {
+                    callback(this, null, error);
                     return;
                 }
 
-                GdPrivate.pdf_loader_load_zpj_entry_async
-                    (entry, service, cancellable, Lang.bind(this,
-                        function(source, res) {
-                            try {
-                                let docModel = GdPrivate.pdf_loader_load_zpj_entry_finish(res);
-                                callback(this, docModel, null);
-                            } catch (e) {
-                                callback(this, null, e);
+                this.loadLocal(passwd, cancellable, Lang.bind(this,
+                    function(doc, docModel, error) {
+                        if (error) {
+                            if (fromCache &&
+                                !error.matches(EvDocument.DocumentError, EvDocument.DocumentError.ENCRYPTED)) {
+                                this.download(false, cancellable, Lang.bind(this,
+                                    function(fromCache, error) {
+                                        if (error) {
+                                            callback(this, null, error);
+                                            return;
+                                        }
+
+                                        this.loadLocal(passwd, cancellable, callback);
+                                    }));
+                            } else {
+                                callback(this, null, error);
                             }
-                        }));
+
+                            return;
+                        }
+
+                        callback(this, docModel, null);
+                    }));
             }));
     },
 
