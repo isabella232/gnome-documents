@@ -55,11 +55,6 @@ const EvinceView = new Lang.Class({
 
         this.parent(overlay, mainWindow);
 
-        let fullscreenAction = new FullscreenAction.FullscreenAction({ window: mainWindow });
-        fullscreenAction.connect('notify::state', Lang.bind(this, this._onFullscreenChanged));
-        this.actionGroup.add_action(fullscreenAction);
-        Application.application.set_accels_for_action('view.fullscreen', ['F11']);
-
         this.getAction('bookmark-page').enabled = false;
 
         let nightModeId = Application.application.connect('action-state-changed::night-mode',
@@ -68,7 +63,7 @@ const EvinceView = new Lang.Class({
         this.connect('destroy', Lang.bind(this,
             function() {
                 Application.application.disconnect(nightModeId);
-                fullscreenAction.change_state(new GLib.Variant('b', false));
+                this._fullscreenAction.change_state(new GLib.Variant('b', false));
             }));
     },
 
@@ -224,6 +219,17 @@ const EvinceView = new Lang.Class({
                            accels: ['F5'] });
 
         return actions;
+    },
+
+    createActionGroup: function() {
+        let actionGroup = this.parent();
+
+        this._fullscreenAction = new FullscreenAction.FullscreenAction({ window: this.mainWindow });
+        this._fullscreenAction.connect('notify::state', Lang.bind(this, this._onFullscreenChanged));
+        actionGroup.add_action(this._fullscreenAction);
+        Application.application.set_accels_for_action('view.fullscreen', ['F11']);
+
+        return actionGroup;
     },
 
     createNavControls: function() {

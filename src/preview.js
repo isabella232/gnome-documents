@@ -32,9 +32,7 @@ const Preview = new Lang.Class({
         this.parent({ homogeneous: true,
                       transition_type: Gtk.StackTransitionType.CROSSFADE });
 
-        let actions = this.createActions().concat(this._getDefaultActions());
-        this.actionGroup = new Gio.SimpleActionGroup();
-        Utils.populateActionGroup(this.actionGroup, actions, 'view');
+        this.actionGroup = this.createActionGroup();
 
         this._errorBox = new ErrorBox.ErrorBox();
         this.add_named(this._errorBox, 'error');
@@ -138,6 +136,13 @@ const Preview = new Lang.Class({
         }
 
         this.parent();
+    },
+
+    createActionGroup: function() {
+        let actions = this.createActions().concat(this._getDefaultActions());
+        let actionGroup = new Gio.SimpleActionGroup();
+        Utils.populateActionGroup(actionGroup, actions, 'view');
+        return actionGroup;
     },
 
     createActions: function() {
