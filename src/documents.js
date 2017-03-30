@@ -1356,6 +1356,8 @@ const DocumentManager = new Lang.Class({
             return;
         }
 
+        logError(error, 'Unable to load document');
+
         // Translators: %s is the title of a document
         let message = _("Oops! Unable to load “%s”").format(doc.name);
         let exception = this._humanizeError(error);
