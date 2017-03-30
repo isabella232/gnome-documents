@@ -365,6 +365,48 @@ const DocCommon = new Lang.Class({
         }
     },
 
+    download: function(useCache, cancellable, callback) {
+        let localFile = Gio.File.new_for_uri(this.uriToLoad);
+        let localPath = localFile.get_path();
+        let localDir = GLib.path_get_dirname(localPath);
+        GLib.mkdir_with_parents(localDir, 448);
+
+        if (!useCache) {
+            this.downloadImpl(localFile, cancellable, callback);
+            return;
+        }
+
+        localFile.query_info_async(Gio.FILE_ATTRIBUTE_TIME_MODIFIED,
+                                   Gio.FileQueryInfoFlags.NONE,
+                                   GLib.PRIORITY_DEFAULT,
+                                   cancellable,
+                                   Lang.bind(this,
+            function(object, res) {
+                let info;
+
+                try {
+                    info = object.query_info_finish(res);
+                } catch (e) {
+                    this.downloadImpl(localFile, cancellable, callback);
+                    return;
+                }
+
+                let cacheMtime = info.get_attribute_uint64(Gio.FILE_ATTRIBUTE_TIME_MODIFIED);
+                cacheMtime /= 1000000;
+
+                if (this.mtime <= cacheMtime) {
+                    callback(true, null);
+                    return;
+                }
+
+                this.downloadImpl(localFile, cancellable, callback);
+            }));
+    },
+
+    downloadImpl: function(localFile, cancellable, callback) {
+        throw(new Error('DocCommon implementations must override downloadImpl'));
+    },
+
     load: function() {
         log('Error: DocCommon implementations must override load');
     },
