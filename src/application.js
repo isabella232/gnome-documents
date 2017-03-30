@@ -148,7 +148,11 @@ const Application = new Lang.Class({
                 return;
             }
 
-            file.query_info_async('standard::type', Gio.FileQueryInfoFlags.NONE, 0, null, Lang.bind(this,
+            file.query_info_async(Gio.FILE_ATTRIBUTE_STANDARD_TYPE,
+                                  Gio.FileQueryInfoFlags.NONE,
+                                  0,
+                                  null,
+                                  Lang.bind(this,
                 function(object, res) {
                     try {
                         let info = object.query_info_finish(res);
