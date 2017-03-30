@@ -228,6 +228,7 @@ const DocCommon = new Lang.Class({
     _init: function(cursor) {
         this.id = null;
         this.uri = null;
+        this.filename = null;
         this.name = null;
         this.author = null;
         this.mtime = null;
@@ -305,12 +306,12 @@ const DocCommon = new Lang.Class({
             this.uri = '';
 
         let title = cursor.get_string(Query.QueryColumns.TITLE)[0];
-        let filename = cursor.get_string(Query.QueryColumns.FILENAME)[0];
+        this.filename = cursor.get_string(Query.QueryColumns.FILENAME)[0];
 
         if (title && title != '')
             this.name = title;
-        else if (filename)
-            this.name = GdPrivate.filename_strip_extension(filename);
+        else if (this.filename)
+            this.name = GdPrivate.filename_strip_extension(this.filename);
         else
             this.name = '';
 
