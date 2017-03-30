@@ -58,7 +58,6 @@ GOBJECT_INTROSPECTION_MIN_VERSION=1.31.6
 GDATA_MIN_VERSION=0.13.3
 GOA_MIN_VERSION=3.2.0
 TRACKER_MIN_VERSION=0.17.3
-ZAPOJIT_MIN_VERSION=0.0.2
 SOUP_MIN_VERSION=2.41.3
 
 AC_ARG_ENABLE(documentation,
@@ -86,8 +85,7 @@ PKG_CHECK_MODULES(DOCUMENTS,
                   tracker-control-1.0 >= $TRACKER_MIN_VERSION
                   tracker-sparql-1.0 >= $TRACKER_MIN_VERSION
                   goa-1.0 >= $GOA_MIN_VERSION
-                  libgdata >= $GDATA_MIN_VERSION
-                  zapojit-0.0 >= $ZAPOJIT_MIN_VERSION)
+                  libgdata >= $GDATA_MIN_VERSION)
 
 # Although GTK+ 3.10 includes hi-dpi functionality, it does not require a cairo with
 # cairo_surface_set_device_scale(), which we also need if we're to support hi-dpi,
