@@ -148,7 +148,7 @@ const LOKView = new Lang.Class({
         if (!isAvailable())
             return;
         this._doc = doc;
-        this._lokview.open_document(doc.uri, '{}', null, Lang.bind(this, this._onDocumentOpened));
+        this._lokview.open_document(doc.uriToLoad, '{}', null, Lang.bind(this, this._onDocumentOpened));
         this._progressBar.show();
     },
 
