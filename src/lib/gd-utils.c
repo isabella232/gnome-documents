@@ -43,7 +43,7 @@ create_thumbnail (GIOSchedulerJob *job,
   GFile *file = G_FILE (g_async_result_get_source_object (G_ASYNC_RESULT (result)));
   GnomeDesktopThumbnailFactory *factory = NULL;
   GFileInfo *info = NULL;
-  gchar *uri;
+  gchar *uri = NULL;
   GdkPixbuf *pixbuf = NULL;
   guint64 mtime;
 
@@ -87,6 +87,7 @@ create_thumbnail (GIOSchedulerJob *job,
   g_object_unref (file);
   g_clear_object (&factory);
   g_clear_object (&pixbuf);
+  g_free (uri);
   return FALSE;
 }
 
