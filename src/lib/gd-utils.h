@@ -29,7 +29,7 @@ void gd_queue_thumbnail_job_for_file_async (GFile *file,
                                             GAsyncReadyCallback callback,
                                             gpointer user_data);
 
-gboolean gd_queue_thumbnail_job_for_file_finish (GAsyncResult *res);
+gboolean gd_queue_thumbnail_job_for_file_finish (GAsyncResult *res, GError **error);
 
 const char *gd_filename_get_extension_offset (const char *filename);
 

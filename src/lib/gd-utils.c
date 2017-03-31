@@ -34,30 +34,29 @@
   G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE"," \
   G_FILE_ATTRIBUTE_TIME_MODIFIED
 
-static gboolean
-create_thumbnail (GIOSchedulerJob *job,
-                  GCancellable *cancellable,
-                  gpointer user_data)
+static void
+create_thumbnail (GTask *task,
+                  gpointer source_object,
+                  gpointer task_data,
+                  GCancellable *cancellable)
 {
-  GSimpleAsyncResult *result = user_data;
-  GFile *file = G_FILE (g_async_result_get_source_object (G_ASYNC_RESULT (result)));
+  GFile *file = G_FILE (source_object);
   GnomeDesktopThumbnailFactory *factory = NULL;
+  GError *error = NULL;
   GFileInfo *info = NULL;
   gchar *uri = NULL;
   GdkPixbuf *pixbuf = NULL;
   guint64 mtime;
 
   uri = g_file_get_uri (file);
+
   info = g_file_query_info (file, ATTRIBUTES_FOR_THUMBNAIL,
                             G_FILE_QUERY_INFO_NONE,
-                            NULL, NULL);
+                            NULL, &error);
 
-  /* we don't care about reporting errors here, just fail the
-   * thumbnail.
-   */
   if (info == NULL)
     {
-      g_simple_async_result_set_op_res_gboolean (result, FALSE);
+      g_task_return_error (task, error);
       goto out;
     }
 
@@ -68,27 +67,20 @@ create_thumbnail (GIOSchedulerJob *job,
     (factory, 
      uri, g_file_info_get_content_type (info));
 
-  if (pixbuf != NULL)
+  if (pixbuf == NULL)
     {
-      gnome_desktop_thumbnail_factory_save_thumbnail (factory, pixbuf,
-                                                      uri, (time_t) mtime);
-      g_simple_async_result_set_op_res_gboolean (result, TRUE);
+      g_task_return_new_error (task, G_IO_ERROR, G_IO_ERROR_FAILED, "GnomeDesktopThumbnailFactory failed");
+      goto out;
     }
-  else
-    {
-      g_simple_async_result_set_op_res_gboolean (result, FALSE);
-    }
+
+  gnome_desktop_thumbnail_factory_save_thumbnail (factory, pixbuf, uri, (time_t) mtime);
+  g_task_return_boolean (task, TRUE);
 
  out:
-  g_simple_async_result_complete_in_idle (result);
-  g_object_unref (result);
-
   g_clear_object (&info);
-  g_object_unref (file);
   g_clear_object (&factory);
   g_clear_object (&pixbuf);
   g_free (uri);
-  return FALSE;
 }
 
 void
@@ -96,23 +88,20 @@ gd_queue_thumbnail_job_for_file_async (GFile *file,
                                        GAsyncReadyCallback callback,
                                        gpointer user_data)
 {
-  GSimpleAsyncResult *result;
+  GTask *task;
 
-  result = g_simple_async_result_new (G_OBJECT (file),
-                                      callback, user_data, 
-                                      gd_queue_thumbnail_job_for_file_async);
+  task = g_task_new (file, NULL, callback, user_data);
+  g_task_set_source_tag (task, gd_queue_thumbnail_job_for_file_async);
+  g_task_run_in_thread (task, create_thumbnail);
 
-  g_io_scheduler_push_job (create_thumbnail,
-                           result, NULL,
-                           G_PRIORITY_DEFAULT, NULL);
+  g_object_unref (task);
 }
 
 gboolean
-gd_queue_thumbnail_job_for_file_finish (GAsyncResult *res)
+gd_queue_thumbnail_job_for_file_finish (GAsyncResult *res, GError **error)
 {
-  GSimpleAsyncResult *simple = G_SIMPLE_ASYNC_RESULT (res);
-
-  return g_simple_async_result_get_op_res_gboolean (simple);
+  GTask *task = G_TASK (res);
+  return g_task_propagate_boolean (task, error);
 }
 
 const char *
