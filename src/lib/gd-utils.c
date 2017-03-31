@@ -41,10 +41,10 @@ create_thumbnail (GIOSchedulerJob *job,
 {
   GSimpleAsyncResult *result = user_data;
   GFile *file = G_FILE (g_async_result_get_source_object (G_ASYNC_RESULT (result)));
-  GnomeDesktopThumbnailFactory *factory;
-  GFileInfo *info;
+  GnomeDesktopThumbnailFactory *factory = NULL;
+  GFileInfo *info = NULL;
   gchar *uri;
-  GdkPixbuf *pixbuf;
+  GdkPixbuf *pixbuf = NULL;
   guint64 mtime;
 
   uri = g_file_get_uri (file);
@@ -79,15 +79,14 @@ create_thumbnail (GIOSchedulerJob *job,
       g_simple_async_result_set_op_res_gboolean (result, FALSE);
     }
 
-  g_object_unref (info);
-  g_object_unref (file);
-  g_object_unref (factory);
-  g_clear_object (&pixbuf);
-
  out:
   g_simple_async_result_complete_in_idle (result);
   g_object_unref (result);
 
+  g_clear_object (&info);
+  g_object_unref (file);
+  g_clear_object (&factory);
+  g_clear_object (&pixbuf);
   return FALSE;
 }
 
