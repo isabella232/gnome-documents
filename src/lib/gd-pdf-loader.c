@@ -223,10 +223,31 @@ pdf_load_job_force_refresh_cache (PdfLoadJob *job)
 }
 
 static void
+ev_load_job_cancelled (EvJob *ev_job,
+                       gpointer user_data)
+{
+  PdfLoadJob *job = user_data;
+
+  if (job->cancelled_id > 0) {
+    g_cancellable_disconnect (job->cancellable, job->cancelled_id);
+    job->cancelled_id = 0;
+  }
+
+  pdf_load_job_complete_error (job,
+                               g_error_new_literal (G_IO_ERROR, G_IO_ERROR_CANCELLED,
+                                                    "Operation cancelled"));
+}
+
+static void
 ev_load_job_done (EvJob *ev_job,
                   gpointer user_data)
 {
   PdfLoadJob *job = user_data;
+
+  if (job->cancelled_id > 0) {
+    g_cancellable_disconnect (job->cancellable, job->cancelled_id);
+    job->cancelled_id = 0;
+  }
 
   if (ev_job_is_failed (ev_job) || (ev_job->document == NULL)) {
     if (job->from_old_cache) {
@@ -254,6 +275,21 @@ ev_load_job_done (EvJob *ev_job,
   pdf_load_job_complete_success (job);
 }
 
+static gboolean
+pdf_load_cancel_in_idle (gpointer user_data)
+{
+  EvJob *ev_job = user_data;
+  ev_job_cancel (ev_job);
+  return FALSE;
+}
+
+static void
+pdf_load_cancelled_cb (GCancellable *cancellable,
+                       EvJob *ev_job)
+{
+  g_idle_add (pdf_load_cancel_in_idle, ev_job);
+}
+
 static void
 pdf_load_job_from_pdf (PdfLoadJob *job)
 {
@@ -271,8 +307,15 @@ pdf_load_job_from_pdf (PdfLoadJob *job)
   if (job->passwd != NULL)
     ev_job_load_set_password (EV_JOB_LOAD (ev_job), job->passwd);
 
+  g_signal_connect (ev_job, "cancelled",
+                    G_CALLBACK (ev_load_job_cancelled), job);
   g_signal_connect (ev_job, "finished",
                     G_CALLBACK (ev_load_job_done), job);
+
+  if (job->cancellable != NULL)
+    job->cancelled_id =
+      g_cancellable_connect (job->cancellable,
+                             G_CALLBACK (pdf_load_cancelled_cb), ev_job, NULL);
 
   ev_job_scheduler_push_job (ev_job, EV_JOB_PRIORITY_NONE);
 
