@@ -767,7 +767,16 @@ const LocalDocument = new Lang.Class({
     createThumbnail: function(callback) {
         GdPrivate.queue_thumbnail_job_for_file_async(this._file, Lang.bind(this,
             function(object, res) {
-                let thumbnailed = GdPrivate.queue_thumbnail_job_for_file_finish(res);
+                let thumbnailed = false;
+
+                try {
+                    thumbnailed = GdPrivate.queue_thumbnail_job_for_file_finish(res);
+                } catch (e) {
+                    /* We don't care about reporting errors here, just fail the
+                     * thumbnail.
+                     */
+                }
+
                 callback(thumbnailed);
             }));
     },
@@ -1017,7 +1026,16 @@ const OwncloudDocument = new Lang.Class({
     createThumbnail: function(callback) {
         GdPrivate.queue_thumbnail_job_for_file_async(this._file, Lang.bind(this,
             function(object, res) {
-                let thumbnailed = GdPrivate.queue_thumbnail_job_for_file_finish(res);
+                let thumbnailed = false;
+
+                try {
+                    thumbnailed = GdPrivate.queue_thumbnail_job_for_file_finish(res);
+                } catch (e) {
+                    /* We don't care about reporting errors here, just fail the
+                     * thumbnail.
+                     */
+                }
+
                 callback(thumbnailed);
             }));
     },
