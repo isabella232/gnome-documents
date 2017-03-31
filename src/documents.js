@@ -1388,6 +1388,15 @@ const DocumentManager = new Lang.Class({
         Application.modeController.setWindowMode(windowMode);
     },
 
+    _loadActiveItem: function(passwd) {
+        let doc = this.getActiveItem();
+
+        this._loaderCancellable = new Gio.Cancellable();
+        this._requestPreview(doc);
+        this.emit('load-started', doc);
+        doc.load(passwd, this._loaderCancellable, Lang.bind(this, this._onDocumentLoaded));
+    },
+
     reloadActiveItem: function(passwd) {
         let doc = this.getActiveItem();
 
@@ -1400,10 +1409,7 @@ const DocumentManager = new Lang.Class({
         // cleanup any state we have for previously loaded model
         this._clearActiveDocModel();
 
-        this._loaderCancellable = new Gio.Cancellable();
-        this._requestPreview(doc);
-        this.emit('load-started', doc);
-        doc.load(passwd, this._loaderCancellable, Lang.bind(this, this._onDocumentLoaded));
+        this._loadActiveItem(passwd);
     },
 
     removeItemById: function(id) {
@@ -1459,10 +1465,7 @@ const DocumentManager = new Lang.Class({
             let recentManager = Gtk.RecentManager.get_default();
             recentManager.add_item(doc.uri);
 
-            this._loaderCancellable = new Gio.Cancellable();
-            this._requestPreview(doc);
-            this.emit('load-started', doc);
-            doc.load(null, this._loaderCancellable, Lang.bind(this, this._onDocumentLoaded));
+            this._loadActiveItem(null);
         }
 
         return retval;
