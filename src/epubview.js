@@ -72,6 +72,9 @@ const EPUBView = new Lang.Class({
             this.getAction('find-next').enabled = hasResults;
         }));
 
+        view.connect('button-release-event', Lang.bind(this,
+            this._onButtonReleaseEvent));
+
         return view;
     },
 
@@ -114,6 +117,19 @@ const EPUBView = new Lang.Class({
             this._metadata.set_int('page', pageNumber);
     },
 
+    _onButtonReleaseEvent: function(widget, event) {
+        let button = event.get_button()[1];
+        let clickCount = event.get_click_count()[1];
+
+        if (button == 1
+            && clickCount == 1)
+            this.queueControlsFlip();
+        else
+            this.cancelControlsFlip();
+
+        return false;
+    },
+
     goPrev: function() {
         this._epubdoc.go_prev();
     },
@@ -132,6 +148,10 @@ const EPUBView = new Lang.Class({
 
     get numPages() {
         return this._epubdoc ? this._epubdoc.get_n_pages() : 0;
+    },
+
+    get canFullscreen() {
+        return true;
     },
 
     search: function(str) {
