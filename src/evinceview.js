@@ -52,14 +52,6 @@ const EvinceView = new Lang.Class({
         this.parent(overlay, mainWindow);
 
         this.getAction('bookmark-page').enabled = false;
-
-        let nightModeId = Application.application.connect('action-state-changed::night-mode',
-            Lang.bind(this, this._updateNightMode));
-
-        this.connect('destroy', Lang.bind(this,
-            function() {
-                Application.application.disconnect(nightModeId);
-            }));
     },
 
     _copy: function() {
@@ -282,7 +274,6 @@ const EvinceView = new Lang.Class({
 
         docModel.set_continuous(false);
         docModel.set_page_layout(EvView.PageLayout.AUTOMATIC);
-        this._updateNightMode();
 
         this._model.connect('page-changed', Lang.bind(this, this._onPageChanged));
 
@@ -559,13 +550,6 @@ const EvinceView = new Lang.Class({
         return metadata;
     },
 
-    _updateNightMode: function() {
-        if (this._model && !Application.application.isBooks) {
-            let nightMode = Application.settings.get_boolean('night-mode');
-            this._model.set_inverted_colors(nightMode);
-        }
-    },
-
     getModel: function() {
         return this._model;
     },
@@ -592,6 +576,11 @@ const EvinceView = new Lang.Class({
 
     get canFullscreen() {
         return true;
+    },
+
+    set nightMode(v) {
+        if (this._model && !Application.application.isBooks)
+            this._model.set_inverted_colors(v);
     }
 });
 
@@ -641,9 +630,6 @@ const EvinceViewToolbar = new Lang.Class({
         this._handleEvent = false;
 
         this.addSearchButton('view.find');
-
-        if (Application.application.isBooks)
-            this.addNightmodeButton();
     },
 
     setModel: function() {

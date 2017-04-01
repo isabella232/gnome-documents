@@ -95,15 +95,6 @@ const MainToolbar = new Lang.Class({
         return searchButton;
     },
 
-    addNightmodeButton: function() {
-        let nightmodeButton = new Gtk.ToggleButton({ image: new Gtk.Image ({ icon_name: 'display-brightness-symbolic' }),
-                                                     tooltip_text: _("Night Mode"),
-                                                     action_name: 'app.night-mode',
-                                                     visible: true });
-        this.toolbar.pack_end(nightmodeButton);
-        return nightmodeButton;
-    },
-
     addBackButton: function() {
         let backButton = new Gtk.Button({ image: new Gtk.Image({ icon_name: 'go-previous-symbolic' }),
                                           tooltip_text: _("Back"),

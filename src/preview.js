@@ -71,6 +71,9 @@ const Preview = new Lang.Class({
                                                                 Lang.bind(this, this.onLoadError));
         this._passwordNeededId = Application.documentManager.connect('password-needed',
                                                                      Lang.bind(this, this.onPasswordNeeded));
+
+        this._nightModeId = Application.application.connect('action-state-changed::night-mode',
+            Lang.bind(this, this._updateNightMode));
     },
 
     _getDefaultActions: function() {
@@ -116,6 +119,10 @@ const Preview = new Lang.Class({
         let doc = Application.documentManager.getActiveItem();
         if (doc)
             doc.open(this.mainWindow, Gtk.get_current_event_time());
+    },
+
+    _updateNightMode: function() {
+        this.nightMode = Application.settings.get_boolean('night-mode');
     },
 
     _onFullscreenChanged: function(action) {
@@ -231,6 +238,11 @@ const Preview = new Lang.Class({
             this._fullscreenAction.disconnect(this._fsStateId);
         }
 
+        if (this._nightModeId > 0) {
+            Application.application.disconnect(this._nightModeId);
+            this._nightModeId = 0;
+        }
+
         this.parent();
     },
 
@@ -316,6 +328,7 @@ const Preview = new Lang.Class({
 
         this.set_visible_child_name('view');
         this.getAction('open-current').enabled = (doc.defaultAppName != null);
+        this._updateNightMode();
     },
 
     onLoadError: function(manager, doc, message, exception) {
@@ -374,6 +387,10 @@ const Preview = new Lang.Class({
         return false;
     },
 
+    set nightMode(v) {
+        // do nothing
+    },
+
     findPrev: function() {
         throw (new Error('Not implemented'));
     },
@@ -403,8 +420,10 @@ const PreviewToolbar = new Lang.Class({
                                               action_name: 'view.gear-menu' });
         this.toolbar.pack_end(menuButton);
 
-        if (this.preview.canFullscreen && Application.application.isBooks)
+        if (this.preview.canFullscreen && Application.application.isBooks) {
             this._addFullscreenButton();
+            this._addNightmodeButton();
+        }
 
         this.updateTitle();
         this.toolbar.show_all();
@@ -428,6 +447,15 @@ const PreviewToolbar = new Lang.Class({
         }
 
         return menu;
+    },
+
+    _addNightmodeButton: function() {
+        let nightmodeButton = new Gtk.ToggleButton({ image: new Gtk.Image ({ icon_name: 'display-brightness-symbolic' }),
+                                                     tooltip_text: _("Night Mode"),
+                                                     action_name: 'app.night-mode',
+                                                     visible: true });
+        this.toolbar.pack_end(nightmodeButton);
+        return nightmodeButton;
     },
 
     _addFullscreenButton: function() {
