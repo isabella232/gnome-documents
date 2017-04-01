@@ -10,6 +10,7 @@ const Tweener = imports.tweener.tweener;
 
 const Application = imports.application;
 const ErrorBox = imports.errorBox;
+const FullscreenAction = imports.fullscreenAction;
 const MainToolbar = imports.mainToolbar;
 const Password = imports.password;
 const Properties = imports.properties;
@@ -26,13 +27,17 @@ const Preview = new Lang.Class({
     _init: function(overlay, mainWindow) {
         this._lastSearch = '';
         this._loadShowId = 0;
+        this._controlsFlipId = 0;
+        this._controlsVisible = false;
+        this._fsStateId = 0;
+        this._fsToolbar = null;
         this.overlay = overlay;
         this.mainWindow = mainWindow;
 
         this.parent({ homogeneous: true,
                       transition_type: Gtk.StackTransitionType.CROSSFADE });
 
-        this.actionGroup = this.createActionGroup();
+        this.actionGroup = this._createActionGroup();
 
         this._errorBox = new ErrorBox.ErrorBox();
         this.add_named(this._errorBox, 'error');
@@ -113,6 +118,87 @@ const Preview = new Lang.Class({
             doc.open(this.mainWindow, Gtk.get_current_event_time());
     },
 
+    _onFullscreenChanged: function(action) {
+        let fullscreen = action.state.get_boolean();
+
+        this.toolbar.visible = !fullscreen;
+        this.getAction('gear-menu').change_state(GLib.Variant.new('b', false));
+
+        if (fullscreen) {
+            // create fullscreen toolbar (hidden by default)
+            this._fsToolbar = this.createFullscreenToolbar();
+            this.overlay.add_overlay(this._fsToolbar);
+
+            this._fsToolbar.connect('show-controls', Lang.bind(this, function() {
+                this.controlsVisible = true;
+            }));
+
+            Application.application.set_accels_for_action('view.fullscreen',
+                                                          ['F11', 'Escape']);
+        } else {
+            this._fsToolbar.destroy();
+            this._fsToolbar = null;
+
+            Application.application.set_accels_for_action('view.fullscreen', ['F11']);
+        }
+
+        this._syncControlsVisible();
+    },
+
+    getFullscreenToolbar: function() {
+        return this._fsToolbar;
+    },
+
+    get controlsVisible() {
+        return this._controlsVisible;
+    },
+
+    set controlsVisible(visible) {
+        // reset any pending timeout, as we're about to change controls state
+        this.cancelControlsFlip();
+
+        if (this._controlsVisible == visible)
+            return;
+
+        this._controlsVisible = visible;
+        this._syncControlsVisible();
+    },
+
+    _flipControlsTimeout: function() {
+        this._controlsFlipId = 0;
+        let visible = this.controlsVisible;
+        this.controlsVisible = !visible;
+
+        return false;
+    },
+
+     queueControlsFlip: function() {
+         if (this._controlsFlipId)
+             return;
+
+         let settings = Gtk.Settings.get_default();
+         let doubleClick = settings.gtk_double_click_time;
+
+         this._controlsFlipId = Mainloop.timeout_add(doubleClick, Lang.bind(this, this._flipControlsTimeout));
+     },
+
+     cancelControlsFlip: function() {
+         if (this._controlsFlipId != 0) {
+             Mainloop.source_remove(this._controlsFlipId);
+             this._controlsFlipId = 0;
+         }
+     },
+
+    _syncControlsVisible: function() {
+        if (this._controlsVisible) {
+            if (this._fsToolbar)
+                this._fsToolbar.reveal();
+        } else {
+            if (this._fsToolbar)
+                this._fsToolbar.conceal();
+        }
+    },
+
     vfunc_destroy: function() {
         if (this._loadStartedId > 0) {
             Application.documentManager.disconnect(this._loadStartedId);
@@ -135,13 +221,31 @@ const Preview = new Lang.Class({
             this.navControls = null;
         }
 
+        if (this._fsToolbar) {
+            this._fsToolbar.destroy();
+            this._fsToolbar = null;
+        }
+
+        if (this._fullscreenAction) {
+            this._fullscreenAction.change_state(new GLib.Variant('b', false));
+            this._fullscreenAction.disconnect(this._fsStateId);
+        }
+
         this.parent();
     },
 
-    createActionGroup: function() {
+    _createActionGroup: function() {
         let actions = this.createActions().concat(this._getDefaultActions());
         let actionGroup = new Gio.SimpleActionGroup();
         Utils.populateActionGroup(actionGroup, actions, 'view');
+
+        if (this.canFullscreen) {
+            this._fullscreenAction = new FullscreenAction.FullscreenAction({ window: this.mainWindow });
+            this._fsStateId = this._fullscreenAction.connect('notify::state', Lang.bind(this, this._onFullscreenChanged));
+            actionGroup.add_action(this._fullscreenAction);
+            Application.application.set_accels_for_action('view.fullscreen', ['F11']);
+        }
+
         return actionGroup;
     },
 
@@ -155,6 +259,10 @@ const Preview = new Lang.Class({
 
     activateResult: function() {
         this.findNext();
+    },
+
+    createFullscreenToolbar: function() {
+        return new PreviewFullscreenToolbar(this);
     },
 
     createToolbar: function() {
@@ -256,6 +364,13 @@ const Preview = new Lang.Class({
     },
 
     get fullscreen() {
+        if (!this.canFullscreen)
+            return false;
+
+        return this.getAction('fullscreen').state.get_boolean();
+    },
+
+    get canFullscreen() {
         return false;
     },
 
@@ -273,6 +388,7 @@ const PreviewToolbar = new Lang.Class({
     Extends: MainToolbar.MainToolbar,
 
     _init: function(preview) {
+        this._fsStateId = 0;
         this.preview = preview;
 
         this.parent();
@@ -287,8 +403,16 @@ const PreviewToolbar = new Lang.Class({
                                               action_name: 'view.gear-menu' });
         this.toolbar.pack_end(menuButton);
 
+        if (this.preview.canFullscreen && Application.application.isBooks)
+            this._addFullscreenButton();
+
         this.updateTitle();
         this.toolbar.show_all();
+
+        this.connect('destroy', Lang.bind(this, function() {
+            if (this._fsStateId > 0)
+                this.preview.getAction('fullscreen').disconnect(this._fsStateId);
+        }));
     },
 
     _getPreviewMenu: function() {
@@ -306,6 +430,28 @@ const PreviewToolbar = new Lang.Class({
         return menu;
     },
 
+    _addFullscreenButton: function() {
+        this._fullscreenButton = new Gtk.Button({ image: new Gtk.Image ({ icon_name: 'view-fullscreen-symbolic' }),
+                                                  tooltip_text: _("Fullscreen"),
+                                                  action_name: 'view.fullscreen',
+                                                  visible: true });
+        this.toolbar.pack_end(this._fullscreenButton);
+
+        let action = this.preview.getAction('fullscreen');
+        this._fsStateId = action.connect('notify::state', Lang.bind(this, this._fullscreenStateChanged));
+        this._fullscreenStateChanged();
+    },
+
+    _fullscreenStateChanged: function() {
+        let action = this.preview.getAction('fullscreen');
+        let fullscreen = action.state.get_boolean();
+
+        if (fullscreen)
+            this._fullscreenButton.image.icon_name = 'view-restore-symbolic';
+        else
+            this._fullscreenButton.image.icon_name = 'view-fullscreen-symbolic';
+    },
+
     createSearchbar: function() {
         return new PreviewSearchbar(this.preview);
     },
@@ -318,6 +464,58 @@ const PreviewToolbar = new Lang.Class({
             primary = doc.name;
 
         this.toolbar.set_title(primary);
+    }
+});
+
+const PreviewFullscreenToolbar = new Lang.Class({
+    Name: 'PreviewFullscreenToolbar',
+    Extends: Gtk.Revealer,
+    Signals: {
+        'show-controls': {}
+    },
+
+    _init: function(preview) {
+        this.parent({ valign: Gtk.Align.START });
+
+        this.toolbar = preview.createToolbar();
+
+        this.add(this.toolbar);
+        this.show();
+
+        // make controls show when a toolbar action is activated in fullscreen
+        let actionNames = ['gear-menu', 'find'];
+        let signalIds = [];
+
+        actionNames.forEach(Lang.bind(this, function(actionName) {
+            let signalName = 'action-state-changed::' + actionName;
+            let signalId = preview.actionGroup.connect(signalName, Lang.bind(this,
+                function(actionGroup, actionName, value) {
+                    let state = value.get_boolean();
+                    if (state)
+                        this.emit('show-controls');
+                }));
+
+            signalIds.push(signalId);
+        }));
+
+        this.toolbar.connect('destroy', Lang.bind(this, function() {
+            signalIds.forEach(function(signalId) {
+                preview.actionGroup.disconnect(signalId);
+            });
+        }));
+    },
+
+    handleEvent: function(event) {
+        this.toolbar.handleEvent(event);
+    },
+
+    reveal: function() {
+        this.set_reveal_child(true);
+    },
+
+    conceal: function() {
+        this.set_reveal_child(false);
+        this.toolbar.preview.getAction('find').change_state(GLib.Variant.new('b', false));
     }
 });
 

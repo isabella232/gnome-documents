@@ -32,7 +32,6 @@ const Mainloop = imports.mainloop;
 
 const Application = imports.application;
 const Documents = imports.documents;
-const FullscreenAction = imports.fullscreenAction;
 const Places = imports.places;
 const Presentation = imports.presentation;
 const Preview = imports.preview;
@@ -46,12 +45,9 @@ const EvinceView = new Lang.Class({
     _init: function(overlay, mainWindow) {
         this._model = null;
         this._jobFind = null;
-        this._controlsFlipId = 0;
-        this._controlsVisible = false;
         this._pageChanged = false;
         this._hasSelection = false;
         this._viewSelectionChanged = false;
-        this._fsToolbar = null;
 
         this.parent(overlay, mainWindow);
 
@@ -63,7 +59,6 @@ const EvinceView = new Lang.Class({
         this.connect('destroy', Lang.bind(this,
             function() {
                 Application.application.disconnect(nightModeId);
-                this._fullscreenAction.change_state(new GLib.Variant('b', false));
             }));
     },
 
@@ -113,7 +108,7 @@ const EvinceView = new Lang.Class({
     _findStateChanged: function(action) {
         let toolbar = this.toolbar;
         if (this.fullscreen)
-            toolbar = this._fsToolbar.toolbar;
+            toolbar = this.getFullscreenToolbar().toolbar;
 
         if (action.state.get_boolean()) {
             toolbar.searchbar.reveal();
@@ -221,23 +216,18 @@ const EvinceView = new Lang.Class({
         return actions;
     },
 
-    createActionGroup: function() {
-        let actionGroup = this.parent();
-
-        this._fullscreenAction = new FullscreenAction.FullscreenAction({ window: this.mainWindow });
-        this._fullscreenAction.connect('notify::state', Lang.bind(this, this._onFullscreenChanged));
-        actionGroup.add_action(this._fullscreenAction);
-        Application.application.set_accels_for_action('view.fullscreen', ['F11']);
-
-        return actionGroup;
-    },
-
     createNavControls: function() {
         return new EvinceViewNavControls(this, this.overlay);
     },
 
     createToolbar: function() {
         return new EvinceViewToolbar(this);
+    },
+
+    createFullscreenToolbar: function() {
+        let toolbar = new EvinceViewFullscreenToolbar(this);
+        toolbar.setModel(this._model);
+        return toolbar;
     },
 
     createView: function() {
@@ -410,7 +400,7 @@ const EvinceView = new Lang.Class({
         this._hasSelection = hasSelection;
         this._viewSelectionChanged = true;
         if (!hasSelection)
-            this._cancelControlsFlip();
+            this.cancelControlsFlip();
     },
 
     _uriRewrite: function(uri) {
@@ -477,70 +467,6 @@ const EvinceView = new Lang.Class({
         this.getAction('zoom-out').enabled = this._evView.can_zoom_out;
     },
 
-    _syncControlsVisible: function() {
-        if (this._controlsVisible) {
-            if (this._fsToolbar)
-                this._fsToolbar.reveal();
-        } else {
-            if (this._fsToolbar)
-                this._fsToolbar.conceal();
-        }
-    },
-
-    _onFullscreenChanged: function(action) {
-        let fullscreen = action.state.get_boolean();
-
-        this.toolbar.visible = !fullscreen;
-        this.getAction('gear-menu').change_state(GLib.Variant.new('b', false));
-
-        if (fullscreen) {
-            // create fullscreen toolbar (hidden by default)
-            this._fsToolbar = new EvinceViewFullscreenToolbar(this);
-            this._fsToolbar.setModel(this._model);
-            this.overlay.add_overlay(this._fsToolbar);
-
-            this._fsToolbar.connectJS('show-controls', Lang.bind(this,
-                function() {
-                    this.controlsVisible = true;
-                }));
-
-            Application.application.set_accels_for_action('view.fullscreen',
-                                                          ['F11', 'Escape']);
-        } else {
-            this._fsToolbar.destroy();
-            this._fsToolbar = null;
-
-            Application.application.set_accels_for_action('view.fullscreen', ['F11']);
-        }
-
-        this._syncControlsVisible();
-    },
-
-    _flipControlsTimeout: function() {
-        this._controlsFlipId = 0;
-        let visible = this.controlsVisible;
-        this.controlsVisible = !visible;
-
-        return false;
-    },
-
-     _cancelControlsFlip: function() {
-         if (this._controlsFlipId != 0) {
-             Mainloop.source_remove(this._controlsFlipId);
-             this._controlsFlipId = 0;
-         }
-     },
-
-     _queueControlsFlip: function() {
-         if (this._controlsFlipId)
-             return;
-
-         let settings = Gtk.Settings.get_default();
-         let doubleClick = settings.gtk_double_click_time;
-
-         this._controlsFlipId = Mainloop.timeout_add(doubleClick, Lang.bind(this, this._flipControlsTimeout));
-     },
-
     _onButtonPressEvent: function(widget, event) {
         let button = event.get_button()[1];
 
@@ -561,9 +487,9 @@ const EvinceView = new Lang.Class({
         if (button == 1
             && clickCount == 1
             && !this._viewSelectionChanged)
-            this._queueControlsFlip();
+            this.queueControlsFlip();
         else
-            this._cancelControlsFlip();
+            this.cancelControlsFlip();
 
         this._viewSelectionChanged = false;
 
@@ -579,21 +505,6 @@ const EvinceView = new Lang.Class({
         if (!this._pageChanged)
             this.controlsVisible = false;
         this._pageChanged = false;
-    },
-
-    get controlsVisible() {
-        return this._controlsVisible;
-    },
-
-    set controlsVisible(visible) {
-        // reset any pending timeout, as we're about to change controls state
-        this._cancelControlsFlip();
-
-        if (this._controlsVisible == visible)
-            return;
-
-        this._controlsVisible = visible;
-        this._syncControlsVisible();
     },
 
     search: function(str) {
@@ -659,10 +570,6 @@ const EvinceView = new Lang.Class({
         return this._model;
     },
 
-    getFullscreenToolbar: function() {
-        return this._fsToolbar;
-    },
-
     goPrev: function() {
         this._evView.previous_page();
     },
@@ -683,8 +590,8 @@ const EvinceView = new Lang.Class({
         return this._model ? this._model.document.get_n_pages() : 0;
     },
 
-    get fullscreen() {
-        return this.getAction('fullscreen').state.get_boolean();
+    get canFullscreen() {
+        return true;
     }
 });
 
@@ -731,42 +638,12 @@ const EvinceViewToolbar = new Lang.Class({
     _init: function(preview) {
         this.parent(preview);
 
-        this._fsStateId = 0;
         this._handleEvent = false;
 
         this.addSearchButton('view.find');
 
-        if (Application.application.isBooks) {
-            this._addFullscreenButton();
+        if (Application.application.isBooks)
             this.addNightmodeButton();
-        }
-
-        this.connect('destroy', Lang.bind(this, function() {
-            if (this._fsStateId > 0)
-                this.preview.getAction('fullscreen').disconnect(this._fsStateId);
-        }));
-    },
-
-    _addFullscreenButton: function() {
-        this._fullscreenButton = new Gtk.Button({ image: new Gtk.Image ({ icon_name: 'view-fullscreen-symbolic' }),
-                                                  tooltip_text: _("Fullscreen"),
-                                                  action_name: 'view.fullscreen',
-                                                  visible: true });
-        this.toolbar.pack_end(this._fullscreenButton);
-
-        let action = this.preview.getAction('fullscreen');
-        this._fsStateId = action.connect('notify::state', Lang.bind(this, this._fullscreenStateChanged));
-        this._fullscreenStateChanged();
-    },
-
-    _fullscreenStateChanged: function() {
-        let action = this.preview.getAction('fullscreen');
-        let fullscreen = action.state.get_boolean();
-
-        if (fullscreen)
-            this._fullscreenButton.image.icon_name = 'view-restore-symbolic';
-        else
-            this._fullscreenButton.image.icon_name ='view-fullscreen-symbolic';
     },
 
     setModel: function() {
@@ -776,54 +653,9 @@ const EvinceViewToolbar = new Lang.Class({
 
 const EvinceViewFullscreenToolbar = new Lang.Class({
     Name: 'EvinceViewFullscreenToolbar',
-    Extends: Gtk.Revealer,
-
-    _init: function(previewView) {
-        this.parent({ valign: Gtk.Align.START });
-
-        this.toolbar = new EvinceViewToolbar(previewView);
-
-        this.add(this.toolbar);
-        this.show();
-
-        // make controls show when a toolbar action is activated in fullscreen
-        let actionNames = ['gear-menu', 'find'];
-        let signalIds = [];
-
-        actionNames.forEach(Lang.bind(this, function(actionName) {
-            let signalName = 'action-state-changed::' + actionName;
-            let signalId = previewView.actionGroup.connect(signalName, Lang.bind(this,
-                function(actionGroup, actionName, value) {
-                    let state = value.get_boolean();
-                    if (state)
-                        this.emitJS('show-controls');
-                }));
-
-            signalIds.push(signalId);
-        }));
-
-        this.toolbar.connect('destroy', Lang.bind(this, function() {
-            signalIds.forEach(function(signalId) {
-                previewView.actionGroup.disconnect(signalId);
-            });
-        }));
-    },
-
-    handleEvent: function(event) {
-        this.toolbar.handleEvent(event);
-    },
+    Extends: Preview.PreviewFullscreenToolbar,
 
     setModel: function(model) {
         this.toolbar.setModel(model);
-    },
-
-    reveal: function() {
-        this.set_reveal_child(true);
-    },
-
-    conceal: function() {
-        this.set_reveal_child(false);
-        this.toolbar.preview.getAction('find').change_state(GLib.Variant.new('b', false));
     }
 });
-Utils.addJSSignalMethods(EvinceViewFullscreenToolbar.prototype);
