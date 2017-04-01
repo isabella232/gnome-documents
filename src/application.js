@@ -241,7 +241,7 @@ const Application = new Lang.Class({
             return false;
 
         this.minersRunning.push(miner);
-        this.emitJS('miners-changed', this.minersRunning);
+        this.emitJS('miners-changed');
 
         miner._cancellable = new Gio.Cancellable();
         miner.RefreshDBRemote(['documents'], miner._cancellable, Lang.bind(this,
@@ -250,7 +250,7 @@ const Application = new Lang.Class({
                     function(element) {
                         return element != miner;
                     });
-                this.emitJS('miners-changed', this.minersRunning);
+                this.emitJS('miners-changed');
 
                 if (error) {
                     if (!error.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
