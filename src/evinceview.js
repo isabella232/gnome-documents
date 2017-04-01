@@ -491,7 +491,7 @@ const EvinceView = new Lang.Class({
         let fullscreen = action.state.get_boolean();
 
         this.toolbar.visible = !fullscreen;
-        this.toolbar.sensitive = !fullscreen;
+        this.getAction('gear-menu').change_state(GLib.Variant.new('b', false));
 
         if (fullscreen) {
             // create fullscreen toolbar (hidden by default)
