@@ -216,12 +216,6 @@ const EvinceView = new Lang.Class({
         return new EvinceViewToolbar(this);
     },
 
-    createFullscreenToolbar: function() {
-        let toolbar = new EvinceViewFullscreenToolbar(this);
-        toolbar.setModel(this._model);
-        return toolbar;
-    },
-
     createView: function() {
         let sw = new Gtk.ScrolledWindow({ hexpand: true,
                                           vexpand: true });
@@ -299,7 +293,7 @@ const EvinceView = new Lang.Class({
 
         this._evView.set_model(this._model);
         this.navControls.setModel(this._model);
-        this.toolbar.setModel(this._model);
+        this.toolbar.updateTitle();
 
         this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
         this.grab_focus();
@@ -630,18 +624,5 @@ const EvinceViewToolbar = new Lang.Class({
         this._handleEvent = false;
 
         this.addSearchButton('view.find');
-    },
-
-    setModel: function() {
-        this.updateTitle();
-    }
-});
-
-const EvinceViewFullscreenToolbar = new Lang.Class({
-    Name: 'EvinceViewFullscreenToolbar',
-    Extends: Preview.PreviewFullscreenToolbar,
-
-    setModel: function(model) {
-        this.toolbar.setModel(model);
     }
 });
