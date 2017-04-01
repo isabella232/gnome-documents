@@ -269,11 +269,11 @@ const EvinceView = new Lang.Class({
     },
 
     onLoadFinished: function(manager, doc, docModel) {
-        this.parent(manager, doc, docModel);
-
         this.controlsVisible = false;
         this._lastSearch = '';
         this._model = docModel;
+
+        this.parent(manager, doc, docModel);
 
         if (Application.application.isBooks)
             docModel.set_sizing_mode(EvView.SizingMode.FIT_PAGE);
