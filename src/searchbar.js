@@ -33,6 +33,9 @@ const Utils = imports.utils;
 const Searchbar = new Lang.Class({
     Name: 'Searchbar',
     Extends: Gtk.SearchBar,
+    Signals: {
+        'activate-result': {}
+    },
 
     _init: function() {
         this.searchChangeBlocked = false;
@@ -71,7 +74,7 @@ const Searchbar = new Lang.Class({
 
         let keyval = event.get_keyval()[1];
         if (this.search_mode_enabled && keyval == Gdk.KEY_Return) {
-            this.emitJS('activate-result');
+            this.emit('activate-result');
             return true;
         }
 
@@ -92,7 +95,6 @@ const Searchbar = new Lang.Class({
         this.searchEntry.set_text('');
     }
 });
-Utils.addJSSignalMethods(Searchbar.prototype);
 
 const Dropdown = new Lang.Class({
     Name: 'Dropdown',

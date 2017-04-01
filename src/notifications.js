@@ -185,7 +185,7 @@ const IndexingNotification = new Lang.Class({
             return;
         }
 
-        Application.application.connectJS('miners-changed', Lang.bind(this, this._checkNotification));
+        Application.application.connect('miners-changed', Lang.bind(this, this._checkNotification));
         Application.modeController.connect('window-mode-changed', Lang.bind(this, this._checkNotification));
     },
 

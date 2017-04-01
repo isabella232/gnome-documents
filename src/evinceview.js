@@ -360,7 +360,7 @@ const EvinceView = new Lang.Class({
             this._showPresentation();
         } else {
             let chooser = new Presentation.PresentationOutputChooser(outputs);
-            chooser.connectJS('output-activated', Lang.bind(this,
+            chooser.connect('output-activated', Lang.bind(this,
                 function(chooser, output) {
                     if (output) {
                         this._showPresentation(output);

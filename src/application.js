@@ -95,6 +95,9 @@ const MINER_REFRESH_TIMEOUT = 60; /* seconds */
 const Application = new Lang.Class({
     Name: 'Application',
     Extends: Gtk.Application,
+    Signals: {
+        'miners-changed': {}
+    },
 
     _init: function(isBooks) {
         this.minersRunning = [];
@@ -241,7 +244,7 @@ const Application = new Lang.Class({
             return false;
 
         this.minersRunning.push(miner);
-        this.emitJS('miners-changed');
+        this.emit('miners-changed');
 
         miner._cancellable = new Gio.Cancellable();
         miner.RefreshDBRemote(['documents'], miner._cancellable, Lang.bind(this,
@@ -250,7 +253,7 @@ const Application = new Lang.Class({
                     function(element) {
                         return element != miner;
                     });
-                this.emitJS('miners-changed');
+                this.emit('miners-changed');
 
                 if (error) {
                     if (!error.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
@@ -324,6 +327,7 @@ const Application = new Lang.Class({
             function(miner) {
                 miner._cancellable.cancel();
             }));
+        this.minersRunning = [];
 
         this.gdataMiner = null;
         this.owncloudMiner = null;
@@ -481,7 +485,6 @@ const Application = new Lang.Class({
         trackerSearchController.disconnectAll();
         selectionController.disconnectAll();
         modeController.disconnectAll();
-        this.disconnectAllJS();
 
         // reset state
         documentManager.clearRowRefs();
@@ -564,4 +567,3 @@ const Application = new Lang.Class({
         return window;
     }
 });
-Utils.addJSSignalMethods(Application.prototype);

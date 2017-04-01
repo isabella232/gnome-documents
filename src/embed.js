@@ -137,8 +137,8 @@ const View = new Lang.Class({
                 this._toolbar = this.view.createToolbar(this._stack);
 
             if (this._toolbar.searchbar)
-                this._toolbar.searchbar.connectJS('activate-result',
-                                                  Lang.bind(this, this._onActivateResult));
+                this._toolbar.searchbar.connect('activate-result',
+                                                Lang.bind(this, this._onActivateResult));
             this._window.get_titlebar().add(this._toolbar);
         }
     },

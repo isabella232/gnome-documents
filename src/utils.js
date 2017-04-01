@@ -114,13 +114,6 @@ function debug(str) {
         log('DEBUG: ' + str);
 }
 
-function addJSSignalMethods(proto) {
-    proto.connectJS = Signals._connect;
-    proto.disconnectJS = Signals._disconnect;
-    proto.emitJS = Signals._emit;
-    proto.disconnectAllJS = Signals._disconnectAll;
-}
-
 function actionToggleCallback(action) {
     let state = action.get_state();
     action.change_state(GLib.Variant.new('b', !state.get_boolean()));
