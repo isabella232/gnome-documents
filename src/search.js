@@ -473,6 +473,7 @@ const SourceManager = new Lang.Class({
 
     _refreshGoaAccounts: function() {
         let newItems = {};
+        let newSources = [];
         let accounts = Application.goaClient.get_accounts();
 
         accounts.forEach(Lang.bind(this,
@@ -484,8 +485,24 @@ const SourceManager = new Lang.Class({
                     return;
 
                 let source = new Source({ object: object });
+
+                newSources.push(source);
                 newItems[source.id] = source;
             }));
+
+        // Ensure an unique name for GOA accounts from the same provider
+        newSources.forEach(function(source) {
+            if (newSources.some(function(s) {
+                return s.name == source.name;
+            })) {
+                let account = source.object.get_account();
+                // Translators: the first %s is an online account provider name,
+                // e.g. "Google". The second %s is the identity used to log in,
+                // e.g. "foo@gmail.com".
+                source.name = _("%s (%s)").format(account.provider_name,
+                                                  account.presentation_identity);
+            }
+        });
 
         this.processNewItems(newItems);
     },
