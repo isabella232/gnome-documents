@@ -19,8 +19,10 @@
  *
  */
 
+let LOKDocView;
+
 try {
-    const LOKDocView = imports.gi.LOKDocView;
+    LOKDocView = imports.gi.LOKDocView;
 } catch(e) {
     // LOKDocView will be undefined, and we'll
     // use this to warn when LO files can't be opened
