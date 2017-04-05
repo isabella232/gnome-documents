@@ -525,34 +525,42 @@ const DocCommon = new Lang.Class({
 
         thumbFile.read_async(GLib.PRIORITY_DEFAULT, null, Lang.bind(this,
             function(object, res) {
+                let stream;
+
                 try {
-                    let stream = object.read_finish(res);
-                    let scale = Application.application.getScaleFactor();
-                    GdkPixbuf.Pixbuf.new_from_stream_at_scale_async(stream,
-                        Utils.getIconSize() * scale, Utils.getIconSize() * scale,
-                        true, null, Lang.bind(this,
-                            function(object, res) {
-                                try {
-                                    let pixbuf = GdkPixbuf.Pixbuf.new_from_stream_finish(res);
-                                    this._setOrigPixbuf(pixbuf);
-                                } catch (e) {
-                                    if (!e.matches(GdkPixbuf.PixbufError, GdkPixbuf.PixbufError.UNKNOWN_TYPE))
-                                        logError(e, 'Unable to create pixbuf from ' + thumbFile.get_uri());
-
-                                    this._failedThumbnailing = true;
-                                    this._thumbPath = null;
-                                    thumbFile.delete_async(GLib.PRIORITY_DEFAULT, null, null);
-                                }
-
-                                // close the underlying stream immediately
-                                stream.close_async(0, null, null);
-                            }));
+                    stream = object.read_finish(res);
                 } catch (e) {
                     logError(e, 'Unable to read file at ' + thumbFile.get_uri());
                     this._failedThumbnailing = true;
                     this._thumbPath = null;
                     thumbFile.delete_async(GLib.PRIORITY_DEFAULT, null, null);
+                    return;
                 }
+
+                let scale = Application.application.getScaleFactor();
+                GdkPixbuf.Pixbuf.new_from_stream_at_scale_async(stream,
+                    Utils.getIconSize() * scale, Utils.getIconSize() * scale,
+                    true, null, Lang.bind(this,
+                        function(object, res) {
+                            // close the underlying stream immediately
+                            stream.close_async(0, null, null);
+
+                            let pixbuf;
+
+                            try {
+                                pixbuf = GdkPixbuf.Pixbuf.new_from_stream_finish(res);
+                            } catch (e) {
+                                if (!e.matches(GdkPixbuf.PixbufError, GdkPixbuf.PixbufError.UNKNOWN_TYPE))
+                                    logError(e, 'Unable to create pixbuf from ' + thumbFile.get_uri());
+
+                                this._failedThumbnailing = true;
+                                this._thumbPath = null;
+                                thumbFile.delete_async(GLib.PRIORITY_DEFAULT, null, null);
+                                return;
+                            }
+
+                            this._setOrigPixbuf(pixbuf);
+                        }));
             }));
     },
 
