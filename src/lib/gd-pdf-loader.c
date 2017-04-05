@@ -23,7 +23,6 @@
 #include "gd-utils.h"
 
 #include <string.h>
-#include <gdata/gdata.h>
 #include <gdk/gdkx.h>
 #include <gtk/gtk.h>
 #include <evince-document.h>
@@ -45,11 +44,6 @@ typedef struct {
   gboolean passwd_tried;
 
   GFile *download_file;
-  GInputStream *stream;
-
-  GDataEntry *gdata_entry;
-  GDataService *gdata_service;
-  gchar *resource_id;
 
   guint64 pdf_cache_mtime;
   guint64 original_file_mtime;
@@ -59,7 +53,6 @@ typedef struct {
 } PdfLoadJob;
 
 static void pdf_load_job_from_openoffice (PdfLoadJob *job);
-static void pdf_load_job_gdata_refresh_cache (PdfLoadJob *job);
 static void pdf_load_job_openoffice_refresh_cache (PdfLoadJob *job);
 
 /* --------------------------- utils -------------------------------- */
@@ -126,14 +119,10 @@ pdf_load_job_free (PdfLoadJob *job)
   g_clear_object (&job->document);
   g_clear_object (&job->result);
   g_clear_object (&job->cancellable);
-  g_clear_object (&job->stream);
   g_clear_object (&job->download_file);
-  g_clear_object (&job->gdata_service);
-  g_clear_object (&job->gdata_entry);
 
   g_free (job->uri);
   g_free (job->passwd);
-  g_free (job->resource_id);
 
   if (job->pdf_path != NULL) {
     if (job->unlink_cache)
@@ -153,7 +142,6 @@ pdf_load_job_free (PdfLoadJob *job)
 static PdfLoadJob *
 pdf_load_job_new (GSimpleAsyncResult *result,
                   const gchar *uri,
-                  GDataEntry *gdata_entry,
                   const gchar *passwd,
                   GCancellable *cancellable)
 {
@@ -169,8 +157,6 @@ pdf_load_job_new (GSimpleAsyncResult *result,
     retval->uri = g_strdup (uri);
   if (passwd != NULL)
     retval->passwd = g_strdup (passwd);
-  if (gdata_entry != NULL)
-    retval->gdata_entry = g_object_ref (gdata_entry);
   if (cancellable != NULL)
     retval->cancellable = g_object_ref (cancellable);
 
@@ -205,10 +191,7 @@ pdf_load_job_force_refresh_cache (PdfLoadJob *job)
   if (job->from_old_cache)
     job->from_old_cache = FALSE;
 
-  if (job->gdata_entry != NULL)
-    pdf_load_job_gdata_refresh_cache (job);
-  else
-    pdf_load_job_openoffice_refresh_cache (job);
+  pdf_load_job_openoffice_refresh_cache (job);
 }
 
 static void
@@ -406,140 +389,6 @@ os_splice_ready_cb (GObject *source,
   }
 
   pdf_load_job_cache_set_attributes (job);
-}
-
-static void
-file_replace_ready_cb (GObject *source,
-                       GAsyncResult *res,
-                       gpointer user_data)
-{
-  GFileOutputStream *os;
-  GError *error = NULL;
-  PdfLoadJob *job = user_data;
-
-  os = g_file_replace_finish (G_FILE (source), res, &error);
-
-  if (error != NULL) {
-    pdf_load_job_complete_error (job, error);
-    return;
-  }
-
-  g_output_stream_splice_async (G_OUTPUT_STREAM (os),
-                                G_INPUT_STREAM (job->stream),
-                                G_OUTPUT_STREAM_SPLICE_CLOSE_SOURCE |
-                                G_OUTPUT_STREAM_SPLICE_CLOSE_TARGET,
-                                G_PRIORITY_DEFAULT,
-                                job->cancellable,
-                                os_splice_ready_cb, job);
-
-  g_object_unref (os);
-}
-
-static void
-pdf_load_job_gdata_refresh_cache (PdfLoadJob *job)
-{
-  GDataDownloadStream *stream;
-  GError *error = NULL;
-
-  stream = gdata_documents_document_download (GDATA_DOCUMENTS_DOCUMENT (job->gdata_entry),
-                                              GDATA_DOCUMENTS_SERVICE (job->gdata_service),
-                                              "pdf", job->cancellable, &error);
-
-  if (error != NULL) {
-    pdf_load_job_complete_error (job, error);
-    return;
-  }
-
-  job->stream = G_INPUT_STREAM (stream);
-  job->download_file = g_file_new_for_path (job->pdf_path);
-
-  g_file_replace_async (job->download_file, NULL, FALSE,
-                        G_FILE_CREATE_PRIVATE,
-                        G_PRIORITY_DEFAULT,
-                        job->cancellable, file_replace_ready_cb,
-                        job);
-}
-
-static void
-gdata_cache_query_info_ready_cb (GObject *source,
-                                 GAsyncResult *res,
-                                 gpointer user_data)
-{
-  PdfLoadJob *job = user_data;
-  GError *error = NULL;
-  GFileInfo *info;
-  guint64 cache_mtime;
-
-  info = g_file_query_info_finish (G_FILE (source), res, &error);
-
-  if (error != NULL) {
-    /* create/invalidate cache */
-    pdf_load_job_gdata_refresh_cache (job);
-    g_error_free (error);
-
-    return;
-  }
-
-  job->pdf_cache_mtime = cache_mtime = 
-    g_file_info_get_attribute_uint64 (info, G_FILE_ATTRIBUTE_TIME_MODIFIED);
-  g_object_unref (info);
-
-  if (job->original_file_mtime != cache_mtime) {
-    pdf_load_job_gdata_refresh_cache (job);
-  } else {
-    job->from_old_cache = TRUE;
-
-    /* load the cached file */
-    pdf_load_job_from_pdf (job);
-  }
-}
-
-static void
-pdf_load_job_from_google_documents (PdfLoadJob *job)
-{
-  gchar *tmp_name;
-  gchar *tmp_path, *pdf_path;
-  GFile *pdf_file;
-
-  job->original_file_mtime = gdata_entry_get_updated (job->gdata_entry);
-
-  tmp_name = g_strdup_printf ("gnome-documents-%u.pdf",
-                              g_str_hash (gdata_entry_get_id (job->gdata_entry)));
-  tmp_path = g_build_filename (g_get_user_cache_dir (), "gnome-documents", NULL);
-  job->pdf_path = pdf_path =
-    g_build_filename (tmp_path, tmp_name, NULL);
-  g_mkdir_with_parents (tmp_path, 0700);
-
-  pdf_file = g_file_new_for_path (pdf_path);
-
-  g_file_query_info_async (pdf_file,
-                           G_FILE_ATTRIBUTE_TIME_MODIFIED,
-                           G_FILE_QUERY_INFO_NONE,
-                           G_PRIORITY_DEFAULT,
-                           job->cancellable,
-                           gdata_cache_query_info_ready_cb,
-                           job);
-
-  g_free (tmp_name);
-  g_free (tmp_path);
-  g_object_unref (pdf_file);
-}
-
-static void
-pdf_load_job_from_gdata_cache (PdfLoadJob *job)
-{
-  gchar *tmp_name;
-  gchar *tmp_path;
-
-  tmp_name = g_strdup_printf ("gnome-documents-%u.pdf",
-                              g_str_hash (job->resource_id));
-  tmp_path = g_build_filename (g_get_user_cache_dir (), "gnome-documents", NULL);
-  job->pdf_path = g_build_filename (tmp_path, tmp_name, NULL);
-
-  pdf_load_job_from_pdf (job);
-
-  g_free (tmp_path);
-  g_free (tmp_name);
 }
 
 static void
@@ -1026,13 +875,6 @@ static void
 pdf_load_job_from_uri (PdfLoadJob *job)
 {
   GFile *file;
-  const gchar *gdata_prefix = "google:drive:";
-
-  if (g_str_has_prefix (job->uri, gdata_prefix)) {
-    job->resource_id = g_strdup (job->uri + strlen (gdata_prefix));
-    pdf_load_job_from_gdata_cache (job);
-    return;
-  }
 
   file = g_file_new_for_uri (job->uri);
   if (!g_file_is_native (file))
@@ -1046,10 +888,7 @@ pdf_load_job_from_uri (PdfLoadJob *job)
 static void
 pdf_load_job_start (PdfLoadJob *job)
 {
-  if (job->gdata_entry != NULL)
-    pdf_load_job_from_google_documents (job);
-  else
-    pdf_load_job_from_uri (job);
+  pdf_load_job_from_uri (job);
 }
 
 /**
@@ -1073,7 +912,7 @@ gd_pdf_loader_load_uri_async (const gchar *uri,
   result = g_simple_async_result_new (NULL, callback, user_data,
                                       gd_pdf_loader_load_uri_async);
 
-  job = pdf_load_job_new (result, uri, NULL, passwd, cancellable);
+  job = pdf_load_job_new (result, uri, passwd, cancellable);
 
   pdf_load_job_start (job);
 
@@ -1090,48 +929,6 @@ gd_pdf_loader_load_uri_async (const gchar *uri,
 EvDocumentModel *
 gd_pdf_loader_load_uri_finish (GAsyncResult *res,
                                GError **error)
-{
-  EvDocumentModel *retval;
-
-  if (g_simple_async_result_propagate_error (G_SIMPLE_ASYNC_RESULT (res), error))
-    return NULL;
-
-  retval = g_simple_async_result_get_op_res_gpointer (G_SIMPLE_ASYNC_RESULT (res));
-  return retval;
-}
-
-
-void
-gd_pdf_loader_load_gdata_entry_async (GDataEntry *entry,
-                                      GDataDocumentsService *service,
-                                      GCancellable *cancellable,
-                                      GAsyncReadyCallback callback,
-                                      gpointer user_data)
-{
-  PdfLoadJob *job;
-  GSimpleAsyncResult *result;
-
-  result = g_simple_async_result_new (NULL, callback, user_data,
-                                      gd_pdf_loader_load_gdata_entry_async);
-
-  job = pdf_load_job_new (result, NULL, entry, NULL, cancellable);
-  job->gdata_service = g_object_ref (service);
-
-  pdf_load_job_start (job);
-
-  g_object_unref (result);
-}
-
-/**
- * gd_pdf_loader_load_gdata_entry_finish:
- * @res:
- * @error: (allow-none) (out):
- *
- * Returns: (transfer full):
- */
-EvDocumentModel *
-gd_pdf_loader_load_gdata_entry_finish (GAsyncResult *res,
-                                       GError **error)
 {
   EvDocumentModel *retval;
 
