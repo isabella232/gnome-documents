@@ -1017,6 +1017,15 @@ const GoogleDocument = new Lang.Class({
         this.shared = cursor.get_boolean(Query.QueryColumns.SHARED);
 
         this.parent(cursor);
+
+        let localDir = GLib.build_filenamev([GLib.get_user_cache_dir(), "gnome-documents", "google"]);
+
+        let identifierHash = GLib.compute_checksum_for_string(GLib.ChecksumType.SHA1, this.identifier, -1);
+        let localFilename = identifierHash + ".pdf";
+
+        let localPath = GLib.build_filenamev([localDir, localFilename]);
+        let localFile = Gio.File.new_for_path(localPath);
+        this.uriToLoad = localFile.get_uri();
     },
 
     canEdit: function() {
