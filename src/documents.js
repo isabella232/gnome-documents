@@ -1101,6 +1101,8 @@ const GoogleDocument = new Lang.Class({
     }
 });
 
+const OWNCLOUD_PREFIX = 'owncloud:';
+
 const OwncloudDocument = new Lang.Class({
     Name: 'OwncloudDocument',
     Extends: DocCommon,
@@ -1409,7 +1411,7 @@ const DocumentManager = new Lang.Class({
 
     _identifierIsOwncloud: function(identifier) {
         return (identifier &&
-                (identifier.indexOf('owncloud:') != -1));
+                (identifier.indexOf(OWNCLOUD_PREFIX) != -1));
     },
 
     _identifierIsSkydrive: function(identifier) {
