@@ -447,15 +447,15 @@ const DocCommon = new Lang.Class({
     },
 
     canEdit: function() {
-        log('Error: DocCommon implementations must override canEdit');
+        throw(new Error('DocCommon implementations must override canEdit'));
     },
 
     canShare: function() {
-        log('Error: DocCommon implementations must override canShare');
+        throw(new Error('DocCommon implementations must override canShare'));
     },
 
     canTrash: function() {
-        log('Error: DocCommon implementations must override canTrash');
+        throw(new Error('DocCommon implementations must override canTrash'));
     },
 
     canPrint: function(docModel) {
@@ -476,11 +476,11 @@ const DocCommon = new Lang.Class({
     },
 
     trashImpl: function() {
-        log('Error: DocCommon implementations must override trashImpl');
+        throw(new Error('DocCommon implementations must override trashImpl'));
     },
 
     createThumbnail: function(callback) {
-        log('Error: DocCommon implementations must override createThumbnail');
+        throw(new Error('DocCommon implementations must override createThumbnail'));
     },
 
     refreshIcon: function() {
@@ -884,6 +884,10 @@ const LocalDocument = new Lang.Class({
             description = Gio.content_type_get_description(this.mimeType);
 
         this.typeDescription = description;
+    },
+
+    downloadImpl: function(localFile, cancellable, callback) {
+        throw(new Error('LocalDocuments need not be downloaded'));
     },
 
     load: function(passwd, cancellable, callback) {
