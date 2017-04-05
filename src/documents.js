@@ -908,6 +908,59 @@ const GoogleDocument = new Lang.Class({
                  }));
     },
 
+    downloadImpl: function(localFile, cancellable, callback) {
+        this.createGDataEntry(cancellable, Lang.bind(this,
+            function(entry, service, error) {
+                if (error) {
+                    callback(false, error);
+                    return;
+                }
+
+                let inputStream;
+
+                try {
+                    inputStream = entry.download(service, 'pdf', cancellable);
+                } catch(e) {
+                    callback(false, e);
+                    return;
+                }
+
+                localFile.replace_async(null,
+                                        false,
+                                        Gio.FileCreateFlags.PRIVATE,
+                                        GLib.PRIORITY_DEFAULT,
+                                        cancellable,
+                                        Lang.bind(this,
+                    function(object, res) {
+                        let outputStream;
+
+                        try {
+                            outputStream = object.replace_finish(res);
+                        } catch (e) {
+                            callback(false, e);
+                            return;
+                        }
+
+                        outputStream.splice_async(inputStream,
+                                                  Gio.OutputStreamSpliceFlags.CLOSE_SOURCE |
+                                                  Gio.OutputStreamSpliceFlags.CLOSE_TARGET,
+                                                  GLib.PRIORITY_DEFAULT,
+                                                  cancellable,
+                                                  Lang.bind(this,
+                            function(object, res) {
+                                try {
+                                    object.splice_finish(res);
+                                } catch (e) {
+                                    callback(false, e);
+                                    return;
+                                }
+
+                                callback(false, null);
+                            }));
+                    }));
+            }))
+    },
+
     load: function(passwd, cancellable, callback) {
         this.createGDataEntry(cancellable, Lang.bind(this,
             function(entry, service, exception) {
