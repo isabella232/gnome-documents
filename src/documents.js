@@ -408,19 +408,19 @@ const DocCommon = new Lang.Class({
     },
 
     load: function() {
-        log('Error: DocCommon implementations must override load');
+        throw(new Error('DocCommon implementations must override load'));
     },
 
     canEdit: function() {
-        log('Error: DocCommon implementations must override canEdit');
+        throw(new Error('DocCommon implementations must override canEdit'));
     },
 
     canShare: function() {
-        log('Error: DocCommon implementations must override canShare');
+        throw(new Error('DocCommon implementations must override canShare'));
     },
 
     canTrash: function() {
-        log('Error: DocCommon implementations must override canTrash');
+        throw(new Error('DocCommon implementations must override canTrash'));
     },
 
     canPrint: function(docModel) {
@@ -441,11 +441,11 @@ const DocCommon = new Lang.Class({
     },
 
     trashImpl: function() {
-        log('Error: DocCommon implementations must override trashImpl');
+        throw(new Error('DocCommon implementations must override trashImpl'));
     },
 
     createThumbnail: function(callback) {
-        log('Error: DocCommon implementations must override createThumbnail');
+        throw(new Error('DocCommon implementations must override createThumbnail'));
     },
 
     refreshIcon: function() {
