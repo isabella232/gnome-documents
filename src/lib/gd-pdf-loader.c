@@ -374,24 +374,6 @@ pdf_load_job_cache_set_attributes (PdfLoadJob *job)
 }
 
 static void
-os_splice_ready_cb (GObject *source,
-                    GAsyncResult *res,
-                    gpointer user_data)
-{
-  GError *error = NULL;
-  PdfLoadJob *job = user_data;
-
-  g_output_stream_splice_finish (G_OUTPUT_STREAM (source), res, &error);
-
-  if (error != NULL) {
-    pdf_load_job_complete_error (job, error);
-    return;
-  }
-
-  pdf_load_job_cache_set_attributes (job);
-}
-
-static void
 unoconv_cancelled_cb (GCancellable *cancellable,
                       gpointer user_data)
 {
