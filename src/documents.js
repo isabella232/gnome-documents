@@ -1124,7 +1124,17 @@ const OwncloudDocument = new Lang.Class({
 
     populateFromCursor: function(cursor) {
         this.parent(cursor);
-        this.uriToLoad = this.uri;
+
+        let localDir = GLib.build_filenamev([GLib.get_user_cache_dir(), "gnome-documents", "owncloud"]);
+
+        let identifierHash = this.identifier.substring(OWNCLOUD_PREFIX.length);
+        let filenameStripped = GdPrivate.filename_strip_extension(this.filename);
+        let extension = this.filename.substring(filenameStripped.length);
+        let localFilename = identifierHash + extension;
+
+        let localPath = GLib.build_filenamev([localDir, localFilename]);
+        let localFile = Gio.File.new_for_path(localPath);
+        this.uriToLoad = localFile.get_uri();
     },
 
     createThumbnail: function(callback) {
@@ -1146,8 +1156,87 @@ const OwncloudDocument = new Lang.Class({
         this.typeDescription = description;
     },
 
+    downloadImpl: function(localFile, cancellable, callback) {
+        let remoteFile = Gio.File.new_for_uri(this.uri);
+        remoteFile.read_async(GLib.PRIORITY_DEFAULT, cancellable, Lang.bind(this,
+            function(object, res) {
+                let inputStream;
+
+                try {
+                    inputStream = object.read_finish(res);
+                } catch (e) {
+                    callback(false, e);
+                    return;
+                }
+
+                localFile.replace_async(null,
+                                        false,
+                                        Gio.FileCreateFlags.PRIVATE,
+                                        GLib.PRIORITY_DEFAULT,
+                                        cancellable,
+                                        Lang.bind(this,
+                    function(object, res) {
+                        let outputStream;
+
+                        try {
+                            outputStream = object.replace_finish(res);
+                        } catch (e) {
+                            callback(false, e);
+                            return;
+                        }
+
+                        outputStream.splice_async(inputStream,
+                                                  Gio.OutputStreamSpliceFlags.CLOSE_SOURCE |
+                                                  Gio.OutputStreamSpliceFlags.CLOSE_TARGET,
+                                                  GLib.PRIORITY_DEFAULT,
+                                                  cancellable,
+                                                  Lang.bind(this,
+                            function(object, res) {
+                                try {
+                                    object.splice_finish(res);
+                                } catch (e) {
+                                    callback(false, e);
+                                    return;
+                                }
+
+                                callback(false, null);
+                            }));
+                    }));
+            }));
+    },
+
     load: function(passwd, cancellable, callback) {
-        this.loadLocal(passwd, cancellable, callback);
+        this.download(true, cancellable, Lang.bind(this,
+            function(fromCache, error) {
+                if (error) {
+                    callback(this, null, error);
+                    return;
+                }
+
+                this.loadLocal(passwd, cancellable, Lang.bind(this,
+                    function(doc, docModel, error) {
+                        if (error) {
+                            if (fromCache &&
+                                !error.matches(EvDocument.DocumentError, EvDocument.DocumentError.ENCRYPTED)) {
+                                this.download(false, cancellable, Lang.bind(this,
+                                    function(fromCache, error) {
+                                        if (error) {
+                                            callback(this, null, error);
+                                            return;
+                                        }
+
+                                        this.loadLocal(passwd, cancellable, callback);
+                                    }));
+                            } else {
+                                callback(this, null, error);
+                            }
+
+                            return;
+                        }
+
+                        callback(this, docModel, null);
+                    }));
+            }));
     },
 
     canEdit: function() {
