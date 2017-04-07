@@ -407,8 +407,38 @@ const DocCommon = new Lang.Class({
         throw(new Error('DocCommon implementations must override downloadImpl'));
     },
 
-    load: function() {
-        log('Error: DocCommon implementations must override load');
+    load: function(passwd, cancellable, callback) {
+        this.download(true, cancellable, Lang.bind(this,
+            function(fromCache, error) {
+                if (error) {
+                    callback(this, null, error);
+                    return;
+                }
+
+                this.loadLocal(passwd, cancellable, Lang.bind(this,
+                    function(doc, docModel, error) {
+                        if (error) {
+                            if (fromCache &&
+                                !error.matches(EvDocument.DocumentError, EvDocument.DocumentError.ENCRYPTED)) {
+                                this.download(false, cancellable, Lang.bind(this,
+                                    function(fromCache, error) {
+                                        if (error) {
+                                            callback(this, null, error);
+                                            return;
+                                        }
+
+                                        this.loadLocal(passwd, cancellable, callback);
+                                    }));
+                            } else {
+                                callback(this, null, error);
+                            }
+
+                            return;
+                        }
+
+                        callback(this, docModel, null);
+                    }));
+            }));
     },
 
     canEdit: function() {
@@ -975,40 +1005,6 @@ const GoogleDocument = new Lang.Class({
             }))
     },
 
-    load: function(passwd, cancellable, callback) {
-        this.download(true, cancellable, Lang.bind(this,
-            function(fromCache, error) {
-                if (error) {
-                    callback(this, null, error);
-                    return;
-                }
-
-                this.loadLocal(passwd, cancellable, Lang.bind(this,
-                    function(doc, docModel, error) {
-                        if (error) {
-                            if (fromCache &&
-                                !error.matches(EvDocument.DocumentError, EvDocument.DocumentError.ENCRYPTED)) {
-                                this.download(false, cancellable, Lang.bind(this,
-                                    function(fromCache, error) {
-                                        if (error) {
-                                            callback(this, null, error);
-                                            return;
-                                        }
-
-                                        this.loadLocal(passwd, cancellable, callback);
-                                    }));
-                            } else {
-                                callback(this, null, error);
-                            }
-
-                            return;
-                        }
-
-                        callback(this, docModel, null);
-                    }));
-            }));
-    },
-
     createThumbnail: function(callback) {
         this.createGDataEntry(null, Lang.bind(this,
             function(entry, service, exception) {
@@ -1226,40 +1222,6 @@ const OwncloudDocument = new Lang.Class({
             }));
     },
 
-    load: function(passwd, cancellable, callback) {
-        this.download(true, cancellable, Lang.bind(this,
-            function(fromCache, error) {
-                if (error) {
-                    callback(this, null, error);
-                    return;
-                }
-
-                this.loadLocal(passwd, cancellable, Lang.bind(this,
-                    function(doc, docModel, error) {
-                        if (error) {
-                            if (fromCache &&
-                                !error.matches(EvDocument.DocumentError, EvDocument.DocumentError.ENCRYPTED)) {
-                                this.download(false, cancellable, Lang.bind(this,
-                                    function(fromCache, error) {
-                                        if (error) {
-                                            callback(this, null, error);
-                                            return;
-                                        }
-
-                                        this.loadLocal(passwd, cancellable, callback);
-                                    }));
-                            } else {
-                                callback(this, null, error);
-                            }
-
-                            return;
-                        }
-
-                        callback(this, docModel, null);
-                    }));
-            }));
-    },
-
     canEdit: function() {
         return false;
     },
@@ -1388,40 +1350,6 @@ const SkydriveDocument = new Lang.Class({
                                         callback(false, null);
                                     }));
                             }));
-                    }));
-            }));
-    },
-
-    load: function(passwd, cancellable, callback) {
-        this.download(true, cancellable, Lang.bind(this,
-            function(fromCache, error) {
-                if (error) {
-                    callback(this, null, error);
-                    return;
-                }
-
-                this.loadLocal(passwd, cancellable, Lang.bind(this,
-                    function(doc, docModel, error) {
-                        if (error) {
-                            if (fromCache &&
-                                !error.matches(EvDocument.DocumentError, EvDocument.DocumentError.ENCRYPTED)) {
-                                this.download(false, cancellable, Lang.bind(this,
-                                    function(fromCache, error) {
-                                        if (error) {
-                                            callback(this, null, error);
-                                            return;
-                                        }
-
-                                        this.loadLocal(passwd, cancellable, callback);
-                                    }));
-                            } else {
-                                callback(this, null, error);
-                            }
-
-                            return;
-                        }
-
-                        callback(this, docModel, null);
                     }));
             }));
     },
