@@ -5,21 +5,21 @@
 # Dāgs Ādams Grīnbergs <pepels1ns@gmail.com>, 2011.
 # Matīss Jānis Āboltiņš http://www.mja.lv/, 2011.
 # Viesturs Ružāns <viesty@exs.lv>, 2011.
-# Rūdofls Mazurs <rudolfs.mazurs@gmail.com>, 2011, 2012, 2013, 2014, 2016.
+# Rūdofls Mazurs <rudolfs.mazurs@gmail.com>, 2011, 2012, 2013, 2014, 2016, 2017.
 # Peteris Krisjanis <pecisk@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-user-docs master\n"
-"POT-Creation-Date: 2016-03-12 21:08+0000\n"
-"PO-Revision-Date: 2016-03-13 11:39+0200\n"
+"POT-Creation-Date: 2017-04-02 06:42+0000\n"
+"PO-Revision-Date: 2017-04-09 14:59+0200\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
-"2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 :"
+" 2);\n"
 "X-Generator: Lokalize 2.0\n"
 
 #. (itstool) path: p/link
@@ -177,17 +177,14 @@ msgstr "lejup"
 
 #. (itstool) path: page/p
 #: C/filter.page:29
-#| msgid ""
-#| "<link xref=\"search\">Open the search</link> and click the <media type="
-#| "\"image\" src=\"media/go-down.png\">down</media> button next to the "
-#| "search bar to limit the scope of the search in these categories:"
 msgid ""
 "<link xref=\"search\">Open the search</link> and click the <_:media-1/> "
 "button next to the search bar to limit the scope of the search in these "
 "categories:"
 msgstr ""
-"<link xref=\"search\">Atveriet meklēšanu</link> un spiediet <_:media-1/> pogu "
-"pie meklēšanas joslas, lai ierobežotu meklēšanas tvērumu uz šīm kategorijām:"
+"<link xref=\"search\">Atveriet meklēšanu</link> un spiediet <_:media-1/> "
+"pogu pie meklēšanas joslas, lai ierobežotu meklēšanas tvērumu uz šīm "
+"kategorijām:"
 
 #. (itstool) path: item/title
 #: C/filter.page:36
@@ -196,8 +193,13 @@ msgstr "Avoti"
 
 #. (itstool) path: item/p
 #: C/filter.page:37
+#| msgid ""
+#| "Chose to search documents that are <gui>Local</gui>, accessed through "
+#| "<link href=\"help:gnome-help/online-accounts\">online accounts</link> "
+#| "with <gui>Google</gui>, <gui>OneDrive</gui>, <gui>ownCloud</gui>, or "
+#| "<gui>All</gui>."
 msgid ""
-"Chose to search documents that are <gui>Local</gui>, accessed through <link "
+"Choose to search documents that are <gui>Local</gui>, accessed through <link "
 "href=\"help:gnome-help/online-accounts\">online accounts</link> with "
 "<gui>Google</gui>, <gui>OneDrive</gui>, <gui>ownCloud</gui>, or <gui>All</"
 "gui>."
@@ -335,16 +337,12 @@ msgstr "Atrast informāciju par dokumentiem"
 
 #. (itstool) path: page/p
 #: C/info.page:42
-#| msgid ""
-#| "When a document is created, it contains with <em>metadata</em>. "
-#| "<app>Documents</app> displays the following metadata for each document:"
 msgid ""
 "When a document is created, it contains <em>metadata</em>. <app>Documents</"
 "app> displays the following metadata for each document:"
 msgstr ""
-"Kad dokuments ir izveidots, tas satur <em>metadatus</em>. <app>Dokumenti</app>"
-" "
-"katram dokumentam attēlo šos metadatus:"
+"Kad dokuments ir izveidots, tas satur <em>metadatus</em>. <app>Dokumenti</"
+"app> katram dokumentam attēlo šos metadatus:"
 
 #. (itstool) path: item/p
 #: C/info.page:47
@@ -574,17 +572,12 @@ msgstr ""
 
 #. (itstool) path: note/p
 #: C/search.page:52
-#| msgid ""
-#| "You can restrict or filter the search results by clicking the <media type="
-#| "\"image\" src=\"media/go-down.png\">down</media> button and selecting "
-#| "various <link xref=\"filter\">filters</link>."
 msgid ""
 "You can restrict or filter the search results by clicking the <_:media-1/> "
 "button and selecting various <link xref=\"filter\">filters</link>."
 msgstr ""
 "Jūs varat ierobežot vai filtrēt meklēšanas rezultātus, spiežot <_:media-1/> "
-"pogu un "
-"izvēloties dažādus <link xref=\"filter\">filtrus</link>."
+"pogu un izvēloties dažādus <link xref=\"filter\">filtrus</link>."
 
 #. (itstool) path: info/desc
 #: C/viewgrid.page:29
@@ -640,9 +633,6 @@ msgstr "Skatīt savus dokumentu"
 
 #. (itstool) path: page/p
 #: C/view.page:42
-#| msgid ""
-#| "When you open <app>Documents</app>, all of your documents, those stored "
-#| "locally as well as online, are displayed as thumbnails."
 msgid ""
 "When you open <app>Documents</app>, documents which are stored locally in "
 "one of the standard folders such as <file>Documents</file> or "
@@ -721,25 +711,24 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/view-add.page:41
-#| msgid "Click the <gui>+</gui> button in the button bar."
 msgid "Click on <gui>Search</gui> to open the panel."
 msgstr "Spiediet pogu <gui>Meklēt</gui>, lai atvērtu paneli."
 
 #. (itstool) path: item/p
 #: C/view-add.page:44
-#| msgid "Press the list button in the top-right corner of the window."
 msgid ""
 "Press the button in the bottom-right of the window which will open "
 "<gui>Search Locations</gui>."
 msgstr ""
-"Spiediet pogu loga augšējā labajā stūrī, kas atvērs <gui>Meklēšanas vietas<"
-"/gui>."
+"Spiediet pogu loga augšējā labajā stūrī, kas atvērs <gui>Meklēšanas vietas</"
+"gui>."
 
 #. (itstool) path: item/p
 #: C/view-add.page:48
 msgid "Press <gui style=\"button\">+</gui> to add a new search location."
 msgstr ""
-"Spiediet <gui style=\"button\">+</gui>, lai pievienotu jaunu meklēšanas vietu."
+"Spiediet <gui style=\"button\">+</gui>, lai pievienotu jaunu meklēšanas "
+"vietu."
 
 #. (itstool) path: item/p
 #: C/view-add.page:51
@@ -747,9 +736,8 @@ msgid ""
 "Select the folder that you want to add and press <gui style=\"button\">OK</"
 "gui> to add the folder."
 msgstr ""
-"Izvēlieties mapi, ko vēlaties pievienot, un spiediet <gui style=\"button\">"
-"Labi</"
-"gui>, lai pievienotu mapi."
+"Izvēlieties mapi, ko vēlaties pievienot, un spiediet <gui style=\"button"
+"\">Labi</gui>, lai pievienotu mapi."
 
 #. (itstool) path: page/p
 #: C/view-add.page:63
@@ -760,3 +748,4 @@ msgid ""
 msgstr ""
 "Jaunas mapes pievienošana ļaus arī citām lietotnēm meklēt tajā mapē. Diemžēl "
 "nevar noteikt, kuras lietotnes tas ietekmēs, tās nepārbaudot."
+
