@@ -1,3 +1,15 @@
+3.24.1 - "I'm About to Dance"
+=============================
+
+- Use LOKDocView for pre-OOXML MS Office formats (Pranav Kant)
+- Unbreak opening in external application
+- Fix regression that prevented comics from being previewed
+- Make sure that load jobs are cancelled
+- Fix double menus in fullscreened evince view
+- Support fullscreening the e-pub view
+- Don't leak the URI when thumbnailing
+- Translation updates
+
 3.24.0 - "Must be the V"
 ========================
 
