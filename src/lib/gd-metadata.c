@@ -90,7 +90,7 @@ gd_metadata_load (GdMetadata *metadata)
   gint       i;
   GError    *error = NULL;
 
-  info = g_file_query_info (metadata->file, "metadata::*", 0, NULL, &error);
+  info = g_file_query_info (metadata->file, "metadata::*", G_FILE_QUERY_INFO_NONE, NULL, &error);
   if (!info)
     {
       g_warning ("%s", error->message);

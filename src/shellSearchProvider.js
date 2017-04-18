@@ -77,7 +77,7 @@ function _createThumbnailIcon(uri) {
 
     try {
         let info = file.query_info(Gio.FILE_ATTRIBUTE_THUMBNAIL_PATH,
-                                   0, null);
+                                   Gio.FileQueryInfoFlags.NONE, null);
         let path = info.get_attribute_byte_string(Gio.FILE_ATTRIBUTE_THUMBNAIL_PATH);
         if (path)
             return new Gio.FileIcon({ file: Gio.file_new_for_path(path) });

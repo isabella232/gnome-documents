@@ -496,7 +496,9 @@ const DocCommon = new Lang.Class({
 
         this._file = Gio.file_new_for_uri(this.uri);
         this._file.query_info_async(Gio.FILE_ATTRIBUTE_THUMBNAIL_PATH,
-                                    0, GLib.PRIORITY_DEFAULT, null,
+                                    Gio.FileQueryInfoFlags.NONE,
+                                    GLib.PRIORITY_DEFAULT,
+                                    null,
                                     Lang.bind(this, this._onFileQueryInfo));
     },
 
@@ -528,7 +530,9 @@ const DocCommon = new Lang.Class({
 
         // get the new thumbnail path
         this._file.query_info_async(Gio.FILE_ATTRIBUTE_THUMBNAIL_PATH,
-                                    0, GLib.PRIORITY_DEFAULT, null,
+                                    Gio.FileQueryInfoFlags.NONE,
+                                    GLib.PRIORITY_DEFAULT,
+                                    null,
                                     Lang.bind(this, this._onThumbnailPathInfo));
     },
 
