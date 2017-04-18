@@ -150,7 +150,7 @@ const Application = new Lang.Class({
 
             file.query_info_async(Gio.FILE_ATTRIBUTE_STANDARD_TYPE,
                                   Gio.FileQueryInfoFlags.NONE,
-                                  0,
+                                  GLib.PRIORITY_DEFAULT,
                                   null,
                                   Lang.bind(this,
                 function(object, res) {
