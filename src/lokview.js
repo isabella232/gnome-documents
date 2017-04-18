@@ -237,7 +237,7 @@ const LOKView = new Lang.Class({
 
     _createView: function() {
         if (isAvailable()) {
-            this.view = LOKDocView.View.new(null, null, null);
+            this.view = LOKDocView.View.new(null, null);
             this._sw.add(this.view);
             this.view.show();
             this.view.connect('button-press-event', Lang.bind(this, this._onButtonPressEvent));
