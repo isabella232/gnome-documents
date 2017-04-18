@@ -130,7 +130,7 @@ const LOKView = new Lang.Class({
         sw.get_style_context().add_class('documents-scrolledwin');
 
         if (isAvailable()) {
-            this._lokview = LOKDocView.View.new(null, null, null);
+            this._lokview = LOKDocView.View.new(null, null);
             sw.add(this._lokview);
 
             this._lokview.show();
