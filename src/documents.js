@@ -372,6 +372,8 @@ const DocCommon = new Lang.Class({
         GLib.mkdir_with_parents(localDir, 448);
 
         if (!useCache) {
+            Utils.debug('Downloading ' + this.__name__ + ' ' + this.id + ' to ' + this.uriToLoad +
+                        ': bypass cache ');
             this.downloadImpl(localFile, cancellable, callback);
             return;
         }
@@ -387,6 +389,8 @@ const DocCommon = new Lang.Class({
                 try {
                     info = object.query_info_finish(res);
                 } catch (e) {
+                    Utils.debug('Downloading ' + this.__name__ + ' ' + this.id + ' to ' + this.uriToLoad +
+                                ': cache miss');
                     this.downloadImpl(localFile, cancellable, callback);
                     return;
                 }
@@ -397,6 +401,8 @@ const DocCommon = new Lang.Class({
                     return;
                 }
 
+                Utils.debug('Downloading ' + this.__name__ + ' ' + this.id + ' to ' + this.uriToLoad +
+                            ': cache stale (' + this.mtime + ' > ' + cacheMtime + ')');
                 this.downloadImpl(localFile, cancellable, callback);
             }));
     },
@@ -406,6 +412,7 @@ const DocCommon = new Lang.Class({
     },
 
     load: function(passwd, cancellable, callback) {
+        Utils.debug('Loading ' + this.__name__ + ' ' + this.id);
         this.download(true, cancellable, Lang.bind(this,
             function(fromCache, error) {
                 if (error) {
@@ -670,6 +677,8 @@ const DocCommon = new Lang.Class({
     },
 
     loadLocal: function(passwd, cancellable, callback) {
+        Utils.debug('Loading ' + this.__name__ + ' ' + this.id + ' from ' + this.uriToLoad);
+
         if (this.mimeType == 'application/x-mobipocket-ebook' ||
             this.mimeType == 'application/x-fictionbook+xml' ||
             this.mimeType == 'application/x-zip-compressed-fb2') {
@@ -857,6 +866,7 @@ const LocalDocument = new Lang.Class({
     },
 
     load: function(passwd, cancellable, callback) {
+        Utils.debug('Loading ' + this.__name__ + ' ' + this.id);
         this.loadLocal(passwd, cancellable, callback);
     },
 
@@ -948,6 +958,8 @@ const GoogleDocument = new Lang.Class({
                     callback(false, error);
                     return;
                 }
+
+                Utils.debug('Created GDataEntry for ' + this.id);
 
                 let inputStream;
 
@@ -1285,6 +1297,8 @@ const SkydriveDocument = new Lang.Class({
                     callback(false, error);
                     return;
                 }
+
+                Utils.debug('Created ZpjEntry for ' + this.id);
 
                 service.download_file_to_stream_async(entry, cancellable, Lang.bind(this,
                     function(object, res) {
