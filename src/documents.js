@@ -386,8 +386,6 @@ const DocCommon = new Lang.Class({
                 }
 
                 let cacheMtime = info.get_attribute_uint64(Gio.FILE_ATTRIBUTE_TIME_MODIFIED);
-                cacheMtime /= 1000000;
-
                 if (this.mtime <= cacheMtime) {
                     callback(true, null);
                     return;
