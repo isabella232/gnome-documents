@@ -1,3 +1,10 @@
+3.22.3 - "Wallpapers and Yoga"
+==============================
+
+- Make sure that load jobs are cancelled
+- Don't leak the URI when thumbnailing
+- Pass the correct number of arguments to LOKDocView.View.new
+
 3.22.2 - "Worthington 1000"
 ===========================
 
