@@ -857,6 +857,8 @@ const SelectionToolbar = new Lang.Class({
                         'toolbarCollection' ],
 
     _init: function(overview) {
+        this._docToPrint = null;
+        this._docBeginPrintId = 0;
         this._itemListeners = {};
         this._insideRefresh = false;
         this._overview = overview;
@@ -883,6 +885,24 @@ const SelectionToolbar = new Lang.Class({
         Application.selectionController.connect('selection-changed',
             Lang.bind(this, this._onSelectionChanged));
         this._onSelectionChanged();
+    },
+
+    vfunc_destroy: function() {
+        this._disconnectDocToPrint();
+        this.parent();
+    },
+
+    vfunc_hide: function() {
+        this._disconnectDocToPrint();
+        this.parent();
+    },
+
+    _disconnectDocToPrint: function() {
+        if (this._docToPrint != null && this._docBeginPrintId != 0) {
+            this._docToPrint.disconnect(this._docBeginPrintId);
+            this._docToPrint = null;
+            this._docBeginPrintId = 0;
+        }
     },
 
     _updateCollectionsButton: function() {
@@ -1048,8 +1068,14 @@ const SelectionToolbar = new Lang.Class({
         if (selection.length != 1)
             return;
 
-        let doc = Application.documentManager.getItemById(selection[0]);
-        doc.print(this.get_toplevel());
-        this._overview.getAction('selection-mode').change_state(GLib.Variant.new('b', false));
+        this._disconnectDocToPrint();
+
+        this._docToPrint = Application.documentManager.getItemById(selection[0]);
+        this._docBeginPrintId = this._docToPrint.connect('begin-print', Lang.bind(this,
+            function(doc) {
+                this._overview.getAction('selection-mode').change_state(GLib.Variant.new('b', false));
+            }));
+
+        this._docToPrint.print(this.get_toplevel());
     },
 });
