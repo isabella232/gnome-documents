@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents.master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-03-01 22:24+0000\n"
-"PO-Revision-Date: 2017-03-17 16:28+0300\n"
+"POT-Creation-Date: 2017-04-20 17:22+0000\n"
+"PO-Revision-Date: 2017-04-23 15:46+0300\n"
 "Last-Translator: Yuras Shumovich <shumovichy@gmail.com>\n"
 "Language-Team: Belarusian <i18n-bel-gnome@googlegroups.com>\n"
 "Language: be\n"
@@ -19,8 +19,8 @@ msgstr ""
 "X-Generator: Poedit 1.8.11\n"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:1
-#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:108
-#: ../src/lib/gd-utils.c:340 ../src/overview.js:1053
+#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:111
+#: ../src/lib/gd-utils.c:329 ../src/overview.js:1053
 msgid "Books"
 msgstr "Кнігі"
 
@@ -128,8 +128,8 @@ msgid "Whether the application is in night mode."
 msgstr "Ці ўключаны начны рэжым."
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:1
-#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:111
-#: ../src/lib/gd-utils.c:333 ../src/overview.js:1053
+#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:114
+#: ../src/lib/gd-utils.c:322 ../src/overview.js:1053
 msgid "Documents"
 msgstr "Дакументы"
 
@@ -189,7 +189,7 @@ msgstr "Праца, кіраванне і супольны доступ да д�
 msgid "Docs;PDF;Document;"
 msgstr "Дакументы;PDF;"
 
-#: ../data/ui/app-menu.ui.h:1 ../src/mainToolbar.js:100
+#: ../data/ui/app-menu.ui.h:1 ../src/preview.js:454
 msgid "Night Mode"
 msgstr "Начны рэжым"
 
@@ -349,7 +349,7 @@ msgstr "Рэдагаваць"
 msgid "Print…"
 msgstr "Надрукаваць..."
 
-#: ../data/ui/preview-menu.ui.h:4 ../src/evinceview.js:746
+#: ../data/ui/preview-menu.ui.h:4 ../src/preview.js:463
 msgid "Fullscreen"
 msgstr "На ўвесь экран"
 
@@ -415,98 +415,98 @@ msgstr "Дата"
 msgid "Name"
 msgstr "Назва"
 
-#: ../src/application.js:122
+#: ../src/application.js:125
 msgid "Show the version of the program"
 msgstr "Паказаць версію праграмы"
 
-#: ../src/documents.js:671
+#: ../src/documents.js:763
 msgid "Failed to print document"
 msgstr "Не ўдалося надрукаваць дакумент"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:713 ../src/search.js:459
+#: ../src/documents.js:805 ../src/search.js:459
 msgid "Local"
 msgstr "Мясцовыя"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:755
+#: ../src/documents.js:848
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:756
+#: ../src/documents.js:849
 msgid "Getting Started with Documents"
 msgstr "Уводзіны ў працу з Дакументамі"
 
-#: ../src/documents.js:772 ../src/documents.js:956 ../src/documents.js:1024
-#: ../src/documents.js:1132
+#: ../src/documents.js:874 ../src/documents.js:1080 ../src/documents.js:1183
+#: ../src/documents.js:1377
 msgid "Collection"
 msgstr "Калекцыя"
 
 #. overridden
-#: ../src/documents.js:834
+#: ../src/documents.js:937
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:835
+#: ../src/documents.js:938
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:958 ../src/documents.js:1134
+#: ../src/documents.js:1082 ../src/documents.js:1379
 msgid "Spreadsheet"
 msgstr "Разліковы аркуш"
 
-#: ../src/documents.js:960 ../src/documents.js:1136 ../src/presentation.js:44
+#: ../src/documents.js:1084 ../src/documents.js:1381 ../src/presentation.js:44
 msgid "Presentation"
 msgstr "Прэзентацыя"
 
-#: ../src/documents.js:962 ../src/documents.js:1138
+#: ../src/documents.js:1086 ../src/documents.js:1383
 msgid "e-Book"
 msgstr "Электронная кніга"
 
-#: ../src/documents.js:964 ../src/documents.js:1140
+#: ../src/documents.js:1088 ../src/documents.js:1385
 msgid "Document"
 msgstr "Дакумент"
 
 #. overridden
-#: ../src/documents.js:1003
+#: ../src/documents.js:1138
 msgid "ownCloud"
 msgstr "ownCloud"
 
 #. overridden
-#: ../src/documents.js:1066 ../src/documents.js:1067
+#: ../src/documents.js:1272 ../src/documents.js:1273
 msgid "OneDrive"
 msgstr "OneDrive"
 
-#: ../src/documents.js:1314
+#: ../src/documents.js:1559
 msgid "Please check the network connection."
 msgstr "Праверце сеткавае злучэнне."
 
-#: ../src/documents.js:1317
+#: ../src/documents.js:1562
 msgid "Please check the network proxy settings."
 msgstr "Праверце настройкі сеткавага проксі-сервера."
 
-#: ../src/documents.js:1320
+#: ../src/documents.js:1565
 msgid "Unable to sign in to the document service."
 msgstr "Не ўдалося ўвайсці ў сэрвіс дакументаў."
 
-#: ../src/documents.js:1323
+#: ../src/documents.js:1568
 msgid "Unable to locate this document."
 msgstr "Не ўдалося адшукаць гэты дакумент."
 
-#: ../src/documents.js:1326
+#: ../src/documents.js:1571
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Хм, нешта падазрона (%d)."
 
-#: ../src/documents.js:1333
+#: ../src/documents.js:1578
 msgid ""
 "You are using a preview of Books. Full viewing capabilities are coming soon!"
 msgstr ""
 "Вы выкарыстоўваеце папярэднюю версію Books. Хутка выйдзе поўная версія!"
 
-#: ../src/documents.js:1335
+#: ../src/documents.js:1580
 msgid ""
 "LibreOffice support is not available. Please contact your system "
 "administrator."
@@ -514,7 +514,7 @@ msgstr ""
 "Падтрымка LibreOffice недаступная. Звяжыцеся з сістэмным адміністратарам."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1356
+#: ../src/documents.js:1603
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Ого! Не ўдалося загрузіць \"%s\""
@@ -524,11 +524,11 @@ msgstr "Ого! Не ўдалося загрузіць \"%s\""
 msgid "View"
 msgstr "Паглядзець"
 
-#: ../src/evinceview.js:700 ../src/lib/gd-places-bookmarks.c:656
+#: ../src/evinceview.js:596 ../src/lib/gd-places-bookmarks.c:656
 msgid "Bookmarks"
 msgstr "Закладкі"
 
-#: ../src/evinceview.js:708
+#: ../src/evinceview.js:604
 msgid "Bookmark this page"
 msgstr "Стварыць закладку для гэтай старонкі"
 
@@ -537,13 +537,9 @@ msgstr "Стварыць закладку для гэтай старонкі"
 msgid "Page %u of %u"
 msgstr "Старонка %u з %u"
 
-#: ../src/lib/gd-pdf-loader.c:247
+#: ../src/lib/gd-pdf-loader.c:142
 msgid "Unable to load the document"
 msgstr "Не ўдалося загрузіць дакумент"
-
-#: ../src/lib/gd-pdf-loader.c:715
-msgid "LibreOffice is required to view this document"
-msgstr "Для прагляду гэтага дакумента патрэбны LibreOffice"
 
 #. Translators: %s is the number of the page, already formatted
 #. * as a string, for example "Page 5".
@@ -569,15 +565,15 @@ msgstr "Адсутнічае змест"
 msgid "Contents"
 msgstr "Змест"
 
-#: ../src/lib/gd-utils.c:334
+#: ../src/lib/gd-utils.c:323
 msgid "A document manager application"
 msgstr "Праграма кіравання дакументамі"
 
-#: ../src/lib/gd-utils.c:341
+#: ../src/lib/gd-utils.c:330
 msgid "An e-books manager application"
 msgstr "Праграма кіравання электроннымі кнігамі"
 
-#: ../src/lib/gd-utils.c:349
+#: ../src/lib/gd-utils.c:338
 msgid "translator-credits"
 msgstr ""
 "Ігар Грачышка <ihar.hrachyshka@gmail.com>\n"
@@ -588,7 +584,7 @@ msgctxt "toolbar button tooltip"
 msgid "Search"
 msgstr "Пошук"
 
-#: ../src/mainToolbar.js:109
+#: ../src/mainToolbar.js:100
 msgid "Back"
 msgstr "Назад"
 
@@ -759,38 +755,38 @@ msgstr "_Пароль"
 msgid "Running in presentation mode"
 msgstr "У рэжыме прэзентацыі"
 
-#: ../src/presentation.js:125
+#: ../src/presentation.js:130
 msgid "Present On"
 msgstr "Прэзентацыя"
 
 #. Translators: "Mirrored" describes when both displays show the same view
-#: ../src/presentation.js:161
+#: ../src/presentation.js:166
 msgid "Mirrored"
 msgstr "Адлюстроўванне"
 
-#: ../src/presentation.js:163
+#: ../src/presentation.js:168
 msgid "Primary"
 msgstr "Галоўны"
 
-#: ../src/presentation.js:165
+#: ../src/presentation.js:170
 msgid "Off"
 msgstr "Выключана"
 
-#: ../src/presentation.js:167
+#: ../src/presentation.js:172
 msgid "Secondary"
 msgstr "Другасны"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/preview.js:298 ../src/selections.js:959
+#: ../src/preview.js:446 ../src/selections.js:959
 #, javascript-format
 msgid "Open with %s"
 msgstr "Адкрыць у %s"
 
-#: ../src/preview.js:547
+#: ../src/preview.js:778
 msgid "Find Previous"
 msgstr "Знайсці раней"
 
-#: ../src/preview.js:553
+#: ../src/preview.js:784
 msgid "Find Next"
 msgstr "Знайсці далей"
 
@@ -896,6 +892,14 @@ msgstr "Змесціва"
 msgid "Sources"
 msgstr "Крыніцы"
 
+#. Translators: the first %s is an online account provider name,
+#. e.g. "Google". The second %s is the identity used to log in,
+#. e.g. "foo@gmail.com".
+#: ../src/search.js:508
+#, javascript-format
+msgid "%s (%s)"
+msgstr "%s (%s)"
+
 #: ../src/selections.js:360 ../src/selections.js:362
 msgid "Rename…"
 msgstr "Пераназваць..."
@@ -994,6 +998,9 @@ msgstr "Дакумент без назвы"
 #: ../src/trackerController.js:176
 msgid "Unable to fetch the list of documents"
 msgstr "Не ўдалося атрымаць спіс дакументаў"
+
+#~ msgid "LibreOffice is required to view this document"
+#~ msgstr "Для прагляду гэтага дакумента патрэбны LibreOffice"
 
 #~ msgid ""
 #~ "<li>View recent local and online documents</li> <li>Access your Google, "
