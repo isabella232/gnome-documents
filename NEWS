@@ -1,3 +1,20 @@
+3.25.1 - "Le Zanzibar"
+======================
+
+- Use LOKDocView for pre-OOXML MS Office formats (Pranav Kant)
+- Unbreak opening in external application
+- Fix regression that prevented comics from being previewed
+- Make sure that load jobs are cancelled
+- Fix double menus in fullscreened evince view
+- Support fullscreening the e-pub view
+- Distinguish multiple online sources from the same provider
+- Don't leak the URI when thumbnailing
+- Unbreak previews of LOKDocView-supported documents from OneDrive
+- Unreak caching of LOKDocView-supported documents from ownCloud
+- Support previews of encrypted PDFs from Google
+- Pass the right number of arguments to LOKDocView.View.new
+- Translation updates
+
 3.24.0 - "Must be the V"
 ========================
 
