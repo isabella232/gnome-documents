@@ -1064,9 +1064,16 @@ const OverviewStack = new Lang.Class({
     },
 
     _getDefaultActions: function() {
+        let backAccels = ['Back'];
+        if (this.get_direction() == Gtk.TextDirection.LTR)
+            backAccels.push('<Alt>Left');
+        else
+            backAccels.push('<Alt>Right');
+
         return [
             { name: 'go-back',
-              callback: Lang.bind(this, this._goBack) },
+              callback: Lang.bind(this, this._goBack),
+              accels: backAccels },
             { name: 'selection-mode',
               callback: Utils.actionToggleCallback,
               state: GLib.Variant.new('b', false),
