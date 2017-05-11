@@ -750,7 +750,6 @@ const ViewContainer = new Lang.Class({
     _init: function(overview, windowMode) {
         this._edgeHitId = 0;
         this._mode = windowMode;
-        this._overview = overview;
 
         this._model = new ViewModel(this._mode);
 
@@ -784,9 +783,9 @@ const ViewContainer = new Lang.Class({
         this.view.connect('notify::view-type',
                           Lang.bind(this, this._onViewTypeChanged));
 
-        let selectionModeAction = this._overview.getAction('selection-mode');
-        selectionModeAction.connect('notify::state', Lang.bind(this, this._onSelectionModeChanged));
-        this._onSelectionModeChanged(selectionModeAction);
+        this._selectionModeAction = overview.getAction('selection-mode');
+        this._selectionModeAction.connect('notify::state', Lang.bind(this, this._onSelectionModeChanged));
+        this._onSelectionModeChanged();
 
         Application.modeController.connect('window-mode-changed',
             Lang.bind(this, this._onWindowModeChanged));
@@ -902,7 +901,7 @@ const ViewContainer = new Lang.Class({
     },
 
     _onSelectionModeRequest: function() {
-        this._overview.getAction('selection-mode').change_state(GLib.Variant.new('b', true));
+        this._selectionModeAction.change_state(GLib.Variant.new('b', true));
     },
 
     _onItemActivated: function(widget, id, path) {
@@ -979,8 +978,8 @@ const ViewContainer = new Lang.Class({
         Application.selectionController.setSelection(newSelection);
     },
 
-    _onSelectionModeChanged: function(action) {
-        let selectionMode = action.state.get_boolean();
+    _onSelectionModeChanged: function() {
+        let selectionMode = this._selectionModeAction.state.get_boolean();
         this.view.set_selection_mode(selectionMode);
     },
 
