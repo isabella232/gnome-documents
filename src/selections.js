@@ -861,10 +861,10 @@ const SelectionToolbar = new Lang.Class({
         this._docBeginPrintId = 0;
         this._itemListeners = {};
         this._insideRefresh = false;
-        this._overview = overview;
 
         this.parent();
 
+        this._selectionModeAction = overview.getAction('selection-mode');
 
         this._toolbarOpen.connect('clicked', Lang.bind(this, this._onToolbarOpen));
         this._toolbarPrint.connect('clicked', Lang.bind(this, this._onToolbarPrint));
@@ -1001,13 +1001,13 @@ const SelectionToolbar = new Lang.Class({
 
         let dialog = new OrganizeCollectionDialog(toplevel);
         dialog.connect('destroy', Lang.bind(this, function() {
-            this._overview.getAction('selection-mode').change_state(GLib.Variant.new('b', false));
+            this._selectionModeAction.change_state(GLib.Variant.new('b', false));
         }));
     },
 
     _onToolbarOpen: function(widget) {
         let selection = Application.selectionController.getSelection();
-        this._overview.getAction('selection-mode').change_state(GLib.Variant.new('b', false));
+        this._selectionModeAction.change_state(GLib.Variant.new('b', false));
 
         selection.forEach(Lang.bind(this,
             function(urn) {
@@ -1038,7 +1038,7 @@ const SelectionToolbar = new Lang.Class({
             }));
 
         let deleteNotification = new Notifications.DeleteNotification(docs);
-        this._overview.getAction('selection-mode').change_state(GLib.Variant.new('b', false));
+        this._selectionModeAction.change_state(GLib.Variant.new('b', false));
     },
 
     _onToolbarProperties: function(widget) {
@@ -1048,7 +1048,7 @@ const SelectionToolbar = new Lang.Class({
         dialog.connect('response', Lang.bind(this,
             function(widget, response) {
                 dialog.destroy();
-                this._overview.getAction('selection-mode').change_state(GLib.Variant.new('b', false));
+                this._selectionModeAction.change_state(GLib.Variant.new('b', false));
             }));
     },
 
@@ -1058,7 +1058,7 @@ const SelectionToolbar = new Lang.Class({
        dialog.connect('response', Lang.bind(this,
            function(widget, response) {
                dialog.destroy();
-               this._overview.getAction('selection-mode').change_state(GLib.Variant.new('b', false));
+               this._selectionModeAction.change_state(GLib.Variant.new('b', false));
            }));
     },
 
@@ -1073,7 +1073,7 @@ const SelectionToolbar = new Lang.Class({
         this._docToPrint = Application.documentManager.getItemById(selection[0]);
         this._docBeginPrintId = this._docToPrint.connect('begin-print', Lang.bind(this,
             function(doc) {
-                this._overview.getAction('selection-mode').change_state(GLib.Variant.new('b', false));
+                this._selectionModeAction.change_state(GLib.Variant.new('b', false));
             }));
 
         this._docToPrint.print(this.get_toplevel());

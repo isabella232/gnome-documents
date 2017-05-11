@@ -1037,16 +1037,16 @@ const OverviewStack = new Lang.Class({
         this.parent({ orientation: Gtk.Orientation.VERTICAL,
                       visible: true });
 
+        let actions = this._getDefaultActions();
+        this.actionGroup = new Gio.SimpleActionGroup();
+        Utils.populateActionGroup(this.actionGroup, actions, 'view');
+
         this._stack = new Gtk.Stack({ visible: true });
         this.pack_start(this._stack, true, true, 0);
 
         // create the toolbar for selected items, it's hidden by default
         this._selectionToolbar = new Selections.SelectionToolbar(this);
         this.pack_end(this._selectionToolbar, false, false, 0);
-
-        let actions = this._getDefaultActions();
-        this.actionGroup = new Gio.SimpleActionGroup();
-        Utils.populateActionGroup(this.actionGroup, actions, 'view');
 
         // now create the actual content widgets
         this._documents = new ViewContainer(this, WindowMode.WindowMode.DOCUMENTS);
