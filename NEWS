@@ -1,3 +1,12 @@
+3.24.2 - "Sterling Cooper"
+==========================
+
+- Unbreak previews of LOKDocView-supported documents from OneDrive
+- Unreak caching of LOKDocView-supported documents from ownCloud
+- Support previews of encrypted PDFs from Google
+- Pass the right number of arguments to LOKDocView.View.new
+- Translation updates
+
 3.24.1 - "I'm About to Dance"
 =============================
 
