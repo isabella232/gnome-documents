@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-user-docs master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-13 17:58+0000\n"
-"PO-Revision-Date: 2016-05-17 12:09+0200\n"
+"POT-Creation-Date: 2017-04-20 17:09+0000\n"
+"PO-Revision-Date: 2017-05-14 23:03+0200\n"
 "Last-Translator: Christian Kirbach <christian.kirbach@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.0.1\n"
 
 #. (itstool) path: p/link
 #: C/legal.xml:3
@@ -258,8 +258,7 @@ msgstr ""
 #: C/formats.page:24
 msgid "<app>Documents</app> displays a number of popular document types."
 msgstr ""
-"<app>Dokumentverwaltung</app> zeigt eine Reihe von verbreiteten "
-"Dokumenttypen an."
+"<app>Dokumente</app> zeigt eine Reihe von verbreiteten Dokumenttypen an."
 
 #. (itstool) path: page/title
 #: C/formats.page:28
@@ -273,10 +272,10 @@ msgid ""
 "supported by <app href=\"help:evince\">Document Viewer</app>, <app>Microsoft "
 "Office</app>, <app>LibreOffice</app> and <app>Google Docs</app>."
 msgstr ""
-"<app>Dokumentverwaltung</app> zeigt PDF, DVI, XPS, PostScript und die von "
-"<app href=\"help:evince\">Dokumentenbetrachter</app> (Evince), "
-"<app>Microsoft Office</app>, <app>LibreOffice</app> und <app>Google Docs</"
-"app> unterstützten Formate an."
+"<app>Dokumente</app> zeigt PDF, DVI, XPS, PostScript und die von <app href="
+"\"help:evince\">Dokumentenbetrachter</app> (Evince), <app>Microsoft Office</"
+"app>, <app>LibreOffice</app> und <app>Google Docs</app> unterstützten "
+"Formate an."
 
 #. (itstool) path: info/title
 #: C/index.page:7
@@ -311,10 +310,10 @@ msgid ""
 "and print the documents on your computer or those created remotely using "
 "<em>Google Docs</em>, <em>ownCloud</em> or <em>OneDrive</em>."
 msgstr ""
-"<app>Dokumentverwaltung</app> ist eine Anwendung für GNOME, mit der Sie die "
-"Dokumente auf Ihrem Rechner anzeigen, organisieren und drucken können. Diese "
-"können entweder lokal oder entfernt in <em>Google Docs</em>, <em>ownCloud</"
-"em> oder <em>OneDrive</em> gespeichert sein."
+"<app>Dokumente</app> ist eine Anwendung für GNOME, mit der Sie die Dokumente "
+"auf Ihrem Rechner anzeigen, organisieren und drucken können. Diese können "
+"entweder lokal oder entfernt in <em>Google Docs</em>, <em>ownCloud</em> oder "
+"<em>OneDrive</em> gespeichert sein."
 
 #. (itstool) path: section/title
 #: C/index.page:55
@@ -349,8 +348,8 @@ msgid ""
 "app> displays the following metadata for each document:"
 msgstr ""
 "Bei der Erstellung eines Dokuments werden <em>Metadaten</em> mit "
-"gespeichert. <app>Dokumentverwaltung</app> zeigt die folgenden Metadaten für "
-"jeden Dokumenttyp an:"
+"gespeichert. <app>Dokumente</app> zeigt die folgenden Metadaten für jeden "
+"Dokumenttyp an:"
 
 #. (itstool) path: item/p
 #: C/info.page:47
@@ -413,10 +412,10 @@ msgid ""
 "create the document (e.g. <app>LibreOffice</app> or <app>Adobe Acrobat</"
 "app>)."
 msgstr ""
-"<app>Dokumentverwaltung</app> bietet derzeit keine Möglichkeit, die "
-"Privatsphäre eines Dokuments zu schützen. Sie können dies in der Anwendung "
-"tun, mit der Sie das Dokument erstellt haben (z.B. <app>LibreOffice</app> "
-"oder <app>Adobe Acrobat</app>)."
+"<app>Dokumente</app> bietet derzeit keine Möglichkeit, die Privatsphäre "
+"eines Dokuments zu schützen. Sie können dies in der Anwendung tun, mit der "
+"Sie das Dokument erstellt haben (z.B. <app>LibreOffice</app> oder <app>Adobe "
+"Acrobat</app>)."
 
 #. (itstool) path: info/desc
 #: C/print.page:23
@@ -473,8 +472,8 @@ msgid ""
 "and office suite documents such as spreadsheets and word processor "
 "documents. It will not show text documents and photos."
 msgstr ""
-"<app>Dokumentverwaltung</app> unterstützt nur bestimmte Dokumententypen wie "
-"z.B. PDFs und Office-Dokumente wie Tabellenkalkulationen und "
+"<app>Dokumente</app> unterstützt nur bestimmte Dokumententypen wie z.B. PDFs "
+"und Office-Dokumente wie Tabellenkalkulationen und "
 "Textverarbeitungsdokumente. Es stellt keine reinen Textdokuments oder Fotos "
 "dar."
 
@@ -486,10 +485,10 @@ msgid ""
 "inside folders that are in those directories. Documents that are in other "
 "places on your computer will not be shown."
 msgstr ""
-"Damit lokale Dokumente in der <app>Dokumentverwaltung</app> erscheinen, "
-"müssen sie in Ihrem Ordner <file>Dokumente</file> oder <file>Downloads</"
-"file> sein, oder in deren Unterordnern. Dokumente an anderen Orten auf Ihrem "
-"Rechner werden nicht angezeigt."
+"Damit lokale Dokumente in <app>Dokumente</app> erscheinen, müssen sie in "
+"Ihrem Ordner <file>Dokumente</file> oder <file>Downloads</file> sein, oder "
+"in deren Unterordnern. Dokumente an anderen Orten auf Ihrem Rechner werden "
+"nicht angezeigt."
 
 #. (itstool) path: page/p
 #: C/prob-no-show.page:55
@@ -500,12 +499,12 @@ msgid ""
 "your home directory (non-recursively) and XDG folders (recursively), should "
 "be adequate."
 msgstr ""
-"Falls Ihre Dokumente in der <app>Dokumentverwaltung</app> nicht angezeigt "
-"werden können, so ist es möglich, dass <app>Tracker</app> nicht läuft oder "
-"nicht korrekt eingerichtet ist. Stellen Sie sicher, dass <app>Tracker</app> "
-"in Ihrer Sitzung läuft. In der Standardkonfiguration, die passend sein "
-"sollte, werden Dateien in Ihrem persönlichen Ordner (nicht rekursiv) sowie "
-"in den XDG-Ordnern (rekursiv) erfasst."
+"Falls Ihre Dokumente in <app>Dokumente</app> nicht angezeigt werden können, "
+"so ist es möglich, dass <app>Tracker</app> nicht läuft oder nicht korrekt "
+"eingerichtet ist. Stellen Sie sicher, dass <app>Tracker</app> in Ihrer "
+"Sitzung läuft. In der Standardkonfiguration, die passend sein sollte, werden "
+"Dateien in Ihrem persönlichen Ordner (nicht rekursiv) sowie in den XDG-"
+"Ordnern (rekursiv) erfasst."
 
 #. (itstool) path: info/desc
 #: C/prob-previews.page:29
@@ -527,10 +526,10 @@ msgid ""
 "em>. Those stored in <em>OneDrive</em> show as missing (or blank) preview "
 "thumbnails."
 msgstr ""
-"Wenn Sie die <app>Dokumentverwaltung</app> öffnen, wird ein Vorschaubild für "
-"lokal, auf <em>Google Drive</em> und <em>ownCloud</em> gespeicherte "
-"Dokumente angezeigt. Dokumente, die sich auf <em>OneDrive</em> befinden, "
-"werden als fehlende oder leere Vorschauen angezeigt."
+"Wenn Sie <app>Dokumente</app> öffnen, wird ein Vorschaubild für lokal, auf "
+"<em>Google Drive</em> und <em>ownCloud</em> gespeicherte Dokumente "
+"angezeigt. Dokumente, die sich auf <em>OneDrive</em> befinden, werden als "
+"fehlende oder leere Vorschauen angezeigt."
 
 #. (itstool) path: page/p
 #: C/prob-previews.page:46
@@ -565,7 +564,7 @@ msgstr "Nach Dateien suchen"
 #. (itstool) path: page/p
 #: C/search.page:38
 msgid "To start a search in <app>Documents</app>:"
-msgstr "So suchen Sie in der <app>Dokumentverwaltung</app>:"
+msgstr "So suchen Sie in <app>Dokumente</app>:"
 
 #. (itstool) path: item/p
 #: C/search.page:42
@@ -657,10 +656,10 @@ msgid ""
 "<file>Downloads</file> and in one of your online accounts, are displayed as "
 "thumbnails."
 msgstr ""
-"Wenn Sie die <app>Dokumentverwaltung</app> öffnen, werden alle Ihre "
-"Dokumente als Vorschaubilder angezeigt, die sowohl lokal in Standard-Ordnern "
-"wie <file>Dokumente</file> und <file>Downloads</file> als auch in Online-"
-"Konten gespeichert sind."
+"Wenn Sie <app>Dokumente</app> öffnen, werden alle Ihre Dokumente als "
+"Vorschaubilder angezeigt, die sowohl lokal in Standard-Ordnern wie "
+"<file>Dokumente</file> und <file>Downloads</file> als auch in Online-Konten "
+"gespeichert sind."
 
 #. (itstool) path: note/p
 #: C/view.page:48
@@ -698,7 +697,7 @@ msgid ""
 "app>."
 msgstr ""
 "So fügen Sie zusätzliche Ordner zu denjenigen hinzu, die bereits von "
-"<app>Dokumentverwaltung</app> durchsucht werden."
+"<app>Dokumente</app> durchsucht werden."
 
 #. (itstool) path: page/title
 #: C/view-add.page:25
@@ -715,12 +714,12 @@ msgid ""
 "standard location such as another folder on your computer or on an external "
 "hard disk."
 msgstr ""
-"<app>Dokumentverwaltung</app> zeigt normalerweise nur Dokumente, die in "
-"Standard-Ordnern wie <file>Dokumente</file> und <file>Downloads</file> "
-"gespeichert sind. Fügen Sie auf Wunsch zusätzliche Ordner hinzu, die Sie in "
-"der <app>Such</app>leiste suchen wollen. Dies bietet sich an, wenn Sie "
-"einige Ihrer Dokumente außerhalb der Standard-Ordner aufbewahren, wie z.B. "
-"in einem separaten Ordner auf Ihrem Rechner oder einer externen Festplatte."
+"<app>Dokumente</app> zeigt normalerweise nur Dokumente, die in Standard-"
+"Ordnern wie <file>Dokumente</file> und <file>Downloads</file> gespeichert "
+"sind. Fügen Sie auf Wunsch zusätzliche Ordner hinzu, die Sie in der "
+"<app>Such</app>leiste suchen wollen. Dies bietet sich an, wenn Sie einige "
+"Ihrer Dokumente außerhalb der Standard-Ordner aufbewahren, wie z.B. in einem "
+"separaten Ordner auf Ihrem Rechner oder einer externen Festplatte."
 
 #. (itstool) path: item/p
 #: C/view-add.page:36
