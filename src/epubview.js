@@ -23,6 +23,7 @@ const GdPrivate = imports.gi.GdPrivate;
 const Gepub = imports.gi.Gepub;
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
+const Gtk = imports.gi.Gtk;
 const WebKit2 = imports.gi.WebKit2;
 
 const _ = imports.gettext.gettext;
@@ -61,6 +62,10 @@ const EPUBView = new Lang.Class({
         return new EPUBViewToolbar(this);
     },
 
+    createNavControls: function() {
+        return new EPUBViewNavControls(this, this.overlay);
+    },
+
     createView: function() {
         let view = new Gepub.Widget();
 
@@ -95,6 +100,7 @@ const EPUBView = new Lang.Class({
         this._metadata = this._loadMetadata();
 
         this.set_visible_child_name('view');
+        this.navControls.setDocument(this._epubdoc);
     },
 
     _loadMetadata: function() {
@@ -192,4 +198,53 @@ const EPUBViewToolbar = new Lang.Class({
 
         this.addSearchButton('view.find');
     }
+});
+
+const EPUBViewNavControls = new Lang.Class({
+    Name: 'EPUBViewNavControls',
+    Extends: Preview.PreviewNavControls,
+
+    setDocument: function(epubdoc) {
+        this._label = new Gtk.Label();
+        this._level = Gtk.Scale.new_with_range(Gtk.Orientation.HORIZONTAL, 1,
+                                               this.preview.numPages, 1.0);
+        this._level.set_draw_value(false);
+        this._level.set_digits(0);
+
+        this.barWidget.add(this._label);
+        this.barWidget.pack_start(this._level, true, true, 5);
+
+        this._level.connect('value-changed', Lang.bind(this, function() {
+            epubdoc.set_page(this._level.get_value() - 1);
+        }));
+
+        epubdoc.connect('notify::page', Lang.bind(this, this._updatePage));
+        this._updatePage();
+    },
+
+    _updatePage: function() {
+        let current = this.preview.page + 1;
+        let max = this.preview.numPages;
+        let text = _("chapter %s of %s").format(current, max);
+
+        this._label.set_text(text);
+        this._level.set_value(current);
+    },
+
+    createBarWidget: function() {
+        return new EPUBBarWidget({ orientation: Gtk.Orientation.HORIZONTAL,
+                                   spacing: 10,
+                                   margin: Preview.PREVIEW_NAVBAR_MARGIN,
+                                   valign: Gtk.Align.END,
+                                   opacity: 0 });
+    }
+});
+
+// This class is needed to change the css_name of the widget, to style as a
+// toolbar, with round borders and the correct padding. Doing this we'll
+// have the same styles as GdNavBar
+const EPUBBarWidget = new Lang.Class({
+    Name: 'EPUBBarWidget',
+    Extends: Gtk.Box,
+    CssName: 'toolbar'
 });
