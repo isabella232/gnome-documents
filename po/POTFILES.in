@@ -19,6 +19,7 @@ src/application.js
 src/documents.js
 src/edit.js
 src/embed.js
+src/epubview.js
 src/evinceview.js
 src/lib/gd-nav-bar.c
 src/lib/gd-pdf-loader.c
