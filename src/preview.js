@@ -559,7 +559,6 @@ const PreviewNavControls = new Lang.Class({
 
         this._visible = false;
         this._visibleInternal = false;
-        this._pageChangedId = 0;
         this._autoHideId = 0;
         this._motionId = 0;
 
