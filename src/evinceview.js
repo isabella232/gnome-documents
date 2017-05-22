@@ -544,10 +544,6 @@ const EvinceView = new Lang.Class({
         return metadata;
     },
 
-    getModel: function() {
-        return this._model;
-    },
-
     goPrev: function() {
         this._evView.previous_page();
     },
