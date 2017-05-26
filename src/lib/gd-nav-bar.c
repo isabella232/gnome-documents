@@ -735,8 +735,6 @@ gd_nav_bar_realize (GtkWidget *widget)
                                  &attributes, attributes_mask);
         gtk_widget_set_window (widget, window);
         gtk_widget_register_window (widget, window);
-
-        gtk_style_context_set_background (gtk_widget_get_style_context (widget), window);
 }
 
 static gboolean
