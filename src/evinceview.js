@@ -579,9 +579,7 @@ const EvinceViewNavControls = new Lang.Class({
     Extends: Preview.PreviewNavControls,
 
     createBarWidget: function() {
-        let barWidget = new GdPrivate.NavBar({ margin: Preview.PREVIEW_NAVBAR_MARGIN,
-                                               valign: Gtk.Align.END,
-                                               opacity: 0 });
+        let barWidget = new GdPrivate.NavBar();
 
         let buttonArea = barWidget.get_button_area();
 

@@ -233,10 +233,7 @@ const EPUBViewNavControls = new Lang.Class({
 
     createBarWidget: function() {
         let barWidget = new EPUBBarWidget({ orientation: Gtk.Orientation.HORIZONTAL,
-                                            spacing: 10,
-                                            margin: Preview.PREVIEW_NAVBAR_MARGIN,
-                                            valign: Gtk.Align.END,
-                                            opacity: 0 });
+                                            spacing: 10 });
 
         this._label = new Gtk.Label();
         barWidget.add(this._label);

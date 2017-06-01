@@ -6,7 +6,6 @@ const Gtk = imports.gi.Gtk;
 
 const Lang = imports.lang;
 const Mainloop = imports.mainloop;
-const Tweener = imports.tweener.tweener;
 
 const Application = imports.application;
 const ErrorBox = imports.errorBox;
@@ -554,6 +553,7 @@ const PreviewNavControls = new Lang.Class({
     Name: 'PreviewNavControls',
 
     _init: function(preview, overlay) {
+        this._barRevealer = null;
         this.preview = preview;
         this._overlay = overlay;
 
@@ -564,39 +564,55 @@ const PreviewNavControls = new Lang.Class({
 
         this.barWidget = this.createBarWidget();
         if (this.barWidget) {
+            this._barRevealer = new Gtk.Revealer({ transition_type: Gtk.RevealerTransitionType.CROSSFADE,
+                                                   margin: PREVIEW_NAVBAR_MARGIN,
+                                                   valign: Gtk.Align.END });
+            this._overlay.add_overlay(this._barRevealer);
+
             this.barWidget.get_style_context().add_class('osd');
-            this._overlay.add_overlay(this.barWidget);
+            this._barRevealer.add(this.barWidget);
             this.barWidget.connect('notify::hover', Lang.bind(this, function() {
                 if (this.barWidget.hover)
                     this._onEnterNotify();
                 else
                     this._onLeaveNotify();
             }));
+
+            this._barRevealer.show_all();
         }
 
-        this._prevWidget = new Gtk.Button({ image: new Gtk.Image ({ icon_name: 'go-previous-symbolic',
-                                                                    pixel_size: 16 }),
-                                            margin_start: PREVIEW_NAVBAR_MARGIN,
-                                            margin_end: PREVIEW_NAVBAR_MARGIN,
-                                            halign: Gtk.Align.START,
-                                            valign: Gtk.Align.CENTER });
-        this._prevWidget.get_style_context().add_class('osd');
-        this._overlay.add_overlay(this._prevWidget);
-        this._prevWidget.connect('clicked', Lang.bind(this, this._onPrevClicked));
-        this._prevWidget.connect('enter-notify-event', Lang.bind(this, this._onEnterNotify));
-        this._prevWidget.connect('leave-notify-event', Lang.bind(this, this._onLeaveNotify));
+        this._prevRevealer = new Gtk.Revealer({ transition_type: Gtk.RevealerTransitionType.CROSSFADE,
+                                                margin_start: PREVIEW_NAVBAR_MARGIN,
+                                                margin_end: PREVIEW_NAVBAR_MARGIN,
+                                                halign: Gtk.Align.START,
+                                                valign: Gtk.Align.CENTER });
+        this._overlay.add_overlay(this._prevRevealer);
 
-        this._nextWidget = new Gtk.Button({ image: new Gtk.Image ({ icon_name: 'go-next-symbolic',
-                                                                    pixel_size: 16 }),
-                                            margin_start: PREVIEW_NAVBAR_MARGIN,
-                                            margin_end: PREVIEW_NAVBAR_MARGIN,
-                                            halign: Gtk.Align.END,
-                                            valign: Gtk.Align.CENTER });
-        this._nextWidget.get_style_context().add_class('osd');
-        this._overlay.add_overlay(this._nextWidget);
-        this._nextWidget.connect('clicked', Lang.bind(this, this._onNextClicked));
-        this._nextWidget.connect('enter-notify-event', Lang.bind(this, this._onEnterNotify));
-        this._nextWidget.connect('leave-notify-event', Lang.bind(this, this._onLeaveNotify));
+        let prevButton = new Gtk.Button({ image: new Gtk.Image ({ icon_name: 'go-previous-symbolic',
+                                                                  pixel_size: 16 }), });
+        prevButton.get_style_context().add_class('osd');
+        this._prevRevealer.add(prevButton);
+        prevButton.connect('clicked', Lang.bind(this, this._onPrevClicked));
+        prevButton.connect('enter-notify-event', Lang.bind(this, this._onEnterNotify));
+        prevButton.connect('leave-notify-event', Lang.bind(this, this._onLeaveNotify));
+
+        this._nextRevealer = new Gtk.Revealer({ transition_type: Gtk.RevealerTransitionType.CROSSFADE,
+                                                margin_start: PREVIEW_NAVBAR_MARGIN,
+                                                margin_end: PREVIEW_NAVBAR_MARGIN,
+                                                halign: Gtk.Align.END,
+                                                valign: Gtk.Align.CENTER });
+        this._overlay.add_overlay(this._nextRevealer);
+
+        let nextButton = new Gtk.Button({ image: new Gtk.Image ({ icon_name: 'go-next-symbolic',
+                                                                  pixel_size: 16 }) });
+        nextButton.get_style_context().add_class('osd');
+        this._nextRevealer.add(nextButton);
+        nextButton.connect('clicked', Lang.bind(this, this._onNextClicked));
+        nextButton.connect('enter-notify-event', Lang.bind(this, this._onEnterNotify));
+        nextButton.connect('leave-notify-event', Lang.bind(this, this._onLeaveNotify));
+
+        this._prevRevealer.show_all();
+        this._nextRevealer.show_all();
 
         this._overlay.connect('motion-notify-event', Lang.bind(this, this._onMotion));
 
@@ -686,41 +702,18 @@ const PreviewNavControls = new Lang.Class({
         let numPages = this.preview.numPages;
 
         if (!this._visible || !this._visibleInternal || !this.preview.hasPages) {
-            if (this.barWidget)
-                this._fadeOutButton(this.barWidget);
-            this._fadeOutButton(this._prevWidget);
-            this._fadeOutButton(this._nextWidget);
+            if (this._barRevealer)
+                this._barRevealer.reveal_child = false;
+            this._prevRevealer.reveal_child = false;
+            this._nextRevealer.reveal_child = false;
             return;
         }
 
-        if (this.barWidget)
-            this._fadeInButton(this.barWidget);
+        if (this._barRevealer)
+            this._barRevealer.reveal_child = true;
 
-        if (currentPage > 0)
-            this._fadeInButton(this._prevWidget);
-        else
-            this._fadeOutButton(this._prevWidget);
-
-        if (numPages > currentPage + 1)
-            this._fadeInButton(this._nextWidget);
-        else
-            this._fadeOutButton(this._nextWidget);
-    },
-
-    _fadeInButton: function(widget) {
-        widget.show_all();
-        Tweener.addTween(widget, { opacity: 1,
-                                   time: 0.30,
-                                   transition: 'easeOutQuad' });
-    },
-
-    _fadeOutButton: function(widget) {
-        Tweener.addTween(widget, { opacity: 0,
-                                   time: 0.30,
-                                   transition: 'easeOutQuad',
-                                   onComplete: function() {
-                                       widget.hide();
-                                   }});
+        this._prevRevealer.reveal_child = currentPage > 0;
+        this._nextRevealer.reveal_child = numPages > currentPage + 1;
     },
 
     show: function() {
@@ -737,10 +730,10 @@ const PreviewNavControls = new Lang.Class({
     },
 
     destroy: function() {
-        if (this.barWidget)
-            this.barWidget.destroy();
-        this._prevWidget.destroy();
-        this._nextWidget.destroy();
+        if (this._barRevealer)
+            this._barRevealer.destroy();
+        this._prevRevealer.destroy();
+        this._nextRevealer.destroy();
         this._tapGesture = null;
     }
 });
