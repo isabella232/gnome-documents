@@ -214,7 +214,10 @@ const EPUBViewNavControls = new Lang.Class({
 
         if (this._epubdoc != null) {
             this._level.set_range(1.0, this.preview.numPages);
-            this._epubdoc.connect('notify::page', Lang.bind(this, this._updatePage));
+            this._epubdoc.connect('notify::page', Lang.bind(this, function() {
+                this._updatePage();
+                this._updateVisibility();
+            }));
             this._updatePage();
         }
     },
