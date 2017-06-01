@@ -204,22 +204,19 @@ const EPUBViewNavControls = new Lang.Class({
     Name: 'EPUBViewNavControls',
     Extends: Preview.PreviewNavControls,
 
+    _init: function(preview, overlay) {
+        this._epubdoc = null;
+        this.parent(preview, overlay);
+    },
+
     setDocument: function(epubdoc) {
-        this._label = new Gtk.Label();
-        this._level = Gtk.Scale.new_with_range(Gtk.Orientation.HORIZONTAL, 1,
-                                               this.preview.numPages, 1.0);
-        this._level.set_draw_value(false);
-        this._level.set_digits(0);
+        this._epubdoc = epubdoc;
 
-        this.barWidget.add(this._label);
-        this.barWidget.pack_start(this._level, true, true, 5);
-
-        this._level.connect('value-changed', Lang.bind(this, function() {
-            epubdoc.set_page(this._level.get_value() - 1);
-        }));
-
-        epubdoc.connect('notify::page', Lang.bind(this, this._updatePage));
-        this._updatePage();
+        if (this._epubdoc != null) {
+            this._level.set_range(1.0, this.preview.numPages);
+            this._epubdoc.connect('notify::page', Lang.bind(this, this._updatePage));
+            this._updatePage();
+        }
     },
 
     _updatePage: function() {
@@ -232,11 +229,26 @@ const EPUBViewNavControls = new Lang.Class({
     },
 
     createBarWidget: function() {
-        return new EPUBBarWidget({ orientation: Gtk.Orientation.HORIZONTAL,
-                                   spacing: 10,
-                                   margin: Preview.PREVIEW_NAVBAR_MARGIN,
-                                   valign: Gtk.Align.END,
-                                   opacity: 0 });
+        let barWidget = new EPUBBarWidget({ orientation: Gtk.Orientation.HORIZONTAL,
+                                            spacing: 10,
+                                            margin: Preview.PREVIEW_NAVBAR_MARGIN,
+                                            valign: Gtk.Align.END,
+                                            opacity: 0 });
+
+        this._label = new Gtk.Label();
+        barWidget.add(this._label);
+
+        this._level = new Gtk.Scale({ orientation: Gtk.Orientation.HORIZONTAL });
+        this._level.set_increments(1.0, 1.0);
+        this._level.set_draw_value(false);
+        this._level.set_digits(0);
+        barWidget.pack_start(this._level, true, true, 5);
+        this._level.connect('value-changed', Lang.bind(this, function() {
+            if (this._epubdoc != null)
+                this._epubdoc.set_page(this._level.get_value() - 1);
+        }));
+
+        return barWidget;
     }
 });
 
