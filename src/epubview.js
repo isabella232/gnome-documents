@@ -145,7 +145,7 @@ const EPUBView = new Lang.Class({
     },
 
     get hasPages() {
-        return true;
+        return this._epubdoc ? this._epubdoc.get_n_pages() > 0 : false;
     },
 
     get page() {
