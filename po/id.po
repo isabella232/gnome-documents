@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-04-20 17:09+0000\n"
-"PO-Revision-Date: 2017-04-23 13:58+0700\n"
+"POT-Creation-Date: 2017-05-22 01:20+0000\n"
+"PO-Revision-Date: 2017-05-22 11:56+0700\n"
 "Last-Translator: Kukuh Syafaat <syafaatkukuh@gmail.com>\n"
 "Language-Team: Indonesian <gnome@i15n.org>\n"
 "Language: id\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:1
 #: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:111
-#: ../src/lib/gd-utils.c:329 ../src/overview.js:1053
+#: ../src/lib/gd-utils.c:329 ../src/overview.js:1052
 msgid "Books"
 msgstr "Buku"
 
@@ -131,7 +131,7 @@ msgstr "Apakah aplikasi sedang dalam mode malam."
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:1
 #: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:114
-#: ../src/lib/gd-utils.c:322 ../src/overview.js:1053
+#: ../src/lib/gd-utils.c:322 ../src/overview.js:1052
 msgid "Documents"
 msgstr "Dokumen"
 
@@ -341,7 +341,7 @@ msgstr "_Salin"
 
 #. Translators: this is the Open action in a context menu
 #: ../data/ui/preview-menu.ui.h:1 ../data/ui/selection-toolbar.ui.h:1
-#: ../src/selections.js:962
+#: ../src/selections.js:982
 msgid "Open"
 msgstr "Buka"
 
@@ -390,7 +390,7 @@ msgstr "Pilih Semua"
 msgid "Select None"
 msgstr "Jangan Pilih"
 
-#: ../data/ui/selection-toolbar.ui.h:3 ../src/overview.js:1057
+#: ../data/ui/selection-toolbar.ui.h:3 ../src/overview.js:1056
 #: ../src/search.js:126 ../src/search.js:132
 msgid "Collections"
 msgstr "Koleksi"
@@ -423,95 +423,95 @@ msgstr "Nama"
 msgid "Show the version of the program"
 msgstr "Tampilkan versi program"
 
-#: ../src/documents.js:754
+#: ../src/documents.js:776
 msgid "Failed to print document"
 msgstr "Gagal mencetak dokumen"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:796 ../src/search.js:459
+#: ../src/documents.js:818 ../src/search.js:459
 msgid "Local"
 msgstr "Lokal"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:839
+#: ../src/documents.js:861
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:840
+#: ../src/documents.js:862
 msgid "Getting Started with Documents"
 msgstr "Mulai Memakai Dokumen"
 
-#: ../src/documents.js:865 ../src/documents.js:1068 ../src/documents.js:1171
-#: ../src/documents.js:1363
+#: ../src/documents.js:887 ../src/documents.js:1097 ../src/documents.js:1200
+#: ../src/documents.js:1394
 msgid "Collection"
 msgstr "Koleksi"
 
 #. overridden
-#: ../src/documents.js:927
+#: ../src/documents.js:954
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:928
+#: ../src/documents.js:955
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:1070 ../src/documents.js:1365
+#: ../src/documents.js:1099 ../src/documents.js:1396
 msgid "Spreadsheet"
 msgstr "Spreadsheet"
 
-#: ../src/documents.js:1072 ../src/documents.js:1367 ../src/presentation.js:44
+#: ../src/documents.js:1101 ../src/documents.js:1398 ../src/presentation.js:44
 msgid "Presentation"
 msgstr "Presentasi"
 
-#: ../src/documents.js:1074 ../src/documents.js:1369
+#: ../src/documents.js:1103 ../src/documents.js:1400
 msgid "e-Book"
 msgstr "e-Book"
 
-#: ../src/documents.js:1076 ../src/documents.js:1371
+#: ../src/documents.js:1105 ../src/documents.js:1402
 msgid "Document"
 msgstr "Dokumen"
 
 #. overridden
-#: ../src/documents.js:1126
+#: ../src/documents.js:1155
 msgid "ownCloud"
 msgstr "ownCloud"
 
 #. overridden
-#: ../src/documents.js:1260 ../src/documents.js:1261
+#: ../src/documents.js:1289 ../src/documents.js:1290
 msgid "OneDrive"
 msgstr "OneDrive"
 
-#: ../src/documents.js:1545
+#: ../src/documents.js:1576
 msgid "Please check the network connection."
 msgstr "Harap periksa sambungan jaringan."
 
-#: ../src/documents.js:1548
+#: ../src/documents.js:1579
 msgid "Please check the network proxy settings."
 msgstr "Harap periksa pengaturan proksi jaringan."
 
-#: ../src/documents.js:1551
+#: ../src/documents.js:1582
 msgid "Unable to sign in to the document service."
 msgstr "Tak bisa masuk ke layanan dokumen."
 
-#: ../src/documents.js:1554
+#: ../src/documents.js:1585
 msgid "Unable to locate this document."
 msgstr "Tak bisa menemukan dokumen ini."
 
-#: ../src/documents.js:1557
+#: ../src/documents.js:1588
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Hm, ada sesuatu yang mencurigakan (%d)."
 
-#: ../src/documents.js:1564
+#: ../src/documents.js:1595
 msgid ""
 "You are using a preview of Books. Full viewing capabilities are coming soon!"
 msgstr ""
 "Anda sedang memakai pratinjau dari Buku. Kapabilitas melihat secara penuh "
 "akan segera hadir!"
 
-#: ../src/documents.js:1566
+#: ../src/documents.js:1597
 msgid ""
 "LibreOffice support is not available. Please contact your system "
 "administrator."
@@ -519,7 +519,7 @@ msgstr ""
 "Dukungan LibreOffice tidak tersedia. Harap hubungi administrator sistem Anda."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1589
+#: ../src/documents.js:1620
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Ups! Tak bisa memuat \"%s\""
@@ -529,11 +529,16 @@ msgstr "Ups! Tak bisa memuat \"%s\""
 msgid "View"
 msgstr "Tilik"
 
-#: ../src/evinceview.js:596 ../src/lib/gd-places-bookmarks.c:656
+#: ../src/epubview.js:228
+#, javascript-format
+msgid "chapter %s of %s"
+msgstr "bab %s dari %s"
+
+#: ../src/evinceview.js:592 ../src/lib/gd-places-bookmarks.c:656
 msgid "Bookmarks"
 msgstr "Penanda taut"
 
-#: ../src/evinceview.js:604
+#: ../src/evinceview.js:600
 msgid "Bookmark this page"
 msgstr "Tanda tauti halaman ini"
 
@@ -688,41 +693,41 @@ msgstr[0] "%d dipilih"
 msgid "Select Items"
 msgstr "Pilih Item"
 
-#: ../src/overview.js:877
+#: ../src/overview.js:876
 msgid "Yesterday"
 msgstr "Kemarin"
 
-#: ../src/overview.js:879
+#: ../src/overview.js:878
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d hari yang lalu"
 
-#: ../src/overview.js:883
+#: ../src/overview.js:882
 msgid "Last week"
 msgstr "Minggu lalu"
 
-#: ../src/overview.js:885
+#: ../src/overview.js:884
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d minggu yang lalu"
 
-#: ../src/overview.js:889
+#: ../src/overview.js:888
 msgid "Last month"
 msgstr "Bulan lalu"
 
-#: ../src/overview.js:891
+#: ../src/overview.js:890
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d bulan yang laly"
 
-#: ../src/overview.js:895
+#: ../src/overview.js:894
 msgid "Last year"
 msgstr "Tahun lalu"
 
-#: ../src/overview.js:897
+#: ../src/overview.js:896
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -771,16 +776,16 @@ msgid "Secondary"
 msgstr "Sekunder"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/preview.js:446 ../src/selections.js:959
+#: ../src/preview.js:446 ../src/selections.js:979
 #, javascript-format
 msgid "Open with %s"
 msgstr "Buka dengan %s"
 
-#: ../src/preview.js:778
+#: ../src/preview.js:777
 msgid "Find Previous"
 msgstr "Cari Sebelumnya"
 
-#: ../src/preview.js:784
+#: ../src/preview.js:783
 msgid "Find Next"
 msgstr "Cari Selanjutnya"
 
