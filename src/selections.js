@@ -946,7 +946,7 @@ const SelectionToolbar = new Lang.Class({
         let hasSelection = (selection.length > 0);
 
         let showTrash = hasSelection;
-        let showPrint = hasSelection;
+        let showPrint = false;
         let showProperties = hasSelection;
         let showOpen = hasSelection;
         let showShare = hasSelection;
@@ -967,15 +967,21 @@ const SelectionToolbar = new Lang.Class({
                     showShare = false;
 
                 showTrash &= doc.canTrash();
-                showPrint &= !doc.collection;
             }));
 
         showOpen = (apps.length > 0);
 
-        if (selection.length > 1) {
-            showPrint = false;
-            showProperties = false;
+        if (selection.length == 1) {
+            let doc = Application.documentManager.getItemById(selection[0]);
+            doc.load(null, null, Lang.bind(this,
+                function(doc, docModel, error) {
+                    showPrint = doc.canPrint(docModel);
+                    this._toolbarPrint.set_sensitive(showPrint);
+                }));
         }
+
+        if (selection.length > 1)
+            showProperties = false;
 
         let openLabel = null;
         if (apps.length == 1) {
