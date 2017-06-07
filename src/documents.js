@@ -383,6 +383,9 @@ const DocCommon = new Lang.Class({
     },
 
     canPrint: function(docModel) {
+        if (this.collection)
+            return false;
+
         if (!docModel)
             return false;
 
