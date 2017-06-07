@@ -35,6 +35,7 @@ const Zpj = imports.gi.Zpj;
 const _ = imports.gettext.gettext;
 
 const Lang = imports.lang;
+const Mainloop = imports.mainloop;
 const Signals = imports.signals;
 
 const Application = imports.application;
@@ -407,6 +408,20 @@ const DocCommon = new Lang.Class({
 
     load: function(passwd, cancellable, callback) {
         Utils.debug('Loading ' + this.__name__ + ' ' + this.id);
+
+        if (this.collection) {
+            Mainloop.idle_add(Lang.bind(this,
+                function() {
+                    let error = new GLib.Error(Gio.IOErrorEnum,
+                                               Gio.IOErrorEnum.NOT_SUPPORTED,
+                                               "Collections can't be loaded");
+                    callback(this, null, error);
+                    return GLib.SOURCE_REMOVE;
+                }));
+
+            return;
+        }
+
         this.download(true, cancellable, Lang.bind(this,
             function(fromCache, error) {
                 if (error) {
