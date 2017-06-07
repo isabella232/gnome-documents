@@ -23,6 +23,7 @@
 #include "gd-utils.h"
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
+#include <gio/gio.h>
 #include <glib/gi18n.h>
 #include <string.h>
 #include <math.h>
@@ -302,6 +303,8 @@ void
 gd_show_about_dialog (GtkWindow *parent,
                       gboolean is_books)
 {
+  GApplication *app;
+
   const char *artists[] = {
     "Jakub Steiner <jimmac@gmail.com>",
     NULL
@@ -315,20 +318,19 @@ gd_show_about_dialog (GtkWindow *parent,
     NULL
   };
 
-  const char *program_name, *comments, *logo_icon_name, *website;
+  const char *app_id, *comments, *website;
+
+  app = g_application_get_default ();
+  app_id = g_application_get_application_id (app);
 
   if(!is_books)
     {
-      program_name = _("Documents");
       comments = _("A document manager application");
-      logo_icon_name = "org.gnome.Documents";
       website = "https://wiki.gnome.org/Apps/Documents";
     }
   else
     {
-      program_name = _("Books");
       comments = _("An e-books manager application");
-      logo_icon_name = "org.gnome.Books";
       website = "https://wiki.gnome.org/Apps/Books";
     }
 
@@ -336,9 +338,8 @@ gd_show_about_dialog (GtkWindow *parent,
                          "artists", artists,
                          "authors", authors,
                          "translator-credits", _("translator-credits"),
-                         "program-name", program_name,
                          "comments", comments,
-                         "logo-icon-name", logo_icon_name,
+                         "logo-icon-name", app_id,
                          "website", website,
                          "copyright", "Copyright © 2011-2014 Red Hat, Inc.",
                          "license-type", GTK_LICENSE_GPL_2_0,
