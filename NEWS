@@ -2,7 +2,7 @@
 ==========================
 
 - Unbreak previews of LOKDocView-supported documents from OneDrive
-- Unreak caching of LOKDocView-supported documents from ownCloud
+- Unbreak caching of LOKDocView-supported documents from ownCloud
 - Support previews of encrypted PDFs from Google
 - Pass the right number of arguments to LOKDocView.View.new
 - Translation updates
