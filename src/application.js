@@ -100,6 +100,7 @@ const Application = new Lang.Class({
         this.minersRunning = [];
         this._activationTimestamp = Gdk.CURRENT_TIME;
         this._extractPriority = null;
+        this._searchProvider = null;
 
         this.isBooks = isBooks;
 
@@ -120,10 +121,6 @@ const Application = new Lang.Class({
 
         this.add_main_option('version', 'v'.charCodeAt(0), GLib.OptionFlags.NONE, GLib.OptionArg.NONE,
                              _("Show the version of the program"), null);
-
-        this._searchProvider = new ShellSearchProvider.ShellSearchProvider();
-        this._searchProvider.connect('activate-result', Lang.bind(this, this._onActivateResult));
-        this._searchProvider.connect('launch-search', Lang.bind(this, this._onLaunchSearch));
     },
 
     _initGettingStarted: function() {
@@ -515,6 +512,10 @@ const Application = new Lang.Class({
 
     vfunc_dbus_register: function(connection, path) {
         this.parent(connection, path);
+
+        this._searchProvider = new ShellSearchProvider.ShellSearchProvider();
+        this._searchProvider.connect('activate-result', Lang.bind(this, this._onActivateResult));
+        this._searchProvider.connect('launch-search', Lang.bind(this, this._onLaunchSearch));
 
         this._searchProvider.export(connection);
         return true;
