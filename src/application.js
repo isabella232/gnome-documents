@@ -513,6 +513,9 @@ const Application = new Lang.Class({
     vfunc_dbus_register: function(connection, path) {
         this.parent(connection, path);
 
+        if (this._searchProvider != null)
+            throw(new Error('ShellSearchProvider already instantiated - dbus_register called twice?'));
+
         this._searchProvider = new ShellSearchProvider.ShellSearchProvider();
         this._searchProvider.connect('activate-result', Lang.bind(this, this._onActivateResult));
         this._searchProvider.connect('launch-search', Lang.bind(this, this._onLaunchSearch));
