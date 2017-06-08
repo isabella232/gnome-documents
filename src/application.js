@@ -448,7 +448,13 @@ const Application = new Lang.Class({
         this._searchProvider.connect('activate-result', Lang.bind(this, this._onActivateResult));
         this._searchProvider.connect('launch-search', Lang.bind(this, this._onLaunchSearch));
 
-        this._searchProvider.export(connection);
+        try {
+            this._searchProvider.export(connection);
+        } catch(e) {
+            this._searchProvider = null;
+            throw(e);
+        }
+
         return true;
     },
 
