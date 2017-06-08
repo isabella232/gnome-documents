@@ -453,7 +453,10 @@ const Application = new Lang.Class({
     },
 
     vfunc_dbus_unregister: function(connection, path) {
-        this._searchProvider.unexport(connection);
+        if (this._searchProvider != null) {
+            this._searchProvider.unexport(connection);
+            this._searchProvider = null;
+        }
 
         this.parent(connection, path);
     },
