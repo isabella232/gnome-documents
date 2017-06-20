@@ -1,3 +1,15 @@
+3.20.2 - "Break a Leg"
+======================
+
+- Use LOKDocView for pre-OOXML MS Office formats (Pranav Kant)
+- Don't offer to open in file-roller (Bastien Nocera)
+- Pass the correct number of arguments to LOKDocView.View.new
+- Don't steal space keypress in preview
+- Don't leak the URI when thumbnailing
+- Make sure that load jobs are cancelled
+- Enable printing only for documents that support it
+- Translation updates
+
 3.20.1 - "Breakfast"
 ==================
 
