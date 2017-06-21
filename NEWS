@@ -1,3 +1,14 @@
+3.25.3 - "53"
+=============
+
+- Show more info in epub preview, like number of chapters (Daniel Garcia)
+- Restore the accelerators for going back
+- Exit selection mode only after printing has begun
+- Use GtkRevealers for faders instead of Tweener
+- Enable printing only for documents that support it
+- Avoid CRITICALs if a primary instance is already present
+- Translation updates
+
 3.25.1 - "Le Zanzibar"
 ======================
 
