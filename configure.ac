@@ -80,8 +80,8 @@ PKG_CHECK_MODULES(DOCUMENTS,
                   gtk+-3.0 >= $GTK_MIN_VERSION
                   libsoup-2.4 >= $SOUP_MIN_VERSION
                   gnome-desktop-3.0
-                  tracker-control-1.0 >= $TRACKER_MIN_VERSION
-                  tracker-sparql-1.0 >= $TRACKER_MIN_VERSION)
+                  tracker-control-2.0 >= $TRACKER_MIN_VERSION
+                  tracker-sparql-2.0 >= $TRACKER_MIN_VERSION)
 
 # Although GTK+ 3.10 includes hi-dpi functionality, it does not require a cairo with
 # cairo_surface_set_device_scale(), which we also need if we're to support hi-dpi,
