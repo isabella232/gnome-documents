@@ -1,3 +1,9 @@
+3.24.3 - "Kern House"
+=====================
+
+- Enable printing only for documents that support it
+- Avoid CRITICALs if a primary instance is already present
+
 3.24.2 - "Sterling Cooper"
 ==========================
 
