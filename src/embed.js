@@ -152,7 +152,7 @@ const View = new Lang.Class({
     }
 });
 
-const Embed = new Lang.Class({
+var Embed = new Lang.Class({
     Name: 'Embed',
     Extends: Gtk.Box,
 

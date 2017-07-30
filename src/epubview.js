@@ -38,7 +38,7 @@ function isEpub(mimeType) {
     return (mimeType == 'application/epub+zip');
 }
 
-const EPUBView = new Lang.Class({
+var EPUBView = new Lang.Class({
     Name: 'EPUBView',
     Extends: Preview.Preview,
 

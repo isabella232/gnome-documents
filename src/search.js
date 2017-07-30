@@ -99,7 +99,7 @@ const SearchType = new Lang.Class({
     }
 });
 
-const SearchTypeStock = {
+var SearchTypeStock = {
     ALL: 'all',
     COLLECTIONS: 'collections',
     PDF: 'pdf',
@@ -201,7 +201,7 @@ const SearchTypeManager = new Lang.Class({
     }
 });
 
-const SearchMatchStock = {
+var SearchMatchStock = {
     ALL: 'all',
     TITLE: 'title',
     AUTHOR: 'author',
@@ -316,7 +316,7 @@ const SearchMatchManager = new Lang.Class({
     }
 });
 
-const SearchSourceStock = {
+var SearchSourceStock = {
     ALL: 'all',
     LOCAL: 'local'
 };
@@ -579,7 +579,7 @@ const SourceManager = new Lang.Class({
     }
 });
 
-const OFFSET_STEP = 50;
+var OFFSET_STEP = 50;
 
 const OffsetController = new Lang.Class({
     Name: 'OffsetController',
@@ -651,7 +651,7 @@ const OffsetController = new Lang.Class({
 });
 Signals.addSignalMethods(OffsetController.prototype);
 
-const OffsetCollectionsController = new Lang.Class({
+var OffsetCollectionsController = new Lang.Class({
     Name: 'OffsetCollectionsController',
     Extends: OffsetController,
 
@@ -672,7 +672,7 @@ const OffsetCollectionsController = new Lang.Class({
     }
 });
 
-const OffsetDocumentsController = new Lang.Class({
+var OffsetDocumentsController = new Lang.Class({
     Name: 'OffsetDocumentsController',
     Extends: OffsetController,
 
@@ -685,7 +685,7 @@ const OffsetDocumentsController = new Lang.Class({
     }
 });
 
-const OffsetSearchController = new Lang.Class({
+var OffsetSearchController = new Lang.Class({
     Name: 'OffsetSearchController',
     Extends: OffsetController,
 

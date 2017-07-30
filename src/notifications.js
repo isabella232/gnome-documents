@@ -324,7 +324,7 @@ const IndexingNotification = new Lang.Class({
     }
 });
 
-const NotificationManager = new Lang.Class({
+var NotificationManager = new Lang.Class({
     Name: 'NotificationManager',
     Extends: Gtk.Revealer,
 

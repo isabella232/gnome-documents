@@ -824,7 +824,7 @@ const DocCommon = new Lang.Class({
 });
 Signals.addSignalMethods(DocCommon.prototype);
 
-const LocalDocument = new Lang.Class({
+var LocalDocument = new Lang.Class({
     Name: 'LocalDocument',
     Extends: DocCommon,
 
@@ -1440,7 +1440,7 @@ const SkydriveDocument = new Lang.Class({
     }
 });
 
-const DocumentManager = new Lang.Class({
+var DocumentManager = new Lang.Class({
     Name: 'DocumentManager',
     Extends: Manager.BaseManager,
 

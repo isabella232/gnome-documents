@@ -22,7 +22,7 @@
 const Lang = imports.lang;
 const Signals = imports.signals;
 
-const WindowMode = {
+var WindowMode = {
     NONE: 0,
     DOCUMENTS: 1,
     PREVIEW_EV: 2,
@@ -33,7 +33,7 @@ const WindowMode = {
     SEARCH: 7,
 };
 
-const ModeController = new Lang.Class({
+var ModeController = new Lang.Class({
     Name: 'ModeController',
 
     _init: function() {

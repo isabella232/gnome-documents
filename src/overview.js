@@ -1028,7 +1028,7 @@ const ViewContainer = new Lang.Class({
     }
 });
 
-const OverviewStack = new Lang.Class({
+var OverviewStack = new Lang.Class({
     Name: 'OverviewStack',
     Extends: Gtk.Box,
 

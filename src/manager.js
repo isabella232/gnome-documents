@@ -25,7 +25,7 @@ const GLib = imports.gi.GLib;
 const Lang = imports.lang;
 const Signals = imports.signals;
 
-const BaseManager = new Lang.Class({
+var BaseManager = new Lang.Class({
     Name: 'BaseManager',
 
     _init: function(title, actionId, context) {
@@ -174,7 +174,7 @@ const BaseManager = new Lang.Class({
 });
 Signals.addSignalMethods(BaseManager.prototype);
 
-const BaseModel = new Lang.Class({
+var BaseModel = new Lang.Class({
     Name: 'BaseModel',
     Extends: Gio.Menu,
 

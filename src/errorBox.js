@@ -26,7 +26,7 @@ const Lang = imports.lang;
 
 const _ICON_SIZE = 128;
 
-const ErrorBox = new Lang.Class({
+var ErrorBox = new Lang.Class({
     Name: 'ErrorBox',
     Extends: Gtk.Grid,
 

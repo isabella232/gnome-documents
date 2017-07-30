@@ -793,7 +793,7 @@ const OrganizeCollectionDialog = new Lang.Class({
     }
 });
 
-const SelectionController = new Lang.Class({
+var SelectionController = new Lang.Class({
     Name: 'SelectionController',
 
     _init: function() {
@@ -845,7 +845,7 @@ Signals.addSignalMethods(SelectionController.prototype);
 
 const _SELECTION_TOOLBAR_DEFAULT_WIDTH = 500;
 
-const SelectionToolbar = new Lang.Class({
+var SelectionToolbar = new Lang.Class({
     Name: 'SelectionToolbar',
     Extends: Gtk.ActionBar,
     Template: 'resource:///org/gnome/Documents/ui/selection-toolbar.ui',

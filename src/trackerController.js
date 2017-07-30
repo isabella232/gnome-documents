@@ -37,7 +37,7 @@ const QueryType = {
     UPDATE_BLANK: 2
 };
 
-const TrackerConnectionQueue = new Lang.Class({
+var TrackerConnectionQueue = new Lang.Class({
     Name: 'TrackerConnectionQueue',
 
     _init: function() {
@@ -295,7 +295,7 @@ const TrackerController = new Lang.Class({
 });
 Signals.addSignalMethods(TrackerController.prototype);
 
-const TrackerCollectionsController = new Lang.Class({
+var TrackerCollectionsController = new Lang.Class({
     Name: 'TrackerCollectionsController',
     Extends: TrackerController,
 
@@ -329,7 +329,7 @@ const TrackerCollectionsController = new Lang.Class({
     },
 });
 
-const TrackerDocumentsController = new Lang.Class({
+var TrackerDocumentsController = new Lang.Class({
     Name: 'TrackerDocumentsController',
     Extends: TrackerController,
 
@@ -348,7 +348,7 @@ const TrackerDocumentsController = new Lang.Class({
     },
 });
 
-const TrackerSearchController = new Lang.Class({
+var TrackerSearchController = new Lang.Class({
     Name: 'TrackerSearchController',
     Extends: TrackerController,
 

@@ -32,7 +32,7 @@ const Lang = imports.lang;
 const Application = imports.application;
 const Searchbar = imports.searchbar;
 
-const MainToolbar = new Lang.Class({
+var MainToolbar = new Lang.Class({
     Name: 'MainToolbar',
     Extends: Gtk.Box,
 

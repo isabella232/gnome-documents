@@ -27,7 +27,7 @@ const Gtk = imports.gi.Gtk;
 
 const Lang = imports.lang;
 
-const FullscreenAction = new Lang.Class({
+var FullscreenAction = new Lang.Class({
     Name: 'FullscreenAction',
     Extends: GObject.Object,
     Implements: [Gio.Action],

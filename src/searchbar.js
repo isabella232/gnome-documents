@@ -29,7 +29,7 @@ const Application = imports.application;
 const Manager = imports.manager;
 const Utils = imports.utils;
 
-const Searchbar = new Lang.Class({
+var Searchbar = new Lang.Class({
     Name: 'Searchbar',
     Extends: Gtk.SearchBar,
     Signals: {
@@ -95,7 +95,7 @@ const Searchbar = new Lang.Class({
     }
 });
 
-const Dropdown = new Lang.Class({
+var Dropdown = new Lang.Class({
     Name: 'Dropdown',
     Extends: Gtk.Popover,
 

@@ -19,7 +19,7 @@ const Utils = imports.utils;
 const _ICON_SIZE = 32;
 const _PDF_LOADER_TIMEOUT = 400;
 
-const Preview = new Lang.Class({
+var Preview = new Lang.Class({
     Name: 'Preview',
     Extends: Gtk.Stack,
 
@@ -399,7 +399,7 @@ const Preview = new Lang.Class({
     }
 });
 
-const PreviewToolbar = new Lang.Class({
+var PreviewToolbar = new Lang.Class({
     Name: 'PreviewToolbar',
     Extends: MainToolbar.MainToolbar,
 
@@ -549,7 +549,7 @@ const PreviewFullscreenToolbar = new Lang.Class({
 const _AUTO_HIDE_TIMEOUT = 2;
 const PREVIEW_NAVBAR_MARGIN = 30;
 
-const PreviewNavControls = new Lang.Class({
+var PreviewNavControls = new Lang.Class({
     Name: 'PreviewNavControls',
 
     _init: function(preview, overlay) {
@@ -738,7 +738,7 @@ const PreviewNavControls = new Lang.Class({
     }
 });
 
-const PreviewSearchbar = new Lang.Class({
+var PreviewSearchbar = new Lang.Class({
     Name: 'PreviewSearchbar',
     Extends: Searchbar.Searchbar,
 

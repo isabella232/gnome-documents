@@ -97,7 +97,7 @@ function isOpenDocumentFormat(mimeType) {
     return false;
 }
 
-const LOKView = new Lang.Class({
+var LOKView = new Lang.Class({
     Name: 'LOKView',
     Extends: Preview.Preview,
 

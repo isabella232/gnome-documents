@@ -49,30 +49,30 @@ const Utils = imports.utils;
 const WindowMode = imports.windowMode;
 
 // used globally
-let application = null;
-let connection = null;
-let connectionQueue = null;
-let goaClient = null;
-let settings = null;
+var application = null;
+var connection = null;
+var connectionQueue = null;
+var goaClient = null;
+var settings = null;
 
 // used by the application, but not by the search provider
-let changeMonitor = null;
+var changeMonitor = null;
 let cssProvider = null;
-let documentManager = null;
-let modeController = null;
-let notificationManager = null;
-let offsetCollectionsController = null;
-let offsetDocumentsController = null;
-let offsetSearchController = null;
-let queryBuilder = null;
-let searchController = null;
-let searchMatchManager = null;
-let searchTypeManager = null;
-let selectionController = null;
-let sourceManager = null;
-let trackerCollectionsController = null;
-let trackerDocumentsController = null;
-let trackerSearchController = null;
+var documentManager = null;
+var modeController = null;
+var notificationManager = null;
+var offsetCollectionsController = null;
+var offsetDocumentsController = null;
+var offsetSearchController = null;
+var queryBuilder = null;
+var searchController = null;
+var searchMatchManager = null;
+var searchTypeManager = null;
+var selectionController = null;
+var sourceManager = null;
+var trackerCollectionsController = null;
+var trackerDocumentsController = null;
+var trackerSearchController = null;
 
 const TrackerExtractPriorityIface = '<node> \
 <interface name="org.freedesktop.Tracker1.Extract.Priority"> \
@@ -92,7 +92,7 @@ function TrackerExtractPriority() {
 
 const MINER_REFRESH_TIMEOUT = 60; /* seconds */
 
-const Application = new Lang.Class({
+var Application = new Lang.Class({
     Name: 'Application',
     Extends: Gtk.Application,
     Signals: {

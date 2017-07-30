@@ -33,12 +33,12 @@ const Query = imports.query;
 const TrackerUtils = imports.trackerUtils;
 const Utils = imports.utils;
 
-let documentManager = null;
-let queryBuilder = null;
-let searchMatchManager = null;
-let searchTypeManager = null;
-let searchController = null;
-let sourceManager = null;
+var documentManager = null;
+var queryBuilder = null;
+var searchMatchManager = null;
+var searchTypeManager = null;
+var searchController = null;
+var sourceManager = null;
 
 const SEARCH_PROVIDER_IFACE = 'org.gnome.Shell.SearchProvider2';
 const SEARCH_PROVIDER_PATH  = '/org/gnome/Documents/SearchProvider';
@@ -348,7 +348,7 @@ const FetchIdsJob = new Lang.Class({
     }
 });
 
-const ShellSearchProvider = new Lang.Class({
+var ShellSearchProvider = new Lang.Class({
     Name: 'ShellSearchProvider',
 
     _init: function() {

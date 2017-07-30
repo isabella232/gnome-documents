@@ -38,7 +38,7 @@ const Preview = imports.preview;
 const Utils = imports.utils;
 const WindowMode = imports.windowMode;
 
-const EvinceView = new Lang.Class({
+var EvinceView = new Lang.Class({
     Name: 'EvinceView',
     Extends: Preview.Preview,
 

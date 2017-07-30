@@ -35,7 +35,7 @@ const Lang = imports.lang;
 
 const _TITLE_ENTRY_TIMEOUT = 200;
 
-const PropertiesDialog = new Lang.Class({
+var PropertiesDialog = new Lang.Class({
     Name: 'PropertiesDialog',
     Extends: Gtk.Dialog,
 

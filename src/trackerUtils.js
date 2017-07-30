@@ -40,7 +40,7 @@ function setEditedName(newTitle, docId, callback) {
 
 }
 
-const SingleItemJob = new Lang.Class({
+var SingleItemJob = new Lang.Class({
     Name: 'SingleItemJob',
 
     _init: function(urn, queryBuilder) {

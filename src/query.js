@@ -26,7 +26,7 @@ const GLib = imports.gi.GLib;
 const Lang = imports.lang;
 const Search = imports.search;
 
-const QueryColumns = {
+var QueryColumns = {
     URN: 0,
     URI: 1,
     FILENAME: 2,
@@ -41,7 +41,7 @@ const QueryColumns = {
     DATE_CREATED: 11
 };
 
-const QueryFlags = {
+var QueryFlags = {
     NONE: 0,
     UNFILTERED: 1 << 0,
     COLLECTIONS: 1 << 1,
@@ -52,7 +52,7 @@ const QueryFlags = {
 const LOCAL_BOOKS_COLLECTIONS_IDENTIFIER = 'gb:collection:local:';
 const LOCAL_DOCUMENTS_COLLECTIONS_IDENTIFIER = 'gd:collection:local:';
 
-const QueryBuilder = new Lang.Class({
+var QueryBuilder = new Lang.Class({
     Name: 'QueryBuilder',
 
     _init: function(context) {
