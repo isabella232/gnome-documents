@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2017-07-13 14:32+0000\n"
-"PO-Revision-Date: 2017-07-30 23:12+0200\n"
+"PO-Revision-Date: 2017-07-30 23:21+0200\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "Language: hr\n"
@@ -845,7 +845,7 @@ msgstr "Vrsta"
 #. Translators: this refers to documents
 #: ../src/search.js:123 ../src/search.js:260 ../src/search.js:453
 msgid "All"
-msgstr "Svi"
+msgstr "Sve"
 
 #: ../src/search.js:136
 msgid "PDF Documents"
@@ -882,19 +882,19 @@ msgstr "Podudara se"
 #: ../src/search.js:263
 msgctxt "Search Filter"
 msgid "Title"
-msgstr "Naslovu"
+msgstr "Naslov"
 
 #. Translators: "Author" refers to "Match Author" when searching
 #: ../src/search.js:266
 msgctxt "Search Filter"
 msgid "Author"
-msgstr "Autoru"
+msgstr "Autor"
 
 #. Translators: "Content" refers to "Match Content" when searching
 #: ../src/search.js:269
 msgctxt "Search Filter"
 msgid "Content"
-msgstr "Sadržaju"
+msgstr "Sadržaj"
 
 #: ../src/search.js:449
 msgid "Sources"
