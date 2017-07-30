@@ -8,8 +8,9 @@ msgstr ""
 "Project-Id-Version: gnome-documents gnome-3-24\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-04-12 10:43+0000\n"
-"PO-Revision-Date: 2017-04-18 21:32+0200\n"
+"POT-Creation-Date: 2017-07-13 14:32+0000\n"
+"PO-Revision-Date: 2017-07-30 23:12+0200\n"
+"Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
@@ -17,12 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"Last-Translator: gogo <trebelnik2@gmail.com>\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.0.3\n"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:1
-#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:111
-#: ../src/lib/gd-utils.c:340 ../src/overview.js:1053
+#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:112
+#: ../src/overview.js:1052
 msgid "Books"
 msgstr "Knjige"
 
@@ -130,8 +130,8 @@ msgid "Whether the application is in night mode."
 msgstr "Treba li aplikacija biti u noćnom načinu rada."
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:1
-#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:114
-#: ../src/lib/gd-utils.c:333 ../src/overview.js:1053
+#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:115
+#: ../src/overview.js:1052
 msgid "Documents"
 msgstr "Dokumenti"
 
@@ -157,15 +157,15 @@ msgstr "Pregled nedavnih lokalnih ili mrežnih dokumenata"
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:6
 msgid "Access your Google, ownCloud or OneDrive content"
-msgstr "Pristupite vašem Google, ownCloud ili OneDrive sadržaju"
+msgstr "Pristup vašem Google, ownCloud ili OneDrive sadržaju"
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:7
 msgid "Search through documents"
-msgstr "Pretraga dokumenata"
+msgstr "Pretragu dokumenata"
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:8
 msgid "See new documents shared by friends"
-msgstr "Pogledajte nove dokumente koje dijele vaši prijatelji"
+msgstr "Pogled novih dokumentata koje dijele vaši prijatelji"
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:9
 msgid "View documents fullscreen"
@@ -192,7 +192,7 @@ msgstr "Pristup, upravljanje i dijeljenje dokumenata"
 msgid "Docs;PDF;Document;"
 msgstr "Dokumenti;PDF;Dokument;"
 
-#: ../data/ui/app-menu.ui.h:1 ../src/preview.js:454
+#: ../data/ui/app-menu.ui.h:1 ../src/preview.js:453
 msgid "Night Mode"
 msgstr "Noćni način rada"
 
@@ -319,7 +319,7 @@ msgstr "Upišite naziv za vašu prvu kolekciju"
 
 #: ../data/ui/organize-collection-dialog.ui.h:2
 msgid "New Collection…"
-msgstr "Nova kolekcija..."
+msgstr "Nova kolekcija…"
 
 #: ../data/ui/organize-collection-dialog.ui.h:3 ../src/sharing.js:226
 msgid "Add"
@@ -340,7 +340,7 @@ msgstr "_Kopiraj"
 
 #. Translators: this is the Open action in a context menu
 #: ../data/ui/preview-menu.ui.h:1 ../data/ui/selection-toolbar.ui.h:1
-#: ../src/selections.js:962
+#: ../src/selections.js:988
 msgid "Open"
 msgstr "Otvori"
 
@@ -350,9 +350,9 @@ msgstr "Uredi"
 
 #: ../data/ui/preview-menu.ui.h:3
 msgid "Print…"
-msgstr "Ispis..."
+msgstr "Ispis…"
 
-#: ../data/ui/preview-menu.ui.h:4 ../src/preview.js:463
+#: ../data/ui/preview-menu.ui.h:4 ../src/preview.js:462
 msgid "Fullscreen"
 msgstr "Cjelozaslonski prikaz"
 
@@ -389,7 +389,7 @@ msgstr "Odaberi sve"
 msgid "Select None"
 msgstr "Ukloni odabir"
 
-#: ../data/ui/selection-toolbar.ui.h:3 ../src/overview.js:1057
+#: ../data/ui/selection-toolbar.ui.h:3 ../src/overview.js:1056
 #: ../src/search.js:126 ../src/search.js:132
 msgid "Collections"
 msgstr "Kolekcije"
@@ -418,97 +418,97 @@ msgstr "Datum"
 msgid "Name"
 msgstr "Naslov"
 
-#: ../src/application.js:125
+#: ../src/application.js:126
 msgid "Show the version of the program"
 msgstr "Prikaži inačicu programa"
 
-#: ../src/documents.js:678
+#: ../src/documents.js:794
 msgid "Failed to print document"
 msgstr "Neuspješno ispisivanje dokumenta"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:720 ../src/search.js:459
+#: ../src/documents.js:836 ../src/search.js:459
 msgid "Local"
 msgstr "Lokalno"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:762
+#: ../src/documents.js:879
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:763
+#: ../src/documents.js:880
 msgid "Getting Started with Documents"
 msgstr "Početak rada s dokumentima"
 
-#: ../src/documents.js:779 ../src/documents.js:961 ../src/documents.js:1029
-#: ../src/documents.js:1137
+#: ../src/documents.js:905 ../src/documents.js:1115 ../src/documents.js:1218
+#: ../src/documents.js:1412
 msgid "Collection"
 msgstr "Kolekcija"
 
 #. overridden
-#: ../src/documents.js:841
+#: ../src/documents.js:972
 msgid "Google Docs"
 msgstr "Google dokumenti"
 
-#: ../src/documents.js:842
+#: ../src/documents.js:973
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:963 ../src/documents.js:1139
+#: ../src/documents.js:1117 ../src/documents.js:1414
 msgid "Spreadsheet"
 msgstr "Proračunska tablica"
 
-#: ../src/documents.js:965 ../src/documents.js:1141 ../src/presentation.js:44
+#: ../src/documents.js:1119 ../src/documents.js:1416 ../src/presentation.js:44
 msgid "Presentation"
 msgstr "Prezentacija"
 
-#: ../src/documents.js:967 ../src/documents.js:1143
+#: ../src/documents.js:1121 ../src/documents.js:1418
 msgid "e-Book"
 msgstr "e-knjiga"
 
-#: ../src/documents.js:969 ../src/documents.js:1145
+#: ../src/documents.js:1123 ../src/documents.js:1420
 msgid "Document"
 msgstr "Dokument"
 
 #. overridden
-#: ../src/documents.js:1008
+#: ../src/documents.js:1173
 msgid "ownCloud"
 msgstr "ownCloud"
 
 #. overridden
-#: ../src/documents.js:1073 ../src/documents.js:1074
+#: ../src/documents.js:1307 ../src/documents.js:1308
 msgid "OneDrive"
 msgstr "OneDrive"
 
-#: ../src/documents.js:1319
+#: ../src/documents.js:1594
 msgid "Please check the network connection."
 msgstr "Provjerite mrežno povezivanje."
 
-#: ../src/documents.js:1322
+#: ../src/documents.js:1597
 msgid "Please check the network proxy settings."
 msgstr "Provjerite mrežne proxy postavke."
 
-#: ../src/documents.js:1325
+#: ../src/documents.js:1600
 msgid "Unable to sign in to the document service."
-msgstr "Nemoguća prijava u uslugu dokumenata"
+msgstr "Nemoguća prijava u uslugu dokumenata."
 
-#: ../src/documents.js:1328
+#: ../src/documents.js:1603
 msgid "Unable to locate this document."
 msgstr "Nemoguće lociranje ovog dokumenta."
 
-#: ../src/documents.js:1331
+#: ../src/documents.js:1606
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Hm, nešto je sumnjivo (%d)."
 
-#: ../src/documents.js:1338
+#: ../src/documents.js:1613
 msgid ""
 "You are using a preview of Books. Full viewing capabilities are coming soon!"
 msgstr "Koristite pregled knjiga. Potpuna mogućnost pregleda dolazi uskoro!"
 
-#: ../src/documents.js:1340
+#: ../src/documents.js:1615
 msgid ""
 "LibreOffice support is not available. Please contact your system "
 "administrator."
@@ -517,7 +517,7 @@ msgstr ""
 "sustava."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1363
+#: ../src/documents.js:1638
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Ups! Nemoguće je učitati “%s”"
@@ -527,11 +527,16 @@ msgstr "Ups! Nemoguće je učitati “%s”"
 msgid "View"
 msgstr "Pogled"
 
-#: ../src/evinceview.js:596 ../src/lib/gd-places-bookmarks.c:656
+#: ../src/epubview.js:228
+#, javascript-format
+msgid "chapter %s of %s"
+msgstr "poglavlje %s od %s"
+
+#: ../src/evinceview.js:590 ../src/lib/gd-places-bookmarks.c:656
 msgid "Bookmarks"
 msgstr "Zabilješke"
 
-#: ../src/evinceview.js:604
+#: ../src/evinceview.js:598
 msgid "Bookmark this page"
 msgstr "Dodaj u zabilješku"
 
@@ -540,13 +545,9 @@ msgstr "Dodaj u zabilješku"
 msgid "Page %u of %u"
 msgstr "Stranica %u od %u"
 
-#: ../src/lib/gd-pdf-loader.c:268
+#: ../src/lib/gd-pdf-loader.c:142
 msgid "Unable to load the document"
 msgstr "Neuspješno učitavanje dokumenta"
-
-#: ../src/lib/gd-pdf-loader.c:758
-msgid "LibreOffice is required to view this document"
-msgstr "LibreOffice je potreban za prikaz ovog dokumenta"
 
 #. Translators: %s is the number of the page, already formatted
 #. * as a string, for example "Page 5".
@@ -572,15 +573,15 @@ msgstr "Nema tablice sadržaja"
 msgid "Contents"
 msgstr "Sadržaj"
 
-#: ../src/lib/gd-utils.c:334
+#: ../src/lib/gd-utils.c:328
 msgid "A document manager application"
 msgstr "Aplikacija upravitelja dokumenata"
 
-#: ../src/lib/gd-utils.c:341
+#: ../src/lib/gd-utils.c:333
 msgid "An e-books manager application"
 msgstr "Aplikacija upravitelja e-knjiga"
 
-#: ../src/lib/gd-utils.c:349
+#: ../src/lib/gd-utils.c:340
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -693,11 +694,11 @@ msgstr[2] "%d odabrano"
 msgid "Select Items"
 msgstr "Odaberi stavke"
 
-#: ../src/overview.js:877
+#: ../src/overview.js:876
 msgid "Yesterday"
 msgstr "od jučer"
 
-#: ../src/overview.js:879
+#: ../src/overview.js:878
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -705,11 +706,11 @@ msgstr[0] "prije %d dana"
 msgstr[1] "prije %d dana"
 msgstr[2] "prije %d dana"
 
-#: ../src/overview.js:883
+#: ../src/overview.js:882
 msgid "Last week"
 msgstr "od prošlog tjedna"
 
-#: ../src/overview.js:885
+#: ../src/overview.js:884
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
@@ -717,11 +718,11 @@ msgstr[0] "prije %d tjedna"
 msgstr[1] "prije %d tjedna"
 msgstr[2] "prije %d tjedana"
 
-#: ../src/overview.js:889
+#: ../src/overview.js:888
 msgid "Last month"
 msgstr "od prošlog mjeseca"
 
-#: ../src/overview.js:891
+#: ../src/overview.js:890
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
@@ -729,11 +730,11 @@ msgstr[0] "prije %d mjeseca"
 msgstr[1] "prije %d mjeseca"
 msgstr[2] "prije %d mjeseca"
 
-#: ../src/overview.js:895
+#: ../src/overview.js:894
 msgid "Last year"
 msgstr "od prošle godine"
 
-#: ../src/overview.js:897
+#: ../src/overview.js:896
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -784,16 +785,16 @@ msgid "Secondary"
 msgstr "Pomoćni"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/preview.js:446 ../src/selections.js:959
+#: ../src/preview.js:445 ../src/selections.js:985
 #, javascript-format
 msgid "Open with %s"
 msgstr "Otvori s %s"
 
-#: ../src/preview.js:778
+#: ../src/preview.js:770
 msgid "Find Previous"
 msgstr "Pretraži prijašnje"
 
-#: ../src/preview.js:784
+#: ../src/preview.js:776
 msgid "Find Next"
 msgstr "Pretraži sljedeće"
 
@@ -899,6 +900,14 @@ msgstr "Sadržaju"
 msgid "Sources"
 msgstr "Izvori"
 
+#. Translators: the first %s is an online account provider name,
+#. e.g. "Google". The second %s is the identity used to log in,
+#. e.g. "foo@gmail.com".
+#: ../src/search.js:508
+#, javascript-format
+msgid "%s (%s)"
+msgstr "%s (%s)"
+
 #: ../src/selections.js:360 ../src/selections.js:362
 msgid "Rename…"
 msgstr "Preimenuj..."
@@ -997,3 +1006,6 @@ msgstr "Neimenovani dokument"
 #: ../src/trackerController.js:176
 msgid "Unable to fetch the list of documents"
 msgstr "Nemoguće preuzimanje popisa dokumenata"
+
+#~ msgid "LibreOffice is required to view this document"
+#~ msgstr "LibreOffice je potreban za prikaz ovog dokumenta"
