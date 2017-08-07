@@ -29,7 +29,7 @@ const Utils = imports.utils;
 
 const Application = imports.application;
 
-const PresentationWindow = new Lang.Class({
+var PresentationWindow = new Lang.Class({
     Name: 'PresentationWindow',
     Extends: Gtk.Window,
 
@@ -229,7 +229,7 @@ const PresentationOutputChooser = new Lang.Class({
     }
 });
 
-const PresentationOutputs = new Lang.Class({
+var PresentationOutputs = new Lang.Class({
     Name: 'PresentationOutputs',
 
     _init: function() {

@@ -33,7 +33,7 @@ const Mainloop = imports.mainloop;
 
 const DELETE_TIMEOUT = 10; // seconds
 
-const DeleteNotification = new Lang.Class({
+var DeleteNotification = new Lang.Class({
     Name: 'DeleteNotification',
 
     _init: function(docs) {
@@ -109,7 +109,7 @@ const DeleteNotification = new Lang.Class({
     }
 });
 
-const PrintNotification = new Lang.Class({
+var PrintNotification = new Lang.Class({
     Name: 'PrintNotification',
 
     _init: function(printOp, doc) {
