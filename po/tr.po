@@ -4,19 +4,20 @@
 #
 # Osman Karagöz <osmank3@gmail.com>, 2012, 2013.
 # Yaşar Şentürk <yasarix@gmail.com>, 2015.
-# Muhammet Kara <muhammetk@gmail.com>, 2011, 2012, 2013, 2014, 2015, 2016.
 # Neriman Kara <nerimankaraa@gmail.com>, 2016.
 # Furkan Ahmet Kara <furkanahmetkara.fk@gmail.com>, 2017.
+# Çağatay Yiğit Şahin <cyigitsahin@outlook.com>, 2017.
+# Muhammet Kara <muhammetk@gmail.com>, 2011, 2012, 2013, 2014, 2015, 2016, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-04-20 17:09+0000\n"
-"PO-Revision-Date: 2017-05-16 03:52+0300\n"
-"Last-Translator: Furkan Ahmet Kara <furkanahmetkara.fk@gmail.com>\n"
-"Language-Team: Türkçe <gnome-turk@gnome.org>\n"
+"POT-Creation-Date: 2017-07-13 14:32+0000\n"
+"PO-Revision-Date: 2017-08-13 14:41+0300\n"
+"Last-Translator: Muhammet Kara <muhammetk@gmail.com>\n"
+"Language-Team: Turkish <gnometurk@gnome.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,8 +26,8 @@ msgstr ""
 "X-Generator: Gtranslator 2.91.7\n"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:1
-#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:111
-#: ../src/lib/gd-utils.c:329 ../src/overview.js:1053
+#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:112
+#: ../src/overview.js:1052
 msgid "Books"
 msgstr "Kitaplar"
 
@@ -134,8 +135,8 @@ msgid "Whether the application is in night mode."
 msgstr "﻿Uygulamanın gece kipinde olup olmadığı."
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:1
-#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:114
-#: ../src/lib/gd-utils.c:322 ../src/overview.js:1053
+#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:115
+#: ../src/overview.js:1052
 msgid "Documents"
 msgstr "Belgeler"
 
@@ -196,7 +197,7 @@ msgstr "Belgelerinize erişin, yönetin ve paylaşın"
 msgid "Docs;PDF;Document;"
 msgstr "Dokümanlar;PDF;Belgeler;"
 
-#: ../data/ui/app-menu.ui.h:1 ../src/preview.js:454
+#: ../data/ui/app-menu.ui.h:1 ../src/preview.js:453
 msgid "Night Mode"
 msgstr "Gece Kipi"
 
@@ -344,7 +345,7 @@ msgstr "_Kopyala"
 
 #. Translators: this is the Open action in a context menu
 #: ../data/ui/preview-menu.ui.h:1 ../data/ui/selection-toolbar.ui.h:1
-#: ../src/selections.js:962
+#: ../src/selections.js:988
 msgid "Open"
 msgstr "Aç"
 
@@ -356,7 +357,7 @@ msgstr "Düzenle"
 msgid "Print…"
 msgstr "Yazdır..."
 
-#: ../data/ui/preview-menu.ui.h:4 ../src/preview.js:463
+#: ../data/ui/preview-menu.ui.h:4 ../src/preview.js:462
 msgid "Fullscreen"
 msgstr "Tam ekran"
 
@@ -393,7 +394,7 @@ msgstr "Tümünü Seç"
 msgid "Select None"
 msgstr "Hiçbirini Seçme"
 
-#: ../data/ui/selection-toolbar.ui.h:3 ../src/overview.js:1057
+#: ../data/ui/selection-toolbar.ui.h:3 ../src/overview.js:1056
 #: ../src/search.js:126 ../src/search.js:132
 msgid "Collections"
 msgstr "Koleksiyonlar"
@@ -422,99 +423,99 @@ msgstr "Tarih"
 msgid "Name"
 msgstr "Ad"
 
-#: ../src/application.js:125
+#: ../src/application.js:126
 msgid "Show the version of the program"
 msgstr "Programın sürümünü göster"
 
-#: ../src/documents.js:754
+#: ../src/documents.js:794
 msgid "Failed to print document"
 msgstr "Belge yazdırma başarısız oldu"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:796 ../src/search.js:459
+#: ../src/documents.js:836 ../src/search.js:459
 msgid "Local"
 msgstr "Yerel"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:839
+#: ../src/documents.js:879
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:840
+#: ../src/documents.js:880
 msgid "Getting Started with Documents"
 msgstr "Belgeler ile Çalışmaya Başlama"
 
-#: ../src/documents.js:865 ../src/documents.js:1068 ../src/documents.js:1171
-#: ../src/documents.js:1363
+#: ../src/documents.js:905 ../src/documents.js:1115 ../src/documents.js:1218
+#: ../src/documents.js:1412
 msgid "Collection"
 msgstr "Koleksiyon"
 
 #. overridden
-#: ../src/documents.js:927
+#: ../src/documents.js:972
 msgid "Google Docs"
 msgstr "Google Belgeleri"
 
-#: ../src/documents.js:928
+#: ../src/documents.js:973
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:1070 ../src/documents.js:1365
+#: ../src/documents.js:1117 ../src/documents.js:1414
 msgid "Spreadsheet"
 msgstr "Hesap Tablosu"
 
-#: ../src/documents.js:1072 ../src/documents.js:1367 ../src/presentation.js:44
+#: ../src/documents.js:1119 ../src/documents.js:1416 ../src/presentation.js:44
 msgid "Presentation"
 msgstr "Sunum"
 
-#: ../src/documents.js:1074 ../src/documents.js:1369
+#: ../src/documents.js:1121 ../src/documents.js:1418
 msgid "e-Book"
 msgstr "e-kitap"
 
-#: ../src/documents.js:1076 ../src/documents.js:1371
+#: ../src/documents.js:1123 ../src/documents.js:1420
 msgid "Document"
 msgstr "Belge"
 
 #. overridden
-#: ../src/documents.js:1126
+#: ../src/documents.js:1173
 msgid "ownCloud"
 msgstr "ownCloud"
 
 #. overridden
-#: ../src/documents.js:1260 ../src/documents.js:1261
+#: ../src/documents.js:1307 ../src/documents.js:1308
 msgid "OneDrive"
 msgstr "OneDrive"
 
-#: ../src/documents.js:1545
+#: ../src/documents.js:1594
 msgid "Please check the network connection."
 msgstr "Lütfen internet bağlantınızı kontrol edin."
 
-#: ../src/documents.js:1548
+#: ../src/documents.js:1597
 msgid "Please check the network proxy settings."
 msgstr "Lütfen vekil sunucu ayarlarınızı kontrol edin."
 
-#: ../src/documents.js:1551
+#: ../src/documents.js:1600
 msgid "Unable to sign in to the document service."
 msgstr "Belge servisinde oturum açılamadı."
 
-#: ../src/documents.js:1554
+#: ../src/documents.js:1603
 msgid "Unable to locate this document."
 msgstr "Belge bulunamadı."
 
-#: ../src/documents.js:1557
+#: ../src/documents.js:1606
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Hmm, şüpheli bir durum var (%d)."
 
-#: ../src/documents.js:1564
+#: ../src/documents.js:1613
 msgid ""
 "You are using a preview of Books. Full viewing capabilities are coming soon!"
 msgstr ""
 "Kitaplar uygulamasının bir önizlemesini kullanıyorsunuz. Tam kapsamlı "
 "görüntüleme yetenekleri yakında geliyor!"
 
-#: ../src/documents.js:1566
+#: ../src/documents.js:1615
 msgid ""
 "LibreOffice support is not available. Please contact your system "
 "administrator."
@@ -523,7 +524,7 @@ msgstr ""
 "başvurun."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1589
+#: ../src/documents.js:1638
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Ahh! “%s” yüklenemedi."
@@ -533,11 +534,16 @@ msgstr "Ahh! “%s” yüklenemedi."
 msgid "View"
 msgstr "Görünüm"
 
-#: ../src/evinceview.js:596 ../src/lib/gd-places-bookmarks.c:656
+#: ../src/epubview.js:228
+#, javascript-format
+msgid "chapter %s of %s"
+msgstr "bölüm %s / %s"
+
+#: ../src/evinceview.js:590 ../src/lib/gd-places-bookmarks.c:656
 msgid "Bookmarks"
 msgstr "Yer İmleri"
 
-#: ../src/evinceview.js:604
+#: ../src/evinceview.js:598
 msgid "Bookmark this page"
 msgstr "Bu sayfayı yer imlerine ekle"
 
@@ -574,15 +580,15 @@ msgstr "İçerik tablosu yok"
 msgid "Contents"
 msgstr "İçerik"
 
-#: ../src/lib/gd-utils.c:323
+#: ../src/lib/gd-utils.c:328
 msgid "A document manager application"
 msgstr "Belge yönetimi uygulaması"
 
-#: ../src/lib/gd-utils.c:330
+#: ../src/lib/gd-utils.c:333
 msgid "An e-books manager application"
 msgstr "Bir e-kitap yönetici uygulaması"
 
-#: ../src/lib/gd-utils.c:338
+#: ../src/lib/gd-utils.c:340
 msgid "translator-credits"
 msgstr ""
 "Muhammet Kara <muhammetk@gmail.com>\n"
@@ -691,41 +697,41 @@ msgstr[0] "%d seçildi"
 msgid "Select Items"
 msgstr "Ögeleri Seç"
 
-#: ../src/overview.js:877
+#: ../src/overview.js:876
 msgid "Yesterday"
 msgstr "Dün"
 
-#: ../src/overview.js:879
+#: ../src/overview.js:878
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d gün önce"
 
-#: ../src/overview.js:883
+#: ../src/overview.js:882
 msgid "Last week"
 msgstr "Geçen hafta"
 
-#: ../src/overview.js:885
+#: ../src/overview.js:884
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d hafta önce"
 
-#: ../src/overview.js:889
+#: ../src/overview.js:888
 msgid "Last month"
 msgstr "Geçen ay"
 
-#: ../src/overview.js:891
+#: ../src/overview.js:890
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d ay önce"
 
-#: ../src/overview.js:895
+#: ../src/overview.js:894
 msgid "Last year"
 msgstr "Geçen sene"
 
-#: ../src/overview.js:897
+#: ../src/overview.js:896
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -774,16 +780,16 @@ msgid "Secondary"
 msgstr "İkincil"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/preview.js:446 ../src/selections.js:959
+#: ../src/preview.js:445 ../src/selections.js:985
 #, javascript-format
 msgid "Open with %s"
 msgstr "%s ile Aç"
 
-#: ../src/preview.js:778
+#: ../src/preview.js:770
 msgid "Find Previous"
 msgstr "Öncekini Bul"
 
-#: ../src/preview.js:784
+#: ../src/preview.js:776
 msgid "Find Next"
 msgstr "Sonrakini Bul"
 
