@@ -1,3 +1,11 @@
+3.25.90 - "Roman Square"
+========================
+
+- Use Gepub 0.5 (Jeremy Bicha)
+- Use Tracker 2.0 (Jeremy Bicha)
+- Use 'var' for classes that are exported (Jeremy Bicha & Cosimo Cecchi)
+- Translation updates
+
 3.25.4 - "Dentists"
 ===================
 
