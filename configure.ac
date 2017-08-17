@@ -15,12 +15,16 @@ AC_CANONICAL_TARGET
 AM_INIT_AUTOMAKE([1.11 dist-xz no-dist-gzip tar-ustar foreign])
 AM_MAINTAINER_MODE([enable])
 
+AX_IS_RELEASE([git-directory])
+AX_CHECK_ENABLE_DEBUG([yes],,, [$ax_is_release])
+
 GETTEXT_PACKAGE=AC_PACKAGE_NAME
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE",[The name of the gettext domain])
 IT_PROG_INTLTOOL(0.50.1)
 PKG_PROG_PKG_CONFIG([0.22])
 
+AX_REQUIRE_DEFINED([YELP_HELP_INIT])
 YELP_HELP_INIT
 
 GOBJECT_INTROSPECTION_REQUIRE([0.9.6])
@@ -43,7 +47,9 @@ AC_PROG_LIBTOOL
 ## don't rerun to this point if we abort
 AC_CACHE_SAVE
 
+AX_REQUIRE_DEFINED([GLIB_GSETTINGS])
 GLIB_GSETTINGS
+
 GETTING_STARTED_INIT
 
 AC_CHECK_LIBM
@@ -147,6 +153,4 @@ echo "
 
         prefix:    ${prefix}
         compiler:  ${CC}
-
-        Now type 'make' to build $PACKAGE
 "
