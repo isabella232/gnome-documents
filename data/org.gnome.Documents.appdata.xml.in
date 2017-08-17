@@ -32,7 +32,10 @@
     <kudo>SearchProvider</kudo>
     <kudo>UserDocs</kudo>
   </kudos>
+  <url type="bugtracker">https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-documents</url>
+  <url type="donation">http://www.gnome.org/friends</url>
   <url type="homepage">https://wiki.gnome.org/Apps/Documents</url>
+  <url type="translate">https://wiki.gnome.org/TranslationProject</url>
   <updatecontact>debarshir_at_gnome.org</updatecontact>
   <screenshots>
     <screenshot type="default">

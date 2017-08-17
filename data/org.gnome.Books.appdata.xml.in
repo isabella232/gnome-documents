@@ -25,7 +25,10 @@
     <kudo>HiDpiIcon</kudo>
     <kudo>ModernToolkit</kudo>
   </kudos>
+  <url type="bugtracker">https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-documents</url>
+  <url type="donation">http://www.gnome.org/friends</url>
   <url type="homepage">https://wiki.gnome.org/Apps/Books</url>
+  <url type="translate">https://wiki.gnome.org/TranslationProject</url>
   <updatecontact>debarshir_at_gnome.org</updatecontact>
   <screenshots>
     <screenshot type="default">
