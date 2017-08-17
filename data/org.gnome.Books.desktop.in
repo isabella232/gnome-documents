@@ -1,6 +1,6 @@
 [Desktop Entry]
-_Name=Books
-_Comment=Access, manage and share books
+Name=Books
+Comment=Access, manage and share books
 Exec=gnome-books
 Icon=org.gnome.Books
 Terminal=false
@@ -9,4 +9,4 @@ StartupNotify=true
 DBusActivatable=true
 OnlyShowIn=GNOME;
 Categories=GNOME;GTK;Utility;Core;
-_Keywords=Books;Comics;ePub;PDF;
+Keywords=Books;Comics;ePub;PDF;

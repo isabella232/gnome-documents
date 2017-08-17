@@ -1,6 +1,6 @@
 [Desktop Entry]
-_Name=Documents
-_Comment=Access, manage and share documents
+Name=Documents
+Comment=Access, manage and share documents
 Exec=gnome-documents
 Icon=org.gnome.Documents
 Terminal=false
@@ -9,4 +9,4 @@ StartupNotify=true
 DBusActivatable=true
 OnlyShowIn=GNOME;
 Categories=GNOME;GTK;Utility;Core;
-_Keywords=Docs;PDF;Document;
+Keywords=Docs;PDF;Document;

@@ -23,9 +23,6 @@ if [ "$#" = 0 -a "x$NOCONFIGURE" = "x" ]; then
 fi
 
 git submodule update --init --recursive || exit 1
-
-aclocal --install || exit 1
-intltoolize --force --copy --automake || exit 1
 autoreconf --verbose --force --install || exit 1
 
 cd "$olddir"

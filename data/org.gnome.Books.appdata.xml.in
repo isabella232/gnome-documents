@@ -4,20 +4,20 @@
   <id>org.gnome.Books.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
-  <_name>Books</_name>
-  <_summary>An e-book manager application for GNOME</_summary>
+  <name>Books</name>
+  <summary>An e-book manager application for GNOME</summary>
   <description>
-    <_p>
+    <p>
       A simple application to access and organize your e-books on
       GNOME. It is meant to be a simple and elegant replacement for using a
       file manager to deal with e-books.
-    </_p>
-    <_p>It lets you:</_p>
+    </p>
+    <p>It lets you:</p>
     <ul>
-      <_li>View recent e-books</_li>
-      <_li>Search through e-books</_li>
-      <_li>View e-books (PDF and comics) fullscreen</_li>
-      <_li>Print e-books</_li>
+      <li>View recent e-books</li>
+      <li>Search through e-books</li>
+      <li>View e-books (PDF and comics) fullscreen</li>
+      <li>Print e-books</li>
     </ul>
   </description>
   <kudos>

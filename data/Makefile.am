@@ -27,16 +27,24 @@ appdata_in_files = \
 	org.gnome.Documents.appdata.xml.in \
 	org.gnome.Books.appdata.xml.in
 
-@INTLTOOL_XML_RULE@
+org.gnome.Books.appdata.xml: org.gnome.Books.appdata.xml.in
+	$(AM_V_GEN)$(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
+
+org.gnome.Documents.appdata.xml: org.gnome.Documents.appdata.xml.in
+	$(AM_V_GEN)$(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
 
 desktopdir = $(datadir)/applications
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 desktop_in_files = org.gnome.Documents.desktop.in org.gnome.Books.desktop.in
 
+org.gnome.Books.desktop: org.gnome.Books.desktop.in
+	$(AM_V_GEN)$(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
+
+org.gnome.Documents.desktop: org.gnome.Documents.desktop.in
+	$(AM_V_GEN)$(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
+
 searchproviderdir = $(datadir)/gnome-shell/search-providers
 searchprovider_DATA = org.gnome.Documents.search-provider.ini
-
-@INTLTOOL_DESKTOP_RULE@
 
 check-local: org.gnome.Documents.desktop org.gnome.Books.desktop
 	$(DESKTOP_FILE_VALIDATE) org.gnome.Documents.desktop
