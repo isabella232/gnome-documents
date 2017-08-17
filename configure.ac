@@ -1,4 +1,4 @@
-dnl -*- mode: m4 -*-
+dnl -*- mode: Autoconf -*-
 AC_PREREQ(2.63)
 AC_INIT([gnome-documents],[3.25.90],[],[gnome-documents])
 
