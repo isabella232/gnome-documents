@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2013 Red Hat, Inc. -->
-<application>
-  <id type="desktop">org.gnome.Documents.desktop</id>
+<component type="desktop">
+  <id>org.gnome.Documents.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <_name>Documents</_name>
@@ -37,7 +37,6 @@
   <url type="homepage">https://wiki.gnome.org/Apps/Documents</url>
   <url type="translate">https://wiki.gnome.org/TranslationProject</url>
   <_developer_name>The GNOME Project</_developer_name>
-  <updatecontact>debarshir_at_gnome.org</updatecontact>
   <screenshots>
     <screenshot type="default">
       <image type="source">https://git.gnome.org/browse/gnome-documents/plain/data/screenshots/gnome-documents-1.png</image>
@@ -50,5 +49,6 @@
     </screenshot>
   </screenshots>
   <project_group>GNOME</project_group>
+  <update_contact>debarshir_at_gnome.org</update_contact>
   <translation type="gettext">gnome-documents</translation>
-</application>
+</component>
