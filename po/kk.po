@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-05-22 01:20+0000\n"
-"PO-Revision-Date: 2017-06-09 22:47+0500\n"
+"POT-Creation-Date: 2017-08-19 14:49+0000\n"
+"PO-Revision-Date: 2017-08-20 22:04+0500\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
 "Language: kk\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.0.2\n"
+"X-Generator: Poedit 1.8.12\n"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:1
-#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:111
-#: ../src/lib/gd-utils.c:329 ../src/overview.js:1052
+#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:112
+#: ../src/overview.js:1052
 msgid "Books"
 msgstr "Кітаптар"
 
@@ -59,6 +59,11 @@ msgstr "Эл. кітаптарды (PDF және комикстер) толық 
 #: ../data/org.gnome.Books.appdata.xml.in.h:8
 msgid "Print e-books"
 msgstr "Эл. кітаптарды баспаға шығару"
+
+#: ../data/org.gnome.Books.appdata.xml.in.h:9
+#: ../data/org.gnome.Documents.appdata.xml.in.h:13
+msgid "The GNOME Project"
+msgstr "GNOME жобасы"
 
 #: ../data/org.gnome.Books.desktop.in.h:2
 msgid "Access, manage and share books"
@@ -129,8 +134,8 @@ msgid "Whether the application is in night mode."
 msgstr "Қолданба түнгі режимінде ме, соны көрсетеді."
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:1
-#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:114
-#: ../src/lib/gd-utils.c:322 ../src/overview.js:1052
+#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:115
+#: ../src/overview.js:1052
 msgid "Documents"
 msgstr "Құжаттар қолданбасы"
 
@@ -190,7 +195,7 @@ msgstr "Құжаттарға қатынау, басқару және оларм�
 msgid "Docs;PDF;Document;"
 msgstr "Құжаттар;PDF;Құжат;"
 
-#: ../data/ui/app-menu.ui.h:1 ../src/preview.js:454
+#: ../data/ui/app-menu.ui.h:1 ../src/preview.js:453
 msgid "Night Mode"
 msgstr "Түнгі режимі"
 
@@ -338,7 +343,7 @@ msgstr "_Көшіру"
 
 #. Translators: this is the Open action in a context menu
 #: ../data/ui/preview-menu.ui.h:1 ../data/ui/selection-toolbar.ui.h:1
-#: ../src/selections.js:982
+#: ../src/selections.js:988
 msgid "Open"
 msgstr "Ашу"
 
@@ -350,7 +355,7 @@ msgstr "Түзету"
 msgid "Print…"
 msgstr "Баспаға шығару…"
 
-#: ../data/ui/preview-menu.ui.h:4 ../src/preview.js:463
+#: ../data/ui/preview-menu.ui.h:4 ../src/preview.js:462
 msgid "Fullscreen"
 msgstr "Толық экранға"
 
@@ -416,106 +421,106 @@ msgstr "Күні"
 msgid "Name"
 msgstr "Аты"
 
-#: ../src/application.js:125
+#: ../src/application.js:126
 msgid "Show the version of the program"
 msgstr "Бағдарлама нұсқасын көрсету"
 
-#: ../src/documents.js:776
+#: ../src/documents.js:794
 msgid "Failed to print document"
 msgstr "Құжатты баспаға шығару сәтсіз аяқталды"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:818 ../src/search.js:459
+#: ../src/documents.js:836 ../src/search.js:459
 msgid "Local"
 msgstr "Жергілікті"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:861
+#: ../src/documents.js:879
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:862
+#: ../src/documents.js:880
 msgid "Getting Started with Documents"
 msgstr "Құжаттар қолданбасымен жұмысты бастау"
 
-#: ../src/documents.js:887 ../src/documents.js:1097 ../src/documents.js:1200
-#: ../src/documents.js:1394
+#: ../src/documents.js:905 ../src/documents.js:1115 ../src/documents.js:1218
+#: ../src/documents.js:1412
 msgid "Collection"
 msgstr "Жинақ"
 
 #. overridden
-#: ../src/documents.js:954
+#: ../src/documents.js:972
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:955
+#: ../src/documents.js:973
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:1099 ../src/documents.js:1396
+#: ../src/documents.js:1117 ../src/documents.js:1414
 msgid "Spreadsheet"
 msgstr "Электрондық кесте"
 
-#: ../src/documents.js:1101 ../src/documents.js:1398 ../src/presentation.js:44
+#: ../src/documents.js:1119 ../src/documents.js:1416 ../src/presentation.js:44
 msgid "Presentation"
 msgstr "Презентация"
 
-#: ../src/documents.js:1103 ../src/documents.js:1400
+#: ../src/documents.js:1121 ../src/documents.js:1418
 msgid "e-Book"
 msgstr "эл. кітап"
 
-#: ../src/documents.js:1105 ../src/documents.js:1402
+#: ../src/documents.js:1123 ../src/documents.js:1420
 msgid "Document"
 msgstr "Құжат"
 
 #. overridden
-#: ../src/documents.js:1155
+#: ../src/documents.js:1173
 msgid "ownCloud"
 msgstr "ownCloud"
 
 #. overridden
-#: ../src/documents.js:1289 ../src/documents.js:1290
+#: ../src/documents.js:1307 ../src/documents.js:1308
 msgid "OneDrive"
 msgstr "OneDrive"
 
-#: ../src/documents.js:1576
+#: ../src/documents.js:1594
 msgid "Please check the network connection."
 msgstr "Желілік байланысты тексеріңіз."
 
-#: ../src/documents.js:1579
+#: ../src/documents.js:1597
 msgid "Please check the network proxy settings."
 msgstr "Желілік прокси баптауларын тексеріңіз."
 
-#: ../src/documents.js:1582
+#: ../src/documents.js:1600
 msgid "Unable to sign in to the document service."
 msgstr "Құжаттарды сақтау қызметіне кіру мүмкін емес."
 
-#: ../src/documents.js:1585
+#: ../src/documents.js:1603
 msgid "Unable to locate this document."
 msgstr "Бұл құжатты табу мүмкін емес."
 
-#: ../src/documents.js:1588
+#: ../src/documents.js:1606
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Қап, бірнәрсе біртүрлі болып тұр (%d)."
 
-#: ../src/documents.js:1595
+#: ../src/documents.js:1613
 msgid ""
 "You are using a preview of Books. Full viewing capabilities are coming soon!"
 msgstr ""
 "Сіз Кітаптар қолданбасының алдын-ала нұсқасын қолданудасыз. Толық "
 "мүмкіндіктері жақында шығарылады!"
 
-#: ../src/documents.js:1597
+#: ../src/documents.js:1615
 msgid ""
 "LibreOffice support is not available. Please contact your system "
 "administrator."
 msgstr "LibreOffice қолдауы қолжетерсіз. Жүйелік әкімшіңізге хабарласыңыз."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1620
+#: ../src/documents.js:1638
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Қап! “%s” жүктеу мүмкін емес"
@@ -530,11 +535,11 @@ msgstr "Қарау"
 msgid "chapter %s of %s"
 msgstr "санат %s, барлығы %s"
 
-#: ../src/evinceview.js:592 ../src/lib/gd-places-bookmarks.c:656
+#: ../src/evinceview.js:590 ../src/lib/gd-places-bookmarks.c:656
 msgid "Bookmarks"
 msgstr "Бетбелгілер"
 
-#: ../src/evinceview.js:600
+#: ../src/evinceview.js:598
 msgid "Bookmark this page"
 msgstr "Бұл парақты бетбелгілерге қосу"
 
@@ -571,15 +576,15 @@ msgstr "Мазмұны жоқ"
 msgid "Contents"
 msgstr "Құрамасы"
 
-#: ../src/lib/gd-utils.c:323
+#: ../src/lib/gd-utils.c:328
 msgid "A document manager application"
 msgstr "Құжаттарды басқару қолданбасы"
 
-#: ../src/lib/gd-utils.c:330
+#: ../src/lib/gd-utils.c:333
 msgid "An e-books manager application"
 msgstr "Электрондық кітаптарды басқару қолданбасы"
 
-#: ../src/lib/gd-utils.c:338
+#: ../src/lib/gd-utils.c:340
 msgid "translator-credits"
 msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com>"
 
@@ -769,16 +774,16 @@ msgid "Secondary"
 msgstr "Екіншілік"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/preview.js:446 ../src/selections.js:979
+#: ../src/preview.js:445 ../src/selections.js:985
 #, javascript-format
 msgid "Open with %s"
 msgstr "%s көмегімен ашу"
 
-#: ../src/preview.js:777
+#: ../src/preview.js:770
 msgid "Find Previous"
 msgstr "Алдыңғысын табу"
 
-#: ../src/preview.js:783
+#: ../src/preview.js:776
 msgid "Find Next"
 msgstr "Келесісін табу"
 
