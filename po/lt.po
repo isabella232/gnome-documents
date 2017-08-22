@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-06-21 12:26+0000\n"
-"PO-Revision-Date: 2017-07-24 23:38+0300\n"
+"POT-Creation-Date: 2017-08-19 14:49+0000\n"
+"PO-Revision-Date: 2017-08-22 22:50+0300\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -60,6 +60,11 @@ msgstr "Rodyti el. knygas (PDF ir komiksus) visame ekrane"
 #: ../data/org.gnome.Books.appdata.xml.in.h:8
 msgid "Print e-books"
 msgstr "Spausdinti el. knygas"
+
+#: ../data/org.gnome.Books.appdata.xml.in.h:9
+#: ../data/org.gnome.Documents.appdata.xml.in.h:13
+msgid "The GNOME Project"
+msgstr "GNOME projektas"
 
 #: ../data/org.gnome.Books.desktop.in.h:2
 msgid "Access, manage and share books"
@@ -528,7 +533,6 @@ msgstr "Rodyti"
 
 #: ../src/epubview.js:228
 #, javascript-format
-#| msgid "Page %u of %u"
 msgid "chapter %s of %s"
 msgstr "skyrius %s iš %s"
 
