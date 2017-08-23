@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents gnome-3-24\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-07-13 14:32+0000\n"
-"PO-Revision-Date: 2017-07-30 23:21+0200\n"
+"POT-Creation-Date: 2017-08-23 11:05+0000\n"
+"PO-Revision-Date: 2017-08-23 17:10+0200\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "Language: hr\n"
@@ -21,53 +21,9 @@ msgstr ""
 "X-Generator: Poedit 2.0.3\n"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:1
-#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:112
-#: ../src/overview.js:1052
-msgid "Books"
-msgstr "Knjige"
-
-#: ../data/org.gnome.Books.appdata.xml.in.h:2
-msgid "An e-book manager application for GNOME"
-msgstr "Aplikacija upravitelja e-knjiga za GNOME"
-
-#: ../data/org.gnome.Books.appdata.xml.in.h:3
-msgid ""
-"A simple application to access and organize your e-books on GNOME. It is "
-"meant to be a simple and elegant replacement for using a file manager to "
-"deal with e-books."
-msgstr ""
-"Jednostavna aplikacija za pristup i organizaciju vaših e-knjiga na GNOMU. "
-"Namjena aplikacije je da bude jednostavna i elegantna zamjena za rukovanje e-"
-"knjigama u upravitelju datoteka."
-
-#: ../data/org.gnome.Books.appdata.xml.in.h:4
-#: ../data/org.gnome.Documents.appdata.xml.in.h:4
-msgid "It lets you:"
-msgstr "Omogućuje vam:"
-
-#: ../data/org.gnome.Books.appdata.xml.in.h:5
-msgid "View recent e-books"
-msgstr "Pregled nedavnih e-knjiga"
-
-#: ../data/org.gnome.Books.appdata.xml.in.h:6
-msgid "Search through e-books"
-msgstr "Pretragu e-knjiga"
-
-#: ../data/org.gnome.Books.appdata.xml.in.h:7
-msgid "View e-books (PDF and comics) fullscreen"
-msgstr "Pregled e-knjiga (PDF i stripova) u cijelom zaslonu"
-
-#: ../data/org.gnome.Books.appdata.xml.in.h:8
-msgid "Print e-books"
-msgstr "Ispis e-knjiga"
-
-#: ../data/org.gnome.Books.desktop.in.h:2
-msgid "Access, manage and share books"
-msgstr "Pristup, upravljanje i dijeljenje e-knjiga"
-
-#: ../data/org.gnome.Books.desktop.in.h:3
-msgid "Books;Comics;ePub;PDF;"
-msgstr "Knjige;Stripovi;eObj;PDF;"
+#: ../data/org.gnome.Documents.appdata.xml.in.h:1
+msgid "The GNOME Project"
+msgstr "GNOME projekt"
 
 #: ../data/org.gnome.books.gschema.xml.h:1
 #: ../data/org.gnome.documents.gschema.xml.h:1
@@ -129,294 +85,13 @@ msgstr "Noćni način rada"
 msgid "Whether the application is in night mode."
 msgstr "Treba li aplikacija biti u noćnom načinu rada."
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:1
-#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:115
-#: ../src/overview.js:1052
+#: ../src/application.js:112 ../src/overview.js:1052
+msgid "Books"
+msgstr "Knjige"
+
+#: ../src/application.js:115 ../src/overview.js:1052
 msgid "Documents"
 msgstr "Dokumenti"
-
-#: ../data/org.gnome.Documents.appdata.xml.in.h:2
-msgid "A document manager application for GNOME"
-msgstr "Aplikacija upravitelja dokumenata za GNOME"
-
-#: ../data/org.gnome.Documents.appdata.xml.in.h:3
-msgid ""
-"A simple application to access, organize and share your documents on GNOME. "
-"It is meant to be a simple and elegant replacement for using a file manager "
-"to deal with documents. Seamless cloud integration is offered through GNOME "
-"Online Accounts."
-msgstr ""
-"Jednostavna aplikacija za pristup, organizaciju i dijeljenje vaših "
-"dokumenata na GNOMU. Namjena aplikacije je da bude jednostavna i elegantna "
-"zamjena za rukovanje dokumentima u upravitelju datoteka. Besprijekorna "
-"integracija sa oblakom je omogućena putem GNOME mrežnih računa."
-
-#: ../data/org.gnome.Documents.appdata.xml.in.h:5
-msgid "View recent local and online documents"
-msgstr "Pregled nedavnih lokalnih ili mrežnih dokumenata"
-
-#: ../data/org.gnome.Documents.appdata.xml.in.h:6
-msgid "Access your Google, ownCloud or OneDrive content"
-msgstr "Pristup vašem Google, ownCloud ili OneDrive sadržaju"
-
-#: ../data/org.gnome.Documents.appdata.xml.in.h:7
-msgid "Search through documents"
-msgstr "Pretragu dokumenata"
-
-#: ../data/org.gnome.Documents.appdata.xml.in.h:8
-msgid "See new documents shared by friends"
-msgstr "Pogled novih dokumentata koje dijele vaši prijatelji"
-
-#: ../data/org.gnome.Documents.appdata.xml.in.h:9
-msgid "View documents fullscreen"
-msgstr "Pregled dokumenata u cijelom zaslonu"
-
-#: ../data/org.gnome.Documents.appdata.xml.in.h:10
-msgid "Print documents"
-msgstr "Ispis dokumenata"
-
-#: ../data/org.gnome.Documents.appdata.xml.in.h:11
-msgid "Select favorites"
-msgstr "Odabir omiljenih"
-
-#: ../data/org.gnome.Documents.appdata.xml.in.h:12
-msgid "Allow opening full featured editor for non-trivial changes"
-msgstr ""
-"Dopušta otvaranje potpunijeg uređivača fotografija za nezahtjevne promjene"
-
-#: ../data/org.gnome.Documents.desktop.in.h:2
-msgid "Access, manage and share documents"
-msgstr "Pristup, upravljanje i dijeljenje dokumenata"
-
-#: ../data/org.gnome.Documents.desktop.in.h:3
-msgid "Docs;PDF;Document;"
-msgstr "Dokumenti;PDF;Dokument;"
-
-#: ../data/ui/app-menu.ui.h:1 ../src/preview.js:453
-msgid "Night Mode"
-msgstr "Noćni način rada"
-
-#: ../data/ui/app-menu.ui.h:2
-msgid "Keyboard Shortcuts"
-msgstr "Prečaci tipkovnice"
-
-#: ../data/ui/app-menu.ui.h:3
-msgid "Help"
-msgstr "Priručnik"
-
-#: ../data/ui/app-menu.ui.h:4
-msgid "About"
-msgstr "O programu"
-
-#: ../data/ui/app-menu.ui.h:5
-msgctxt "app menu"
-msgid "Quit"
-msgstr "Zatvori"
-
-#: ../data/ui/help-overlay.ui.h:1
-msgctxt "shortcut window"
-msgid "General"
-msgstr "Općenito"
-
-#: ../data/ui/help-overlay.ui.h:2
-msgctxt "shortcut window"
-msgid "Show help"
-msgstr "Prikaži priručnik"
-
-#: ../data/ui/help-overlay.ui.h:3
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Isključi"
-
-#: ../data/ui/help-overlay.ui.h:4
-msgctxt "shortcut window"
-msgid "Search"
-msgstr "Pretraga"
-
-#: ../data/ui/help-overlay.ui.h:5
-msgctxt "shortcut window"
-msgid "Print the current document"
-msgstr "Ispiši trenutni dokument"
-
-#: ../data/ui/help-overlay.ui.h:6
-msgctxt "shortcut window"
-msgid "Navigation"
-msgstr "Navigacija"
-
-#: ../data/ui/help-overlay.ui.h:7
-msgctxt "shortcut window"
-msgid "Go back"
-msgstr "Natrag"
-
-#: ../data/ui/help-overlay.ui.h:8
-msgctxt "shortcut window"
-msgid "Preview"
-msgstr "Pretpregled"
-
-#: ../data/ui/help-overlay.ui.h:9
-msgctxt "shortcut window"
-msgid "Zoom in"
-msgstr "Uvećaj"
-
-#: ../data/ui/help-overlay.ui.h:10
-msgctxt "shortcut window"
-msgid "Zoom out"
-msgstr "Umanji"
-
-#: ../data/ui/help-overlay.ui.h:11
-msgctxt "shortcut window"
-msgid "Bookmark the current page"
-msgstr "Dodaj zabilješku za trenutnu stranicu"
-
-#: ../data/ui/help-overlay.ui.h:12
-msgctxt "shortcut window"
-msgid "Open places and bookmarks dialog"
-msgstr "Otvori dijalog lokacija i zabilješki"
-
-#: ../data/ui/help-overlay.ui.h:13
-msgctxt "shortcut window"
-msgid "Copy selected text to clipboard"
-msgstr "Kopiraj odabrani tekst u međuspremnik"
-
-#: ../data/ui/help-overlay.ui.h:14
-msgctxt "shortcut window"
-msgid "Rotate anti-clockwise"
-msgstr "Zakreni u smjeru suprotno od kazaljke sata"
-
-#: ../data/ui/help-overlay.ui.h:15
-msgctxt "shortcut window"
-msgid "Rotate clockwise"
-msgstr "Zakreni u smjeru kazaljke sata"
-
-#: ../data/ui/help-overlay.ui.h:16
-msgctxt "shortcut window"
-msgid "Next occurrence of the search string"
-msgstr "Sljedeće pojavljivanje traženog pojma"
-
-#: ../data/ui/help-overlay.ui.h:17
-msgctxt "shortcut window"
-msgid "Previous occurrence of the search string"
-msgstr "Pretraži prijašnje pojavljivanje traženog pojma"
-
-#: ../data/ui/help-overlay.ui.h:18
-msgctxt "shortcut window"
-msgid "Presentation mode"
-msgstr "Prezentacijski način"
-
-#: ../data/ui/help-overlay.ui.h:19
-msgctxt "shortcut window"
-msgid "Open action menu"
-msgstr "Otvori izbornik radnji"
-
-#: ../data/ui/help-overlay.ui.h:20
-msgctxt "shortcut window"
-msgid "Fullscreen"
-msgstr "Cjelozaslonski prikaz"
-
-#: ../data/ui/organize-collection-dialog.ui.h:1
-msgid "Enter a name for your first collection"
-msgstr "Upišite naziv za vašu prvu kolekciju"
-
-#: ../data/ui/organize-collection-dialog.ui.h:2
-msgid "New Collection…"
-msgstr "Nova kolekcija…"
-
-#: ../data/ui/organize-collection-dialog.ui.h:3 ../src/sharing.js:226
-msgid "Add"
-msgstr "Dodaj"
-
-#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/overview.js:616
-msgid "Cancel"
-msgstr "Odustani"
-
-#. Label for Done button in Sharing dialog
-#: ../data/ui/organize-collection-dialog.ui.h:5 ../src/sharing.js:112
-msgid "Done"
-msgstr "Završeno"
-
-#: ../data/ui/preview-context-menu.ui.h:1
-msgid "_Copy"
-msgstr "_Kopiraj"
-
-#. Translators: this is the Open action in a context menu
-#: ../data/ui/preview-menu.ui.h:1 ../data/ui/selection-toolbar.ui.h:1
-#: ../src/selections.js:988
-msgid "Open"
-msgstr "Otvori"
-
-#: ../data/ui/preview-menu.ui.h:2
-msgid "Edit"
-msgstr "Uredi"
-
-#: ../data/ui/preview-menu.ui.h:3
-msgid "Print…"
-msgstr "Ispis…"
-
-#: ../data/ui/preview-menu.ui.h:4 ../src/preview.js:462
-msgid "Fullscreen"
-msgstr "Cjelozaslonski prikaz"
-
-#: ../data/ui/preview-menu.ui.h:5
-msgid "Present"
-msgstr "Prisutan"
-
-#: ../data/ui/preview-menu.ui.h:6
-msgid "Zoom In"
-msgstr "Približi"
-
-#: ../data/ui/preview-menu.ui.h:7
-msgid "Zoom Out"
-msgstr "Udalji"
-
-#: ../data/ui/preview-menu.ui.h:8
-msgid "Rotate ↶"
-msgstr "Zakreni ↶"
-
-#: ../data/ui/preview-menu.ui.h:9
-msgid "Rotate ↷"
-msgstr "Zakreni ↷"
-
-#: ../data/ui/preview-menu.ui.h:10 ../data/ui/selection-toolbar.ui.h:2
-#: ../src/properties.js:61
-msgid "Properties"
-msgstr "Svojstva"
-
-#: ../data/ui/selection-menu.ui.h:1
-msgid "Select All"
-msgstr "Odaberi sve"
-
-#: ../data/ui/selection-menu.ui.h:2
-msgid "Select None"
-msgstr "Ukloni odabir"
-
-#: ../data/ui/selection-toolbar.ui.h:3 ../src/overview.js:1056
-#: ../src/search.js:126 ../src/search.js:132
-msgid "Collections"
-msgstr "Kolekcije"
-
-#: ../data/ui/view-menu.ui.h:1
-msgid "View items as a grid of icons"
-msgstr "Prebaci na pogled mreže"
-
-#: ../data/ui/view-menu.ui.h:2
-msgid "View items as a list"
-msgstr "Prebaci na pogled popisa"
-
-#: ../data/ui/view-menu.ui.h:3
-msgid "Sort"
-msgstr "Razvrstaj"
-
-#: ../data/ui/view-menu.ui.h:4
-msgid "Author"
-msgstr "Autor"
-
-#: ../data/ui/view-menu.ui.h:5
-msgid "Date"
-msgstr "Datum"
-
-#: ../data/ui/view-menu.ui.h:6
-msgid "Name"
-msgstr "Naslov"
 
 #: ../src/application.js:126
 msgid "Show the version of the program"
@@ -690,6 +365,10 @@ msgstr[0] "%d odabrana"
 msgstr[1] "%d odabrane"
 msgstr[2] "%d odabrano"
 
+#: ../src/overview.js:616
+msgid "Cancel"
+msgstr "Odustani"
+
 #: ../src/overview.js:669
 msgid "Select Items"
 msgstr "Odaberi stavke"
@@ -742,6 +421,10 @@ msgstr[0] "prije %d godine"
 msgstr[1] "prije %d godine"
 msgstr[2] "prije %d godina"
 
+#: ../src/overview.js:1056 ../src/search.js:126 ../src/search.js:132
+msgid "Collections"
+msgstr "Kolekcije"
+
 #: ../src/password.js:42
 msgid "Password Required"
 msgstr "Potrebna je lozinka"
@@ -790,6 +473,14 @@ msgstr "Pomoćni"
 msgid "Open with %s"
 msgstr "Otvori s %s"
 
+#: ../src/preview.js:453
+msgid "Night Mode"
+msgstr "Noćni način rada"
+
+#: ../src/preview.js:462
+msgid "Fullscreen"
+msgstr "Cjelozaslonski prikaz"
+
 #: ../src/preview.js:770
 msgid "Find Previous"
 msgstr "Pretraži prijašnje"
@@ -797,6 +488,10 @@ msgstr "Pretraži prijašnje"
 #: ../src/preview.js:776
 msgid "Find Next"
 msgstr "Pretraži sljedeće"
+
+#: ../src/properties.js:61
+msgid "Properties"
+msgstr "Svojstva"
 
 #. Title item
 #. Translators: "Title" is the label next to the document title
@@ -910,7 +605,7 @@ msgstr "%s (%s)"
 
 #: ../src/selections.js:360 ../src/selections.js:362
 msgid "Rename…"
-msgstr "Preimenuj..."
+msgstr "Preimenuj…"
 
 #: ../src/selections.js:366 ../src/selections.js:368
 msgid "Delete"
@@ -931,9 +626,19 @@ msgctxt "Dialog Title"
 msgid "Collections"
 msgstr "Kolekcije"
 
+#. Translators: this is the Open action in a context menu
+#: ../src/selections.js:988
+msgid "Open"
+msgstr "Otvori"
+
 #: ../src/sharing.js:108
 msgid "Sharing Settings"
 msgstr "Postavke dijeljenja"
+
+#. Label for Done button in Sharing dialog
+#: ../src/sharing.js:112
+msgid "Done"
+msgstr "Završeno"
 
 #. Label for widget group for changing document permissions
 #: ../src/sharing.js:145
@@ -977,6 +682,10 @@ msgstr "Može uređivati"
 msgid "Can view"
 msgstr "Može pregleadvati"
 
+#: ../src/sharing.js:226
+msgid "Add"
+msgstr "Dodaj"
+
 #: ../src/sharing.js:302
 msgid "Everyone can read"
 msgstr "Svi mogu čitati"
@@ -1006,6 +715,232 @@ msgstr "Neimenovani dokument"
 #: ../src/trackerController.js:176
 msgid "Unable to fetch the list of documents"
 msgstr "Nemoguće preuzimanje popisa dokumenata"
+
+#~ msgid "An e-book manager application for GNOME"
+#~ msgstr "Aplikacija upravitelja e-knjiga za GNOME"
+
+#~ msgid ""
+#~ "A simple application to access and organize your e-books on GNOME. It is "
+#~ "meant to be a simple and elegant replacement for using a file manager to "
+#~ "deal with e-books."
+#~ msgstr ""
+#~ "Jednostavna aplikacija za pristup i organizaciju vaših e-knjiga na GNOMU. "
+#~ "Namjena aplikacije je da bude jednostavna i elegantna zamjena za "
+#~ "rukovanje e-knjigama u upravitelju datoteka."
+
+#~ msgid "It lets you:"
+#~ msgstr "Omogućuje vam:"
+
+#~ msgid "View recent e-books"
+#~ msgstr "Pregled nedavnih e-knjiga"
+
+#~ msgid "Search through e-books"
+#~ msgstr "Pretragu e-knjiga"
+
+#~ msgid "View e-books (PDF and comics) fullscreen"
+#~ msgstr "Pregled e-knjiga (PDF i stripova) u cijelom zaslonu"
+
+#~ msgid "Print e-books"
+#~ msgstr "Ispis e-knjiga"
+
+#~ msgid "Access, manage and share books"
+#~ msgstr "Pristup, upravljanje i dijeljenje e-knjiga"
+
+#~ msgid "Books;Comics;ePub;PDF;"
+#~ msgstr "Knjige;Stripovi;eObj;PDF;"
+
+#~ msgid "A document manager application for GNOME"
+#~ msgstr "Aplikacija upravitelja dokumenata za GNOME"
+
+#~ msgid ""
+#~ "A simple application to access, organize and share your documents on "
+#~ "GNOME. It is meant to be a simple and elegant replacement for using a "
+#~ "file manager to deal with documents. Seamless cloud integration is "
+#~ "offered through GNOME Online Accounts."
+#~ msgstr ""
+#~ "Jednostavna aplikacija za pristup, organizaciju i dijeljenje vaših "
+#~ "dokumenata na GNOMU. Namjena aplikacije je da bude jednostavna i "
+#~ "elegantna zamjena za rukovanje dokumentima u upravitelju datoteka. "
+#~ "Besprijekorna integracija sa oblakom je omogućena putem GNOME mrežnih "
+#~ "računa."
+
+#~ msgid "View recent local and online documents"
+#~ msgstr "Pregled nedavnih lokalnih ili mrežnih dokumenata"
+
+#~ msgid "Access your Google, ownCloud or OneDrive content"
+#~ msgstr "Pristup vašem Google, ownCloud ili OneDrive sadržaju"
+
+#~ msgid "Search through documents"
+#~ msgstr "Pretragu dokumenata"
+
+#~ msgid "See new documents shared by friends"
+#~ msgstr "Pogled novih dokumentata koje dijele vaši prijatelji"
+
+#~ msgid "View documents fullscreen"
+#~ msgstr "Pregled dokumenata u cijelom zaslonu"
+
+#~ msgid "Print documents"
+#~ msgstr "Ispis dokumenata"
+
+#~ msgid "Select favorites"
+#~ msgstr "Odabir omiljenih"
+
+#~ msgid "Allow opening full featured editor for non-trivial changes"
+#~ msgstr ""
+#~ "Dopušta otvaranje potpunijeg uređivača fotografija za nezahtjevne promjene"
+
+#~ msgid "Access, manage and share documents"
+#~ msgstr "Pristup, upravljanje i dijeljenje dokumenata"
+
+#~ msgid "Docs;PDF;Document;"
+#~ msgstr "Dokumenti;PDF;Dokument;"
+
+#~ msgid "Keyboard Shortcuts"
+#~ msgstr "Prečaci tipkovnice"
+
+#~ msgid "Help"
+#~ msgstr "Priručnik"
+
+#~ msgid "About"
+#~ msgstr "O programu"
+
+#~ msgctxt "app menu"
+#~ msgid "Quit"
+#~ msgstr "Zatvori"
+
+#~ msgctxt "shortcut window"
+#~ msgid "General"
+#~ msgstr "Općenito"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Show help"
+#~ msgstr "Prikaži priručnik"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Quit"
+#~ msgstr "Isključi"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Search"
+#~ msgstr "Pretraga"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Print the current document"
+#~ msgstr "Ispiši trenutni dokument"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Navigation"
+#~ msgstr "Navigacija"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Go back"
+#~ msgstr "Natrag"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Preview"
+#~ msgstr "Pretpregled"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Zoom in"
+#~ msgstr "Uvećaj"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Zoom out"
+#~ msgstr "Umanji"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Bookmark the current page"
+#~ msgstr "Dodaj zabilješku za trenutnu stranicu"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Open places and bookmarks dialog"
+#~ msgstr "Otvori dijalog lokacija i zabilješki"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Copy selected text to clipboard"
+#~ msgstr "Kopiraj odabrani tekst u međuspremnik"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Rotate anti-clockwise"
+#~ msgstr "Zakreni u smjeru suprotno od kazaljke sata"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Rotate clockwise"
+#~ msgstr "Zakreni u smjeru kazaljke sata"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Next occurrence of the search string"
+#~ msgstr "Sljedeće pojavljivanje traženog pojma"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Previous occurrence of the search string"
+#~ msgstr "Pretraži prijašnje pojavljivanje traženog pojma"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Presentation mode"
+#~ msgstr "Prezentacijski način"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Open action menu"
+#~ msgstr "Otvori izbornik radnji"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Fullscreen"
+#~ msgstr "Cjelozaslonski prikaz"
+
+#~ msgid "Enter a name for your first collection"
+#~ msgstr "Upišite naziv za vašu prvu kolekciju"
+
+#~ msgid "New Collection…"
+#~ msgstr "Nova kolekcija…"
+
+#~ msgid "_Copy"
+#~ msgstr "_Kopiraj"
+
+#~ msgid "Edit"
+#~ msgstr "Uredi"
+
+#~ msgid "Print…"
+#~ msgstr "Ispis…"
+
+#~ msgid "Present"
+#~ msgstr "Prisutan"
+
+#~ msgid "Zoom In"
+#~ msgstr "Približi"
+
+#~ msgid "Zoom Out"
+#~ msgstr "Udalji"
+
+#~ msgid "Rotate ↶"
+#~ msgstr "Zakreni ↶"
+
+#~ msgid "Rotate ↷"
+#~ msgstr "Zakreni ↷"
+
+#~ msgid "Select All"
+#~ msgstr "Odaberi sve"
+
+#~ msgid "Select None"
+#~ msgstr "Ukloni odabir"
+
+#~ msgid "View items as a grid of icons"
+#~ msgstr "Prebaci na pogled mreže"
+
+#~ msgid "View items as a list"
+#~ msgstr "Prebaci na pogled popisa"
+
+#~ msgid "Sort"
+#~ msgstr "Razvrstaj"
+
+#~ msgid "Author"
+#~ msgstr "Autor"
+
+#~ msgid "Date"
+#~ msgstr "Datum"
+
+#~ msgid "Name"
+#~ msgstr "Naslov"
 
 #~ msgid "LibreOffice is required to view this document"
 #~ msgstr "LibreOffice je potreban za prikaz ovog dokumenta"
