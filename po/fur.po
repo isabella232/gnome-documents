@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents gnome-3-6\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-05-22 01:20+0000\n"
-"PO-Revision-Date: 2017-05-23 22:43+0200\n"
+"POT-Creation-Date: 2017-08-23 11:05+0000\n"
+"PO-Revision-Date: 2017-08-23 14:34+0200\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
@@ -17,56 +17,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.12\n"
+"X-Generator: Poedit 2.0.3\n"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:1
-#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:111
-#: ../src/lib/gd-utils.c:329 ../src/overview.js:1052
-msgid "Books"
-msgstr "Libris"
-
-#: ../data/org.gnome.Books.appdata.xml.in.h:2
-msgid "An e-book manager application for GNOME"
-msgstr "Une aplicazion GNOME par ministrâ e-book"
-
-#: ../data/org.gnome.Books.appdata.xml.in.h:3
-msgid ""
-"A simple application to access and organize your e-books on GNOME. It is "
-"meant to be a simple and elegant replacement for using a file manager to "
-"deal with e-books."
-msgstr ""
-"Une semplice aplicazion par acedi, organizâ e condividi su GNOME i propris e-"
-"book. E je pensade par jessi une alternative semplice e elegant a un file "
-"manager te gjestion dai documents."
-
-#: ../data/org.gnome.Books.appdata.xml.in.h:4
-#: ../data/org.gnome.Documents.appdata.xml.in.h:4
-msgid "It lets you:"
-msgstr "A permet di:"
-
-#: ../data/org.gnome.Books.appdata.xml.in.h:5
-msgid "View recent e-books"
-msgstr "Viodi e-book resints"
-
-#: ../data/org.gnome.Books.appdata.xml.in.h:6
-msgid "Search through e-books"
-msgstr "Cirî tai e-book"
-
-#: ../data/org.gnome.Books.appdata.xml.in.h:7
-msgid "View e-books (PDF and comics) fullscreen"
-msgstr "Viôt a plen visôr e-book (PDF e fumets)"
-
-#: ../data/org.gnome.Books.appdata.xml.in.h:8
-msgid "Print e-books"
-msgstr "Stampâ e-book"
-
-#: ../data/org.gnome.Books.desktop.in.h:2
-msgid "Access, manage and share books"
-msgstr "Dopre, ministre e condivît libris"
-
-#: ../data/org.gnome.Books.desktop.in.h:3
-msgid "Books;Comics;ePub;PDF;"
-msgstr "Libris;Fumets;ePub;PDF;"
+#: ../data/org.gnome.Documents.appdata.xml.in.h:1
+msgid "The GNOME Project"
+msgstr "Il progjet GNOME"
 
 #: ../data/org.gnome.books.gschema.xml.h:1
 #: ../data/org.gnome.documents.gschema.xml.h:1
@@ -128,387 +84,107 @@ msgstr "Modalitât gnot"
 msgid "Whether the application is in night mode."
 msgstr "Indiche se la aplicazion e je in modalitât gnot."
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:1
-#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:114
-#: ../src/lib/gd-utils.c:322 ../src/overview.js:1052
+#: ../src/application.js:112 ../src/overview.js:1052
+msgid "Books"
+msgstr "Libris"
+
+#: ../src/application.js:115 ../src/overview.js:1052
 msgid "Documents"
 msgstr "Documents"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:2
-msgid "A document manager application for GNOME"
-msgstr "Une aplicazion GNOME par ministrâ documents"
-
-#: ../data/org.gnome.Documents.appdata.xml.in.h:3
-msgid ""
-"A simple application to access, organize and share your documents on GNOME. "
-"It is meant to be a simple and elegant replacement for using a file manager "
-"to deal with documents. Seamless cloud integration is offered through GNOME "
-"Online Accounts."
-msgstr ""
-"Une semplice aplicazion par acedi, organizâ e condividi su GNOME i propris "
-"documents. E je pensade par jessi une alternative semplice e elegant a un "
-"file manager te gjestion dai documents. La integrazion cul cloud a je "
-"ufierte vie GNOME Online Accounts."
-
-#: ../data/org.gnome.Documents.appdata.xml.in.h:5
-msgid "View recent local and online documents"
-msgstr "Visualizâ documents locâi e online resints"
-
-#: ../data/org.gnome.Documents.appdata.xml.in.h:6
-msgid "Access your Google, ownCloud or OneDrive content"
-msgstr "Acedi ai propris contignûts su Google, ownCloud e OneDrive"
-
-#: ../data/org.gnome.Documents.appdata.xml.in.h:7
-msgid "Search through documents"
-msgstr "Cîr tai documents"
-
-#: ../data/org.gnome.Documents.appdata.xml.in.h:8
-msgid "See new documents shared by friends"
-msgstr "Visualizâ gnûfs documents condividûts dai amîs"
-
-#: ../data/org.gnome.Documents.appdata.xml.in.h:9
-msgid "View documents fullscreen"
-msgstr "Mostre documents a plen visôr"
-
-#: ../data/org.gnome.Documents.appdata.xml.in.h:10
-msgid "Print documents"
-msgstr "Stampâ documents"
-
-#: ../data/org.gnome.Documents.appdata.xml.in.h:11
-msgid "Select favorites"
-msgstr "Selezione preferîts"
-
-#: ../data/org.gnome.Documents.appdata.xml.in.h:12
-msgid "Allow opening full featured editor for non-trivial changes"
-msgstr "A permet di vierzi un editôr di test par fâ modifichis"
-
-#: ../data/org.gnome.Documents.desktop.in.h:2
-msgid "Access, manage and share documents"
-msgstr "Acès, ministre e condivît documents"
-
-#: ../data/org.gnome.Documents.desktop.in.h:3
-msgid "Docs;PDF;Document;"
-msgstr "Docs;PDF;Document;"
-
-#: ../data/ui/app-menu.ui.h:1 ../src/preview.js:454
-msgid "Night Mode"
-msgstr "Modalitât gnot"
-
-#: ../data/ui/app-menu.ui.h:2
-msgid "Keyboard Shortcuts"
-msgstr "Scurtis tastiere"
-
-#: ../data/ui/app-menu.ui.h:3
-msgid "Help"
-msgstr "Jutori"
-
-#: ../data/ui/app-menu.ui.h:4
-msgid "About"
-msgstr "Informazions"
-
-#: ../data/ui/app-menu.ui.h:5
-msgctxt "app menu"
-msgid "Quit"
-msgstr "Jes"
-
-#: ../data/ui/help-overlay.ui.h:1
-msgctxt "shortcut window"
-msgid "General"
-msgstr "Gjenerâl"
-
-#: ../data/ui/help-overlay.ui.h:2
-msgctxt "shortcut window"
-msgid "Show help"
-msgstr "Mostre jutori"
-
-#: ../data/ui/help-overlay.ui.h:3
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Jes"
-
-#: ../data/ui/help-overlay.ui.h:4
-msgctxt "shortcut window"
-msgid "Search"
-msgstr "Cîr"
-
-#: ../data/ui/help-overlay.ui.h:5
-msgctxt "shortcut window"
-msgid "Print the current document"
-msgstr "Stampe chest document"
-
-#: ../data/ui/help-overlay.ui.h:6
-msgctxt "shortcut window"
-msgid "Navigation"
-msgstr "Navigazion"
-
-#: ../data/ui/help-overlay.ui.h:7
-msgctxt "shortcut window"
-msgid "Go back"
-msgstr "Torne indaûr"
-
-#: ../data/ui/help-overlay.ui.h:8
-msgctxt "shortcut window"
-msgid "Preview"
-msgstr "Anteprime"
-
-#: ../data/ui/help-overlay.ui.h:9
-msgctxt "shortcut window"
-msgid "Zoom in"
-msgstr "Aumente ingrandiment"
-
-#: ../data/ui/help-overlay.ui.h:10
-msgctxt "shortcut window"
-msgid "Zoom out"
-msgstr "Diminuìs ingrandiment"
-
-#: ../data/ui/help-overlay.ui.h:11
-msgctxt "shortcut window"
-msgid "Bookmark the current page"
-msgstr "Zonte cheste pagjine tai segnelibris"
-
-#: ../data/ui/help-overlay.ui.h:12
-msgctxt "shortcut window"
-msgid "Open places and bookmarks dialog"
-msgstr "Vierç il dialic puescj e segnelibris"
-
-#: ../data/ui/help-overlay.ui.h:13
-msgctxt "shortcut window"
-msgid "Copy selected text to clipboard"
-msgstr "Copie il test selezionât intes notis"
-
-#: ../data/ui/help-overlay.ui.h:14
-msgctxt "shortcut window"
-msgid "Rotate anti-clockwise"
-msgstr "Zire in sens antiorari"
-
-#: ../data/ui/help-overlay.ui.h:15
-msgctxt "shortcut window"
-msgid "Rotate clockwise"
-msgstr "Zire in sens orari"
-
-#: ../data/ui/help-overlay.ui.h:16
-msgctxt "shortcut window"
-msgid "Next occurrence of the search string"
-msgstr "Sucessîf câs de stringhe di ricercje"
-
-#: ../data/ui/help-overlay.ui.h:17
-msgctxt "shortcut window"
-msgid "Previous occurrence of the search string"
-msgstr "Precedent câs de stringhe di ricercje"
-
-#: ../data/ui/help-overlay.ui.h:18
-msgctxt "shortcut window"
-msgid "Presentation mode"
-msgstr "Modalitât presentazion"
-
-#: ../data/ui/help-overlay.ui.h:19
-msgctxt "shortcut window"
-msgid "Open action menu"
-msgstr "Vierç menù azion"
-
-#: ../data/ui/help-overlay.ui.h:20
-msgctxt "shortcut window"
-msgid "Fullscreen"
-msgstr "A visôr plen"
-
-#: ../data/ui/organize-collection-dialog.ui.h:1
-msgid "Enter a name for your first collection"
-msgstr "Inserìs un non pe tô prime colezion"
-
-#: ../data/ui/organize-collection-dialog.ui.h:2
-msgid "New Collection…"
-msgstr "Gnove colezion..."
-
-#: ../data/ui/organize-collection-dialog.ui.h:3 ../src/sharing.js:226
-msgid "Add"
-msgstr "Zonte"
-
-#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/overview.js:616
-msgid "Cancel"
-msgstr "Anule"
-
-#. Label for Done button in Sharing dialog
-#: ../data/ui/organize-collection-dialog.ui.h:5 ../src/sharing.js:112
-msgid "Done"
-msgstr "Fat"
-
-#: ../data/ui/preview-context-menu.ui.h:1
-msgid "_Copy"
-msgstr "_Copie"
-
-#. Translators: this is the Open action in a context menu
-#: ../data/ui/preview-menu.ui.h:1 ../data/ui/selection-toolbar.ui.h:1
-#: ../src/selections.js:982
-msgid "Open"
-msgstr "Vierç"
-
-#: ../data/ui/preview-menu.ui.h:2
-msgid "Edit"
-msgstr "Modifiche"
-
-#: ../data/ui/preview-menu.ui.h:3
-msgid "Print…"
-msgstr "Stampe..."
-
-#: ../data/ui/preview-menu.ui.h:4 ../src/preview.js:463
-msgid "Fullscreen"
-msgstr "A visôr plen"
-
-#: ../data/ui/preview-menu.ui.h:5
-msgid "Present"
-msgstr "Presentazion"
-
-#: ../data/ui/preview-menu.ui.h:6
-msgid "Zoom In"
-msgstr "Aumente Ingrandiment"
-
-#: ../data/ui/preview-menu.ui.h:7
-msgid "Zoom Out"
-msgstr "Diminuis Ingrandiment"
-
-#: ../data/ui/preview-menu.ui.h:8
-msgid "Rotate ↶"
-msgstr "Zire ↶"
-
-#: ../data/ui/preview-menu.ui.h:9
-msgid "Rotate ↷"
-msgstr "Zire ↷"
-
-#: ../data/ui/preview-menu.ui.h:10 ../data/ui/selection-toolbar.ui.h:2
-#: ../src/properties.js:61
-msgid "Properties"
-msgstr "Proprietâts"
-
-#: ../data/ui/selection-menu.ui.h:1
-msgid "Select All"
-msgstr "Selezione Dut"
-
-#: ../data/ui/selection-menu.ui.h:2
-msgid "Select None"
-msgstr "Selezione Nuje"
-
-#: ../data/ui/selection-toolbar.ui.h:3 ../src/overview.js:1056
-#: ../src/search.js:126 ../src/search.js:132
-msgid "Collections"
-msgstr "Colezions"
-
-#: ../data/ui/view-menu.ui.h:1
-msgid "View items as a grid of icons"
-msgstr "Visualize come gridele di iconis"
-
-#: ../data/ui/view-menu.ui.h:2
-msgid "View items as a list"
-msgstr "Visualize elements come liste"
-
-#: ../data/ui/view-menu.ui.h:3
-msgid "Sort"
-msgstr "Ordene"
-
-#: ../data/ui/view-menu.ui.h:4
-msgid "Author"
-msgstr "Autôr"
-
-#: ../data/ui/view-menu.ui.h:5
-msgid "Date"
-msgstr "Date"
-
-#: ../data/ui/view-menu.ui.h:6
-msgid "Name"
-msgstr "Non"
-
-#: ../src/application.js:125
+#: ../src/application.js:126
 msgid "Show the version of the program"
 msgstr "Mostre la version dal program"
 
-#: ../src/documents.js:776
+#: ../src/documents.js:794
 msgid "Failed to print document"
 msgstr "Impussibil stampâ il document"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:818 ../src/search.js:459
+#: ../src/documents.js:836 ../src/search.js:459
 msgid "Local"
 msgstr "Locâl"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:861
+#: ../src/documents.js:879
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:862
+#: ../src/documents.js:880
 msgid "Getting Started with Documents"
 msgstr "Introduzion a Documents"
 
-#: ../src/documents.js:887 ../src/documents.js:1097 ../src/documents.js:1200
-#: ../src/documents.js:1394
+#: ../src/documents.js:905 ../src/documents.js:1115 ../src/documents.js:1218
+#: ../src/documents.js:1412
 msgid "Collection"
 msgstr "Colezion"
 
 #. overridden
-#: ../src/documents.js:954
+#: ../src/documents.js:972
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:955
+#: ../src/documents.js:973
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:1099 ../src/documents.js:1396
+#: ../src/documents.js:1117 ../src/documents.js:1414
 msgid "Spreadsheet"
 msgstr "Sfuei di calcul"
 
-#: ../src/documents.js:1101 ../src/documents.js:1398 ../src/presentation.js:44
+#: ../src/documents.js:1119 ../src/documents.js:1416 ../src/presentation.js:44
 msgid "Presentation"
 msgstr "Presentazion"
 
-#: ../src/documents.js:1103 ../src/documents.js:1400
+#: ../src/documents.js:1121 ../src/documents.js:1418
 msgid "e-Book"
 msgstr "e-Book"
 
-#: ../src/documents.js:1105 ../src/documents.js:1402
+#: ../src/documents.js:1123 ../src/documents.js:1420
 msgid "Document"
 msgstr "Document"
 
 #. overridden
-#: ../src/documents.js:1155
+#: ../src/documents.js:1173
 msgid "ownCloud"
 msgstr "ownCloud"
 
 #. overridden
-#: ../src/documents.js:1289 ../src/documents.js:1290
+#: ../src/documents.js:1307 ../src/documents.js:1308
 msgid "OneDrive"
 msgstr "OneDrive"
 
-#: ../src/documents.js:1576
+#: ../src/documents.js:1594
 msgid "Please check the network connection."
 msgstr "Controlâ la conession di rêt."
 
-#: ../src/documents.js:1579
+#: ../src/documents.js:1597
 msgid "Please check the network proxy settings."
 msgstr "Controlâ lis impostazions dal proxy di rêt."
 
-#: ../src/documents.js:1582
+#: ../src/documents.js:1600
 msgid "Unable to sign in to the document service."
 msgstr "Impussibil acedi al servizi di documents."
 
-#: ../src/documents.js:1585
+#: ../src/documents.js:1603
 msgid "Unable to locate this document."
 msgstr "Impussibil localizâ chest document."
 
-#: ../src/documents.js:1588
+#: ../src/documents.js:1606
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Alc al è lât di mâl (%d)."
 
-#: ../src/documents.js:1595
+#: ../src/documents.js:1613
 msgid ""
 "You are using a preview of Books. Full viewing capabilities are coming soon!"
 msgstr ""
 "Tu stâs doprant une version in anteprime di Libris. Plui funzionalitâts a "
 "vegnaran zontadis chi di pôc!"
 
-#: ../src/documents.js:1597
+#: ../src/documents.js:1615
 msgid ""
 "LibreOffice support is not available. Please contact your system "
 "administrator."
@@ -517,7 +193,7 @@ msgstr ""
 "sisteme."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1620
+#: ../src/documents.js:1638
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Impussibil cjariâ “%s”"
@@ -532,11 +208,11 @@ msgstr "Visualize"
 msgid "chapter %s of %s"
 msgstr "cjapitul %s di %s"
 
-#: ../src/evinceview.js:592 ../src/lib/gd-places-bookmarks.c:656
+#: ../src/evinceview.js:590 ../src/lib/gd-places-bookmarks.c:656
 msgid "Bookmarks"
 msgstr "Segnelibris"
 
-#: ../src/evinceview.js:600
+#: ../src/evinceview.js:598
 msgid "Bookmark this page"
 msgstr "Zonte pagjine tai segnelibris"
 
@@ -573,15 +249,15 @@ msgstr "Nissun indiç"
 msgid "Contents"
 msgstr "Indiç"
 
-#: ../src/lib/gd-utils.c:323
+#: ../src/lib/gd-utils.c:328
 msgid "A document manager application"
 msgstr "Une aplicazion par ministrâ documents"
 
-#: ../src/lib/gd-utils.c:330
+#: ../src/lib/gd-utils.c:333
 msgid "An e-books manager application"
 msgstr "Une aplicazion par ministrâ e-book"
 
-#: ../src/lib/gd-utils.c:338
+#: ../src/lib/gd-utils.c:340
 msgid "translator-credits"
 msgstr "Fabio Tomat <f.t.public@gmail.com>"
 
@@ -688,6 +364,10 @@ msgid_plural "%d selected"
 msgstr[0] "%d selezionât"
 msgstr[1] "%d selezionâts"
 
+#: ../src/overview.js:616
+msgid "Cancel"
+msgstr "Anule"
+
 #: ../src/overview.js:669
 msgid "Select Items"
 msgstr "Selezione Elements"
@@ -736,6 +416,10 @@ msgid_plural "%d years ago"
 msgstr[0] "%d an indaûr"
 msgstr[1] "%d agns indaûr"
 
+#: ../src/overview.js:1056 ../src/search.js:126 ../src/search.js:132
+msgid "Collections"
+msgstr "Colezions"
+
 #: ../src/password.js:42
 msgid "Password Required"
 msgstr "Covente password"
@@ -779,18 +463,30 @@ msgid "Secondary"
 msgstr "Secondari"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/preview.js:446 ../src/selections.js:979
+#: ../src/preview.js:445 ../src/selections.js:985
 #, javascript-format
 msgid "Open with %s"
 msgstr "Vierç cun %s"
 
-#: ../src/preview.js:777
+#: ../src/preview.js:453
+msgid "Night Mode"
+msgstr "Modalitât gnot"
+
+#: ../src/preview.js:462
+msgid "Fullscreen"
+msgstr "A visôr plen"
+
+#: ../src/preview.js:770
 msgid "Find Previous"
 msgstr "Cjate precedent"
 
-#: ../src/preview.js:783
+#: ../src/preview.js:776
 msgid "Find Next"
 msgstr "Cjate sucessîf"
+
+#: ../src/properties.js:61
+msgid "Properties"
+msgstr "Proprietâts"
 
 #. Title item
 #. Translators: "Title" is the label next to the document title
@@ -925,9 +621,19 @@ msgctxt "Dialog Title"
 msgid "Collections"
 msgstr "Colezions"
 
+#. Translators: this is the Open action in a context menu
+#: ../src/selections.js:988
+msgid "Open"
+msgstr "Vierç"
+
 #: ../src/sharing.js:108
 msgid "Sharing Settings"
 msgstr "Impostazions di condivision"
+
+#. Label for Done button in Sharing dialog
+#: ../src/sharing.js:112
+msgid "Done"
+msgstr "Fat"
 
 #. Label for widget group for changing document permissions
 #: ../src/sharing.js:145
@@ -971,6 +677,10 @@ msgstr "Pues modificâ"
 msgid "Can view"
 msgstr "Pues viodi"
 
+#: ../src/sharing.js:226
+msgid "Add"
+msgstr "Zonte"
+
 #: ../src/sharing.js:302
 msgid "Everyone can read"
 msgstr "Ducj a puedin lei"
@@ -1000,6 +710,230 @@ msgstr "Document cence titul"
 #: ../src/trackerController.js:176
 msgid "Unable to fetch the list of documents"
 msgstr "Impussibil recuperâ la liste dai documents"
+
+#~ msgid "An e-book manager application for GNOME"
+#~ msgstr "Une aplicazion GNOME par ministrâ e-book"
+
+#~ msgid ""
+#~ "A simple application to access and organize your e-books on GNOME. It is "
+#~ "meant to be a simple and elegant replacement for using a file manager to "
+#~ "deal with e-books."
+#~ msgstr ""
+#~ "Une semplice aplicazion par acedi, organizâ e condividi su GNOME i "
+#~ "propris e-book. E je pensade par jessi une alternative semplice e elegant "
+#~ "a un file manager te gjestion dai documents."
+
+#~ msgid "It lets you:"
+#~ msgstr "A permet di:"
+
+#~ msgid "View recent e-books"
+#~ msgstr "Viodi e-book resints"
+
+#~ msgid "Search through e-books"
+#~ msgstr "Cirî tai e-book"
+
+#~ msgid "View e-books (PDF and comics) fullscreen"
+#~ msgstr "Viôt a plen visôr e-book (PDF e fumets)"
+
+#~ msgid "Print e-books"
+#~ msgstr "Stampâ e-book"
+
+#~ msgid "Access, manage and share books"
+#~ msgstr "Dopre, ministre e condivît libris"
+
+#~ msgid "Books;Comics;ePub;PDF;"
+#~ msgstr "Libris;Fumets;ePub;PDF;"
+
+#~ msgid "A document manager application for GNOME"
+#~ msgstr "Une aplicazion GNOME par ministrâ documents"
+
+#~ msgid ""
+#~ "A simple application to access, organize and share your documents on "
+#~ "GNOME. It is meant to be a simple and elegant replacement for using a "
+#~ "file manager to deal with documents. Seamless cloud integration is "
+#~ "offered through GNOME Online Accounts."
+#~ msgstr ""
+#~ "Une semplice aplicazion par acedi, organizâ e condividi su GNOME i "
+#~ "propris documents. E je pensade par jessi une alternative semplice e "
+#~ "elegant a un file manager te gjestion dai documents. La integrazion cul "
+#~ "cloud a je ufierte vie GNOME Online Accounts."
+
+#~ msgid "View recent local and online documents"
+#~ msgstr "Visualizâ documents locâi e online resints"
+
+#~ msgid "Access your Google, ownCloud or OneDrive content"
+#~ msgstr "Acedi ai propris contignûts su Google, ownCloud e OneDrive"
+
+#~ msgid "Search through documents"
+#~ msgstr "Cîr tai documents"
+
+#~ msgid "See new documents shared by friends"
+#~ msgstr "Visualizâ gnûfs documents condividûts dai amîs"
+
+#~ msgid "View documents fullscreen"
+#~ msgstr "Mostre documents a plen visôr"
+
+#~ msgid "Print documents"
+#~ msgstr "Stampâ documents"
+
+#~ msgid "Select favorites"
+#~ msgstr "Selezione preferîts"
+
+#~ msgid "Allow opening full featured editor for non-trivial changes"
+#~ msgstr "A permet di vierzi un editôr di test par fâ modifichis"
+
+#~ msgid "Access, manage and share documents"
+#~ msgstr "Acès, ministre e condivît documents"
+
+#~ msgid "Docs;PDF;Document;"
+#~ msgstr "Docs;PDF;Document;"
+
+#~ msgid "Keyboard Shortcuts"
+#~ msgstr "Scurtis tastiere"
+
+#~ msgid "Help"
+#~ msgstr "Jutori"
+
+#~ msgid "About"
+#~ msgstr "Informazions"
+
+#~ msgctxt "app menu"
+#~ msgid "Quit"
+#~ msgstr "Jes"
+
+#~ msgctxt "shortcut window"
+#~ msgid "General"
+#~ msgstr "Gjenerâl"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Show help"
+#~ msgstr "Mostre jutori"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Quit"
+#~ msgstr "Jes"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Search"
+#~ msgstr "Cîr"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Print the current document"
+#~ msgstr "Stampe chest document"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Navigation"
+#~ msgstr "Navigazion"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Go back"
+#~ msgstr "Torne indaûr"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Preview"
+#~ msgstr "Anteprime"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Zoom in"
+#~ msgstr "Aumente ingrandiment"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Zoom out"
+#~ msgstr "Diminuìs ingrandiment"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Bookmark the current page"
+#~ msgstr "Zonte cheste pagjine tai segnelibris"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Open places and bookmarks dialog"
+#~ msgstr "Vierç il dialic puescj e segnelibris"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Copy selected text to clipboard"
+#~ msgstr "Copie il test selezionât intes notis"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Rotate anti-clockwise"
+#~ msgstr "Zire in sens antiorari"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Rotate clockwise"
+#~ msgstr "Zire in sens orari"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Next occurrence of the search string"
+#~ msgstr "Sucessîf câs de stringhe di ricercje"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Previous occurrence of the search string"
+#~ msgstr "Precedent câs de stringhe di ricercje"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Presentation mode"
+#~ msgstr "Modalitât presentazion"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Open action menu"
+#~ msgstr "Vierç menù azion"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Fullscreen"
+#~ msgstr "A visôr plen"
+
+#~ msgid "Enter a name for your first collection"
+#~ msgstr "Inserìs un non pe tô prime colezion"
+
+#~ msgid "New Collection…"
+#~ msgstr "Gnove colezion..."
+
+#~ msgid "_Copy"
+#~ msgstr "_Copie"
+
+#~ msgid "Edit"
+#~ msgstr "Modifiche"
+
+#~ msgid "Print…"
+#~ msgstr "Stampe..."
+
+#~ msgid "Present"
+#~ msgstr "Presentazion"
+
+#~ msgid "Zoom In"
+#~ msgstr "Aumente Ingrandiment"
+
+#~ msgid "Zoom Out"
+#~ msgstr "Diminuis Ingrandiment"
+
+#~ msgid "Rotate ↶"
+#~ msgstr "Zire ↶"
+
+#~ msgid "Rotate ↷"
+#~ msgstr "Zire ↷"
+
+#~ msgid "Select All"
+#~ msgstr "Selezione Dut"
+
+#~ msgid "Select None"
+#~ msgstr "Selezione Nuje"
+
+#~ msgid "View items as a grid of icons"
+#~ msgstr "Visualize come gridele di iconis"
+
+#~ msgid "View items as a list"
+#~ msgstr "Visualize elements come liste"
+
+#~ msgid "Sort"
+#~ msgstr "Ordene"
+
+#~ msgid "Author"
+#~ msgstr "Autôr"
+
+#~ msgid "Date"
+#~ msgstr "Date"
+
+#~ msgid "Name"
+#~ msgstr "Non"
 
 #~ msgid "LibreOffice is required to view this document"
 #~ msgstr "Al è necessari LibreOffice par viodi chest document"
