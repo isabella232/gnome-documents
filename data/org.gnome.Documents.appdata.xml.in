@@ -36,7 +36,7 @@
   <url type="donation">http://www.gnome.org/friends</url>
   <url type="homepage">https://wiki.gnome.org/Apps/Documents</url>
   <url type="translate">https://wiki.gnome.org/TranslationProject</url>
-  <_developer_name>The GNOME Project</_developer_name>
+  <developer_name>The GNOME Project</developer_name>
   <screenshots>
     <screenshot type="default">
       <image type="source">https://git.gnome.org/browse/gnome-documents/plain/data/screenshots/gnome-documents-1.png</image>
