@@ -6,10 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents 0.3.91\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-09-30 23:14+0000\n"
-"PO-Revision-Date: 2016-10-09 21:24+0800\n"
+"POT-Creation-Date: 2017-08-19 14:49+0000\n"
+"PO-Revision-Date: 2017-08-23 15:51+0800\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <chinese-l10n@googlegroups.com>\n"
 "Language: zh_TW\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 1.8.13\n"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:1
-#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:108
-#: ../src/lib/gd-utils.c:424 ../src/view.js:749
+#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:112
+#: ../src/overview.js:1052
 msgid "Books"
 msgstr "書籍"
 
@@ -35,8 +35,8 @@ msgid ""
 "meant to be a simple and elegant replacement for using a file manager to "
 "deal with e-books."
 msgstr ""
-"簡單的應用程式，讓您可以在 GNOME 中存取與管理您的電子書。它希望能成為以檔案"
-"管理程式處理電子書的簡單優雅替代方案。"
+"簡單的應用程式，讓您可以在 GNOME 中存取與管理您的電子書。它希望能成為以檔案管"
+"理程式處理電子書的簡單優雅替代方案。"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:4
 #: ../data/org.gnome.Documents.appdata.xml.in.h:4
@@ -53,11 +53,16 @@ msgstr "搜尋電子書"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:7
 msgid "View e-books (PDF and comics) fullscreen"
-msgstr "以全螢幕檢視電子書(PDF 與漫畫)"
+msgstr "以全螢幕檢視電子書（PDF 與漫畫）"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:8
 msgid "Print e-books"
 msgstr "列印電子書"
+
+#: ../data/org.gnome.Books.appdata.xml.in.h:9
+#: ../data/org.gnome.Documents.appdata.xml.in.h:13
+msgid "The GNOME Project"
+msgstr "GNOME 專案"
 
 #: ../data/org.gnome.Books.desktop.in.h:2
 msgid "Access, manage and share books"
@@ -65,7 +70,7 @@ msgstr "存取、管理、分享書籍"
 
 #: ../data/org.gnome.Books.desktop.in.h:3
 msgid "Books;Comics;ePub;PDF;"
-msgstr "Books;Comics;ePub;PDF;書籍;漫畫;電子書;"
+msgstr "Books;Comics;ePub;PDF;書籍;漫畫;電子書;書本;圖書;"
 
 #: ../data/org.gnome.books.gschema.xml.h:1
 #: ../data/org.gnome.documents.gschema.xml.h:1
@@ -128,8 +133,8 @@ msgid "Whether the application is in night mode."
 msgstr "應用程式是否使用夜晚模式。"
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:1
-#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:111
-#: ../src/lib/gd-utils.c:417 ../src/view.js:749
+#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:115
+#: ../src/overview.js:1052
 msgid "Documents"
 msgstr "文件"
 
@@ -144,8 +149,8 @@ msgid ""
 "to deal with documents. Seamless cloud integration is offered through GNOME "
 "Online Accounts."
 msgstr ""
-"簡單的應用程式，讓您可以在 GNOME 中存取、管理與分享您的文件。它希望能成為以"
-"檔案管理員處理文件的優雅替代方案。透過 GNOME 線上帳號提供無縫的雲端整合。"
+"簡單的應用程式，讓您可以在 GNOME 中存取、管理與分享您的文件。它希望能成為以檔"
+"案管理員處理文件的優雅替代方案。透過 GNOME 線上帳號提供無縫的雲端整合。"
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:5
 msgid "View recent local and online documents"
@@ -187,27 +192,23 @@ msgstr "存取、管理、分享文件"
 msgid "Docs;PDF;Document;"
 msgstr "文件;PDF;Docs;Document;"
 
-#: ../data/ui/app-menu.ui.h:1 ../src/mainToolbar.js:107
-msgid "Fullscreen"
-msgstr "全螢幕"
-
-#: ../data/ui/app-menu.ui.h:2 ../src/mainToolbar.js:119
+#: ../data/ui/app-menu.ui.h:1 ../src/preview.js:453
 msgid "Night Mode"
 msgstr "夜晚模式"
 
-#: ../data/ui/app-menu.ui.h:3
+#: ../data/ui/app-menu.ui.h:2
 msgid "Keyboard Shortcuts"
 msgstr "鍵盤捷徑鍵"
 
-#: ../data/ui/app-menu.ui.h:4
+#: ../data/ui/app-menu.ui.h:3
 msgid "Help"
 msgstr "求助"
 
-#: ../data/ui/app-menu.ui.h:5
+#: ../data/ui/app-menu.ui.h:4
 msgid "About"
 msgstr "關於"
 
-#: ../data/ui/app-menu.ui.h:6
+#: ../data/ui/app-menu.ui.h:5
 msgctxt "app menu"
 msgid "Quit"
 msgstr "退出"
@@ -324,7 +325,7 @@ msgstr "新增文件集…"
 msgid "Add"
 msgstr "加入"
 
-#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:238
+#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/overview.js:616
 msgid "Cancel"
 msgstr "取消"
 
@@ -339,7 +340,7 @@ msgstr "複製(_C)"
 
 #. Translators: this is the Open action in a context menu
 #: ../data/ui/preview-menu.ui.h:1 ../data/ui/selection-toolbar.ui.h:1
-#: ../src/selections.js:986
+#: ../src/selections.js:988
 msgid "Open"
 msgstr "開啟"
 
@@ -351,27 +352,31 @@ msgstr "編輯"
 msgid "Print…"
 msgstr "列印..."
 
-#: ../data/ui/preview-menu.ui.h:4
+#: ../data/ui/preview-menu.ui.h:4 ../src/preview.js:462
+msgid "Fullscreen"
+msgstr "全螢幕"
+
+#: ../data/ui/preview-menu.ui.h:5
 msgid "Present"
 msgstr "簡報"
 
-#: ../data/ui/preview-menu.ui.h:5
+#: ../data/ui/preview-menu.ui.h:6
 msgid "Zoom In"
 msgstr "拉近"
 
-#: ../data/ui/preview-menu.ui.h:6
+#: ../data/ui/preview-menu.ui.h:7
 msgid "Zoom Out"
 msgstr "拉遠"
 
-#: ../data/ui/preview-menu.ui.h:7
+#: ../data/ui/preview-menu.ui.h:8
 msgid "Rotate ↶"
 msgstr "旋轉 ↶"
 
-#: ../data/ui/preview-menu.ui.h:8
+#: ../data/ui/preview-menu.ui.h:9
 msgid "Rotate ↷"
 msgstr "旋轉 ↷"
 
-#: ../data/ui/preview-menu.ui.h:9 ../data/ui/selection-toolbar.ui.h:2
+#: ../data/ui/preview-menu.ui.h:10 ../data/ui/selection-toolbar.ui.h:2
 #: ../src/properties.js:61
 msgid "Properties"
 msgstr "屬性"
@@ -384,8 +389,8 @@ msgstr "全部選擇"
 msgid "Select None"
 msgstr "取消全選"
 
-#: ../data/ui/selection-toolbar.ui.h:3 ../src/search.js:126
-#: ../src/search.js:132 ../src/view.js:753
+#: ../data/ui/selection-toolbar.ui.h:3 ../src/overview.js:1056
+#: ../src/search.js:126 ../src/search.js:132
 msgid "Collections"
 msgstr "收藏"
 
@@ -413,117 +418,123 @@ msgstr "日期"
 msgid "Name"
 msgstr "名稱"
 
-#: ../src/application.js:122
+#: ../src/application.js:126
 msgid "Show the version of the program"
 msgstr "顯示程式的版本"
 
-#: ../src/documents.js:671
+#: ../src/documents.js:794
 msgid "Failed to print document"
 msgstr "無法列印文件"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:713 ../src/search.js:459
+#: ../src/documents.js:836 ../src/search.js:459
 msgid "Local"
 msgstr "本地端"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:755
+#: ../src/documents.js:879
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:756
+#: ../src/documents.js:880
 msgid "Getting Started with Documents"
-msgstr "開始使用 Documents"
+msgstr "開始使用《文件》"
 
-#: ../src/documents.js:772 ../src/documents.js:956 ../src/documents.js:1024
-#: ../src/documents.js:1132
+#: ../src/documents.js:905 ../src/documents.js:1115 ../src/documents.js:1218
+#: ../src/documents.js:1412
 msgid "Collection"
 msgstr "收藏"
 
 #. overridden
-#: ../src/documents.js:834
+#: ../src/documents.js:972
 msgid "Google Docs"
 msgstr "Google 文件"
 
-#: ../src/documents.js:835
+#: ../src/documents.js:973
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:958 ../src/documents.js:1134
+#: ../src/documents.js:1117 ../src/documents.js:1414
 msgid "Spreadsheet"
 msgstr "試算表"
 
-#: ../src/documents.js:960 ../src/documents.js:1136 ../src/presentation.js:44
+#: ../src/documents.js:1119 ../src/documents.js:1416 ../src/presentation.js:44
 msgid "Presentation"
 msgstr "簡報"
 
-#: ../src/documents.js:962 ../src/documents.js:1138
+#: ../src/documents.js:1121 ../src/documents.js:1418
 msgid "e-Book"
 msgstr "電子書"
 
-#: ../src/documents.js:964 ../src/documents.js:1140
+#: ../src/documents.js:1123 ../src/documents.js:1420
 msgid "Document"
 msgstr "文件"
 
 #. overridden
-#: ../src/documents.js:1003
+#: ../src/documents.js:1173
 msgid "ownCloud"
 msgstr "ownCloud"
 
 #. overridden
-#: ../src/documents.js:1066 ../src/documents.js:1067
+#: ../src/documents.js:1307 ../src/documents.js:1308
 msgid "OneDrive"
 msgstr "OneDrive"
 
-#: ../src/documents.js:1314
+#: ../src/documents.js:1594
 msgid "Please check the network connection."
 msgstr "請檢查網路連線。"
 
-#: ../src/documents.js:1317
+#: ../src/documents.js:1597
 msgid "Please check the network proxy settings."
 msgstr "請檢查網路代理伺服器設定值。"
 
-#: ../src/documents.js:1320
+#: ../src/documents.js:1600
 msgid "Unable to sign in to the document service."
 msgstr "無法登入文件服務。"
 
-#: ../src/documents.js:1323
+#: ../src/documents.js:1603
 msgid "Unable to locate this document."
 msgstr "無法定位這份文件。"
 
-#: ../src/documents.js:1326
+#: ../src/documents.js:1606
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "嗯，有些地方發生問題 (%d)。"
 
-#: ../src/documents.js:1333
+#: ../src/documents.js:1613
 msgid ""
 "You are using a preview of Books. Full viewing capabilities are coming soon!"
-msgstr "您現在使用的是 Books 的預覽版。完整的檢視功能即將推出！"
+msgstr "您現在使用的是《書籍》的預覽版。完整的檢視功能即將推出！"
 
-#: ../src/documents.js:1335
+#: ../src/documents.js:1615
 msgid ""
 "LibreOffice support is not available. Please contact your system "
 "administrator."
 msgstr "LibreOffice 支援無法使用。請聯繫您的系統管理員。"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1356
+#: ../src/documents.js:1638
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
-msgstr "噢！無法載入“%s”"
+msgstr "噢！無法載入「%s」"
 
-#: ../src/edit.js:142
+#. view button, on the right of the toolbar
+#: ../src/edit.js:139
 msgid "View"
 msgstr "檢視"
 
-#: ../src/evinceview.js:650 ../src/lib/gd-places-bookmarks.c:656
+#: ../src/epubview.js:228
+#, javascript-format
+msgid "chapter %s of %s"
+msgstr "第 %s / %s 章"
+
+#: ../src/evinceview.js:590 ../src/lib/gd-places-bookmarks.c:656
 msgid "Bookmarks"
 msgstr "書籤"
 
-#: ../src/evinceview.js:658
+#: ../src/evinceview.js:598
 msgid "Bookmark this page"
 msgstr "這一頁的書籤"
 
@@ -532,13 +543,9 @@ msgstr "這一頁的書籤"
 msgid "Page %u of %u"
 msgstr "第 %u 頁，共 %u 頁"
 
-#: ../src/lib/gd-pdf-loader.c:247
+#: ../src/lib/gd-pdf-loader.c:142
 msgid "Unable to load the document"
 msgstr "無法載入文件"
-
-#: ../src/lib/gd-pdf-loader.c:715
-msgid "LibreOffice is required to view this document"
-msgstr "需要有 LibreOffice 才能檢視這份文件"
 
 #. Translators: %s is the number of the page, already formatted
 #. * as a string, for example "Page 5".
@@ -564,15 +571,15 @@ msgstr "沒有目錄"
 msgid "Contents"
 msgstr "內容"
 
-#: ../src/lib/gd-utils.c:418
+#: ../src/lib/gd-utils.c:328
 msgid "A document manager application"
 msgstr "文件管理員應用程式"
 
-#: ../src/lib/gd-utils.c:425
+#: ../src/lib/gd-utils.c:333
 msgid "An e-books manager application"
 msgstr "電子書管理員應用程式"
 
-#: ../src/lib/gd-utils.c:433
+#: ../src/lib/gd-utils.c:340
 msgid "translator-credits"
 msgstr ""
 "Cheng-Chia Tseng <pswo10680@gmail.com>, 2011. \n"
@@ -583,70 +590,143 @@ msgctxt "toolbar button tooltip"
 msgid "Search"
 msgstr "搜尋"
 
-#: ../src/mainToolbar.js:127
+#: ../src/mainToolbar.js:100
 msgid "Back"
 msgstr "返回"
 
-#. Translators: this is the menu to change view settings
-#: ../src/mainToolbar.js:184
-msgid "View Menu"
-msgstr "檢視選單"
-
-#: ../src/mainToolbar.js:212
-msgid "Click on items to select them"
-msgstr "點擊項目來選取它們"
-
-#: ../src/mainToolbar.js:214
-#, javascript-format
-msgid "%d selected"
-msgid_plural "%d selected"
-msgstr[0] "已選取 %d 個"
-
-#: ../src/mainToolbar.js:298
-msgid "Select Items"
-msgstr "選擇項目"
-
 #. Translators: only one item has been deleted and %s is its name
-#: ../src/notifications.js:49
+#: ../src/notifications.js:48
 #, javascript-format
 msgid "“%s” deleted"
 msgstr "「%s」已刪除"
 
 #. Translators: one or more items might have been deleted, and %d
 #. is the count
-#: ../src/notifications.js:53
+#: ../src/notifications.js:52
 #, javascript-format
 msgid "%d item deleted"
 msgid_plural "%d items deleted"
 msgstr[0] "%d 項目已被刪除"
 
-#: ../src/notifications.js:62 ../src/selections.js:387
+#: ../src/notifications.js:61 ../src/selections.js:387
 msgid "Undo"
 msgstr "取消動作"
 
-#: ../src/notifications.js:160
+#: ../src/notifications.js:159
 #, javascript-format
 msgid "Printing “%s”: %s"
-msgstr "正在列印“%s”：%s"
+msgstr "正在列印「%s」：%s"
 
-#: ../src/notifications.js:216
+#: ../src/notifications.js:215
 msgid "Your documents are being indexed"
 msgstr "您的文件已經索引"
 
-#: ../src/notifications.js:217
+#: ../src/notifications.js:216
 msgid "Some documents might not be available during this process"
 msgstr "在這個過程中有部分文件可能無法取用"
 
 #. Translators: %s refers to an online account provider, e.g.
 #. "Google", or "Windows Live".
-#: ../src/notifications.js:239
+#: ../src/notifications.js:238
 #, javascript-format
 msgid "Fetching documents from %s"
 msgstr "正從 %s 擷取文件"
 
-#: ../src/notifications.js:241
+#: ../src/notifications.js:240
 msgid "Fetching documents from online accounts"
 msgstr "正從線上帳號擷取文件"
+
+#: ../src/overview.js:275
+msgid "No collections found"
+msgstr "找不到文件集"
+
+#: ../src/overview.js:277
+msgid "No books found"
+msgstr "找不到書籍"
+
+#: ../src/overview.js:277
+msgid "No documents found"
+msgstr "找不到文件"
+
+#: ../src/overview.js:286
+msgid "Try a different search"
+msgstr "請嘗試不同的搜尋"
+
+#: ../src/overview.js:293
+msgid "You can create collections from the Books view"
+msgstr "您可以從書籍檢視建立文件集"
+
+#: ../src/overview.js:295
+msgid "You can create collections from the Documents view"
+msgstr "您可以從文件檢視建立文件集"
+
+#: ../src/overview.js:305
+#, javascript-format
+msgid ""
+"Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
+"href=\"file://%s\">Documents folder</a> will appear here."
+msgstr ""
+"您 <a href=\"system-settings\">線上帳號</a> 中和 <a href=\"file://%s\">文件資"
+"料夾</a> 中的文件會出現在這裡。"
+
+#. Translators: this is the menu to change view settings
+#: ../src/overview.js:562
+msgid "View Menu"
+msgstr "檢視選單"
+
+#: ../src/overview.js:590
+msgid "Click on items to select them"
+msgstr "點擊項目來選取它們"
+
+#: ../src/overview.js:592
+#, javascript-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "已選取 %d 個"
+
+#: ../src/overview.js:669
+msgid "Select Items"
+msgstr "選擇項目"
+
+#: ../src/overview.js:876
+msgid "Yesterday"
+msgstr "昨天"
+
+#: ../src/overview.js:878
+#, javascript-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "%d 天以前"
+
+#: ../src/overview.js:882
+msgid "Last week"
+msgstr "上週"
+
+#: ../src/overview.js:884
+#, javascript-format
+msgid "%d week ago"
+msgid_plural "%d weeks ago"
+msgstr[0] "%d 週前"
+
+#: ../src/overview.js:888
+msgid "Last month"
+msgstr "上個月"
+
+#: ../src/overview.js:890
+#, javascript-format
+msgid "%d month ago"
+msgid_plural "%d months ago"
+msgstr[0] "%d 個月以前"
+
+#: ../src/overview.js:894
+msgid "Last year"
+msgstr "去年"
+
+#: ../src/overview.js:896
+#, javascript-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] "%d 年以前"
 
 #: ../src/password.js:42
 msgid "Password Required"
@@ -669,38 +749,38 @@ msgstr "密碼(_P)"
 msgid "Running in presentation mode"
 msgstr "以簡報模式執行"
 
-#: ../src/presentation.js:125
+#: ../src/presentation.js:130
 msgid "Present On"
 msgstr "簡報開啟"
 
 #. Translators: "Mirrored" describes when both displays show the same view
-#: ../src/presentation.js:161
+#: ../src/presentation.js:166
 msgid "Mirrored"
 msgstr "鏡射"
 
-#: ../src/presentation.js:163
+#: ../src/presentation.js:168
 msgid "Primary"
 msgstr "主要"
 
-#: ../src/presentation.js:165
+#: ../src/presentation.js:170
 msgid "Off"
 msgstr "關閉"
 
-#: ../src/presentation.js:167
+#: ../src/presentation.js:172
 msgid "Secondary"
 msgstr "次要"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/preview.js:288 ../src/selections.js:983
+#: ../src/preview.js:445 ../src/selections.js:985
 #, javascript-format
 msgid "Open with %s"
 msgstr "以 %s 開啟"
 
-#: ../src/preview.js:532
+#: ../src/preview.js:770
 msgid "Find Previous"
 msgstr "尋找上一筆"
 
-#: ../src/preview.js:538
+#: ../src/preview.js:776
 msgid "Find Next"
 msgstr "尋找下一筆"
 
@@ -806,6 +886,14 @@ msgstr "內容"
 msgid "Sources"
 msgstr "來源"
 
+#. Translators: the first %s is an online account provider name,
+#. e.g. "Google". The second %s is the identity used to log in,
+#. e.g. "foo@gmail.com".
+#: ../src/search.js:508
+#, javascript-format
+msgid "%s (%s)"
+msgstr "%s (%s)"
+
 #: ../src/selections.js:360 ../src/selections.js:362
 msgid "Rename…"
 msgstr "重新命名…"
@@ -817,7 +905,7 @@ msgstr "刪除"
 #: ../src/selections.js:382
 #, javascript-format
 msgid "“%s” removed"
-msgstr "“%s”已經移除"
+msgstr "「%s」已經移除"
 
 #: ../src/selections.js:779
 msgid "Rename"
@@ -905,78 +993,8 @@ msgstr "無標題文件"
 msgid "Unable to fetch the list of documents"
 msgstr "無法擷取文件清單"
 
-#: ../src/view.js:277
-msgid "No collections found"
-msgstr "找不到文件集"
-
-#: ../src/view.js:279
-msgid "No books found"
-msgstr "找不到書籍"
-
-#: ../src/view.js:279
-msgid "No documents found"
-msgstr "找不到文件"
-
-#: ../src/view.js:288
-msgid "Try a different search"
-msgstr "請嘗試不同的搜尋"
-
-#: ../src/view.js:295
-msgid "You can create collections from the Books view"
-msgstr "您可以從書籍檢視建立文件集"
-
-#: ../src/view.js:297
-msgid "You can create collections from the Documents view"
-msgstr "您可以從文件檢視建立文件集"
-
-#: ../src/view.js:307
-#, javascript-format
-msgid ""
-"Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
-"href=\"file://%s\">Documents folder</a> will appear here."
-msgstr ""
-"您 <a href=\"system-settings\">線上帳號</a> 中和 <a href=\"file://%s\">文件"
-"資料夾</a> 中的文件會出現在這裡。"
-
-#: ../src/view.js:578
-msgid "Yesterday"
-msgstr "昨天"
-
-#: ../src/view.js:580
-#, javascript-format
-msgid "%d day ago"
-msgid_plural "%d days ago"
-msgstr[0] "%d 天以前"
-
-#: ../src/view.js:584
-msgid "Last week"
-msgstr "上週"
-
-#: ../src/view.js:586
-#, javascript-format
-msgid "%d week ago"
-msgid_plural "%d weeks ago"
-msgstr[0] "%d 週前"
-
-#: ../src/view.js:590
-msgid "Last month"
-msgstr "上個月"
-
-#: ../src/view.js:592
-#, javascript-format
-msgid "%d month ago"
-msgid_plural "%d months ago"
-msgstr[0] "%d 個月以前"
-
-#: ../src/view.js:596
-msgid "Last year"
-msgstr "去年"
-
-#: ../src/view.js:598
-#, javascript-format
-msgid "%d year ago"
-msgid_plural "%d years ago"
-msgstr[0] "%d 年以前"
+#~ msgid "LibreOffice is required to view this document"
+#~ msgstr "需要有 LibreOffice 才能檢視這份文件"
 
 #~ msgid "Category"
 #~ msgstr "分類"
@@ -1039,8 +1057,8 @@ msgstr[0] "%d 年以前"
 #~ msgstr ""
 #~ "<li>檢視最近使用的本地與線上文件</li> <li>存取您的 Google、ownCloud 或 "
 #~ "OneDrive 內容</li> <li>搜尋所有文件</li> <li>查閱朋友分享的新文件</li> "
-#~ "<li>全螢幕檢視文件</li> <li>列印文件</li> <li>選擇喜好文件</li> <li>允許"
-#~ "開啟全功能的編輯器進行各項變更</li>"
+#~ "<li>全螢幕檢視文件</li> <li>列印文件</li> <li>選擇喜好文件</li> <li>允許開"
+#~ "啟全功能的編輯器進行各項變更</li>"
 
 #~ msgid "Results for “%s”"
 #~ msgstr "「%s」的搜尋結果"
