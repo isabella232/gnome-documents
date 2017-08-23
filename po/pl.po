@@ -8,9 +8,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-21 02:17+0200\n"
-"PO-Revision-Date: 2017-08-21 02:18+0200\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"documents&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-08-23 15:36+0000\n"
+"PO-Revision-Date: 2017-08-23 17:39+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -20,17 +21,16 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:1
-#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:112
-#: ../src/overview.js:1052
+#: data/org.gnome.Books.appdata.xml.in:7 data/org.gnome.Books.desktop.in:3
+#: src/application.js:112 src/overview.js:1052
 msgid "Books"
 msgstr "Książki"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:2
+#: data/org.gnome.Books.appdata.xml.in:8
 msgid "An e-book manager application for GNOME"
 msgstr "Program do zarządzania e-bookami dla środowiska GNOME"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:3
+#: data/org.gnome.Books.appdata.xml.in:10
 msgid ""
 "A simple application to access and organize your e-books on GNOME. It is "
 "meant to be a simple and elegant replacement for using a file manager to "
@@ -40,111 +40,105 @@ msgstr ""
 "GNOME. Został on zaprojektowany jako prosty i elegancki interfejs do "
 "zarządzania e-bookami, zastępujący w tym celu menedżer plików."
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:4
-#: ../data/org.gnome.Documents.appdata.xml.in.h:4
+#: data/org.gnome.Books.appdata.xml.in:15
+#: data/org.gnome.Documents.appdata.xml.in:16
 msgid "It lets you:"
 msgstr "Program umożliwia:"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:5
+#: data/org.gnome.Books.appdata.xml.in:17
 msgid "View recent e-books"
 msgstr "Przeglądanie ostatnio używanych e-booków"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:6
+#: data/org.gnome.Books.appdata.xml.in:18
 msgid "Search through e-books"
 msgstr "Przeszukiwanie e-booków"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:7
+#: data/org.gnome.Books.appdata.xml.in:19
 msgid "View e-books (PDF and comics) fullscreen"
 msgstr "Wyświetlanie e-booków (plików PDF i komiksów) w trybie pełnoekranowym"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:8
+#: data/org.gnome.Books.appdata.xml.in:20
 msgid "Print e-books"
 msgstr "Drukowanie e-booków"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:9
-#: ../data/org.gnome.Documents.appdata.xml.in.h:13
+#: data/org.gnome.Books.appdata.xml.in:32
+#: data/org.gnome.Documents.appdata.xml.in:39
 msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
-#: ../data/org.gnome.Books.desktop.in.h:2
+#: data/org.gnome.Books.desktop.in:4
 msgid "Access, manage and share books"
 msgstr "Czytanie, zarządzanie i udostępnianie książek"
 
-#: ../data/org.gnome.Books.desktop.in.h:3
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.Books.desktop.in:7
+msgid "org.gnome.Books"
+msgstr "org.gnome.Books"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Books.desktop.in:15
 msgid "Books;Comics;ePub;PDF;"
 msgstr "Książki;Komiksy;ePub;PDF;E-booki;ebooki;"
 
-#: ../data/org.gnome.books.gschema.xml.h:1
-#: ../data/org.gnome.documents.gschema.xml.h:1
+#: data/org.gnome.books.gschema.xml:5 data/org.gnome.documents.gschema.xml:5
 msgid "View as"
 msgstr "Wyświetlanie jako"
 
-#: ../data/org.gnome.books.gschema.xml.h:2
-#: ../data/org.gnome.documents.gschema.xml.h:2
+#: data/org.gnome.books.gschema.xml:6 data/org.gnome.documents.gschema.xml:6
 msgid "View as type"
 msgstr "Wyświetlanie jako typ"
 
-#: ../data/org.gnome.books.gschema.xml.h:3
-#: ../data/org.gnome.documents.gschema.xml.h:3
+#: data/org.gnome.books.gschema.xml:10 data/org.gnome.documents.gschema.xml:10
 msgid "Sort by"
 msgstr "Porządkowanie według"
 
-#: ../data/org.gnome.books.gschema.xml.h:4
-#: ../data/org.gnome.documents.gschema.xml.h:4
+#: data/org.gnome.books.gschema.xml:11 data/org.gnome.documents.gschema.xml:11
 msgid "Sort by type"
 msgstr "Porządkowanie według typu"
 
-#: ../data/org.gnome.books.gschema.xml.h:5
-#: ../data/org.gnome.documents.gschema.xml.h:5
+#: data/org.gnome.books.gschema.xml:15 data/org.gnome.documents.gschema.xml:15
 msgid "Window size"
 msgstr "Rozmiar okna"
 
-#: ../data/org.gnome.books.gschema.xml.h:6
-#: ../data/org.gnome.documents.gschema.xml.h:6
+#: data/org.gnome.books.gschema.xml:16 data/org.gnome.documents.gschema.xml:16
 msgid "Window size (width and height)."
 msgstr "Rozmiar okna (szerokość i wysokość)."
 
-#: ../data/org.gnome.books.gschema.xml.h:7
-#: ../data/org.gnome.documents.gschema.xml.h:7
+#: data/org.gnome.books.gschema.xml:20 data/org.gnome.documents.gschema.xml:20
 msgid "Window position"
 msgstr "Położenie okna"
 
-#: ../data/org.gnome.books.gschema.xml.h:8
-#: ../data/org.gnome.documents.gschema.xml.h:8
+#: data/org.gnome.books.gschema.xml:21 data/org.gnome.documents.gschema.xml:21
 msgid "Window position (x and y)."
 msgstr "Położenie okna (na osi X i Y)."
 
-#: ../data/org.gnome.books.gschema.xml.h:9
-#: ../data/org.gnome.documents.gschema.xml.h:9
+#: data/org.gnome.books.gschema.xml:25 data/org.gnome.documents.gschema.xml:25
 msgid "Window maximized"
 msgstr "Maksymalizacja okna"
 
-#: ../data/org.gnome.books.gschema.xml.h:10
-#: ../data/org.gnome.documents.gschema.xml.h:10
+#: data/org.gnome.books.gschema.xml:26 data/org.gnome.documents.gschema.xml:26
 msgid "Window maximized state"
 msgstr "Stan maksymalizacji okna"
 
-#: ../data/org.gnome.books.gschema.xml.h:11
-#: ../data/org.gnome.documents.gschema.xml.h:11
+#: data/org.gnome.books.gschema.xml:30 data/org.gnome.documents.gschema.xml:30
 msgid "Night mode"
 msgstr "Tryb nocny"
 
-#: ../data/org.gnome.books.gschema.xml.h:12
-#: ../data/org.gnome.documents.gschema.xml.h:12
+#: data/org.gnome.books.gschema.xml:31 data/org.gnome.documents.gschema.xml:31
 msgid "Whether the application is in night mode."
 msgstr "Określa, czy program jest w trybie nocnym."
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:1
-#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:115
-#: ../src/overview.js:1052
+#: data/org.gnome.Documents.appdata.xml.in:7
+#: data/org.gnome.Documents.desktop.in:3 src/application.js:115
+#: src/overview.js:1052
 msgid "Documents"
 msgstr "Dokumenty"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:2
+#: data/org.gnome.Documents.appdata.xml.in:8
 msgid "A document manager application for GNOME"
 msgstr "Program do zarządzania dokumentami dla środowiska GNOME"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:3
+#: data/org.gnome.Documents.appdata.xml.in:10
 msgid ""
 "A simple application to access, organize and share your documents on GNOME. "
 "It is meant to be a simple and elegant replacement for using a file manager "
@@ -157,365 +151,373 @@ msgstr ""
 "menedżer plików. Dzięki usłudze Kont online GNOME oferuje on integrację "
 "z chmurą."
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:5
+#: data/org.gnome.Documents.appdata.xml.in:18
 msgid "View recent local and online documents"
 msgstr "Wyświetlanie ostatnio używanych dokumentów lokalnych i w sieci"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:6
+#: data/org.gnome.Documents.appdata.xml.in:19
 msgid "Access your Google, ownCloud or OneDrive content"
 msgstr "Dostęp do zawartości dysku Google, ownCloud i OneDrive"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:7
+#: data/org.gnome.Documents.appdata.xml.in:20
 msgid "Search through documents"
 msgstr "Przeszukiwanie dokumentów"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:8
+#: data/org.gnome.Documents.appdata.xml.in:21
 msgid "See new documents shared by friends"
 msgstr "Wyświetlanie nowych dokumentów udostępnionych przez znajomych"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:9
+#: data/org.gnome.Documents.appdata.xml.in:22
 msgid "View documents fullscreen"
 msgstr "Przeglądanie dokumentów w trybie pełnoekranowym"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:10
+#: data/org.gnome.Documents.appdata.xml.in:23
 msgid "Print documents"
 msgstr "Drukowanie dokumentów"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:11
+#: data/org.gnome.Documents.appdata.xml.in:24
 msgid "Select favorites"
 msgstr "Wybieranie ulubionych dokumentów"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:12
+#: data/org.gnome.Documents.appdata.xml.in:25
 msgid "Allow opening full featured editor for non-trivial changes"
 msgstr "Otwieranie rozbudowanego edytora w celu dokonania poważniejszych zmian"
 
-#: ../data/org.gnome.Documents.desktop.in.h:2
+#: data/org.gnome.Documents.desktop.in:4
 msgid "Access, manage and share documents"
 msgstr "Dostęp, zarządzanie i udostępnianie dokumentów"
 
-#: ../data/org.gnome.Documents.desktop.in.h:3
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.Documents.desktop.in:7
+msgid "org.gnome.Documents"
+msgstr "org.gnome.Documents"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Documents.desktop.in:15
 msgid "Docs;PDF;Document;"
 msgstr "Docs;PDF;Dokument;"
 
-#: ../data/ui/app-menu.ui.h:1 ../src/preview.js:453
+#: data/ui/app-menu.ui:6 src/preview.js:453
 msgid "Night Mode"
 msgstr "Tryb nocny"
 
-#: ../data/ui/app-menu.ui.h:2
+#: data/ui/app-menu.ui:12
 msgid "Keyboard Shortcuts"
 msgstr "Skróty klawiszowe"
 
-#: ../data/ui/app-menu.ui.h:3
+#: data/ui/app-menu.ui:16
 msgid "Help"
 msgstr "Pomoc"
 
-#: ../data/ui/app-menu.ui.h:4
+#: data/ui/app-menu.ui:20
 msgid "About"
 msgstr "O programie"
 
-#: ../data/ui/app-menu.ui.h:5
+#: data/ui/app-menu.ui:24
 msgctxt "app menu"
 msgid "Quit"
 msgstr "Zakończ"
 
-#: ../data/ui/help-overlay.ui.h:1
+#: data/ui/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Ogólne"
 
-#: ../data/ui/help-overlay.ui.h:2
+#: data/ui/help-overlay.ui:15
 msgctxt "shortcut window"
 msgid "Show help"
 msgstr "Wyświetlenie pomocy"
 
-#: ../data/ui/help-overlay.ui.h:3
+#: data/ui/help-overlay.ui:22
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Zakończenie działania"
 
-#: ../data/ui/help-overlay.ui.h:4
+#: data/ui/help-overlay.ui:29
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Wyszukiwanie"
 
-#: ../data/ui/help-overlay.ui.h:5
+#: data/ui/help-overlay.ui:36
 msgctxt "shortcut window"
 msgid "Print the current document"
 msgstr "Wydrukowanie bieżącego dokumentu"
 
-#: ../data/ui/help-overlay.ui.h:6
+#: data/ui/help-overlay.ui:45
 msgctxt "shortcut window"
 msgid "Navigation"
 msgstr "Nawigacja"
 
-#: ../data/ui/help-overlay.ui.h:7
+#: data/ui/help-overlay.ui:49 data/ui/help-overlay.ui:57
 msgctxt "shortcut window"
 msgid "Go back"
 msgstr "Wstecz"
 
-#: ../data/ui/help-overlay.ui.h:8
+#: data/ui/help-overlay.ui:67
 msgctxt "shortcut window"
 msgid "Preview"
 msgstr "Podgląd"
 
-#: ../data/ui/help-overlay.ui.h:9
+#: data/ui/help-overlay.ui:71
 msgctxt "shortcut window"
 msgid "Zoom in"
 msgstr "Powiększenie"
 
-#: ../data/ui/help-overlay.ui.h:10
+#: data/ui/help-overlay.ui:78
 msgctxt "shortcut window"
 msgid "Zoom out"
 msgstr "Pomniejszenie"
 
-#: ../data/ui/help-overlay.ui.h:11
+#: data/ui/help-overlay.ui:85
 msgctxt "shortcut window"
 msgid "Bookmark the current page"
 msgstr "Dodanie zakładki do bieżącej strony"
 
-#: ../data/ui/help-overlay.ui.h:12
+#: data/ui/help-overlay.ui:92
 msgctxt "shortcut window"
 msgid "Open places and bookmarks dialog"
 msgstr "Otwarcie okna położeń i zakładek"
 
-#: ../data/ui/help-overlay.ui.h:13
+#: data/ui/help-overlay.ui:99
 msgctxt "shortcut window"
 msgid "Copy selected text to clipboard"
 msgstr "Skopiowanie zaznaczonego tekstu do schowka"
 
-#: ../data/ui/help-overlay.ui.h:14
+#: data/ui/help-overlay.ui:106
 msgctxt "shortcut window"
 msgid "Rotate anti-clockwise"
 msgstr "Obrócenie w lewo"
 
-#: ../data/ui/help-overlay.ui.h:15
+#: data/ui/help-overlay.ui:113
 msgctxt "shortcut window"
 msgid "Rotate clockwise"
 msgstr "Obrócenie w prawo"
 
-#: ../data/ui/help-overlay.ui.h:16
+#: data/ui/help-overlay.ui:120
 msgctxt "shortcut window"
 msgid "Next occurrence of the search string"
 msgstr "Następne wystąpienie szukanego tekstu"
 
-#: ../data/ui/help-overlay.ui.h:17
+#: data/ui/help-overlay.ui:127
 msgctxt "shortcut window"
 msgid "Previous occurrence of the search string"
 msgstr "Poprzednie wystąpienie szukanego tekstu"
 
-#: ../data/ui/help-overlay.ui.h:18
+#: data/ui/help-overlay.ui:134
 msgctxt "shortcut window"
 msgid "Presentation mode"
 msgstr "Tryb prezentacji"
 
-#: ../data/ui/help-overlay.ui.h:19
+#: data/ui/help-overlay.ui:141
 msgctxt "shortcut window"
 msgid "Open action menu"
 msgstr "Otwarcie manu działań"
 
-#: ../data/ui/help-overlay.ui.h:20
+#: data/ui/help-overlay.ui:148
 msgctxt "shortcut window"
 msgid "Fullscreen"
 msgstr "Pełny ekran"
 
-#: ../data/ui/organize-collection-dialog.ui.h:1
+#: data/ui/organize-collection-dialog.ui:40
 msgid "Enter a name for your first collection"
 msgstr "Nazwa pierwszej kolekcji"
 
-#: ../data/ui/organize-collection-dialog.ui.h:2
+#: data/ui/organize-collection-dialog.ui:56
+#: data/ui/organize-collection-dialog.ui:113
 msgid "New Collection…"
 msgstr "Nowa kolekcja…"
 
-#: ../data/ui/organize-collection-dialog.ui.h:3 ../src/sharing.js:226
+#: data/ui/organize-collection-dialog.ui:73
+#: data/ui/organize-collection-dialog.ui:122 src/sharing.js:226
 msgid "Add"
 msgstr "Dodaj"
 
-#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/overview.js:616
+#: data/ui/organize-collection-dialog.ui:167 src/overview.js:616
 msgid "Cancel"
 msgstr "Anuluj"
 
 #. Label for Done button in Sharing dialog
-#: ../data/ui/organize-collection-dialog.ui.h:5 ../src/sharing.js:112
+#: data/ui/organize-collection-dialog.ui:173 src/sharing.js:112
 msgid "Done"
 msgstr "Gotowe"
 
-#: ../data/ui/preview-context-menu.ui.h:1
+#: data/ui/preview-context-menu.ui:6
 msgid "_Copy"
 msgstr "S_kopiuj"
 
 #. Translators: this is the Open action in a context menu
-#: ../data/ui/preview-menu.ui.h:1 ../data/ui/selection-toolbar.ui.h:1
-#: ../src/selections.js:988
+#: data/ui/preview-menu.ui:6 data/ui/selection-toolbar.ui:9
+#: src/selections.js:988
 msgid "Open"
 msgstr "Otwórz"
 
-#: ../data/ui/preview-menu.ui.h:2
+#: data/ui/preview-menu.ui:10
 msgid "Edit"
 msgstr "Modyfikuj"
 
-#: ../data/ui/preview-menu.ui.h:3
+#: data/ui/preview-menu.ui:15
 msgid "Print…"
 msgstr "Wydrukuj…"
 
-#: ../data/ui/preview-menu.ui.h:4 ../src/preview.js:462
+#: data/ui/preview-menu.ui:21 src/preview.js:462
 msgid "Fullscreen"
 msgstr "Pełny ekran"
 
-#: ../data/ui/preview-menu.ui.h:5
+#: data/ui/preview-menu.ui:27
 msgid "Present"
 msgstr "Prezentacja"
 
-#: ../data/ui/preview-menu.ui.h:6
+#: data/ui/preview-menu.ui:35
 msgid "Zoom In"
 msgstr "Powiększ"
 
-#: ../data/ui/preview-menu.ui.h:7
+#: data/ui/preview-menu.ui:41
 msgid "Zoom Out"
 msgstr "Pomniejsz"
 
-#: ../data/ui/preview-menu.ui.h:8
+#: data/ui/preview-menu.ui:49
 msgid "Rotate ↶"
 msgstr "Obróć ↶"
 
-#: ../data/ui/preview-menu.ui.h:9
+#: data/ui/preview-menu.ui:55
 msgid "Rotate ↷"
 msgstr "Obróć ↷"
 
-#: ../data/ui/preview-menu.ui.h:10 ../data/ui/selection-toolbar.ui.h:2
-#: ../src/properties.js:61
+#: data/ui/preview-menu.ui:62 data/ui/selection-toolbar.ui:79
+#: src/properties.js:61
 msgid "Properties"
 msgstr "Właściwości"
 
-#: ../data/ui/selection-menu.ui.h:1
+#: data/ui/selection-menu.ui:6
 msgid "Select All"
 msgstr "Zaznacz wszystko"
 
-#: ../data/ui/selection-menu.ui.h:2
+#: data/ui/selection-menu.ui:11
 msgid "Select None"
 msgstr "Odznacz wszystko"
 
-#: ../data/ui/selection-toolbar.ui.h:3 ../src/overview.js:1056
-#: ../src/search.js:126 ../src/search.js:132
+#: data/ui/selection-toolbar.ui:88 src/overview.js:1056 src/search.js:126
+#: src/search.js:132
 msgid "Collections"
 msgstr "Kolekcje"
 
-#: ../data/ui/view-menu.ui.h:1
+#: data/ui/view-menu.ui:23
 msgid "View items as a grid of icons"
 msgstr "Wyświetla elementy jako ikony"
 
-#: ../data/ui/view-menu.ui.h:2
+#: data/ui/view-menu.ui:40
 msgid "View items as a list"
 msgstr "Wyświetla elementy jako listę"
 
-#: ../data/ui/view-menu.ui.h:3
+#: data/ui/view-menu.ui:73
 msgid "Sort"
 msgstr "Porządkowanie"
 
-#: ../data/ui/view-menu.ui.h:4
+#: data/ui/view-menu.ui:84
 msgid "Author"
 msgstr "Autor"
 
-#: ../data/ui/view-menu.ui.h:5
+#: data/ui/view-menu.ui:93
 msgid "Date"
 msgstr "Data"
 
-#: ../data/ui/view-menu.ui.h:6
+#: data/ui/view-menu.ui:102
 msgid "Name"
 msgstr "Nazwa"
 
-#: ../src/application.js:126
+#: src/application.js:126
 msgid "Show the version of the program"
 msgstr "Wyświetla wersję programu"
 
-#: ../src/documents.js:794
+#: src/documents.js:794
 msgid "Failed to print document"
 msgstr "Wydrukowanie dokumentu się nie powiodło"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:836 ../src/search.js:459
+#: src/documents.js:836 src/search.js:459
 msgid "Local"
 msgstr "Lokalne"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:879
+#: src/documents.js:879
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:880
+#: src/documents.js:880
 msgid "Getting Started with Documents"
 msgstr "Wprowadzenie do menedżera dokumentów"
 
-#: ../src/documents.js:905 ../src/documents.js:1115 ../src/documents.js:1218
-#: ../src/documents.js:1412
+#: src/documents.js:905 src/documents.js:1115 src/documents.js:1218
+#: src/documents.js:1412
 msgid "Collection"
 msgstr "Kolekcja"
 
 #. overridden
-#: ../src/documents.js:972
+#: src/documents.js:972
 msgid "Google Docs"
 msgstr "Dokumenty Google"
 
-#: ../src/documents.js:973
+#: src/documents.js:973
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:1117 ../src/documents.js:1414
+#: src/documents.js:1117 src/documents.js:1414
 msgid "Spreadsheet"
 msgstr "Arkusz kalkulacyjny"
 
-#: ../src/documents.js:1119 ../src/documents.js:1416 ../src/presentation.js:44
+#: src/documents.js:1119 src/documents.js:1416 src/presentation.js:44
 msgid "Presentation"
 msgstr "Prezentacja"
 
-#: ../src/documents.js:1121 ../src/documents.js:1418
+#: src/documents.js:1121 src/documents.js:1418
 msgid "e-Book"
 msgstr "E-book"
 
-#: ../src/documents.js:1123 ../src/documents.js:1420
+#: src/documents.js:1123 src/documents.js:1420
 msgid "Document"
 msgstr "Dokument"
 
 #. overridden
-#: ../src/documents.js:1173
+#: src/documents.js:1173
 msgid "ownCloud"
 msgstr "ownCloud"
 
 #. overridden
-#: ../src/documents.js:1307 ../src/documents.js:1308
+#: src/documents.js:1307 src/documents.js:1308
 msgid "OneDrive"
 msgstr "OneDrive"
 
-#: ../src/documents.js:1594
+#: src/documents.js:1594
 msgid "Please check the network connection."
 msgstr "Proszę sprawdzić połączenie sieciowe."
 
-#: ../src/documents.js:1597
+#: src/documents.js:1597
 msgid "Please check the network proxy settings."
 msgstr "Proszę sprawdzić ustawienia pośrednika sieciowego."
 
-#: ../src/documents.js:1600
+#: src/documents.js:1600
 msgid "Unable to sign in to the document service."
 msgstr "Nie można zalogować się w serwisie dokumentów."
 
-#: ../src/documents.js:1603
+#: src/documents.js:1603
 msgid "Unable to locate this document."
 msgstr "Nie można ustalić położenia tego dokumentu."
 
-#: ../src/documents.js:1606
+#: src/documents.js:1606
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Coś nie gra (%d)."
 
-#: ../src/documents.js:1613
+#: src/documents.js:1613
 msgid ""
 "You are using a preview of Books. Full viewing capabilities are coming soon!"
 msgstr ""
 "Obecnie używana jest wersja beta programu Książki. Pełna obsługa e-booków "
 "już wkrótce!"
 
-#: ../src/documents.js:1615
+#: src/documents.js:1615
 msgid ""
 "LibreOffice support is not available. Please contact your system "
 "administrator."
@@ -524,95 +526,95 @@ msgstr ""
 "z administratorem komputera."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1638
+#: src/documents.js:1638
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Nie można wczytać dokumentu „%s”"
 
 #. view button, on the right of the toolbar
-#: ../src/edit.js:139
+#: src/edit.js:139
 msgid "View"
 msgstr "Wyświetl"
 
-#: ../src/epubview.js:228
+#: src/epubview.js:228
 #, javascript-format
 msgid "chapter %s of %s"
 msgstr "%s. rozdział z %s"
 
-#: ../src/evinceview.js:590 ../src/lib/gd-places-bookmarks.c:656
+#: src/evinceview.js:590 src/lib/gd-places-bookmarks.c:656
 msgid "Bookmarks"
 msgstr "Zakładki"
 
-#: ../src/evinceview.js:598
+#: src/evinceview.js:598
 msgid "Bookmark this page"
 msgstr "Dodaje zakładkę do tej strony"
 
-#: ../src/lib/gd-nav-bar.c:242
+#: src/lib/gd-nav-bar.c:242
 #, c-format
 msgid "Page %u of %u"
 msgstr "%u. strona z %u"
 
-#: ../src/lib/gd-pdf-loader.c:142
+#: src/lib/gd-pdf-loader.c:142
 msgid "Unable to load the document"
 msgstr "Nie można wczytać dokumentu"
 
 #. Translators: %s is the number of the page, already formatted
 #. * as a string, for example "Page 5".
 #.
-#: ../src/lib/gd-places-bookmarks.c:321
+#: src/lib/gd-places-bookmarks.c:321
 #, c-format
 msgid "Page %s"
 msgstr "%s. strona"
 
-#: ../src/lib/gd-places-bookmarks.c:384
+#: src/lib/gd-places-bookmarks.c:384
 msgid "No bookmarks"
 msgstr "Brak zakładek"
 
-#: ../src/lib/gd-places-bookmarks.c:392 ../src/lib/gd-places-links.c:257
+#: src/lib/gd-places-bookmarks.c:392 src/lib/gd-places-links.c:257
 msgid "Loading…"
 msgstr "Wczytywanie…"
 
-#: ../src/lib/gd-places-links.c:342
+#: src/lib/gd-places-links.c:342
 msgid "No table of contents"
 msgstr "Brak spisu treści"
 
-#: ../src/lib/gd-places-links.c:514
+#: src/lib/gd-places-links.c:514
 msgid "Contents"
 msgstr "Spis treści"
 
-#: ../src/lib/gd-utils.c:328
+#: src/lib/gd-utils.c:328
 msgid "A document manager application"
 msgstr "Program do zarządzania dokumentami"
 
-#: ../src/lib/gd-utils.c:333
+#: src/lib/gd-utils.c:333
 msgid "An e-books manager application"
 msgstr "Program do zarządzania e-bookami"
 
-#: ../src/lib/gd-utils.c:340
+#: src/lib/gd-utils.c:340
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2011-2017\n"
 "Paweł Żołnowski <pawel@zolnowski.name>, 2014-2015\n"
 "Aviary.pl <community-poland@mozilla.org>, 2011-2017"
 
-#: ../src/mainToolbar.js:91
+#: src/mainToolbar.js:91
 msgctxt "toolbar button tooltip"
 msgid "Search"
 msgstr "Wyszukuje"
 
-#: ../src/mainToolbar.js:100
+#: src/mainToolbar.js:100
 msgid "Back"
 msgstr "Wstecz"
 
 #. Translators: only one item has been deleted and %s is its name
-#: ../src/notifications.js:48
+#: src/notifications.js:48
 #, javascript-format
 msgid "“%s” deleted"
 msgstr "Usunięto „%s”"
 
 #. Translators: one or more items might have been deleted, and %d
 #. is the count
-#: ../src/notifications.js:52
+#: src/notifications.js:52
 #, javascript-format
 msgid "%d item deleted"
 msgid_plural "%d items deleted"
@@ -620,59 +622,59 @@ msgstr[0] "Usunięto %d element"
 msgstr[1] "Usunięto %d elementy"
 msgstr[2] "Usunięto %d elementów"
 
-#: ../src/notifications.js:61 ../src/selections.js:387
+#: src/notifications.js:61 src/selections.js:387
 msgid "Undo"
 msgstr "Cofnij"
 
-#: ../src/notifications.js:159
+#: src/notifications.js:159
 #, javascript-format
 msgid "Printing “%s”: %s"
 msgstr "Drukowanie „%s”: %s"
 
-#: ../src/notifications.js:215
+#: src/notifications.js:215
 msgid "Your documents are being indexed"
 msgstr "Trwa indeksowanie dokumentów"
 
-#: ../src/notifications.js:216
+#: src/notifications.js:216
 msgid "Some documents might not be available during this process"
 msgstr "Niektóre dokumenty mogą być niedostępne podczas tego procesu"
 
 #. Translators: %s refers to an online account provider, e.g.
 #. "Google", or "Windows Live".
-#: ../src/notifications.js:238
+#: src/notifications.js:238
 #, javascript-format
 msgid "Fetching documents from %s"
 msgstr "Pobieranie dokumentów z serwisu %s"
 
-#: ../src/notifications.js:240
+#: src/notifications.js:240
 msgid "Fetching documents from online accounts"
 msgstr "Pobieranie dokumentów z kont online"
 
-#: ../src/overview.js:275
+#: src/overview.js:275
 msgid "No collections found"
 msgstr "Nie odnaleziono żadnych kolekcji"
 
-#: ../src/overview.js:277
+#: src/overview.js:277
 msgid "No books found"
 msgstr "Nie odnaleziono żadnych książek"
 
-#: ../src/overview.js:277
+#: src/overview.js:277
 msgid "No documents found"
 msgstr "Nie odnaleziono żadnych dokumentów"
 
-#: ../src/overview.js:286
+#: src/overview.js:286
 msgid "Try a different search"
 msgstr "Proszę spróbować innego wyszukiwania"
 
-#: ../src/overview.js:293
+#: src/overview.js:293
 msgid "You can create collections from the Books view"
 msgstr "Można tworzyć kolekcje w widoku książek"
 
-#: ../src/overview.js:295
+#: src/overview.js:295
 msgid "You can create collections from the Documents view"
 msgstr "Można tworzyć kolekcje w widoku dokumentów"
 
-#: ../src/overview.js:305
+#: src/overview.js:305
 #, javascript-format
 msgid ""
 "Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
@@ -682,15 +684,15 @@ msgstr ""
 "\">katalogu Dokumenty</a> pojawią się w tym miejscu."
 
 #. Translators: this is the menu to change view settings
-#: ../src/overview.js:562
+#: src/overview.js:562
 msgid "View Menu"
 msgstr "Menu widoku"
 
-#: ../src/overview.js:590
+#: src/overview.js:590
 msgid "Click on items to select them"
 msgstr "Kliknięcie elementu zaznacza go"
 
-#: ../src/overview.js:592
+#: src/overview.js:592
 #, javascript-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -698,15 +700,15 @@ msgstr[0] "Zaznaczono: %d"
 msgstr[1] "Zaznaczono: %d"
 msgstr[2] "Zaznaczono: %d"
 
-#: ../src/overview.js:669
+#: src/overview.js:669
 msgid "Select Items"
 msgstr "Zaznacza elementy"
 
-#: ../src/overview.js:876
+#: src/overview.js:876
 msgid "Yesterday"
 msgstr "Wczoraj"
 
-#: ../src/overview.js:878
+#: src/overview.js:878
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -714,11 +716,11 @@ msgstr[0] "%d dzień temu"
 msgstr[1] "%d dni temu"
 msgstr[2] "%d dni temu"
 
-#: ../src/overview.js:882
+#: src/overview.js:882
 msgid "Last week"
 msgstr "Ostatni tydzień"
 
-#: ../src/overview.js:884
+#: src/overview.js:884
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
@@ -726,11 +728,11 @@ msgstr[0] "%d tydzień temu"
 msgstr[1] "%d tygodnie temu"
 msgstr[2] "%d tygodni temu"
 
-#: ../src/overview.js:888
+#: src/overview.js:888
 msgid "Last month"
 msgstr "Ostatni miesiąc"
 
-#: ../src/overview.js:890
+#: src/overview.js:890
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
@@ -738,11 +740,11 @@ msgstr[0] "%d miesiąc temu"
 msgstr[1] "%d miesiące temu"
 msgstr[2] "%d miesięcy temu"
 
-#: ../src/overview.js:894
+#: src/overview.js:894
 msgid "Last year"
 msgstr "Ostatni rok"
 
-#: ../src/overview.js:896
+#: src/overview.js:896
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -750,267 +752,267 @@ msgstr[0] "%d rok temu"
 msgstr[1] "%d lata temu"
 msgstr[2] "%d lat temu"
 
-#: ../src/password.js:42
+#: src/password.js:42
 msgid "Password Required"
 msgstr "Wymagane jest hasło"
 
-#: ../src/password.js:45
+#: src/password.js:45
 msgid "_Unlock"
 msgstr "_Odblokuj"
 
-#: ../src/password.js:61
+#: src/password.js:61
 #, javascript-format
 msgid "Document %s is locked and requires a password to be opened."
 msgstr "Dokument „%s” jest zablokowany i do otwarcia wymaga hasła."
 
-#: ../src/password.js:75
+#: src/password.js:75
 msgid "_Password"
 msgstr "_Hasło"
 
-#: ../src/presentation.js:102
+#: src/presentation.js:102
 msgid "Running in presentation mode"
 msgstr "Działanie w trybie prezentacji"
 
-#: ../src/presentation.js:130
+#: src/presentation.js:130
 msgid "Present On"
 msgstr "Prezentacja na"
 
 #. Translators: "Mirrored" describes when both displays show the same view
-#: ../src/presentation.js:166
+#: src/presentation.js:166
 msgid "Mirrored"
 msgstr "Ten sam obraz na obu ekranach"
 
-#: ../src/presentation.js:168
+#: src/presentation.js:168
 msgid "Primary"
 msgstr "Główny ekran"
 
-#: ../src/presentation.js:170
+#: src/presentation.js:170
 msgid "Off"
 msgstr "Wyłączony"
 
-#: ../src/presentation.js:172
+#: src/presentation.js:172
 msgid "Secondary"
 msgstr "Drugi ekran"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/preview.js:445 ../src/selections.js:985
+#: src/preview.js:445 src/selections.js:985
 #, javascript-format
 msgid "Open with %s"
 msgstr "Otwórz za pomocą „%s”"
 
-#: ../src/preview.js:770
+#: src/preview.js:770
 msgid "Find Previous"
 msgstr "Znajdź poprzednie"
 
-#: ../src/preview.js:776
+#: src/preview.js:776
 msgid "Find Next"
 msgstr "Znajdź następne"
 
 #. Title item
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
-#: ../src/properties.js:81
+#: src/properties.js:81
 msgctxt "Document Title"
 msgid "Title"
 msgstr "Tytuł"
 
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
-#: ../src/properties.js:90
+#: src/properties.js:90
 msgctxt "Document Author"
 msgid "Author"
 msgstr "Autor"
 
 #. Source item
-#: ../src/properties.js:97
+#: src/properties.js:97
 msgid "Source"
 msgstr "Źródło"
 
 #. Date Modified item
-#: ../src/properties.js:103
+#: src/properties.js:103
 msgid "Date Modified"
 msgstr "Data modyfikacji"
 
-#: ../src/properties.js:110
+#: src/properties.js:110
 msgid "Date Created"
 msgstr "Data utworzenia"
 
 #. Document type item
 #. Translators: "Type" is the label next to the document type
 #. (PDF, spreadsheet, ...) in the properties dialog
-#: ../src/properties.js:119
+#: src/properties.js:119
 msgctxt "Document Type"
 msgid "Type"
 msgstr "Typ"
 
 #. Translators: "Type" refers to a search filter on the document type
 #. (PDF, spreadsheet, ...)
-#: ../src/search.js:120
+#: src/search.js:120
 msgctxt "Search Filter"
 msgid "Type"
 msgstr "Typ"
 
 #. Translators: this refers to documents
-#: ../src/search.js:123 ../src/search.js:260 ../src/search.js:453
+#: src/search.js:123 src/search.js:260 src/search.js:453
 msgid "All"
 msgstr "Wszystkie"
 
-#: ../src/search.js:136
+#: src/search.js:136
 msgid "PDF Documents"
 msgstr "Dokumenty PDF"
 
-#: ../src/search.js:143
+#: src/search.js:143
 msgid "e-Books"
 msgstr "E-booki"
 
-#: ../src/search.js:147
+#: src/search.js:147
 msgid "Comics"
 msgstr "Komiksy"
 
-#: ../src/search.js:152
+#: src/search.js:152
 msgid "Presentations"
 msgstr "Prezentacje"
 
-#: ../src/search.js:155
+#: src/search.js:155
 msgid "Spreadsheets"
 msgstr "Arkusze kalkulacyjne"
 
-#: ../src/search.js:158
+#: src/search.js:158
 msgid "Text Documents"
 msgstr "Dokumenty tekstowe"
 
 #. Translators: this is a verb that refers to "All", "Title", "Author",
 #. and "Content" as in "Match All", "Match Title", "Match Author", and
 #. "Match Content"
-#: ../src/search.js:257
+#: src/search.js:257
 msgid "Match"
 msgstr "Dopasowanie"
 
 #. Translators: "Title" refers to "Match Title" when searching
-#: ../src/search.js:263
+#: src/search.js:263
 msgctxt "Search Filter"
 msgid "Title"
 msgstr "Tytuł"
 
 #. Translators: "Author" refers to "Match Author" when searching
-#: ../src/search.js:266
+#: src/search.js:266
 msgctxt "Search Filter"
 msgid "Author"
 msgstr "Autor"
 
 #. Translators: "Content" refers to "Match Content" when searching
-#: ../src/search.js:269
+#: src/search.js:269
 msgctxt "Search Filter"
 msgid "Content"
 msgstr "Treść"
 
-#: ../src/search.js:449
+#: src/search.js:449
 msgid "Sources"
 msgstr "Źródła"
 
 #. Translators: the first %s is an online account provider name,
 #. e.g. "Google". The second %s is the identity used to log in,
 #. e.g. "foo@gmail.com".
-#: ../src/search.js:508
+#: src/search.js:508
 #, javascript-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/selections.js:360 ../src/selections.js:362
+#: src/selections.js:360 src/selections.js:362
 msgid "Rename…"
 msgstr "Zmień nazwę…"
 
-#: ../src/selections.js:366 ../src/selections.js:368
+#: src/selections.js:366 src/selections.js:368
 msgid "Delete"
 msgstr "Usuń"
 
-#: ../src/selections.js:382
+#: src/selections.js:382
 #, javascript-format
 msgid "“%s” removed"
 msgstr "Usunięto „%s”"
 
-#: ../src/selections.js:779
+#: src/selections.js:779
 msgid "Rename"
 msgstr "Zmiana nazwy"
 
 #. Translators: "Collections" refers to documents in this context
-#: ../src/selections.js:785
+#: src/selections.js:785
 msgctxt "Dialog Title"
 msgid "Collections"
 msgstr "Kolekcje"
 
-#: ../src/sharing.js:108
+#: src/sharing.js:108
 msgid "Sharing Settings"
 msgstr "Ustawienia udostępniania"
 
 #. Label for widget group for changing document permissions
-#: ../src/sharing.js:145
+#: src/sharing.js:145
 msgid "Document permissions"
 msgstr "Uprawnienia dokumentu"
 
 #. Label for permission change in Sharing dialog
-#: ../src/sharing.js:152 ../src/sharing.js:330
+#: src/sharing.js:152 src/sharing.js:330
 msgid "Change"
 msgstr "Zmień"
 
 #. Label for radiobutton that sets doc permission to private
-#: ../src/sharing.js:176 ../src/sharing.js:305
+#: src/sharing.js:176 src/sharing.js:305
 msgid "Private"
 msgstr "Prywatne"
 
-#: ../src/sharing.js:186 ../src/sharing.js:298
+#: src/sharing.js:186 src/sharing.js:298
 msgid "Public"
 msgstr "Publiczne"
 
 #. Label for checkbutton that sets doc permission to Can edit
-#: ../src/sharing.js:190 ../src/sharing.js:300
+#: src/sharing.js:190 src/sharing.js:300
 msgid "Everyone can edit"
 msgstr "Wszyscy mogą modyfikować"
 
 #. Label for widget group used for adding new contacts
-#: ../src/sharing.js:197
+#: src/sharing.js:197
 msgid "Add people"
 msgstr "Dodanie osób"
 
 #. Editable text in entry field
-#: ../src/sharing.js:204
+#: src/sharing.js:204
 msgid "Enter an email address"
 msgstr "Adres e-mail"
 
-#: ../src/sharing.js:219 ../src/sharing.js:371
+#: src/sharing.js:219 src/sharing.js:371
 msgid "Can edit"
 msgstr "Może modyfikować"
 
-#: ../src/sharing.js:219 ../src/sharing.js:374
+#: src/sharing.js:219 src/sharing.js:374
 msgid "Can view"
 msgstr "Może wyświetlać"
 
-#: ../src/sharing.js:302
+#: src/sharing.js:302
 msgid "Everyone can read"
 msgstr "Wszyscy mogą odczytywać"
 
-#: ../src/sharing.js:317
+#: src/sharing.js:317
 msgid "Save"
 msgstr "Zapisz"
 
-#: ../src/sharing.js:368
+#: src/sharing.js:368
 msgid "Owner"
 msgstr "Właściciel"
 
-#: ../src/sharing.js:437
+#: src/sharing.js:437
 #, javascript-format
 msgid "You can ask %s for access"
 msgstr "Można poprosić %s o dostęp"
 
-#: ../src/sharing.js:474 ../src/sharing.js:510 ../src/sharing.js:567
-#: ../src/sharing.js:584 ../src/sharing.js:603
+#: src/sharing.js:474 src/sharing.js:510 src/sharing.js:567 src/sharing.js:584
+#: src/sharing.js:603
 msgid "The document was not updated"
 msgstr "Dokument nie został zaktualizowany"
 
-#: ../src/shellSearchProvider.js:285
+#: src/shellSearchProvider.js:285
 msgid "Untitled Document"
 msgstr "Dokument bez tytułu"
 
-#: ../src/trackerController.js:176
+#: src/trackerController.js:176
 msgid "Unable to fetch the list of documents"
 msgstr "Nie można pobrać listy dokumentów"
