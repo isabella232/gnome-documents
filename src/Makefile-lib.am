@@ -1,6 +1,6 @@
 gdprivate_cflags = \
     -I$(top_srcdir)/src \
-    -I$(top_srcdir)/libgd \
+    -I$(top_srcdir)/subprojects/libgd \
     -DPREFIX=\"$(prefix)\" \
     -DLIBDIR=\"$(libdir)\" \
     -DG_LOG_DOMAIN=\"Gdprivate\" \
@@ -38,7 +38,7 @@ pkglib_LTLIBRARIES += libgdprivate-1.0.la
 libgdprivate_1_0_la_LIBADD = \
     $(DOCUMENTS_LIBS) \
     $(LIBM) \
-    $(top_builddir)/libgd/libgd.la
+    $(top_builddir)/subprojects/libgd/libgd.la
 
 
 libgdprivate_1_0_la_LDFLAGS = \

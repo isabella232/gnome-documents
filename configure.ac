@@ -109,7 +109,7 @@ LIBGD_INIT([
   notification
   tagged-entry
   gir
-])
+][subprojects/libgd])
 
 AX_PROG_GJS
 AX_CHECK_GIRS_GJS([cairo], [1.0])
@@ -140,7 +140,7 @@ AC_PATH_PROG(DESKTOP_FILE_VALIDATE, desktop-file-validate)
 AC_CONFIG_FILES([
 Makefile
 help/Makefile
-libgd/Makefile
+subprojects/libgd/Makefile
 src/Makefile
 data/Makefile
 data/icons/Makefile
