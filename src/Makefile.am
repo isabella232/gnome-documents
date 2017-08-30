@@ -75,7 +75,8 @@ EXTRA_DIST += \
     $(documents_app_resource_files) \
     $(books_app_resource_files) \
     org.gnome.Documents.src.gresource.xml \
-    org.gnome.Books.src.gresource.xml
+    org.gnome.Books.src.gresource.xml \
+    meson.build
 
 gir_DATA += $(INTROSPECTION_GIRS)
 typelib_DATA += $(gir_DATA:.gir=.typelib)

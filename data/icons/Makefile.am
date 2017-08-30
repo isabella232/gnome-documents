@@ -32,6 +32,7 @@ noinst_DATA = \
 EXTRA_DIST = \
 	$(public_icons)		\
 	$(noinst_DATA)		\
+	meson.build		\
 	$(NULL)
 
 ###############################################################################

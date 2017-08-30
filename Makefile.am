@@ -21,7 +21,11 @@ DISTCHECK_CONFIGURE_FLAGS = --enable-getting-started
 EXTRA_DIST = \
     autogen.sh \
     COPYING \
-    NEWS
+    NEWS \
+    meson.build \
+    meson_options.txt \
+    meson_post_install.py \
+    po/meson.build
 
 stale-files-clean-local:
 	-$(RM) $(abs_top_builddir)/*.la $(abs_top_builddir)/*.gir $(abs_top_builddir)/*.typelib

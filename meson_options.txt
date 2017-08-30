@@ -1,0 +1,2 @@
+option('enable-documentation', type: 'boolean', value: true, description: 'build documentation')
+option('enable-getting-started', type: 'boolean', value: false, description: 'build getting started PDFs')

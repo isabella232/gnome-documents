@@ -23,4 +23,6 @@ HELP_MEDIA = \
 
 HELP_LINGUAS = as ca cs de el fi fr es gl gu hi hu id it ja kn ko lv mr nl pa pl pt_BR ru sl sr sr@latin sv te vi ta zh_CN
 
+EXTRA_DIST = meson.build
+
 -include $(top_srcdir)/git.mk

@@ -67,7 +67,8 @@ EXTRA_DIST= \
     $(searchprovider_DATA) \
     $(gsettings_SCHEMAS) \
     org.gnome.Documents.data.gresource.xml \
-    org.gnome.Books.data.gresource.xml
+    org.gnome.Books.data.gresource.xml \
+    meson.build
 
 CLEANFILES = \
     org.gnome.Documents.data.gresource \

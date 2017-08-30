@@ -11,4 +11,6 @@ HELP_FILES = \
 	learn-more.svg \
 	$(NULL)
 
+EXTRA_DIST = meson.build
+
 -include $(top_srcdir)/git.mk
