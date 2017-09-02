@@ -2,16 +2,16 @@
 # Copyright (C) 2011 gnome-documents's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-documents package.
 # Changwoo Ryu <cwryu@debian.org>, 2013.
-# Seong-ho Cho <shcho@gnome.org>, 2011-2015, 2016.
+# Seong-ho Cho <shcho@gnome.org>, 2011-2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-07-31 22:34+0000\n"
-"PO-Revision-Date: 2016-09-02 02:29+0900\n"
-"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
+"POT-Creation-Date: 2017-08-23 15:36+0000\n"
+"PO-Revision-Date: 2017-08-27 16:23+0900\n"
+"Last-Translator: Seong-ho Cho <shcho@gnome.org>\n"
 "Language-Team: 한국어 <gnome-kr@googlegroups.com>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -20,932 +20,649 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 1.8.7\n"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:1
-#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:109
-#: ../src/embed.js:79 ../src/lib/gd-utils.c:424
+#: data/org.gnome.Books.appdata.xml.in:7 data/org.gnome.Books.desktop.in:3
+#: src/application.js:112 src/overview.js:1052
 msgid "Books"
 msgstr "책"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:2
+#: data/org.gnome.Books.appdata.xml.in:8
 msgid "An e-book manager application for GNOME"
 msgstr "그놈용 전자책 관리 프로그램"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:3
+#: data/org.gnome.Books.appdata.xml.in:10
 msgid ""
 "A simple application to access and organize your e-books on GNOME. It is "
 "meant to be a simple and elegant replacement for using a file manager to "
 "deal with e-books."
 msgstr ""
-"그놈에서 전자책을 살펴보고 관리하는 간단한 프로그램입니다. 전자책을 다루려 "
-"파일 관리자를 사용할 때 간단하고 매력적인 대안 프로그램임을 의미합니다."
+"그놈에서 전자책을 살펴보고 관리하는 간단한 프로그램입니다. 전자책을 다루려 파"
+"일 관리자를 사용할 때 간단하고 매력적인 대안 프로그램임을 의미합니다."
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:4
-#: ../data/org.gnome.Documents.appdata.xml.in.h:4
+#: data/org.gnome.Books.appdata.xml.in:15
+#: data/org.gnome.Documents.appdata.xml.in:16
 msgid "It lets you:"
 msgstr "이 프로그램에는 다음 기능이 있습니다:"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:5
+#: data/org.gnome.Books.appdata.xml.in:17
 msgid "View recent e-books"
 msgstr "최근 전자책 보기"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:6
+#: data/org.gnome.Books.appdata.xml.in:18
 msgid "Search through e-books"
 msgstr "전자책 검색"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:7
+#: data/org.gnome.Books.appdata.xml.in:19
 msgid "View e-books (PDF and comics) fullscreen"
 msgstr "최대 화면으로 전자책(PDF, 만화) 보기"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:8
+#: data/org.gnome.Books.appdata.xml.in:20
 msgid "Print e-books"
 msgstr "전자책 인쇄"
 
-#: ../data/org.gnome.Books.desktop.in.h:2
+#: data/org.gnome.Books.appdata.xml.in:32
+#: data/org.gnome.Documents.appdata.xml.in:39
+msgid "The GNOME Project"
+msgstr "그놈 프로젝트"
+
+#: data/org.gnome.Books.desktop.in:4
 msgid "Access, manage and share books"
 msgstr "책을 살펴보고, 관리하고, 공유합니다"
 
-#: ../data/org.gnome.Books.desktop.in.h:3
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.Books.desktop.in:7
+msgid "org.gnome.Books"
+msgstr "org.gnome.Books"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Books.desktop.in:15
 msgid "Books;Comics;ePub;PDF;"
 msgstr "Books;책;Comics;만화;ePub;전자출판;PDF;"
 
-#: ../data/org.gnome.books.gschema.xml.h:1
-#: ../data/org.gnome.documents.gschema.xml.h:1
+#: data/org.gnome.books.gschema.xml:5 data/org.gnome.documents.gschema.xml:5
 msgid "View as"
 msgstr "다음 형식으로 보기"
 
-#: ../data/org.gnome.books.gschema.xml.h:2
-#: ../data/org.gnome.documents.gschema.xml.h:2
+#: data/org.gnome.books.gschema.xml:6 data/org.gnome.documents.gschema.xml:6
 msgid "View as type"
 msgstr "형식별로 보기"
 
-#: ../data/org.gnome.books.gschema.xml.h:3
-#: ../data/org.gnome.documents.gschema.xml.h:3
+#: data/org.gnome.books.gschema.xml:10 data/org.gnome.documents.gschema.xml:10
 msgid "Sort by"
 msgstr "정렬 기준"
 
-#: ../data/org.gnome.books.gschema.xml.h:4
-#: ../data/org.gnome.documents.gschema.xml.h:4
+#: data/org.gnome.books.gschema.xml:11 data/org.gnome.documents.gschema.xml:11
 msgid "Sort by type"
 msgstr "형식순 정렬"
 
-#: ../data/org.gnome.books.gschema.xml.h:5
-#: ../data/org.gnome.documents.gschema.xml.h:5
+#: data/org.gnome.books.gschema.xml:15 data/org.gnome.documents.gschema.xml:15
 msgid "Window size"
 msgstr "창 크기"
 
-#: ../data/org.gnome.books.gschema.xml.h:6
-#: ../data/org.gnome.documents.gschema.xml.h:6
+#: data/org.gnome.books.gschema.xml:16 data/org.gnome.documents.gschema.xml:16
 msgid "Window size (width and height)."
 msgstr "창 크기(너비 및 높이)."
 
-#: ../data/org.gnome.books.gschema.xml.h:7
-#: ../data/org.gnome.documents.gschema.xml.h:7
+#: data/org.gnome.books.gschema.xml:20 data/org.gnome.documents.gschema.xml:20
 msgid "Window position"
 msgstr "창 위치"
 
-#: ../data/org.gnome.books.gschema.xml.h:8
-#: ../data/org.gnome.documents.gschema.xml.h:8
+#: data/org.gnome.books.gschema.xml:21 data/org.gnome.documents.gschema.xml:21
 msgid "Window position (x and y)."
 msgstr "창 위치(가로 및 세로)."
 
-#: ../data/org.gnome.books.gschema.xml.h:9
-#: ../data/org.gnome.documents.gschema.xml.h:9
+#: data/org.gnome.books.gschema.xml:25 data/org.gnome.documents.gschema.xml:25
 msgid "Window maximized"
 msgstr "창 최대화"
 
-#: ../data/org.gnome.books.gschema.xml.h:10
-#: ../data/org.gnome.documents.gschema.xml.h:10
+#: data/org.gnome.books.gschema.xml:26 data/org.gnome.documents.gschema.xml:26
 msgid "Window maximized state"
 msgstr "창 최대화 상태"
 
-#: ../data/org.gnome.books.gschema.xml.h:11
-#: ../data/org.gnome.documents.gschema.xml.h:11
+#: data/org.gnome.books.gschema.xml:30 data/org.gnome.documents.gschema.xml:30
 msgid "Night mode"
 msgstr "야간 모드"
 
-#: ../data/org.gnome.books.gschema.xml.h:12
-#: ../data/org.gnome.documents.gschema.xml.h:12
+#: data/org.gnome.books.gschema.xml:31 data/org.gnome.documents.gschema.xml:31
 msgid "Whether the application is in night mode."
 msgstr "프로그램을 야간 모드로 설정할지 여부입니다."
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:1
-#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:112
-#: ../src/embed.js:79 ../src/lib/gd-utils.c:417 ../src/mainWindow.js:52
+#: data/org.gnome.Documents.appdata.xml.in:7
+#: data/org.gnome.Documents.desktop.in:3 src/application.js:115
+#: src/overview.js:1052
 msgid "Documents"
 msgstr "문서"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:2
+#: data/org.gnome.Documents.appdata.xml.in:8
 msgid "A document manager application for GNOME"
 msgstr "그놈용 문서 관리 프로그램"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:3
+#: data/org.gnome.Documents.appdata.xml.in:10
 msgid ""
 "A simple application to access, organize and share your documents on GNOME. "
 "It is meant to be a simple and elegant replacement for using a file manager "
 "to deal with documents. Seamless cloud integration is offered through GNOME "
 "Online Accounts."
 msgstr ""
-"그놈에서 여러분의 문서에 접근하고 정리하며 공유하는 간단한 프로그램입니다. "
-"문서를 취급하려고 파일 관리자를 사용하는 방법보다 간단하고 세련된 기능을 제"
-"공합니다. 그놈 온라인 계정을 통한 감쪽같은 클라우드 통합 기능도 있습니다."
+"그놈에서 여러분의 문서에 접근하고 정리하며 공유하는 간단한 프로그램입니다. 문"
+"서를 취급하려고 파일 관리자를 사용하는 방법보다 간단하고 세련된 기능을 제공합"
+"니다. 그놈 온라인 계정을 통한 감쪽같은 클라우드 통합 기능도 있습니다."
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:5
+#: data/org.gnome.Documents.appdata.xml.in:18
 msgid "View recent local and online documents"
 msgstr "최근 로컬 및 온라인 문서를 봅니다"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:6
+#: data/org.gnome.Documents.appdata.xml.in:19
 msgid "Access your Google, ownCloud or OneDrive content"
 msgstr "구글, ownCloud, 원드라이브 컨텐트에 접근합니다"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:7
+#: data/org.gnome.Documents.appdata.xml.in:20
 msgid "Search through documents"
 msgstr "문서의 내용을 검색합니다"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:8
+#: data/org.gnome.Documents.appdata.xml.in:21
 msgid "See new documents shared by friends"
 msgstr "친구와 공유한 새 문서를 봅니다"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:9
+#: data/org.gnome.Documents.appdata.xml.in:22
 msgid "View documents fullscreen"
 msgstr "최대 화면으로 문서를 봅니다"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:10
+#: data/org.gnome.Documents.appdata.xml.in:23
 msgid "Print documents"
 msgstr "문서 인쇄"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:11
+#: data/org.gnome.Documents.appdata.xml.in:24
 msgid "Select favorites"
 msgstr "즐겨찾는 항목 선택"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:12
+#: data/org.gnome.Documents.appdata.xml.in:25
 msgid "Allow opening full featured editor for non-trivial changes"
 msgstr "중요한 내용을 바꿀 때 완전한 기능을 갖춘 편집기 열기 허용"
 
-#: ../data/org.gnome.Documents.desktop.in.h:2
+#: data/org.gnome.Documents.desktop.in:4
 msgid "Access, manage and share documents"
 msgstr "문서를 접근, 관리하고 공유합니다"
 
-#: ../data/org.gnome.Documents.desktop.in.h:3
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.Documents.desktop.in:7
+#| msgid "Documents"
+msgid "org.gnome.Documents"
+msgstr "org.gnome.Documents"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Documents.desktop.in:15
 msgid "Docs;PDF;Document;"
 msgstr "Docs;닥스;PDF;Document;문서;"
 
-#: ../data/ui/app-menu.ui.h:1 ../src/mainToolbar.js:107
-msgid "Fullscreen"
-msgstr "최대 화면"
-
-#: ../data/ui/app-menu.ui.h:2 ../src/mainToolbar.js:119
+#: data/ui/app-menu.ui:6 src/preview.js:453
 msgid "Night Mode"
 msgstr "야간 모드"
 
-#: ../data/ui/app-menu.ui.h:3
+#: data/ui/app-menu.ui:12
 msgid "Keyboard Shortcuts"
 msgstr "키보드 바로 가기 키"
 
-#: ../data/ui/app-menu.ui.h:4
+#: data/ui/app-menu.ui:16
 msgid "Help"
 msgstr "도움말"
 
-#: ../data/ui/app-menu.ui.h:5
+#: data/ui/app-menu.ui:20
 msgid "About"
 msgstr "정보"
 
-#: ../data/ui/app-menu.ui.h:6
+#: data/ui/app-menu.ui:24
 msgctxt "app menu"
 msgid "Quit"
 msgstr "끝내기"
 
-#: ../data/ui/help-overlay.ui.h:1
+#: data/ui/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "General"
 msgstr "일반"
 
-#: ../data/ui/help-overlay.ui.h:2
+#: data/ui/help-overlay.ui:15
 msgctxt "shortcut window"
 msgid "Show help"
 msgstr "도움말 표시"
 
-#: ../data/ui/help-overlay.ui.h:3
+#: data/ui/help-overlay.ui:22
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "끝내기"
 
-#: ../data/ui/help-overlay.ui.h:4
+#: data/ui/help-overlay.ui:29
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "검색"
 
-#: ../data/ui/help-overlay.ui.h:5
+#: data/ui/help-overlay.ui:36
 msgctxt "shortcut window"
 msgid "Print the current document"
 msgstr "현재 문서 인쇄"
 
-#: ../data/ui/help-overlay.ui.h:6
+#: data/ui/help-overlay.ui:45
 msgctxt "shortcut window"
 msgid "Navigation"
 msgstr "탐색"
 
-#: ../data/ui/help-overlay.ui.h:7
+#: data/ui/help-overlay.ui:49 data/ui/help-overlay.ui:57
 msgctxt "shortcut window"
 msgid "Go back"
 msgstr "뒤로 이동"
 
-#: ../data/ui/help-overlay.ui.h:8
+#: data/ui/help-overlay.ui:67
 msgctxt "shortcut window"
 msgid "Preview"
 msgstr "미리보기"
 
-#: ../data/ui/help-overlay.ui.h:9
+#: data/ui/help-overlay.ui:71
 msgctxt "shortcut window"
 msgid "Zoom in"
 msgstr "확대"
 
-#: ../data/ui/help-overlay.ui.h:10
+#: data/ui/help-overlay.ui:78
 msgctxt "shortcut window"
 msgid "Zoom out"
 msgstr "축소"
 
-#: ../data/ui/help-overlay.ui.h:11
+#: data/ui/help-overlay.ui:85
 msgctxt "shortcut window"
 msgid "Bookmark the current page"
 msgstr "이 페이지 책갈피에 추가"
 
-#: ../data/ui/help-overlay.ui.h:12
+#: data/ui/help-overlay.ui:92
 msgctxt "shortcut window"
 msgid "Open places and bookmarks dialog"
 msgstr "위치 및 즐겨찾기 대화상자 열기"
 
-#: ../data/ui/help-overlay.ui.h:13
+#: data/ui/help-overlay.ui:99
 msgctxt "shortcut window"
 msgid "Copy selected text to clipboard"
 msgstr "선택한 텍스트 클립보드로 복사"
 
-#: ../data/ui/help-overlay.ui.h:14
+#: data/ui/help-overlay.ui:106
 msgctxt "shortcut window"
 msgid "Rotate anti-clockwise"
 msgstr "반시계 방향 회전"
 
-#: ../data/ui/help-overlay.ui.h:15
+#: data/ui/help-overlay.ui:113
 msgctxt "shortcut window"
 msgid "Rotate clockwise"
 msgstr "시계 방향 회전"
 
-#: ../data/ui/help-overlay.ui.h:16
+#: data/ui/help-overlay.ui:120
 msgctxt "shortcut window"
 msgid "Next occurrence of the search string"
 msgstr "다음 검색 문자열 위치로"
 
-#: ../data/ui/help-overlay.ui.h:17
+#: data/ui/help-overlay.ui:127
 msgctxt "shortcut window"
 msgid "Previous occurrence of the search string"
 msgstr "이전 검색 문자열 위치로"
 
-#: ../data/ui/help-overlay.ui.h:18
+#: data/ui/help-overlay.ui:134
 msgctxt "shortcut window"
 msgid "Presentation mode"
 msgstr "프리젠테이션 모드"
 
-#: ../data/ui/help-overlay.ui.h:19
+#: data/ui/help-overlay.ui:141
 msgctxt "shortcut window"
 msgid "Open action menu"
 msgstr "동작 메뉴 열기"
 
-#: ../data/ui/help-overlay.ui.h:20
+#: data/ui/help-overlay.ui:148
 msgctxt "shortcut window"
 msgid "Fullscreen"
 msgstr "최대 화면"
 
-#: ../data/ui/organize-collection-dialog.ui.h:1
+#: data/ui/organize-collection-dialog.ui:40
 msgid "Enter a name for your first collection"
 msgstr "첫 문서 모음의 이름을 입력하십시오"
 
-#: ../data/ui/organize-collection-dialog.ui.h:2
+#: data/ui/organize-collection-dialog.ui:56
+#: data/ui/organize-collection-dialog.ui:113
 msgid "New Collection…"
 msgstr "새 모음…"
 
-#: ../data/ui/organize-collection-dialog.ui.h:3 ../src/sharing.js:226
+#: data/ui/organize-collection-dialog.ui:73
+#: data/ui/organize-collection-dialog.ui:122 src/sharing.js:226
 msgid "Add"
 msgstr "추가"
 
-#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:239
+#: data/ui/organize-collection-dialog.ui:167 src/overview.js:616
 msgid "Cancel"
 msgstr "취소"
 
 #. Label for Done button in Sharing dialog
-#: ../data/ui/organize-collection-dialog.ui.h:5 ../src/sharing.js:112
+#: data/ui/organize-collection-dialog.ui:173 src/sharing.js:112
 msgid "Done"
 msgstr "완료"
 
-#: ../data/ui/preview-context-menu.ui.h:1
+#: data/ui/preview-context-menu.ui:6
 msgid "_Copy"
 msgstr "복사(_C)"
 
 #. Translators: this is the Open action in a context menu
-#: ../data/ui/preview-menu.ui.h:1 ../data/ui/selection-toolbar.ui.h:1
-#: ../src/selections.js:986
+#: data/ui/preview-menu.ui:6 data/ui/selection-toolbar.ui:9
+#: src/selections.js:988
 msgid "Open"
 msgstr "열기"
 
-#: ../data/ui/preview-menu.ui.h:2
+#: data/ui/preview-menu.ui:10
 msgid "Edit"
 msgstr "편집"
 
-#: ../data/ui/preview-menu.ui.h:3
+#: data/ui/preview-menu.ui:15
 msgid "Print…"
 msgstr "인쇄…"
 
-#: ../data/ui/preview-menu.ui.h:4
+#: data/ui/preview-menu.ui:21 src/preview.js:462
+msgid "Fullscreen"
+msgstr "최대 화면"
+
+#: data/ui/preview-menu.ui:27
 msgid "Present"
 msgstr "프리젠테이션"
 
-#: ../data/ui/preview-menu.ui.h:5
+#: data/ui/preview-menu.ui:35
 msgid "Zoom In"
 msgstr "확대"
 
-#: ../data/ui/preview-menu.ui.h:6
+#: data/ui/preview-menu.ui:41
 msgid "Zoom Out"
 msgstr "축소"
 
-#: ../data/ui/preview-menu.ui.h:7
+#: data/ui/preview-menu.ui:49
 msgid "Rotate ↶"
 msgstr "↶ 회전"
 
-#: ../data/ui/preview-menu.ui.h:8
+#: data/ui/preview-menu.ui:55
 msgid "Rotate ↷"
 msgstr "↷ 회전"
 
-#: ../data/ui/preview-menu.ui.h:9 ../data/ui/selection-toolbar.ui.h:2
-#: ../src/properties.js:61
+#: data/ui/preview-menu.ui:62 data/ui/selection-toolbar.ui:79
+#: src/properties.js:61
 msgid "Properties"
 msgstr "속성"
 
-#: ../data/ui/selection-menu.ui.h:1
+#: data/ui/selection-menu.ui:6
 msgid "Select All"
 msgstr "모두 선택"
 
-#: ../data/ui/selection-menu.ui.h:2
+#: data/ui/selection-menu.ui:11
 msgid "Select None"
 msgstr "선택 안함"
 
-#: ../data/ui/selection-toolbar.ui.h:3 ../src/embed.js:83 ../src/search.js:202
-#: ../src/search.js:208
+#: data/ui/selection-toolbar.ui:88 src/overview.js:1056 src/search.js:126
+#: src/search.js:132
 msgid "Collections"
 msgstr "모음"
 
-#: ../data/ui/view-menu.ui.h:1
+#: data/ui/view-menu.ui:23
 msgid "View items as a grid of icons"
 msgstr "바둑판 배치 아이콘으로 항목 보기"
 
-#: ../data/ui/view-menu.ui.h:2
+#: data/ui/view-menu.ui:40
 msgid "View items as a list"
 msgstr "목록 모양으로 항목 보기"
 
-#: ../data/ui/view-menu.ui.h:3
+#: data/ui/view-menu.ui:73
 msgid "Sort"
 msgstr "정렬"
 
-#: ../data/ui/view-menu.ui.h:4
+#: data/ui/view-menu.ui:84
 msgid "Author"
 msgstr "저자"
 
-#: ../data/ui/view-menu.ui.h:5
+#: data/ui/view-menu.ui:93
 msgid "Date"
 msgstr "날짜"
 
-#: ../data/ui/view-menu.ui.h:6
+#: data/ui/view-menu.ui:102
 msgid "Name"
 msgstr "이름"
 
-#: ../src/application.js:123
+#: src/application.js:126
 msgid "Show the version of the program"
 msgstr "프로그램의 버전을 나타냅니다"
 
-#: ../src/documents.js:688
+#: src/documents.js:794
 msgid "Failed to print document"
 msgstr "문서를 인쇄하는데 실패했습니다"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:740 ../src/search.js:535
+#: src/documents.js:836 src/search.js:459
 msgid "Local"
 msgstr "지역"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:782
+#: src/documents.js:879
 msgid "GNOME"
 msgstr "그놈"
 
-#: ../src/documents.js:783
+#: src/documents.js:880
 msgid "Getting Started with Documents"
 msgstr "문서로 시작하기"
 
-#: ../src/documents.js:799 ../src/documents.js:983 ../src/documents.js:1051
-#: ../src/documents.js:1159
+#: src/documents.js:905 src/documents.js:1115 src/documents.js:1218
+#: src/documents.js:1412
 msgid "Collection"
 msgstr "모음"
 
 #. overridden
-#: ../src/documents.js:861
+#: src/documents.js:972
 msgid "Google Docs"
 msgstr "구글 닥스"
 
-#: ../src/documents.js:862
+#: src/documents.js:973
 msgid "Google"
 msgstr "구글"
 
-#: ../src/documents.js:985 ../src/documents.js:1161
+#: src/documents.js:1117 src/documents.js:1414
 msgid "Spreadsheet"
 msgstr "스프레드쉬트"
 
-#: ../src/documents.js:987 ../src/documents.js:1163 ../src/presentation.js:44
+#: src/documents.js:1119 src/documents.js:1416 src/presentation.js:44
 msgid "Presentation"
 msgstr "프리젠테이션"
 
-#: ../src/documents.js:989 ../src/documents.js:1165
+#: src/documents.js:1121 src/documents.js:1418
 msgid "e-Book"
 msgstr "전자책"
 
-#: ../src/documents.js:991 ../src/documents.js:1167
+#: src/documents.js:1123 src/documents.js:1420
 msgid "Document"
 msgstr "문서"
 
 #. overridden
-#: ../src/documents.js:1030
+#: src/documents.js:1173
 msgid "ownCloud"
 msgstr "ownCloud"
 
 #. overridden
-#: ../src/documents.js:1093 ../src/documents.js:1094
+#: src/documents.js:1307 src/documents.js:1308
 msgid "OneDrive"
 msgstr "원드라이브"
 
-#: ../src/documents.js:1341
+#: src/documents.js:1594
 msgid "Please check the network connection."
 msgstr "네트워크 연결을 확인하십시오."
 
-#: ../src/documents.js:1344
+#: src/documents.js:1597
 msgid "Please check the network proxy settings."
 msgstr "네트워크 프록시 설정을 확인하십시오."
 
-#: ../src/documents.js:1347
+#: src/documents.js:1600
 msgid "Unable to sign in to the document service."
 msgstr "문서 서비스에 로그인할 수 없습니다."
 
-#: ../src/documents.js:1350
+#: src/documents.js:1603
 msgid "Unable to locate this document."
 msgstr "문서 위치를 찾을 수 없습니다."
 
-#: ../src/documents.js:1353
+#: src/documents.js:1606
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "흠, 뭔가 알 수 없는 문제(%d)가 있군요."
 
-#: ../src/documents.js:1360
+#: src/documents.js:1613
 msgid ""
 "You are using a preview of Books. Full viewing capabilities are coming soon!"
 msgstr "책의 시험 버전을 사용중입니다. 완전한 보기 기능은 곧 완성합니다!"
 
-#: ../src/documents.js:1362
+#: src/documents.js:1615
 msgid ""
 "LibreOffice support is not available. Please contact your system "
 "administrator."
 msgstr "리브레오피스를 지원하지 않습니다. 시스템 관리자에게 알려주십시오."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1383
+#: src/documents.js:1638
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "앗! \"%s\" 문서를 읽어들일 수 없습니다"
 
-#: ../src/edit.js:154
+#. view button, on the right of the toolbar
+#: src/edit.js:139
 msgid "View"
 msgstr "보기"
 
-#: ../src/evinceview.js:654 ../src/lib/gd-places-bookmarks.c:656
+#: src/epubview.js:228
+#, javascript-format
+msgid "chapter %s of %s"
+msgstr "%2$s의 %1$s장"
+
+#: src/evinceview.js:590 src/lib/gd-places-bookmarks.c:656
 msgid "Bookmarks"
 msgstr "책갈피"
 
-#: ../src/evinceview.js:662
+#: src/evinceview.js:598
 msgid "Bookmark this page"
 msgstr "이 페이지 책갈피에 추가"
 
-#: ../src/lib/gd-nav-bar.c:242
+#: src/lib/gd-nav-bar.c:242
 #, c-format
 msgid "Page %u of %u"
 msgstr "%u/%u 페이지"
 
-#: ../src/lib/gd-pdf-loader.c:247
+#: src/lib/gd-pdf-loader.c:142
 msgid "Unable to load the document"
 msgstr "문서를 불러올 수 없습니다"
-
-#: ../src/lib/gd-pdf-loader.c:715
-msgid "LibreOffice is required to view this document"
-msgstr "이 문서를 보려면 리브레오피스가 필요합니다"
 
 #. Translators: %s is the number of the page, already formatted
 #. * as a string, for example "Page 5".
 #.
-#: ../src/lib/gd-places-bookmarks.c:321
+#: src/lib/gd-places-bookmarks.c:321
 #, c-format
 msgid "Page %s"
 msgstr "%s 페이지"
 
-#: ../src/lib/gd-places-bookmarks.c:384
+#: src/lib/gd-places-bookmarks.c:384
 msgid "No bookmarks"
 msgstr "책갈피 없음"
 
-#: ../src/lib/gd-places-bookmarks.c:392 ../src/lib/gd-places-links.c:257
+#: src/lib/gd-places-bookmarks.c:392 src/lib/gd-places-links.c:257
 msgid "Loading…"
 msgstr "불러오는 중…"
 
-#: ../src/lib/gd-places-links.c:342
+#: src/lib/gd-places-links.c:342
 msgid "No table of contents"
 msgstr "차례 없음"
 
-#: ../src/lib/gd-places-links.c:514
+#: src/lib/gd-places-links.c:514
 msgid "Contents"
 msgstr "차례"
 
-#: ../src/lib/gd-utils.c:418
+#: src/lib/gd-utils.c:328
 msgid "A document manager application"
 msgstr "문서 관리자 프로그램"
 
-#: ../src/lib/gd-utils.c:425
+#: src/lib/gd-utils.c:333
 msgid "An e-books manager application"
 msgstr "전자책 관리자 프로그램"
 
-#: ../src/lib/gd-utils.c:433
+#: src/lib/gd-utils.c:340
 msgid "translator-credits"
 msgstr "조성호 <darkcircle.0426@gmail.com>"
 
-#: ../src/mainToolbar.js:91
+#: src/mainToolbar.js:91
 msgctxt "toolbar button tooltip"
 msgid "Search"
 msgstr "검색"
 
-#: ../src/mainToolbar.js:127
+#: src/mainToolbar.js:100
 msgid "Back"
 msgstr "뒤로"
 
-#. Translators: this is the menu to change view settings
-#: ../src/mainToolbar.js:185
-msgid "View Menu"
-msgstr "메뉴 보기"
-
-#: ../src/mainToolbar.js:213
-msgid "Click on items to select them"
-msgstr "선택하려면 항목을 마우스로 누르십시오"
-
-#: ../src/mainToolbar.js:215
-#, javascript-format
-msgid "%d selected"
-msgid_plural "%d selected"
-msgstr[0] "%d개 선택함"
-
-#: ../src/mainToolbar.js:299
-msgid "Select Items"
-msgstr "선택한 항목"
-
 #. Translators: only one item has been deleted and %s is its name
-#: ../src/notifications.js:49
+#: src/notifications.js:48
 #, javascript-format
 msgid "“%s” deleted"
 msgstr "“%s” 항목을 삭제했습니다"
 
 #. Translators: one or more items might have been deleted, and %d
 #. is the count
-#: ../src/notifications.js:53
+#: src/notifications.js:52
 #, javascript-format
 msgid "%d item deleted"
 msgid_plural "%d items deleted"
 msgstr[0] "항목 %d개를 삭제했습니다"
 
-#: ../src/notifications.js:62 ../src/selections.js:387
+#: src/notifications.js:61 src/selections.js:387
 msgid "Undo"
 msgstr "실행 취소"
 
-#: ../src/notifications.js:160
+#: src/notifications.js:159
 #, javascript-format
 msgid "Printing “%s”: %s"
 msgstr "“%s” 인쇄중: %s"
 
-#: ../src/notifications.js:216
+#: src/notifications.js:215
 msgid "Your documents are being indexed"
 msgstr "문서에 대해 색인중입니다"
 
-#: ../src/notifications.js:217
+#: src/notifications.js:216
 msgid "Some documents might not be available during this process"
 msgstr "어떤 문서는 이 과정에서 사용 못 할 수도 있습니다"
 
 #. Translators: %s refers to an online account provider, e.g.
 #. "Google", or "Windows Live".
-#: ../src/notifications.js:239
+#: src/notifications.js:238
 #, javascript-format
 msgid "Fetching documents from %s"
 msgstr "%s에서 문서를 가져오는 중"
 
-#: ../src/notifications.js:241
+#: src/notifications.js:240
 msgid "Fetching documents from online accounts"
 msgstr "온라인 계정에서 문서를 가져오는 중"
 
-#: ../src/password.js:42
-msgid "Password Required"
-msgstr "암호가 필요합니다"
-
-#: ../src/password.js:45
-msgid "_Unlock"
-msgstr "잠금 해제(_U)"
-
-#: ../src/password.js:61
-#, javascript-format
-msgid "Document %s is locked and requires a password to be opened."
-msgstr "%s 문서가 잠겨있으며 열려면 암호가 필요합니다."
-
-#: ../src/password.js:75
-msgid "_Password"
-msgstr "암호(_P)"
-
-#: ../src/presentation.js:102
-msgid "Running in presentation mode"
-msgstr "프리젠테이션 모드로 실행중"
-
-#: ../src/presentation.js:125
-msgid "Present On"
-msgstr "프리젠테이션 위치"
-
-#. Translators: "Mirrored" describes when both displays show the same view
-#: ../src/presentation.js:161
-msgid "Mirrored"
-msgstr "화면 복제함"
-
-#: ../src/presentation.js:163
-msgid "Primary"
-msgstr "주 화면"
-
-#: ../src/presentation.js:165
-msgid "Off"
-msgstr "끔"
-
-#: ../src/presentation.js:167
-msgid "Secondary"
-msgstr "부 화면"
-
-#. Translators: this is the Open action in a context menu
-#: ../src/preview.js:238 ../src/selections.js:983
-#, javascript-format
-msgid "Open with %s"
-msgstr "%s(으)로 열기"
-
-#: ../src/preview.js:482
-msgid "Find Previous"
-msgstr "이전 찾기"
-
-#: ../src/preview.js:488
-msgid "Find Next"
-msgstr "다음 찾기"
-
-#. Title item
-#. Translators: "Title" is the label next to the document title
-#. in the properties dialog
-#: ../src/properties.js:81
-msgctxt "Document Title"
-msgid "Title"
-msgstr "제목"
-
-#. Translators: "Author" is the label next to the document author
-#. in the properties dialog
-#: ../src/properties.js:90
-msgctxt "Document Author"
-msgid "Author"
-msgstr "저자"
-
-#. Source item
-#: ../src/properties.js:97
-msgid "Source"
-msgstr "원본"
-
-#. Date Modified item
-#: ../src/properties.js:103
-msgid "Date Modified"
-msgstr "수정한 날짜"
-
-#: ../src/properties.js:110
-msgid "Date Created"
-msgstr "만든 날짜"
-
-#. Document type item
-#. Translators: "Type" is the label next to the document type
-#. (PDF, spreadsheet, ...) in the properties dialog
-#: ../src/properties.js:119
-msgctxt "Document Type"
-msgid "Type"
-msgstr "형식"
-
-#: ../src/search.js:125
-msgid "Category"
-msgstr "분류"
-
-#. Translators: this refers to new and recent documents
-#. Translators: this refers to documents
-#: ../src/search.js:130 ../src/search.js:199 ../src/search.js:336
-#: ../src/search.js:529
-msgid "All"
-msgstr "모두"
-
-#. Translators: this refers to favorite documents
-#: ../src/search.js:136
-msgid "Favorites"
-msgstr "즐겨찾기"
-
-#. Translators: this refers to shared documents
-#: ../src/search.js:141
-msgid "Shared with you"
-msgstr "공유됨"
-
-#. Translators: "Type" refers to a search filter on the document type
-#. (PDF, spreadsheet, ...)
-#: ../src/search.js:196
-msgctxt "Search Filter"
-msgid "Type"
-msgstr "형식"
-
-#: ../src/search.js:212
-msgid "PDF Documents"
-msgstr "PDF 문서"
-
-#: ../src/search.js:219
-msgid "e-Books"
-msgstr "전자책"
-
-#: ../src/search.js:223
-msgid "Comics"
-msgstr "만화"
-
-#: ../src/search.js:228
-msgid "Presentations"
-msgstr "프리젠테이션"
-
-#: ../src/search.js:231
-msgid "Spreadsheets"
-msgstr "스프레드쉬트"
-
-#: ../src/search.js:234
-msgid "Text Documents"
-msgstr "텍스트 문서"
-
-#. Translators: this is a verb that refers to "All", "Title", "Author",
-#. and "Content" as in "Match All", "Match Title", "Match Author", and
-#. "Match Content"
-#: ../src/search.js:333
-msgid "Match"
-msgstr "일치"
-
-#. Translators: "Title" refers to "Match Title" when searching
-#: ../src/search.js:339
-msgctxt "Search Filter"
-msgid "Title"
-msgstr "제목"
-
-#. Translators: "Author" refers to "Match Author" when searching
-#: ../src/search.js:342
-msgctxt "Search Filter"
-msgid "Author"
-msgstr "저자"
-
-#. Translators: "Content" refers to "Match Content" when searching
-#: ../src/search.js:345
-msgctxt "Search Filter"
-msgid "Content"
-msgstr "컨텐트"
-
-#: ../src/search.js:525
-msgid "Sources"
-msgstr "원본"
-
-#: ../src/selections.js:360 ../src/selections.js:362
-msgid "Rename…"
-msgstr "이름 바꾸기…"
-
-#: ../src/selections.js:366 ../src/selections.js:368
-msgid "Delete"
-msgstr "삭제"
-
-#: ../src/selections.js:382
-#, javascript-format
-msgid "“%s” removed"
-msgstr "“%s” 항목을 제거했습니다"
-
-#: ../src/selections.js:779
-msgid "Rename"
-msgstr "이름 바꾸기"
-
-#. Translators: "Collections" refers to documents in this context
-#: ../src/selections.js:785
-msgctxt "Dialog Title"
-msgid "Collections"
-msgstr "모음"
-
-#: ../src/sharing.js:108
-msgid "Sharing Settings"
-msgstr "공유 설정"
-
-#. Label for widget group for changing document permissions
-#: ../src/sharing.js:145
-msgid "Document permissions"
-msgstr "문서 권한"
-
-#. Label for permission change in Sharing dialog
-#: ../src/sharing.js:152 ../src/sharing.js:330
-msgid "Change"
-msgstr "바꾸기"
-
-#. Label for radiobutton that sets doc permission to private
-#: ../src/sharing.js:176 ../src/sharing.js:305
-msgid "Private"
-msgstr "비밀"
-
-#: ../src/sharing.js:186 ../src/sharing.js:298
-msgid "Public"
-msgstr "공개"
-
-#. Label for checkbutton that sets doc permission to Can edit
-#: ../src/sharing.js:190 ../src/sharing.js:300
-msgid "Everyone can edit"
-msgstr "누구나 편집 가능"
-
-#. Label for widget group used for adding new contacts
-#: ../src/sharing.js:197
-msgid "Add people"
-msgstr "사람 추가"
-
-#. Editable text in entry field
-#: ../src/sharing.js:204
-msgid "Enter an email address"
-msgstr "전자메일 주소를 입력하십시오"
-
-#: ../src/sharing.js:219 ../src/sharing.js:371
-msgid "Can edit"
-msgstr "편집 가능"
-
-#: ../src/sharing.js:219 ../src/sharing.js:374
-msgid "Can view"
-msgstr "보기 가능"
-
-#: ../src/sharing.js:302
-msgid "Everyone can read"
-msgstr "누구나 읽기 가능"
-
-#: ../src/sharing.js:317
-msgid "Save"
-msgstr "저장"
-
-#: ../src/sharing.js:368
-msgid "Owner"
-msgstr "소유"
-
-#: ../src/sharing.js:437
-#, javascript-format
-msgid "You can ask %s for access"
-msgstr "접근하려면 %s에 요청하십시오"
-
-#: ../src/sharing.js:474 ../src/sharing.js:510 ../src/sharing.js:567
-#: ../src/sharing.js:584 ../src/sharing.js:603
-msgid "The document was not updated"
-msgstr "문서가 최신이 아닙니다"
-
-#: ../src/shellSearchProvider.js:286
-msgid "Untitled Document"
-msgstr "제목 없는 문서"
-
-#: ../src/trackerController.js:177
-msgid "Unable to fetch the list of documents"
-msgstr "문서 목록을 가져올 수 없습니다"
-
-#: ../src/view.js:269
+#: src/overview.js:275
 msgid "No collections found"
 msgstr "컨텐트 모음 없음"
 
-#: ../src/view.js:271
+#: src/overview.js:277
 msgid "No books found"
 msgstr "책 없음"
 
-#: ../src/view.js:271
+#: src/overview.js:277
 msgid "No documents found"
 msgstr "문서 없음"
 
-#: ../src/view.js:280
+#: src/overview.js:286
 msgid "Try a different search"
 msgstr "다른 어구로 검색"
 
-#: ../src/view.js:287
+#: src/overview.js:293
 msgid "You can create collections from the Books view"
 msgstr "책 보기 화면에서 컨텐트 모음을 만들 수 있습니다"
 
-#: ../src/view.js:289
+#: src/overview.js:295
 msgid "You can create collections from the Documents view"
 msgstr "문서 보기 화면에서 컨텐트 모음을 만들 수 있습니다"
 
-#: ../src/view.js:299
+#: src/overview.js:305
 #, javascript-format
 msgid ""
 "Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
@@ -954,42 +671,338 @@ msgstr ""
 "<a href=\"system-settings\">온라인 계정</a> 및 <a href=\"file://%s\">문서 폴"
 "더</a>의 문서를 여기에 나타냅니다."
 
-#: ../src/view.js:515
+#. Translators: this is the menu to change view settings
+#: src/overview.js:562
+msgid "View Menu"
+msgstr "메뉴 보기"
+
+#: src/overview.js:590
+msgid "Click on items to select them"
+msgstr "선택하려면 항목을 마우스로 누르십시오"
+
+#: src/overview.js:592
+#, javascript-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d개 선택함"
+
+#: src/overview.js:669
+msgid "Select Items"
+msgstr "선택한 항목"
+
+#: src/overview.js:876
 msgid "Yesterday"
 msgstr "어제"
 
-#: ../src/view.js:517
+#: src/overview.js:878
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d일 전"
 
-#: ../src/view.js:521
+#: src/overview.js:882
 msgid "Last week"
 msgstr "지난 주"
 
-#: ../src/view.js:523
+#: src/overview.js:884
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d주 전"
 
-#: ../src/view.js:527
+#: src/overview.js:888
 msgid "Last month"
 msgstr "지난 달"
 
-#: ../src/view.js:529
+#: src/overview.js:890
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d달 전"
 
-#: ../src/view.js:533
+#: src/overview.js:894
 msgid "Last year"
 msgstr "작년"
 
-#: ../src/view.js:535
+#: src/overview.js:896
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "%d년 전"
+
+#: src/password.js:42
+msgid "Password Required"
+msgstr "암호가 필요합니다"
+
+#: src/password.js:45
+msgid "_Unlock"
+msgstr "잠금 해제(_U)"
+
+#: src/password.js:61
+#, javascript-format
+msgid "Document %s is locked and requires a password to be opened."
+msgstr "%s 문서가 잠겨있으며 열려면 암호가 필요합니다."
+
+#: src/password.js:75
+msgid "_Password"
+msgstr "암호(_P)"
+
+#: src/presentation.js:102
+msgid "Running in presentation mode"
+msgstr "프리젠테이션 모드로 실행중"
+
+#: src/presentation.js:130
+msgid "Present On"
+msgstr "프리젠테이션 위치"
+
+#. Translators: "Mirrored" describes when both displays show the same view
+#: src/presentation.js:166
+msgid "Mirrored"
+msgstr "화면 복제함"
+
+#: src/presentation.js:168
+msgid "Primary"
+msgstr "주 화면"
+
+#: src/presentation.js:170
+msgid "Off"
+msgstr "끔"
+
+#: src/presentation.js:172
+msgid "Secondary"
+msgstr "부 화면"
+
+#. Translators: this is the Open action in a context menu
+#: src/preview.js:445 src/selections.js:985
+#, javascript-format
+msgid "Open with %s"
+msgstr "%s(으)로 열기"
+
+#: src/preview.js:770
+msgid "Find Previous"
+msgstr "이전 찾기"
+
+#: src/preview.js:776
+msgid "Find Next"
+msgstr "다음 찾기"
+
+#. Title item
+#. Translators: "Title" is the label next to the document title
+#. in the properties dialog
+#: src/properties.js:81
+msgctxt "Document Title"
+msgid "Title"
+msgstr "제목"
+
+#. Translators: "Author" is the label next to the document author
+#. in the properties dialog
+#: src/properties.js:90
+msgctxt "Document Author"
+msgid "Author"
+msgstr "저자"
+
+#. Source item
+#: src/properties.js:97
+msgid "Source"
+msgstr "원본"
+
+#. Date Modified item
+#: src/properties.js:103
+msgid "Date Modified"
+msgstr "수정한 날짜"
+
+#: src/properties.js:110
+msgid "Date Created"
+msgstr "만든 날짜"
+
+#. Document type item
+#. Translators: "Type" is the label next to the document type
+#. (PDF, spreadsheet, ...) in the properties dialog
+#: src/properties.js:119
+msgctxt "Document Type"
+msgid "Type"
+msgstr "형식"
+
+#. Translators: "Type" refers to a search filter on the document type
+#. (PDF, spreadsheet, ...)
+#: src/search.js:120
+msgctxt "Search Filter"
+msgid "Type"
+msgstr "형식"
+
+#. Translators: this refers to documents
+#: src/search.js:123 src/search.js:260 src/search.js:453
+msgid "All"
+msgstr "모두"
+
+#: src/search.js:136
+msgid "PDF Documents"
+msgstr "PDF 문서"
+
+#: src/search.js:143
+msgid "e-Books"
+msgstr "전자책"
+
+#: src/search.js:147
+msgid "Comics"
+msgstr "만화"
+
+#: src/search.js:152
+msgid "Presentations"
+msgstr "프리젠테이션"
+
+#: src/search.js:155
+msgid "Spreadsheets"
+msgstr "스프레드쉬트"
+
+#: src/search.js:158
+msgid "Text Documents"
+msgstr "텍스트 문서"
+
+#. Translators: this is a verb that refers to "All", "Title", "Author",
+#. and "Content" as in "Match All", "Match Title", "Match Author", and
+#. "Match Content"
+#: src/search.js:257
+msgid "Match"
+msgstr "일치"
+
+#. Translators: "Title" refers to "Match Title" when searching
+#: src/search.js:263
+msgctxt "Search Filter"
+msgid "Title"
+msgstr "제목"
+
+#. Translators: "Author" refers to "Match Author" when searching
+#: src/search.js:266
+msgctxt "Search Filter"
+msgid "Author"
+msgstr "저자"
+
+#. Translators: "Content" refers to "Match Content" when searching
+#: src/search.js:269
+msgctxt "Search Filter"
+msgid "Content"
+msgstr "컨텐트"
+
+#: src/search.js:449
+msgid "Sources"
+msgstr "원본"
+
+#. Translators: the first %s is an online account provider name,
+#. e.g. "Google". The second %s is the identity used to log in,
+#. e.g. "foo@gmail.com".
+#: src/search.js:508
+#, javascript-format
+msgid "%s (%s)"
+msgstr "%s(%s)"
+
+#: src/selections.js:360 src/selections.js:362
+msgid "Rename…"
+msgstr "이름 바꾸기…"
+
+#: src/selections.js:366 src/selections.js:368
+msgid "Delete"
+msgstr "삭제"
+
+#: src/selections.js:382
+#, javascript-format
+msgid "“%s” removed"
+msgstr "“%s” 항목을 제거했습니다"
+
+#: src/selections.js:779
+msgid "Rename"
+msgstr "이름 바꾸기"
+
+#. Translators: "Collections" refers to documents in this context
+#: src/selections.js:785
+msgctxt "Dialog Title"
+msgid "Collections"
+msgstr "모음"
+
+#: src/sharing.js:108
+msgid "Sharing Settings"
+msgstr "공유 설정"
+
+#. Label for widget group for changing document permissions
+#: src/sharing.js:145
+msgid "Document permissions"
+msgstr "문서 권한"
+
+#. Label for permission change in Sharing dialog
+#: src/sharing.js:152 src/sharing.js:330
+msgid "Change"
+msgstr "바꾸기"
+
+#. Label for radiobutton that sets doc permission to private
+#: src/sharing.js:176 src/sharing.js:305
+msgid "Private"
+msgstr "비밀"
+
+#: src/sharing.js:186 src/sharing.js:298
+msgid "Public"
+msgstr "공개"
+
+#. Label for checkbutton that sets doc permission to Can edit
+#: src/sharing.js:190 src/sharing.js:300
+msgid "Everyone can edit"
+msgstr "누구나 편집 가능"
+
+#. Label for widget group used for adding new contacts
+#: src/sharing.js:197
+msgid "Add people"
+msgstr "사람 추가"
+
+#. Editable text in entry field
+#: src/sharing.js:204
+msgid "Enter an email address"
+msgstr "전자메일 주소를 입력하십시오"
+
+#: src/sharing.js:219 src/sharing.js:371
+msgid "Can edit"
+msgstr "편집 가능"
+
+#: src/sharing.js:219 src/sharing.js:374
+msgid "Can view"
+msgstr "보기 가능"
+
+#: src/sharing.js:302
+msgid "Everyone can read"
+msgstr "누구나 읽기 가능"
+
+#: src/sharing.js:317
+msgid "Save"
+msgstr "저장"
+
+#: src/sharing.js:368
+msgid "Owner"
+msgstr "소유"
+
+#: src/sharing.js:437
+#, javascript-format
+msgid "You can ask %s for access"
+msgstr "접근하려면 %s에 요청하십시오"
+
+#: src/sharing.js:474 src/sharing.js:510 src/sharing.js:567 src/sharing.js:584
+#: src/sharing.js:603
+msgid "The document was not updated"
+msgstr "문서가 최신이 아닙니다"
+
+#: src/shellSearchProvider.js:285
+msgid "Untitled Document"
+msgstr "제목 없는 문서"
+
+#: src/trackerController.js:176
+msgid "Unable to fetch the list of documents"
+msgstr "문서 목록을 가져올 수 없습니다"
+
+#~ msgid "LibreOffice is required to view this document"
+#~ msgstr "이 문서를 보려면 리브레오피스가 필요합니다"
+
+#~ msgid "Category"
+#~ msgstr "분류"
+
+#~ msgid "Favorites"
+#~ msgstr "즐겨찾기"
+
+#~ msgid "Shared with you"
+#~ msgstr "공유됨"
