@@ -15,10 +15,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-d"
-"ocuments&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-08-23 15:40+0000\n"
-"PO-Revision-Date: 2017-09-05 10:13+0100\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"documents&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-09-05 09:07+0000\n"
+"PO-Revision-Date: 2017-09-07 10:13+0100\n"
 "Last-Translator: Jean-Baptiste Holcroft <jean-baptiste@holcroft.fr>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -44,8 +44,8 @@ msgid ""
 "deal with e-books."
 msgstr ""
 "Une application simple pour accéder à vos livres numériques et les organiser "
-"dans GNOME. Son but est d'être une alternative simple et élégante à "
-"l'utilisation d'un gestionnaire de fichiers pour traiter les livres "
+"dans GNOME. Son but est d’être une alternative simple et élégante à "
+"l’utilisation d’un gestionnaire de fichiers pour traiter les livres "
 "numériques."
 
 #: data/org.gnome.Books.appdata.xml.in:15
@@ -134,7 +134,7 @@ msgstr "Mode nuit"
 
 #: data/org.gnome.books.gschema.xml:31 data/org.gnome.documents.gschema.xml:31
 msgid "Whether the application is in night mode."
-msgstr "Indique si l'application est en mode nuit."
+msgstr "Indique si l’application est en mode nuit."
 
 #: data/org.gnome.Documents.appdata.xml.in:7
 #: data/org.gnome.Documents.desktop.in:3 src/application.js:115
@@ -154,8 +154,8 @@ msgid ""
 "Online Accounts."
 msgstr ""
 "Une application simple pour accéder, organiser et partager vos documents "
-"dans GNOME. Son but est d'être une alternative simple et élégante à "
-"l'utilisation d'un gestionnaire de fichiers pour traiter les documents. Une "
+"dans GNOME. Son but est d’être une alternative simple et élégante à "
+"l’utilisation d’un gestionnaire de fichiers pour traiter les documents. Une "
 "intégration homogène au nuage est possible via les comptes en ligne de GNOME."
 
 #: data/org.gnome.Documents.appdata.xml.in:18
@@ -196,7 +196,6 @@ msgstr "Accéder à, gérer et partager des documents"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 #: data/org.gnome.Documents.desktop.in:7
-#| msgid "Documents"
 msgid "org.gnome.Documents"
 msgstr "org.gnome.Documents"
 
@@ -234,7 +233,7 @@ msgstr "Général"
 #: data/ui/help-overlay.ui:15
 msgctxt "shortcut window"
 msgid "Show help"
-msgstr "Afficher l'aide"
+msgstr "Afficher l’aide"
 
 #: data/ui/help-overlay.ui:22
 msgctxt "shortcut window"
@@ -279,7 +278,7 @@ msgstr "Zoom arrière"
 #: data/ui/help-overlay.ui:85
 msgctxt "shortcut window"
 msgid "Bookmark the current page"
-msgstr "Marquer la page en cours d'un signet"
+msgstr "Marquer la page en cours d’un signet"
 
 #: data/ui/help-overlay.ui:92
 msgctxt "shortcut window"
@@ -411,7 +410,7 @@ msgstr "Collections"
 
 #: data/ui/view-menu.ui:23
 msgid "View items as a grid of icons"
-msgstr "Afficher les éléments en grille d'icônes"
+msgstr "Afficher les éléments en grille d’icônes"
 
 #: data/ui/view-menu.ui:40
 msgid "View items as a list"
@@ -439,7 +438,7 @@ msgstr "Affiche la version du programme"
 
 #: src/documents.js:794
 msgid "Failed to print document"
-msgstr "Impossible d'imprimer le document"
+msgstr "Impossible d’imprimer le document"
 
 #. Translators: this refers to local documents
 #: src/documents.js:836 src/search.js:459
@@ -507,7 +506,7 @@ msgstr "Veuillez vérifier les paramètres du serveur mandataire du réseau."
 
 #: src/documents.js:1600
 msgid "Unable to sign in to the document service."
-msgstr "Impossible de s'inscrire au service de document."
+msgstr "Impossible de s’inscrire au service de document."
 
 #: src/documents.js:1603
 msgid "Unable to locate this document."
@@ -522,7 +521,7 @@ msgstr "Quelque chose ne va pas (%d)."
 msgid ""
 "You are using a preview of Books. Full viewing capabilities are coming soon!"
 msgstr ""
-"Vous utilisez une pré-version de Livres. L'ensemble des fonctionnalités de "
+"Vous utilisez une pré-version de Livres. L’ensemble des fonctionnalités de "
 "lecture arrive bientôt !"
 
 #: src/documents.js:1615
@@ -530,7 +529,7 @@ msgid ""
 "LibreOffice support is not available. Please contact your system "
 "administrator."
 msgstr ""
-"La prise en charge de LibreOffice n'est pas disponible. Veuillez contacter "
+"La prise en charge de LibreOffice n’est pas disponible. Veuillez contacter "
 "votre administrateur système."
 
 #. Translators: %s is the title of a document
@@ -555,7 +554,7 @@ msgstr "Signets"
 
 #: src/evinceview.js:598
 msgid "Bookmark this page"
-msgstr "Marquer cette page d'un signet"
+msgstr "Marquer cette page d’un signet"
 
 #: src/lib/gd-nav-bar.c:242
 #, c-format
@@ -644,7 +643,7 @@ msgstr "Impression de « %s » : %s"
 
 #: src/notifications.js:215
 msgid "Your documents are being indexed"
-msgstr "Vos documents sont en cours d'indexation"
+msgstr "Vos documents sont en cours d’indexation"
 
 #: src/notifications.js:216
 msgid "Some documents might not be available during this process"
@@ -680,12 +679,12 @@ msgstr "Essayez une recherche différente"
 
 #: src/overview.js:293
 msgid "You can create collections from the Books view"
-msgstr "Vous pouvez créer des collections à partir de l'affichage par livres"
+msgstr "Vous pouvez créer des collections à partir de l’affichage par livres"
 
 #: src/overview.js:295
 msgid "You can create collections from the Documents view"
 msgstr ""
-"Vous pouvez créer des collections à partir de l'affichage par documents"
+"Vous pouvez créer des collections à partir de l’affichage par documents"
 
 #: src/overview.js:305
 #, javascript-format
@@ -751,7 +750,7 @@ msgstr[1] "Il y a %d mois"
 
 #: src/overview.js:894
 msgid "Last year"
-msgstr "L'année dernière"
+msgstr "L’année dernière"
 
 #: src/overview.js:896
 #, javascript-format
@@ -1016,7 +1015,7 @@ msgstr "Vous pouvez demander à %s pour y accéder"
 #: src/sharing.js:474 src/sharing.js:510 src/sharing.js:567 src/sharing.js:584
 #: src/sharing.js:603
 msgid "The document was not updated"
-msgstr "Le document n'a pas été mis à jour"
+msgstr "Le document n’a pas été mis à jour"
 
 #: src/shellSearchProvider.js:285
 msgid "Untitled Document"
