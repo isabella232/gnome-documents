@@ -2,7 +2,7 @@
 # Copyright (C) 2011 gnome-documents's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-documents package.
 # Pau Iranzo <paugnu@gmail.com>, 2011, 2012.
-# Jordi Serratosa <jordis@softcatala.cat>, 2012.
+# Jordi Serratosa <jordis@softcatala.cat>, 2012, 2017.
 # Gil Forcada <gilforcada@guifi.net>, 2012, 2013, 2014.
 # Josep Sànchez <papapep@gmx.com>, 2013.
 # Xavi Ivars <xavi.ivars@gmail.com>, 2015.
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-08-23 15:40+0000\n"
+"POT-Creation-Date: 2017-08-25 10:13+0000\n"
 "PO-Revision-Date: 2017-08-25 12:11+0200\n"
 "Last-Translator: Jordi Mas <jmas@softcatala.org>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
@@ -969,7 +969,7 @@ msgstr "Afegeix persones"
 #. Editable text in entry field
 #: src/sharing.js:204
 msgid "Enter an email address"
-msgstr "Introduïu una adreça de correu electrònic"
+msgstr "Introduïu una adreça electrònica"
 
 #: src/sharing.js:219 src/sharing.js:371
 msgid "Can edit"
