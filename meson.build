@@ -21,7 +21,6 @@ documents_pkgdatadir = join_paths(documents_datadir, meson.project_name())
 documents_pkglibdir = join_paths(documents_libdir, meson.project_name())
 
 documents_desktopdir = join_paths(documents_datadir, 'applications')
-documents_icondir = join_paths(documents_datadir, 'icons')
 documents_schemadir = join_paths(documents_datadir, 'glib-2.0', 'schemas')
 
 documents_debug = get_option('buildtype').contains('debug')

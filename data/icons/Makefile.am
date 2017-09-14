@@ -4,24 +4,45 @@ public_icons_themes = \
 	hicolor	\
 	$(NULL)
 
-public_icons = \
-	hicolor_apps_scalable_org.gnome.Books-symbolic.svg \
-	hicolor_apps_scalable_org.gnome.Documents-symbolic.svg \
-	hicolor_apps_16x16_org.gnome.Books.png \
-	hicolor_apps_22x22_org.gnome.Books.png \
-	hicolor_apps_24x24_org.gnome.Books.png \
-	hicolor_apps_32x32_org.gnome.Books.png \
-	hicolor_apps_48x48_org.gnome.Books.png \
-	hicolor_apps_256x256_org.gnome.Books.png \
-	hicolor_apps_512x512_org.gnome.Books.png \
-	hicolor_apps_16x16_org.gnome.Documents.png \
-	hicolor_apps_22x22_org.gnome.Documents.png \
-	hicolor_apps_24x24_org.gnome.Documents.png \
-	hicolor_apps_32x32_org.gnome.Documents.png \
-	hicolor_apps_48x48_org.gnome.Documents.png \
-	hicolor_apps_256x256_org.gnome.Documents.png \
-	hicolor_apps_512x512_org.gnome.Documents.png \
-	$(NULL)
+public_scalable_iconsdir = $(datadir)/icons/hicolor/scalable/apps
+public_scalable_icons_DATA = \
+	hicolor/scalable/apps/org.gnome.Books-symbolic.svg \
+	hicolor/scalable/apps/org.gnome.Documents-symbolic.svg
+
+public_16x16_iconsdir = $(datadir)/icons/hicolor/16x16/apps
+public_16x16_icons_DATA = \
+	hicolor/16x16/apps/org.gnome.Books.png \
+	hicolor/16x16/apps/org.gnome.Documents.png
+
+public_22x22_iconsdir = $(datadir)/icons/hicolor/22x22/apps
+public_22x22_icons_DATA = \
+	hicolor/22x22/apps/org.gnome.Books.png \
+	hicolor/22x22/apps/org.gnome.Documents.png
+
+public_24x24_iconsdir = $(datadir)/icons/hicolor/24x24/apps
+public_24x24_icons_DATA = \
+	hicolor/24x24/apps/org.gnome.Books.png \
+	hicolor/24x24/apps/org.gnome.Documents.png
+
+public_32x32_iconsdir = $(datadir)/icons/hicolor/32x32/apps
+public_32x32_icons_DATA = \
+	hicolor/32x32/apps/org.gnome.Books.png \
+	hicolor/32x32/apps/org.gnome.Documents.png
+
+public_48x48_iconsdir = $(datadir)/icons/hicolor/48x48/apps
+public_48x48_icons_DATA = \
+	hicolor/48x48/apps/org.gnome.Books.png \
+	hicolor/48x48/apps/org.gnome.Documents.png
+
+public_256x256_iconsdir = $(datadir)/icons/hicolor/256x256/apps
+public_256x256_icons_DATA = \
+	hicolor/256x256/apps/org.gnome.Books.png \
+	hicolor/256x256/apps/org.gnome.Documents.png
+
+public_512x512_iconsdir = $(datadir)/icons/hicolor/512x512/apps
+public_512x512_icons_DATA = \
+	hicolor/512x512/apps/org.gnome.Books.png \
+	hicolor/512x512/apps/org.gnome.Documents.png
 
 noinst_DATA = \
 	hicolor_org.gnome.Books.blend \
@@ -30,9 +51,15 @@ noinst_DATA = \
 	$(NULL)
 
 EXTRA_DIST = \
-	$(public_icons)		\
-	$(noinst_DATA)		\
-	meson.build		\
+	$(public_scalable_icons_DATA)	\
+	$(public_16x16_icons_DATA)	\
+	$(public_22x22_icons_DATA)	\
+	$(public_24x24_icons_DATA)	\
+	$(public_48x48_icons_DATA)	\
+	$(public_256x256_icons_DATA)	\
+	$(public_512x512_icons_DATA)	\
+	$(noinst_DATA)			\
+	meson.build			\
 	$(NULL)
 
 ###############################################################################
@@ -52,27 +79,8 @@ update-icon-cache:
 		done; \
 	fi
 
-install-icons:
-	for icon in $(public_icons); do \
-		THEME=`echo $$icon | cut -d_ -f1`; \
-		CONTEXT=`echo $$icon | cut -d_ -f2`; \
-		SIZE=`echo $$icon | cut -d_ -f3`; \
-		ICONFILE=`echo $$icon | cut -d_ -f4`; \
-		mkdir -p $(DESTDIR)$(datadir)/icons/$$THEME/$$SIZE/$$CONTEXT; \
-		$(INSTALL_DATA) $(srcdir)/$$icon $(DESTDIR)$(datadir)/icons/$$THEME/$$SIZE/$$CONTEXT/$$ICONFILE; \
-	done
+install-data-hook: update-icon-cache
 
-uninstall-icons:
-	-for icon in $(public_icons); do \
-		THEME=`echo $$icon | cut -d_ -f1`; \
-		CONTEXT=`echo $$icon | cut -d_ -f2`; \
-		SIZE=`echo $$icon | cut -d_ -f3`; \
-		ICONFILE=`echo $$icon | cut -d_ -f4`; \
-		rm -f $(DESTDIR)$(datadir)/icons/$$THEME/$$SIZE/$$CONTEXT/$$ICONFILE; \
-	done
-
-install-data-local: install-icons update-icon-cache
-
-uninstall-local: uninstall-icons update-icon-cache
+uninstall-hook: update-icon-cache
 
 -include $(top_srcdir)/git.mk
