@@ -21,16 +21,16 @@ org.gnome.Books.data.gresource: org.gnome.Books.data.gresource.xml $(app_resourc
 resourcedir = $(pkgdatadir)
 resource_DATA = org.gnome.Documents.data.gresource org.gnome.Books.data.gresource
 
-appdatadir = $(datadir)/appdata
-appdata_DATA = $(appdata_in_files:.xml.in=.xml)
-appdata_in_files = \
-	org.gnome.Documents.appdata.xml.in \
-	org.gnome.Books.appdata.xml.in
+metainfodir = $(datadir)/metainfo
+metainfo_DATA = $(metainfo_in_files:.xml.in=.xml)
+metainfo_in_files = \
+	org.gnome.Documents.metainfo.xml.in \
+	org.gnome.Books.metainfo.xml.in
 
-org.gnome.Books.appdata.xml: org.gnome.Books.appdata.xml.in
+org.gnome.Books.metainfo.xml: org.gnome.Books.metainfo.xml.in
 	$(AM_V_GEN)$(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
 
-org.gnome.Documents.appdata.xml: org.gnome.Documents.appdata.xml.in
+org.gnome.Documents.metainfo.xml: org.gnome.Documents.metainfo.xml.in
 	$(AM_V_GEN)$(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
 
 desktopdir = $(datadir)/applications
@@ -61,7 +61,7 @@ gsettings_SCHEMAS = org.gnome.documents.gschema.xml org.gnome.books.gschema.xml
 @GSETTINGS_RULES@
 
 EXTRA_DIST= \
-    $(appdata_in_files) \
+    $(metainfo_in_files) \
     $(app_resource_files) \
     $(desktop_in_files) \
     $(searchprovider_DATA) \
@@ -72,7 +72,7 @@ EXTRA_DIST= \
 CLEANFILES = \
     org.gnome.Documents.data.gresource \
     org.gnome.Books.data.gresource \
-    $(appdata_DATA) \
+    $(metainfo_DATA) \
     $(desktop_DATA)
 
 -include $(top_srcdir)/git.mk
