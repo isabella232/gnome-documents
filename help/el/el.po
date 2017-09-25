@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: user-guide.docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-21 10:44+0000\n"
-"PO-Revision-Date: 2015-02-21 16:07+0200\n"
+"POT-Creation-Date: 2017-09-19 14:46+0000\n"
+"PO-Revision-Date: 2017-09-26 00:38+0200\n"
 "Last-Translator: Efstathios Iosifidis <iosifidis@opensuse.org>\n"
 "Language-Team: Greek, Modern (1453-) <opensuse-translation-el@opensuse.org>\n"
 "Language: el\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Poedit 1.5.7\n"
 
 #. (itstool) path: p/link
 #: C/legal.xml:3
@@ -204,16 +204,20 @@ msgstr "Πηγές"
 
 #. (itstool) path: item/p
 #: C/filter.page:37
+#| msgid ""
+#| "Chose to search documents that are <gui>Local</gui>, accessed through "
+#| "<link href=\"help:gnome-help/online-accounts\">online accounts</link> "
+#| "with <gui>Google</gui>, <gui>OneDrive</gui>, <gui>ownCloud</gui>, or "
+#| "<gui>All</gui>."
 msgid ""
-"Chose to search documents that are <gui>Local</gui>, accessed through <link "
+"Choose to search documents that are <gui>Local</gui>, accessed through <link "
 "href=\"help:gnome-help/online-accounts\">online accounts</link> with "
 "<gui>Google</gui>, <gui>OneDrive</gui>, <gui>ownCloud</gui>, or <gui>All</"
 "gui>."
 msgstr ""
 "Επιλέξτε την αναζήτηση εγγράφων που είναι <gui>Τοπικά</gui>, προσβάσιμα μέσω "
 "<link href=\"help:gnome-help/online-accounts\">διαδικτυακών λογαριασμών</"
-"link> με <gui>Google</gui>, <gui>OneDrive</gui>, <gui>ownCloud</gui>, ή με "
-"<gui>Όλα</gui>."
+"link> με <gui>Google</gui>, <gui>ownCloud</gui>, ή με <gui>Όλα</gui>."
 
 #. (itstool) path: item/title
 #: C/filter.page:43
@@ -740,9 +744,6 @@ msgstr "Κάντε κλικ στην <gui>Αναζήτηση</gui> για να �
 
 #. (itstool) path: item/p
 #: C/view-add.page:44
-#| msgid ""
-#| "Press the button in the bottom-left of the window which will open "
-#| "<gui>Search Locations</gui>."
 msgid ""
 "Press the button in the bottom-right of the window which will open "
 "<gui>Search Locations</gui>."
