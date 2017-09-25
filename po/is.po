@@ -5,10 +5,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-11-25 15:16+0000\n"
-"PO-Revision-Date: 2017-03-01 14:14+0000\n"
+"POT-Creation-Date: 2017-07-21 12:08+0000\n"
+"PO-Revision-Date: 2017-09-25 09:40+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
 "Language: is\n"
@@ -19,8 +19,8 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:1
-#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:108
-#: ../src/lib/gd-utils.c:424 ../src/view.js:750
+#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:112
+#: ../src/lib/gd-utils.c:340 ../src/overview.js:1053
 msgid "Books"
 msgstr "Rafbækur"
 
@@ -34,6 +34,9 @@ msgid ""
 "meant to be a simple and elegant replacement for using a file manager to "
 "deal with e-books."
 msgstr ""
+"Einfalt forrit til að skoða og skipuleggja rafbækurnar þínar í GNOME. "
+"Það er hugsað til þess að vera einföld og hreinleg leið til að sýsla með "
+"rafbækur í gegnum skráastjóra."
 
 #: ../data/org.gnome.Books.appdata.xml.in.h:4
 #: ../data/org.gnome.Documents.appdata.xml.in.h:4
@@ -58,11 +61,11 @@ msgstr "Prenta rafbækur"
 
 #: ../data/org.gnome.Books.desktop.in.h:2
 msgid "Access, manage and share books"
-msgstr ""
+msgstr "Lesa, deila og sýsla með bækur"
 
 #: ../data/org.gnome.Books.desktop.in.h:3
 msgid "Books;Comics;ePub;PDF;"
-msgstr ""
+msgstr "Bækur;Myndasögur;rafbækur;ePub;PDF;"
 
 #: ../data/org.gnome.books.gschema.xml.h:1
 #: ../data/org.gnome.documents.gschema.xml.h:1
@@ -87,7 +90,7 @@ msgstr "Raða eftir tegund"
 #: ../data/org.gnome.books.gschema.xml.h:5
 #: ../data/org.gnome.documents.gschema.xml.h:5
 msgid "Window size"
-msgstr "Gluggastærð"
+msgstr "Stærð glugga"
 
 #: ../data/org.gnome.books.gschema.xml.h:6
 #: ../data/org.gnome.documents.gschema.xml.h:6
@@ -122,17 +125,17 @@ msgstr "Næturhamur"
 #: ../data/org.gnome.books.gschema.xml.h:12
 #: ../data/org.gnome.documents.gschema.xml.h:12
 msgid "Whether the application is in night mode."
-msgstr ""
+msgstr "Hvort forritið sé í næturham."
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:1
-#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:111
-#: ../src/lib/gd-utils.c:417 ../src/view.js:750
+#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:115
+#: ../src/lib/gd-utils.c:333 ../src/overview.js:1053
 msgid "Documents"
 msgstr "Skjöl"
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:2
 msgid "A document manager application for GNOME"
-msgstr ""
+msgstr "Skjalaumsýsluforrit fyrir GNOME"
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:3
 msgid ""
@@ -141,68 +144,68 @@ msgid ""
 "to deal with documents. Seamless cloud integration is offered through GNOME "
 "Online Accounts."
 msgstr ""
+"Einfalt forrit til að skoða, skipuleggja og deila skjölunum þínum í GNOME "
+"Það er hugsað til þess að vera einföld og hreinleg leið til að eiga við "
+"skjöl án þess að þurfa að nota skráastjóra. Boðið er upp á fljótvirka "
+"samhæfni við netský í gegnum 'GNOME Online Accounts'."
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:5
 msgid "View recent local and online documents"
-msgstr ""
+msgstr "Skoða nýleg skjöl á tölvunni eða á netinu"
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:6
 msgid "Access your Google, ownCloud or OneDrive content"
-msgstr ""
+msgstr "Fáðu aðgang að efninu þínu á Google, ownCloud eða OneDrive"
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:7
 msgid "Search through documents"
-msgstr ""
+msgstr "Leita í skjölum"
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:8
 msgid "See new documents shared by friends"
-msgstr ""
+msgstr "Skoðaðu ný skjöl sem deilt hefur verið af vinum þínum"
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:9
 msgid "View documents fullscreen"
-msgstr ""
+msgstr "Skoða skjöl á öllum skjánum"
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:10
 msgid "Print documents"
-msgstr ""
+msgstr "Prenta skjöl"
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:11
 msgid "Select favorites"
-msgstr "Velja eftirlætismyndir"
+msgstr "Veldu eftirlæti"
 
 #: ../data/org.gnome.Documents.appdata.xml.in.h:12
 msgid "Allow opening full featured editor for non-trivial changes"
-msgstr ""
+msgstr "Opna fullbúin ritvinnsluforrit til að vinna betur með skjöl"
 
 #: ../data/org.gnome.Documents.desktop.in.h:2
 msgid "Access, manage and share documents"
-msgstr ""
+msgstr "Lesa, deila og sýsla með skjöl"
 
 #: ../data/org.gnome.Documents.desktop.in.h:3
 msgid "Docs;PDF;Document;"
-msgstr ""
+msgstr "Skjal;Skjöl;PDF;"
 
-#: ../data/ui/app-menu.ui.h:1 ../src/mainToolbar.js:107
-msgid "Fullscreen"
-msgstr "Fylla skjáinn"
-
-#: ../data/ui/app-menu.ui.h:2 ../src/mainToolbar.js:119
+#: ../data/ui/app-menu.ui.h:1 ../src/preview.js:454
 msgid "Night Mode"
 msgstr "Næturhamur"
 
-#: ../data/ui/app-menu.ui.h:3
+#: ../data/ui/app-menu.ui.h:2
 msgid "Keyboard Shortcuts"
 msgstr "Flýtilyklar"
 
-#: ../data/ui/app-menu.ui.h:4
+#: ../data/ui/app-menu.ui.h:3
 msgid "Help"
 msgstr "Hjálp"
 
-#: ../data/ui/app-menu.ui.h:5
+#: ../data/ui/app-menu.ui.h:4
 msgid "About"
 msgstr "Um hugbúnaðinn"
 
-#: ../data/ui/app-menu.ui.h:6
+#: ../data/ui/app-menu.ui.h:5
 msgctxt "app menu"
 msgid "Quit"
 msgstr "Hætta"
@@ -260,12 +263,12 @@ msgstr "Renna frá"
 #: ../data/ui/help-overlay.ui.h:11
 msgctxt "shortcut window"
 msgid "Bookmark the current page"
-msgstr ""
+msgstr "Bæta við bókamerki fyrir núverandi síðu"
 
 #: ../data/ui/help-overlay.ui.h:12
 msgctxt "shortcut window"
 msgid "Open places and bookmarks dialog"
-msgstr ""
+msgstr "Opna glugga yfir staði og bókamerki"
 
 #: ../data/ui/help-overlay.ui.h:13
 msgctxt "shortcut window"
@@ -275,7 +278,7 @@ msgstr "Afrita valinn texta á klippispjald"
 #: ../data/ui/help-overlay.ui.h:14
 msgctxt "shortcut window"
 msgid "Rotate anti-clockwise"
-msgstr ""
+msgstr "Snúa rangsælis"
 
 #: ../data/ui/help-overlay.ui.h:15
 msgctxt "shortcut window"
@@ -285,17 +288,17 @@ msgstr "Snúa réttsælis"
 #: ../data/ui/help-overlay.ui.h:16
 msgctxt "shortcut window"
 msgid "Next occurrence of the search string"
-msgstr ""
+msgstr "Næsta tilvik leitarstrengs"
 
 #: ../data/ui/help-overlay.ui.h:17
 msgctxt "shortcut window"
 msgid "Previous occurrence of the search string"
-msgstr ""
+msgstr "Fyrra tilvik leitarstrengs"
 
 #: ../data/ui/help-overlay.ui.h:18
 msgctxt "shortcut window"
 msgid "Presentation mode"
-msgstr ""
+msgstr "Kynningarhamur"
 
 #: ../data/ui/help-overlay.ui.h:19
 msgctxt "shortcut window"
@@ -309,17 +312,17 @@ msgstr "Fylla skjáinn"
 
 #: ../data/ui/organize-collection-dialog.ui.h:1
 msgid "Enter a name for your first collection"
-msgstr ""
+msgstr "Settu inn heiti á fyrsta safnið þitt"
 
 #: ../data/ui/organize-collection-dialog.ui.h:2
 msgid "New Collection…"
-msgstr ""
+msgstr "Nýtt safn…"
 
 #: ../data/ui/organize-collection-dialog.ui.h:3 ../src/sharing.js:226
 msgid "Add"
 msgstr "Bæta við"
 
-#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/mainToolbar.js:238
+#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/overview.js:616
 msgid "Cancel"
 msgstr "Hætta við"
 
@@ -334,7 +337,7 @@ msgstr "_Afrita"
 
 #. Translators: this is the Open action in a context menu
 #: ../data/ui/preview-menu.ui.h:1 ../data/ui/selection-toolbar.ui.h:1
-#: ../src/selections.js:986
+#: ../src/selections.js:968
 msgid "Open"
 msgstr "Opna"
 
@@ -346,27 +349,31 @@ msgstr "Breyta"
 msgid "Print…"
 msgstr "Prenta…"
 
-#: ../data/ui/preview-menu.ui.h:4
-msgid "Present"
-msgstr ""
+#: ../data/ui/preview-menu.ui.h:4 ../src/preview.js:463
+msgid "Fullscreen"
+msgstr "Fylla skjáinn"
 
 #: ../data/ui/preview-menu.ui.h:5
+msgid "Present"
+msgstr "Kynna"
+
+#: ../data/ui/preview-menu.ui.h:6
 msgid "Zoom In"
 msgstr "Renna að"
 
-#: ../data/ui/preview-menu.ui.h:6
+#: ../data/ui/preview-menu.ui.h:7
 msgid "Zoom Out"
 msgstr "Renna frá"
 
-#: ../data/ui/preview-menu.ui.h:7
+#: ../data/ui/preview-menu.ui.h:8
 msgid "Rotate ↶"
 msgstr "Snúa ↶"
 
-#: ../data/ui/preview-menu.ui.h:8
+#: ../data/ui/preview-menu.ui.h:9
 msgid "Rotate ↷"
 msgstr "Snúa ↷"
 
-#: ../data/ui/preview-menu.ui.h:9 ../data/ui/selection-toolbar.ui.h:2
+#: ../data/ui/preview-menu.ui.h:10 ../data/ui/selection-toolbar.ui.h:2
 #: ../src/properties.js:61
 msgid "Properties"
 msgstr "Eiginleikar"
@@ -379,10 +386,10 @@ msgstr "Velja allt"
 msgid "Select None"
 msgstr "Velja ekkert"
 
-#: ../data/ui/selection-toolbar.ui.h:3 ../src/search.js:126
-#: ../src/search.js:132 ../src/view.js:754
+#: ../data/ui/selection-toolbar.ui.h:3 ../src/overview.js:1057
+#: ../src/search.js:126 ../src/search.js:132
 msgid "Collections"
-msgstr ""
+msgstr "Söfn"
 
 #: ../data/ui/view-menu.ui.h:1
 msgid "View items as a grid of icons"
@@ -408,132 +415,132 @@ msgstr "Dagsetning"
 msgid "Name"
 msgstr "Heiti"
 
-#: ../src/application.js:122
+#: ../src/application.js:126
 msgid "Show the version of the program"
 msgstr "Sýna útgáfu forrits"
 
-#: ../src/documents.js:671
+#: ../src/documents.js:777
 msgid "Failed to print document"
 msgstr "Gat ekki prentað skjalið"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:713 ../src/search.js:459
+#: ../src/documents.js:819 ../src/search.js:459
 msgid "Local"
 msgstr "Staðvært"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:755
+#: ../src/documents.js:862
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:756
+#: ../src/documents.js:863
 msgid "Getting Started with Documents"
-msgstr ""
+msgstr "Til að komast í gang með skjöl"
 
-#: ../src/documents.js:772 ../src/documents.js:956 ../src/documents.js:1024
-#: ../src/documents.js:1132
+#: ../src/documents.js:879 ../src/documents.js:1085 ../src/documents.js:1179
+#: ../src/documents.js:1373
 msgid "Collection"
 msgstr "Safn"
 
 #. overridden
-#: ../src/documents.js:834
+#: ../src/documents.js:942
 msgid "Google Docs"
-msgstr ""
+msgstr "Google Docs"
 
-#: ../src/documents.js:835
+#: ../src/documents.js:943
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:958 ../src/documents.js:1134
+#: ../src/documents.js:1087 ../src/documents.js:1375
 msgid "Spreadsheet"
 msgstr "Töflureiknisskjal"
 
-#: ../src/documents.js:960 ../src/documents.js:1136 ../src/presentation.js:44
+#: ../src/documents.js:1089 ../src/documents.js:1377 ../src/presentation.js:44
 msgid "Presentation"
 msgstr "Kynning"
 
-#: ../src/documents.js:962 ../src/documents.js:1138
+#: ../src/documents.js:1091 ../src/documents.js:1379
 msgid "e-Book"
 msgstr "Rafbók"
 
-#: ../src/documents.js:964 ../src/documents.js:1140
+#: ../src/documents.js:1093 ../src/documents.js:1381
 msgid "Document"
 msgstr "Skjal"
 
 #. overridden
-#: ../src/documents.js:1003
+#: ../src/documents.js:1143
 msgid "ownCloud"
 msgstr "ownCloud"
 
 #. overridden
-#: ../src/documents.js:1066 ../src/documents.js:1067
+#: ../src/documents.js:1268 ../src/documents.js:1269
 msgid "OneDrive"
-msgstr ""
+msgstr "OneDrive"
 
-#: ../src/documents.js:1314
+#: ../src/documents.js:1555
 msgid "Please check the network connection."
-msgstr ""
+msgstr "Athugaðu ástand nettenginga."
 
-#: ../src/documents.js:1317
+#: ../src/documents.js:1558
 msgid "Please check the network proxy settings."
-msgstr ""
+msgstr "Athugaðu ástand milliþjóna á neti."
 
-#: ../src/documents.js:1320
+#: ../src/documents.js:1561
 msgid "Unable to sign in to the document service."
-msgstr ""
+msgstr "Tekst ekki að skrá inn í skjalaþjónustuna."
 
-#: ../src/documents.js:1323
+#: ../src/documents.js:1564
 msgid "Unable to locate this document."
-msgstr ""
+msgstr "Get ekki staðsett skjalið."
 
-#: ../src/documents.js:1326
+#: ../src/documents.js:1567
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
-msgstr ""
+msgstr "Hmm, eitthvað er skrýtið (%d)."
 
-#: ../src/documents.js:1333
+#: ../src/documents.js:1574
 msgid ""
 "You are using a preview of Books. Full viewing capabilities are coming soon!"
 msgstr ""
+"Þú ert að nota sýnisútgáfu af GNOME Books skjalaforritinu. Fullkomnari "
+"skoðunareiginleikar eru í bígerð!"
 
-#: ../src/documents.js:1335
+#: ../src/documents.js:1576
 msgid ""
 "LibreOffice support is not available. Please contact your system "
 "administrator."
 msgstr ""
+"Stuðningur við LibreOffice er ekki tiltækur. Hafðu samband við kerfisstjóra."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1356
+#: ../src/documents.js:1599
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
-msgstr ""
+msgstr "Úbbs! Tókst ekki að hlaða inn “%s”"
 
-#: ../src/edit.js:142
+#. view button, on the right of the toolbar
+#: ../src/edit.js:139
 msgid "View"
 msgstr "Skoða"
 
-#: ../src/evinceview.js:650 ../src/lib/gd-places-bookmarks.c:656
+#: ../src/evinceview.js:596 ../src/lib/gd-places-bookmarks.c:656
 msgid "Bookmarks"
 msgstr "Bókamerki"
 
-#: ../src/evinceview.js:658
+#: ../src/evinceview.js:604
 msgid "Bookmark this page"
 msgstr "Bókmerkja þessa síðu"
 
 #: ../src/lib/gd-nav-bar.c:242
 #, c-format
 msgid "Page %u of %u"
-msgstr ""
+msgstr "Síða %u af %u"
 
-#: ../src/lib/gd-pdf-loader.c:247
+#: ../src/lib/gd-pdf-loader.c:142
 msgid "Unable to load the document"
-msgstr ""
-
-#: ../src/lib/gd-pdf-loader.c:715
-msgid "LibreOffice is required to view this document"
-msgstr ""
+msgstr "Get ekki hlaðið skjalinu inn"
 
 #. Translators: %s is the number of the page, already formatted
 #. * as a string, for example "Page 5".
@@ -553,21 +560,21 @@ msgstr "Hleð..."
 
 #: ../src/lib/gd-places-links.c:342
 msgid "No table of contents"
-msgstr ""
+msgstr "Ekkert efnisyfirlit"
 
 #: ../src/lib/gd-places-links.c:514
 msgid "Contents"
-msgstr "Innihald"
+msgstr "Efni"
 
-#: ../src/lib/gd-utils.c:418
+#: ../src/lib/gd-utils.c:334
 msgid "A document manager application"
-msgstr ""
+msgstr "Skjalaumsýsluforrit"
 
-#: ../src/lib/gd-utils.c:425
+#: ../src/lib/gd-utils.c:341
 msgid "An e-books manager application"
 msgstr "Forrit til að sýsla með rafbækur"
 
-#: ../src/lib/gd-utils.c:433
+#: ../src/lib/gd-utils.c:349
 msgid "translator-credits"
 msgstr "Sveinn í Felli, sv1@fellsnet.is"
 
@@ -576,72 +583,149 @@ msgctxt "toolbar button tooltip"
 msgid "Search"
 msgstr "Leita"
 
-#: ../src/mainToolbar.js:127
+#: ../src/mainToolbar.js:100
 msgid "Back"
 msgstr "Til baka"
 
-#. Translators: this is the menu to change view settings
-#: ../src/mainToolbar.js:184
-msgid "View Menu"
-msgstr "Skoðunarvalmynd"
-
-#: ../src/mainToolbar.js:212
-msgid "Click on items to select them"
-msgstr "Smelltu á atriði til að velja þau"
-
-#: ../src/mainToolbar.js:214
-#, javascript-format
-msgid "%d selected"
-msgid_plural "%d selected"
-msgstr[0] "%d valið"
-msgstr[1] "%d valið"
-
-#: ../src/mainToolbar.js:298
-msgid "Select Items"
-msgstr "Veldu atriði"
-
 #. Translators: only one item has been deleted and %s is its name
-#: ../src/notifications.js:49
+#: ../src/notifications.js:48
 #, javascript-format
 msgid "“%s” deleted"
 msgstr "„%s“ eytt"
 
 #. Translators: one or more items might have been deleted, and %d
 #. is the count
-#: ../src/notifications.js:53
+#: ../src/notifications.js:52
 #, javascript-format
 msgid "%d item deleted"
 msgid_plural "%d items deleted"
 msgstr[0] "%d atriði eytt"
 msgstr[1] "%d atriðum eytt"
 
-#: ../src/notifications.js:62 ../src/selections.js:387
+#: ../src/notifications.js:61 ../src/selections.js:387
 msgid "Undo"
 msgstr "Afturkalla"
 
-#: ../src/notifications.js:160
+#: ../src/notifications.js:159
 #, javascript-format
 msgid "Printing “%s”: %s"
 msgstr "Prenta „%s”: %s"
 
-#: ../src/notifications.js:216
+#: ../src/notifications.js:215
 msgid "Your documents are being indexed"
-msgstr ""
+msgstr "Verið er að skrá skjölin þín í atriðaskrá"
 
-#: ../src/notifications.js:217
+#: ../src/notifications.js:216
 msgid "Some documents might not be available during this process"
-msgstr ""
+msgstr "Einhver skjöl gætu verið ekki tiltæk á meðan á ferlinu stendur"
 
 #. Translators: %s refers to an online account provider, e.g.
 #. "Google", or "Windows Live".
-#: ../src/notifications.js:239
+#: ../src/notifications.js:238
 #, javascript-format
 msgid "Fetching documents from %s"
-msgstr ""
+msgstr "Sæki skjöl frá %s"
 
-#: ../src/notifications.js:241
+#: ../src/notifications.js:240
 msgid "Fetching documents from online accounts"
+msgstr "Sæki skjöl frá aðgöngum á netinu"
+
+#: ../src/overview.js:275
+msgid "No collections found"
+msgstr "Engin söfn fundust"
+
+#: ../src/overview.js:277
+msgid "No books found"
+msgstr "Engar bækur fundust"
+
+#: ../src/overview.js:277
+msgid "No documents found"
+msgstr "Engin skjöl fundust"
+
+#: ../src/overview.js:286
+msgid "Try a different search"
+msgstr "Reyna aðra leit"
+
+#: ../src/overview.js:293
+msgid "You can create collections from the Books view"
+msgstr "Þú getur búið til söfn úr bókasýninni"
+
+#: ../src/overview.js:295
+msgid "You can create collections from the Documents view"
+msgstr "Þú getur búið til söfn úr skjalasýninni"
+
+#: ../src/overview.js:305
+#, javascript-format
+msgid ""
+"Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
+"href=\"file://%s\">Documents folder</a> will appear here."
 msgstr ""
+"Skjöl úr <a href=\"system-settings\">notandaaðgöngum þínum á netinu</a> og <a "
+"href=\"file://%s\">skjalamöppunni</a> munu birtast hér."
+
+#. Translators: this is the menu to change view settings
+#: ../src/overview.js:562
+msgid "View Menu"
+msgstr "Skoðunarvalmynd"
+
+#: ../src/overview.js:590
+msgid "Click on items to select them"
+msgstr "Smelltu á atriði til að velja þau"
+
+#: ../src/overview.js:592
+#, javascript-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d valið"
+msgstr[1] "%d valið"
+
+#: ../src/overview.js:669
+msgid "Select Items"
+msgstr "Veldu atriði"
+
+#: ../src/overview.js:877
+msgid "Yesterday"
+msgstr "Í gær"
+
+#: ../src/overview.js:879
+#, javascript-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "fyrir %d degi"
+msgstr[1] "fyrir %d dögum"
+
+#: ../src/overview.js:883
+msgid "Last week"
+msgstr "Í síðustu viku"
+
+#: ../src/overview.js:885
+#, javascript-format
+msgid "%d week ago"
+msgid_plural "%d weeks ago"
+msgstr[0] "fyrir %d viku"
+msgstr[1] "fyrir %d vikum"
+
+#: ../src/overview.js:889
+msgid "Last month"
+msgstr "Í síðasta mánuði"
+
+#: ../src/overview.js:891
+#, javascript-format
+msgid "%d month ago"
+msgid_plural "%d months ago"
+msgstr[0] "fyrir %d mánuði"
+msgstr[1] "fyrir %d mánuðum"
+
+#: ../src/overview.js:895
+msgid "Last year"
+msgstr "Á síðasta ári"
+
+#: ../src/overview.js:897
+#, javascript-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] "fyrir %d ári"
+msgstr[1] "fyrir %d árum"
 
 #: ../src/password.js:42
 msgid "Password Required"
@@ -654,7 +738,7 @@ msgstr "_Aflæsa"
 #: ../src/password.js:61
 #, javascript-format
 msgid "Document %s is locked and requires a password to be opened."
-msgstr ""
+msgstr "Skjalið %s er læst og þarf lykilorð til að opna það."
 
 #: ../src/password.js:75
 msgid "_Password"
@@ -664,38 +748,38 @@ msgstr "_Lykilorð"
 msgid "Running in presentation mode"
 msgstr "Keyri í kynningarham"
 
-#: ../src/presentation.js:125
+#: ../src/presentation.js:130
 msgid "Present On"
-msgstr ""
+msgstr "Kynna á"
 
 #. Translators: "Mirrored" describes when both displays show the same view
-#: ../src/presentation.js:161
+#: ../src/presentation.js:166
 msgid "Mirrored"
 msgstr "Speglað"
 
-#: ../src/presentation.js:163
+#: ../src/presentation.js:168
 msgid "Primary"
 msgstr "Aðal"
 
-#: ../src/presentation.js:165
+#: ../src/presentation.js:170
 msgid "Off"
 msgstr "Slökkt"
 
-#: ../src/presentation.js:167
+#: ../src/presentation.js:172
 msgid "Secondary"
 msgstr "Auka"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/preview.js:289 ../src/selections.js:983
+#: ../src/preview.js:446 ../src/selections.js:965
 #, javascript-format
 msgid "Open with %s"
 msgstr "Opna með %s"
 
-#: ../src/preview.js:533
+#: ../src/preview.js:778
 msgid "Find Previous"
 msgstr "Finna fyrra"
 
-#: ../src/preview.js:539
+#: ../src/preview.js:784
 msgid "Find Next"
 msgstr "Finna næsta"
 
@@ -885,12 +969,12 @@ msgstr "Eigandi"
 #: ../src/sharing.js:437
 #, javascript-format
 msgid "You can ask %s for access"
-msgstr ""
+msgstr "Þú getur beðið %s um aðgang"
 
 #: ../src/sharing.js:474 ../src/sharing.js:510 ../src/sharing.js:567
 #: ../src/sharing.js:584 ../src/sharing.js:603
 msgid "The document was not updated"
-msgstr ""
+msgstr "Skjalið var ekki uppfært"
 
 #: ../src/shellSearchProvider.js:285
 msgid "Untitled Document"
@@ -898,80 +982,5 @@ msgstr "Ónefnt skjal"
 
 #: ../src/trackerController.js:176
 msgid "Unable to fetch the list of documents"
-msgstr ""
-
-#: ../src/view.js:277
-msgid "No collections found"
-msgstr "Engin söfn fundust"
-
-#: ../src/view.js:279
-msgid "No books found"
-msgstr "Engar bækur fundust"
-
-#: ../src/view.js:279
-msgid "No documents found"
-msgstr "Engin skjöl fundust"
-
-#: ../src/view.js:288
-msgid "Try a different search"
-msgstr "Reyna aðra leit"
-
-#: ../src/view.js:295
-msgid "You can create collections from the Books view"
-msgstr ""
-
-#: ../src/view.js:297
-msgid "You can create collections from the Documents view"
-msgstr ""
-
-#: ../src/view.js:307
-#, javascript-format
-msgid ""
-"Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
-"href=\"file://%s\">Documents folder</a> will appear here."
-msgstr ""
-
-#: ../src/view.js:576
-msgid "Yesterday"
-msgstr "Í gær"
-
-#: ../src/view.js:578
-#, javascript-format
-msgid "%d day ago"
-msgid_plural "%d days ago"
-msgstr[0] "fyrir %d degi"
-msgstr[1] "fyrir %d dögum"
-
-#: ../src/view.js:582
-msgid "Last week"
-msgstr "Í síðustu viku"
-
-#: ../src/view.js:584
-#, javascript-format
-msgid "%d week ago"
-msgid_plural "%d weeks ago"
-msgstr[0] "fyrir %d viku"
-msgstr[1] "fyrir %d vikum"
-
-#: ../src/view.js:588
-msgid "Last month"
-msgstr "Í síðasta mánuði"
-
-#: ../src/view.js:590
-#, javascript-format
-msgid "%d month ago"
-msgid_plural "%d months ago"
-msgstr[0] "fyrir %d mánuði"
-msgstr[1] "fyrir %d mánuðum"
-
-#: ../src/view.js:594
-msgid "Last year"
-msgstr "Á síðasta ári"
-
-#: ../src/view.js:596
-#, javascript-format
-msgid "%d year ago"
-msgid_plural "%d years ago"
-msgstr[0] "fyrir %d ári"
-msgstr[1] "fyrir %d árum"
+msgstr "Tókst ekki að nálgast lista yfir skjöl"
 
