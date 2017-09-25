@@ -103,7 +103,7 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
-                <property name="title" translatable="yes" context="shortcut window">Rotate anti-clockwise</property>
+                <property name="title" translatable="yes" context="shortcut window">Rotate counterclockwise</property>
                 <property name="accelerator">&lt;Primary&gt;Left</property>
               </object>
             </child>
