@@ -160,7 +160,7 @@
     <child type="titlebar">
       <object class="GtkHeaderBar" id="headerBar">
         <property name="visible">1</property>
-        <property name="title">Collections</property>
+        <property name="title" translatable="yes">Collections</property>
         <property name="show_close_button">1</property>
         <child>
           <object class="GtkButton" id="cancelButton">
