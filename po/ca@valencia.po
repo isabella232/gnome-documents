@@ -2,35 +2,145 @@
 # Copyright (C) 2011 gnome-documents's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-documents package.
 # Pau Iranzo <paugnu@gmail.com>, 2011, 2012.
-# Jordi Serratosa <jordis@softcatala.cat>, 2012.
+# Jordi Serratosa <jordis@softcatala.cat>, 2012, 2017.
 # Gil Forcada <gilforcada@guifi.net>, 2012, 2013, 2014.
 # Josep Sànchez <papapep@gmx.com>, 2013.
-#
+# Xavi Ivars <xavi.ivars@gmail.com>, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-06 23:18+0200\n"
-"PO-Revision-Date: 2014-09-06 23:13+0200\n"
-"Last-Translator: Gil Forcada <gilforcada@guifi.net>\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"documents&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-09-25 09:48+0000\n"
+"PO-Revision-Date: 2017-08-25 12:11+0200\n"
+"Last-Translator: Xavi Ivars <xavi.ivars@gmail.com>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
-"Language: ca@valencia\n"
+"Language: ca-valencia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bits\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.0.1\n"
+"X-Project-Style: gnome\n"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:1
-#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:121
-#: ../src/mainWindow.js:52 ../src/mainWindow.js:302
+#: data/org.gnome.Books.appdata.xml.in:7 data/org.gnome.Books.desktop.in:3
+#: src/application.js:112 src/overview.js:1052
+msgid "Books"
+msgstr "Llibres"
+
+#: data/org.gnome.Books.appdata.xml.in:8
+msgid "An e-book manager application for GNOME"
+msgstr "Una aplicació per gestionar llibres electrònics al GNOME"
+
+#: data/org.gnome.Books.appdata.xml.in:10
+msgid ""
+"A simple application to access and organize your e-books on GNOME. It is "
+"meant to be a simple and elegant replacement for using a file manager to "
+"deal with e-books."
+msgstr ""
+"Un programa simple per accedir i organitzar els llibres electrònics al "
+"GNOME. Està pensat per a ser un substitut simple i elegant d'un gestor de "
+"fitxers per als llibres electrònics."
+
+#: data/org.gnome.Books.appdata.xml.in:15
+#: data/org.gnome.Documents.appdata.xml.in:16
+msgid "It lets you:"
+msgstr "Vos permet:"
+
+#: data/org.gnome.Books.appdata.xml.in:17
+msgid "View recent e-books"
+msgstr "Visualitza els llibres electrònics recents"
+
+#: data/org.gnome.Books.appdata.xml.in:18
+msgid "Search through e-books"
+msgstr "Cerqueu als llibres"
+
+#: data/org.gnome.Books.appdata.xml.in:19
+msgid "View e-books (PDF and comics) fullscreen"
+msgstr "Visualitzeu els llibres electrònics (PDF i còmics) a pantalla completa"
+
+#: data/org.gnome.Books.appdata.xml.in:20
+msgid "Print e-books"
+msgstr "Imprimeix els llibres electrònics"
+
+#: data/org.gnome.Books.appdata.xml.in:32
+#: data/org.gnome.Documents.appdata.xml.in:39
+msgid "The GNOME Project"
+msgstr "El projecte GNOME"
+
+#: data/org.gnome.Books.desktop.in:4
+msgid "Access, manage and share books"
+msgstr "Accediu, gestioneu i compartiu llibres electrònics"
+
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.Books.desktop.in:7
+msgid "org.gnome.Books"
+msgstr "org.gnome.Books"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Books.desktop.in:15
+msgid "Books;Comics;ePub;PDF;"
+msgstr "Llibres;Còmics;ePub;PDF;"
+
+#: data/org.gnome.books.gschema.xml:5 data/org.gnome.documents.gschema.xml:5
+msgid "View as"
+msgstr "Visualitza com a"
+
+#: data/org.gnome.books.gschema.xml:6 data/org.gnome.documents.gschema.xml:6
+msgid "View as type"
+msgstr "Visualitza com a tipus"
+
+#: data/org.gnome.books.gschema.xml:10 data/org.gnome.documents.gschema.xml:10
+msgid "Sort by"
+msgstr "Ordena per"
+
+#: data/org.gnome.books.gschema.xml:11 data/org.gnome.documents.gschema.xml:11
+msgid "Sort by type"
+msgstr "Ordena per tipus"
+
+#: data/org.gnome.books.gschema.xml:15 data/org.gnome.documents.gschema.xml:15
+msgid "Window size"
+msgstr "Mida de la finestra"
+
+#: data/org.gnome.books.gschema.xml:16 data/org.gnome.documents.gschema.xml:16
+msgid "Window size (width and height)."
+msgstr "Mida de la finestra (amplària i alçària)."
+
+#: data/org.gnome.books.gschema.xml:20 data/org.gnome.documents.gschema.xml:20
+msgid "Window position"
+msgstr "Posició de la finestra"
+
+#: data/org.gnome.books.gschema.xml:21 data/org.gnome.documents.gschema.xml:21
+msgid "Window position (x and y)."
+msgstr "Posició de la finestra (x i y)."
+
+#: data/org.gnome.books.gschema.xml:25 data/org.gnome.documents.gschema.xml:25
+msgid "Window maximized"
+msgstr "Finestra maximitzada"
+
+#: data/org.gnome.books.gschema.xml:26 data/org.gnome.documents.gschema.xml:26
+msgid "Window maximized state"
+msgstr "Estat maximitzat de la finestra"
+
+#: data/org.gnome.books.gschema.xml:30 data/org.gnome.documents.gschema.xml:30
+msgid "Night mode"
+msgstr "Mode nocturn"
+
+#: data/org.gnome.books.gschema.xml:31 data/org.gnome.documents.gschema.xml:31
+msgid "Whether the application is in night mode."
+msgstr "Si l'aplicació està en mode nocturn."
+
+#: data/org.gnome.Documents.appdata.xml.in:7
+#: data/org.gnome.Documents.desktop.in:3 src/application.js:115
+#: src/overview.js:1052
 msgid "Documents"
 msgstr "Documents"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:2
+#: data/org.gnome.Documents.appdata.xml.in:8
 msgid "A document manager application for GNOME"
 msgstr "Una aplicació per gestionar documents pel GNOME"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:3
+#: data/org.gnome.Documents.appdata.xml.in:10
 msgid ""
 "A simple application to access, organize and share your documents on GNOME. "
 "It is meant to be a simple and elegant replacement for using a file manager "
@@ -42,639 +152,901 @@ msgstr ""
 "fitxers per gestionar els documents. S'integra transparentment amb el núvol "
 "mitjançant els comptes en línia del GNOME."
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:4
-msgid "It lets you:"
-msgstr "Vos permet:"
-
-#: ../data/org.gnome.Documents.appdata.xml.in.h:5
+#: data/org.gnome.Documents.appdata.xml.in:18
 msgid "View recent local and online documents"
 msgstr "Visualitzeu els documents recents, tant locals com en línia"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:6
+#: data/org.gnome.Documents.appdata.xml.in:19
 msgid "Access your Google, ownCloud or OneDrive content"
 msgstr "Accediu als vostres documents del Google, de l'ownCloud o del OneDrive"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:7
+#: data/org.gnome.Documents.appdata.xml.in:20
 msgid "Search through documents"
 msgstr "Cerqueu als documents"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:8
+#: data/org.gnome.Documents.appdata.xml.in:21
 msgid "See new documents shared by friends"
 msgstr "Vegeu els documents nous compartits per les vostres amistats"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:9
+#: data/org.gnome.Documents.appdata.xml.in:22
 msgid "View documents fullscreen"
 msgstr "Visualitzeu els documents a pantalla completa"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:10
+#: data/org.gnome.Documents.appdata.xml.in:23
 msgid "Print documents"
 msgstr "Imprimiu documents"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:11
+#: data/org.gnome.Documents.appdata.xml.in:24
 msgid "Select favorites"
 msgstr "Seleccioneu els preferits"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:12
+#: data/org.gnome.Documents.appdata.xml.in:25
 msgid "Allow opening full featured editor for non-trivial changes"
 msgstr "Permet l'obertura d'editors específics per fer canvis avançats"
 
-#: ../data/org.gnome.Documents.desktop.in.h:2
+#: data/org.gnome.Documents.desktop.in:4
 msgid "Access, manage and share documents"
 msgstr "Accediu, gestioneu i compartiu documents"
 
-#: ../data/org.gnome.Documents.desktop.in.h:3
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.Documents.desktop.in:7
+msgid "org.gnome.Documents"
+msgstr "org.gnome.Documents"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Documents.desktop.in:15
 msgid "Docs;PDF;Document;"
 msgstr "Documents;PDF;Document;"
 
-#: ../data/org.gnome.documents.gschema.xml.h:1
-msgid "View as"
-msgstr "Visualitza com a"
+#: data/ui/app-menu.ui:6 src/preview.js:453
+msgid "Night Mode"
+msgstr "Mode nocturn"
 
-#: ../data/org.gnome.documents.gschema.xml.h:2
-msgid "View as type"
-msgstr "Visualitza com a tipus"
+#: data/ui/app-menu.ui:12
+msgid "Keyboard Shortcuts"
+msgstr "Dreceres de teclat"
 
-#: ../data/org.gnome.documents.gschema.xml.h:3
-msgid "Window size"
-msgstr "Mida de la finestra"
+#: data/ui/app-menu.ui:16
+msgid "Help"
+msgstr "Ajuda"
 
-#: ../data/org.gnome.documents.gschema.xml.h:4
-msgid "Window size (width and height)."
-msgstr "Mida de la finestra (amplada i alçada)"
+#: data/ui/app-menu.ui:20
+msgid "About"
+msgstr "Quant a"
 
-#: ../data/org.gnome.documents.gschema.xml.h:5
-msgid "Window position"
-msgstr "Posició de la finestra"
+#: data/ui/app-menu.ui:24
+msgctxt "app menu"
+msgid "Quit"
+msgstr "Ix"
 
-#: ../data/org.gnome.documents.gschema.xml.h:6
-msgid "Window position (x and y)."
-msgstr "Posició de la finestra (x i y)"
+#: data/ui/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "General"
 
-#: ../data/org.gnome.documents.gschema.xml.h:7
-msgid "Window maximized"
-msgstr "Finestra maximitzada"
+#: data/ui/help-overlay.ui:15
+msgctxt "shortcut window"
+msgid "Show help"
+msgstr "Mostra l'ajuda"
 
-#: ../data/org.gnome.documents.gschema.xml.h:8
-msgid "Window maximized state"
-msgstr "Estat maximitzat de la finestra"
+#: data/ui/help-overlay.ui:22
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Ix"
 
-#: ../src/documents.js:621
+#: data/ui/help-overlay.ui:29
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Busca"
+
+#: data/ui/help-overlay.ui:36
+msgctxt "shortcut window"
+msgid "Print the current document"
+msgstr "Imprimiu el document actual"
+
+#: data/ui/help-overlay.ui:45
+msgctxt "shortcut window"
+msgid "Navigation"
+msgstr "Navegació"
+
+#: data/ui/help-overlay.ui:49 data/ui/help-overlay.ui:57
+msgctxt "shortcut window"
+msgid "Go back"
+msgstr "Vés arrere"
+
+#: data/ui/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Preview"
+msgstr "Previsualització"
+
+#: data/ui/help-overlay.ui:71
+msgctxt "shortcut window"
+msgid "Zoom in"
+msgstr "Amplia"
+
+#: data/ui/help-overlay.ui:78
+msgctxt "shortcut window"
+msgid "Zoom out"
+msgstr "Redueix"
+
+#: data/ui/help-overlay.ui:85
+msgctxt "shortcut window"
+msgid "Bookmark the current page"
+msgstr "Afig la pàgina actual a les adreces d'interés"
+
+#: data/ui/help-overlay.ui:92
+msgctxt "shortcut window"
+msgid "Open places and bookmarks dialog"
+msgstr "Obri el diàleg d'adreces d'interés i llocs"
+
+#: data/ui/help-overlay.ui:99
+msgctxt "shortcut window"
+msgid "Copy selected text to clipboard"
+msgstr "Copia el text seleccionat al porta-retalls"
+
+#: data/ui/help-overlay.ui:106
+msgctxt "shortcut window"
+msgid "Rotate anti-clockwise"
+msgstr "Gira en sentit antihorari"
+
+#: data/ui/help-overlay.ui:113
+msgctxt "shortcut window"
+msgid "Rotate clockwise"
+msgstr "Gira en sentit horari"
+
+#: data/ui/help-overlay.ui:120
+msgctxt "shortcut window"
+msgid "Next occurrence of the search string"
+msgstr "Coincidència següent de la cadena de busca"
+
+#: data/ui/help-overlay.ui:127
+msgctxt "shortcut window"
+msgid "Previous occurrence of the search string"
+msgstr "Coincidència prèvia de la cadena de busca"
+
+#: data/ui/help-overlay.ui:134
+msgctxt "shortcut window"
+msgid "Presentation mode"
+msgstr "Mode presentació"
+
+#: data/ui/help-overlay.ui:141
+msgctxt "shortcut window"
+msgid "Open action menu"
+msgstr "Obri el menú «acció»"
+
+#: data/ui/help-overlay.ui:148
+msgctxt "shortcut window"
+msgid "Fullscreen"
+msgstr "Pantalla completa"
+
+#: data/ui/organize-collection-dialog.ui:40
+msgid "Enter a name for your first collection"
+msgstr "Introduïu un nom per la vostra primera col·lecció"
+
+#: data/ui/organize-collection-dialog.ui:56
+#: data/ui/organize-collection-dialog.ui:113
+msgid "New Collection…"
+msgstr "Col·lecció nova..."
+
+#: data/ui/organize-collection-dialog.ui:73
+#: data/ui/organize-collection-dialog.ui:122 src/sharing.js:226
+msgid "Add"
+msgstr "Addició"
+
+#: data/ui/organize-collection-dialog.ui:167 src/overview.js:616
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#. Label for Done button in Sharing dialog
+#: data/ui/organize-collection-dialog.ui:173 src/sharing.js:112
+msgid "Done"
+msgstr "Fet"
+
+#: data/ui/preview-context-menu.ui:6
+msgid "_Copy"
+msgstr "_Copia"
+
+#. Translators: this is the Open action in a context menu
+#: data/ui/preview-menu.ui:6 data/ui/selection-toolbar.ui:9
+#: src/selections.js:988
+msgid "Open"
+msgstr "Obri"
+
+#: data/ui/preview-menu.ui:10
+msgid "Edit"
+msgstr "Edita"
+
+#: data/ui/preview-menu.ui:15
+msgid "Print…"
+msgstr "Imprimeix…"
+
+#: data/ui/preview-menu.ui:21 src/preview.js:462
+msgid "Fullscreen"
+msgstr "Pantalla completa"
+
+#: data/ui/preview-menu.ui:27
+msgid "Present"
+msgstr "Presentació"
+
+#: data/ui/preview-menu.ui:35
+msgid "Zoom In"
+msgstr "Amplia"
+
+#: data/ui/preview-menu.ui:41
+msgid "Zoom Out"
+msgstr "Redueix"
+
+#: data/ui/preview-menu.ui:49
+msgid "Rotate ↶"
+msgstr "Gira ↶"
+
+#: data/ui/preview-menu.ui:55
+msgid "Rotate ↷"
+msgstr "Gira ↷"
+
+#: data/ui/preview-menu.ui:62 data/ui/selection-toolbar.ui:79
+#: src/properties.js:61
+msgid "Properties"
+msgstr "Propietats"
+
+#: data/ui/selection-menu.ui:6
+msgid "Select All"
+msgstr "Selecciona'ls tots"
+
+#: data/ui/selection-menu.ui:11
+msgid "Select None"
+msgstr "No en seleccionis cap"
+
+#: data/ui/selection-toolbar.ui:88 src/overview.js:1056 src/search.js:126
+#: src/search.js:132
+msgid "Collections"
+msgstr "Col·leccions"
+
+#: data/ui/view-menu.ui:23
+msgid "View items as a grid of icons"
+msgstr "Visualitza els elements com una graella d'icones"
+
+#: data/ui/view-menu.ui:40
+msgid "View items as a list"
+msgstr "Visualitza els elements com una llista"
+
+#: data/ui/view-menu.ui:73
+msgid "Sort"
+msgstr "Ordena"
+
+#: data/ui/view-menu.ui:84
+msgid "Author"
+msgstr "Autor"
+
+#: data/ui/view-menu.ui:93
+msgid "Date"
+msgstr "Data"
+
+#: data/ui/view-menu.ui:102
+msgid "Name"
+msgstr "Nom"
+
+#: src/application.js:126
+msgid "Show the version of the program"
+msgstr "Mostra la versió del programa."
+
+#: src/documents.js:794
 msgid "Failed to print document"
 msgstr "No es pot imprimir el document"
 
-#: ../src/documents.js:658 ../src/search.js:427
+#. Translators: this refers to local documents
+#: src/documents.js:836 src/search.js:459
 msgid "Local"
 msgstr "Local"
 
-#: ../src/documents.js:679
+#. Translators: Documents ships a "Getting Started with Documents"
+#. tutorial PDF. The "GNOME" string below is displayed as the author name
+#. of that document, and doesn't normally need to be translated.
+#: src/documents.js:879
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:680
+#: src/documents.js:880
 msgid "Getting Started with Documents"
 msgstr "Introducció al Documents"
 
-#: ../src/documents.js:696 ../src/documents.js:877 ../src/documents.js:939
-#: ../src/documents.js:1047
+#: src/documents.js:905 src/documents.js:1115 src/documents.js:1218
+#: src/documents.js:1412
 msgid "Collection"
 msgstr "Col·lecció"
 
-#: ../src/documents.js:756
+#. overridden
+#: src/documents.js:972
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:757
+#: src/documents.js:973
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:879 ../src/documents.js:1049
+#: src/documents.js:1117 src/documents.js:1414
 msgid "Spreadsheet"
 msgstr "Full de càlcul"
 
-#: ../src/documents.js:881 ../src/documents.js:1051 ../src/presentation.js:47
+#: src/documents.js:1119 src/documents.js:1416 src/presentation.js:44
 msgid "Presentation"
 msgstr "Presentació"
 
-#: ../src/documents.js:883 ../src/documents.js:1053
+#: src/documents.js:1121 src/documents.js:1418
+msgid "e-Book"
+msgstr "Llibre electrònic"
+
+#: src/documents.js:1123 src/documents.js:1420
 msgid "Document"
 msgstr "Document"
 
-#: ../src/documents.js:917
+#. overridden
+#: src/documents.js:1173
 msgid "ownCloud"
 msgstr "ownCloud"
 
-#: ../src/documents.js:981 ../src/documents.js:982
+#. overridden
+#: src/documents.js:1307 src/documents.js:1308
 msgid "OneDrive"
 msgstr "OneDrive"
 
-#: ../src/documents.js:1181
+#: src/documents.js:1594
 msgid "Please check the network connection."
 msgstr "Comproveu la connexió de xarxa."
 
-#: ../src/documents.js:1184
+#: src/documents.js:1597
 msgid "Please check the network proxy settings."
 msgstr "Comproveu la configuració del servidor intermediari de xarxa."
 
-#: ../src/documents.js:1187
+#: src/documents.js:1600
 msgid "Unable to sign in to the document service."
 msgstr "No s'ha pogut entrar al servei de documents."
 
-#: ../src/documents.js:1190
+#: src/documents.js:1603
 msgid "Unable to locate this document."
 msgstr "No s'ha pogut trobar el document."
 
-#: ../src/documents.js:1193
+#: src/documents.js:1606
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Alguna cosa no ha anat bé (%d)."
 
-#: ../src/documents.js:1211
+#: src/documents.js:1613
+msgid ""
+"You are using a preview of Books. Full viewing capabilities are coming soon!"
+msgstr ""
+"Esteu utilitzant el previsualitzador del Llibres. Les funcionalitats "
+"completes de visualització estaran prompte disponibles"
+
+#: src/documents.js:1615
+msgid ""
+"LibreOffice support is not available. Please contact your system "
+"administrator."
+msgstr ""
+"El suport de LibreOffice no està disponible. Contacteu el vostre "
+"administrador."
+
+#. Translators: %s is the title of a document
+#: src/documents.js:1638
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "No s'ha pogut carregar «%s»"
 
-#: ../src/edit.js:192
+#. view button, on the right of the toolbar
+#: src/edit.js:139
 msgid "View"
 msgstr "Visualitza"
 
-#: ../src/embed.js:142
-msgid "No Documents Found"
-msgstr "No s'ha trobat cap document"
-
-#: ../src/embed.js:163
+#: src/epubview.js:228
 #, javascript-format
-msgid "You can add your online accounts in %s"
-msgstr "Podeu afegir els vostres comptes en línia a %s"
+msgid "chapter %s of %s"
+msgstr "capítol %s de %s"
 
-#: ../src/embed.js:167
-msgid "Settings"
-msgstr "Paràmetres"
+#: src/evinceview.js:590 src/lib/gd-places-bookmarks.c:656
+msgid "Bookmarks"
+msgstr "Adreces d'interés"
 
-#: ../src/lib/gd-nav-bar.c:242
+#: src/evinceview.js:598
+msgid "Bookmark this page"
+msgstr "Afig la pàgina a les adreces d'interés"
+
+#: src/lib/gd-nav-bar.c:242
 #, c-format
 msgid "Page %u of %u"
 msgstr "Pàgina %u de %u"
 
-#: ../src/lib/gd-pdf-loader.c:247
+#: src/lib/gd-pdf-loader.c:142
 msgid "Unable to load the document"
 msgstr "No es pot carregar el document"
-
-#: ../src/lib/gd-pdf-loader.c:715
-msgid "LibreOffice is required to view this document"
-msgstr "Fa falta el LibreOffice per veure este document"
 
 #. Translators: %s is the number of the page, already formatted
 #. * as a string, for example "Page 5".
 #.
-#: ../src/lib/gd-places-bookmarks.c:315
+#: src/lib/gd-places-bookmarks.c:321
 #, c-format
 msgid "Page %s"
 msgstr "Pàgina %s"
 
-#: ../src/lib/gd-places-bookmarks.c:378
+#: src/lib/gd-places-bookmarks.c:384
 msgid "No bookmarks"
 msgstr "No hi ha cap adreça d'interés definida"
 
-#: ../src/lib/gd-places-bookmarks.c:386 ../src/lib/gd-places-links.c:257
-#: ../src/view.js:71
+#: src/lib/gd-places-bookmarks.c:392 src/lib/gd-places-links.c:257
 msgid "Loading…"
 msgstr "S'està carregant…"
 
-#: ../src/lib/gd-places-bookmarks.c:651 ../src/preview.js:580
-msgid "Bookmarks"
-msgstr "Adreces d'interés"
-
-#: ../src/lib/gd-places-links.c:342
+#: src/lib/gd-places-links.c:342
 msgid "No table of contents"
 msgstr "No hi ha cap taula de continguts"
 
-#: ../src/lib/gd-places-links.c:518
+#: src/lib/gd-places-links.c:514
 msgid "Contents"
 msgstr "Continguts"
 
-#: ../src/mainToolbar.js:79
-msgid "Search"
-msgstr "Cerca"
+#: src/lib/gd-utils.c:328
+msgid "A document manager application"
+msgstr "Una aplicació per gestionar documents"
 
-#: ../src/mainToolbar.js:87
+#: src/lib/gd-utils.c:333
+msgid "An e-books manager application"
+msgstr "Una aplicació per gestionar llibres electrònics"
+
+#: src/lib/gd-utils.c:340
+msgid "translator-credits"
+msgstr "Pau Iranzo <paugnu@gmail.com>"
+
+#: src/mainToolbar.js:91
+msgctxt "toolbar button tooltip"
+msgid "Search"
+msgstr "Busca"
+
+#: src/mainToolbar.js:100
 msgid "Back"
 msgstr "Arrere"
 
-#: ../src/mainToolbar.js:132
-msgid "View items as a list"
-msgstr "Visualitza els elements com una llista"
+#. Translators: only one item has been deleted and %s is its name
+#: src/notifications.js:48
+#, javascript-format
+msgid "“%s” deleted"
+msgstr "«%s» suprimit"
 
-#: ../src/mainToolbar.js:138
-msgid "View items as a grid of icons"
-msgstr "Visualitza els elements com una graella d'icones"
+#. Translators: one or more items might have been deleted, and %d
+#. is the count
+#: src/notifications.js:52
+#, javascript-format
+msgid "%d item deleted"
+msgid_plural "%d items deleted"
+msgstr[0] "S'ha suprimit %d l'element"
+msgstr[1] "S'han suprimit %d elements"
 
-#: ../src/mainToolbar.js:168
+#: src/notifications.js:61 src/selections.js:387
+msgid "Undo"
+msgstr "Desfés"
+
+#: src/notifications.js:159
+#, javascript-format
+msgid "Printing “%s”: %s"
+msgstr "S'està imprimint «%s»: %s"
+
+#: src/notifications.js:215
+msgid "Your documents are being indexed"
+msgstr "S'estan indexant els documents"
+
+#: src/notifications.js:216
+msgid "Some documents might not be available during this process"
+msgstr "Alguns documents no estaran disponibles mentre duri este procés"
+
+#. Translators: %s refers to an online account provider, e.g.
+#. "Google", or "Windows Live".
+#: src/notifications.js:238
+#, javascript-format
+msgid "Fetching documents from %s"
+msgstr "S'estan recollint els documents de %s"
+
+#: src/notifications.js:240
+msgid "Fetching documents from online accounts"
+msgstr "S'estan recollint els documents dels comptes en línia"
+
+#: src/overview.js:275
+msgid "No collections found"
+msgstr "No s'ha trobat cap col·lecció"
+
+#: src/overview.js:277
+msgid "No books found"
+msgstr "No s'ha trobat cap llibre"
+
+#: src/overview.js:277
+msgid "No documents found"
+msgstr "No s'ha trobat cap document"
+
+#: src/overview.js:286
+msgid "Try a different search"
+msgstr "Intenta una busca diferent"
+
+#: src/overview.js:293
+msgid "You can create collections from the Books view"
+msgstr "Podeu crear col·leccions a partir de les vistes dels llibres"
+
+#: src/overview.js:295
+msgid "You can create collections from the Documents view"
+msgstr "Podeu crear col·leccions a partir de les vistes dels documents"
+
+#: src/overview.js:305
+#, javascript-format
+msgid ""
+"Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
+"href=\"file://%s\">Documents folder</a> will appear here."
+msgstr ""
+"Apareixeran ací els documents des dels <a href=\"system-settings\">comptes "
+"en línia </a> i des de la <a href=\"file://%s\">carpeta documents</a>."
+
+#. Translators: this is the menu to change view settings
+#: src/overview.js:562
+msgid "View Menu"
+msgstr "Mostra el menú"
+
+#: src/overview.js:590
 msgid "Click on items to select them"
 msgstr "Feu clic als elements per seleccionar-los"
 
-#: ../src/mainToolbar.js:170
+#: src/overview.js:592
 #, javascript-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d seleccionat"
 msgstr[1] "%d seleccionats"
 
-#: ../src/mainToolbar.js:200
-msgid "Cancel"
-msgstr "Cancel·la"
-
-#: ../src/mainToolbar.js:242
+#: src/overview.js:669
 msgid "Select Items"
 msgstr "Selecciona els elements"
 
-#: ../src/mainWindow.js:301
-msgid "translator-credits"
-msgstr "Pau Iranzo <paugnu@gmail.com>"
-
-#: ../src/mainWindow.js:303
-msgid "A document manager application"
-msgstr "Una aplicació per gestionar documents"
-
-#: ../src/notifications.js:50
-msgid "Selected item has been deleted"
-msgid_plural "Selected items have been deleted"
-msgstr[0] "S'ha suprimit l'element seleccionat"
-msgstr[1] "S'han suprimit els elements seleccionats"
-
-#: ../src/notifications.js:57
-msgid "Undo"
-msgstr "Desfés"
-
-#: ../src/notifications.js:157
-#, javascript-format
-msgid "Printing “%s”: %s"
-msgstr "S'està imprimint «%s»: %s"
-
-#: ../src/notifications.js:213
-msgid "Your documents are being indexed"
-msgstr "S'estan indexant els documents"
-
-#: ../src/notifications.js:214
-msgid "Some documents might not be available during this process"
-msgstr "Alguns documents no estaran disponibles mentre duri este procés"
-
-#: ../src/notifications.js:236
-#, javascript-format
-msgid "Fetching documents from %s"
-msgstr "S'estan recollint els documents de %s"
-
-#: ../src/notifications.js:238
-msgid "Fetching documents from online accounts"
-msgstr "S'estan recollint els documents dels comptes en línia"
-
-#: ../src/password.js:46
-msgid "Password Required"
-msgstr "Requereix una contrasenya"
-
-#: ../src/password.js:49
-msgid "_Unlock"
-msgstr "_Desbloca"
-
-#: ../src/password.js:65
-#, javascript-format
-msgid "Document %s is locked and requires a password to be opened."
-msgstr "S'ha blocat el document %s i cal una contrasenya per obrir-lo."
-
-#: ../src/password.js:79
-msgid "_Password"
-msgstr "Contrase_nya"
-
-#: ../src/presentation.js:104
-msgid "Running in presentation mode"
-msgstr "S'utilitza el mode de presentació"
-
-#: ../src/presentation.js:157
-msgid "Present On"
-msgstr "Presentació en marxa"
-
-#: ../src/preview.js:588
-msgid "Bookmark this page"
-msgstr "Afig la pàgina a les adreces d'interés"
-
-#: ../src/preview.js:823 ../src/selections.js:857
-#, javascript-format
-msgid "Open with %s"
-msgstr "Obri amb %s"
-
-#: ../src/preview.js:885
-msgid "Find Previous"
-msgstr "Cerca l'anterior"
-
-#: ../src/preview.js:892
-msgid "Find Next"
-msgstr "Cerca el següent"
-
-#: ../src/properties.js:61 ../src/resources/preview-menu.ui.h:9
-#: ../src/selections.js:767
-msgid "Properties"
-msgstr "Propietats"
-
-#: ../src/properties.js:81
-msgctxt "Document Title"
-msgid "Title"
-msgstr "Títol"
-
-#: ../src/properties.js:90
-msgctxt "Document Author"
-msgid "Author"
-msgstr "Autor"
-
-#: ../src/properties.js:97
-msgid "Source"
-msgstr "Origen"
-
-#: ../src/properties.js:103
-msgid "Date Modified"
-msgstr "Data de modificació"
-
-#: ../src/properties.js:110
-msgid "Date Created"
-msgstr "Data de creació"
-
-#: ../src/properties.js:119
-msgctxt "Document Type"
-msgid "Type"
-msgstr "Tipus"
-
-#: ../src/resources/app-menu.ui.h:1
-msgid "Fullscreen"
-msgstr "Pantalla completa"
-
-#: ../src/resources/app-menu.ui.h:2
-msgid "Help"
-msgstr "Ajuda"
-
-#: ../src/resources/app-menu.ui.h:3
-msgid "About"
-msgstr "Quant a"
-
-#: ../src/resources/app-menu.ui.h:4
-msgid "Quit"
-msgstr "Ix"
-
-#: ../src/resources/preview-context-menu.ui.h:1
-msgid "_Copy"
-msgstr "_Copia"
-
-#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:747
-#: ../src/selections.js:860
-msgid "Open"
-msgstr "Obri"
-
-#: ../src/resources/preview-menu.ui.h:2
-msgid "Edit"
-msgstr "Edita"
-
-#: ../src/resources/preview-menu.ui.h:3
-msgid "Print…"
-msgstr "Imprimeix…"
-
-#: ../src/resources/preview-menu.ui.h:4
-msgid "Present"
-msgstr "Presentació"
-
-#: ../src/resources/preview-menu.ui.h:5
-msgid "Zoom In"
-msgstr "Amplia"
-
-#: ../src/resources/preview-menu.ui.h:6
-msgid "Zoom Out"
-msgstr "Redueix"
-
-#: ../src/resources/preview-menu.ui.h:7
-msgid "Rotate ↶"
-msgstr "Gira ↶"
-
-#: ../src/resources/preview-menu.ui.h:8
-msgid "Rotate ↷"
-msgstr "Gira ↷"
-
-#: ../src/resources/selection-menu.ui.h:1
-msgid "Select All"
-msgstr "Selecciona'ls tots"
-
-#: ../src/resources/selection-menu.ui.h:2
-msgid "Select None"
-msgstr "No en seleccionis cap"
-
-#: ../src/search.js:114
-msgid "Category"
-msgstr "Categoria"
-
-#: ../src/search.js:119 ../src/search.js:180 ../src/search.js:265
-#: ../src/search.js:421
-msgid "All"
-msgstr "Tot"
-
-#: ../src/search.js:125
-msgid "Favorites"
-msgstr "Preferits"
-
-#: ../src/search.js:130
-msgid "Shared with you"
-msgstr "Compartits"
-
-#: ../src/search.js:177
-msgctxt "Search Filter"
-msgid "Type"
-msgstr "Tipus"
-
-#: ../src/search.js:182
-msgid "Collections"
-msgstr "Col·leccions"
-
-#: ../src/search.js:186
-msgid "PDF Documents"
-msgstr "Documents PDF"
-
-#: ../src/search.js:190
-msgid "Presentations"
-msgstr "Presentacions"
-
-#: ../src/search.js:193
-msgid "Spreadsheets"
-msgstr "Fulls de càlcul"
-
-#: ../src/search.js:196
-msgid "Text Documents"
-msgstr "Documents de text"
-
-#: ../src/search.js:262
-msgid "Match"
-msgstr "Coincidència"
-
-#: ../src/search.js:268
-msgctxt "Search Filter"
-msgid "Title"
-msgstr "Títol"
-
-#: ../src/search.js:271
-msgctxt "Search Filter"
-msgid "Author"
-msgstr "Autor"
-
-#: ../src/search.js:417
-msgid "Sources"
-msgstr "Orígens"
-
-#: ../src/selections.js:461
-msgid "You don't have any collections yet. Enter a new collection name above."
-msgstr ""
-"Encara no teniu cap col·lecció. Poseu ací damunt el nom de la col·lecció "
-"nova."
-
-#: ../src/selections.js:604
-msgid "Create new collection"
-msgstr "Crea una col·lecció nova"
-
-#: ../src/selections.js:640
-msgctxt "Dialog Title"
-msgid "Collections"
-msgstr "Col·leccions"
-
-#: ../src/selections.js:752
-msgid "Print"
-msgstr "Imprimeix"
-
-#: ../src/selections.js:757
-msgid "Delete"
-msgstr "Suprimeix"
-
-#: ../src/selections.js:762
-msgid "Share"
-msgstr "Comparteix"
-
-#: ../src/selections.js:772
-msgid "Add to Collection"
-msgstr "Afig a la col·lecció"
-
-#: ../src/sharing.js:98
-msgid "Sharing Settings"
-msgstr "Paràmetres de compartició"
-
-#: ../src/sharing.js:102
-msgid "Done"
-msgstr "Fet"
-
-#: ../src/sharing.js:135
-msgid "Document permissions"
-msgstr "Permisos del document"
-
-#: ../src/sharing.js:142 ../src/sharing.js:320
-msgid "Change"
-msgstr "Canvia"
-
-#: ../src/sharing.js:166 ../src/sharing.js:295
-msgid "Private"
-msgstr "Privat"
-
-#: ../src/sharing.js:176 ../src/sharing.js:288
-msgid "Public"
-msgstr "Públic"
-
-#: ../src/sharing.js:180 ../src/sharing.js:290
-msgid "Everyone can edit"
-msgstr "Tothom pot editar"
-
-#: ../src/sharing.js:187
-msgid "Add people"
-msgstr "Afig persones"
-
-#: ../src/sharing.js:194
-msgid "Enter an email address"
-msgstr "Introduïu una adreça de correu electrònic"
-
-#: ../src/sharing.js:209 ../src/sharing.js:376
-msgid "Can edit"
-msgstr "Pot editar"
-
-#: ../src/sharing.js:209 ../src/sharing.js:379
-msgid "Can view"
-msgstr "Pot veure"
-
-#: ../src/sharing.js:216
-msgid "Add"
-msgstr "Addició"
-
-#: ../src/sharing.js:292
-msgid "Everyone can read"
-msgstr "Tothom pot llegir"
-
-#: ../src/sharing.js:307
-msgid "Save"
-msgstr "Guardat"
-
-#: ../src/sharing.js:373
-msgid "Owner"
-msgstr "Propietari"
-
-#: ../src/sharing.js:442
-#, javascript-format
-msgid "You can ask %s for access"
-msgstr "Podeu demanar-li a %s per accedir-hi"
-
-#: ../src/sharing.js:479 ../src/sharing.js:515 ../src/sharing.js:572
-#: ../src/sharing.js:589 ../src/sharing.js:608
-msgid "The document was not updated"
-msgstr "El document no s'ha actualitzat"
-
-#: ../src/shellSearchProvider.js:294
-msgid "Untitled Document"
-msgstr "Document sense títol"
-
-#: ../src/trackerController.js:170
-msgid "Unable to fetch the list of documents"
-msgstr "No es pot obtindre el llistat de documents"
-
-#: ../src/view.js:62 ../src/view.js:93
-msgid "Load More"
-msgstr "Carrega'n més"
-
-#: ../src/view.js:307
+#: src/overview.js:876
 msgid "Yesterday"
 msgstr "Ahir"
 
-#: ../src/view.js:309
+#: src/overview.js:878
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "fa %d dia"
 msgstr[1] "fa %d dies"
 
-#: ../src/view.js:313
+#: src/overview.js:882
 msgid "Last week"
 msgstr "Darrera setmana"
 
-#: ../src/view.js:315
+#: src/overview.js:884
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "Fa %d setmana"
 msgstr[1] "Fa %d setmanes"
 
-#: ../src/view.js:319
+#: src/overview.js:888
 msgid "Last month"
 msgstr "Darrer mes"
 
-#: ../src/view.js:321
+#: src/overview.js:890
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "Fa %d mes"
 msgstr[1] "Fa %d mesos"
 
-#: ../src/view.js:325
+#: src/overview.js:894
 msgid "Last year"
 msgstr "Darrer any"
 
-#: ../src/view.js:327
+#: src/overview.js:896
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "Fa %d any"
 msgstr[1] "Fa %d anys"
+
+#: src/password.js:42
+msgid "Password Required"
+msgstr "Requereix una contrasenya"
+
+#: src/password.js:45
+msgid "_Unlock"
+msgstr "_Desbloca"
+
+#: src/password.js:61
+#, javascript-format
+msgid "Document %s is locked and requires a password to be opened."
+msgstr "S'ha blocat el document %s i cal una contrasenya per obrir-lo."
+
+#: src/password.js:75
+msgid "_Password"
+msgstr "Contrase_nya"
+
+#: src/presentation.js:102
+msgid "Running in presentation mode"
+msgstr "S'utilitza el mode de presentació"
+
+#: src/presentation.js:130
+msgid "Present On"
+msgstr "Presentació en marxa"
+
+#. Translators: "Mirrored" describes when both displays show the same view
+#: src/presentation.js:166
+msgid "Mirrored"
+msgstr "Duplicat"
+
+#: src/presentation.js:168
+msgid "Primary"
+msgstr "Principal"
+
+#: src/presentation.js:170
+msgid "Off"
+msgstr "Desactivada"
+
+#: src/presentation.js:172
+msgid "Secondary"
+msgstr "Secundària"
+
+#. Translators: this is the Open action in a context menu
+#: src/preview.js:445 src/selections.js:985
+#, javascript-format
+msgid "Open with %s"
+msgstr "Obri amb %s"
+
+#: src/preview.js:770
+msgid "Find Previous"
+msgstr "Busca l'anterior"
+
+#: src/preview.js:776
+msgid "Find Next"
+msgstr "Busca el següent"
+
+#. Title item
+#. Translators: "Title" is the label next to the document title
+#. in the properties dialog
+#: src/properties.js:81
+msgctxt "Document Title"
+msgid "Title"
+msgstr "Títol"
+
+#. Translators: "Author" is the label next to the document author
+#. in the properties dialog
+#: src/properties.js:90
+msgctxt "Document Author"
+msgid "Author"
+msgstr "Autor"
+
+#. Source item
+#: src/properties.js:97
+msgid "Source"
+msgstr "Origen"
+
+#. Date Modified item
+#: src/properties.js:103
+msgid "Date Modified"
+msgstr "Data de modificació"
+
+#: src/properties.js:110
+msgid "Date Created"
+msgstr "Data de creació"
+
+#. Document type item
+#. Translators: "Type" is the label next to the document type
+#. (PDF, spreadsheet, ...) in the properties dialog
+#: src/properties.js:119
+msgctxt "Document Type"
+msgid "Type"
+msgstr "Tipus"
+
+#. Translators: "Type" refers to a search filter on the document type
+#. (PDF, spreadsheet, ...)
+#: src/search.js:120
+msgctxt "Search Filter"
+msgid "Type"
+msgstr "Tipus"
+
+#. Translators: this refers to documents
+#: src/search.js:123 src/search.js:260 src/search.js:453
+msgid "All"
+msgstr "Tot"
+
+#: src/search.js:136
+msgid "PDF Documents"
+msgstr "Documents PDF"
+
+#: src/search.js:143
+msgid "e-Books"
+msgstr "Llibres electrònics"
+
+#: src/search.js:147
+msgid "Comics"
+msgstr "Còmics"
+
+#: src/search.js:152
+msgid "Presentations"
+msgstr "Presentacions"
+
+#: src/search.js:155
+msgid "Spreadsheets"
+msgstr "Fulls de càlcul"
+
+#: src/search.js:158
+msgid "Text Documents"
+msgstr "Documents de text"
+
+#. Translators: this is a verb that refers to "All", "Title", "Author",
+#. and "Content" as in "Match All", "Match Title", "Match Author", and
+#. "Match Content"
+#: src/search.js:257
+msgid "Match"
+msgstr "Coincidència"
+
+#. Translators: "Title" refers to "Match Title" when searching
+#: src/search.js:263
+msgctxt "Search Filter"
+msgid "Title"
+msgstr "Títol"
+
+#. Translators: "Author" refers to "Match Author" when searching
+#: src/search.js:266
+msgctxt "Search Filter"
+msgid "Author"
+msgstr "Autor"
+
+#. Translators: "Content" refers to "Match Content" when searching
+#: src/search.js:269
+msgctxt "Search Filter"
+msgid "Content"
+msgstr "Contingut"
+
+#: src/search.js:449
+msgid "Sources"
+msgstr "Orígens"
+
+#. Translators: the first %s is an online account provider name,
+#. e.g. "Google". The second %s is the identity used to log in,
+#. e.g. "foo@gmail.com".
+#: src/search.js:508
+#, javascript-format
+msgid "%s (%s)"
+msgstr "%s (%s)"
+
+#: src/selections.js:360 src/selections.js:362
+msgid "Rename…"
+msgstr "Canvia el nom..."
+
+#: src/selections.js:366 src/selections.js:368
+msgid "Delete"
+msgstr "Suprimeix"
+
+#: src/selections.js:382
+#, javascript-format
+msgid "“%s” removed"
+msgstr "«%s» suprimit"
+
+#: src/selections.js:779
+msgid "Rename"
+msgstr "Canvia el nom"
+
+#. Translators: "Collections" refers to documents in this context
+#: src/selections.js:785
+msgctxt "Dialog Title"
+msgid "Collections"
+msgstr "Col·leccions"
+
+#: src/sharing.js:108
+msgid "Sharing Settings"
+msgstr "Paràmetres de compartició"
+
+#. Label for widget group for changing document permissions
+#: src/sharing.js:145
+msgid "Document permissions"
+msgstr "Permisos del document"
+
+#. Label for permission change in Sharing dialog
+#: src/sharing.js:152 src/sharing.js:330
+msgid "Change"
+msgstr "Canvia"
+
+#. Label for radiobutton that sets doc permission to private
+#: src/sharing.js:176 src/sharing.js:305
+msgid "Private"
+msgstr "Privat"
+
+#: src/sharing.js:186 src/sharing.js:298
+msgid "Public"
+msgstr "Públic"
+
+#. Label for checkbutton that sets doc permission to Can edit
+#: src/sharing.js:190 src/sharing.js:300
+msgid "Everyone can edit"
+msgstr "Tothom pot editar"
+
+#. Label for widget group used for adding new contacts
+#: src/sharing.js:197
+msgid "Add people"
+msgstr "Afig persones"
+
+#. Editable text in entry field
+#: src/sharing.js:204
+msgid "Enter an email address"
+msgstr "Introduïu una adreça electrònica"
+
+#: src/sharing.js:219 src/sharing.js:371
+msgid "Can edit"
+msgstr "Pot editar"
+
+#: src/sharing.js:219 src/sharing.js:374
+msgid "Can view"
+msgstr "Pot veure"
+
+#: src/sharing.js:302
+msgid "Everyone can read"
+msgstr "Tothom pot llegir"
+
+#: src/sharing.js:317
+msgid "Save"
+msgstr "Guardat"
+
+#: src/sharing.js:368
+msgid "Owner"
+msgstr "Propietari"
+
+#: src/sharing.js:437
+#, javascript-format
+msgid "You can ask %s for access"
+msgstr "Podeu demanar-li a %s per accedir-hi"
+
+#: src/sharing.js:474 src/sharing.js:510 src/sharing.js:567 src/sharing.js:584
+#: src/sharing.js:603
+msgid "The document was not updated"
+msgstr "El document no s'ha actualitzat"
+
+#: src/shellSearchProvider.js:285
+msgid "Untitled Document"
+msgstr "Document sense títol"
+
+#: src/trackerController.js:176
+msgid "Unable to fetch the list of documents"
+msgstr "No es pot obtindre el llistat de documents"
+
+#~ msgid "LibreOffice is required to view this document"
+#~ msgstr "Fa falta el LibreOffice per veure aquest document"
+
+#~ msgid "Category"
+#~ msgstr "Categoria"
+
+#~ msgid "Favorites"
+#~ msgstr "Preferits"
+
+#~ msgid "Shared with you"
+#~ msgstr "Compartits"
+
+#~ msgid "Recent"
+#~ msgstr "Recent"
+
+#~ msgid ""
+#~ "You don't have any collections yet. Enter a new collection name above."
+#~ msgstr ""
+#~ "Encara no teniu cap col·lecció. Poseu aquí damunt el nom de la col·lecció "
+#~ "nova."
+
+#~ msgid "Create new collection"
+#~ msgstr "Crea una col·lecció nova"
+
+#~ msgid "Print"
+#~ msgstr "Imprimeix"
+
+#~ msgid "Share"
+#~ msgstr "Comparteix"
+
+#~ msgid "Add to Collection"
+#~ msgstr "Afegeix a la col·lecció"
+
+#~ msgid "You can add your online accounts in %s"
+#~ msgstr "Podeu afegir els vostres comptes en línia a %s"
+
+#~ msgid "Settings"
+#~ msgstr "Paràmetres"
+
+#~ msgid "Load More"
+#~ msgstr "Carrega'n més"
