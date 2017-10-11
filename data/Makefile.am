@@ -24,13 +24,13 @@ resource_DATA = org.gnome.Documents.data.gresource org.gnome.Books.data.gresourc
 metainfodir = $(datadir)/metainfo
 metainfo_DATA = $(metainfo_in_files:.xml.in=.xml)
 metainfo_in_files = \
-	org.gnome.Documents.metainfo.xml.in \
-	org.gnome.Books.metainfo.xml.in
+	org.gnome.Documents.appdata.xml.in \
+	org.gnome.Books.appdata.xml.in
 
-org.gnome.Books.metainfo.xml: org.gnome.Books.metainfo.xml.in
+org.gnome.Books.appdata.xml: org.gnome.Books.appdata.xml.in
 	$(AM_V_GEN)$(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
 
-org.gnome.Documents.metainfo.xml: org.gnome.Documents.metainfo.xml.in
+org.gnome.Documents.appdata.xml: org.gnome.Documents.appdata.xml.in
 	$(AM_V_GEN)$(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
 
 desktopdir = $(datadir)/applications

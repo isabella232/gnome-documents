@@ -54,16 +54,16 @@ foreach resource: resources
   )
 endforeach
 
-infos = [
-  'org.gnome.Books.metainfo.xml',
-  'org.gnome.Documents.metainfo.xml'
+appdatas = [
+  'org.gnome.Books.appdata.xml',
+  'org.gnome.Documents.appdata.xml'
 ]
 
-foreach info: infos
+foreach appdata: appdatas
   i18n.merge_file(
-    info,
-    input: info + '.in',
-    output: info,
+    appdata,
+    input: appdata + '.in',
+    output: appdata,
     po_dir: po_dir,
     install: true,
     install_dir: join_paths(documents_datadir, 'metainfo')
