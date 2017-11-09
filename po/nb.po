@@ -5,11 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-documents 3.26.x\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-09-25 09:48+0000\n"
-"PO-Revision-Date: 2017-11-05 12:52+0100\n"
+"Project-Id-Version: gnome-documents 3.27.x\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-documents&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-11-05 11:53+0000\n"
+"PO-Revision-Date: 2017-11-09 19:53+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -18,16 +17,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: data/org.gnome.Books.appdata.xml.in:7 data/org.gnome.Books.desktop.in:3
+#: data/org.gnome.Books.metainfo.xml.in:7 data/org.gnome.Books.desktop.in:3
 #: src/application.js:112 src/overview.js:1052
 msgid "Books"
 msgstr "Bøker"
 
-#: data/org.gnome.Books.appdata.xml.in:8
+#: data/org.gnome.Books.metainfo.xml.in:8
 msgid "An e-book manager application for GNOME"
 msgstr "Et program for å håndtere e-bøker for GNOME"
 
-#: data/org.gnome.Books.appdata.xml.in:10
+#: data/org.gnome.Books.metainfo.xml.in:10
 msgid ""
 "A simple application to access and organize your e-books on GNOME. It is "
 "meant to be a simple and elegant replacement for using a file manager to "
@@ -37,29 +36,29 @@ msgstr ""
 "være en enkel og elegant erstatning for å håndtere e-bøker med en "
 "filhåndterer."
 
-#: data/org.gnome.Books.appdata.xml.in:15
-#: data/org.gnome.Documents.appdata.xml.in:16
+#: data/org.gnome.Books.metainfo.xml.in:15
+#: data/org.gnome.Documents.metainfo.xml.in:16
 msgid "It lets you:"
 msgstr "Det lar deg:"
 
-#: data/org.gnome.Books.appdata.xml.in:17
+#: data/org.gnome.Books.metainfo.xml.in:17
 msgid "View recent e-books"
 msgstr "Vis nylige e-bøker"
 
-#: data/org.gnome.Books.appdata.xml.in:18
+#: data/org.gnome.Books.metainfo.xml.in:18
 msgid "Search through e-books"
 msgstr "Søk i e-bøker"
 
-#: data/org.gnome.Books.appdata.xml.in:19
+#: data/org.gnome.Books.metainfo.xml.in:19
 msgid "View e-books (PDF and comics) fullscreen"
 msgstr "Vis e-bøker (PDF og tegneserier) i fullskjerm"
 
-#: data/org.gnome.Books.appdata.xml.in:20
+#: data/org.gnome.Books.metainfo.xml.in:20
 msgid "Print e-books"
 msgstr "Skriv ut e-bøker"
 
-#: data/org.gnome.Books.appdata.xml.in:32
-#: data/org.gnome.Documents.appdata.xml.in:39
+#: data/org.gnome.Books.metainfo.xml.in:32
+#: data/org.gnome.Documents.metainfo.xml.in:39
 msgid "The GNOME Project"
 msgstr "GNOME prosjektet"
 
@@ -125,17 +124,17 @@ msgstr "Nattmodus"
 msgid "Whether the application is in night mode."
 msgstr "Hvorvidt programmet er i nattmodus."
 
-#: data/org.gnome.Documents.appdata.xml.in:7
+#: data/org.gnome.Documents.metainfo.xml.in:7
 #: data/org.gnome.Documents.desktop.in:3 src/application.js:115
 #: src/overview.js:1052
 msgid "Documents"
 msgstr "Dokumenter"
 
-#: data/org.gnome.Documents.appdata.xml.in:8
+#: data/org.gnome.Documents.metainfo.xml.in:8
 msgid "A document manager application for GNOME"
 msgstr "Et program for å håndtere dokumenter i GNOME"
 
-#: data/org.gnome.Documents.appdata.xml.in:10
+#: data/org.gnome.Documents.metainfo.xml.in:10
 msgid ""
 "A simple application to access, organize and share your documents on GNOME. "
 "It is meant to be a simple and elegant replacement for using a file manager "
@@ -147,35 +146,35 @@ msgstr ""
 "med en filhåndterer. Sømløs integrasjon med skytjenester gis via «Kontoer på "
 "nettet» i GNOME."
 
-#: data/org.gnome.Documents.appdata.xml.in:18
+#: data/org.gnome.Documents.metainfo.xml.in:18
 msgid "View recent local and online documents"
 msgstr "vis nylige dokumenter lokalt og på nettet"
 
-#: data/org.gnome.Documents.appdata.xml.in:19
+#: data/org.gnome.Documents.metainfo.xml.in:19
 msgid "Access your Google, ownCloud or OneDrive content"
 msgstr "Vis ditt innhold på Google, ownCloud eller OneDrive"
 
-#: data/org.gnome.Documents.appdata.xml.in:20
+#: data/org.gnome.Documents.metainfo.xml.in:20
 msgid "Search through documents"
 msgstr "Søk gjennom dokumenter"
 
-#: data/org.gnome.Documents.appdata.xml.in:21
+#: data/org.gnome.Documents.metainfo.xml.in:21
 msgid "See new documents shared by friends"
 msgstr "Se nye dokumenter som deles av dine venner"
 
-#: data/org.gnome.Documents.appdata.xml.in:22
+#: data/org.gnome.Documents.metainfo.xml.in:22
 msgid "View documents fullscreen"
 msgstr "Vis dokumenter på hele skjermen"
 
-#: data/org.gnome.Documents.appdata.xml.in:23
+#: data/org.gnome.Documents.metainfo.xml.in:23
 msgid "Print documents"
 msgstr "Skriv ut dokumenter"
 
-#: data/org.gnome.Documents.appdata.xml.in:24
+#: data/org.gnome.Documents.metainfo.xml.in:24
 msgid "Select favorites"
 msgstr "Velg favoritter"
 
-#: data/org.gnome.Documents.appdata.xml.in:25
+#: data/org.gnome.Documents.metainfo.xml.in:25
 msgid "Allow opening full featured editor for non-trivial changes"
 msgstr "Tillat åpning av et redigeringsprogram for å gjøre avanserte endringer"
 
@@ -281,7 +280,7 @@ msgstr "Kopier valgt tekst til utklippstavlen"
 
 #: data/ui/help-overlay.ui:106
 msgctxt "shortcut window"
-msgid "Rotate anti-clockwise"
+msgid "Rotate counterclockwise"
 msgstr "Roter mot klokken"
 
 #: data/ui/help-overlay.ui:113
@@ -327,6 +326,11 @@ msgstr "Ny samling …"
 #: data/ui/organize-collection-dialog.ui:122 src/sharing.js:226
 msgid "Add"
 msgstr "Legg til"
+
+#: data/ui/organize-collection-dialog.ui:163 data/ui/selection-toolbar.ui:88
+#: src/overview.js:1056 src/search.js:126 src/search.js:132
+msgid "Collections"
+msgstr "Samlinger"
 
 #: data/ui/organize-collection-dialog.ui:167 src/overview.js:616
 msgid "Cancel"
@@ -391,11 +395,6 @@ msgstr "Velg alle"
 #: data/ui/selection-menu.ui:11
 msgid "Select None"
 msgstr "Velg ingen"
-
-#: data/ui/selection-toolbar.ui:88 src/overview.js:1056 src/search.js:126
-#: src/search.js:132
-msgid "Collections"
-msgstr "Samlinger"
 
 #: data/ui/view-menu.ui:23
 msgid "View items as a grid of icons"
