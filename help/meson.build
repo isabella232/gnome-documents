@@ -19,45 +19,9 @@ media = [
   'media/icon_gnome-documents.png'
 ]
 
-linguas = [
-  'as',
-  'ca',
-  'cs',
-  'de',
-  'el',
-  'fi',
-  'fr',
-  'es',
-  'gl',
-  'gu',
-  'hi',
-  'hu',
-  'id',
-  'it',
-  'ja',
-  'kn',
-  'ko',
-  'lv',
-  'mr',
-  'nl',
-  'pa',
-  'pl',
-  'pt_BR',
-  'ru',
-  'sl',
-  'sr',
-  'sr@latin',
-  'sv',
-  'te',
-  'vi',
-  'ta',
-  'zh_CN'
-]
-
 gnome.yelp(
   meson.project_name(),
   sources: sources,
   media: media,
-  symlink_media: true,
-  languages: linguas
+  symlink_media: true
 )
