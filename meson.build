@@ -160,11 +160,11 @@ subdir('src')
 subdir('data')
 subdir('po')
 
-if get_option('enable-documentation')
+if get_option('documentation')
   subdir('man')
 endif
 
-if get_option('enable-getting-started')
+if get_option('getting_started')
   subdir('getting-started')
 endif
 
