@@ -31,7 +31,7 @@ const Preview = imports.preview;
 
 const _BLANK_URI = "about:blank";
 
-const EditView = new Lang.Class({
+var EditView = new Lang.Class({
     Name: 'EditView',
     Extends: Preview.Preview,
 

@@ -25,7 +25,7 @@ const Application = imports.application;
 
 const Lang = imports.lang;
 
-const PlacesDialog = new Lang.Class({
+var PlacesDialog = new Lang.Class({
     Name: 'PlacesDialog',
     Extends: Gtk.Dialog,
 
