@@ -28,6 +28,7 @@ pkg.initSubmodule('src');
 pkg.require({ 'EvinceDocument': '3.0',
               'Gd': '1.0',
               'GdPrivate': '1.0',
+              'Gepub': '0.5',
               'Gio': '2.0',
               'GLib': '2.0',
               'Goa': '1.0',
