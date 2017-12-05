@@ -68,7 +68,7 @@ const DocumentUpdateType = {
     DELETE_SHARE_LINK: 4
 };
 
-const SharingDialog = new Lang.Class({
+var SharingDialog = new Lang.Class({
     Name: 'SharingDialog',
     Extends: Gtk.Dialog,
 

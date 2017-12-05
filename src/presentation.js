@@ -111,7 +111,7 @@ var PresentationWindow = new Lang.Class({
     }
 });
 
-const PresentationOutputChooser = new Lang.Class({
+var PresentationOutputChooser = new Lang.Class({
     Name: 'PresentationOutputChooser',
     Extends: Gtk.Dialog,
     Signals: {

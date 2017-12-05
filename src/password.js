@@ -26,7 +26,7 @@ const Application = imports.application;
 
 const Lang = imports.lang;
 
-const PasswordDialog = new Lang.Class({
+var PasswordDialog = new Lang.Class({
     Name: 'PasswordDialog',
     Extends: Gtk.Dialog,
 
