@@ -25,7 +25,6 @@ const Gtk = imports.gi.Gtk;
 const _ = imports.gettext.gettext;
 
 const Lang = imports.lang;
-const Utils = imports.utils;
 
 const Application = imports.application;
 

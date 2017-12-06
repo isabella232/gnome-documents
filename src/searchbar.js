@@ -27,7 +27,6 @@ const Lang = imports.lang;
 
 const Application = imports.application;
 const Manager = imports.manager;
-const Utils = imports.utils;
 
 var Searchbar = new Lang.Class({
     Name: 'Searchbar',
