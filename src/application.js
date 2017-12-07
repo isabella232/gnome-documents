@@ -420,9 +420,16 @@ var Application = new Lang.Class({
         Utils.populateActionGroup(this, actionEntries, 'app');
     },
 
-    _createWindow: function() {
-        if (this._mainWindow)
+    _createWindow: function(callback) {
+        if (this._mainWindow) {
+            Mainloop.idle_add(Lang.bind(this,
+                function() {
+                    callback();
+                    return GLib.SOURCE_REMOVE;
+                }));
+
             return;
+        }
 
         if (!this.isBooks)
             this._initGettingStarted();
@@ -440,6 +447,20 @@ var Application = new Lang.Class({
 
         // start miners
         this._startMiners();
+
+        Mainloop.idle_add(Lang.bind(this,
+            function() {
+                callback();
+                return GLib.SOURCE_REMOVE;
+            }));
+    },
+
+    _presentWindow: function() {
+        if (!this._mainWindow)
+            throw(new Error('this._mainWindow == null'));
+
+        this._mainWindow.present_with_time(this._activationTimestamp);
+        this._activationTimestamp = Gdk.CURRENT_TIME;
     },
 
     vfunc_dbus_register: function(connection, path) {
@@ -482,12 +503,14 @@ var Application = new Lang.Class({
 
     vfunc_activate: function() {
         if (!this._mainWindow) {
-            this._createWindow();
-            modeController.setWindowMode(WindowMode.WindowMode.DOCUMENTS);
+            this._createWindow(Lang.bind(this,
+                function() {
+                    modeController.setWindowMode(WindowMode.WindowMode.DOCUMENTS);
+                    this._presentWindow();
+                }));
+        } else {
+            this._presentWindow();
         }
-
-        this._mainWindow.present_with_time(this._activationTimestamp);
-        this._activationTimestamp = Gdk.CURRENT_TIME;
     },
 
     _clearState: function() {
@@ -526,21 +549,22 @@ var Application = new Lang.Class({
     },
 
     _onActivateResult: function(provider, urn, terms, timestamp) {
-        this._createWindow();
-
-        let doc = documentManager.getItemById(urn);
-        if (doc) {
-            doActivate.apply(this, [doc]);
-        } else {
-            let job = new TrackerUtils.SingleItemJob(urn, queryBuilder);
-            job.run(Query.QueryFlags.UNFILTERED, Lang.bind(this,
-                function(cursor) {
-                    if (cursor)
-                        doc = documentManager.addDocumentFromCursor(cursor);
-
+        this._createWindow(Lang.bind(this,
+            function() {
+                let doc = documentManager.getItemById(urn);
+                if (doc) {
                     doActivate.apply(this, [doc]);
-                }));
-        }
+                } else {
+                    let job = new TrackerUtils.SingleItemJob(urn, queryBuilder);
+                    job.run(Query.QueryFlags.UNFILTERED, Lang.bind(this,
+                        function(cursor) {
+                            if (cursor)
+                                doc = documentManager.addDocumentFromCursor(cursor);
+
+                            doActivate.apply(this, [doc]);
+                        }));
+                }
+            }));
 
         function doActivate(doc) {
             documentManager.setActiveItem(doc);
@@ -560,12 +584,14 @@ var Application = new Lang.Class({
     },
 
     _onLaunchSearch: function(provider, terms, timestamp) {
-        this._createWindow();
-        modeController.setWindowMode(WindowMode.WindowMode.DOCUMENTS);
-        searchController.setString(terms.join(' '));
+        this._createWindow(Lang.bind(this,
+            function() {
+                modeController.setWindowMode(WindowMode.WindowMode.DOCUMENTS);
+                searchController.setString(terms.join(' '));
 
-        this._activationTimestamp = timestamp;
-        this.activate();
+                this._activationTimestamp = timestamp;
+                this.activate();
+            }));
     },
 
     getScaleFactor: function() {
