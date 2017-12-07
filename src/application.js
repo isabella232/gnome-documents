@@ -417,15 +417,15 @@ var Application = new Lang.Class({
               state: settings.get_value('night-mode') },
         ];
 
-        if (!this.isBooks)
-            this._initGettingStarted();
-
         Utils.populateActionGroup(this, actionEntries, 'app');
     },
 
     _createWindow: function() {
         if (this._mainWindow)
             return;
+
+        if (!this.isBooks)
+            this._initGettingStarted();
 
         notificationManager = new Notifications.NotificationManager();
         this._mainWindow = new MainWindow.MainWindow(this);
