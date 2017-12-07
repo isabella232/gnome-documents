@@ -547,7 +547,7 @@ const PreviewFullscreenToolbar = new Lang.Class({
 });
 
 const _AUTO_HIDE_TIMEOUT = 2;
-const PREVIEW_NAVBAR_MARGIN = 30;
+var PREVIEW_NAVBAR_MARGIN = 30;
 
 var PreviewNavControls = new Lang.Class({
     Name: 'PreviewNavControls',
