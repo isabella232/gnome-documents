@@ -234,7 +234,8 @@ const TrackerController = new Lang.Class({
     },
 
     _refreshInternal: function(flags) {
-        this._isStarted = true;
+        if (!this._isStarted)
+            throw(new Error('!this._isStarted'));
 
         if (flags & RefreshFlags.RESET_OFFSET)
             this._offsetController.resetOffset();
@@ -294,6 +295,7 @@ const TrackerController = new Lang.Class({
         if (this._isStarted)
             return;
 
+        this._isStarted = true;
         this._refreshInternal(RefreshFlags.NONE);
     }
 });
