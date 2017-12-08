@@ -127,6 +127,9 @@ var Application = new Lang.Class({
     },
 
     _initGettingStarted: function() {
+        if (this.isBooks)
+            return;
+
         let manager = TrackerControl.MinerManager.new_full(false);
 
         let languages = GLib.get_language_names();
@@ -433,8 +436,7 @@ var Application = new Lang.Class({
             return;
         }
 
-        if (!this.isBooks)
-            this._initGettingStarted();
+        this._initGettingStarted();
 
         notificationManager = new Notifications.NotificationManager();
         this._mainWindow = new MainWindow.MainWindow(this);
