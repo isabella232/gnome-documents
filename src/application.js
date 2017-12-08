@@ -153,19 +153,21 @@ var Application = new Lang.Class({
                 function(object, res) {
                     try {
                         let info = object.query_info_finish(res);
-                        this.gettingStartedLocation = file.get_parent();
-
-                        manager.index_file_async(file, null,
-                            function(object, res) {
-                                try {
-                                    manager.index_file_finish(res);
-                                } catch (e) {
-                                    logError(e, 'Error indexing the getting started PDF');
-                                }
-                            });
                     } catch (e) {
                         checkNextFile.apply(this);
+                        return;
                     }
+
+                    this.gettingStartedLocation = file.get_parent();
+
+                    manager.index_file_async(file, null,
+                        function(object, res) {
+                            try {
+                                manager.index_file_finish(res);
+                            } catch (e) {
+                                logError(e, 'Error indexing the getting started PDF');
+                            }
+                        });
                 }));
         }
 
