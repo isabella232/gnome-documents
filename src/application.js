@@ -126,9 +126,16 @@ var Application = new Lang.Class({
                              _("Show the version of the program"), null);
     },
 
-    _initGettingStarted: function() {
-        if (this.isBooks)
+    _initGettingStarted: function(callback) {
+        if (this.isBooks) {
+            Mainloop.idle_add(Lang.bind(this,
+                function() {
+                    callback();
+                    return GLib.SOURCE_REMOVE;
+                }));
+
             return;
+        }
 
         let manager = TrackerControl.MinerManager.new_full(false);
 
@@ -145,6 +152,7 @@ var Application = new Lang.Class({
             let file = files.shift();
             if (!file) {
                 log('Can\'t find a valid getting started PDF document');
+                callback();
                 return;
             }
 
@@ -170,11 +178,17 @@ var Application = new Lang.Class({
                             } catch (e) {
                                 logError(e, 'Error indexing the getting started PDF');
                             }
+
+                            callback();
                         });
                 }));
         }
 
-        checkNextFile.apply(this);
+        Mainloop.idle_add(Lang.bind(this,
+            function() {
+                checkNextFile.apply(this);
+                return GLib.SOURCE_REMOVE;
+            }));
     },
 
     _nightModeCreateHook: function(action) {
@@ -436,26 +450,25 @@ var Application = new Lang.Class({
             return;
         }
 
-        this._initGettingStarted();
-
-        notificationManager = new Notifications.NotificationManager();
-        this._mainWindow = new MainWindow.MainWindow(this);
-        this._mainWindow.connect('destroy', Lang.bind(this, this._onWindowDestroy));
-
-        try {
-            this._extractPriority = TrackerExtractPriority();
-            this._extractPriority.SetRdfTypesRemote(['nfo:Document']);
-        } catch (e) {
-            logError(e, 'Unable to connect to the tracker extractor');
-        }
-
-        // start miners
-        this._startMiners();
-
-        Mainloop.idle_add(Lang.bind(this,
+        this.hold();
+        this._initGettingStarted(Lang.bind(this,
             function() {
+                this.release();
+                notificationManager = new Notifications.NotificationManager();
+                this._mainWindow = new MainWindow.MainWindow(this);
+                this._mainWindow.connect('destroy', Lang.bind(this, this._onWindowDestroy));
+
+                try {
+                    this._extractPriority = TrackerExtractPriority();
+                    this._extractPriority.SetRdfTypesRemote(['nfo:Document']);
+                } catch (e) {
+                    logError(e, 'Unable to connect to the tracker extractor');
+                }
+
+                // start miners
+                this._startMiners();
+
                 callback();
-                return GLib.SOURCE_REMOVE;
             }));
     },
 
