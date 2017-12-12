@@ -283,6 +283,10 @@ const TrackerController = new Lang.Class({
             return;
 
         this.sortBy = sortBy;
+
+        if (!this._isStarted)
+            return;
+
         this._refreshInternal(RefreshFlags.RESET_OFFSET);
     },
 
