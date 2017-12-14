@@ -279,7 +279,7 @@ const DocCommon = new Lang.Class({
     },
 
     _sanitizeTitle: function() {
-        this.name = this.name.replace('Microsoft Word - ', '', 'g');
+        this.name = this.name.replace(/Microsoft Word - /g, '');
     },
 
     populateFromCursor: function(cursor) {
