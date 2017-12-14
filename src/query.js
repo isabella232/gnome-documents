@@ -49,8 +49,8 @@ var QueryFlags = {
     SEARCH: 1 << 3
 };
 
-const LOCAL_BOOKS_COLLECTIONS_IDENTIFIER = 'gb:collection:local:';
-const LOCAL_DOCUMENTS_COLLECTIONS_IDENTIFIER = 'gd:collection:local:';
+var LOCAL_BOOKS_COLLECTIONS_IDENTIFIER = 'gb:collection:local:';
+var LOCAL_DOCUMENTS_COLLECTIONS_IDENTIFIER = 'gd:collection:local:';
 
 var QueryBuilder = new Lang.Class({
     Name: 'QueryBuilder',
