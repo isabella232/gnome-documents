@@ -199,7 +199,7 @@ var QueryBuilder = new Lang.Class({
 
     buildSingleQuery: function(flags, resource) {
         let sparql = this._buildQueryInternal(false, flags, null);
-        sparql = sparql.replace('?urn', '<' + resource + '>', 'g');
+        sparql = sparql.replace(/\?urn/g, '<' + resource + '>');
 
         return this._createQuery(sparql);
     },
@@ -223,7 +223,7 @@ var QueryBuilder = new Lang.Class({
              'tracker:coalesce(nfo:fileLastModified(?urn), nie:contentLastModified(?urn)) AS ?mtime ' +
              'WHERE { ?urn nie:isPartOf ?collUrn } ' +
              'ORDER BY DESC (?mtime)' +
-             'LIMIT 4').replace('?collUrn', '<' + resource + '>');
+             'LIMIT 4').replace(/\?collUrn/, '<' + resource + '>');
 
         return this._createQuery(sparql);
     },
@@ -234,7 +234,7 @@ var QueryBuilder = new Lang.Class({
             ('SELECT ' +
              '?urn ' +
              'WHERE { ?urn a nfo:DataContainer . ?docUrn nie:isPartOf ?urn }'
-            ).replace('?docUrn', '<' + resource + '>');
+            ).replace(/\?docUrn/, '<' + resource + '>');
 
         return this._createQuery(sparql);
     },
