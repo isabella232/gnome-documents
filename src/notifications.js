@@ -31,7 +31,7 @@ const WindowMode = imports.windowMode;
 const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 
-const DELETE_TIMEOUT = 10; // seconds
+var DELETE_TIMEOUT = 10; // seconds
 
 var DeleteNotification = new Lang.Class({
     Name: 'DeleteNotification',
