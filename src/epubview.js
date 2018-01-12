@@ -68,6 +68,7 @@ var EPUBView = new Lang.Class({
 
     createView: function() {
         let view = new Gepub.Widget();
+        view.paginate = true;
 
         let fc = view.get_find_controller();
         fc.connect('found-text', Lang.bind(this, function(view, matchCount, data) {
@@ -137,11 +138,11 @@ var EPUBView = new Lang.Class({
     },
 
     goPrev: function() {
-        this._epubdoc.go_prev();
+        this.view.page_prev();
     },
 
     goNext: function() {
-        this._epubdoc.go_next();
+        this.view.page_next();
     },
 
     get hasPages() {
