@@ -130,7 +130,7 @@ AX_CHECK_GIRS_GJS([Tracker], [2.0])
 AX_CHECK_GIRS_GJS([TrackerControl], [2.0])
 AX_CHECK_GIRS_GJS([WebKit2], [4.0])
 AX_CHECK_GIRS_GJS([Zpj], [0.0])
-AX_CHECK_GIRS_GJS([Gepub], [0.5])
+AX_CHECK_GIRS_GJS([Gepub], [0.6])
 
 GLIB_COMPILE_RESOURCES=`$PKG_CONFIG --variable glib_compile_resources gio-2.0`
 AC_SUBST(GLIB_COMPILE_RESOURCES)

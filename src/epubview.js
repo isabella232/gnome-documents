@@ -95,7 +95,7 @@ var EPUBView = new Lang.Class({
         this._epubdoc.init(null);
 
         this.view.doc = this._epubdoc;
-        this._epubdoc.connect('notify::page', Lang.bind(this, this._onPageChanged));
+        this._epubdoc.connect('notify::chapter', Lang.bind(this, this._onChapterChanged));
 
         this._metadata = this._loadMetadata();
 
@@ -112,13 +112,13 @@ var EPUBView = new Lang.Class({
 
         let [res, val] = metadata.get_int('page');
         if (res)
-            this._epubdoc.page = val;
+            this._epubdoc.chapter = val;
 
         return metadata;
     },
 
-    _onPageChanged: function() {
-        let pageNumber = this._epubdoc.page;
+    _onChapterChanged: function() {
+        let pageNumber = this._epubdoc.chapter;
         if (this._metadata)
             this._metadata.set_int('page', pageNumber);
     },
@@ -145,15 +145,15 @@ var EPUBView = new Lang.Class({
     },
 
     get hasPages() {
-        return this._epubdoc ? this._epubdoc.get_n_pages() > 0 : false;
+        return this._epubdoc ? this._epubdoc.get_n_chapters() > 0 : false;
     },
 
     get page() {
-        return this._epubdoc ? this._epubdoc.get_page() : 0;
+        return this._epubdoc ? this._epubdoc.get_chapter() : 0;
     },
 
     get numPages() {
-        return this._epubdoc ? this._epubdoc.get_n_pages() : 0;
+        return this._epubdoc ? this._epubdoc.get_n_chapters() : 0;
     },
 
     get canFullscreen() {
@@ -214,7 +214,7 @@ const EPUBViewNavControls = new Lang.Class({
 
         if (this._epubdoc != null) {
             this._level.set_range(1.0, this.preview.numPages);
-            this._epubdoc.connect('notify::page', Lang.bind(this, function() {
+            this._epubdoc.connect('notify::chapter', Lang.bind(this, function() {
                 this._updatePage();
                 this._updateVisibility();
             }));
@@ -245,7 +245,7 @@ const EPUBViewNavControls = new Lang.Class({
         barWidget.pack_start(this._level, true, true, 5);
         this._level.connect('value-changed', Lang.bind(this, function() {
             if (this._epubdoc != null)
-                this._epubdoc.set_page(this._level.get_value() - 1);
+                this._epubdoc.set_chapter(this._level.get_value() - 1);
         }));
 
         return barWidget;
