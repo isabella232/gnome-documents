@@ -2,119 +2,1027 @@
 # Copyright (C) 2011 gnome-documents's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-documents package.
 # F Wolff <friedel@translate.org.za>, 2011.
+# Pieter Schoeman <pieter@sonbesie.co.za>, 2018.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-09-26 06:07+0000\n"
-"PO-Revision-Date: 2011-09-26 09:59+0200\n"
-"Last-Translator: F Wolff <friedel@translate.org.za>\n"
-"Language-Team: translate-discuss-af@lists.sourceforge.net\n"
+"POT-Creation-Date: 2017-12-06 07:48+0000\n"
+"PO-Revision-Date: 2018-01-20 15:04+0200\n"
+"Last-Translator: Pieter Schoeman <pieter@sonbesie.co.za>\n"
+"Language-Team: Afrikaans <pieter@sonbesie.co.za>\n"
 "Language: af\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1-rc1\n"
+"X-Generator: Poedit 2.0.3\n"
 "X-DamnedLies-Scope: partial\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1
-msgid "Access, manage and share documents"
-msgstr "Bekyk, bestuur en deel dokumente"
+#: data/org.gnome.Books.appdata.xml.in:7 data/org.gnome.Books.desktop.in:3
+#: src/application.js:112 src/overview.js:1052
+msgid "Books"
+msgstr "Boeke"
 
-#: ../data/gnome-documents.desktop.in.in.h:2 ../src/mainWindow.js:47
+#: data/org.gnome.Books.appdata.xml.in:8
+msgid "An e-book manager application for GNOME"
+msgstr "'n E-boekbestuurder vir GNOME"
+
+#: data/org.gnome.Books.appdata.xml.in:10
+msgid ""
+"A simple application to access and organize your e-books on GNOME. It is "
+"meant to be a simple and elegant replacement for using a file manager to "
+"deal with e-books."
+msgstr ""
+"'n Eenvoudige toepassing om e-boeke in GNOME te vertoon en organiseer. Dit "
+"is ontwikkel as 'n elegante plaasvervanger vir die gebruik van 'n "
+"lêerbestuurder om met e-boeke te werk."
+
+#: data/org.gnome.Books.appdata.xml.in:15
+#: data/org.gnome.Documents.appdata.xml.in:16
+msgid "It lets you:"
+msgstr "Dit stel jou in staat om:"
+
+#: data/org.gnome.Books.appdata.xml.in:17
+msgid "View recent e-books"
+msgstr "Na onlangse e-boeke te kyk"
+
+#: data/org.gnome.Books.appdata.xml.in:18
+msgid "Search through e-books"
+msgstr "Deur e-boeke te soek"
+
+#: data/org.gnome.Books.appdata.xml.in:19
+msgid "View e-books (PDF and comics) fullscreen"
+msgstr "Na e-boeke (PDF en strokiesprente) in volskermmodus te kyk"
+
+#: data/org.gnome.Books.appdata.xml.in:20
+msgid "Print e-books"
+msgstr "E-boeke te druk"
+
+#: data/org.gnome.Books.appdata.xml.in:32
+#: data/org.gnome.Documents.appdata.xml.in:39
+msgid "The GNOME Project"
+msgstr "Die GNOME Projek"
+
+#: data/org.gnome.Books.desktop.in:4
+msgid "Access, manage and share books"
+msgstr "Vertoon, bestuur en deel boeke"
+
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.Books.desktop.in:7
+msgid "org.gnome.Books"
+msgstr "org.gnome.Books"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Books.desktop.in:15
+msgid "Books;Comics;ePub;PDF;"
+msgstr "Boeke;Strokiesprente;ePub;PDF;"
+
+#: data/org.gnome.books.gschema.xml:5 data/org.gnome.documents.gschema.xml:5
+msgid "View as"
+msgstr "Vertoon as"
+
+#: data/org.gnome.books.gschema.xml:6 data/org.gnome.documents.gschema.xml:6
+msgid "View as type"
+msgstr "Vertoon as tipe"
+
+#: data/org.gnome.books.gschema.xml:10 data/org.gnome.documents.gschema.xml:10
+msgid "Sort by"
+msgstr "Sorteer volgens"
+
+#: data/org.gnome.books.gschema.xml:11 data/org.gnome.documents.gschema.xml:11
+msgid "Sort by type"
+msgstr "Sorteer volgens tipe"
+
+#: data/org.gnome.books.gschema.xml:15 data/org.gnome.documents.gschema.xml:15
+msgid "Window size"
+msgstr "Venstergrootte"
+
+#: data/org.gnome.books.gschema.xml:16 data/org.gnome.documents.gschema.xml:16
+msgid "Window size (width and height)."
+msgstr "Venstergrootte (wydte en hoogte)."
+
+#: data/org.gnome.books.gschema.xml:20 data/org.gnome.documents.gschema.xml:20
+msgid "Window position"
+msgstr "Vensterposisie"
+
+#: data/org.gnome.books.gschema.xml:21 data/org.gnome.documents.gschema.xml:21
+msgid "Window position (x and y)."
+msgstr "Vensterposisie (x en y)."
+
+#: data/org.gnome.books.gschema.xml:25 data/org.gnome.documents.gschema.xml:25
+msgid "Window maximized"
+msgstr "Venster gemaksimeer"
+
+#: data/org.gnome.books.gschema.xml:26 data/org.gnome.documents.gschema.xml:26
+msgid "Window maximized state"
+msgstr "Venster gemaksimeer staat"
+
+#: data/org.gnome.books.gschema.xml:30 data/org.gnome.documents.gschema.xml:30
+msgid "Night mode"
+msgstr "Nagmodus"
+
+#: data/org.gnome.books.gschema.xml:31 data/org.gnome.documents.gschema.xml:31
+msgid "Whether the application is in night mode."
+msgstr "Of die toepassing in nagmodus is."
+
+#: data/org.gnome.Documents.appdata.xml.in:7
+#: data/org.gnome.Documents.desktop.in:3 src/application.js:115
+#: src/overview.js:1052
 msgid "Documents"
 msgstr "Dokumente"
 
-#. Translators: this refers to new and recent documents
-#: ../src/categories.js:77
-msgid "New and Recent"
-msgstr "Nuut en onlangs"
+#: data/org.gnome.Documents.appdata.xml.in:8
+msgid "A document manager application for GNOME"
+msgstr "'n Dokumentbestuurder-toepassing vir GNOME"
 
-#. Translators: this refers to favorite documents
-#: ../src/categories.js:80
-msgid "Favorites"
-msgstr "Gunstelinge"
+#: data/org.gnome.Documents.appdata.xml.in:10
+msgid ""
+"A simple application to access, organize and share your documents on GNOME. "
+"It is meant to be a simple and elegant replacement for using a file manager "
+"to deal with documents. Seamless cloud integration is offered through GNOME "
+"Online Accounts."
+msgstr ""
+"'n eenvoudige toepassing om dokumente te vertoon, organiseer en deel op "
+"GNOME. Dit is ontwikkel as 'n elegante plaasvervanger vir die gebruik van 'n "
+"lêerbestuurder om met e-boeke te werk. Wolkintegrasie word deur GNOME Aanlyn "
+"Rekeninge gebied."
 
-#. Translators: this refers to shared documents
-#: ../src/categories.js:83
-msgid "Shared with you"
-msgstr "Met u gedeel"
+#: data/org.gnome.Documents.appdata.xml.in:18
+msgid "View recent local and online documents"
+msgstr "Vertoon onlangse plaaslike en aanlyn dokumente"
 
-#: ../src/documents.js:253 ../src/sources.js:101
+#: data/org.gnome.Documents.appdata.xml.in:19
+msgid "Access your Google, ownCloud or OneDrive content"
+msgstr "Kry toegang tot jou Google, ownCloud of OneDrive inhoud"
+
+#: data/org.gnome.Documents.appdata.xml.in:20
+msgid "Search through documents"
+msgstr "Soek deur jou dokumente"
+
+#: data/org.gnome.Documents.appdata.xml.in:21
+msgid "See new documents shared by friends"
+msgstr "Sien nuwe dokumente wat vriende gedeel het"
+
+#: data/org.gnome.Documents.appdata.xml.in:22
+msgid "View documents fullscreen"
+msgstr "Vertoon dokumente in volskermmodus"
+
+#: data/org.gnome.Documents.appdata.xml.in:23
+msgid "Print documents"
+msgstr "Druk dokumente"
+
+#: data/org.gnome.Documents.appdata.xml.in:24
+msgid "Select favorites"
+msgstr "Kies gunstelinge"
+
+#: data/org.gnome.Documents.appdata.xml.in:25
+msgid "Allow opening full featured editor for non-trivial changes"
+msgstr ""
+"Laat toe dat 'n volledige redigeerder oopgemaak word vir gevorderde "
+"veranderinge"
+
+#: data/org.gnome.Documents.desktop.in:4
+msgid "Access, manage and share documents"
+msgstr "Vertoon, bestuur en deel dokumente"
+
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.Documents.desktop.in:7
+msgid "org.gnome.Documents"
+msgstr "org.gnome.Documents"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Documents.desktop.in:15
+msgid "Docs;PDF;Document;"
+msgstr "PDF;Dokument;"
+
+#: data/ui/app-menu.ui:6 src/preview.js:453
+msgid "Night Mode"
+msgstr "Nagmodus"
+
+#: data/ui/app-menu.ui:12
+msgid "Keyboard Shortcuts"
+msgstr "Sleutelbordkortpaaie"
+
+#: data/ui/app-menu.ui:16
+msgid "Help"
+msgstr "Hulp"
+
+#: data/ui/app-menu.ui:20
+msgid "About"
+msgstr "Aangaande"
+
+#: data/ui/app-menu.ui:24
+msgctxt "app menu"
+msgid "Quit"
+msgstr "Sluit af"
+
+#: data/ui/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Algemeen"
+
+#: data/ui/help-overlay.ui:15
+msgctxt "shortcut window"
+msgid "Show help"
+msgstr "Wys hulp"
+
+#: data/ui/help-overlay.ui:22
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Sluit af"
+
+#: data/ui/help-overlay.ui:29
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Soek"
+
+#: data/ui/help-overlay.ui:36
+msgctxt "shortcut window"
+msgid "Print the current document"
+msgstr "Druk die huidige dokument"
+
+#: data/ui/help-overlay.ui:45
+msgctxt "shortcut window"
+msgid "Navigation"
+msgstr "Navigasie"
+
+#: data/ui/help-overlay.ui:49 data/ui/help-overlay.ui:57
+msgctxt "shortcut window"
+msgid "Go back"
+msgstr "Gaan terug"
+
+#: data/ui/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Preview"
+msgstr "Voorskou"
+
+#: data/ui/help-overlay.ui:71
+msgctxt "shortcut window"
+msgid "Zoom in"
+msgstr "Zoem in"
+
+#: data/ui/help-overlay.ui:78
+msgctxt "shortcut window"
+msgid "Zoom out"
+msgstr "Zoem uit"
+
+#: data/ui/help-overlay.ui:85
+msgctxt "shortcut window"
+msgid "Bookmark the current page"
+msgstr "Boekmerk huidige bladsy"
+
+#: data/ui/help-overlay.ui:92
+msgctxt "shortcut window"
+msgid "Open places and bookmarks dialog"
+msgstr "Maak plekke en boekmerke oop"
+
+#: data/ui/help-overlay.ui:99
+msgctxt "shortcut window"
+msgid "Copy selected text to clipboard"
+msgstr "Kopieer gemerkte teks na knipbord"
+
+#: data/ui/help-overlay.ui:106
+msgctxt "shortcut window"
+msgid "Rotate anti-clockwise"
+msgstr "Draai anti-kloksgewys"
+
+#: data/ui/help-overlay.ui:113
+msgctxt "shortcut window"
+msgid "Rotate clockwise"
+msgstr "Draai kloksgewys"
+
+#: data/ui/help-overlay.ui:120
+msgctxt "shortcut window"
+msgid "Next occurrence of the search string"
+msgstr "Volgende voorkoms van soekterm"
+
+#: data/ui/help-overlay.ui:127
+msgctxt "shortcut window"
+msgid "Previous occurrence of the search string"
+msgstr "Vorige voorkoms van soekterm"
+
+#: data/ui/help-overlay.ui:134
+msgctxt "shortcut window"
+msgid "Presentation mode"
+msgstr "Voorleggingmodus"
+
+#: data/ui/help-overlay.ui:141
+msgctxt "shortcut window"
+msgid "Open action menu"
+msgstr "Maak aksie kieslys oop"
+
+#: data/ui/help-overlay.ui:148
+msgctxt "shortcut window"
+msgid "Fullscreen"
+msgstr "Volskerm"
+
+#: data/ui/organize-collection-dialog.ui:40
+msgid "Enter a name for your first collection"
+msgstr "Sleutel die naam van jou eerste versameling in"
+
+#: data/ui/organize-collection-dialog.ui:56
+#: data/ui/organize-collection-dialog.ui:113
+msgid "New Collection…"
+msgstr "Nuwe versameling…"
+
+#: data/ui/organize-collection-dialog.ui:73
+#: data/ui/organize-collection-dialog.ui:122 src/sharing.js:226
+msgid "Add"
+msgstr "Voeg by"
+
+#: data/ui/organize-collection-dialog.ui:163 data/ui/selection-toolbar.ui:88
+#: src/overview.js:1056 src/search.js:126 src/search.js:132
+msgid "Collections"
+msgstr "Versamelings"
+
+#: data/ui/organize-collection-dialog.ui:167 src/overview.js:616
+msgid "Cancel"
+msgstr "Kanselleer"
+
+#. Label for Done button in Sharing dialog
+#: data/ui/organize-collection-dialog.ui:173 src/sharing.js:112
+msgid "Done"
+msgstr "Klaar"
+
+#: data/ui/preview-context-menu.ui:6
+msgid "_Copy"
+msgstr "_Kopieer"
+
+#. Translators: this is the Open action in a context menu
+#: data/ui/preview-menu.ui:6 data/ui/selection-toolbar.ui:9
+#: src/selections.js:988
+msgid "Open"
+msgstr "Open"
+
+#: data/ui/preview-menu.ui:10
+msgid "Edit"
+msgstr "Redigeer"
+
+#: data/ui/preview-menu.ui:15
+msgid "Print…"
+msgstr "Druk…"
+
+#: data/ui/preview-menu.ui:21 src/preview.js:462
+msgid "Fullscreen"
+msgstr "Volskerm"
+
+#: data/ui/preview-menu.ui:27
+msgid "Present"
+msgstr "Bied aan"
+
+#: data/ui/preview-menu.ui:35
+msgid "Zoom In"
+msgstr "Zoem in"
+
+#: data/ui/preview-menu.ui:41
+msgid "Zoom Out"
+msgstr "Zoem uit"
+
+#: data/ui/preview-menu.ui:49
+msgid "Rotate ↶"
+msgstr "Draai ↶"
+
+#: data/ui/preview-menu.ui:55
+msgid "Rotate ↷"
+msgstr "Draai ↷"
+
+#: data/ui/preview-menu.ui:62 data/ui/selection-toolbar.ui:79
+#: src/properties.js:61
+msgid "Properties"
+msgstr "Eienskappe"
+
+#: data/ui/selection-menu.ui:6
+msgid "Select All"
+msgstr "Merk alles"
+
+#: data/ui/selection-menu.ui:11
+msgid "Select None"
+msgstr "Merk geen"
+
+#: data/ui/view-menu.ui:23
+msgid "View items as a grid of icons"
+msgstr "Vertoon items as ikoonrooster"
+
+#: data/ui/view-menu.ui:40
+msgid "View items as a list"
+msgstr "Vertoon items as lys"
+
+#: data/ui/view-menu.ui:73
+msgid "Sort"
+msgstr "Sorteer"
+
+#: data/ui/view-menu.ui:84
+msgid "Author"
+msgstr "Outeur"
+
+#: data/ui/view-menu.ui:93
+msgid "Date"
+msgstr "Datum"
+
+#: data/ui/view-menu.ui:102
+msgid "Name"
+msgstr "Naam"
+
+#: src/application.js:126
+msgid "Show the version of the program"
+msgstr "Wys die weergawe van die program"
+
+#: src/documents.js:794
+msgid "Failed to print document"
+msgstr "Kon nie die dokument druk nie"
+
+#. Translators: this refers to local documents
+#: src/documents.js:836 src/search.js:459
 msgid "Local"
 msgstr "Plaaslik"
 
-#: ../src/documents.js:372
+#. Translators: Documents ships a "Getting Started with Documents"
+#. tutorial PDF. The "GNOME" string below is displayed as the author name
+#. of that document, and doesn't normally need to be translated.
+#: src/documents.js:879
+msgid "GNOME"
+msgstr "GNOME"
+
+#: src/documents.js:880
+msgid "Getting Started with Documents"
+msgstr "Begin met Dokumente"
+
+#: src/documents.js:905 src/documents.js:1115 src/documents.js:1218
+#: src/documents.js:1412
+msgid "Collection"
+msgstr "Versameling"
+
+#. overridden
+#: src/documents.js:972
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:373
+#: src/documents.js:973
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:442
+#: src/documents.js:1117 src/documents.js:1414
 msgid "Spreadsheet"
 msgstr "Sigblad"
 
-#: ../src/documents.js:444
+#: src/documents.js:1119 src/documents.js:1416 src/presentation.js:44
 msgid "Presentation"
 msgstr "Voorlegging"
 
-#: ../src/documents.js:446
+#: src/documents.js:1121 src/documents.js:1418
+msgid "e-Book"
+msgstr "e-Boek"
+
+#: src/documents.js:1123 src/documents.js:1420
 msgid "Document"
 msgstr "Dokument"
 
-#. Translators: %s is the title of a document
-#: ../src/error.js:37
-#, c-format
-msgid "Unable to load \"%s\" for preview"
-msgstr "Kon nie \"%s\" laai vir voorskou nie"
+#. overridden
+#: src/documents.js:1173
+msgid "ownCloud"
+msgstr "ownCloud"
 
-#: ../src/error.js:44
-msgid "Unable to fetch the list of documents"
-msgstr "Kan nie die lys van dokumente afhaal nie"
+#. overridden
+#: src/documents.js:1307 src/documents.js:1308
+msgid "OneDrive"
+msgstr "OneDrive"
 
-#: ../src/loadMore.js:70
-#, c-format
-msgid "Load %d more documents"
-msgid_plural "Load %d more documents"
-msgstr[0] "Laai nog 'n dokument"
-msgstr[1] "Laai nog %d dokumente"
+#: src/documents.js:1594
+msgid "Please check the network connection."
+msgstr "Gaan asseblief die netwerk konneksie na."
 
-#: ../src/mainToolbar.js:201
-#, c-format
-msgid "(%d of %d)"
-msgstr "(%d van %d)"
+#: src/documents.js:1597
+msgid "Please check the network proxy settings."
+msgstr "Gaan asseblief die netwerkinstaner instellings na."
 
-#: ../src/sidebar.js:131 ../src/sources.js:218
-msgid "Sources"
-msgstr "Bronne"
+#: src/documents.js:1600
+msgid "Unable to sign in to the document service."
+msgstr "Kan nie in by die dokumentdiens aanteken nie."
 
-#: ../src/sources.js:96
-msgid "All"
+#: src/documents.js:1603
+msgid "Unable to locate this document."
+msgstr "Kan nie die dokument opspoor nie."
+
+#: src/documents.js:1606
+#, javascript-format
+msgid "Hmm, something is fishy (%d)."
+msgstr "Hmm, iets is nie pluis nie (%d)."
+
+#: src/documents.js:1613
+msgid ""
+"You are using a preview of Books. Full viewing capabilities are coming soon!"
+msgstr "Jy gebruik tans 'n voorskou van boeke. Meer funksies kom binnekort!"
+
+#: src/documents.js:1615
+msgid ""
+"LibreOffice support is not available. Please contact your system "
+"administrator."
 msgstr ""
+"LibreOffice ondersteuning is tans nie beskikbaar nie. Kontak asseblief u "
+"stelseladministrateur."
 
-#: ../src/spinnerBox.js:47
-msgid "Loading..."
-msgstr "Laai tans..."
+#. Translators: %s is the title of a document
+#: src/documents.js:1638
+#, javascript-format
+msgid "Oops! Unable to load “%s”"
+msgstr "Oeps! Kan nie \"%s\" laai nie"
+
+#. view button, on the right of the toolbar
+#: src/edit.js:139
+msgid "View"
+msgstr "Vertoon"
+
+#: src/epubview.js:228
+#, javascript-format
+msgid "chapter %s of %s"
+msgstr "hoofstuk %s van %s"
+
+#: src/evinceview.js:590 src/lib/gd-places-bookmarks.c:656
+msgid "Bookmarks"
+msgstr "Boekmerke"
+
+#: src/evinceview.js:598
+msgid "Bookmark this page"
+msgstr "Boekmerk die bladsy"
+
+#: src/lib/gd-nav-bar.c:242
+#, c-format
+msgid "Page %u of %u"
+msgstr "Bladsy %u van %u"
+
+#: src/lib/gd-pdf-loader.c:142
+msgid "Unable to load the document"
+msgstr "Kan nie die dokument laai nie"
+
+#. Translators: %s is the number of the page, already formatted
+#. * as a string, for example "Page 5".
+#.
+#: src/lib/gd-places-bookmarks.c:321
+#, c-format
+msgid "Page %s"
+msgstr "Bladsy %s"
+
+#: src/lib/gd-places-bookmarks.c:384
+msgid "No bookmarks"
+msgstr "Geen boekmerke"
+
+#: src/lib/gd-places-bookmarks.c:392 src/lib/gd-places-links.c:257
+msgid "Loading…"
+msgstr "Laai tans…"
+
+#: src/lib/gd-places-links.c:342
+msgid "No table of contents"
+msgstr "Geen inhoudsopgawe"
+
+#: src/lib/gd-places-links.c:514
+msgid "Contents"
+msgstr "Inhoud"
+
+#: src/lib/gd-utils.c:328
+msgid "A document manager application"
+msgstr "'n Dokumentbestuurder"
+
+#: src/lib/gd-utils.c:333
+msgid "An e-books manager application"
+msgstr "'n E-boekbestuurder"
+
+#: src/lib/gd-utils.c:340
+msgid "translator-credits"
+msgstr "Pieter Schoeman"
+
+#: src/mainToolbar.js:91
+msgctxt "toolbar button tooltip"
+msgid "Search"
+msgstr "Soek"
+
+#: src/mainToolbar.js:100
+msgid "Back"
+msgstr "Terug"
+
+#. Translators: only one item has been deleted and %s is its name
+#: src/notifications.js:48
+#, javascript-format
+msgid "“%s” deleted"
+msgstr "\"%s\" geskrap"
+
+#. Translators: one or more items might have been deleted, and %d
+#. is the count
+#: src/notifications.js:52
+#, javascript-format
+msgid "%d item deleted"
+msgid_plural "%d items deleted"
+msgstr[0] "%d item geskrap"
+msgstr[1] "%d items geskrap"
+
+#: src/notifications.js:61 src/selections.js:387
+msgid "Undo"
+msgstr "Ontdoen"
+
+#: src/notifications.js:159
+#, javascript-format
+msgid "Printing “%s”: %s"
+msgstr "Druk tans \"%s\": %s"
+
+#: src/notifications.js:215
+msgid "Your documents are being indexed"
+msgstr "Jou dokumente word tans geïndekseer"
+
+#: src/notifications.js:216
+msgid "Some documents might not be available during this process"
+msgstr ""
+"Sommige dokumente mag dalk nie gedurende die proses beskikbaar wees nie"
+
+#. Translators: %s refers to an online account provider, e.g.
+#. "Google", or "Windows Live".
+#: src/notifications.js:238
+#, javascript-format
+msgid "Fetching documents from %s"
+msgstr "Haal dokumente van %s af"
+
+#: src/notifications.js:240
+msgid "Fetching documents from online accounts"
+msgstr "Haal dokumente van aanlyn rekeninge af"
+
+#: src/overview.js:275
+msgid "No collections found"
+msgstr "Geen versamelings gevind nie"
+
+#: src/overview.js:277
+msgid "No books found"
+msgstr "Geen boeke gevind nie"
+
+#: src/overview.js:277
+msgid "No documents found"
+msgstr "Geen dokumente gevind nie"
+
+#: src/overview.js:286
+msgid "Try a different search"
+msgstr "Probeer 'n ander soektog"
+
+#: src/overview.js:293
+msgid "You can create collections from the Books view"
+msgstr "Jy kan versamelings vanaf die boekaansig skep"
+
+#: src/overview.js:295
+msgid "You can create collections from the Documents view"
+msgstr "Jy kan versamelings vanaf die dokumentaansig skep"
+
+#: src/overview.js:305
+#, javascript-format
+msgid ""
+"Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
+"href=\"file://%s\">Documents folder</a> will appear here."
+msgstr ""
+"Dokumente van jou <a href=\"system-settings\">Aanlyn Rekeninge</a> en <a "
+"href=\"file://%s\">Dokumente gids</a> sal hier verskyn."
+
+#. Translators: this is the menu to change view settings
+#: src/overview.js:562
+msgid "View Menu"
+msgstr "Vertoon kieslys"
+
+#: src/overview.js:590
+msgid "Click on items to select them"
+msgstr "Klik op items om hulle te kies"
+
+#: src/overview.js:592
+#, javascript-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d gekies"
+msgstr[1] "%d gekies"
+
+#: src/overview.js:669
+msgid "Select Items"
+msgstr "Kies items"
+
+#: src/overview.js:876
+msgid "Yesterday"
+msgstr "Gister"
+
+#: src/overview.js:878
+#, javascript-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "%d dag gelede"
+msgstr[1] "%d dae gelede"
+
+#: src/overview.js:882
+msgid "Last week"
+msgstr "Verlede week"
+
+#: src/overview.js:884
+#, javascript-format
+msgid "%d week ago"
+msgid_plural "%d weeks ago"
+msgstr[0] "%d week gelede"
+msgstr[1] "%d weke gelede"
+
+#: src/overview.js:888
+msgid "Last month"
+msgstr "Verlede maand"
+
+#: src/overview.js:890
+#, javascript-format
+msgid "%d month ago"
+msgid_plural "%d months ago"
+msgstr[0] "%d maand gelede"
+msgstr[1] "%d maande gelede"
+
+#: src/overview.js:894
+msgid "Last year"
+msgstr "Verlede jaar"
+
+#: src/overview.js:896
+#, javascript-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] "%d jaar gelede"
+msgstr[1] "%d jare gelede"
+
+#: src/password.js:42
+msgid "Password Required"
+msgstr "Wagwoord benodig"
+
+#: src/password.js:45
+msgid "_Unlock"
+msgstr "_Ontsluit"
+
+#: src/password.js:61
+#, javascript-format
+msgid "Document %s is locked and requires a password to be opened."
+msgstr "Dokument %s is gesluit en benodig 'n wagwoord om oopgemaak te word."
+
+#: src/password.js:75
+msgid "_Password"
+msgstr "_Wagwoord"
+
+#: src/presentation.js:102
+msgid "Running in presentation mode"
+msgstr "Loop tans in voorleggingmodus"
+
+#: src/presentation.js:130
+msgid "Present On"
+msgstr "Voorlegging aan"
+
+#. Translators: "Mirrored" describes when both displays show the same view
+#: src/presentation.js:166
+msgid "Mirrored"
+msgstr "Weerspieël"
+
+#: src/presentation.js:168
+msgid "Primary"
+msgstr "Primêre"
+
+#: src/presentation.js:170
+msgid "Off"
+msgstr "Af"
+
+#: src/presentation.js:172
+msgid "Secondary"
+msgstr "Sekondêre"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/view.js:67
-#, c-format
+#: src/preview.js:445 src/selections.js:985
+#, javascript-format
 msgid "Open with %s"
 msgstr "Open met %s"
 
-#: ../src/view.js:69
-msgid "Open"
-msgstr ""
+#: src/preview.js:770
+msgid "Find Previous"
+msgstr "Vind vorige"
 
-#: ../src/view.js:79
-msgid "Remove from favorites"
-msgstr "Verwyder uit gunstelinge"
+#: src/preview.js:776
+msgid "Find Next"
+msgstr "Vind volgende"
 
-#: ../src/view.js:79
-msgid "Add to favorites"
-msgstr "Voeg by gunstelinge"
+#. Title item
+#. Translators: "Title" is the label next to the document title
+#. in the properties dialog
+#: src/properties.js:81
+msgctxt "Document Title"
+msgid "Title"
+msgstr "Titel"
+
+#. Translators: "Author" is the label next to the document author
+#. in the properties dialog
+#: src/properties.js:90
+msgctxt "Document Author"
+msgid "Author"
+msgstr "Outeur"
+
+#. Source item
+#: src/properties.js:97
+msgid "Source"
+msgstr "Bron"
+
+#. Date Modified item
+#: src/properties.js:103
+msgid "Date Modified"
+msgstr "Datum gewysig"
+
+#: src/properties.js:110
+msgid "Date Created"
+msgstr "Datum geskep"
+
+#. Document type item
+#. Translators: "Type" is the label next to the document type
+#. (PDF, spreadsheet, ...) in the properties dialog
+#: src/properties.js:119
+msgctxt "Document Type"
+msgid "Type"
+msgstr "Tipe"
+
+#. Translators: "Type" refers to a search filter on the document type
+#. (PDF, spreadsheet, ...)
+#: src/search.js:120
+msgctxt "Search Filter"
+msgid "Type"
+msgstr "Tipe"
+
+#. Translators: this refers to documents
+#: src/search.js:123 src/search.js:260 src/search.js:453
+msgid "All"
+msgstr "Alles"
+
+#: src/search.js:136
+msgid "PDF Documents"
+msgstr "PDF Dokumente"
+
+#: src/search.js:143
+msgid "e-Books"
+msgstr "e-Boeke"
+
+#: src/search.js:147
+msgid "Comics"
+msgstr "Strokiesprente"
+
+#: src/search.js:152
+msgid "Presentations"
+msgstr "Voorleggings"
+
+#: src/search.js:155
+msgid "Spreadsheets"
+msgstr "Sigblaaie"
+
+#: src/search.js:158
+msgid "Text Documents"
+msgstr "Teks dokumente"
+
+#. Translators: this is a verb that refers to "All", "Title", "Author",
+#. and "Content" as in "Match All", "Match Title", "Match Author", and
+#. "Match Content"
+#: src/search.js:257
+msgid "Match"
+msgstr "Pas"
+
+#. Translators: "Title" refers to "Match Title" when searching
+#: src/search.js:263
+msgctxt "Search Filter"
+msgid "Title"
+msgstr "Titel"
+
+#. Translators: "Author" refers to "Match Author" when searching
+#: src/search.js:266
+msgctxt "Search Filter"
+msgid "Author"
+msgstr "Outeur"
+
+#. Translators: "Content" refers to "Match Content" when searching
+#: src/search.js:269
+msgctxt "Search Filter"
+msgid "Content"
+msgstr "Inhoud"
+
+#: src/search.js:449
+msgid "Sources"
+msgstr "Bronne"
+
+#. Translators: the first %s is an online account provider name,
+#. e.g. "Google". The second %s is the identity used to log in,
+#. e.g. "foo@gmail.com".
+#: src/search.js:508
+#, javascript-format
+msgid "%s (%s)"
+msgstr "%s (%s)"
+
+#: src/selections.js:360 src/selections.js:362
+msgid "Rename…"
+msgstr "Hernoem…"
+
+#: src/selections.js:366 src/selections.js:368
+msgid "Delete"
+msgstr "Skrap"
+
+#: src/selections.js:382
+#, javascript-format
+msgid "“%s” removed"
+msgstr "\"%s\" verwyder"
+
+#: src/selections.js:779
+msgid "Rename"
+msgstr "Hernoem"
+
+#. Translators: "Collections" refers to documents in this context
+#: src/selections.js:785
+msgctxt "Dialog Title"
+msgid "Collections"
+msgstr "Versamelings"
+
+#: src/sharing.js:108
+msgid "Sharing Settings"
+msgstr "Deel instellings"
+
+#. Label for widget group for changing document permissions
+#: src/sharing.js:145
+msgid "Document permissions"
+msgstr "Dokumentregte"
+
+#. Label for permission change in Sharing dialog
+#: src/sharing.js:152 src/sharing.js:330
+msgid "Change"
+msgstr "Verander"
+
+#. Label for radiobutton that sets doc permission to private
+#: src/sharing.js:176 src/sharing.js:305
+msgid "Private"
+msgstr "Privaat"
+
+#: src/sharing.js:186 src/sharing.js:298
+msgid "Public"
+msgstr "Publiek"
+
+#. Label for checkbutton that sets doc permission to Can edit
+#: src/sharing.js:190 src/sharing.js:300
+msgid "Everyone can edit"
+msgstr "Almal kan redigeer"
+
+#. Label for widget group used for adding new contacts
+#: src/sharing.js:197
+msgid "Add people"
+msgstr "Voeg mense by"
+
+#. Editable text in entry field
+#: src/sharing.js:204
+msgid "Enter an email address"
+msgstr "Voer 'n e-posadres in"
+
+#: src/sharing.js:219 src/sharing.js:371
+msgid "Can edit"
+msgstr "Kan redigeer"
+
+#: src/sharing.js:219 src/sharing.js:374
+msgid "Can view"
+msgstr "Kan vertoon"
+
+#: src/sharing.js:302
+msgid "Everyone can read"
+msgstr "Almal kan lees"
+
+#: src/sharing.js:317
+msgid "Save"
+msgstr "Stoor"
+
+#: src/sharing.js:368
+msgid "Owner"
+msgstr "Eienaar"
+
+#: src/sharing.js:437
+#, javascript-format
+msgid "You can ask %s for access"
+msgstr "Jy kan %s vir toegang vra"
+
+#: src/sharing.js:474 src/sharing.js:510 src/sharing.js:567 src/sharing.js:584
+#: src/sharing.js:603
+msgid "The document was not updated"
+msgstr "Die dokument was nie opgedateer nie"
+
+#: src/shellSearchProvider.js:285
+msgid "Untitled Document"
+msgstr "Titelloos"
+
+#: src/trackerController.js:176
+msgid "Unable to fetch the list of documents"
+msgstr "Kan nie die lys van dokumente afhaal nie"
+
+#~ msgid "New and Recent"
+#~ msgstr "Nuut en onlangs"
+
+#~ msgid "Favorites"
+#~ msgstr "Gunstelinge"
+
+#~ msgid "Shared with you"
+#~ msgstr "Met u gedeel"
+
+#~ msgid "Unable to load \"%s\" for preview"
+#~ msgstr "Kon nie \"%s\" laai vir voorskou nie"
+
+#~ msgid "(%d of %d)"
+#~ msgstr "(%d van %d)"
+
+#~ msgid "Remove from favorites"
+#~ msgstr "Verwyder uit gunstelinge"
