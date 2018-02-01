@@ -1,3 +1,11 @@
+3.26.2 - "Zala"
+===============
+
+- Use 'var' for symbols that are exported
+- Use the standard dialect of String.prototype.replace
+- Explicitly specify the Gepub API version
+- Translation updates
+
 3.26.1 - "Mr. Dooley"
 =====================
 
