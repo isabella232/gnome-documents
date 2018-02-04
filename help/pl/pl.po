@@ -1,13 +1,13 @@
 # Polish translation for gnome-documents help.
 # Copyright © 2017 the gnome-documents authors.
-# This file is distributed under the same license as the gnome-documents package.
+# This file is distributed under the same license as the gnome-documents help.
 # Piotr Drąg <piotrdrag@gmail.com>, 2017.
 # Aviary.pl <community-poland@mozilla.org>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents-help\n"
-"POT-Creation-Date: 2017-07-21 14:06+0000\n"
+"POT-Creation-Date: 2017-12-03 17:11+0000\n"
 "PO-Revision-Date: 2017-08-11 03:19+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
