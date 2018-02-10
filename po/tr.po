@@ -8,15 +8,15 @@
 # Furkan Ahmet Kara <furkanahmetkara.fk@gmail.com>, 2017.
 # Çağatay Yiğit Şahin <cyigitsahin@outlook.com>, 2017.
 # Muhammet Kara <muhammetk@gmail.com>, 2011, 2012, 2013, 2014, 2015, 2016, 2017.
-# Emin Tufan Çetin <etcetin@gmail.com>, 2017.
+# Emin Tufan Çetin <etcetin@gmail.com>, 2017, 2018.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-08-23 15:40+0000\n"
-"PO-Revision-Date: 2017-08-28 11:26+0300\n"
+"POT-Creation-Date: 2017-12-03 17:11+0000\n"
+"PO-Revision-Date: 2018-01-21 13:01+0300\n"
 "Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
 "Language: tr\n"
@@ -26,16 +26,16 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Gtranslator 2.91.7\n"
 
-#: data/org.gnome.Books.appdata.xml.in:7 data/org.gnome.Books.desktop.in:3
+#: data/org.gnome.Books.metainfo.xml.in:7 data/org.gnome.Books.desktop.in:3
 #: src/application.js:112 src/overview.js:1052
 msgid "Books"
 msgstr "Kitaplar"
 
-#: data/org.gnome.Books.appdata.xml.in:8
+#: data/org.gnome.Books.metainfo.xml.in:8
 msgid "An e-book manager application for GNOME"
 msgstr "GNOME için e-kitap yönetici uygulaması"
 
-#: data/org.gnome.Books.appdata.xml.in:10
+#: data/org.gnome.Books.metainfo.xml.in:10
 msgid ""
 "A simple application to access and organize your e-books on GNOME. It is "
 "meant to be a simple and elegant replacement for using a file manager to "
@@ -45,29 +45,29 @@ msgstr ""
 "uygulama. E-kitaplarınızı düzenlemek için dosya yöneticisinin yerini "
 "alabilecek basit ve şık bir çözüm olarak geliştirildi."
 
-#: data/org.gnome.Books.appdata.xml.in:15
-#: data/org.gnome.Documents.appdata.xml.in:16
+#: data/org.gnome.Books.metainfo.xml.in:15
+#: data/org.gnome.Documents.metainfo.xml.in:16
 msgid "It lets you:"
 msgstr "Şunları yapmanıza olanak tanır:"
 
-#: data/org.gnome.Books.appdata.xml.in:17
+#: data/org.gnome.Books.metainfo.xml.in:17
 msgid "View recent e-books"
 msgstr "Yakın zamanda kullanılan e-kitapları görüntülemek"
 
-#: data/org.gnome.Books.appdata.xml.in:18
+#: data/org.gnome.Books.metainfo.xml.in:18
 msgid "Search through e-books"
 msgstr "E-kitaplarda arama yapmak"
 
-#: data/org.gnome.Books.appdata.xml.in:19
+#: data/org.gnome.Books.metainfo.xml.in:19
 msgid "View e-books (PDF and comics) fullscreen"
 msgstr "E-kitapları (PDF ve çizgi roman) tam ekran görüntülemek"
 
-#: data/org.gnome.Books.appdata.xml.in:20
+#: data/org.gnome.Books.metainfo.xml.in:20
 msgid "Print e-books"
 msgstr "E-kitapları yazdırmak"
 
-#: data/org.gnome.Books.appdata.xml.in:32
-#: data/org.gnome.Documents.appdata.xml.in:39
+#: data/org.gnome.Books.metainfo.xml.in:32
+#: data/org.gnome.Documents.metainfo.xml.in:39
 msgid "The GNOME Project"
 msgstr "GNOME Projesi"
 
@@ -133,17 +133,17 @@ msgstr "﻿Gece kipi"
 msgid "Whether the application is in night mode."
 msgstr "﻿Uygulamanın gece kipinde olup olmadığı."
 
-#: data/org.gnome.Documents.appdata.xml.in:7
+#: data/org.gnome.Documents.metainfo.xml.in:7
 #: data/org.gnome.Documents.desktop.in:3 src/application.js:115
 #: src/overview.js:1052
 msgid "Documents"
 msgstr "Belgeler"
 
-#: data/org.gnome.Documents.appdata.xml.in:8
+#: data/org.gnome.Documents.metainfo.xml.in:8
 msgid "A document manager application for GNOME"
 msgstr "GNOME için belge yönetimi uygulaması"
 
-#: data/org.gnome.Documents.appdata.xml.in:10
+#: data/org.gnome.Documents.metainfo.xml.in:10
 msgid ""
 "A simple application to access, organize and share your documents on GNOME. "
 "It is meant to be a simple and elegant replacement for using a file manager "
@@ -155,35 +155,35 @@ msgstr ""
 "alabilecek basit ve şık bir çözüm olarak geliştirildi. GNOME Çevirimiçi "
 "Hesapları üzerinden sorunsuz bir bulut tümleşmesi sunar."
 
-#: data/org.gnome.Documents.appdata.xml.in:18
+#: data/org.gnome.Documents.metainfo.xml.in:18
 msgid "View recent local and online documents"
 msgstr "﻿Son yerel ve çevrim içi belgeleri görüntülemek"
 
-#: data/org.gnome.Documents.appdata.xml.in:19
+#: data/org.gnome.Documents.metainfo.xml.in:19
 msgid "Access your Google, ownCloud or OneDrive content"
 msgstr "﻿Google, ownCloud veya OneDrive içeriğinize ulaşmak"
 
-#: data/org.gnome.Documents.appdata.xml.in:20
+#: data/org.gnome.Documents.metainfo.xml.in:20
 msgid "Search through documents"
 msgstr "﻿Belgelerde arama yapmak"
 
-#: data/org.gnome.Documents.appdata.xml.in:21
+#: data/org.gnome.Documents.metainfo.xml.in:21
 msgid "See new documents shared by friends"
 msgstr "Arkadaşlarınız tarafından paylaşılan yeni belgeleri görmek"
 
-#: data/org.gnome.Documents.appdata.xml.in:22
+#: data/org.gnome.Documents.metainfo.xml.in:22
 msgid "View documents fullscreen"
 msgstr "Belgeleri tam ekran görüntülemek"
 
-#: data/org.gnome.Documents.appdata.xml.in:23
+#: data/org.gnome.Documents.metainfo.xml.in:23
 msgid "Print documents"
 msgstr "Belgeleri yazdırmak"
 
-#: data/org.gnome.Documents.appdata.xml.in:24
+#: data/org.gnome.Documents.metainfo.xml.in:24
 msgid "Select favorites"
 msgstr "Sık kullanılanları seçmek"
 
-#: data/org.gnome.Documents.appdata.xml.in:25
+#: data/org.gnome.Documents.metainfo.xml.in:25
 msgid "Allow opening full featured editor for non-trivial changes"
 msgstr ""
 "Kapsamlı değişiklikler için tam özellikli düzenleyici açmaya izin vermek"
@@ -194,7 +194,6 @@ msgstr "Belgelerinize erişin, yönetin ve paylaşın"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 #: data/org.gnome.Documents.desktop.in:7
-#| msgid "Documents"
 msgid "org.gnome.Documents"
 msgstr "org.gnome.Documents"
 
@@ -290,8 +289,10 @@ msgid "Copy selected text to clipboard"
 msgstr "Seçili metni panoya kopyala"
 
 #: data/ui/help-overlay.ui:106
+#| msgctxt "shortcut window"
+#| msgid "Rotate clockwise"
 msgctxt "shortcut window"
-msgid "Rotate anti-clockwise"
+msgid "Rotate counterclockwise"
 msgstr "Saat yönünün tersine döndür"
 
 #: data/ui/help-overlay.ui:113
@@ -337,6 +338,11 @@ msgstr "Yeni Koleksiyon…"
 #: data/ui/organize-collection-dialog.ui:122 src/sharing.js:226
 msgid "Add"
 msgstr "Ekle"
+
+#: data/ui/organize-collection-dialog.ui:163 data/ui/selection-toolbar.ui:88
+#: src/overview.js:1056 src/search.js:126 src/search.js:132
+msgid "Collections"
+msgstr "Koleksiyonlar"
 
 #: data/ui/organize-collection-dialog.ui:167 src/overview.js:616
 msgid "Cancel"
@@ -401,11 +407,6 @@ msgstr "Tümünü Seç"
 #: data/ui/selection-menu.ui:11
 msgid "Select None"
 msgstr "Hiçbirini Seçme"
-
-#: data/ui/selection-toolbar.ui:88 src/overview.js:1056 src/search.js:126
-#: src/search.js:132
-msgid "Collections"
-msgstr "Koleksiyonlar"
 
 #: data/ui/view-menu.ui:23
 msgid "View items as a grid of icons"
@@ -1009,6 +1010,10 @@ msgstr "Adsız Belge"
 #: src/trackerController.js:176
 msgid "Unable to fetch the list of documents"
 msgstr "Belgelerin listesi alınamadı"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Rotate anti-clockwise"
+#~ msgstr "Saat yönünün tersine döndür"
 
 #~ msgid "LibreOffice is required to view this document"
 #~ msgstr "Bu belgeyi görüntülemek için LibreOffice gerekir"
