@@ -3,23 +3,24 @@
 # Wouter Bolsterlee <wbolster@gnome.org>, 2012–2014.
 # Reinout van Schouwen <reinouts@gnome.org>, 2014, 2015.
 # Erwin Poeze <donnut@outlook.com>, 2014.
-# Nathan Follens <nthn@unseen.is>, 2015-2016.
+# Nathan Follens <nthn@unseen.is>, 2015-2018.
 # Hannie Dumoleyn <hannie@ubuntu-nl.org>, 2016, 2017.
+# Justin van Steijn <jvs@fsfe.org>, 2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-d"
-"ocuments&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-08-23 15:36+0000\n"
-"PO-Revision-Date: 2017-08-24 12:11+0100\n"
-"Last-Translator: Hannie Dumoleyn <hannie@ubuntu-nl.org>\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"documents&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2018-02-04 21:25+0000\n"
+"PO-Revision-Date: 2018-02-18 22:42+0100\n"
+"Last-Translator: Justin van Steijn <jvs@fsfe.org>\n"
 "Language-Team: Dutch <gnome-nl-list@gnome.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Poedit 1.8.11\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.Books.appdata.xml.in:7 data/org.gnome.Books.desktop.in:3
@@ -190,7 +191,6 @@ msgstr "Documenten gebruiken, beheren en delen"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 #: data/org.gnome.Documents.desktop.in:7
-#| msgid "Documents"
 msgid "org.gnome.Documents"
 msgstr "org.gnome.Documents"
 
@@ -287,7 +287,7 @@ msgstr "Geselecteerde tekst naar klembord kopiëren"
 
 #: data/ui/help-overlay.ui:106
 msgctxt "shortcut window"
-msgid "Rotate anti-clockwise"
+msgid "Rotate counterclockwise"
 msgstr "Linksom draaien (tegen de klok in)"
 
 #: data/ui/help-overlay.ui:113
@@ -327,12 +327,17 @@ msgstr "Voer een naam in voor uw eerste verzameling"
 #: data/ui/organize-collection-dialog.ui:56
 #: data/ui/organize-collection-dialog.ui:113
 msgid "New Collection…"
-msgstr "Nieuwe verzameling..."
+msgstr "Nieuwe verzameling…"
 
 #: data/ui/organize-collection-dialog.ui:73
 #: data/ui/organize-collection-dialog.ui:122 src/sharing.js:226
 msgid "Add"
 msgstr "Toevoegen"
+
+#: data/ui/organize-collection-dialog.ui:163 data/ui/selection-toolbar.ui:88
+#: src/overview.js:1056 src/search.js:126 src/search.js:132
+msgid "Collections"
+msgstr "Verzamelingen"
 
 #: data/ui/organize-collection-dialog.ui:167 src/overview.js:616
 msgid "Cancel"
@@ -397,11 +402,6 @@ msgstr "Alles selecteren"
 #: data/ui/selection-menu.ui:11
 msgid "Select None"
 msgstr "Niets selecteren"
-
-#: data/ui/selection-toolbar.ui:88 src/overview.js:1056 src/search.js:126
-#: src/search.js:132
-msgid "Collections"
-msgstr "Verzamelingen"
 
 #: data/ui/view-menu.ui:23
 msgid "View items as a grid of icons"
@@ -469,7 +469,7 @@ msgstr "Google"
 msgid "Spreadsheet"
 msgstr "Rekenblad"
 
-#: src/documents.js:1119 src/documents.js:1416 src/presentation.js:44
+#: src/documents.js:1119 src/documents.js:1416 src/presentation.js:43
 msgid "Presentation"
 msgstr "Presentatie"
 
@@ -540,7 +540,6 @@ msgstr "Beeld"
 
 #: src/epubview.js:228
 #, javascript-format
-#| msgid "Page %u of %u"
 msgid "chapter %s of %s"
 msgstr "Pagina %s van %s"
 
@@ -599,11 +598,11 @@ msgstr ""
 "Wouter Bolsterlee <wbolster@gnome.org>\n"
 "Reinout van Schouwen <reinouts@gnome.org>\n"
 "Erwin Poeze <donnut@outlook.com>\n"
-"Nathan Follens \n"
-"Justin van Steijn <justin50@live.nl>\n"
+"Nathan Follens <nthn@unseen.is>\n"
+"Justin van Steijn <jvs@fsfe.org>\n"
 "Hannie Dumoleyn <hannie@ubuntu-nl.org>\n"
 "\n"
-"Kijk voor meer info op http://nl.gnome.org/"
+"Meer info over Gnome-NL http://nl.gnome.org/"
 
 #: src/mainToolbar.js:91
 msgctxt "toolbar button tooltip"
@@ -689,7 +688,7 @@ msgid ""
 "Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
 "href=\"file://%s\">Documents folder</a> will appear here."
 msgstr ""
-"Hier komen documenten uit uw <a href=\"system-settings\">Online Accounts</a> "
+"Hier komen documenten uit uw <a href=\"system-settings\">Online-accounts</a> "
 "en <a href=\"file://%s\">Documentenmap</a> te staan."
 
 #. Translators: this is the menu to change view settings
@@ -775,28 +774,28 @@ msgstr ""
 msgid "_Password"
 msgstr "_Wachtwoord"
 
-#: src/presentation.js:102
+#: src/presentation.js:101
 msgid "Running in presentation mode"
 msgstr "Uitgevoerd in de presentatiemodus"
 
-#: src/presentation.js:130
+#: src/presentation.js:129
 msgid "Present On"
 msgstr "Presenteren op"
 
 #. Translators: "Mirrored" describes when both displays show the same view
-#: src/presentation.js:166
+#: src/presentation.js:165
 msgid "Mirrored"
 msgstr "Gespiegeld"
 
-#: src/presentation.js:168
+#: src/presentation.js:167
 msgid "Primary"
 msgstr "Primair"
 
-#: src/presentation.js:170
+#: src/presentation.js:169
 msgid "Off"
 msgstr "Uitgeschakeld"
 
-#: src/presentation.js:172
+#: src/presentation.js:171
 msgid "Secondary"
 msgstr "Secundair"
 
@@ -1023,6 +1022,10 @@ msgstr "Naamloos document"
 #: src/trackerController.js:176
 msgid "Unable to fetch the list of documents"
 msgstr "Opvragen van lijst van documenten mislukt"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Rotate anti-clockwise"
+#~ msgstr "Linksom draaien (tegen de klok in)"
 
 #~ msgid "LibreOffice is required to view this document"
 #~ msgstr "LibreOffice is vereist om dit document te bekijken"
