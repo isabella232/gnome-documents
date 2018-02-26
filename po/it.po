@@ -1,17 +1,17 @@
 # Italian translation for gnome-documents.
 # Copyright (C) 2011 gnome-documents's COPYRIGHT HOLDER
-# Copyright (C) 2012, 2013, 2014, 2015, 2016, 2017 Free Software Foundation
+# Copyright (C) 2012, 2013, 2014, 2015, 2016, 2017, 2018 Free Software Foundation
 # This file is distributed under the same license as the gnome-documents package.
 # Luca Ferretti <lferrett@gnome.org>, 2011, 2012, 2013.
-# Milo Casagrande <milo@milo.name>, 2013, 2014, 2015, 2016, 2017.
+# Milo Casagrande <milo@milo.name>, 2013, 2014, 2015, 2016, 2017, 2018.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-08-23 15:36+0000\n"
-"PO-Revision-Date: 2017-08-24 09:03+0200\n"
+"POT-Creation-Date: 2017-12-03 17:11+0000\n"
+"PO-Revision-Date: 2018-02-08 09:27+0100\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -19,18 +19,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Poedit 1.8.12\n"
+"X-Generator: Poedit 2.0.4\n"
 
-#: data/org.gnome.Books.appdata.xml.in:7 data/org.gnome.Books.desktop.in:3
+#: data/org.gnome.Books.metainfo.xml.in:7 data/org.gnome.Books.desktop.in:3
 #: src/application.js:112 src/overview.js:1052
 msgid "Books"
 msgstr "Libri"
 
-#: data/org.gnome.Books.appdata.xml.in:8
+#: data/org.gnome.Books.metainfo.xml.in:8
 msgid "An e-book manager application for GNOME"
 msgstr "Una applicazione GNOME per gestire e-book"
 
-#: data/org.gnome.Books.appdata.xml.in:10
+#: data/org.gnome.Books.metainfo.xml.in:10
 msgid ""
 "A simple application to access and organize your e-books on GNOME. It is "
 "meant to be a simple and elegant replacement for using a file manager to "
@@ -40,29 +40,29 @@ msgstr ""
 "propri e-book. È pensata per essere un'alternativa semplice ed elegante "
 "all'utilizzo di un file manager nella gestione dei documenti."
 
-#: data/org.gnome.Books.appdata.xml.in:15
-#: data/org.gnome.Documents.appdata.xml.in:16
+#: data/org.gnome.Books.metainfo.xml.in:15
+#: data/org.gnome.Documents.metainfo.xml.in:16
 msgid "It lets you:"
 msgstr "Permette di:"
 
-#: data/org.gnome.Books.appdata.xml.in:17
+#: data/org.gnome.Books.metainfo.xml.in:17
 msgid "View recent e-books"
 msgstr "Visualizzare e-book recenti"
 
-#: data/org.gnome.Books.appdata.xml.in:18
+#: data/org.gnome.Books.metainfo.xml.in:18
 msgid "Search through e-books"
 msgstr "Cercare tra gli e-book"
 
-#: data/org.gnome.Books.appdata.xml.in:19
+#: data/org.gnome.Books.metainfo.xml.in:19
 msgid "View e-books (PDF and comics) fullscreen"
 msgstr "Visualizzare e-book (PDF e fumetti) a schermo intero"
 
-#: data/org.gnome.Books.appdata.xml.in:20
+#: data/org.gnome.Books.metainfo.xml.in:20
 msgid "Print e-books"
 msgstr "Stampare e-book"
 
-#: data/org.gnome.Books.appdata.xml.in:32
-#: data/org.gnome.Documents.appdata.xml.in:39
+#: data/org.gnome.Books.metainfo.xml.in:32
+#: data/org.gnome.Documents.metainfo.xml.in:39
 msgid "The GNOME Project"
 msgstr "Il progetto GNOME"
 
@@ -128,17 +128,17 @@ msgstr "Modalità notte"
 msgid "Whether the application is in night mode."
 msgstr "Indica se l'applicazione è in modalità notte."
 
-#: data/org.gnome.Documents.appdata.xml.in:7
+#: data/org.gnome.Documents.metainfo.xml.in:7
 #: data/org.gnome.Documents.desktop.in:3 src/application.js:115
 #: src/overview.js:1052
 msgid "Documents"
 msgstr "Documenti"
 
-#: data/org.gnome.Documents.appdata.xml.in:8
+#: data/org.gnome.Documents.metainfo.xml.in:8
 msgid "A document manager application for GNOME"
 msgstr "Una applicazione GNOME per gestire documenti"
 
-#: data/org.gnome.Documents.appdata.xml.in:10
+#: data/org.gnome.Documents.metainfo.xml.in:10
 msgid ""
 "A simple application to access, organize and share your documents on GNOME. "
 "It is meant to be a simple and elegant replacement for using a file manager "
@@ -150,35 +150,35 @@ msgstr ""
 "all'utilizzo di un file manager nella gestione dei documenti. L'integrazione "
 "con il cloud è offerta attraverso GNOME Online Accounts."
 
-#: data/org.gnome.Documents.appdata.xml.in:18
+#: data/org.gnome.Documents.metainfo.xml.in:18
 msgid "View recent local and online documents"
 msgstr "Visualizzare documenti recenti locali e online"
 
-#: data/org.gnome.Documents.appdata.xml.in:19
+#: data/org.gnome.Documents.metainfo.xml.in:19
 msgid "Access your Google, ownCloud or OneDrive content"
 msgstr "Accedere ai propri contenuti su Google, ownCloud e OneDrive"
 
-#: data/org.gnome.Documents.appdata.xml.in:20
+#: data/org.gnome.Documents.metainfo.xml.in:20
 msgid "Search through documents"
 msgstr "Cercare tra i documenti"
 
-#: data/org.gnome.Documents.appdata.xml.in:21
+#: data/org.gnome.Documents.metainfo.xml.in:21
 msgid "See new documents shared by friends"
 msgstr "Visualizzare nuovi documenti condivisi da un amico/a"
 
-#: data/org.gnome.Documents.appdata.xml.in:22
+#: data/org.gnome.Documents.metainfo.xml.in:22
 msgid "View documents fullscreen"
 msgstr "Visualizzare documenti a schermo intero"
 
-#: data/org.gnome.Documents.appdata.xml.in:23
+#: data/org.gnome.Documents.metainfo.xml.in:23
 msgid "Print documents"
 msgstr "Stampare documenti"
 
-#: data/org.gnome.Documents.appdata.xml.in:24
+#: data/org.gnome.Documents.metainfo.xml.in:24
 msgid "Select favorites"
 msgstr "Selezionare i preferiti"
 
-#: data/org.gnome.Documents.appdata.xml.in:25
+#: data/org.gnome.Documents.metainfo.xml.in:25
 msgid "Allow opening full featured editor for non-trivial changes"
 msgstr "Consente di aprire un editor di testo per eseguire modifiche"
 
@@ -188,7 +188,6 @@ msgstr "Accede, gestisce e condivide documenti"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 #: data/org.gnome.Documents.desktop.in:7
-#| msgid "Documents"
 msgid "org.gnome.Documents"
 msgstr "org.gnome.Documents"
 
@@ -285,7 +284,7 @@ msgstr "Copia il testo selezionato negli appunti"
 
 #: data/ui/help-overlay.ui:106
 msgctxt "shortcut window"
-msgid "Rotate anti-clockwise"
+msgid "Rotate counterclockwise"
 msgstr "Ruota in senso antiorario"
 
 #: data/ui/help-overlay.ui:113
@@ -331,6 +330,11 @@ msgstr "Nuova raccolta…"
 #: data/ui/organize-collection-dialog.ui:122 src/sharing.js:226
 msgid "Add"
 msgstr "Aggiungi"
+
+#: data/ui/organize-collection-dialog.ui:163 data/ui/selection-toolbar.ui:88
+#: src/overview.js:1056 src/search.js:126 src/search.js:132
+msgid "Collections"
+msgstr "Raccolte"
 
 #: data/ui/organize-collection-dialog.ui:167 src/overview.js:616
 msgid "Cancel"
@@ -395,11 +399,6 @@ msgstr "Seleziona tutto"
 #: data/ui/selection-menu.ui:11
 msgid "Select None"
 msgstr "Seleziona nessuno"
-
-#: data/ui/selection-toolbar.ui:88 src/overview.js:1056 src/search.js:126
-#: src/search.js:132
-msgid "Collections"
-msgstr "Raccolte"
 
 #: data/ui/view-menu.ui:23
 msgid "View items as a grid of icons"
@@ -1012,6 +1011,10 @@ msgstr "Documento senza titolo"
 #: src/trackerController.js:176
 msgid "Unable to fetch the list of documents"
 msgstr "Impossibile recuperare l'elenco dei documenti"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Rotate anti-clockwise"
+#~ msgstr "Ruota in senso antiorario"
 
 #~ msgid "LibreOffice is required to view this document"
 #~ msgstr "È richiesto LibreOffice per visualizzare questo documento"
