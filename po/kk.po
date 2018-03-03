@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-08-23 15:40+0000\n"
-"PO-Revision-Date: 2017-08-23 21:52+0500\n"
+"POT-Creation-Date: 2017-12-03 17:11+0000\n"
+"PO-Revision-Date: 2018-03-03 20:31+0500\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
 "Language: kk\n"
@@ -17,18 +17,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.12\n"
+"X-Generator: Poedit 2.0.6\n"
 
-#: data/org.gnome.Books.appdata.xml.in:7 data/org.gnome.Books.desktop.in:3
+#: data/org.gnome.Books.metainfo.xml.in:7 data/org.gnome.Books.desktop.in:3
 #: src/application.js:112 src/overview.js:1052
 msgid "Books"
 msgstr "Кітаптар"
 
-#: data/org.gnome.Books.appdata.xml.in:8
+#: data/org.gnome.Books.metainfo.xml.in:8
 msgid "An e-book manager application for GNOME"
 msgstr "GNOME үшін электрондық кітаптарды басқару қолданбасы"
 
-#: data/org.gnome.Books.appdata.xml.in:10
+#: data/org.gnome.Books.metainfo.xml.in:10
 msgid ""
 "A simple application to access and organize your e-books on GNOME. It is "
 "meant to be a simple and elegant replacement for using a file manager to "
@@ -38,29 +38,29 @@ msgstr ""
 "арналған қарапайым қолданба. Ол эл. кітаптармен жұмысы үшін файлдар "
 "басқарушысын алмастыратын қарапайым әрі элегантты шешім ретінде ұсынылады."
 
-#: data/org.gnome.Books.appdata.xml.in:15
-#: data/org.gnome.Documents.appdata.xml.in:16
+#: data/org.gnome.Books.metainfo.xml.in:15
+#: data/org.gnome.Documents.metainfo.xml.in:16
 msgid "It lets you:"
 msgstr "Мүмкіндіктері:"
 
-#: data/org.gnome.Books.appdata.xml.in:17
+#: data/org.gnome.Books.metainfo.xml.in:17
 msgid "View recent e-books"
 msgstr "Соңғы эл. кітаптарды қарау"
 
-#: data/org.gnome.Books.appdata.xml.in:18
+#: data/org.gnome.Books.metainfo.xml.in:18
 msgid "Search through e-books"
 msgstr "Эл. кітаптар ішінен іздеу"
 
-#: data/org.gnome.Books.appdata.xml.in:19
+#: data/org.gnome.Books.metainfo.xml.in:19
 msgid "View e-books (PDF and comics) fullscreen"
 msgstr "Эл. кітаптарды (PDF және комикстер) толық экранда қарау"
 
-#: data/org.gnome.Books.appdata.xml.in:20
+#: data/org.gnome.Books.metainfo.xml.in:20
 msgid "Print e-books"
 msgstr "Эл. кітаптарды баспаға шығару"
 
-#: data/org.gnome.Books.appdata.xml.in:32
-#: data/org.gnome.Documents.appdata.xml.in:39
+#: data/org.gnome.Books.metainfo.xml.in:32
+#: data/org.gnome.Documents.metainfo.xml.in:39
 msgid "The GNOME Project"
 msgstr "GNOME жобасы"
 
@@ -126,17 +126,17 @@ msgstr "Түнгі режимі"
 msgid "Whether the application is in night mode."
 msgstr "Қолданба түнгі режимінде ме, соны көрсетеді."
 
-#: data/org.gnome.Documents.appdata.xml.in:7
+#: data/org.gnome.Documents.metainfo.xml.in:7
 #: data/org.gnome.Documents.desktop.in:3 src/application.js:115
 #: src/overview.js:1052
 msgid "Documents"
 msgstr "Құжаттар қолданбасы"
 
-#: data/org.gnome.Documents.appdata.xml.in:8
+#: data/org.gnome.Documents.metainfo.xml.in:8
 msgid "A document manager application for GNOME"
 msgstr "GNOME үшін құжаттарды басқару қолданбасы"
 
-#: data/org.gnome.Documents.appdata.xml.in:10
+#: data/org.gnome.Documents.metainfo.xml.in:10
 msgid ""
 "A simple application to access, organize and share your documents on GNOME. "
 "It is meant to be a simple and elegant replacement for using a file manager "
@@ -148,35 +148,35 @@ msgstr ""
 "алмастыратын қарапайым әрі элегантты шешім ретінде ұсынылады. GNOME желілік "
 "тіркелгілері арқылы бұлттық қызметтермен жапсарсыз интеграция іске асырылады."
 
-#: data/org.gnome.Documents.appdata.xml.in:18
+#: data/org.gnome.Documents.metainfo.xml.in:18
 msgid "View recent local and online documents"
 msgstr "Жуырдағы жергілікті және онлайн құжаттарын қарау"
 
-#: data/org.gnome.Documents.appdata.xml.in:19
+#: data/org.gnome.Documents.metainfo.xml.in:19
 msgid "Access your Google, ownCloud or OneDrive content"
 msgstr "Өзіңіздің Google, ownCloud не OneDrive құрамасына қатынаңыз"
 
-#: data/org.gnome.Documents.appdata.xml.in:20
+#: data/org.gnome.Documents.metainfo.xml.in:20
 msgid "Search through documents"
 msgstr "Құжаттар ішінен іздеу"
 
-#: data/org.gnome.Documents.appdata.xml.in:21
+#: data/org.gnome.Documents.metainfo.xml.in:21
 msgid "See new documents shared by friends"
 msgstr "Достар бөліскен жаңа құжаттарды қарау"
 
-#: data/org.gnome.Documents.appdata.xml.in:22
+#: data/org.gnome.Documents.metainfo.xml.in:22
 msgid "View documents fullscreen"
 msgstr "Құжаттарды толық экранда қарау"
 
-#: data/org.gnome.Documents.appdata.xml.in:23
+#: data/org.gnome.Documents.metainfo.xml.in:23
 msgid "Print documents"
 msgstr "Құжаттарды баспаға шығару"
 
-#: data/org.gnome.Documents.appdata.xml.in:24
+#: data/org.gnome.Documents.metainfo.xml.in:24
 msgid "Select favorites"
 msgstr "Таңдамалыларды таңдау"
 
-#: data/org.gnome.Documents.appdata.xml.in:25
+#: data/org.gnome.Documents.metainfo.xml.in:25
 msgid "Allow opening full featured editor for non-trivial changes"
 msgstr "Қарапайым емес өзгерістер үшін түзеткішті ашуды рұқсат ету"
 
@@ -186,7 +186,6 @@ msgstr "Құжаттарға қатынау, басқару және оларм�
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 #: data/org.gnome.Documents.desktop.in:7
-#| msgid "Documents"
 msgid "org.gnome.Documents"
 msgstr "org.gnome.Documents"
 
@@ -283,7 +282,7 @@ msgstr "Таңдалған мәтінді алмасу буферіне көші
 
 #: data/ui/help-overlay.ui:106
 msgctxt "shortcut window"
-msgid "Rotate anti-clockwise"
+msgid "Rotate counterclockwise"
 msgstr "Сағат тілі бойына қарсы бұру"
 
 #: data/ui/help-overlay.ui:113
@@ -329,6 +328,11 @@ msgstr "Жаңа жинақ…"
 #: data/ui/organize-collection-dialog.ui:122 src/sharing.js:226
 msgid "Add"
 msgstr "Қосу"
+
+#: data/ui/organize-collection-dialog.ui:163 data/ui/selection-toolbar.ui:88
+#: src/overview.js:1056 src/search.js:126 src/search.js:132
+msgid "Collections"
+msgstr "Жинақтар"
 
 #: data/ui/organize-collection-dialog.ui:167 src/overview.js:616
 msgid "Cancel"
@@ -393,11 +397,6 @@ msgstr "Барлығын таңдау"
 #: data/ui/selection-menu.ui:11
 msgid "Select None"
 msgstr "Ештеңе таңдамау"
-
-#: data/ui/selection-toolbar.ui:88 src/overview.js:1056 src/search.js:126
-#: src/search.js:132
-msgid "Collections"
-msgstr "Жинақтар"
 
 #: data/ui/view-menu.ui:23
 msgid "View items as a grid of icons"
@@ -997,6 +996,10 @@ msgstr "Атаусыз құжат"
 #: src/trackerController.js:176
 msgid "Unable to fetch the list of documents"
 msgstr "Құжаттар тізімін алу мүмкін емес"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Rotate anti-clockwise"
+#~ msgstr "Сағат тілі бойына қарсы бұру"
 
 #~ msgid "LibreOffice is required to view this document"
 #~ msgstr "Бұл құжатты қарау үшін LibreOffice керек"
