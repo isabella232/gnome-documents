@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-08-26 23:15+0000\n"
-"PO-Revision-Date: 2017-09-03 20:52+0200\n"
+"POT-Creation-Date: 2017-12-03 17:11+0000\n"
+"PO-Revision-Date: 2018-02-28 11:38+0100\n"
 "Last-Translator: Kris Thomsen\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -21,19 +21,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
+"X-Generator: Poedit 2.0.6\n"
 "X-Project-Style: gnome\n"
 
-#: data/org.gnome.Books.appdata.xml.in:7 data/org.gnome.Books.desktop.in:3
+#: data/org.gnome.Books.metainfo.xml.in:7 data/org.gnome.Books.desktop.in:3
 #: src/application.js:112 src/overview.js:1052
 msgid "Books"
 msgstr "Bøger"
 
-#: data/org.gnome.Books.appdata.xml.in:8
+#: data/org.gnome.Books.metainfo.xml.in:8
 msgid "An e-book manager application for GNOME"
 msgstr "Et program til håndtering af e-bøger i GNOME"
 
-#: data/org.gnome.Books.appdata.xml.in:10
+#: data/org.gnome.Books.metainfo.xml.in:10
 msgid ""
 "A simple application to access and organize your e-books on GNOME. It is "
 "meant to be a simple and elegant replacement for using a file manager to "
@@ -43,29 +43,29 @@ msgstr ""
 "påtænkt at være en simpel og elegant erstatning for at bruge et "
 "filhåndteringsprogram til at håndtere e-bøger."
 
-#: data/org.gnome.Books.appdata.xml.in:15
-#: data/org.gnome.Documents.appdata.xml.in:16
+#: data/org.gnome.Books.metainfo.xml.in:15
+#: data/org.gnome.Documents.metainfo.xml.in:16
 msgid "It lets you:"
 msgstr "Den lader dig:"
 
-#: data/org.gnome.Books.appdata.xml.in:17
+#: data/org.gnome.Books.metainfo.xml.in:17
 msgid "View recent e-books"
 msgstr "Vis seneste e-bøger"
 
-#: data/org.gnome.Books.appdata.xml.in:18
+#: data/org.gnome.Books.metainfo.xml.in:18
 msgid "Search through e-books"
 msgstr "Søge gennem e-bøger"
 
-#: data/org.gnome.Books.appdata.xml.in:19
+#: data/org.gnome.Books.metainfo.xml.in:19
 msgid "View e-books (PDF and comics) fullscreen"
 msgstr "Vis e-bøger (PDF og tegneserier) i fuldskærm"
 
-#: data/org.gnome.Books.appdata.xml.in:20
+#: data/org.gnome.Books.metainfo.xml.in:20
 msgid "Print e-books"
 msgstr "Udskrive e-bøger"
 
-#: data/org.gnome.Books.appdata.xml.in:32
-#: data/org.gnome.Documents.appdata.xml.in:39
+#: data/org.gnome.Books.metainfo.xml.in:32
+#: data/org.gnome.Documents.metainfo.xml.in:39
 msgid "The GNOME Project"
 msgstr "GNOME-projektet"
 
@@ -131,17 +131,17 @@ msgstr "Nattilstand"
 msgid "Whether the application is in night mode."
 msgstr "Om programmet er i nattilstand."
 
-#: data/org.gnome.Documents.appdata.xml.in:7
+#: data/org.gnome.Documents.metainfo.xml.in:7
 #: data/org.gnome.Documents.desktop.in:3 src/application.js:115
 #: src/overview.js:1052
 msgid "Documents"
 msgstr "Dokumenter"
 
-#: data/org.gnome.Documents.appdata.xml.in:8
+#: data/org.gnome.Documents.metainfo.xml.in:8
 msgid "A document manager application for GNOME"
 msgstr "Et program til dokumenthåndtering i GNOME"
 
-#: data/org.gnome.Documents.appdata.xml.in:10
+#: data/org.gnome.Documents.metainfo.xml.in:10
 msgid ""
 "A simple application to access, organize and share your documents on GNOME. "
 "It is meant to be a simple and elegant replacement for using a file manager "
@@ -153,35 +153,35 @@ msgstr ""
 "et filhåndteringsprogram til at håndtere dokumenter. Problemfri cloud-"
 "integration tilbydes gennem GNOME online-konti."
 
-#: data/org.gnome.Documents.appdata.xml.in:18
+#: data/org.gnome.Documents.metainfo.xml.in:18
 msgid "View recent local and online documents"
 msgstr "Vis seneste lokale og online dokumenter"
 
-#: data/org.gnome.Documents.appdata.xml.in:19
+#: data/org.gnome.Documents.metainfo.xml.in:19
 msgid "Access your Google, ownCloud or OneDrive content"
 msgstr "Tilgå dit indhold fra Google, ownCloud eller OneDrive"
 
-#: data/org.gnome.Documents.appdata.xml.in:20
+#: data/org.gnome.Documents.metainfo.xml.in:20
 msgid "Search through documents"
 msgstr "Søg i dokumenter"
 
-#: data/org.gnome.Documents.appdata.xml.in:21
+#: data/org.gnome.Documents.metainfo.xml.in:21
 msgid "See new documents shared by friends"
 msgstr "Se nye dokumenter, delt af venner"
 
-#: data/org.gnome.Documents.appdata.xml.in:22
+#: data/org.gnome.Documents.metainfo.xml.in:22
 msgid "View documents fullscreen"
 msgstr "Vis dokumenter i fuldskærm"
 
-#: data/org.gnome.Documents.appdata.xml.in:23
+#: data/org.gnome.Documents.metainfo.xml.in:23
 msgid "Print documents"
 msgstr "Udskriv dokumenter"
 
-#: data/org.gnome.Documents.appdata.xml.in:24
+#: data/org.gnome.Documents.metainfo.xml.in:24
 msgid "Select favorites"
 msgstr "Vælg favoritter"
 
-#: data/org.gnome.Documents.appdata.xml.in:25
+#: data/org.gnome.Documents.metainfo.xml.in:25
 msgid "Allow opening full featured editor for non-trivial changes"
 msgstr ""
 "Tillad åbning af et fuldt funktionsdygtigt redigeringsprogram til større "
@@ -289,7 +289,7 @@ msgstr "Kopiér den markerede tekst til udklipsholder"
 
 #: data/ui/help-overlay.ui:106
 msgctxt "shortcut window"
-msgid "Rotate anti-clockwise"
+msgid "Rotate counterclockwise"
 msgstr "Drej mod uret"
 
 #: data/ui/help-overlay.ui:113
@@ -335,6 +335,11 @@ msgstr "Ny samling …"
 #: data/ui/organize-collection-dialog.ui:122 src/sharing.js:226
 msgid "Add"
 msgstr "Tilføj"
+
+#: data/ui/organize-collection-dialog.ui:163 data/ui/selection-toolbar.ui:88
+#: src/overview.js:1056 src/search.js:126 src/search.js:132
+msgid "Collections"
+msgstr "Samlinger"
 
 #: data/ui/organize-collection-dialog.ui:167 src/overview.js:616
 msgid "Cancel"
@@ -399,11 +404,6 @@ msgstr "Vælg alle"
 #: data/ui/selection-menu.ui:11
 msgid "Select None"
 msgstr "Vælg ingen"
-
-#: data/ui/selection-toolbar.ui:88 src/overview.js:1056 src/search.js:126
-#: src/search.js:132
-msgid "Collections"
-msgstr "Samlinger"
 
 #: data/ui/view-menu.ui:23
 msgid "View items as a grid of icons"
@@ -1017,6 +1017,10 @@ msgstr "Unavngivet dokument"
 #: src/trackerController.js:176
 msgid "Unable to fetch the list of documents"
 msgstr "Kunne ikke hente dokumentlisten"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Rotate anti-clockwise"
+#~ msgstr "Drej mod uret"
 
 #~ msgid "LibreOffice is required to view this document"
 #~ msgstr "Du skal bruge LibreOffice for at se dette dokument"
