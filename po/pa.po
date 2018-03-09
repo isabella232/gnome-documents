@@ -2,813 +2,1068 @@
 # Copyright (C) 2011 gnome-documents's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-documents package.
 #
-# A S Alam <aalam@users.sf.net>, 2011, 2012, 2013, 2014, 2015.
+# A S Alam <aalam@users.sf.net>, 2011, 2012, 2013, 2014, 2015, 2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-03-13 20:28+0000\n"
-"PO-Revision-Date: 2015-03-13 22:12-0500\n"
-"Last-Translator: A S Alam <aalam@users.sf.net>\n"
-"Language-Team: Punjabi/Panjabi <punjabi-users@lists.sf.net>\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-d"
+"ocuments&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-12-03 17:11+0000\n"
+"PO-Revision-Date: 2018-03-09 06:45-0600\n"
+"Last-Translator: A S Alam <alam.yellow@gmail.com>\n"
+"Language-Team: Punjabi <punjabi-translation@googlegroups.com>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 2.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:1
-#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:132
-#: ../src/lib/gd-utils.c:418
-#| msgid "Bookmarks"
+#: data/org.gnome.Books.metainfo.xml.in:7 data/org.gnome.Books.desktop.in:3
+#: src/application.js:112 src/overview.js:1052
 msgid "Books"
 msgstr "ਕਿਤਾਬਾਂ"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:2
-#| msgid "A document manager application for GNOME"
+#: data/org.gnome.Books.metainfo.xml.in:8
 msgid "An e-book manager application for GNOME"
 msgstr "ਗਨੋਮ ਲਈ ਈ-ਬੁੱਕ ਮੈਨੇਜਰ ਐਪਲੀਕੇਸ਼ਨ ਹੈ"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:3
-#| msgid ""
-#| "A simple application to access, organize and share your documents on "
-#| "GNOME. It is meant to be a simple and elegant replacement for using a "
-#| "file manager to deal with documents. Seamless cloud integration is "
-#| "offered through GNOME Online Accounts."
+#: data/org.gnome.Books.metainfo.xml.in:10
 msgid ""
 "A simple application to access and organize your e-books on GNOME. It is "
 "meant to be a simple and elegant replacement for using a file manager to "
 "deal with e-books."
 msgstr ""
-"ਗਨੋਮ ਵਿੱਚ ਤੁਹਾਡੀਆਂ ਈ-ਬੁੱਕਾਂ ਨੂੰ ਵਰਤਣ ਤੇ ਉਹਨਾਂ ਦਾ ਪਰਬੰਧ ਕਰਨ ਲਈ ਸੌਖੀ ਜੇਹੀ "
-"ਐਪਲੀਕੇਸ਼ਨ ਹੈ। ਇਸ "
-"ਨੂੰ ਈ-ਬੁੱਕਾਂ ਦਾ ਪਰਬੰਧ ਕਰਨ ਲਈ ਫਾਇਲ ਮੈਨੇਜਰ ਨੂੰ ਸੌਖਾ ਤੇ ਸਧਾਰਨ ਰੂਪ ਵਿੱਚ "
-"ਤਿਆਰ ਕੀਤਾ ਗਿਆ ਹੈ।"
+"ਗਨੋਮ ਵਿੱਚ ਤੁਹਾਡੀਆਂ ਈ-ਬੁੱਕਾਂ ਨੂੰ ਵਰਤਣ ਤੇ ਉਹਨਾਂ ਦਾ ਪਰਬੰਧ ਕਰਨ ਲਈ ਸੌਖੀ ਜੇਹੀ"
+" ਐਪਲੀਕੇਸ਼ਨ ਹੈ। ਇਸ ਨੂੰ ਈ-"
+"ਬੁੱਕਾਂ ਦਾ ਪਰਬੰਧ ਕਰਨ ਲਈ ਫਾਇਲ ਮੈਨੇਜਰ ਨੂੰ ਸੌਖਾ ਤੇ ਸਧਾਰਨ ਰੂਪ ਵਿੱਚ ਤਿਆਰ ਕੀਤਾ ਗਿਆ"
+" ਹੈ।"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:4
-#: ../data/org.gnome.Documents.appdata.xml.in.h:4
+#: data/org.gnome.Books.metainfo.xml.in:15
+#: data/org.gnome.Documents.metainfo.xml.in:16
 msgid "It lets you:"
 msgstr "ਇਹ ਤੁਹਾਡੇ ਲਈ ਹੈ:"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:5
+#: data/org.gnome.Books.metainfo.xml.in:17
 msgid "View recent e-books"
 msgstr "ਤਾਜ਼ਾ ਈ-ਕਿਤਾਬਾਂ ਵੇਖੋ"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:6
-#| msgid "Search through documents"
+#: data/org.gnome.Books.metainfo.xml.in:18
 msgid "Search through e-books"
 msgstr "ਈ-ਬੁੱਕਾਂ ਵਿੱਚ ਲੱਭੋ"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:7
-#| msgid "View documents fullscreen"
-msgid "View e-books fullscreen"
-msgstr "ਈ-ਬੁੱਕਾਂ ਨੂੰ ਪੂਰੀ ਸਕਰੀਨ ਉੱਤੇ ਵੇਖੋ"
+#: data/org.gnome.Books.metainfo.xml.in:19
+#| msgid "View e-books fullscreen"
+msgid "View e-books (PDF and comics) fullscreen"
+msgstr "ਈ-ਬੁੱਕਾਂ (PDF ਅਤੇ ਹਾਸਰਸ ਕਿਤਾਬਾਂ) ਨੂੰ ਪੂਰੀ ਸਕਰੀਨ ਉੱਤੇ ਵੇਖੋ"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:8
+#: data/org.gnome.Books.metainfo.xml.in:20
 msgid "Print e-books"
 msgstr "ਈ-ਬੁੱਕ ਛਾਪੋ"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:9
-#: ../data/org.gnome.Documents.appdata.xml.in.h:12
-msgid "Allow opening full featured editor for non-trivial changes"
-msgstr "ਗ਼ੈਰ-ਮਮੂਲੀ ਤਬਦੀਲੀਆਂ ਲਈ ਪੂਰੇ ਫੀਚਰ ਐਡੀਟਰ ਖੋਲ੍ਹਣ ਦੀ ਮਨਜ਼ੂਰੀ"
+#: data/org.gnome.Books.metainfo.xml.in:32
+#: data/org.gnome.Documents.metainfo.xml.in:39
+msgid "The GNOME Project"
+msgstr "ਗਨੋਮ ਪਰੋਜੈੱਕਟ"
 
-#: ../data/org.gnome.Books.desktop.in.h:2
-#| msgid "Access, manage and share documents"
+#: data/org.gnome.Books.desktop.in:4
 msgid "Access, manage and share books"
 msgstr "ਕਿਤਾਬਾਂ ਨੂੰ ਵਰਤੋਂ, ਪਰਬੰਧ ਕਰੋ ਅਤੇ ਸਾਂਝੀਆਂ ਕਰੋ"
 
-#: ../data/org.gnome.Books.desktop.in.h:3
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.Books.desktop.in:7
+msgid "org.gnome.Books"
+msgstr "org.gnome.clocks"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Books.desktop.in:15
 msgid "Books;Comics;ePub;PDF;"
 msgstr "ਕਿਤਾਬਾਂ;ਕੌਮਿਕਸ;ePub;PDF;ਈ-ਪਬ;ਪੀਡੀਐਫ;"
 
-#: ../data/org.gnome.books.gschema.xml.h:1
-#: ../data/org.gnome.documents.gschema.xml.h:1
+#: data/org.gnome.books.gschema.xml:5 data/org.gnome.documents.gschema.xml:5
 msgid "View as"
 msgstr "ਇੰਝ ਵੇਖੋ"
 
-#: ../data/org.gnome.books.gschema.xml.h:2
-#: ../data/org.gnome.documents.gschema.xml.h:2
+#: data/org.gnome.books.gschema.xml:6 data/org.gnome.documents.gschema.xml:6
 msgid "View as type"
 msgstr "ਕਿਸਮਾਂ ਵਾਂਗ ਵੇਖੋ"
 
-#: ../data/org.gnome.books.gschema.xml.h:3
-#: ../data/org.gnome.documents.gschema.xml.h:3
+#: data/org.gnome.books.gschema.xml:10 data/org.gnome.documents.gschema.xml:10
+msgid "Sort by"
+msgstr "ਲੜੀਬੱਧ"
+
+#: data/org.gnome.books.gschema.xml:11 data/org.gnome.documents.gschema.xml:11
+msgid "Sort by type"
+msgstr "ਲੜੀਬੱਧ ਕਿਸਮ"
+
+#: data/org.gnome.books.gschema.xml:15 data/org.gnome.documents.gschema.xml:15
 msgid "Window size"
 msgstr "ਵਿੰਡੋ ਆਕਾਰ"
 
-#: ../data/org.gnome.books.gschema.xml.h:4
-#: ../data/org.gnome.documents.gschema.xml.h:4
+#: data/org.gnome.books.gschema.xml:16 data/org.gnome.documents.gschema.xml:16
 msgid "Window size (width and height)."
 msgstr "ਵਿੰਡੋ ਆਕਾਰ (ਚੌੜਾਈ ਅਤੇ ਉਚਾਈ)"
 
-#: ../data/org.gnome.books.gschema.xml.h:5
-#: ../data/org.gnome.documents.gschema.xml.h:5
+#: data/org.gnome.books.gschema.xml:20 data/org.gnome.documents.gschema.xml:20
 msgid "Window position"
 msgstr "ਵਿੰਡੋ ਸਥਿਤੀ"
 
-#: ../data/org.gnome.books.gschema.xml.h:6
-#: ../data/org.gnome.documents.gschema.xml.h:6
+#: data/org.gnome.books.gschema.xml:21 data/org.gnome.documents.gschema.xml:21
 msgid "Window position (x and y)."
 msgstr "ਵਿੰਡੋ ਸਥਿਤੀ (x ਅਤੇ y)"
 
-#: ../data/org.gnome.books.gschema.xml.h:7
-#: ../data/org.gnome.documents.gschema.xml.h:7
+#: data/org.gnome.books.gschema.xml:25 data/org.gnome.documents.gschema.xml:25
 msgid "Window maximized"
 msgstr "ਵਿੰਡੋ ਵੱਧੋ-ਵੱਧ ਕਰਨੀ"
 
-#: ../data/org.gnome.books.gschema.xml.h:8
-#: ../data/org.gnome.documents.gschema.xml.h:8
+#: data/org.gnome.books.gschema.xml:26 data/org.gnome.documents.gschema.xml:26
 msgid "Window maximized state"
 msgstr "ਵਿੰਡੋ ਵੱਧੋ-ਵੱਧ ਆਕਾਰ ਸਥਿਤੀ"
 
-#: ../data/org.gnome.books.gschema.xml.h:9
-#: ../data/org.gnome.documents.gschema.xml.h:9
+#: data/org.gnome.books.gschema.xml:30 data/org.gnome.documents.gschema.xml:30
 msgid "Night mode"
 msgstr "ਰਾਤ ਮੋਡ"
 
-#: ../data/org.gnome.books.gschema.xml.h:10
-#: ../data/org.gnome.documents.gschema.xml.h:10
+#: data/org.gnome.books.gschema.xml:31 data/org.gnome.documents.gschema.xml:31
 msgid "Whether the application is in night mode."
 msgstr "ਕੀ ਐਪਲੀਕੇਸ਼ਨ ਰਾਤ ਮੋਡ ਵਿੱਚ ਹੈ।"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:1
-#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:128
-#: ../src/lib/gd-utils.c:411 ../src/mainWindow.js:52
+#: data/org.gnome.Documents.metainfo.xml.in:7
+#: data/org.gnome.Documents.desktop.in:3 src/application.js:115
+#: src/overview.js:1052
 msgid "Documents"
 msgstr "ਡੌਕੂਮੈਂਟ"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:2
+#: data/org.gnome.Documents.metainfo.xml.in:8
 msgid "A document manager application for GNOME"
 msgstr "ਗਨੋਮ ਲਈ ਡੌਕੂਮੈਂਟ ਮੈਨੇਜਰ ਐਪਲੀਕੇਸ਼ਨ"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:3
+#: data/org.gnome.Documents.metainfo.xml.in:10
 msgid ""
 "A simple application to access, organize and share your documents on GNOME. "
 "It is meant to be a simple and elegant replacement for using a file manager "
 "to deal with documents. Seamless cloud integration is offered through GNOME "
 "Online Accounts."
 msgstr ""
-"ਗਨੋਮ ਵਿੱਚ ਤੁਹਾਡੇ ਦਸਤਾਵੇਜ਼ (ਡੌਕੂਮੈਂਟ) ਨੂੰ ਵਰਤਣ, ਉਹਨਾਂ ਦਾ ਪਰਬੰਧ ਕਰਨ ਤੇ ਸਾਂਝਾ ਕਰਨ "
-"ਲਈ ਸੌਖੀ ਜੇਹੀ "
-"ਐਪਲੀਕੇਸ਼ਨ ਹੈ। ਇਸ ਨੂੰ ਦਸਤਾਵੇਜ਼ ਦਾ ਪਰਬੰਧ ਕਰਨ ਲਈ ਫਾਇਲ ਮੈਨੇਜਰ ਦੀ ਬਜਾਏ ਸੌਖਾ ਤੇ ਸਧਾਰਨ "
-"ਰੂਪ ਵਿੱਚ "
+"ਗਨੋਮ ਵਿੱਚ ਤੁਹਾਡੇ ਦਸਤਾਵੇਜ਼ (ਡੌਕੂਮੈਂਟ) ਨੂੰ ਵਰਤਣ, ਉਹਨਾਂ ਦਾ ਪਰਬੰਧ ਕਰਨ ਤੇ ਸਾਂਝਾ ਕਰਨ"
+" ਲਈ ਸੌਖੀ ਜੇਹੀ "
+"ਐਪਲੀਕੇਸ਼ਨ ਹੈ। ਇਸ ਨੂੰ ਦਸਤਾਵੇਜ਼ ਦਾ ਪਰਬੰਧ ਕਰਨ ਲਈ ਫਾਇਲ ਮੈਨੇਜਰ ਦੀ ਬਜਾਏ ਸੌਖਾ ਤੇ ਸਧਾਰਨ"
+" ਰੂਪ ਵਿੱਚ "
 "ਤਿਆਰ ਕੀਤਾ ਗਿਆ ਹੈ। ਗਨੋਮ ਆਨਲਾਈਨ ਖਾਤਿਆਂ ਰਾਹੀਂ ਕਲਾਉਡ ਜੋੜ ਨੂੰ ਵੀ ਸੌਖਾ ਬਣਾਇਆ ਗਿਆ ਹੈ।"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:5
+#: data/org.gnome.Documents.metainfo.xml.in:18
 msgid "View recent local and online documents"
 msgstr "ਤਾਜ਼ਾ ਲੋਕਲ ਅਤੇ ਆਨਲਾਈਨ ਡੌਕੂਮੈਂਟ ਵੇਖੋ"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:6
+#: data/org.gnome.Documents.metainfo.xml.in:19
 msgid "Access your Google, ownCloud or OneDrive content"
 msgstr "ਗੂਗਲ, ਓਵਨਕਲਾਉਡ ਜਾਂ ਵਨਡਰਾਇਵ ਸਮਗਰੀ ਵਰਤੋਂ"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:7
+#: data/org.gnome.Documents.metainfo.xml.in:20
 msgid "Search through documents"
 msgstr "ਡੌਕੂਮੈਂਟਾਂ ਲਈ ਖੋਜ"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:8
+#: data/org.gnome.Documents.metainfo.xml.in:21
 msgid "See new documents shared by friends"
 msgstr "ਦੋਸਤਾਂ ਵਲੋਂ ਸਾਂਝੇ ਕੀਤੇ ਨਵੇਂ ਡੌਕੂਮੈਂਟ ਵੇਖੋ"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:9
+#: data/org.gnome.Documents.metainfo.xml.in:22
 msgid "View documents fullscreen"
 msgstr "ਡੌਕੂਮੈਂਟ ਪੂਰੀ ਸਕਰੀਨ ਉੱਤੇ ਵੇਖੋ"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:10
+#: data/org.gnome.Documents.metainfo.xml.in:23
 msgid "Print documents"
 msgstr "ਡੌਕੂਮੈਂਟ ਪਰਿੰਟ ਕਰੋ"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:11
+#: data/org.gnome.Documents.metainfo.xml.in:24
 msgid "Select favorites"
 msgstr "ਪਸੰਦੀਦਾ ਚੁਣੋ"
 
-#: ../data/org.gnome.Documents.desktop.in.h:2
+#: data/org.gnome.Documents.metainfo.xml.in:25
+msgid "Allow opening full featured editor for non-trivial changes"
+msgstr "ਗ਼ੈਰ-ਮਮੂਲੀ ਤਬਦੀਲੀਆਂ ਲਈ ਪੂਰੇ ਫੀਚਰ ਐਡੀਟਰ ਖੋਲ੍ਹਣ ਦੀ ਮਨਜ਼ੂਰੀ"
+
+#: data/org.gnome.Documents.desktop.in:4
 msgid "Access, manage and share documents"
 msgstr "ਡੌਕੂਮੈਂਟ ਵਰਤੋਂ, ਪਰਬੰਧ ਕਰੋ ਅਤੇ ਸਾਂਝੇ ਕਰੋ"
 
-#: ../data/org.gnome.Documents.desktop.in.h:3
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.Documents.desktop.in:7
+#| msgid "Documents"
+msgid "org.gnome.Documents"
+msgstr "org.gnome.Documents"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Documents.desktop.in:15
 msgid "Docs;PDF;Document;"
 msgstr "ਡੌਕੂਮੈਂਟ;PDF,ਦਸਤਾਵੇਜ਼;"
 
-#: ../src/documents.js:631
+#: data/ui/app-menu.ui:6 src/preview.js:453
+msgid "Night Mode"
+msgstr "ਰਾਤ ਮੋਡ"
+
+#: data/ui/app-menu.ui:12
+msgid "Keyboard Shortcuts"
+msgstr "ਕੀ-ਬੋਰਡ ਸ਼ਾਰਟਕੱਟ"
+
+#: data/ui/app-menu.ui:16
+msgid "Help"
+msgstr "ਮੱਦਦ"
+
+#: data/ui/app-menu.ui:20
+msgid "About"
+msgstr "ਇਸ ਬਾਰੇ"
+
+#: data/ui/app-menu.ui:24
+#| msgid "Quit"
+msgctxt "app menu"
+msgid "Quit"
+msgstr "ਬਾਹਰ"
+
+#: data/ui/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "ਆਮ"
+
+#: data/ui/help-overlay.ui:15
+msgctxt "shortcut window"
+msgid "Show help"
+msgstr "ਮਦਦ ਵੇਖਾਓ"
+
+#: data/ui/help-overlay.ui:22
+#| msgid "Quit"
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "ਬਾਹਰ"
+
+#: data/ui/help-overlay.ui:29
+#| msgid "Search"
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "ਖੋਜੋ"
+
+#: data/ui/help-overlay.ui:36
+#| msgid "Print documents"
+msgctxt "shortcut window"
+msgid "Print the current document"
+msgstr "ਮੌਜੂਦਾ ਦਸਤਾਵੇਜ਼ ਨੂੰ ਛਾਪੋ"
+
+#: data/ui/help-overlay.ui:45
+msgctxt "shortcut window"
+msgid "Navigation"
+msgstr "ਨੇਵੀਗੇਸ਼ਨ"
+
+#: data/ui/help-overlay.ui:49 data/ui/help-overlay.ui:57
+msgctxt "shortcut window"
+msgid "Go back"
+msgstr "ਪਿੱਛੇ ਜਾਓ"
+
+#: data/ui/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Preview"
+msgstr "ਝਲਕ"
+
+#: data/ui/help-overlay.ui:71
+#| msgid "Zoom In"
+msgctxt "shortcut window"
+msgid "Zoom in"
+msgstr "ਜ਼ੂਮ ਇਨ"
+
+#: data/ui/help-overlay.ui:78
+#| msgid "Zoom Out"
+msgctxt "shortcut window"
+msgid "Zoom out"
+msgstr "ਜ਼ੂਮ ਆਉਟ"
+
+#: data/ui/help-overlay.ui:85
+#| msgid "Bookmark this page"
+msgctxt "shortcut window"
+msgid "Bookmark the current page"
+msgstr "ਮੌਜੂਦਾ ਸਫ਼ੇ ਨੂੰ ਬੁੱਕਮਾਰਕ ਕਰੋ"
+
+#: data/ui/help-overlay.ui:92
+msgctxt "shortcut window"
+msgid "Open places and bookmarks dialog"
+msgstr "ਥਾਵਾਂ ਅਤੇ ਬੁੱਕਮਾਰਕ ਡਾਈਲਾਗ ਖੋਲ੍ਹੋ"
+
+#: data/ui/help-overlay.ui:99
+msgctxt "shortcut window"
+msgid "Copy selected text to clipboard"
+msgstr "ਚੁਣੀ ਲਿਖਤ ਨੂੰ ਕਲਿੱਪਬੋਰਡ ਵਿੱਚ ਕਾਪੀ ਕਰੋ"
+
+#: data/ui/help-overlay.ui:106
+msgctxt "shortcut window"
+msgid "Rotate counterclockwise"
+msgstr "ਖੱਬੇ ਦਾਅ ਘੁੰਮਾਓ"
+
+#: data/ui/help-overlay.ui:113
+msgctxt "shortcut window"
+msgid "Rotate clockwise"
+msgstr "ਸੱਜੇ ਦਾਅ ਘੁੰਮਾਓ"
+
+#: data/ui/help-overlay.ui:120
+msgctxt "shortcut window"
+msgid "Next occurrence of the search string"
+msgstr "ਖੋਜ ਸਤਰ ਦੀ ਅਗਲੀ ਮੌਜੂਦਗੀ"
+
+#: data/ui/help-overlay.ui:127
+msgctxt "shortcut window"
+msgid "Previous occurrence of the search string"
+msgstr "ਖੋਜ ਦੀ ਸਤਰ ਦੀ ਪਿਛਲੀ ਮੌਜੂਦਗੀ"
+
+#: data/ui/help-overlay.ui:134
+#| msgid "Presentation"
+msgctxt "shortcut window"
+msgid "Presentation mode"
+msgstr "ਪੇਸ਼ਕਾਰੀ ਢੰਗ"
+
+#: data/ui/help-overlay.ui:141
+msgctxt "shortcut window"
+msgid "Open action menu"
+msgstr "ਕਾਰਵਾਈ ਮੇਨੂ ਖੋਲ੍ਹੋ"
+
+#: data/ui/help-overlay.ui:148
+#| msgid "Fullscreen"
+msgctxt "shortcut window"
+msgid "Fullscreen"
+msgstr "ਪੂਰੀ ਸਕਰੀਨ"
+
+#: data/ui/organize-collection-dialog.ui:40
+msgid "Enter a name for your first collection"
+msgstr "ਆਪਣੇ ਪਹਿਲੇ ਭੰਡਾਰ ਲਈ ਨਾਂ ਦਿਓ"
+
+#: data/ui/organize-collection-dialog.ui:56
+#: data/ui/organize-collection-dialog.ui:113
+#| msgid "Collection"
+msgid "New Collection…"
+msgstr "ਨਵਾਂ ਭੰਡਾਰ…"
+
+#: data/ui/organize-collection-dialog.ui:73
+#: data/ui/organize-collection-dialog.ui:122 src/sharing.js:226
+msgid "Add"
+msgstr "ਸ਼ਾਮਲ"
+
+#: data/ui/organize-collection-dialog.ui:163 data/ui/selection-toolbar.ui:88
+#: src/overview.js:1056 src/search.js:126 src/search.js:132
+msgid "Collections"
+msgstr "ਭੰਡਾਰ"
+
+#: data/ui/organize-collection-dialog.ui:167 src/overview.js:616
+msgid "Cancel"
+msgstr "ਰੱਦ ਕਰੋ"
+
+#. Label for Done button in Sharing dialog
+#: data/ui/organize-collection-dialog.ui:173 src/sharing.js:112
+msgid "Done"
+msgstr "ਮੁਕੰਮਲ"
+
+#: data/ui/preview-context-menu.ui:6
+msgid "_Copy"
+msgstr "ਕਾਪੀ ਕਰੋ(_C)"
+
+#. Translators: this is the Open action in a context menu
+#: data/ui/preview-menu.ui:6 data/ui/selection-toolbar.ui:9
+#: src/selections.js:988
+msgid "Open"
+msgstr "ਖੋਲ੍ਹੋ"
+
+#: data/ui/preview-menu.ui:10
+msgid "Edit"
+msgstr "ਸੋਧ"
+
+#: data/ui/preview-menu.ui:15
+msgid "Print…"
+msgstr "…ਪਰਿੰਟ ਕਰੋ"
+
+#: data/ui/preview-menu.ui:21 src/preview.js:462
+msgid "Fullscreen"
+msgstr "ਪੂਰੀ ਸਕਰੀਨ"
+
+#: data/ui/preview-menu.ui:27
+msgid "Present"
+msgstr "ਪਰਿਜੈਂਟ"
+
+#: data/ui/preview-menu.ui:35
+msgid "Zoom In"
+msgstr "ਜ਼ੂਮ ਇਨ"
+
+#: data/ui/preview-menu.ui:41
+msgid "Zoom Out"
+msgstr "ਜ਼ੂਮ ਆਉਟ"
+
+#: data/ui/preview-menu.ui:49
+msgid "Rotate ↶"
+msgstr "↶ ਘੁੰਮਾਓ"
+
+#: data/ui/preview-menu.ui:55
+msgid "Rotate ↷"
+msgstr "↷ ਘੁੰਮਾਓ"
+
+#: data/ui/preview-menu.ui:62 data/ui/selection-toolbar.ui:79
+#: src/properties.js:61
+msgid "Properties"
+msgstr "ਵਿਸ਼ੇਸ਼ਤਾ"
+
+#: data/ui/selection-menu.ui:6
+msgid "Select All"
+msgstr "ਸਭ ਚੁਣੋ"
+
+#: data/ui/selection-menu.ui:11
+msgid "Select None"
+msgstr "ਸਭ ਚੁਣੋ"
+
+#: data/ui/view-menu.ui:23
+msgid "View items as a grid of icons"
+msgstr "ਆਈਟਮਾਂ ਨੂੰ ਆਈਕਾਨ ਦੇ ਗਰਿੱਡ ਵਜੋਂ ਵੇਖੋ"
+
+#: data/ui/view-menu.ui:40
+msgid "View items as a list"
+msgstr "ਆਈਟਮਾਂ ਨੂੰ ਸੂਚੀ ਵਜੋਂ ਵੇਖੋ"
+
+#: data/ui/view-menu.ui:73
+msgid "Sort"
+msgstr "ਲੜੀਬੱਧ"
+
+#: data/ui/view-menu.ui:84
+#| msgctxt "Document Author"
+#| msgid "Author"
+msgid "Author"
+msgstr "ਲੇਖਕ"
+
+#: data/ui/view-menu.ui:93
+msgid "Date"
+msgstr "ਮਿਤੀ"
+
+#: data/ui/view-menu.ui:102
+msgid "Name"
+msgstr "ਨਾਂ"
+
+#: src/application.js:126
+msgid "Show the version of the program"
+msgstr "ਪਰੋਗਰਾਮ ਦਾ ਵਰਜ਼ਨ ਵੇਖੋ।"
+
+#: src/documents.js:794
 msgid "Failed to print document"
 msgstr "ਡੌਕੂਮੈਂਟ ਪਰਿੰਟ ਕਰਨ ਲਈ ਫੇਲ੍ਹ"
 
-#: ../src/documents.js:668 ../src/search.js:498
+#. Translators: this refers to local documents
+#: src/documents.js:836 src/search.js:459
 msgid "Local"
 msgstr "ਲੋਕਲ"
 
-#: ../src/documents.js:695
+#. Translators: Documents ships a "Getting Started with Documents"
+#. tutorial PDF. The "GNOME" string below is displayed as the author name
+#. of that document, and doesn't normally need to be translated.
+#: src/documents.js:879
 msgid "GNOME"
 msgstr "ਗਨੋਮ"
 
-#: ../src/documents.js:696
+#: src/documents.js:880
 msgid "Getting Started with Documents"
 msgstr "ਡੌਕੂਮੈਂਟ ਨਾਲ ਸ਼ੁਰੂਆਤ"
 
-#: ../src/documents.js:712 ../src/documents.js:904 ../src/documents.js:967
-#: ../src/documents.js:1075
+#: src/documents.js:905 src/documents.js:1115 src/documents.js:1218
+#: src/documents.js:1412
 msgid "Collection"
 msgstr "ਭੰਡਾਰ"
 
-#: ../src/documents.js:783
+#. overridden
+#: src/documents.js:972
 msgid "Google Docs"
 msgstr "ਗੂਗਲ ਡੌਕਸ"
 
-#: ../src/documents.js:784
+#: src/documents.js:973
 msgid "Google"
 msgstr "ਗੂਗਲ"
 
-#: ../src/documents.js:906 ../src/documents.js:1077
+#: src/documents.js:1117 src/documents.js:1414
 msgid "Spreadsheet"
 msgstr "ਸਪਰੈਡਸ਼ੀਟ"
 
-#: ../src/documents.js:908 ../src/documents.js:1079 ../src/presentation.js:47
+#: src/documents.js:1119 src/documents.js:1416 src/presentation.js:44
 msgid "Presentation"
 msgstr "ਪਰਿਜ਼ੈੱਨਟੇਸ਼ਨ"
 
-#: ../src/documents.js:910 ../src/documents.js:1081
+#: src/documents.js:1121 src/documents.js:1418
 msgid "e-Book"
 msgstr "ਈ-ਬੁੱਕ"
 
-#: ../src/documents.js:912 ../src/documents.js:1083
+#: src/documents.js:1123 src/documents.js:1420
 msgid "Document"
 msgstr "ਡੌਕੂਮੈਂਟ"
 
-#: ../src/documents.js:946
+#. overridden
+#: src/documents.js:1173
 msgid "ownCloud"
 msgstr "ownCloud"
 
-#: ../src/documents.js:1009 ../src/documents.js:1010
+#. overridden
+#: src/documents.js:1307 src/documents.js:1308
 msgid "OneDrive"
 msgstr "OneDrive"
 
-#: ../src/documents.js:1247
+#: src/documents.js:1594
 msgid "Please check the network connection."
 msgstr "ਨੈੱਟਵਰਕ ਕੁਨੈਕਸ਼ਨ ਚੈਕ ਕਰੋ ਜੀ।"
 
-#: ../src/documents.js:1250
+#: src/documents.js:1597
 msgid "Please check the network proxy settings."
 msgstr "ਨੈੱਟਵਰਕ ਪਰਾਕਸੀ ਸੈਟਿੰਗ ਜਾਂਚੋ।"
 
-#: ../src/documents.js:1253
+#: src/documents.js:1600
 msgid "Unable to sign in to the document service."
 msgstr "ਡੌਕੂਮੈਂਟ ਸਰਵਿਸ ਵਿੱਚ ਸਾਇਨ ਇਨ ਕਰਨ ਲਈ ਅਸਮਰੱਥ ਹੈ।"
 
-#: ../src/documents.js:1256
+#: src/documents.js:1603
 msgid "Unable to locate this document."
 msgstr "ਡੌਕੂਮੈਂਟ ਲੱਭਣ ਲਈ ਅਸਮਰੱਥ ਹੈ।"
 
-#: ../src/documents.js:1259
+#: src/documents.js:1606
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "ਹੂੰ,  ਕੁਝ ਗੜਬੜ ਲੱਗਦਾ ਹੈ (%d)"
 
-#: ../src/documents.js:1266
+#: src/documents.js:1613
 msgid ""
 "You are using a preview of Books. Full viewing capabilities are coming soon!"
 msgstr "ਤੁਸੀਂ ਕਿਤਾਬਾਂ ਦੀ ਝਲਕ ਵਰਤ ਰਹੇ ਹੋ। ਪੂਰੀ ਝਲਕ ਦੀ ਸਮੱਰਥਾ ਛੇਤੀ ਹੀ ਆ ਰਹੀ ਹੈ!"
 
-#: ../src/documents.js:1287
+#: src/documents.js:1615
+msgid ""
+"LibreOffice support is not available. Please contact your system "
+"administrator."
+msgstr "ਲਿਬਰੇਆਫ਼ਿਸ ਸਹਿਯੋਗ ਉਪਲਬਧ ਨਹੀਂ ਹੈ। ਆਪਣੇ ਸਿਸਟਮ ਪਰਸ਼ਾਸ਼ਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"
+
+#. Translators: %s is the title of a document
+#: src/documents.js:1638
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "ਓਹ! “%s” ਲੋਡ ਕਰਨ ਲਈ ਅਸਮਰੱਥ"
 
-#: ../src/edit.js:176
+#. view button, on the right of the toolbar
+#: src/edit.js:139
 msgid "View"
 msgstr "ਵੇਖੋ"
 
-#: ../src/embed.js:108
-#| msgid "New and Recent"
-msgid "Recent"
-msgstr "ਤਾਜ਼ਾ"
+#: src/epubview.js:228
+#, javascript-format
+#| msgid "Page %u of %u"
+msgid "chapter %s of %s"
+msgstr "%2$s ਵਿੱਚੋਂ %1$s ਕਾਂਡ"
 
-#: ../src/embed.js:111 ../src/search.js:192 ../src/search.js:201
-msgid "Collections"
-msgstr "ਭੰਡਾਰ"
+#: src/evinceview.js:590 src/lib/gd-places-bookmarks.c:656
+msgid "Bookmarks"
+msgstr "ਬੁੱਕਮਾਰਕ"
 
-#: ../src/lib/gd-nav-bar.c:242
+#: src/evinceview.js:598
+msgid "Bookmark this page"
+msgstr "ਇਹ ਸਫ਼ਾ ਬੁੱਕਮਾਰਕ ਕਰੋ"
+
+#: src/lib/gd-nav-bar.c:242
 #, c-format
 msgid "Page %u of %u"
 msgstr "%2$u ਵਿੱਚੋਂ %1$u ਸਫ਼ਾ"
 
-#: ../src/lib/gd-pdf-loader.c:247
+#: src/lib/gd-pdf-loader.c:142
 msgid "Unable to load the document"
 msgstr "ਡੌਕੂਮੈਂਟ ਲੋਡ ਕਰਨ ਲਈ ਅਸਮਰੱਥ"
-
-#: ../src/lib/gd-pdf-loader.c:715
-msgid "LibreOffice is required to view this document"
-msgstr "ਇਹ ਡੌਕੂਮੈਂਟ ਵੇਖਣ ਲਈ ਲਿਬਰੇਆਫਿਸ ਦੀ ਲੋੜ ਹੈ"
 
 #. Translators: %s is the number of the page, already formatted
 #. * as a string, for example "Page 5".
 #.
-#: ../src/lib/gd-places-bookmarks.c:321
+#: src/lib/gd-places-bookmarks.c:321
 #, c-format
 msgid "Page %s"
 msgstr "ਪੇਜ਼ %s"
 
-#: ../src/lib/gd-places-bookmarks.c:384
+#: src/lib/gd-places-bookmarks.c:384
 msgid "No bookmarks"
 msgstr "ਬੁੱਕਮਾਰਕ ਨਹੀਂ"
 
-#: ../src/lib/gd-places-bookmarks.c:392 ../src/lib/gd-places-links.c:257
+#: src/lib/gd-places-bookmarks.c:392 src/lib/gd-places-links.c:257
 msgid "Loading…"
 msgstr "…ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: ../src/lib/gd-places-bookmarks.c:656 ../src/preview.js:601
-msgid "Bookmarks"
-msgstr "ਬੁੱਕਮਾਰਕ"
-
-#: ../src/lib/gd-places-links.c:342
+#: src/lib/gd-places-links.c:342
 msgid "No table of contents"
 msgstr "ਕੋਈ ਤਤਕਰਾ ਨਹੀਂ"
 
-#: ../src/lib/gd-places-links.c:518
+#: src/lib/gd-places-links.c:514
 msgid "Contents"
 msgstr "ਸਮੱਗਰੀ"
 
-#: ../src/lib/gd-utils.c:412
+#: src/lib/gd-utils.c:328
 msgid "A document manager application"
 msgstr "ਡੌਕੂਮੈਂਟ ਮੈਨੇਜਰ ਐਪਲੀਕੇਸ਼ਨ"
 
-#: ../src/lib/gd-utils.c:419
-#| msgid "A document manager application"
+#: src/lib/gd-utils.c:333
 msgid "An e-books manager application"
 msgstr "ਈ-ਬੁੱਕ ਮੈਨੇਜਰ ਐਪਲੀਕੇਸ਼ਨ"
 
-#: ../src/lib/gd-utils.c:427
+#: src/lib/gd-utils.c:340
 msgid "translator-credits"
 msgstr ""
 "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ\n"
 "ਪੰਜਾਬੀ ਓਪਨਸੋਰਸ ਟੀਮ (POST) ੨੦੧੧-੨੦੧੫"
 
-#: ../src/mainToolbar.js:79
+#: src/mainToolbar.js:91
+#| msgid "Search"
+msgctxt "toolbar button tooltip"
 msgid "Search"
-msgstr "ਖੋਜ"
+msgstr "ਖੋਜੋ"
 
-#: ../src/mainToolbar.js:87
+#: src/mainToolbar.js:100
 msgid "Back"
 msgstr "ਪਿੱਛੇ"
 
-#: ../src/mainToolbar.js:141
-msgid "View items as a list"
-msgstr "ਆਈਟਮਾਂ ਨੂੰ ਸੂਚੀ ਵਜੋਂ ਵੇਖੋ"
+#. Translators: only one item has been deleted and %s is its name
+#: src/notifications.js:48
+#, javascript-format
+msgid "“%s” deleted"
+msgstr "“%s” ਹਟਾਈ"
 
-#: ../src/mainToolbar.js:147
-msgid "View items as a grid of icons"
-msgstr "ਆਈਟਮਾਂ ਨੂੰ ਆਈਕਾਨ ਦੇ ਗਰਿੱਡ ਵਜੋਂ ਵੇਖੋ"
+#. Translators: one or more items might have been deleted, and %d
+#. is the count
+#: src/notifications.js:52
+#, javascript-format
+msgid "%d item deleted"
+msgid_plural "%d items deleted"
+msgstr[0] "%d ਆਈਟਮ ਹਟਾਈ"
+msgstr[1] "%d ਆਈਟਮਾਂ ਹਟਾਈਆਂ"
 
-#: ../src/mainToolbar.js:177
+#: src/notifications.js:61 src/selections.js:387
+msgid "Undo"
+msgstr "ਵਾਪਿਸ"
+
+#: src/notifications.js:159
+#, javascript-format
+msgid "Printing “%s”: %s"
+msgstr "“%s” ਪਰਿੰਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ: %s"
+
+#: src/notifications.js:215
+msgid "Your documents are being indexed"
+msgstr "ਤੁਹਾਡੇ ਡੌਕੂਮੈਂਟ ਦਾ ਇੰਡੈਕਸ ਬਣਾਇਆ ਜਾ ਰਿਹਾ ਹੈ"
+
+#: src/notifications.js:216
+msgid "Some documents might not be available during this process"
+msgstr "ਕੁਝ ਡੌਕੂਮੈਂਟ ਇਹ ਕਾਰਵਾਈ ਦੌਰਾਨ ਸ਼ਾਇਦ ਉਪਲੱਬਧ ਨਹੀਂ ਹੋਣਗੇ"
+
+#. Translators: %s refers to an online account provider, e.g.
+#. "Google", or "Windows Live".
+#: src/notifications.js:238
+#, javascript-format
+msgid "Fetching documents from %s"
+msgstr "%s ਤੋਂ ਡੌਕੂਮੈਂਟ ਲਏ ਜਾ ਰਹੇ ਹਨ"
+
+#: src/notifications.js:240
+msgid "Fetching documents from online accounts"
+msgstr "ਆਨਲਾਈਨ ਅਕਾਊਂਟ ਤੋਂ ਡੌਕੂਮੈਂਟ ਲਏ ਜਾ ਰਹੇ ਹਨ"
+
+#: src/overview.js:275
+#| msgid "No Books Found"
+msgid "No collections found"
+msgstr "ਕੋਈ ਭੰਡਾਰ ਨਹੀਂ ਲੱਭਿਆ"
+
+#: src/overview.js:277
+#| msgid "No Books Found"
+msgid "No books found"
+msgstr "ਕੋਈ ਕਿਤਾਬ ਨਹੀਂ ਲੱਭੀ"
+
+#: src/overview.js:277
+#| msgid "No Documents Found"
+msgid "No documents found"
+msgstr "ਕੋਈ ਦਸਤਾਵੇਜ਼ ਨਹੀਂ ਲੱਭਿਆ"
+
+#: src/overview.js:286
+msgid "Try a different search"
+msgstr "ਵੱਖਰੀ ਖੋਜ ਨਾਲ ਕੋਸ਼ਿਸ਼ ਕਰੋ"
+
+#: src/overview.js:293
+msgid "You can create collections from the Books view"
+msgstr "ਤੁਸੀਂ ਕਿਤਾਬ ਝਲਕ ਤੋਂ ਭੰਡਾਰ ਬਣਾ ਸਕਦੇ ਹੋ"
+
+#: src/overview.js:295
+msgid "You can create collections from the Documents view"
+msgstr "ਤੁਸੀਂ ਦਸਤਾਵੇਜ਼ ਝਲਕ ਤੋਂ ਭੰਡਾਰ ਬਣਾ ਸਕਦੇ ਹੋ"
+
+#: src/overview.js:305
+#, javascript-format
+msgid ""
+"Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
+"href=\"file://%s\">Documents folder</a> will appear here."
+msgstr ""
+"ਤੁਹਾਡੇ <a href=\"system-settings\">ਆਨਲਾਈਨ ਖਾਤਿਆਂ</a> ਅਤੇ <a "
+"href=\"file://%s\">ਦਸਤਾਵੇਜ਼ ਫੋਲਡਰ</a> ਤੋਂ ਦਸਤਾਵੇਜ਼ ਇੱਥੇ ਦਿਖਾਈ ਦੇਣਗੇ।"
+
+#. Translators: this is the menu to change view settings
+#: src/overview.js:562
+#| msgid "View as"
+msgid "View Menu"
+msgstr "ਮੇਨੂ ਦੇਖੋ"
+
+#: src/overview.js:590
 msgid "Click on items to select them"
 msgstr "ਆਈਟਮਾਂ ਨੂੰ ਚੁਣਨ ਲਈ ਉਹਨਾਂ ਉੱਤੇ ਕਲਿੱਕ ਕਰੋ"
 
-#: ../src/mainToolbar.js:179
+#: src/overview.js:592
 #, javascript-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d ਚੁਣਿਆ"
 msgstr[1] "%d ਚੁਣੇ"
 
-#: ../src/mainToolbar.js:203
-msgid "Cancel"
-msgstr "ਰੱਦ ਕਰੋ"
-
-#: ../src/mainToolbar.js:246
+#: src/overview.js:669
 msgid "Select Items"
 msgstr "ਆਈਟਮਾਂ ਚੁਣੋ"
 
-#: ../src/notifications.js:54
-#, javascript-format
-msgid "“%s” deleted"
-msgstr "“%s” ਹਟਾਈ"
-
-#: ../src/notifications.js:58
-#, javascript-format
-#| msgid "Selected item has been deleted"
-#| msgid_plural "Selected items have been deleted"
-msgid "%d item deleted"
-msgid_plural "%d items deleted"
-msgstr[0] "%d ਆਈਟਮ ਹਟਾਈ"
-msgstr[1] "%d ਆਈਟਮਾਂ ਹਟਾਈਆਂ"
-
-#: ../src/notifications.js:67
-msgid "Undo"
-msgstr "ਵਾਪਿਸ"
-
-#: ../src/notifications.js:167
-#, javascript-format
-msgid "Printing “%s”: %s"
-msgstr "“%s” ਪਰਿੰਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ: %s"
-
-#: ../src/notifications.js:223
-msgid "Your documents are being indexed"
-msgstr "ਤੁਹਾਡੇ ਡੌਕੂਮੈਂਟ ਦਾ ਇੰਡੈਕਸ ਬਣਾਇਆ ਜਾ ਰਿਹਾ ਹੈ"
-
-#: ../src/notifications.js:224
-msgid "Some documents might not be available during this process"
-msgstr "ਕੁਝ ਡੌਕੂਮੈਂਟ ਇਹ ਕਾਰਵਾਈ ਦੌਰਾਨ ਸ਼ਾਇਦ ਉਪਲੱਬਧ ਨਹੀਂ ਹੋਣਗੇ"
-
-#: ../src/notifications.js:246
-#, javascript-format
-msgid "Fetching documents from %s"
-msgstr "%s ਤੋਂ ਡੌਕੂਮੈਂਟ ਲਏ ਜਾ ਰਹੇ ਹਨ"
-
-#: ../src/notifications.js:248
-msgid "Fetching documents from online accounts"
-msgstr "ਆਨਲਾਈਨ ਅਕਾਊਂਟ ਤੋਂ ਡੌਕੂਮੈਂਟ ਲਏ ਜਾ ਰਹੇ ਹਨ"
-
-#: ../src/password.js:46
-msgid "Password Required"
-msgstr "ਪਾਸਵਰਡ ਚਾਹੀਦਾ ਹੈ"
-
-#: ../src/password.js:49
-msgid "_Unlock"
-msgstr "ਅਣ-ਲਾਕ(_U)"
-
-#: ../src/password.js:65
-#, javascript-format
-msgid "Document %s is locked and requires a password to be opened."
-msgstr "ਡੌਕੂਮੈਂਟ “%s” ਲਾਕ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਖੋਲ੍ਹਣ ਲਈ ਪਾਸਵਰਡ ਦੀ ਲੋੜ ਹੈ।"
-
-#: ../src/password.js:79
-msgid "_Password"
-msgstr "ਪਾਸਵਰਡ(_P)"
-
-#: ../src/presentation.js:105
-msgid "Running in presentation mode"
-msgstr "ਪਰਿਜ਼ੈਂਟੇਸ਼ਨ ਮੋਡ ਵਿੱਚ ਚੱਲ ਰਿਹਾ ਹੈ"
-
-#: ../src/presentation.js:152
-msgid "Mirrored"
-msgstr "ਮਿਰਰ ਕੀਤਾ"
-
-#: ../src/presentation.js:154
-msgid "Primary"
-msgstr "ਪ੍ਰਾਇਮਰੀ"
-
-#: ../src/presentation.js:156
-msgid "Off"
-msgstr "ਬੰਦ"
-
-#: ../src/presentation.js:158
-msgid "Secondary"
-msgstr "ਸੈਕੰਡਰੀ"
-
-#: ../src/presentation.js:194
-msgid "Present On"
-msgstr "ਪਰਿਜੈਂਟ ਚਾਲੂ"
-
-#: ../src/preview.js:609
-msgid "Bookmark this page"
-msgstr "ਇਹ ਸਫ਼ਾ ਬੁੱਕਮਾਰਕ ਕਰੋ"
-
-#: ../src/preview.js:870 ../src/selections.js:859
-#, javascript-format
-msgid "Open with %s"
-msgstr "%s ਨਾਲ ਖੋਲ੍ਹੋ"
-
-#: ../src/preview.js:933
-msgid "Find Previous"
-msgstr "ਪਿੱਛੇ ਖੋਜ"
-
-#: ../src/preview.js:940
-msgid "Find Next"
-msgstr "ਅੱਗੇ ਖੋਜ"
-
-#: ../src/properties.js:61 ../src/resources/preview-menu.ui.h:9
-#: ../src/selections.js:769
-msgid "Properties"
-msgstr "ਵਿਸ਼ੇਸ਼ਤਾ"
-
-#: ../src/properties.js:81
-msgctxt "Document Title"
-msgid "Title"
-msgstr "ਟਾਈਟਲ"
-
-#: ../src/properties.js:90
-msgctxt "Document Author"
-msgid "Author"
-msgstr "ਲੇਖਕ"
-
-#: ../src/properties.js:97
-msgid "Source"
-msgstr "ਸਰੋਤ"
-
-#: ../src/properties.js:103
-msgid "Date Modified"
-msgstr "ਸੋਧ ਮਿਤੀ"
-
-#: ../src/properties.js:110
-msgid "Date Created"
-msgstr "ਬਣਾਉਣ ਮਿਤੀ"
-
-#: ../src/properties.js:119
-msgctxt "Document Type"
-msgid "Type"
-msgstr "ਕਿਸਮ"
-
-#: ../src/resources/app-menu.ui.h:1
-msgid "Fullscreen"
-msgstr "ਪੂਰੀ ਸਕਰੀਨ"
-
-#: ../src/resources/app-menu.ui.h:2
-msgid "Night Mode"
-msgstr "ਰਾਤ ਮੋਡ"
-
-#: ../src/resources/app-menu.ui.h:3
-msgid "Help"
-msgstr "ਮੱਦਦ"
-
-#: ../src/resources/app-menu.ui.h:4
-msgid "About"
-msgstr "ਇਸ ਬਾਰੇ"
-
-#: ../src/resources/app-menu.ui.h:5
-msgid "Quit"
-msgstr "ਬਾਹਰ"
-
-#: ../src/resources/preview-context-menu.ui.h:1
-msgid "_Copy"
-msgstr "ਕਾਪੀ ਕਰੋ(_C)"
-
-#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:747
-#: ../src/selections.js:862
-msgid "Open"
-msgstr "ਖੋਲ੍ਹੋ"
-
-#: ../src/resources/preview-menu.ui.h:2
-msgid "Edit"
-msgstr "ਸੋਧ"
-
-#: ../src/resources/preview-menu.ui.h:3
-msgid "Print…"
-msgstr "…ਪਰਿੰਟ ਕਰੋ"
-
-#: ../src/resources/preview-menu.ui.h:4
-msgid "Present"
-msgstr "ਪਰਿਜੈਂਟ"
-
-#: ../src/resources/preview-menu.ui.h:5
-msgid "Zoom In"
-msgstr "ਜ਼ੂਮ ਇਨ"
-
-#: ../src/resources/preview-menu.ui.h:6
-msgid "Zoom Out"
-msgstr "ਜ਼ੂਮ ਆਉਟ"
-
-#: ../src/resources/preview-menu.ui.h:7
-msgid "Rotate ↶"
-msgstr "↶ ਘੁੰਮਾਓ"
-
-#: ../src/resources/preview-menu.ui.h:8
-msgid "Rotate ↷"
-msgstr "↷ ਘੁੰਮਾਓ"
-
-#: ../src/resources/selection-menu.ui.h:1
-msgid "Select All"
-msgstr "ਸਭ ਚੁਣੋ"
-
-#: ../src/resources/selection-menu.ui.h:2
-msgid "Select None"
-msgstr "ਸਭ ਚੁਣੋ"
-
-#: ../src/search.js:115
-msgid "Category"
-msgstr "ਕੈਟਾਗਰੀ"
-
-#: ../src/search.js:120 ../src/search.js:189 ../src/search.js:322
-#: ../src/search.js:492
-msgid "All"
-msgstr "ਸਭ"
-
-#: ../src/search.js:126
-msgid "Favorites"
-msgstr "ਪਸੰਦੀਦਾ"
-
-#: ../src/search.js:131
-msgid "Shared with you"
-msgstr "ਤੁਹਾਡੇ ਨਾਲ ਸਾਂਝਾ ਕੀਤਾ"
-
-#: ../src/search.js:186
-msgctxt "Search Filter"
-msgid "Type"
-msgstr "ਕਿਸਮ"
-
-#: ../src/search.js:196
-msgid "PDF Documents"
-msgstr "PDF ਡੌਕੂਮੈਂਟ"
-
-#: ../src/search.js:209
-msgid "Presentations"
-msgstr "ਪਰਿਜੈੱਟੇਸ਼ਨ"
-
-#: ../src/search.js:212
-msgid "Spreadsheets"
-msgstr "ਸਪਰੈਡਸ਼ੀਟ"
-
-#: ../src/search.js:215
-msgid "Text Documents"
-msgstr "ਟੈਕਸਟ ਡੌਕੂਮੈਂਟ"
-
-#: ../src/search.js:220
-#| msgid "Bookmarks"
-msgid "e-Books"
-msgstr "ਈ-ਬੁੱਕ"
-
-#: ../src/search.js:224
-msgid "Comics"
-msgstr "ਕਾਮਿਕ"
-
-#: ../src/search.js:319
-msgid "Match"
-msgstr "ਮਿਲਦਾ"
-
-#: ../src/search.js:325
-msgctxt "Search Filter"
-msgid "Title"
-msgstr "ਟਾਈਟਲ"
-
-#: ../src/search.js:328
-msgctxt "Search Filter"
-msgid "Author"
-msgstr "ਲੇਖਕ"
-
-#: ../src/search.js:488
-msgid "Sources"
-msgstr "ਸਰੋਤ"
-
-#: ../src/selections.js:461
-msgid "You don't have any collections yet. Enter a new collection name above."
-msgstr "ਤੁਹਾਡੇ ਕੋਲ ਕੋਈ ਵੀ ਭੰਡਾਰ ਨਹੀਂ ਹੈ। ਉੱਤੇ ਨਵੇਂ ਭੰਡਾਰ ਲਈ ਨਾਂ ਦਿਉ।"
-
-#: ../src/selections.js:604
-msgid "Create new collection"
-msgstr "ਨਵਾਂ ਭੰਡਾਰ ਬਣਾਓ"
-
-#: ../src/selections.js:640
-msgctxt "Dialog Title"
-msgid "Collections"
-msgstr "ਭੰਡਾਰ"
-
-#: ../src/selections.js:752
-msgid "Print"
-msgstr "ਪਰਿੰਟ ਕਰੋ"
-
-#: ../src/selections.js:757
-msgid "Delete"
-msgstr "ਹਟਾਓ"
-
-#: ../src/selections.js:763
-msgid "Share"
-msgstr "ਸਾਂਝਾ"
-
-#: ../src/selections.js:774
-msgid "Add to Collection"
-msgstr "ਭੰਡਾਰ ਵਿੱਚ ਸ਼ਾਮਲ"
-
-#: ../src/sharing.js:98
-msgid "Sharing Settings"
-msgstr "ਸਾਂਝ ਸੈਟਿੰਗ"
-
-#: ../src/sharing.js:102
-msgid "Done"
-msgstr "ਮੁਕੰਮਲ"
-
-#: ../src/sharing.js:135
-msgid "Document permissions"
-msgstr "ਡੌਕੂਮੈਂਟ ਅਧਿਕਾਰ"
-
-#: ../src/sharing.js:142 ../src/sharing.js:320
-msgid "Change"
-msgstr "ਬਦਲੋ"
-
-#: ../src/sharing.js:166 ../src/sharing.js:295
-msgid "Private"
-msgstr "ਪ੍ਰਾਈਵੇਟ"
-
-#: ../src/sharing.js:176 ../src/sharing.js:288
-msgid "Public"
-msgstr "ਪਬਲਿਕ"
-
-#: ../src/sharing.js:180 ../src/sharing.js:290
-msgid "Everyone can edit"
-msgstr "ਹਰੇਕ ਸੋਧ ਸਕਦਾ ਹੈ"
-
-#: ../src/sharing.js:187
-msgid "Add people"
-msgstr "ਲੋਕ ਸ਼ਾਮਲ"
-
-#: ../src/sharing.js:194
-msgid "Enter an email address"
-msgstr "ਈਮੇਲ ਐਡਰੈਸ ਦਿਉ"
-
-#: ../src/sharing.js:209 ../src/sharing.js:376
-msgid "Can edit"
-msgstr "ਸੋਧ ਸਕਦੇ"
-
-#: ../src/sharing.js:209 ../src/sharing.js:379
-msgid "Can view"
-msgstr "ਵੇਖ ਸਕਦੇ"
-
-#: ../src/sharing.js:216
-msgid "Add"
-msgstr "ਸ਼ਾਮਲ"
-
-#: ../src/sharing.js:292
-msgid "Everyone can read"
-msgstr "ਹਰੇਕ ਪੜ੍ਹ ਸਕਦਾ"
-
-#: ../src/sharing.js:307
-msgid "Save"
-msgstr "ਸੰਭਾਲੋ"
-
-#: ../src/sharing.js:373
-msgid "Owner"
-msgstr "ਮਾਲਕ"
-
-#: ../src/sharing.js:442
-#, javascript-format
-msgid "You can ask %s for access"
-msgstr "ਤੁਸੀਂ %s ਲਈ ਵਰਤੋਂ ਦੀ ਪੁੱਛ ਸਕਦੇ ਹੋ"
-
-#: ../src/sharing.js:479 ../src/sharing.js:515 ../src/sharing.js:572
-#: ../src/sharing.js:589 ../src/sharing.js:608
-msgid "The document was not updated"
-msgstr "ਡੌਕੂਮੈਂਟ ਅੱਪਡੇਟ ਨਹੀਂ ਹੈ"
-
-#: ../src/shellSearchProvider.js:293
-msgid "Untitled Document"
-msgstr "ਬਿਨ-ਨਾਂ ਡੌਕੂਮੈਂਟ"
-
-#: ../src/trackerController.js:172
-msgid "Unable to fetch the list of documents"
-msgstr "ਡੌਕੂਮੈਂਟ ਦੀ ਲਿਸਟ ਲੈਣ ਲਈ ਅਸਮਰੱਥ"
-
-#: ../src/view.js:243
-#| msgid "No Documents Found"
-msgid "No Books Found"
-msgstr "ਕੋਈ ਕਿਤਾਬ ਨਹੀਂ ਲੱਭੀ"
-
-#: ../src/view.js:244
-msgid "No Documents Found"
-msgstr "ਕੋਈ ਡੌਕੂਮੈਂਟ ਨਹੀਂ ਲੱਭਿਆ"
-
-#: ../src/view.js:266
-#, javascript-format
-msgid "You can add your online accounts in %s"
-msgstr "ਤੁਸੀਂ %s ਵਿੱਚ ਆਪਣੇ ਆਨਲਾਈਨ ਅਕਾਊਂਟ ਸ਼ਾਮਿਲ ਕਰ ਸਕਦੇ ਹੋ"
-
-#: ../src/view.js:270
-msgid "Settings"
-msgstr "ਸੈਟਿੰਗ"
-
-#: ../src/view.js:457
+#: src/overview.js:876
 msgid "Yesterday"
 msgstr "ਕੱਲ੍ਹ"
 
-#: ../src/view.js:459
+#: src/overview.js:878
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d ਦਿਨ ਪਹਿਲਾਂ"
 msgstr[1] "%d ਦਿਨ ਪਹਿਲਾਂ"
 
-#: ../src/view.js:463
+#: src/overview.js:882
 msgid "Last week"
 msgstr "ਪਿਛਲੇ ਹਫ਼ਤੇ"
 
-#: ../src/view.js:465
+#: src/overview.js:884
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d ਹਫ਼ਤਾ ਪਹਿਲਾਂ"
 msgstr[1] "%d ਹਫ਼ਤੇ ਪਹਿਲਾਂ"
 
-#: ../src/view.js:469
+#: src/overview.js:888
 msgid "Last month"
 msgstr "ਪਿਛਲੇ ਮਹੀਨੇ"
 
-#: ../src/view.js:471
+#: src/overview.js:890
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d ਮਹੀਨਾ ਪਹਿਲਾਂ"
 msgstr[1] "%d ਮਹੀਨੇ ਪਹਿਲਾਂ"
 
-#: ../src/view.js:475
+#: src/overview.js:894
 msgid "Last year"
 msgstr "ਪਿਛਲੇ ਸਾਲ"
 
-#: ../src/view.js:477
+#: src/overview.js:896
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "%d ਸਾਲ ਪਹਿਲਾਂ"
 msgstr[1] "%d ਸਾਲ ਪਹਿਲਾਂ"
+
+#: src/password.js:42
+msgid "Password Required"
+msgstr "ਪਾਸਵਰਡ ਚਾਹੀਦਾ ਹੈ"
+
+#: src/password.js:45
+msgid "_Unlock"
+msgstr "ਅਣ-ਲਾਕ(_U)"
+
+#: src/password.js:61
+#, javascript-format
+msgid "Document %s is locked and requires a password to be opened."
+msgstr "ਡੌਕੂਮੈਂਟ “%s” ਲਾਕ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਖੋਲ੍ਹਣ ਲਈ ਪਾਸਵਰਡ ਦੀ ਲੋੜ ਹੈ।"
+
+#: src/password.js:75
+msgid "_Password"
+msgstr "ਪਾਸਵਰਡ(_P)"
+
+#: src/presentation.js:102
+msgid "Running in presentation mode"
+msgstr "ਪਰਿਜ਼ੈਂਟੇਸ਼ਨ ਮੋਡ ਵਿੱਚ ਚੱਲ ਰਿਹਾ ਹੈ"
+
+#: src/presentation.js:130
+msgid "Present On"
+msgstr "ਪਰਿਜੈਂਟ ਚਾਲੂ"
+
+#. Translators: "Mirrored" describes when both displays show the same view
+#: src/presentation.js:166
+msgid "Mirrored"
+msgstr "ਮਿਰਰ ਕੀਤਾ"
+
+#: src/presentation.js:168
+msgid "Primary"
+msgstr "ਪ੍ਰਾਇਮਰੀ"
+
+#: src/presentation.js:170
+msgid "Off"
+msgstr "ਬੰਦ"
+
+#: src/presentation.js:172
+msgid "Secondary"
+msgstr "ਸੈਕੰਡਰੀ"
+
+#. Translators: this is the Open action in a context menu
+#: src/preview.js:445 src/selections.js:985
+#, javascript-format
+msgid "Open with %s"
+msgstr "%s ਨਾਲ ਖੋਲ੍ਹੋ"
+
+#: src/preview.js:770
+msgid "Find Previous"
+msgstr "ਪਿੱਛੇ ਖੋਜ"
+
+#: src/preview.js:776
+msgid "Find Next"
+msgstr "ਅੱਗੇ ਖੋਜ"
+
+#. Title item
+#. Translators: "Title" is the label next to the document title
+#. in the properties dialog
+#: src/properties.js:81
+msgctxt "Document Title"
+msgid "Title"
+msgstr "ਟਾਈਟਲ"
+
+#. Translators: "Author" is the label next to the document author
+#. in the properties dialog
+#: src/properties.js:90
+msgctxt "Document Author"
+msgid "Author"
+msgstr "ਲੇਖਕ"
+
+#. Source item
+#: src/properties.js:97
+msgid "Source"
+msgstr "ਸਰੋਤ"
+
+#. Date Modified item
+#: src/properties.js:103
+msgid "Date Modified"
+msgstr "ਸੋਧ ਮਿਤੀ"
+
+#: src/properties.js:110
+msgid "Date Created"
+msgstr "ਬਣਾਉਣ ਮਿਤੀ"
+
+#. Document type item
+#. Translators: "Type" is the label next to the document type
+#. (PDF, spreadsheet, ...) in the properties dialog
+#: src/properties.js:119
+msgctxt "Document Type"
+msgid "Type"
+msgstr "ਕਿਸਮ"
+
+#. Translators: "Type" refers to a search filter on the document type
+#. (PDF, spreadsheet, ...)
+#: src/search.js:120
+msgctxt "Search Filter"
+msgid "Type"
+msgstr "ਕਿਸਮ"
+
+#. Translators: this refers to documents
+#: src/search.js:123 src/search.js:260 src/search.js:453
+msgid "All"
+msgstr "ਸਭ"
+
+#: src/search.js:136
+msgid "PDF Documents"
+msgstr "PDF ਡੌਕੂਮੈਂਟ"
+
+#: src/search.js:143
+msgid "e-Books"
+msgstr "ਈ-ਬੁੱਕ"
+
+#: src/search.js:147
+msgid "Comics"
+msgstr "ਕਾਮਿਕ"
+
+#: src/search.js:152
+msgid "Presentations"
+msgstr "ਪਰਿਜੈੱਟੇਸ਼ਨ"
+
+#: src/search.js:155
+msgid "Spreadsheets"
+msgstr "ਸਪਰੈਡਸ਼ੀਟ"
+
+#: src/search.js:158
+msgid "Text Documents"
+msgstr "ਟੈਕਸਟ ਡੌਕੂਮੈਂਟ"
+
+#. Translators: this is a verb that refers to "All", "Title", "Author",
+#. and "Content" as in "Match All", "Match Title", "Match Author", and
+#. "Match Content"
+#: src/search.js:257
+msgid "Match"
+msgstr "ਮਿਲਦਾ"
+
+#. Translators: "Title" refers to "Match Title" when searching
+#: src/search.js:263
+msgctxt "Search Filter"
+msgid "Title"
+msgstr "ਟਾਈਟਲ"
+
+#. Translators: "Author" refers to "Match Author" when searching
+#: src/search.js:266
+msgctxt "Search Filter"
+msgid "Author"
+msgstr "ਲੇਖਕ"
+
+#. Translators: "Content" refers to "Match Content" when searching
+#: src/search.js:269
+#| msgid "Contents"
+msgctxt "Search Filter"
+msgid "Content"
+msgstr "ਸਮੱਗਰੀ"
+
+#: src/search.js:449
+msgid "Sources"
+msgstr "ਸਰੋਤ"
+
+#. Translators: the first %s is an online account provider name,
+#. e.g. "Google". The second %s is the identity used to log in,
+#. e.g. "foo@gmail.com".
+#: src/search.js:508
+#, javascript-format
+msgid "%s (%s)"
+msgstr "%s (%s)"
+
+#: src/selections.js:360 src/selections.js:362
+msgid "Rename…"
+msgstr "…ਨਾਂ ਬਦਲੋ"
+
+#: src/selections.js:366 src/selections.js:368
+msgid "Delete"
+msgstr "ਹਟਾਓ"
+
+#: src/selections.js:382
+#, javascript-format
+#| msgid "“%s” deleted"
+msgid "“%s” removed"
+msgstr "“%s” ਨੂੰ ਹਟਾਇਆ"
+
+#: src/selections.js:779
+msgid "Rename"
+msgstr "ਨਾਂ ਬਦਲੋ"
+
+#. Translators: "Collections" refers to documents in this context
+#: src/selections.js:785
+msgctxt "Dialog Title"
+msgid "Collections"
+msgstr "ਭੰਡਾਰ"
+
+#: src/sharing.js:108
+msgid "Sharing Settings"
+msgstr "ਸਾਂਝ ਸੈਟਿੰਗ"
+
+#. Label for widget group for changing document permissions
+#: src/sharing.js:145
+msgid "Document permissions"
+msgstr "ਡੌਕੂਮੈਂਟ ਅਧਿਕਾਰ"
+
+#. Label for permission change in Sharing dialog
+#: src/sharing.js:152 src/sharing.js:330
+msgid "Change"
+msgstr "ਬਦਲੋ"
+
+#. Label for radiobutton that sets doc permission to private
+#: src/sharing.js:176 src/sharing.js:305
+msgid "Private"
+msgstr "ਪ੍ਰਾਈਵੇਟ"
+
+#: src/sharing.js:186 src/sharing.js:298
+msgid "Public"
+msgstr "ਪਬਲਿਕ"
+
+#. Label for checkbutton that sets doc permission to Can edit
+#: src/sharing.js:190 src/sharing.js:300
+msgid "Everyone can edit"
+msgstr "ਹਰੇਕ ਸੋਧ ਸਕਦਾ ਹੈ"
+
+#. Label for widget group used for adding new contacts
+#: src/sharing.js:197
+msgid "Add people"
+msgstr "ਲੋਕ ਸ਼ਾਮਲ"
+
+#. Editable text in entry field
+#: src/sharing.js:204
+msgid "Enter an email address"
+msgstr "ਈਮੇਲ ਐਡਰੈਸ ਦਿਉ"
+
+#: src/sharing.js:219 src/sharing.js:371
+msgid "Can edit"
+msgstr "ਸੋਧ ਸਕਦੇ"
+
+#: src/sharing.js:219 src/sharing.js:374
+msgid "Can view"
+msgstr "ਵੇਖ ਸਕਦੇ"
+
+#: src/sharing.js:302
+msgid "Everyone can read"
+msgstr "ਹਰੇਕ ਪੜ੍ਹ ਸਕਦਾ"
+
+#: src/sharing.js:317
+msgid "Save"
+msgstr "ਸੰਭਾਲੋ"
+
+#: src/sharing.js:368
+msgid "Owner"
+msgstr "ਮਾਲਕ"
+
+#: src/sharing.js:437
+#, javascript-format
+msgid "You can ask %s for access"
+msgstr "ਤੁਸੀਂ %s ਲਈ ਵਰਤੋਂ ਦੀ ਪੁੱਛ ਸਕਦੇ ਹੋ"
+
+#: src/sharing.js:474 src/sharing.js:510 src/sharing.js:567 src/sharing.js:584
+#: src/sharing.js:603
+msgid "The document was not updated"
+msgstr "ਡੌਕੂਮੈਂਟ ਅੱਪਡੇਟ ਨਹੀਂ ਹੈ"
+
+#: src/shellSearchProvider.js:285
+msgid "Untitled Document"
+msgstr "ਬਿਨ-ਨਾਂ ਡੌਕੂਮੈਂਟ"
+
+#: src/trackerController.js:176
+msgid "Unable to fetch the list of documents"
+msgstr "ਡੌਕੂਮੈਂਟ ਦੀ ਲਿਸਟ ਲੈਣ ਲਈ ਅਸਮਰੱਥ"
+
+#~| msgid "New and Recent"
+#~ msgid "Recent"
+#~ msgstr "ਤਾਜ਼ਾ"
+
+#~ msgid "LibreOffice is required to view this document"
+#~ msgstr "ਇਹ ਡੌਕੂਮੈਂਟ ਵੇਖਣ ਲਈ ਲਿਬਰੇਆਫਿਸ ਦੀ ਲੋੜ ਹੈ"
+
+#~ msgid "Category"
+#~ msgstr "ਕੈਟਾਗਰੀ"
+
+#~ msgid "Favorites"
+#~ msgstr "ਪਸੰਦੀਦਾ"
+
+#~ msgid "Shared with you"
+#~ msgstr "ਤੁਹਾਡੇ ਨਾਲ ਸਾਂਝਾ ਕੀਤਾ"
+
+#~ msgid ""
+#~ "You don't have any collections yet. Enter a new collection name above."
+#~ msgstr "ਤੁਹਾਡੇ ਕੋਲ ਕੋਈ ਵੀ ਭੰਡਾਰ ਨਹੀਂ ਹੈ। ਉੱਤੇ ਨਵੇਂ ਭੰਡਾਰ ਲਈ ਨਾਂ ਦਿਉ।"
+
+#~ msgid "Create new collection"
+#~ msgstr "ਨਵਾਂ ਭੰਡਾਰ ਬਣਾਓ"
+
+#~ msgid "Print"
+#~ msgstr "ਪਰਿੰਟ ਕਰੋ"
+
+#~ msgid "Share"
+#~ msgstr "ਸਾਂਝਾ"
+
+#~ msgid "Add to Collection"
+#~ msgstr "ਭੰਡਾਰ ਵਿੱਚ ਸ਼ਾਮਲ"
+
+#~ msgid "You can add your online accounts in %s"
+#~ msgstr "ਤੁਸੀਂ %s ਵਿੱਚ ਆਪਣੇ ਆਨਲਾਈਨ ਅਕਾਊਂਟ ਸ਼ਾਮਿਲ ਕਰ ਸਕਦੇ ਹੋ"
+
+#~ msgid "Settings"
+#~ msgstr "ਸੈਟਿੰਗ"
 
 #~ msgid "Load More"
 #~ msgstr "ਹੋਰ ਲੋਡ"
