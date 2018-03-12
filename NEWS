@@ -1,6 +1,12 @@
-3.27.1 - ""
-===========
+3.27.92 - "Pink Cadillac"
+=========================
 
+- Port to Meson (Iñigo Martínez)
+- Use 'var' for symbols that are exported
+- Use the standard dialect of String.prototype.replace
+- Explicitly specify the Gepub API version
+- Vertically centre text in the list view
+- Translation updates
 
 3.26.0 - "For Amateurs"
 =======================
