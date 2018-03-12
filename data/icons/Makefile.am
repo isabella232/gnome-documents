@@ -55,6 +55,7 @@ EXTRA_DIST = \
 	$(public_16x16_icons_DATA)	\
 	$(public_22x22_icons_DATA)	\
 	$(public_24x24_icons_DATA)	\
+	$(public_32x32_icons_DATA)	\
 	$(public_48x48_icons_DATA)	\
 	$(public_256x256_icons_DATA)	\
 	$(public_512x512_icons_DATA)	\
