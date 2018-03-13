@@ -9,8 +9,8 @@
     "finish-args": [
         "--env=DCONF_USER_CONFIG_DIR=.config/dconf",
         "--filesystem=~/.config/dconf:ro",
-        "--filesystem=xdg-documents:ro",
-        "--filesystem=xdg-download:ro",
+        "--filesystem=xdg-documents",
+        "--filesystem=xdg-download",
         "--filesystem=xdg-run/dconf",
         "--share=ipc",
         "--share=network",
