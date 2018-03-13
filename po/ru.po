@@ -14,9 +14,9 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-09-19 14:46+0000\n"
-"PO-Revision-Date: 2017-09-30 13:19+0400\n"
-"Last-Translator: Yuri Myasoedov <ymyasoedov@yandex.ru>\n"
+"POT-Creation-Date: 2018-03-12 15:05+0000\n"
+"PO-Revision-Date: 2018-03-13 21:46+0300\n"
+"Last-Translator: Stas Solovey <whats_up@tut.by>\n"
 "Language-Team: Русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 2.0.2\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: data/org.gnome.Books.appdata.xml.in:7 data/org.gnome.Books.desktop.in:3
 #: src/application.js:112 src/overview.js:1052
@@ -193,7 +193,6 @@ msgstr "Управление и предоставление доступа к �
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 #: data/org.gnome.Documents.desktop.in:7
-#| msgid "Documents"
 msgid "org.gnome.Documents"
 msgstr "org.gnome.Documents"
 
@@ -290,7 +289,7 @@ msgstr "Копировать выделенный текст в буфер об�
 
 #: data/ui/help-overlay.ui:106
 msgctxt "shortcut window"
-msgid "Rotate anti-clockwise"
+msgid "Rotate counterclockwise"
 msgstr "Повернуть против часовой стрелки"
 
 #: data/ui/help-overlay.ui:113
@@ -336,6 +335,11 @@ msgstr "Создать коллекцию…"
 #: data/ui/organize-collection-dialog.ui:122 src/sharing.js:226
 msgid "Add"
 msgstr "Добавить"
+
+#: data/ui/organize-collection-dialog.ui:163 data/ui/selection-toolbar.ui:88
+#: src/overview.js:1056 src/search.js:126 src/search.js:132
+msgid "Collections"
+msgstr "Коллекции"
 
 #: data/ui/organize-collection-dialog.ui:167 src/overview.js:616
 msgid "Cancel"
@@ -400,11 +404,6 @@ msgstr "Выбрать все"
 #: data/ui/selection-menu.ui:11
 msgid "Select None"
 msgstr "Отменить выбор"
-
-#: data/ui/selection-toolbar.ui:88 src/overview.js:1056 src/search.js:126
-#: src/search.js:132
-msgid "Collections"
-msgstr "Коллекции"
 
 #: data/ui/view-menu.ui:23
 msgid "View items as a grid of icons"
@@ -472,7 +471,7 @@ msgstr "Google"
 msgid "Spreadsheet"
 msgstr "Таблица"
 
-#: src/documents.js:1119 src/documents.js:1416 src/presentation.js:44
+#: src/documents.js:1119 src/documents.js:1416 src/presentation.js:43
 msgid "Presentation"
 msgstr "Презентация"
 
@@ -598,7 +597,7 @@ msgstr "Приложение для управления электронным�
 msgid "translator-credits"
 msgstr ""
 "Yuri Myasoedov <ymyasoedov@yandex.ru>, 2011-2015.\n"
-"Stas Solovey <whats_up@tut.by>, 2011-2016."
+"Stas Solovey <whats_up@tut.by>, 2011-2018."
 
 #: src/mainToolbar.js:91
 msgctxt "toolbar button tooltip"
@@ -772,28 +771,28 @@ msgstr "Документ %s заблокирован, чтобы его откр
 msgid "_Password"
 msgstr "_Пароль"
 
-#: src/presentation.js:102
+#: src/presentation.js:101
 msgid "Running in presentation mode"
 msgstr "Запуск в режиме презентации"
 
-#: src/presentation.js:130
+#: src/presentation.js:129
 msgid "Present On"
 msgstr "Презентация"
 
 #. Translators: "Mirrored" describes when both displays show the same view
-#: src/presentation.js:166
+#: src/presentation.js:165
 msgid "Mirrored"
 msgstr "Дублированный"
 
-#: src/presentation.js:168
+#: src/presentation.js:167
 msgid "Primary"
 msgstr "Главный"
 
-#: src/presentation.js:170
+#: src/presentation.js:169
 msgid "Off"
 msgstr "Выкл."
 
-#: src/presentation.js:172
+#: src/presentation.js:171
 msgid "Secondary"
 msgstr "Дополнительный"
 
@@ -1019,6 +1018,10 @@ msgstr "Безымянный документ"
 #: src/trackerController.js:176
 msgid "Unable to fetch the list of documents"
 msgstr "Не удалось получить список документов"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Rotate anti-clockwise"
+#~ msgstr "Повернуть против часовой стрелки"
 
 #~ msgid "LibreOffice is required to view this document"
 #~ msgstr "Для просмотра этого документа нужен LibreOffice"
