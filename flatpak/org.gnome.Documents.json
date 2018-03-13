@@ -36,7 +36,6 @@
     "modules": [
         {
             "name": "librest",
-            "config-opts": [ "--disable-introspection" ],
             "sources": [
                 {
                     "type": "archive",
