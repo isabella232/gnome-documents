@@ -1,0 +1,185 @@
+{
+    "app-id": "org.gnome.Books",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "master",
+    "sdk": "org.gnome.Sdk",
+    "command": "gnome-books",
+    "tags": ["nightly"],
+    "desktop-file-name-prefix": "(Nightly) ",
+    "finish-args": [
+        /* X11 + XShm access */
+        "--share=ipc", "--socket=x11",
+        /* Wayland access */
+        "--socket=wayland",
+        /* Read-only access to users documents */
+        "--filesystem=xdg-documents:ro", "--filesystem=xdg-download:ro",
+        /* Needs to talk to the network: */
+        "--share=network",
+        /* Tracker access */
+        "--talk-name=org.freedesktop.Tracker1",
+        /* Needed for dconf to work */
+        "--filesystem=xdg-run/dconf", "--filesystem=~/.config/dconf:ro",
+        "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
+    ],
+    "build-options" : {
+        "cflags": "-O2 -g",
+        "cxxflags": "-O2 -g",
+        "env": {
+            "V": "1",
+            "PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_GIRDIR": "/app/share/gir-1.0",
+            "PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_TYPELIBDIR": "/app/lib/girepository-1.0"
+        }
+    },
+    "cleanup": ["/include", "/lib/pkgconfig",
+                "/share/pkgconfig", "/share/aclocal",
+                "/man", "/share/man", "/share/gtk-doc",
+                "/share/vala",
+                "*.la", "*.a",
+                "/bin/gnome-documents"],
+    "modules": [
+        {
+            "name": "gnome-online-accounts",
+            "config-opts": ["--disable-telepathy", "--disable-documentation", "--disable-backend"],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://git.gnome.org/browse/gnome-online-accounts"
+                }
+            ]
+        },
+        {
+            "name": "gnome-desktop",
+            "config-opts": ["--disable-debug-tools", "--disable-udev"],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://git.gnome.org/browse/gnome-desktop"
+                }
+            ]
+        },
+        {
+            "name": "liboauth",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://netix.dl.sourceforge.net/project/liboauth/liboauth-1.0.3.tar.gz",
+                    "sha256": "0df60157b052f0e774ade8a8bac59d6e8d4b464058cc55f9208d72e41156811f"
+                }
+            ]
+        },
+        {
+            "name": "libgdata",
+            "config-opts": ["--disable-always-build-tests", "--disable-Werror", "--disable-static" ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://git.gnome.org/browse/libgdata"
+                }
+            ]
+        },
+        {
+            /* we need rest-0.7 so we use a tarball for it */
+            "name": "librest",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://git.gnome.org/browse/librest/snapshot/librest-librest-0.7.12.tar.xz",
+                    "sha256": "570917e570e6e8bf55572eb04902d4cf3975c2629df9df96c21be2059d71dab9"
+                }
+            ]
+        },
+        {
+            "name": "libzapojit",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://git.gnome.org/browse/libzapojit"
+                }
+            ]
+        },
+        {
+            "name": "popplerdata",
+            "no-autogen": true,
+            "make-install-args": ["prefix=/app"],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://poppler.freedesktop.org/poppler-data-0.4.7.tar.gz",
+                    "sha256": "e752b0d88a7aba54574152143e7bf76436a7ef51977c55d6bd9a48dccde3a7de"
+                }
+            ]
+        },
+        {
+            "name": "poppler",
+            "config-opts": [ "--disable-libopenjpeg" ],
+            "cleanup": [ "/bin" ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://poppler.freedesktop.org/poppler-0.36.0.tar.xz",
+                    "sha256": "93cc067b23c4ef7421380d3e8bd7c940b2027668446750787d7c1cb42720248e"
+                }
+            ]
+        },
+        {
+            "name": "evince",
+            "cleanup": [ "/share/GConf", "/share/help" ],
+            "config-opts": [ "--disable-nautilus", "--disable-viewer",
+                             "--disable-previewer", "--disable-dbus",
+                             "--disable-browser-plugin", "--enable-introspection",
+                             "--enable-comics" ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://git.gnome.org/browse/evince"
+                }
+            ]
+        },
+        {
+            "name": "tracker",
+            "cleanup": [ "/bin", "/etc", "/libexec" ],
+            "config-opts": [ "--disable-miner-apps", "--disable-static",
+                             "--disable-tracker-extract", "--disable-tracker-needle",
+                             "--disable-tracker-preferences", "--disable-artwork",
+                             "--disable-tracker-writeback", "--disable-miner-user-guides",
+                             "--with-bash-completion-dir=no"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://git.gnome.org/browse/tracker"
+                }
+            ]
+        },
+        {
+            "name": "libgepub",
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/libgepub.git"
+                }
+            ]
+        },
+        {
+            "name": "gnome-epub-thumbnailer",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://git.gnome.org/browse/gnome-epub-thumbnailer"
+                }
+            ]
+        },
+        {
+            "name": "gnome-books",
+            "buildsystem": "meson",
+            "config-opts": [ "-Denable-documentation=false"],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://git.gnome.org/browse/gnome-documents"
+                }
+            ]
+        }
+    ]
+}
