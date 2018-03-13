@@ -144,6 +144,22 @@
             ]
         },
         {
+            "name": "tracker-miners",
+            "cleanup": [ "/bin", "/etc", "/lib/systemd", "/libexec" ],
+            "config-opts": [ "--disable-miner-apps",
+                             "--disable-miner-rss",
+                             "--disable-static",
+                             "--disable-tracker-extract",
+                             "--disable-tracker-writeback",
+                             "--enable-miner-fs" ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://git.gnome.org/browse/tracker-miners"
+                }
+            ]
+        },
+        {
             "name": "libgepub",
             "buildsystem": "meson",
             "sources": [
