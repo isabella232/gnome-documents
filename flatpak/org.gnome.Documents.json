@@ -4,23 +4,21 @@
     "runtime-version": "master",
     "sdk": "org.gnome.Sdk",
     "command": "gnome-documents",
-    "tags": ["nightly"],
+    "tags": [ "nightly" ],
     "desktop-file-name-prefix": "(Nightly) ",
     "finish-args": [
-        /* X11 + XShm access */
-        "--share=ipc", "--socket=x11",
-        /* Wayland access */
-        "--socket=wayland",
-        /* Access to users documents */
-        "--filesystem=xdg-documents", "--filesystem=xdg-download",
-        /* Needs to talk to the network: */
+        "--env=DCONF_USER_CONFIG_DIR=.config/dconf",
+        "--filesystem=~/.config/dconf:ro",
+        "--filesystem=xdg-documents",
+        "--filesystem=xdg-download",
+        "--filesystem=xdg-run/dconf",
+        "--share=ipc",
         "--share=network",
-        /* Tracker access */
+        "--socket=wayland",
+        "--socket=x11",
+        "--talk-name=ca.desrt.dconf",
         "--talk-name=org.freedesktop.Tracker1",
-        "--talk-name=org.freedesktop.Tracker1.Miner.Extract",
-        /* Needed for dconf to work */
-        "--filesystem=xdg-run/dconf", "--filesystem=~/.config/dconf:ro",
-        "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
+        "--talk-name=org.freedesktop.Tracker1.Miner.Extract"
     ],
     "build-options" : {
         "cflags": "-O2 -g",
@@ -29,16 +27,16 @@
             "V": "1"
         }
     },
-    "cleanup": ["/include", "/lib/pkgconfig",
-                "/share/pkgconfig", "/share/aclocal",
-                "/man", "/share/man", "/share/gtk-doc",
-                "/share/vala",
-                "*.la", "*.a",
-                "/bin/gnome-books"],
+    "cleanup": [ "/include", "/lib/pkgconfig",
+                 "/share/pkgconfig", "/share/aclocal",
+                 "/man", "/share/man", "/share/gtk-doc",
+                 "/share/vala",
+                 "*.la", "*.a",
+                 "/bin/gnome-books"],
     "modules": [
         {
             "name": "gnome-online-accounts",
-            "config-opts": ["--disable-telepathy", "--disable-documentation", "--disable-backend"],
+            "config-opts": [ "--disable-telepathy", "--disable-documentation", "--disable-backend" ],
             "sources": [
                 {
                     "type": "git",
@@ -48,7 +46,7 @@
         },
         {
             "name": "gnome-desktop",
-            "config-opts": ["--disable-debug-tools", "--disable-udev"],
+            "config-opts": [ "--disable-debug-tools", "--disable-udev" ],
             "sources": [
                 {
                     "type": "git",
@@ -68,7 +66,7 @@
         },
         {
             "name": "libgdata",
-            "config-opts": ["--disable-always-build-tests", "--disable-Werror", "--disable-static" ],
+            "config-opts": [ "--disable-always-build-tests", "--disable-Werror", "--disable-static" ],
             "sources": [
                 {
                     "type": "git",
@@ -99,7 +97,7 @@
         {
             "name": "popplerdata",
             "no-autogen": true,
-            "make-install-args": ["prefix=/app"],
+            "make-install-args": [ "prefix=/app" ],
             "sources": [
                 {
                     "type": "archive",
@@ -163,7 +161,7 @@
         {
             "name": "gnome-documents",
             "buildsystem": "meson",
-            "config-opts": [ "-Denable-documentation=false"],
+            "config-opts": [ "-Denable-documentation=false" ],
             "sources": [
                 {
                     "type": "git",
