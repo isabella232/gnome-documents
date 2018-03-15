@@ -130,7 +130,7 @@ cflags = [
 ]
 
 libgdprivate = shared_library(
-  'gdprivate-' + documents_api_version,
+  '@0@-@1@'.format(documents_private_ns.to_lower(), documents_api_version),
   sources: sources,
   include_directories: incs,
   dependencies: documents_deps,
@@ -138,8 +138,6 @@ libgdprivate = shared_library(
   install: true,
   install_dir: documents_pkglibdir
 )
-
-gir_sources = sources + headers
 
 gir_incs = [
   'GData-0.0',
@@ -151,21 +149,15 @@ gir_incs = [
   'Zpj-0.0'
 ]
 
-gir_extra_args = '--warn-all'
-
-gir_dir = join_paths(documents_pkgdatadir, 'gir-' + documents_gir_version)
-typelib_dir = join_paths(documents_pkglibdir, 'girepository-' + documents_gir_version)
-
 gnome.generate_gir(
   libgdprivate,
-  sources: gir_sources,
+  sources: sources + headers,
   nsversion: documents_api_version,
-  namespace: 'GdPrivate',
-  identifier_prefix: 'Gd',
-  symbol_prefix: 'gd',
+  namespace: documents_private_ns,
+  identifier_prefix: documents_ns,
+  symbol_prefix: documents_ns.to_lower(),
   includes: gir_incs,
   install: true,
-  install_dir_gir: gir_dir,
-  install_dir_typelib: typelib_dir,
-  extra_args: gir_extra_args
+  install_dir_gir: join_paths(documents_pkgdatadir, 'gir-' + documents_gir_version),
+  install_dir_typelib: join_paths(documents_pkglibdir, 'girepository-' + documents_gir_version)
 )

@@ -8,6 +8,9 @@ project(
 
 documents_version = meson.project_version()
 
+documents_ns = 'Gd'
+documents_private_ns = documents_ns + 'Private'
+
 documents_api_version = '1.0'
 documents_gir_version = '1.0'
 
