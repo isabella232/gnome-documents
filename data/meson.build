@@ -37,12 +37,13 @@ resource_data = files(
   'ui/view-menu.ui'
 )
 
-resources = [
-  'org.gnome.Books.data',
-  'org.gnome.Documents.data'
-]
+desktop_file_validate = find_program('desktop-file-validate')
 
-foreach resource: resources
+schemas = []
+
+foreach app: documents_apps
+  resource = app + '.data'
+
   sources += gnome.compile_resources(
     resource,
     resource + '.gresource.xml',
@@ -52,14 +53,9 @@ foreach resource: resources
     install: true,
     install_dir: documents_pkgdatadir
   )
-endforeach
 
-appdatas = [
-  'org.gnome.Books.appdata.xml',
-  'org.gnome.Documents.appdata.xml'
-]
+  appdata = app + '.appdata.xml'
 
-foreach appdata: appdatas
   i18n.merge_file(
     appdata,
     input: appdata + '.in',
@@ -68,16 +64,9 @@ foreach appdata: appdatas
     install: true,
     install_dir: join_paths(documents_datadir, 'metainfo')
   )
-endforeach
 
-desktop_file_validate = find_program('desktop-file-validate')
+  desktop = app + '.desktop'
 
-desktops = [
-  'org.gnome.Books.desktop',
-  'org.gnome.Documents.desktop'
-]
-
-foreach desktop: desktops
   desktop_file = i18n.merge_file(
     desktop,
     type: 'desktop',
@@ -87,19 +76,16 @@ foreach desktop: desktops
     install: true,
     install_dir: documents_desktopdir
   )
+
+  schemas += app.to_lower() + '.gschema.xml'
 endforeach
-
-install_data(
-  'org.gnome.Documents.search-provider.ini',
-  install_dir: join_paths(documents_datadir, 'gnome-shell', 'search-providers')
-)
-
-schemas = files(
-  'org.gnome.books.gschema.xml',
-  'org.gnome.documents.gschema.xml'
-)
 
 install_data(
   schemas,
   install_dir: documents_schemadir
+)
+
+install_data(
+  'org.gnome.Documents.search-provider.ini',
+  install_dir: join_paths(documents_datadir, 'gnome-shell', 'search-providers')
 )

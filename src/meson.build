@@ -14,45 +14,6 @@ configure_file(
 )
 '''
 
-service_conf = configuration_data()
-service_conf.set('bindir', documents_bindir)
-
-services = [
-  'org.gnome.Books.service',
-  'org.gnome.Documents.service'
-]
-
-foreach service: services
-  configure_file(
-    input: service + '.in',
-    output: service,
-    install: true,
-    install_dir: join_paths(documents_datadir, 'dbus-1', 'services'),
-    configuration: service_conf
-  )
-endforeach
-
-app_conf = configuration_data()
-app_conf.set('prefix', documents_prefix)
-app_conf.set('libdir', documents_libdir)
-app_conf.set('PACKAGE_VERSION', documents_version)
-app_conf.set('GJS', gjs_console)
-
-apps = [
-  'org.gnome.Books',
-  'org.gnome.Documents'
-]
-
-foreach app: apps
-  configure_file(
-    input: app + '.in',
-    output: app,
-    install: true,
-    install_dir: documents_pkgdatadir,
-    configuration: app_conf
-  )
-endforeach
-
 headers = files(
   'lib/gd-bookmark.h',
   'lib/gd-bookmarks.h',
@@ -115,12 +76,36 @@ resource_data = files(
   'windowMode.js'
 )
 
-resources = [
-  'org.gnome.Books.src',
-  'org.gnome.Documents.src'
-]
+service_conf = configuration_data()
+service_conf.set('bindir', documents_bindir)
 
-foreach resource: resources
+app_conf = configuration_data()
+app_conf.set('prefix', documents_prefix)
+app_conf.set('libdir', documents_libdir)
+app_conf.set('PACKAGE_VERSION', documents_version)
+app_conf.set('GJS', gjs_console)
+
+foreach app: documents_apps
+  service = app + '.service'
+
+  configure_file(
+    input: service + '.in',
+    output: service,
+    install: true,
+    install_dir: join_paths(documents_datadir, 'dbus-1', 'services'),
+    configuration: service_conf
+  )
+
+  configure_file(
+    input: app + '.in',
+    output: app,
+    install: true,
+    install_dir: documents_pkgdatadir,
+    configuration: app_conf
+  )
+
+  resource = app + '.src'
+
   sources += gnome.compile_resources(
     resource,
     resource + '.gresource.xml',

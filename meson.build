@@ -11,6 +11,11 @@ documents_version = meson.project_version()
 documents_api_version = '1.0'
 documents_gir_version = '1.0'
 
+documents_apps = [
+  'org.gnome.Books',
+  'org.gnome.Documents'
+]
+
 documents_prefix = get_option('prefix')
 documents_bindir = join_paths(documents_prefix, get_option('bindir'))
 documents_datadir = join_paths(documents_prefix, get_option('datadir'))
