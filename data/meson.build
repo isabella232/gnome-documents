@@ -74,7 +74,7 @@ foreach app: documents_apps
     output: desktop,
     po_dir: po_dir,
     install: true,
-    install_dir: documents_desktopdir
+    install_dir: join_paths(documents_datadir, 'applications')
   )
 
   schemas += app.to_lower() + '.gschema.xml'
