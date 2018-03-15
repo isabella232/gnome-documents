@@ -89,8 +89,7 @@ libgd = subproject(
     'with-introspection=true',
     'with-main-view=true',
     'with-notification=true',
-    'with-tagged-entry=true',
-    'with-view-common=true'
+    'with-tagged-entry=true'
   ]
 )
 documents_deps += libgd.get_variable('libgd_dep')
