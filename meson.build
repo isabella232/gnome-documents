@@ -75,6 +75,7 @@ documents_deps = [
 
 # we just check their existence for gir
 dependency('libgdata')
+dependency('libgepub-0.6')
 dependency('goa-1.0')
 dependency('zapojit-0.0')
 
