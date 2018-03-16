@@ -1,3 +1,9 @@
+3.28.0 - "La Corrida"
+=====================
+
+- Make the Meson build require libgepub-0.6 (Iñigo Martínez)
+- Translation updates
+
 3.27.92 - "Pink Cadillac"
 =========================
 
