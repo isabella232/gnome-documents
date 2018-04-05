@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents.master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-08-23 15:40+0000\n"
-"PO-Revision-Date: 2017-09-01 16:48+0300\n"
+"POT-Creation-Date: 2018-03-26 11:46+0000\n"
+"PO-Revision-Date: 2018-04-05 18:43+0300\n"
 "Last-Translator: Yuras Shumovich <shumovichy@gmail.com>\n"
 "Language-Team: Belarusian <i18n-bel-gnome@googlegroups.com>\n"
 "Language: be\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: data/org.gnome.Books.appdata.xml.in:7 data/org.gnome.Books.desktop.in:3
 #: src/application.js:112 src/overview.js:1052
@@ -57,11 +57,6 @@ msgstr "Праглядзець электронныя кнігі (PDF і ком�
 #: data/org.gnome.Books.appdata.xml.in:20
 msgid "Print e-books"
 msgstr "Друкаваць электронныя кнігі"
-
-#: data/org.gnome.Books.appdata.xml.in:32
-#: data/org.gnome.Documents.appdata.xml.in:39
-msgid "The GNOME Project"
-msgstr "Праект GNOME"
 
 #: data/org.gnome.Books.desktop.in:4
 msgid "Access, manage and share books"
@@ -185,7 +180,6 @@ msgstr "Праца, кіраванне і супольны доступ да д�
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 #: data/org.gnome.Documents.desktop.in:7
-#| msgid "Documents"
 msgid "org.gnome.Documents"
 msgstr "org.gnome.Documents"
 
@@ -282,7 +276,7 @@ msgstr "Скапіраваць вылучаны тэкст у буфер абм�
 
 #: data/ui/help-overlay.ui:106
 msgctxt "shortcut window"
-msgid "Rotate anti-clockwise"
+msgid "Rotate counterclockwise"
 msgstr "Круціць супраць ходу гадзіннікавай стрэлкі"
 
 #: data/ui/help-overlay.ui:113
@@ -328,6 +322,11 @@ msgstr "Новая калекцыя..."
 #: data/ui/organize-collection-dialog.ui:122 src/sharing.js:226
 msgid "Add"
 msgstr "Дадаць"
+
+#: data/ui/organize-collection-dialog.ui:163 data/ui/selection-toolbar.ui:88
+#: src/overview.js:1056 src/search.js:126 src/search.js:132
+msgid "Collections"
+msgstr "Калекцыі"
 
 #: data/ui/organize-collection-dialog.ui:167 src/overview.js:616
 msgid "Cancel"
@@ -392,11 +391,6 @@ msgstr "Вылучыць усё"
 #: data/ui/selection-menu.ui:11
 msgid "Select None"
 msgstr "Скасаваць вылучэнне"
-
-#: data/ui/selection-toolbar.ui:88 src/overview.js:1056 src/search.js:126
-#: src/search.js:132
-msgid "Collections"
-msgstr "Калекцыі"
 
 #: data/ui/view-menu.ui:23
 msgid "View items as a grid of icons"
@@ -464,7 +458,7 @@ msgstr "Google"
 msgid "Spreadsheet"
 msgstr "Разліковы аркуш"
 
-#: src/documents.js:1119 src/documents.js:1416 src/presentation.js:44
+#: src/documents.js:1119 src/documents.js:1416 src/presentation.js:43
 msgid "Presentation"
 msgstr "Прэзентацыя"
 
@@ -763,28 +757,28 @@ msgstr "Дакумент %s заблакіраваны і патрабуе па�
 msgid "_Password"
 msgstr "_Пароль"
 
-#: src/presentation.js:102
+#: src/presentation.js:101
 msgid "Running in presentation mode"
 msgstr "У рэжыме прэзентацыі"
 
-#: src/presentation.js:130
+#: src/presentation.js:129
 msgid "Present On"
 msgstr "Прэзентацыя"
 
 #. Translators: "Mirrored" describes when both displays show the same view
-#: src/presentation.js:166
+#: src/presentation.js:165
 msgid "Mirrored"
 msgstr "Адлюстроўванне"
 
-#: src/presentation.js:168
+#: src/presentation.js:167
 msgid "Primary"
 msgstr "Галоўны"
 
-#: src/presentation.js:170
+#: src/presentation.js:169
 msgid "Off"
 msgstr "Выключана"
 
-#: src/presentation.js:172
+#: src/presentation.js:171
 msgid "Secondary"
 msgstr "Другасны"
 
@@ -1010,6 +1004,13 @@ msgstr "Дакумент без назвы"
 #: src/trackerController.js:176
 msgid "Unable to fetch the list of documents"
 msgstr "Не ўдалося атрымаць спіс дакументаў"
+
+#~ msgid "The GNOME Project"
+#~ msgstr "Праект GNOME"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Rotate anti-clockwise"
+#~ msgstr "Круціць супраць ходу гадзіннікавай стрэлкі"
 
 #~ msgid "LibreOffice is required to view this document"
 #~ msgstr "Для прагляду гэтага дакумента патрэбны LibreOffice"
