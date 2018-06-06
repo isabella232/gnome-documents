@@ -1,3 +1,9 @@
+3.28.1 - "Magadha"
+==================
+
+- Avoid premature queries during startup
+- Translation updates
+
 3.28.0 - "La Corrida"
 =====================
 
