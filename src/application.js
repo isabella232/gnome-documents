@@ -138,38 +138,28 @@ var Application = new Lang.Class({
 
         this.gettingStartedLocation = null;
 
-        function checkNextFile(obj) {
-            let file = files.shift();
-            if (!file) {
-                log('Can\'t find a valid getting started PDF document');
-                return;
+        for (let i in files) {
+            try {
+                let info = files[i].query_info(Gio.FILE_ATTRIBUTE_STANDARD_TYPE,
+                                               Gio.FileQueryInfoFlags.NONE,
+                                               null);
+            } catch (e) {
+                continue;
             }
 
-            file.query_info_async(Gio.FILE_ATTRIBUTE_STANDARD_TYPE,
-                                  Gio.FileQueryInfoFlags.NONE,
-                                  GLib.PRIORITY_DEFAULT,
-                                  null,
-                                  Lang.bind(this,
-                function(object, res) {
-                    try {
-                        let info = object.query_info_finish(res);
-                        this.gettingStartedLocation = file.get_parent();
+            this.gettingStartedLocation = files[i].get_parent();
 
-                        manager.index_file_async(file, null,
-                            function(object, res) {
-                                try {
-                                    manager.index_file_finish(res);
-                                } catch (e) {
-                                    logError(e, 'Error indexing the getting started PDF');
-                                }
-                            });
-                    } catch (e) {
-                        checkNextFile.apply(this);
-                    }
-                }));
+            try {
+                manager.index_file(files[i], null);
+            } catch (e) {
+                logError(e, 'Error indexing the getting started PDF');
+            }
+
+            break;
         }
 
-        checkNextFile.apply(this);
+        if (!this.gettingStartedLocation)
+            log('Can\'t find a valid getting started PDF document');
     },
 
     _nightModeCreateHook: function(action) {
@@ -417,15 +407,15 @@ var Application = new Lang.Class({
               state: settings.get_value('night-mode') },
         ];
 
-        if (!this.isBooks)
-            this._initGettingStarted();
-
         Utils.populateActionGroup(this, actionEntries, 'app');
     },
 
     _createWindow: function() {
         if (this._mainWindow)
             return;
+
+        if (!this.isBooks)
+            this._initGettingStarted();
 
         notificationManager = new Notifications.NotificationManager();
         this._mainWindow = new MainWindow.MainWindow(this);

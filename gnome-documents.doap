@@ -14,7 +14,7 @@
   </description>
   <homepage rdf:resource="https://wiki.gnome.org/Apps/Documents" />
   <download-page rdf:resource="http://download.gnome.org/sources/gnome-documents/" />
-  <bug-database rdf:resource="https://bugzilla.gnome.org/browse.cgi?product=gnome-documents" />
+  <bug-database rdf:resource="https://gitlab.gnome.org/GNOME/gnome-documents/issues" />
 
   <category rdf:resource="http://api.gnome.org/doap-extensions#apps" />
   <programming-language>JavaScript</programming-language>
@@ -31,13 +31,6 @@
       <foaf:name>Cosimo Cecchi</foaf:name>
       <foaf:mbox rdf:resource="mailto:cosimoc@gnome.org" />
       <gnome:userid>cosimoc</gnome:userid>
-    </foaf:Person>
-  </maintainer>
-  <maintainer>
-    <foaf:Person>
-      <foaf:name>Debarshi Ray</foaf:name>
-      <foaf:mbox rdf:resource="mailto:debarshir@gnome.org" />
-      <gnome:userid>debarshir</gnome:userid>
     </foaf:Person>
   </maintainer>
 </Project>
