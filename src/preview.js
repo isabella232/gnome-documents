@@ -73,6 +73,45 @@ var Preview = new Lang.Class({
 
         this._nightModeId = Application.application.connect('action-state-changed::night-mode',
             Lang.bind(this, this._updateNightMode));
+
+        this.connect('destroy', Lang.bind(this,
+            function() {
+                if (this._loadStartedId > 0) {
+                    Application.documentManager.disconnect(this._loadStartedId);
+                    this._loadStartedId = 0;
+                }
+                if (this._loadFinishedId > 0) {
+                    Application.documentManager.disconnect(this._loadFinishedId);
+                    this._loadFinishedId = 0;
+                }
+                if (this._loadErrorId > 0) {
+                    Application.documentManager.disconnect(this._loadErrorId);
+                    this._loadErrorId = 0;
+                }
+                if (this._passwordNeededId > 0) {
+                    Application.documentManager.disconnect(this._passwordNeededId);
+                    this._passwordNeededId = 0;
+                }
+                if (this.navControls) {
+                    this.navControls.destroy();
+                    this.navControls = null;
+                }
+
+                if (this._fsToolbar) {
+                    this._fsToolbar.destroy();
+                    this._fsToolbar = null;
+                }
+
+                if (this._fullscreenAction) {
+                    this._fullscreenAction.change_state(new GLib.Variant('b', false));
+                    this._fullscreenAction.disconnect(this._fsStateId);
+                }
+
+                if (this._nightModeId > 0) {
+                    Application.application.disconnect(this._nightModeId);
+                    this._nightModeId = 0;
+                }
+            }));
     },
 
     _getDefaultActions: function() {
@@ -203,46 +242,6 @@ var Preview = new Lang.Class({
             if (this._fsToolbar)
                 this._fsToolbar.conceal();
         }
-    },
-
-    vfunc_destroy: function() {
-        if (this._loadStartedId > 0) {
-            Application.documentManager.disconnect(this._loadStartedId);
-            this._loadStartedId = 0;
-        }
-        if (this._loadFinishedId > 0) {
-            Application.documentManager.disconnect(this._loadFinishedId);
-            this._loadFinishedId = 0;
-        }
-        if (this._loadErrorId > 0) {
-            Application.documentManager.disconnect(this._loadErrorId);
-            this._loadErrorId = 0;
-        }
-        if (this._passwordNeededId > 0) {
-            Application.documentManager.disconnect(this._passwordNeededId);
-            this._passwordNeededId = 0;
-        }
-        if (this.navControls) {
-            this.navControls.destroy();
-            this.navControls = null;
-        }
-
-        if (this._fsToolbar) {
-            this._fsToolbar.destroy();
-            this._fsToolbar = null;
-        }
-
-        if (this._fullscreenAction) {
-            this._fullscreenAction.change_state(new GLib.Variant('b', false));
-            this._fullscreenAction.disconnect(this._fsStateId);
-        }
-
-        if (this._nightModeId > 0) {
-            Application.application.disconnect(this._nightModeId);
-            this._nightModeId = 0;
-        }
-
-        this.parent();
     },
 
     _createActionGroup: function() {
