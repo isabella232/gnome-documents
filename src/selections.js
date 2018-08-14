@@ -885,11 +885,11 @@ var SelectionToolbar = new Lang.Class({
         Application.selectionController.connect('selection-changed',
             Lang.bind(this, this._onSelectionChanged));
         this._onSelectionChanged();
-    },
 
-    vfunc_destroy: function() {
-        this._disconnectDocToPrint();
-        this.parent();
+        this.connect('destroy', Lang.bind(this,
+            function() {
+                this._disconnectDocToPrint();
+            }));
     },
 
     vfunc_hide: function() {
