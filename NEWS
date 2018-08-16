@@ -1,5 +1,12 @@
-3.29.1 - ""
-===========
+3.29.91 - "Nutmeg Concoction"
+=============================
+
+- Remove Autotools and various Meson improvements (Iñigo Martínez)
+- Add OARS metadata (Nick Richards)
+- Initialize the getting started PDF only when presenting a UI, and before
+  any SPARQL has been submitted
+- Be nice to the garbage collector during shutdown
+- Translation updates
 
 3.27.92 - "Pink Cadillac"
 =========================
