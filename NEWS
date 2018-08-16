@@ -1,3 +1,9 @@
+3.28.2 - "Diogenes"
+===================
+
+- Insert the getting started PDF only when showing a window
+- Be nice to the garbage collector during shutdown
+
 3.28.1 - "Magadha"
 ==================
 
