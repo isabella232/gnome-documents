@@ -915,6 +915,20 @@ var LocalDocument = new Lang.Class({
 
     load: function(passwd, cancellable, callback) {
         Utils.debug('Loading ' + this.__name__ + ' ' + this.id);
+
+        if (this.collection) {
+            Mainloop.idle_add(Lang.bind(this,
+                function() {
+                    let error = new GLib.Error(Gio.IOErrorEnum,
+                                               Gio.IOErrorEnum.NOT_SUPPORTED,
+                                               "Collections can't be loaded");
+                    callback(this, null, error);
+                    return GLib.SOURCE_REMOVE;
+                }));
+
+            return;
+        }
+
         this.loadLocal(passwd, cancellable, callback);
     },
 
