@@ -969,11 +969,13 @@ var SelectionToolbar = new Lang.Class({
 
         if (selection.length == 1) {
             let doc = Application.documentManager.getItemById(selection[0]);
-            doc.load(null, null, Lang.bind(this,
-                function(doc, docModel, error) {
-                    showPrint = doc.canPrint(docModel);
-                    this._toolbarPrint.set_sensitive(showPrint);
-                }));
+            if (!doc.collection) {
+                doc.load(null, null, Lang.bind(this,
+                    function(doc, docModel, error) {
+                        showPrint = doc.canPrint(docModel);
+                        this._toolbarPrint.set_sensitive(showPrint);
+                    }));
+            }
         }
 
         if (selection.length > 1)
