@@ -249,7 +249,7 @@ msgid ""
 "Office</app>, <app>LibreOffice</app> and <app>Google Docs</app>."
 msgstr ""
 "<app>Documentos</app> mostra PDF, DVI, XPS, PostScript e os formatos "
-"compatíbeis polo <appp href=\"help:evince\">Visor de documentos</app>, "
+"compatíbeis polo <app href=\"help:evince\">Visor de documentos</app>, "
 "<app>Microsoft Office</app>, <app>LibreOffice</app> e <app>Google Docs</app>."
 
 #. (itstool) path: info/title
