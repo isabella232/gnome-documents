@@ -1,3 +1,11 @@
+3.30.0 - "Shinwell"
+===================
+
+- Update the Git submodule URL after GitLab migration (Abderrahim Kitouni)
+- Remove usage of conditional catch statements (Tim Lunn)
+- Don't crash when selecting a local collection
+- Translation updates
+
 3.29.91 - "Nutmeg Concoction"
 =============================
 
