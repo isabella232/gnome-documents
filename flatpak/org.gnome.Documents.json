@@ -56,7 +56,8 @@
         },
         {
             "name": "gnome-desktop",
-            "config-opts": [ "--disable-debug-tools", "--disable-udev" ],
+            "buildsystem": "meson",
+            "config-opts": [ "-Ddebug-tools=disabled", "-Dudev=disabled" ],
             "sources": [
                 {
                     "type": "git",
@@ -158,8 +159,9 @@
         },
         {
             "name": "tracker",
+            "buildsystem": "meson",
             "cleanup": [ "/bin", "/etc", "/lib/systemd", "/libexec", "/share/dbus-1/services" ],
-            "config-opts": [ "--disable-static", "--with-bash-completion-dir=no" ],
+            "config-opts": [ "--default-library=shared", "-Dbash-completion=no" ],
             "sources": [
                 {
                     "type": "git",
@@ -169,13 +171,14 @@
         },
         {
             "name": "tracker-miners",
+            "buildsystem": "meson",
             "cleanup": [ "/bin", "/etc", "/lib/systemd", "/libexec" ],
-            "config-opts": [ "--disable-miner-apps",
-                             "--disable-miner-rss",
-                             "--disable-static",
-                             "--disable-tracker-extract",
-                             "--disable-tracker-writeback",
-                             "--enable-miner-fs" ],
+            "config-opts": [ "--default-library=shared",
+                             "-Dminer_apps=false",
+                             "-Dminer_rss=false",
+                             "-Dextract=false",
+                             "-Dwriteback=false",
+                             "-Dminer_fs=true" ],
             "sources": [
                 {
                     "type": "git",
