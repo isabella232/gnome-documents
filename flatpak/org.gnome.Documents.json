@@ -178,6 +178,7 @@
                              "-Dminer_apps=false",
                              "-Dminer_rss=false",
                              "-Dextract=false",
+                             "-Dgeneric_media_extractor=none",
                              "-Dwriteback=false",
                              "-Dminer_fs=true" ],
             "sources": [
