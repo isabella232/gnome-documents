@@ -10,13 +10,14 @@
 # Kavitha P <kavithap55html@gmail.com>, 2017.
 # Preetha P <preethapmelekavuvila@gmail.com>, 2017.
 # Anish Sheela <aneesh.nl@gmail.com>, 2017.
+# Rajesh Sivaraman <ksraju007@gmail.com>,2018.
+# Balasankar C <balasankarc@autistici.org>,2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-06-08 18:18+0000\n"
-"PO-Revision-Date: 2017-08-06 01:33+0530\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-documents/issues\n"
+"POT-Creation-Date: 2018-10-06 19:34+0000\n"
+"PO-Revision-Date: 2018-10-10 20:06+0200\n"
 "Last-Translator: Anish Sheela <aneesh.nl@gmail.com>\n"
 "Language-Team: Swatantra Malayalam Computing <discuss@lists.smc.org.in>\n"
 "Language: ml\n"
@@ -24,563 +25,561 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
+"X-Generator: Poedit 2.2\n"
 "X-DamnedLies-Scope: partial\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:1
-#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:112
-#: ../src/overview.js:1052
+#: data/org.gnome.Books.appdata.xml.in:7 data/org.gnome.Books.desktop.in:3
+#: src/application.js:112 src/overview.js:1052
 msgid "Books"
 msgstr "പുസ്തകങ്ങള്‍"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:2
+#: data/org.gnome.Books.appdata.xml.in:8
 msgid "An e-book manager application for GNOME"
 msgstr "ഗ്നോമിന് വേണ്ടിയുളള ഡോക്യുമെന്റ് മാനേജര്‍ പ്രയോഗം"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:3
+#: data/org.gnome.Books.appdata.xml.in:10
 msgid ""
-"A simple application to access and organize your e-books on GNOME. It is "
-"meant to be a simple and elegant replacement for using a file manager to "
-"deal with e-books."
+"A simple application to access and organize your e-books on GNOME. It is meant to be a "
+"simple and elegant replacement for using a file manager to deal with e-books."
 msgstr ""
+"ഗ്നോമിൽ നിങ്ങളുടെ ഇ-പുസ്തകങ്ങൾ അടുക്കിവെക്കാനും വായിക്കാനുമുള്ള ലളിതമായ പ്രയോഗം. ഫയൽ മാനേജർ ഉപയോഗിച്ചു"
+"ഇ-പുസ്തകങ്ങൾ കൈകാര്യം ചെയ്യുന്നതിന് പകരമായി ലളിതവും മനോഹരവുമായ ഈ പ്രയോഗം  ഉപയോഗിക്കാം."
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:4
-#: ../data/org.gnome.Documents.appdata.xml.in.h:4
+#: data/org.gnome.Books.appdata.xml.in:15 data/org.gnome.Documents.appdata.xml.in:16
 msgid "It lets you:"
-msgstr "ഇത് നിങ്ങള്‍ക്ക് വേണ്ടി"
+msgstr "ഇത് നിങ്ങള്‍ക്ക് വേണ്ടി:"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:5
+#: data/org.gnome.Books.appdata.xml.in:17
 msgid "View recent e-books"
 msgstr "പുതിയ ഇ-ബുക്കുകള്‍ കാണാം"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:6
+#: data/org.gnome.Books.appdata.xml.in:18
 msgid "Search through e-books"
 msgstr "ഇ-ബുക്കുകളിലൂടെയുളള തിരച്ചില്‍"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:7
+#: data/org.gnome.Books.appdata.xml.in:19
 msgid "View e-books (PDF and comics) fullscreen"
 msgstr "വലിയ ജാലകത്തില്‍ ഇ-ബുക്കുകള്‍ (പിഡിഎഫ‌ും ചിത്രകഥകളും)കാണാം"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:8
+#: data/org.gnome.Books.appdata.xml.in:20
 msgid "Print e-books"
 msgstr "ഇ-ബുക്കുകള്‍ അച്ചടിക്കാന്‍"
 
-#: ../data/org.gnome.Books.desktop.in.h:2
+#: data/org.gnome.Books.appdata.xml.in:32 data/org.gnome.Documents.appdata.xml.in:39
+msgid "The GNOME Project"
+msgstr "ഗ്നോം പ്രൊജക്റ്റ്"
+
+#: data/org.gnome.Books.desktop.in:4
 msgid "Access, manage and share books"
 msgstr "പുസ്തകങ്ങളിലേയ്ക്ക് പ്രവേശിക്കുക, കൈകാര്യംചെയ്യുക, പങ്കിടുക"
 
-#: ../data/org.gnome.Books.desktop.in.h:3
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.Books.desktop.in:7
+msgid "org.gnome.Books"
+msgstr "org.gnome.Books"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Books.desktop.in:15
 msgid "Books;Comics;ePub;PDF;"
 msgstr "പുസ്തകങ്ങള്‍;ചിത്രകഥകള്‍;ഇ-പബ്ബ്;പിഡിഎഫ്;"
 
-#: ../data/org.gnome.books.gschema.xml.h:1
-#: ../data/org.gnome.documents.gschema.xml.h:1
+#: data/org.gnome.books.gschema.xml:5 data/org.gnome.documents.gschema.xml:5
 msgid "View as"
 msgstr "ഇങ്ങനെ കാണുക"
 
-#: ../data/org.gnome.books.gschema.xml.h:2
-#: ../data/org.gnome.documents.gschema.xml.h:2
+#: data/org.gnome.books.gschema.xml:6 data/org.gnome.documents.gschema.xml:6
 msgid "View as type"
 msgstr "തരമായി കാണുക"
 
-#: ../data/org.gnome.books.gschema.xml.h:3
-#: ../data/org.gnome.documents.gschema.xml.h:3
+#: data/org.gnome.books.gschema.xml:10 data/org.gnome.documents.gschema.xml:10
 msgid "Sort by"
 msgstr "അടുക്കലിന്റെ ആധാരം"
 
-#: ../data/org.gnome.books.gschema.xml.h:4
-#: ../data/org.gnome.documents.gschema.xml.h:4
+#: data/org.gnome.books.gschema.xml:11 data/org.gnome.documents.gschema.xml:11
 msgid "Sort by type"
 msgstr "അടുക്കലിന്റെ രീതി"
 
-#: ../data/org.gnome.books.gschema.xml.h:5
-#: ../data/org.gnome.documents.gschema.xml.h:5
+#: data/org.gnome.books.gschema.xml:15 data/org.gnome.documents.gschema.xml:15
 msgid "Window size"
 msgstr "ജാലകത്തിന്റെ വ്യാപ്തി"
 
-#: ../data/org.gnome.books.gschema.xml.h:6
-#: ../data/org.gnome.documents.gschema.xml.h:6
+#: data/org.gnome.books.gschema.xml:16 data/org.gnome.documents.gschema.xml:16
 msgid "Window size (width and height)."
 msgstr "ജാലകത്തിന്റെ വ്യാപ്തി (വീതിയും ഉയരവും)."
 
-#: ../data/org.gnome.books.gschema.xml.h:7
-#: ../data/org.gnome.documents.gschema.xml.h:7
+#: data/org.gnome.books.gschema.xml:20 data/org.gnome.documents.gschema.xml:20
 msgid "Window position"
 msgstr "ജാലകത്തിന്റെ സ്ഥാനം"
 
-#: ../data/org.gnome.books.gschema.xml.h:8
-#: ../data/org.gnome.documents.gschema.xml.h:8
+#: data/org.gnome.books.gschema.xml:21 data/org.gnome.documents.gschema.xml:21
 msgid "Window position (x and y)."
 msgstr "ജാലകത്തിന്റെ സ്ഥാനം (എക്സും വൈയും)"
 
-#: ../data/org.gnome.books.gschema.xml.h:9
-#: ../data/org.gnome.documents.gschema.xml.h:9
+#: data/org.gnome.books.gschema.xml:25 data/org.gnome.documents.gschema.xml:25
 msgid "Window maximized"
 msgstr "ജാലകം വലുതാക്കിയിരിയ്ക്കുന്നു"
 
-#: ../data/org.gnome.books.gschema.xml.h:10
-#: ../data/org.gnome.documents.gschema.xml.h:10
+#: data/org.gnome.books.gschema.xml:26 data/org.gnome.documents.gschema.xml:26
 msgid "Window maximized state"
 msgstr "ജാലകം വലുതാക്കിയിരിയ്ക്കുന്ന അവസ്ഥ"
 
-#: ../data/org.gnome.books.gschema.xml.h:11
-#: ../data/org.gnome.documents.gschema.xml.h:11
+#: data/org.gnome.books.gschema.xml:30 data/org.gnome.documents.gschema.xml:30
 msgid "Night mode"
 msgstr "രാത്രി മോഡ്"
 
-#: ../data/org.gnome.books.gschema.xml.h:12
-#: ../data/org.gnome.documents.gschema.xml.h:12
+#: data/org.gnome.books.gschema.xml:31 data/org.gnome.documents.gschema.xml:31
 msgid "Whether the application is in night mode."
-msgstr "പ്രയോഗം നൈറ്റ്മോഡിലാണോ അല്ലയോ"
+msgstr "പ്രയോഗം നൈറ്റ്മോഡിലാണോ അല്ലയോ."
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:1
-#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:115
-#: ../src/overview.js:1052
+#: data/org.gnome.Documents.appdata.xml.in:7 data/org.gnome.Documents.desktop.in:3
+#: src/application.js:115 src/overview.js:1052
 msgid "Documents"
 msgstr "‍‍‍‍ഡോക്യുമെന്റ്സ്"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:2
+#: data/org.gnome.Documents.appdata.xml.in:8
 msgid "A document manager application for GNOME"
 msgstr "ഗ്നോമിന് വേണ്ടിയുളള ഡോക്യുമെന്റ് മാനേജര്‍ പ്രയോഗം"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:3
+#: data/org.gnome.Documents.appdata.xml.in:10
 msgid ""
-"A simple application to access, organize and share your documents on GNOME. "
-"It is meant to be a simple and elegant replacement for using a file manager "
-"to deal with documents. Seamless cloud integration is offered through GNOME "
-"Online Accounts."
+"A simple application to access, organize and share your documents on GNOME. It is meant to "
+"be a simple and elegant replacement for using a file manager to deal with documents. "
+"Seamless cloud integration is offered through GNOME Online Accounts."
 msgstr ""
+"ഗ്നോമിൽ നിങ്ങളുടെ രേഖകള്‍ കാണാനും ക്രമീകരിക്കാനും പങ്കിടുവാനും ഉള്ള ഒരു ലളിതമായ പ്രയോഗം. ഇത് ഫയൽ മാനേജർ "
+"വഴി രേഖകള്‍ കൈകാര്യം ചെയ്യുന്നതിനു പകരമുള്ള ഒരു ലളിത മാർഗ്ഗമായാണ് ഉദ്ദേശിച്ചിട്ടുള്ളത് . ഗ്നോം ഓൺലൈൻ അക്കൗണ്ട് വഴി "
+"ക്ലൗഡ്‌ സങ്കേതങ്ങളെ കൂട്ടിയിണക്കിയിരിക്കുന്നു."
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:5
+#: data/org.gnome.Documents.appdata.xml.in:18
 msgid "View recent local and online documents"
 msgstr "ഇപ്പോഴത്തെ പ്രാദേശികവും ഒാണ്‍ലൈന്‍ രേഖകളും കാണാന്‍"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:6
+#: data/org.gnome.Documents.appdata.xml.in:19
 msgid "Access your Google, ownCloud or OneDrive content"
-msgstr ""
+msgstr "ഗൂഗിള്‍, ഓൺക്ലൗഡ്, വൺഡ്രൈവ് എന്നിവയിലുള്ള വിവരങ്ങള്‍ ലഭ്യമാക്കൂ"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:7
+#: data/org.gnome.Documents.appdata.xml.in:20
 msgid "Search through documents"
 msgstr "രേഖകളിലൂടെയുളള തെരച്ചില്‍"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:8
+#: data/org.gnome.Documents.appdata.xml.in:21
 msgid "See new documents shared by friends"
 msgstr "സുഹൃത്തുക്കളുമായി പങ്കുവെച്ച പുതിയ രേഖകള്‍ കാണാന്‍"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:9
+#: data/org.gnome.Documents.appdata.xml.in:22
 msgid "View documents fullscreen"
 msgstr "രേഖകള്‍ വലിയജാലകത്തില്‍ കാണാന്‍"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:10
+#: data/org.gnome.Documents.appdata.xml.in:23
 msgid "Print documents"
 msgstr "രേഖകള്‍ അച്ചടിക്കുക"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:11
+#: data/org.gnome.Documents.appdata.xml.in:24
 msgid "Select favorites"
 msgstr "ഇഷ്ടപ്പെട്ടത് തെരഞ്ഞെടുക്കുക"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:12
+#: data/org.gnome.Documents.appdata.xml.in:25
 msgid "Allow opening full featured editor for non-trivial changes"
-msgstr ""
+msgstr "സങ്കീർണമായ മാറ്റങ്ങൾക്ക് വേണ്ടി എഡിറ്റര്‍ പൂർണ്ണ രൂപത്തിൽ തുറക്കാൻ അനുവദിക്കുക"
 
-#: ../data/org.gnome.Documents.desktop.in.h:2
+#: data/org.gnome.Documents.desktop.in:4
 msgid "Access, manage and share documents"
 msgstr "ആധാരങ്ങലിലേയ്ക്ക് പ്രവേശിക്കുക, കൈകാര്യംചെയ്യുക, പങ്കിടുക"
 
-#: ../data/org.gnome.Documents.desktop.in.h:3
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.Documents.desktop.in:7
+msgid "org.gnome.Documents"
+msgstr "org.gnome.Document"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Documents.desktop.in:15
 msgid "Docs;PDF;Document;"
 msgstr "Docs;PDF;Document;"
 
-#: ../data/ui/app-menu.ui.h:1 ../src/preview.js:453
+#: data/ui/app-menu.ui:6 src/preview.js:452
 msgid "Night Mode"
 msgstr "നൈറ്റ്മോഡ്"
 
-#: ../data/ui/app-menu.ui.h:2
+#: data/ui/app-menu.ui:12
 msgid "Keyboard Shortcuts"
 msgstr "കീബോര്‍‍‍ഡ് എളുപ്പവഴി"
 
-#: ../data/ui/app-menu.ui.h:3
+#: data/ui/app-menu.ui:16
 msgid "Help"
 msgstr "സഹായം"
 
-#: ../data/ui/app-menu.ui.h:4
+#: data/ui/app-menu.ui:20
 msgid "About"
 msgstr "അതിനെക്കറിച്ച്"
 
-#: ../data/ui/app-menu.ui.h:5
+#: data/ui/app-menu.ui:24
 msgctxt "app menu"
 msgid "Quit"
 msgstr "പുറത്ത് കടക്കുക"
 
-#: ../data/ui/help-overlay.ui.h:1
+#: data/ui/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "General"
 msgstr "സാധാരണം"
 
-#: ../data/ui/help-overlay.ui.h:2
+#: data/ui/help-overlay.ui:15
 msgctxt "shortcut window"
 msgid "Show help"
 msgstr "സഹായത്തിനായി"
 
-#: ../data/ui/help-overlay.ui.h:3
+#: data/ui/help-overlay.ui:22
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "പുറത്ത് കടക്കുക"
 
-#: ../data/ui/help-overlay.ui.h:4
+#: data/ui/help-overlay.ui:29
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "തെരയുക"
 
-#: ../data/ui/help-overlay.ui.h:5
+#: data/ui/help-overlay.ui:36
 msgctxt "shortcut window"
 msgid "Print the current document"
 msgstr "ഇപ്പോഴത്തെ രേഖ അച്ചടിക്കാന്‍"
 
-#: ../data/ui/help-overlay.ui.h:6
+#: data/ui/help-overlay.ui:45
 msgctxt "shortcut window"
 msgid "Navigation"
 msgstr "ഗതിനിയന്ത്രണം"
 
-#: ../data/ui/help-overlay.ui.h:7
+#: data/ui/help-overlay.ui:49 data/ui/help-overlay.ui:57
 msgctxt "shortcut window"
 msgid "Go back"
 msgstr "തിരിച്ചു പോകാന്‍"
 
-#: ../data/ui/help-overlay.ui.h:8
+#: data/ui/help-overlay.ui:67
 msgctxt "shortcut window"
 msgid "Preview"
 msgstr "മുമ്പത്തേത് കാണാന്‍"
 
-#: ../data/ui/help-overlay.ui.h:9
+#: data/ui/help-overlay.ui:71
 msgctxt "shortcut window"
 msgid "Zoom in"
 msgstr "ചെറുതാക്കുക"
 
-#: ../data/ui/help-overlay.ui.h:10
+#: data/ui/help-overlay.ui:78
 msgctxt "shortcut window"
 msgid "Zoom out"
 msgstr "വലുതാക്കുക"
 
-#: ../data/ui/help-overlay.ui.h:11
+#: data/ui/help-overlay.ui:85
 msgctxt "shortcut window"
 msgid "Bookmark the current page"
 msgstr "ഇപ്പോഴത്തെ പേജിലെ അടയാളങ്ങള്‍"
 
-#: ../data/ui/help-overlay.ui.h:12
+#: data/ui/help-overlay.ui:92
 msgctxt "shortcut window"
 msgid "Open places and bookmarks dialog"
 msgstr "സ്ഥലങ്ങളും അടയാളങ്ങളിലെ സംഭാഷണവും തുറക്കാന്‍"
 
-#: ../data/ui/help-overlay.ui.h:13
+#: data/ui/help-overlay.ui:99
 msgctxt "shortcut window"
 msgid "Copy selected text to clipboard"
 msgstr "മുമ്പത്തേത് കാണാന്‍"
 
-#: ../data/ui/help-overlay.ui.h:14
+#: data/ui/help-overlay.ui:106
 msgctxt "shortcut window"
-msgid "Rotate anti-clockwise"
-msgstr "എതിര്‍ദിശയിലേക്ക് തിരിയുക"
+msgid "Rotate counterclockwise"
+msgstr "അപ്രദക്ഷിണമായി തിരിയുക"
 
-#: ../data/ui/help-overlay.ui.h:15
+#: data/ui/help-overlay.ui:113
 msgctxt "shortcut window"
 msgid "Rotate clockwise"
-msgstr "നേര്‍ദിശയിലേക്ക് തിരിയുക"
+msgstr "പ്രദക്ഷിണമായി തിരിയുക"
 
-#: ../data/ui/help-overlay.ui.h:16
+#: data/ui/help-overlay.ui:120
 msgctxt "shortcut window"
 msgid "Next occurrence of the search string"
 msgstr "തെരച്ചിലിന്റെ അടുത്തഘട്ടം"
 
-#: ../data/ui/help-overlay.ui.h:17
+#: data/ui/help-overlay.ui:127
 msgctxt "shortcut window"
 msgid "Previous occurrence of the search string"
 msgstr "തെരച്ചിലിന്റെ മുമ്പത്തെഘട്ടം"
 
-#: ../data/ui/help-overlay.ui.h:18
+#: data/ui/help-overlay.ui:134
 msgctxt "shortcut window"
 msgid "Presentation mode"
 msgstr "അവതരണം"
 
-#: ../data/ui/help-overlay.ui.h:19
+#: data/ui/help-overlay.ui:141
 msgctxt "shortcut window"
 msgid "Open action menu"
 msgstr "വ്യവഹാര മെനു തുറക്കാന്‍"
 
-#: ../data/ui/help-overlay.ui.h:20
+#: data/ui/help-overlay.ui:148
 msgctxt "shortcut window"
 msgid "Fullscreen"
 msgstr "വലിയ ജാലകം"
 
-#: ../data/ui/organize-collection-dialog.ui.h:1
+#: data/ui/organize-collection-dialog.ui:40
 msgid "Enter a name for your first collection"
 msgstr "നിങ്ങളുടെ ആദ്യ ശേഖരണത്തിനായി ഒരു പേരുനല്‍കുക"
 
-#: ../data/ui/organize-collection-dialog.ui.h:2
+#: data/ui/organize-collection-dialog.ui:56 data/ui/organize-collection-dialog.ui:113
 msgid "New Collection…"
-msgstr "പുതിയ ശേഖരം"
+msgstr "പുതിയ ശേഖരം…"
 
-#: ../data/ui/organize-collection-dialog.ui.h:3 ../src/sharing.js:226
+#: data/ui/organize-collection-dialog.ui:73 data/ui/organize-collection-dialog.ui:122
+#: src/sharing.js:226
 msgid "Add"
 msgstr "ചേര്‍ക്കുക"
 
-#: ../data/ui/organize-collection-dialog.ui.h:4 ../src/overview.js:616
+#: data/ui/organize-collection-dialog.ui:163 data/ui/selection-toolbar.ui:88
+#: src/overview.js:1056 src/search.js:126 src/search.js:132
+msgid "Collections"
+msgstr "ശേഖരങ്ങള്‍"
+
+#: data/ui/organize-collection-dialog.ui:167 src/overview.js:616
 msgid "Cancel"
 msgstr "നീക്കം ചെയ്യാന്‍"
 
 #. Label for Done button in Sharing dialog
-#: ../data/ui/organize-collection-dialog.ui.h:5 ../src/sharing.js:112
+#: data/ui/organize-collection-dialog.ui:173 src/sharing.js:112
 msgid "Done"
 msgstr "പൂര്‍ത്തിയാക്കി"
 
-#: ../data/ui/preview-context-menu.ui.h:1
+#: data/ui/preview-context-menu.ui:6
 msgid "_Copy"
 msgstr "_പകര്‍ത്തുക"
 
 #. Translators: this is the Open action in a context menu
-#: ../data/ui/preview-menu.ui.h:1 ../data/ui/selection-toolbar.ui.h:1
-#: ../src/selections.js:988
+#: data/ui/preview-menu.ui:6 data/ui/selection-toolbar.ui:9 src/selections.js:990
 msgid "Open"
 msgstr "തുറക്കുക"
 
-#: ../data/ui/preview-menu.ui.h:2
+#: data/ui/preview-menu.ui:10
 msgid "Edit"
 msgstr "ചിട്ടപ്പെടുത്തുക"
 
-#: ../data/ui/preview-menu.ui.h:3
+#: data/ui/preview-menu.ui:15
 msgid "Print…"
 msgstr "പ്രിന്റ് ചെയ്യുക…"
 
-#: ../data/ui/preview-menu.ui.h:4 ../src/preview.js:462
+#: data/ui/preview-menu.ui:21 src/preview.js:461
 msgid "Fullscreen"
 msgstr "സ്ക്രീന്‍ പരമാവധി വലിപ്പത്തില്‍"
 
-#: ../data/ui/preview-menu.ui.h:5
+#: data/ui/preview-menu.ui:27
 msgid "Present"
 msgstr "അവതരിപ്പിയ്ക്കുക"
 
-#: ../data/ui/preview-menu.ui.h:6
+#: data/ui/preview-menu.ui:35
 msgid "Zoom In"
 msgstr "ചെറുതാക്കുക"
 
-#: ../data/ui/preview-menu.ui.h:7
+#: data/ui/preview-menu.ui:41
 msgid "Zoom Out"
 msgstr "വലുതാക്കുക"
 
-#: ../data/ui/preview-menu.ui.h:8
+#: data/ui/preview-menu.ui:49
 msgid "Rotate ↶"
 msgstr "തിരിയ്ക്കുക ↶"
 
-#: ../data/ui/preview-menu.ui.h:9
+#: data/ui/preview-menu.ui:55
 msgid "Rotate ↷"
 msgstr "തിരിയ്ക്കുക ↷"
 
-#: ../data/ui/preview-menu.ui.h:10 ../data/ui/selection-toolbar.ui.h:2
-#: ../src/properties.js:61
+#: data/ui/preview-menu.ui:62 data/ui/selection-toolbar.ui:79 src/properties.js:61
 msgid "Properties"
 msgstr "വിശേഷതകള്‍"
 
-#: ../data/ui/selection-menu.ui.h:1
+#: data/ui/selection-menu.ui:6
 msgid "Select All"
 msgstr "എല്ലാ തെരഞ്ഞെടുക്കുക"
 
-#: ../data/ui/selection-menu.ui.h:2
+#: data/ui/selection-menu.ui:11
 msgid "Select None"
 msgstr "ഒന്നും തെരഞ്ഞെടുക്കേണ്ട"
 
-#: ../data/ui/selection-toolbar.ui.h:3 ../src/overview.js:1056
-#: ../src/search.js:126 ../src/search.js:132
-msgid "Collections"
-msgstr "ശേഖരങ്ങള്‍"
-
-#: ../data/ui/view-menu.ui.h:1
+#: data/ui/view-menu.ui:23
 msgid "View items as a grid of icons"
-msgstr ""
+msgstr "ഇനങ്ങള്‍ കളങ്ങളായി കാണാന്‍"
 
-#: ../data/ui/view-menu.ui.h:2
+#: data/ui/view-menu.ui:40
 msgid "View items as a list"
 msgstr "ഇനങ്ങള്‍ പട്ടികയായി കാണാന്‍"
 
-#: ../data/ui/view-menu.ui.h:3
+#: data/ui/view-menu.ui:73
 msgid "Sort"
 msgstr "അടുക്കല്‍"
 
-#: ../data/ui/view-menu.ui.h:4
+#: data/ui/view-menu.ui:84
 msgid "Author"
 msgstr "രചയിതാവ്"
 
-#: ../data/ui/view-menu.ui.h:5
+#: data/ui/view-menu.ui:93
 msgid "Date"
 msgstr "തിയതി"
 
-#: ../data/ui/view-menu.ui.h:6
+#: data/ui/view-menu.ui:102
 msgid "Name"
 msgstr "പേര്"
 
-#: ../src/application.js:126
+#: src/application.js:126
 msgid "Show the version of the program"
 msgstr "പ്രോഗ്രാമിന്റെ പതിപ്പ് കാണാന്‍"
 
-#: ../src/documents.js:794
+#: src/documents.js:794
 msgid "Failed to print document"
 msgstr "അച്ചടിച്ച രേഖകള്‍ ലഭ്യമാക്കാന്‍ സാധിച്ചില്ല"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:836 ../src/search.js:459
+#: src/documents.js:836 src/search.js:459
 msgid "Local"
 msgstr "പ്രാദേശികം"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:879
+#: src/documents.js:879
 msgid "GNOME"
-msgstr "ഗ്നോം"
+msgstr "GNOME"
 
-#: ../src/documents.js:880
+#: src/documents.js:880
 msgid "Getting Started with Documents"
 msgstr "രേഖകളുമായി പ്രവര്‍ത്തിച്ചു തുടങ്ങുന്നു"
 
-#: ../src/documents.js:905 ../src/documents.js:1115 ../src/documents.js:1218
-#: ../src/documents.js:1412
+#: src/documents.js:905 src/documents.js:1129 src/documents.js:1232 src/documents.js:1426
 msgid "Collection"
 msgstr "ശേഖരം"
 
 #. overridden
-#: ../src/documents.js:972
+#: src/documents.js:986
 msgid "Google Docs"
 msgstr "ഗൂഗിള്‍ ഡോക്സ്"
 
-#: ../src/documents.js:973
+#: src/documents.js:987
 msgid "Google"
 msgstr "ഗൂഗിള്‍"
 
-#: ../src/documents.js:1117 ../src/documents.js:1414
+#: src/documents.js:1131 src/documents.js:1428
 msgid "Spreadsheet"
 msgstr "സ്പ്രെഡ്ഷീറ്റ്"
 
-#: ../src/documents.js:1119 ../src/documents.js:1416 ../src/presentation.js:44
+#: src/documents.js:1133 src/documents.js:1430 src/presentation.js:43
 msgid "Presentation"
 msgstr "അവതരണം"
 
-#: ../src/documents.js:1121 ../src/documents.js:1418
+#: src/documents.js:1135 src/documents.js:1432
 msgid "e-Book"
 msgstr "ഇ-ബുക്ക്"
 
-#: ../src/documents.js:1123 ../src/documents.js:1420
+#: src/documents.js:1137 src/documents.js:1434
 msgid "Document"
 msgstr "രേഖ"
 
 #. overridden
-#: ../src/documents.js:1173
+#: src/documents.js:1187
 msgid "ownCloud"
-msgstr "ഓണ്‍ ക്ലൌഡ്"
+msgstr "ഓണ്‍ക്ലൗഡ്"
 
 #. overridden
-#: ../src/documents.js:1307 ../src/documents.js:1308
+#: src/documents.js:1321 src/documents.js:1322
 msgid "OneDrive"
-msgstr "വണ്‍ ഡ്രൈവ്"
+msgstr "വണ്‍ഡ്രൈവ്"
 
-#: ../src/documents.js:1594
+#: src/documents.js:1608
 msgid "Please check the network connection."
 msgstr "ശ്രംഖല ബന്ധം പരിശോധിക്കുക."
 
-#: ../src/documents.js:1597
+#: src/documents.js:1611
 msgid "Please check the network proxy settings."
 msgstr "പ്രോക്സി ക്രമീകരണങ്ങള്‍ പരിശോധിക്കുക."
 
-#: ../src/documents.js:1600
+#: src/documents.js:1614
 msgid "Unable to sign in to the document service."
 msgstr "രേഖ സേവനത്തിലേക്ക് പ്രവേശിക്കാന്‍ സാധിച്ചില്ല."
 
-#: ../src/documents.js:1603
+#: src/documents.js:1617
 msgid "Unable to locate this document."
 msgstr "ഈ രേഖ കണ്ടെത്താന്‍ സാധിച്ചില്ല."
 
-#: ../src/documents.js:1606
+#: src/documents.js:1620
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "എന്തോ പ്രശ്നമുണ്ടെല്ലോ (%d)."
 
-#: ../src/documents.js:1613
-msgid ""
-"You are using a preview of Books. Full viewing capabilities are coming soon!"
-msgstr ""
+#: src/documents.js:1627
+msgid "You are using a preview of Books. Full viewing capabilities are coming soon!"
+msgstr "നിങ്ങൾ പുസ്തകങ്ങളുടെ ഒരു തിരനോട്ടമാണ് കാണുന്നത്. പൂർണ്ണമായി കാണാനുള്ള കഴിവുകൾ ഉടൻ ഉൾപ്പെടുത്തുന്നതാണ് !"
 
-#: ../src/documents.js:1615
-msgid ""
-"LibreOffice support is not available. Please contact your system "
-"administrator."
-msgstr "ലിബ്രേഒാഫീസ് സഹായം ലഭ്യമല്ല. ദയവായി സിസ്റ്റം അഡ്മിനിസ്‌ട്രേറ്ററുമായി ബന്ധപ്പെടുക"
+#: src/documents.js:1629
+msgid "LibreOffice support is not available. Please contact your system administrator."
+msgstr "ലിബ്രേഒാഫീസ് സഹായം ലഭ്യമല്ല. ദയവായി സിസ്റ്റം അഡ്മിനിസ്‌ട്രേറ്ററുമായി ബന്ധപ്പെടുക."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1638
+#: src/documents.js:1652
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "“%s” ലോഡ് ചെയ്യാനാകുന്നില്ല"
 
 #. view button, on the right of the toolbar
-#: ../src/edit.js:139
+#: src/edit.js:139
 msgid "View"
 msgstr "കാഴ്ച"
 
-#: ../src/epubview.js:228
-#, fuzzy, javascript-format
-#| msgid "Page %u of %u"
+#: src/epubview.js:228
+#, javascript-format
 msgid "chapter %s of %s"
-msgstr "താള്‍ %u/%u"
+msgstr "അദ്ധ്യായം %s/%s"
 
-#: ../src/evinceview.js:590 ../src/lib/gd-places-bookmarks.c:656
+#: src/evinceview.js:591 src/lib/gd-places-bookmarks.c:656
 msgid "Bookmarks"
 msgstr "അടയാളങ്ങള്‍‌"
 
-#: ../src/evinceview.js:598
+#: src/evinceview.js:599
 msgid "Bookmark this page"
-msgstr " ഈ താളിലെ അടയാളങ്ങള്‍‌"
+msgstr "ഈ താളിലെ അടയാളങ്ങള്‍‌"
 
-#: ../src/lib/gd-nav-bar.c:242
+#: src/lib/gd-nav-bar.c:242
 #, c-format
 msgid "Page %u of %u"
 msgstr "താള്‍ %u/%u"
 
-#: ../src/lib/gd-pdf-loader.c:142
+#: src/lib/gd-pdf-loader.c:142
 msgid "Unable to load the document"
 msgstr "ഗ്രന്ഥം ലഭ്യമാക്കാന്‍ സാധിച്ചില്ല"
 
 #. Translators: %s is the number of the page, already formatted
 #. * as a string, for example "Page 5".
 #.
-#: ../src/lib/gd-places-bookmarks.c:321
+#: src/lib/gd-places-bookmarks.c:321
 #, c-format
 msgid "Page %s"
 msgstr "താള്‍ %s"
 
-#: ../src/lib/gd-places-bookmarks.c:384
+#: src/lib/gd-places-bookmarks.c:384
 msgid "No bookmarks"
 msgstr "അടയാളം ഇല്ല"
 
-#: ../src/lib/gd-places-bookmarks.c:392 ../src/lib/gd-places-links.c:257
+#: src/lib/gd-places-bookmarks.c:392 src/lib/gd-places-links.c:257
 msgid "Loading…"
 msgstr "ലഭ്യമാക്കിക്കൊണ്ടിരിക്കുന്നു…"
 
-#: ../src/lib/gd-places-links.c:342
+#: src/lib/gd-places-links.c:342
 msgid "No table of contents"
 msgstr "ഉള്ളടക്കത്തിന്റെ പട്ടിക ഇല്ല"
 
-#: ../src/lib/gd-places-links.c:514
+#: src/lib/gd-places-links.c:514
 msgid "Contents"
 msgstr "ഉള്ളടക്കം"
 
-#: ../src/lib/gd-utils.c:328
+#: src/lib/gd-utils.c:328
 msgid "A document manager application"
 msgstr "ഒരു ഡോക്യുമെന്റ് മാനേജര്‍ പ്രയോഗം"
 
-#: ../src/lib/gd-utils.c:333
+#: src/lib/gd-utils.c:333
 msgid "An e-books manager application"
 msgstr "ഇ-ബുക്ക്മാനേജര്‍ പ്രയോഗം"
 
-#: ../src/lib/gd-utils.c:340
+#: src/lib/gd-utils.c:340
 msgid "translator-credits"
 msgstr ""
 "അനി പീറ്റര്‍ <peter.ani@gmail.com>,\n"
@@ -589,421 +588,426 @@ msgstr ""
 "ദേവിക എസ് കുമാര്‍ <devikaskmar96@gmail.com>,\n"
 "പൂജ ജി <poojagmalu95@gmail.com>,\n"
 "കവിത പി <kavithap55html@gmail.com>,\n"
-"പ്രീത പി <preethapmelekavuvila@gmail.com>,"
+"പ്രീത പി <preethapmelekavuvila@gmail.com>,\n"
+"രാജേഷ് ശിവരാമൻ <ksraju007@gmail.com"
 
-#: ../src/mainToolbar.js:91
+#: src/mainToolbar.js:91
 msgctxt "toolbar button tooltip"
 msgid "Search"
 msgstr "തെരയുക"
 
-#: ../src/mainToolbar.js:100
+#: src/mainToolbar.js:100
 msgid "Back"
 msgstr "പുറകോട്ട്"
 
 #. Translators: only one item has been deleted and %s is its name
-#: ../src/notifications.js:48
+#: src/notifications.js:48
 #, javascript-format
 msgid "“%s” deleted"
 msgstr "“%s” നീക്കം ചെയ്തു"
 
 #. Translators: one or more items might have been deleted, and %d
 #. is the count
-#: ../src/notifications.js:52
+#: src/notifications.js:52
 #, javascript-format
 msgid "%d item deleted"
 msgid_plural "%d items deleted"
 msgstr[0] "%d നീക്കം ചെയ്തു"
 msgstr[1] "%d നീക്കം ചെയ്തു"
 
-#: ../src/notifications.js:61 ../src/selections.js:387
+#: src/notifications.js:61 src/selections.js:387
 msgid "Undo"
 msgstr "വേണ്ട"
 
-#: ../src/notifications.js:159
+#: src/notifications.js:159
 #, javascript-format
 msgid "Printing “%s”: %s"
 msgstr "\"%s\" പ്രിന്റ് ചെയ്യുന്നു: %s"
 
-#: ../src/notifications.js:215
+#: src/notifications.js:215
 msgid "Your documents are being indexed"
 msgstr "നിങ്ങളുടെ രേഖകള്‍ക്കു് സൂചിക നല്‍കുന്നു"
 
-#: ../src/notifications.js:216
+#: src/notifications.js:216
 msgid "Some documents might not be available during this process"
 msgstr "ഈ പ്രക്രിയയില്‍ ചില രേഖകള്‍ ഒരു പക്ഷേ ലഭ്യമാവില്ല"
 
 #. Translators: %s refers to an online account provider, e.g.
 #. "Google", or "Windows Live".
-#: ../src/notifications.js:238
+#: src/notifications.js:238
 #, javascript-format
 msgid "Fetching documents from %s"
 msgstr "%s-ല്‍ നിന്നും രേഖ എടുക്കുന്നു"
 
-#: ../src/notifications.js:240
+#: src/notifications.js:240
 msgid "Fetching documents from online accounts"
 msgstr "ഓണ്‍ലൈന്‍ അക്കൌണ്ടില്‍ നിന്നും രേഖകള്‍ എടുക്കുന്നു"
 
-#: ../src/overview.js:275
+#: src/overview.js:275
 msgid "No collections found"
 msgstr "ശേഖരങ്ങള്‍ ഒന്നും ഇല്ല"
 
-#: ../src/overview.js:277
+#: src/overview.js:277
 msgid "No books found"
 msgstr "പുസ്തകങ്ങള്‍ ലഭ്യമായില്ല"
 
-#: ../src/overview.js:277
+#: src/overview.js:277
 msgid "No documents found"
 msgstr "രേഖകള്‍ ലഭ്യമായില്ല"
 
-#: ../src/overview.js:286
+#: src/overview.js:286
 msgid "Try a different search"
 msgstr "ഒരു വ്യത്യസ്തമായ തിരച്ചില്‍ ശ്രമം"
 
-#: ../src/overview.js:293
+#: src/overview.js:293
 msgid "You can create collections from the Books view"
 msgstr "കാണുന്ന ബുക്കില്‍ നിന്നും നിങ്ങള്‍ക്ക് ശേഖരങ്ങള്‍ നിര്‍മ്മിക്കാം"
 
-#: ../src/overview.js:295
+#: src/overview.js:295
 msgid "You can create collections from the Documents view"
 msgstr "കാണുന്ന ഡോക്യുമെന്റ്സില്‍ നിന്നും നിങ്ങള്‍ക്ക് ശേഖരങ്ങള്‍ നിര്‍മ്മിക്കാം"
 
-#: ../src/overview.js:305
+#: src/overview.js:305
 #, javascript-format
 msgid ""
-"Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
-"href=\"file://%s\">Documents folder</a> will appear here."
+"Documents from your <a href=\"system-settings\">Online Accounts</a> and <a href=\"file://%s"
+"\">Documents folder</a> will appear here."
 msgstr ""
-"നിങ്ങളുടെ രേഖയില്‍ നിന്നും<a href=\"system-settings\">ഒാണ്‍ലൈന്‍ അക്കൌണ്ട്</a> and <a "
-"href=\"file://%s\">ഡോക്യുമെന്റ് ഫോള്‍ഡര്‍</a> ഇവിടെ കാണാം"
+"നിങ്ങളുടെ രേഖയില്‍ നിന്നും<a href=\"system-settings\">ഒാണ്‍ലൈന്‍ അക്കൌണ്ട്</a> and <a href=\"file://%s"
+"\">ഡോക്യുമെന്റ് ഫോള്‍ഡര്‍</a> ഇവിടെ കാണാം."
 
 #. Translators: this is the menu to change view settings
-#: ../src/overview.js:562
+#: src/overview.js:562
 msgid "View Menu"
 msgstr "മെനു കാണുക"
 
-#: ../src/overview.js:590
+#: src/overview.js:590
 msgid "Click on items to select them"
 msgstr "ഇനം തിരഞ്ഞെടുക്കുവാനായി അതാത് ഇനത്തില്‍ ക്ലിക്ക് ചെയ്യുക"
 
-#: ../src/overview.js:592
+#: src/overview.js:592
 #, javascript-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d തിരഞ്ഞെടുത്തിരിക്കുന്നു"
 msgstr[1] "%d തിരഞ്ഞെടുത്തിരിക്കുന്നു"
 
-#: ../src/overview.js:669
+#: src/overview.js:669
 msgid "Select Items"
 msgstr "വസ്തുക്കള്‍ തെരഞ്ഞെടുക്കുക"
 
-#: ../src/overview.js:876
+#: src/overview.js:876
 msgid "Yesterday"
 msgstr "ഇന്നലെ"
 
-#: ../src/overview.js:878
+#: src/overview.js:878
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d ദിവസം മുമ്പു്"
 msgstr[1] "%d ദിവസങ്ങള്‍ മുമ്പു്"
 
-#: ../src/overview.js:882
+#: src/overview.js:882
 msgid "Last week"
 msgstr "കഴിഞ്ഞ ആഴ്ച"
 
-#: ../src/overview.js:884
+#: src/overview.js:884
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d ആഴ്ച മുമ്പു്"
 msgstr[1] "%d ആഴ്ചകള്‍ മുമ്പു്"
 
-#: ../src/overview.js:888
+#: src/overview.js:888
 msgid "Last month"
 msgstr "കഴിഞ്ഞ മാസം"
 
-#: ../src/overview.js:890
+#: src/overview.js:890
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d മാസം മുമ്പു്"
 msgstr[1] "%d മാസങ്ങള്‍ മുമ്പു്"
 
-#: ../src/overview.js:894
+#: src/overview.js:894
 msgid "Last year"
 msgstr "കഴിഞ്ഞ വര്‍ഷം"
 
-#: ../src/overview.js:896
+#: src/overview.js:896
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
-msgstr[0] " %d വര്‍ഷം മുമ്പു്"
+msgstr[0] "%d വര്‍ഷം മുമ്പു്"
 msgstr[1] "%d വര്‍ഷങ്ങള്‍ മുമ്പു്"
 
-#: ../src/password.js:42
+#: src/password.js:42
 msgid "Password Required"
 msgstr "രഹസ്യവാക്ക് ആവശ്യമുണ്ട്"
 
-#: ../src/password.js:45
+#: src/password.js:45
 msgid "_Unlock"
 msgstr "പൂട്ടുതുറക്കുക"
 
-#: ../src/password.js:61
+#: src/password.js:61
 #, javascript-format
 msgid "Document %s is locked and requires a password to be opened."
-msgstr "‍ഡോക്യുമെന്റ് %s അടച്ചിരിക്കുന്നു,ലഭ്യമായ രഹസ്യവാക്ക് ഉപയോഗിച്ചു തുറക്കപ്പെട്ടു"
+msgstr "‍ഡോക്യുമെന്റ് %s അടച്ചിരിക്കുന്നു, തുറക്കാനായി രഹസ്യവാക്ക് ആവശ്യമാണ്."
 
-#: ../src/password.js:75
+#: src/password.js:75
 msgid "_Password"
 msgstr "രഹസ്യവാക്ക്"
 
-#: ../src/presentation.js:102
+#: src/presentation.js:101
 msgid "Running in presentation mode"
 msgstr "പ്രസന്റേഷന്‍ മോഡില്‍ പ്രവര്‍ത്തിയ്ക്കുന്നു"
 
-#: ../src/presentation.js:130
+#: src/presentation.js:129
 msgid "Present On"
 msgstr "അവതരിപ്പിയ്ക്കുന്നതു്"
 
 #. Translators: "Mirrored" describes when both displays show the same view
-#: ../src/presentation.js:166
+#: src/presentation.js:165
 msgid "Mirrored"
 msgstr "പ്രതിഫലനം"
 
-#: ../src/presentation.js:168
+#: src/presentation.js:167
 msgid "Primary"
 msgstr "ആദ്യത്തേത്"
 
-#: ../src/presentation.js:170
+#: src/presentation.js:169
 msgid "Off"
 msgstr "ഓഫ്"
 
-#: ../src/presentation.js:172
+#: src/presentation.js:171
 msgid "Secondary"
 msgstr "രണ്ടാമത്തേത്"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/preview.js:445 ../src/selections.js:985
+#: src/preview.js:444 src/selections.js:987
 #, javascript-format
 msgid "Open with %s"
 msgstr "%s ഉപയോഗിച്ച് തുറക്കുക"
 
-#: ../src/preview.js:770
+#: src/preview.js:769
 msgid "Find Previous"
 msgstr "മുന്‍പത്തേത് കണ്ടെത്താന്‍"
 
-#: ../src/preview.js:776
+#: src/preview.js:775
 msgid "Find Next"
 msgstr "അടുത്തത് കണ്ടെത്താന്‍"
 
 #. Title item
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
-#: ../src/properties.js:81
+#: src/properties.js:81
 msgctxt "Document Title"
 msgid "Title"
 msgstr "ശീര്‍ഷകം"
 
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
-#: ../src/properties.js:90
+#: src/properties.js:90
 msgctxt "Document Author"
 msgid "Author"
 msgstr "രചയിതാവ്"
 
 #. Source item
-#: ../src/properties.js:97
+#: src/properties.js:97
 msgid "Source"
-msgstr "ശ്രോതസ്സ്"
+msgstr "ഉറവിടം"
 
 #. Date Modified item
-#: ../src/properties.js:103
+#: src/properties.js:103
 msgid "Date Modified"
 msgstr "മാറ്റം വരുത്തിയതു്"
 
-#: ../src/properties.js:110
+#: src/properties.js:110
 msgid "Date Created"
 msgstr "തയ്യാറാക്കിയതു്"
 
 #. Document type item
 #. Translators: "Type" is the label next to the document type
 #. (PDF, spreadsheet, ...) in the properties dialog
-#: ../src/properties.js:119
+#: src/properties.js:119
 msgctxt "Document Type"
 msgid "Type"
 msgstr "ഇനം"
 
 #. Translators: "Type" refers to a search filter on the document type
 #. (PDF, spreadsheet, ...)
-#: ../src/search.js:120
+#: src/search.js:120
 msgctxt "Search Filter"
 msgid "Type"
 msgstr "ഇനം"
 
 #. Translators: this refers to documents
-#: ../src/search.js:123 ../src/search.js:260 ../src/search.js:453
+#: src/search.js:123 src/search.js:260 src/search.js:453
 msgid "All"
 msgstr "എല്ലാം"
 
-#: ../src/search.js:136
+#: src/search.js:136
 msgid "PDF Documents"
 msgstr "പിഡിഎഫ് ഗ്രന്ഥങ്ങള്‍"
 
-#: ../src/search.js:143
+#: src/search.js:143
 msgid "e-Books"
 msgstr "ഇ-ബുക്ക്സ്"
 
-#: ../src/search.js:147
+#: src/search.js:147
 msgid "Comics"
 msgstr "ചിത്രകഥകള്‍"
 
-#: ../src/search.js:152
+#: src/search.js:152
 msgid "Presentations"
 msgstr "അവതരണങ്ങള്‍"
 
-#: ../src/search.js:155
+#: src/search.js:155
 msgid "Spreadsheets"
 msgstr "സ്പ്രെഡ്ഷീറ്റുകള്‍"
 
-#: ../src/search.js:158
+#: src/search.js:158
 msgid "Text Documents"
 msgstr "ടെക്സ്റ്റ് രേഖകള്‍"
 
 #. Translators: this is a verb that refers to "All", "Title", "Author",
 #. and "Content" as in "Match All", "Match Title", "Match Author", and
 #. "Match Content"
-#: ../src/search.js:257
+#: src/search.js:257
 msgid "Match"
 msgstr "പൊരുത്തം"
 
 #. Translators: "Title" refers to "Match Title" when searching
-#: ../src/search.js:263
+#: src/search.js:263
 msgctxt "Search Filter"
 msgid "Title"
 msgstr "ശീര്‍ഷകം"
 
 #. Translators: "Author" refers to "Match Author" when searching
-#: ../src/search.js:266
+#: src/search.js:266
 msgctxt "Search Filter"
 msgid "Author"
 msgstr "രചയിതാവ്"
 
 #. Translators: "Content" refers to "Match Content" when searching
-#: ../src/search.js:269
+#: src/search.js:269
 msgctxt "Search Filter"
 msgid "Content"
 msgstr "ഉള്ളടക്കം"
 
-#: ../src/search.js:449
+#: src/search.js:449
 msgid "Sources"
-msgstr "ശ്രോതസ്സ്"
+msgstr "ഉറവിടങ്ങള്‍"
 
 #. Translators: the first %s is an online account provider name,
 #. e.g. "Google". The second %s is the identity used to log in,
 #. e.g. "foo@gmail.com".
-#: ../src/search.js:508
+#: src/search.js:508
 #, javascript-format
 msgid "%s (%s)"
-msgstr ""
+msgstr "%s (%s)"
 
-#: ../src/selections.js:360 ../src/selections.js:362
+#: src/selections.js:360 src/selections.js:362
 msgid "Rename…"
-msgstr "പുതിയ പേരുനല്‍കാന്‍..."
+msgstr "പുതിയ പേര് നൽകുക..."
 
-#: ../src/selections.js:366 ../src/selections.js:368
+#: src/selections.js:366 src/selections.js:368
 msgid "Delete"
 msgstr "നീക്കം ചെയ്യുക"
 
-#: ../src/selections.js:382
+#: src/selections.js:382
 #, javascript-format
 msgid "“%s” removed"
 msgstr "“%s” നീക്കംചെയ്തു"
 
-#: ../src/selections.js:779
+#: src/selections.js:779
 msgid "Rename"
 msgstr "പുതിയ പേരുനല്‍കാന്‍"
 
 #. Translators: "Collections" refers to documents in this context
-#: ../src/selections.js:785
+#: src/selections.js:785
 msgctxt "Dialog Title"
 msgid "Collections"
-msgstr "ശേഖരങ്ങള്‍ "
+msgstr "ശേഖരങ്ങൾ"
 
-#: ../src/sharing.js:108
+#: src/sharing.js:108
 msgid "Sharing Settings"
 msgstr "പങ്കിടല്‍ സജ്ജീകരണങ്ങള്‍"
 
 #. Label for widget group for changing document permissions
-#: ../src/sharing.js:145
+#: src/sharing.js:145
 msgid "Document permissions"
 msgstr "രേഖയുടെ അനുമതികള്‍"
 
 #. Label for permission change in Sharing dialog
-#: ../src/sharing.js:152 ../src/sharing.js:330
+#: src/sharing.js:152 src/sharing.js:330
 msgid "Change"
 msgstr "മാറ്റം"
 
 #. Label for radiobutton that sets doc permission to private
-#: ../src/sharing.js:176 ../src/sharing.js:305
+#: src/sharing.js:176 src/sharing.js:305
 msgid "Private"
 msgstr "സ്വകാര്യം"
 
-#: ../src/sharing.js:186 ../src/sharing.js:298
+#: src/sharing.js:186 src/sharing.js:298
 msgid "Public"
 msgstr "പൊതുവായ"
 
 #. Label for checkbutton that sets doc permission to Can edit
-#: ../src/sharing.js:190 ../src/sharing.js:300
+#: src/sharing.js:190 src/sharing.js:300
 msgid "Everyone can edit"
 msgstr "എല്ലാവര്‍ക്കും തിരുത്താം"
 
 #. Label for widget group used for adding new contacts
-#: ../src/sharing.js:197
+#: src/sharing.js:197
 msgid "Add people"
 msgstr "ആളുകളെ ചേര്‍ക്കുക"
 
 #. Editable text in entry field
-#: ../src/sharing.js:204
+#: src/sharing.js:204
 msgid "Enter an email address"
 msgstr "ഇമെയില്‍ വിലാസം"
 
-#: ../src/sharing.js:219 ../src/sharing.js:371
+#: src/sharing.js:219 src/sharing.js:371
 msgid "Can edit"
 msgstr "തിരുത്താം"
 
-#: ../src/sharing.js:219 ../src/sharing.js:374
+#: src/sharing.js:219 src/sharing.js:374
 msgid "Can view"
 msgstr "കാണാം"
 
-#: ../src/sharing.js:302
+#: src/sharing.js:302
 msgid "Everyone can read"
 msgstr "എല്ലാവര്‍ക്കും വായിക്കാം"
 
-#: ../src/sharing.js:317
+#: src/sharing.js:317
 msgid "Save"
 msgstr "സൂക്ഷിക്കുക"
 
-#: ../src/sharing.js:368
+#: src/sharing.js:368
 msgid "Owner"
 msgstr "ഉടമസ്ഥന്‍"
 
-#: ../src/sharing.js:437
+#: src/sharing.js:437
 #, javascript-format
 msgid "You can ask %s for access"
 msgstr "അകത്തു കയറാന്‍ %s നോട് ചോദിക്കാം"
 
-#: ../src/sharing.js:474 ../src/sharing.js:510 ../src/sharing.js:567
-#: ../src/sharing.js:584 ../src/sharing.js:603
+#: src/sharing.js:474 src/sharing.js:510 src/sharing.js:567 src/sharing.js:584
+#: src/sharing.js:603
 msgid "The document was not updated"
 msgstr "രേഖ പുതുക്കിയിട്ടില്ല"
 
-#: ../src/shellSearchProvider.js:285
+#: src/shellSearchProvider.js:285
 msgid "Untitled Document"
 msgstr "പേരിടാത്ത രേഖ"
 
-#: ../src/trackerController.js:176
+#: src/trackerController.js:176
 msgid "Unable to fetch the list of documents"
 msgstr "ഗ്രന്ഥങ്ങളുടെ പട്ടിക കൊണ്ടുവരാന്‍ സാധിച്ചില്ല"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Rotate anti-clockwise"
+#~ msgstr "എതിര്‍ദിശയിലേക്ക് തിരിയുക"
 
 #~ msgid "LibreOffice is required to view this document"
 #~ msgstr "ഈ രേഖ കാണാന്‍ ലിബ്റെ ഓഫീസ് വേണം"
@@ -1065,8 +1069,7 @@ msgstr "ഗ്രന്ഥങ്ങളുടെ പട്ടിക കൊണ്�
 #~ msgstr "\"%s\" മുന്‍കാഴ്ചയ്ക്കായി ലഭ്യമാക്കാന്‍ സാധിച്ചില്ല"
 
 #~ msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
-#~ msgstr ""
-#~ "\"unoconv\" കണ്ടുപിടിക്കാന്‍ കഴിഞ്ഞില്ല, ദയവായി LibreOffice ഇന്‍സ്റ്റാളേഷന്‍ പരിശോധിക്കുക"
+#~ msgstr "\"unoconv\" കണ്ടുപിടിക്കാന്‍ കഴിഞ്ഞില്ല, ദയവായി LibreOffice ഇന്‍സ്റ്റാളേഷന്‍ പരിശോധിക്കുക"
 
 #~ msgid "New and Recent"
 #~ msgstr "പുതിയതും അടുത്തകാലത്ത് ഉപയോഗിച്ചതും"
