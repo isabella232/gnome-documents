@@ -162,7 +162,7 @@
             "name": "tracker",
             "buildsystem": "meson",
             "cleanup": [ "/bin", "/etc", "/lib/systemd", "/libexec", "/share/dbus-1/services" ],
-            "config-opts": [ "--default-library=shared", "-Dbash-completion=no" ],
+            "config-opts": [ "--default-library=shared", "-Dbash-completion=no", "-Ddocs=false" ],
             "sources": [
                 {
                     "type": "git",
