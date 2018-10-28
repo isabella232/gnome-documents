@@ -190,7 +190,7 @@ msgstr "ആധാരങ്ങലിലേയ്ക്ക് പ്രവേശ�
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 #: data/org.gnome.Documents.desktop.in:7
 msgid "org.gnome.Documents"
-msgstr "org.gnome.Document"
+msgstr "org.gnome.Documents"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Documents.desktop.in:15
