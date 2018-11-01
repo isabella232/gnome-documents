@@ -99,7 +99,7 @@ msgstr "Premeu el botó <gui>✓</gui>."
 #. (itstool) path: item/p
 #: C/collections.page:58
 msgid "In selection mode, select related documents."
-msgstr "En mode selecció, selecciona els documents relacionats"
+msgstr "En mode selecció, selecciona els documents relacionats."
 
 #. (itstool) path: item/p
 #: C/collections.page:61
@@ -112,7 +112,7 @@ msgid ""
 "In the collection list, press on <gui>Create new collection</gui> twice and "
 "type a new collection name, or select an existing collection. The selected "
 "documents will be added to the collection."
-msgstr "A la llista de col·leccions premeu sobre <gui>Crea una nova col·lecció</gui> dues vegades i escriviu el nom de la nova col·lecció. Els documents seleccions s'afegiran a la col·lecció."
+msgstr "A la llista de col·leccions premeu sobre <gui>Crea una nova col·lecció</gui> dues vegades i escriviu el nom de la nova col·lecció. Els documents seleccionats s'afegiran a la col·lecció."
 
 #. (itstool) path: steps/title
 #: C/collections.page:71
@@ -200,7 +200,7 @@ msgid ""
 "to appear in the filter list, it is necessary to configure Google, ownCloud "
 "or Windows Live as an <link href=\"help:gnome-help/accounts-add\">online "
 "account</link>."
-msgstr "Per tal que <gui>Google</gui>, <gui>OneDrive</gui> o <gui>ownCloud</gui> apareguin a la llista de filtres, cal configurar Google, ownCloud o Windows Live com un <link href=\"help:gnome-help/accounts-add\">compte online</link>."
+msgstr "Per tal que <gui>Google</gui>, <gui>OneDrive</gui> o <gui>ownCloud</gui> apareguin a la llista de filtres, cal configurar Google, ownCloud o Windows Live com un <link href=\"help:gnome-help/accounts-add\">compte en línia</link>."
 
 #. (itstool) path: info/desc
 #: C/formats.page:24
@@ -237,7 +237,7 @@ msgstr "Documents"
 msgid ""
 "Organize, view and edit the documents that are stored locally on your "
 "computer or online."
-msgstr "Organitzeu, mostreu i editeu els documents que estan emmagatzemats al vostre ordinador o en línea"
+msgstr "Organitzeu, mostreu i editeu els documents que estan emmagatzemats al vostre ordinador o en línia."
 
 #. (itstool) path: page/title
 #: C/index.page:35
@@ -292,7 +292,7 @@ msgstr "Títol: el nom del document, que es pot editar;"
 #. (itstool) path: item/p
 #: C/info.page:50
 msgid "Source: the path to the folder containing the document;"
-msgstr "Font: el camí a la carpeta contenidora del documents;"
+msgstr "Font: el camí a la carpeta contenidora del document;"
 
 #. (itstool) path: item/p
 #: C/info.page:53
@@ -317,7 +317,7 @@ msgstr "Fer clic sobre el botó de verificació per canviar el mode de selecció
 #. (itstool) path: item/p
 #: C/info.page:66
 msgid "Select a document."
-msgstr "Seleccionar un document"
+msgstr "Seleccionar un document."
 
 #. (itstool) path: item/p
 #: C/info.page:69
@@ -330,7 +330,7 @@ msgstr "Fer clic al botó <gui>Propietats</gui> al final a la dreta de la barra 
 msgid ""
 "Some types of documents (e.g. PDF files) can be password protected, "
 "preventing access to their metadata or content."
-msgstr "Alguns tipus de documents (p. ex. fitxers PDF) poden estar protegits per contrasenya, impedint l'accés al seu continguts o metadades."
+msgstr "Alguns tipus de documents (p. ex. fitxers PDF) poden estar protegits per contrasenya, impedint l'accés al seu contingut o metadades."
 
 #. (itstool) path: note/p
 #: C/info.page:80
@@ -344,7 +344,7 @@ msgstr "<app>Documents</app> actualment no ofereix cap mecanisme per afegir priv
 #. (itstool) path: info/desc
 #: C/print.page:23
 msgid "Print documents that are stored locally or online."
-msgstr "Imprimir documents emmagatzemats localment o en línea."
+msgstr "Imprimir documents emmagatzemats localment o en línia."
 
 #. (itstool) path: page/title
 #: C/print.page:26
@@ -359,7 +359,7 @@ msgstr "Per imprimir un document:"
 #. (itstool) path: item/p
 #: C/print.page:41
 msgid "In selection mode, check the document to be printed."
-msgstr "En mode selecció, seleccionar el document per imprimir-lo"
+msgstr "En mode selecció, seleccionar el document per imprimir-lo."
 
 #. (itstool) path: item/p
 #: C/print.page:44
@@ -372,7 +372,7 @@ msgstr "Fer clic al botó Imprimir a la barra de botons. El diàleg <gui>Imprimi
 msgid ""
 "Printing is not available when more than one document is selected, or when a"
 " collection is selected."
-msgstr "No es pot imprimir si hi ha més d'un documents seleccionats, o si s'ha seleccionat una col·lecció."
+msgstr "No es pot imprimir si hi ha més d'un document seleccionat, o si s'ha seleccionat una col·lecció."
 
 #. (itstool) path: info/desc
 #: C/prob-no-show.page:29
@@ -390,7 +390,7 @@ msgid ""
 "<app>Documents</app> supports only certain types of documents such as PDFs "
 "and office suite documents such as spreadsheets and word processor "
 "documents. It will not show text documents and photos."
-msgstr "<app>Documents</app> tan sols suporta alguns tipus de documents com  PDFs i documents de la suite d'office com fulls de càlcul i documents del processador de textos. No es mostren documents text ni fotografies."
+msgstr "<app>Documents</app> tan sols suporta alguns tipus de documents com  PDFs i documents de la suite d'office com fulls de càlcul i documents del processador de textos. No es mostren documents de text ni fotografies."
 
 #. (itstool) path: page/p
 #: C/prob-no-show.page:50
@@ -436,7 +436,7 @@ msgstr "Quan s'obre <app>Documents</app>, es mostra una imatge de previsualitzac
 msgid ""
 "If you download a <em>OneDrive</em> document to local storage through the "
 "web interface, a thumbnail will be generated."
-msgstr "Si es descarrega un document <em>OneDrive</em> a l'emmagatzemament local a través de d'interfície web, es generarà una imatge."
+msgstr "Si es descarrega un document <em>OneDrive</em> a l'emmagatzemament local a través d'interfície web, es generarà una imatge."
 
 #. (itstool) path: note/p
 #: C/prob-previews.page:50
@@ -473,7 +473,7 @@ msgstr "Premeu <keyseq><key>Ctrl</key><key>F</key></keyseq> per obrir la barra d
 msgid ""
 "Start typing keywords, and searching begins instantly. You will see a list "
 "of documents whose title or author matches the keywords."
-msgstr "Comenceu a escriure paraules clau i la cerca començarà immediatament. Veureu una llista de documents en els que el títol o l'autor coincideixen amb les paraules clau."
+msgstr "Comenceu a escriure paraules clau i la cerca començarà immediatament. Veureu una llista de documents en els quals el títol o l'autor coincideixen amb les paraules clau."
 
 #. (itstool) path: note/p
 #: C/search.page:52
@@ -485,7 +485,7 @@ msgstr "Es poden restringir o filtrar els resultats de la cerca fent clic al bot
 #. (itstool) path: info/desc
 #: C/viewgrid.page:29
 msgid "Change the way documents are displayed."
-msgstr "Canviar la manera en que es mostren els documents."
+msgstr "Canviar la manera en què es mostren els documents."
 
 #. (itstool) path: page/title
 #: C/viewgrid.page:32
@@ -521,7 +521,7 @@ msgstr "Feu clic sobre el botó quadrícula a la part superior dreta de la fines
 #. (itstool) path: info/desc
 #: C/view.page:29
 msgid "Open documents that are stored locally or online."
-msgstr "Mostrar els documents que estan emmagatzemats localment o online."
+msgstr "Mostrar els documents que estan emmagatzemats localment o en línia."
 
 #. (itstool) path: page/title
 #: C/view.page:32
@@ -547,14 +547,14 @@ msgstr "Per veure documents dels vostres comptes en línia, cal <link href=\"hel
 #. (itstool) path: page/p
 #: C/view.page:52
 msgid "To view the contents of a document, press on the thumbnail."
-msgstr "Per veure el contingut d'un document, prémer sobre la imatge en miniatura"
+msgstr "Per veure el contingut d'un document, prémer sobre la imatge en miniatura."
 
 #. (itstool) path: page/p
 #: C/view.page:54
 msgid ""
 "To exit the document, click the back arrow button in the top-left of the "
 "window."
-msgstr "Per sortir del document, fer clic el botó fletxa endarrere a la part superior esquerra de la finestra"
+msgstr "Per sortir del document, fer clic el botó fletxa endarrere a la part superior esquerra de la finestra."
 
 #. (itstool) path: credit/years
 #: C/view-add.page:15
@@ -589,7 +589,7 @@ msgstr "<app>Documents</app> normalment només mostra els documents que estan a 
 msgid ""
 "Open the <gui href=\"help:gnome-help/shell-terminology\">Activities</gui> "
 "overview and start typing <gui>Search</gui>."
-msgstr "Obrir el resum d'<gui href=\"help:gnome-help/shell-terminology\">Activititats</gui> i començar a escriure la <gui>Cerca</gui>."
+msgstr "Obrir el resum d'<gui href=\"help:gnome-help/shell-terminology\">Activitats</gui> i començar a escriure la <gui>Cerca</gui>."
 
 #. (itstool) path: item/p
 #: C/view-add.page:41
@@ -601,7 +601,7 @@ msgstr "Feu clic a <gui>Cercar</gui> per obrir el panell."
 msgid ""
 "Press the button in the bottom-right of the window which will open "
 "<gui>Search Locations</gui>."
-msgstr "Premeu el botó a la part inferior dreta de la finestra en que es vol obrir <gui>Ubicacions de cerca</gui>."
+msgstr "Premeu el botó a la part inferior dreta de la finestra en què es vol obrir <gui>Ubicacions de cerca</gui>."
 
 #. (itstool) path: item/p
 #: C/view-add.page:48
