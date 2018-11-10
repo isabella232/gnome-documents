@@ -4,827 +4,1048 @@
 # Tiffany ANTOPOLSKI <tiffany.antopolski@gmail.com>, 2011, 2012.
 # Daniel PUENTES <blatberk@openmailbox.org>, 2015.
 # Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2011, 2012, 2015.
+# Carmen Bianca BAKKER <carmen@carmenbianca.eu>, 2018.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-03-18 10:03+0000\n"
-"PO-Revision-Date: 2015-03-26 23:33+0200\n"
-"Last-Translator: Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>\n"
-"Language-Team: Esperanto <gnome-l10n-eo@lists.launchpad.net>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-documents/issues\n"
+"POT-Creation-Date: 2018-11-04 18:58+0000\n"
+"PO-Revision-Date: 2018-11-07 08:49+0100\n"
+"Last-Translator: Carmen Bianca Bakker <carmen@carmenbianca.eu>\n"
+"Language-Team: Esperanto <gnome-eo-list@gnome.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
+"X-Generator: Poedit 2.2\n"
 "X-DamnedLies-Scope: partial\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:1
-#: ../data/org.gnome.Books.desktop.in.h:1 ../src/application.js:132
-#: ../src/lib/gd-utils.c:418
+#: data/org.gnome.Books.appdata.xml.in:7 data/org.gnome.Books.desktop.in:3
+#: src/application.js:112 src/overview.js:1052
 msgid "Books"
 msgstr "Libroj"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:2
-#| msgid "An e-books manager application"
+#: data/org.gnome.Books.appdata.xml.in:8
 msgid "An e-book manager application for GNOME"
-msgstr "Retlibro-administrila aplikaĵo por GNOME"
+msgstr "Bitlibra mastrum-aplikaĵo por GNOME"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:3
-#, fuzzy
+#: data/org.gnome.Books.appdata.xml.in:10
 msgid ""
 "A simple application to access and organize your e-books on GNOME. It is "
 "meant to be a simple and elegant replacement for using a file manager to "
 "deal with e-books."
 msgstr ""
-"Simpla aplikaĵo por aliri kaj organizi viajn retlibrojn ene de GNOME. Ĝi "
-"celas esti simpla kaj eleganta anstataŭigo de dosieradministrilo, rilate al "
+"Simpla aplikaĵo por aliri kaj organizi viajn bitlibrojn ene de GNOME. Ĝi "
+"celas esti simpla kaj eleganta anstataŭigo de dosierfoliumilo, rilate al "
 "dokumentojn."
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:4
-#: ../data/org.gnome.Documents.appdata.xml.in.h:4
-#, fuzzy
+#: data/org.gnome.Books.appdata.xml.in:15
+#: data/org.gnome.Documents.appdata.xml.in:16
 msgid "It lets you:"
 msgstr "Ĝi permesas al vi:"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:5
+#: data/org.gnome.Books.appdata.xml.in:17
 msgid "View recent e-books"
-msgstr "Rigardi pasintajn retlibrojn"
+msgstr "Rigardi freŝdatajn bitlibrojn"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:6
-#, fuzzy
+#: data/org.gnome.Books.appdata.xml.in:18
 msgid "Search through e-books"
 msgstr "Serĉi tra dokumentoj"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:7
-#, fuzzy
-#| msgid "View documents fullscreen"
-msgid "View e-books fullscreen"
-msgstr "Vidigi dokumentojn tutekrane"
+#: data/org.gnome.Books.appdata.xml.in:19
+msgid "View e-books (PDF and comics) fullscreen"
+msgstr "Montri bitlibrojn (PDF-ojn kaj komiksojn) tutekrane"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:8
+#: data/org.gnome.Books.appdata.xml.in:20
 msgid "Print e-books"
-msgstr "Presi retlibrojn"
+msgstr "Presi bitlibrojn"
 
-#: ../data/org.gnome.Books.appdata.xml.in.h:9
-#: ../data/org.gnome.Documents.appdata.xml.in.h:12
-msgid "Allow opening full featured editor for non-trivial changes"
-msgstr "Permesi malfermon de kompleta redaktilo por netrivialaj ŝanĝoj"
+#: data/org.gnome.Books.appdata.xml.in:32
+#: data/org.gnome.Documents.appdata.xml.in:39
+msgid "The GNOME Project"
+msgstr "La GNOME-projekto"
 
-#: ../data/org.gnome.Books.desktop.in.h:2
-#, fuzzy
-#| msgid "Access, manage and share documents"
+#: data/org.gnome.Books.desktop.in:4
 msgid "Access, manage and share books"
-msgstr "Aliri, administri kaj kunhavigi librojn"
+msgstr "Aliri, mastrumi kaj kunhavigi librojn"
 
-#: ../data/org.gnome.Books.desktop.in.h:3
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.Books.desktop.in:7
+msgid "org.gnome.Books"
+msgstr "org.gnome.Books"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Books.desktop.in:15
 msgid "Books;Comics;ePub;PDF;"
 msgstr "Libroj;Komiksoj;ePub;PDF;"
 
-#: ../data/org.gnome.books.gschema.xml.h:1
-#: ../data/org.gnome.documents.gschema.xml.h:1
+#: data/org.gnome.books.gschema.xml:5 data/org.gnome.documents.gschema.xml:5
 msgid "View as"
 msgstr "Vidi kiel"
 
-#: ../data/org.gnome.books.gschema.xml.h:2
-#: ../data/org.gnome.documents.gschema.xml.h:2
+#: data/org.gnome.books.gschema.xml:6 data/org.gnome.documents.gschema.xml:6
 msgid "View as type"
 msgstr "Vidi kiel speco"
 
-#: ../data/org.gnome.books.gschema.xml.h:3
-#: ../data/org.gnome.documents.gschema.xml.h:3
+#: data/org.gnome.books.gschema.xml:10 data/org.gnome.documents.gschema.xml:10
+msgid "Sort by"
+msgstr "Ordigi laŭ"
+
+#: data/org.gnome.books.gschema.xml:11 data/org.gnome.documents.gschema.xml:11
+msgid "Sort by type"
+msgstr "Ordigi laŭ speco"
+
+#: data/org.gnome.books.gschema.xml:15 data/org.gnome.documents.gschema.xml:15
 msgid "Window size"
 msgstr "Fenestrogrando"
 
-#: ../data/org.gnome.books.gschema.xml.h:4
-#: ../data/org.gnome.documents.gschema.xml.h:4
+#: data/org.gnome.books.gschema.xml:16 data/org.gnome.documents.gschema.xml:16
 msgid "Window size (width and height)."
 msgstr "Fenestrogrando (larĝo kaj alto)."
 
-#: ../data/org.gnome.books.gschema.xml.h:5
-#: ../data/org.gnome.documents.gschema.xml.h:5
+#: data/org.gnome.books.gschema.xml:20 data/org.gnome.documents.gschema.xml:20
 msgid "Window position"
 msgstr "Pozicio de fenestro"
 
-#: ../data/org.gnome.books.gschema.xml.h:6
-#: ../data/org.gnome.documents.gschema.xml.h:6
+#: data/org.gnome.books.gschema.xml:21 data/org.gnome.documents.gschema.xml:21
 msgid "Window position (x and y)."
 msgstr "Pozicio de fenestro (x kaj y)."
 
-#: ../data/org.gnome.books.gschema.xml.h:7
-#: ../data/org.gnome.documents.gschema.xml.h:7
+#: data/org.gnome.books.gschema.xml:25 data/org.gnome.documents.gschema.xml:25
 msgid "Window maximized"
 msgstr "Fenestro maksimumigita"
 
-#: ../data/org.gnome.books.gschema.xml.h:8
-#: ../data/org.gnome.documents.gschema.xml.h:8
+#: data/org.gnome.books.gschema.xml:26 data/org.gnome.documents.gschema.xml:26
 msgid "Window maximized state"
 msgstr "Maksimumigita stato de fenestro"
 
-#: ../data/org.gnome.books.gschema.xml.h:9
-#: ../data/org.gnome.documents.gschema.xml.h:9
+#: data/org.gnome.books.gschema.xml:30 data/org.gnome.documents.gschema.xml:30
 msgid "Night mode"
 msgstr "Nokta reĝimo"
 
-#: ../data/org.gnome.books.gschema.xml.h:10
-#: ../data/org.gnome.documents.gschema.xml.h:10
-#, fuzzy
+#: data/org.gnome.books.gschema.xml:31 data/org.gnome.documents.gschema.xml:31
 msgid "Whether the application is in night mode."
-msgstr "Ĉu la aplikaĵo en nokta reĝimo aŭ ne."
+msgstr "Ĉu la aplikaĵo estas en nokta reĝimo aŭ ne."
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:1
-#: ../data/org.gnome.Documents.desktop.in.h:1 ../src/application.js:128
-#: ../src/lib/gd-utils.c:411 ../src/mainWindow.js:52
+#: data/org.gnome.Documents.appdata.xml.in:7
+#: data/org.gnome.Documents.desktop.in:3 src/application.js:115
+#: src/overview.js:1052
 msgid "Documents"
 msgstr "Dokumentoj"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:2
-#, fuzzy
+#: data/org.gnome.Documents.appdata.xml.in:8
 msgid "A document manager application for GNOME"
-msgstr "Dokumentadministrilo por GNOME"
+msgstr "Dokumentmastrumilo por GNOME"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:3
-#, fuzzy
+#: data/org.gnome.Documents.appdata.xml.in:10
 msgid ""
 "A simple application to access, organize and share your documents on GNOME. "
 "It is meant to be a simple and elegant replacement for using a file manager "
 "to deal with documents. Seamless cloud integration is offered through GNOME "
 "Online Accounts."
 msgstr ""
-"Simpla aplikaĵo por aliri, organizi kaj kunhavigi viajn dokumentojn, ene de "
+"Simpla aplikaĵo por aliri, organizi kaj kunhavigi viajn dokumentojn ene de "
 "GNOME. Ĝi celas esti simpla kaj eleganta anstataŭigo de dosieradministrilo, "
 "rilate al dokumentojn. Eblas flua integrado kun retaj kontoj pere de GNOME "
 "Retaj Kontoj."
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:5
-#, fuzzy
+#: data/org.gnome.Documents.appdata.xml.in:18
 msgid "View recent local and online documents"
-msgstr "Vidigi lokajn kaj retajn lastatempajn dokumentojn"
+msgstr "Vidi freŝdatajn lokajn kaj retajn dokumentojn"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:6
-#, fuzzy
+#: data/org.gnome.Documents.appdata.xml.in:19
 msgid "Access your Google, ownCloud or OneDrive content"
 msgstr "Aliri vian Google-, ownCloud- aŭ OneDrive-enhavon"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:7
-#, fuzzy
+#: data/org.gnome.Documents.appdata.xml.in:20
 msgid "Search through documents"
 msgstr "Serĉi tra dokumentoj"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:8
+#: data/org.gnome.Documents.appdata.xml.in:21
 msgid "See new documents shared by friends"
-msgstr "Vidi novajn dokumentojn kunhavigataj de geamikoj"
+msgstr "Vidi novajn dokumentojn kunhavigataj de amikoj"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:9
+#: data/org.gnome.Documents.appdata.xml.in:22
 msgid "View documents fullscreen"
-msgstr "Vidigi dokumentojn tutekrane"
+msgstr "Vidi dokumentojn tutekrane"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:10
+#: data/org.gnome.Documents.appdata.xml.in:23
 msgid "Print documents"
 msgstr "Presi dokumentojn"
 
-#: ../data/org.gnome.Documents.appdata.xml.in.h:11
-#, fuzzy
-#| msgid "Add to favorites"
+#: data/org.gnome.Documents.appdata.xml.in:24
 msgid "Select favorites"
 msgstr "Elekti ŝatatajn"
 
-#: ../data/org.gnome.Documents.desktop.in.h:2
-msgid "Access, manage and share documents"
-msgstr "Aliri, administri kaj kunhavigi dokumentojn"
+#: data/org.gnome.Documents.appdata.xml.in:25
+msgid "Allow opening full featured editor for non-trivial changes"
+msgstr "Permesi malfermon de kompleta redaktilo por netrivialaj ŝanĝoj"
 
-#: ../data/org.gnome.Documents.desktop.in.h:3
-#, fuzzy
-#| msgid "PDF Documents"
+#: data/org.gnome.Documents.desktop.in:4
+msgid "Access, manage and share documents"
+msgstr "Aliri, mastrumi kaj kunhavigi dokumentojn"
+
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.Documents.desktop.in:7
+msgid "org.gnome.Documents"
+msgstr "org.gnome.Documents"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Documents.desktop.in:15
 msgid "Docs;PDF;Document;"
 msgstr "Dok-oj;PDF;Dokumento;"
 
-#: ../src/documents.js:631
+#: data/ui/app-menu.ui:6 src/preview.js:452
+msgid "Night Mode"
+msgstr "Nokta reĝimo"
+
+#: data/ui/app-menu.ui:12
+msgid "Keyboard Shortcuts"
+msgstr "Klavokombinoj"
+
+#: data/ui/app-menu.ui:16
+msgid "Help"
+msgstr "Helpo"
+
+#: data/ui/app-menu.ui:20
+msgid "About"
+msgstr "Pri"
+
+#: data/ui/app-menu.ui:24
+msgctxt "app menu"
+msgid "Quit"
+msgstr "Ĉesi"
+
+#: data/ui/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Ĝenerala"
+
+#: data/ui/help-overlay.ui:15
+msgctxt "shortcut window"
+msgid "Show help"
+msgstr "Montri helpon"
+
+#: data/ui/help-overlay.ui:22
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Ĉesi"
+
+#: data/ui/help-overlay.ui:29
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Serĉi"
+
+#: data/ui/help-overlay.ui:36
+msgctxt "shortcut window"
+msgid "Print the current document"
+msgstr "Presi la nunan dokumenton"
+
+#: data/ui/help-overlay.ui:45
+msgctxt "shortcut window"
+msgid "Navigation"
+msgstr "Navigado"
+
+#: data/ui/help-overlay.ui:49 data/ui/help-overlay.ui:57
+msgctxt "shortcut window"
+msgid "Go back"
+msgstr "Reen"
+
+#: data/ui/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Preview"
+msgstr "Antaŭrigardo"
+
+#: data/ui/help-overlay.ui:71
+msgctxt "shortcut window"
+msgid "Zoom in"
+msgstr "Zomi"
+
+#: data/ui/help-overlay.ui:78
+msgctxt "shortcut window"
+msgid "Zoom out"
+msgstr "Malzomi"
+
+#: data/ui/help-overlay.ui:85
+msgctxt "shortcut window"
+msgid "Bookmark the current page"
+msgstr "Legosigni la nunan paĝon"
+
+#: data/ui/help-overlay.ui:92
+msgctxt "shortcut window"
+msgid "Open places and bookmarks dialog"
+msgstr "Malfermi lokan kaj legosignan dialogon"
+
+#: data/ui/help-overlay.ui:99
+msgctxt "shortcut window"
+msgid "Copy selected text to clipboard"
+msgstr "Kopii elektitan tekston al tondujo"
+
+#: data/ui/help-overlay.ui:106
+msgctxt "shortcut window"
+msgid "Rotate counterclockwise"
+msgstr "Turni maldekstrume"
+
+#: data/ui/help-overlay.ui:113
+msgctxt "shortcut window"
+msgid "Rotate clockwise"
+msgstr "Turni dekstrume"
+
+#: data/ui/help-overlay.ui:120
+msgctxt "shortcut window"
+msgid "Next occurrence of the search string"
+msgstr "Sekva okazo de la serĉĉeno"
+
+#: data/ui/help-overlay.ui:127
+msgctxt "shortcut window"
+msgid "Previous occurrence of the search string"
+msgstr "Antaŭa okazo de la serĉĉeno"
+
+#: data/ui/help-overlay.ui:134
+msgctxt "shortcut window"
+msgid "Presentation mode"
+msgstr "Prezenta reĝimo"
+
+#: data/ui/help-overlay.ui:141
+msgctxt "shortcut window"
+msgid "Open action menu"
+msgstr "Malfermi ago-menuon"
+
+#: data/ui/help-overlay.ui:148
+msgctxt "shortcut window"
+msgid "Fullscreen"
+msgstr "Tutekrana reĝimo"
+
+#: data/ui/organize-collection-dialog.ui:40
+msgid "Enter a name for your first collection"
+msgstr "Enigu nomon por via unua kolekto"
+
+#: data/ui/organize-collection-dialog.ui:56
+#: data/ui/organize-collection-dialog.ui:113
+msgid "New Collection…"
+msgstr "Nova kolekto…"
+
+#: data/ui/organize-collection-dialog.ui:73
+#: data/ui/organize-collection-dialog.ui:122 src/sharing.js:226
+msgid "Add"
+msgstr "Aldoni"
+
+#: data/ui/organize-collection-dialog.ui:163 data/ui/selection-toolbar.ui:88
+#: src/overview.js:1056 src/search.js:126 src/search.js:132
+msgid "Collections"
+msgstr "Kolektoj"
+
+#: data/ui/organize-collection-dialog.ui:167 src/overview.js:616
+msgid "Cancel"
+msgstr "Nuligi"
+
+#. Label for Done button in Sharing dialog
+#: data/ui/organize-collection-dialog.ui:173 src/sharing.js:112
+msgid "Done"
+msgstr "Farita"
+
+#: data/ui/preview-context-menu.ui:6
+msgid "_Copy"
+msgstr "_Kopii"
+
+#. Translators: this is the Open action in a context menu
+#: data/ui/preview-menu.ui:6 data/ui/selection-toolbar.ui:9
+#: src/selections.js:990
+msgid "Open"
+msgstr "Malfermi"
+
+#: data/ui/preview-menu.ui:10
+msgid "Edit"
+msgstr "Redakti"
+
+#: data/ui/preview-menu.ui:15
+msgid "Print…"
+msgstr "Presi…"
+
+#: data/ui/preview-menu.ui:21 src/preview.js:461
+msgid "Fullscreen"
+msgstr "Tutekrana reĝimo"
+
+#: data/ui/preview-menu.ui:27
+msgid "Present"
+msgstr "Prezenti"
+
+#: data/ui/preview-menu.ui:35
+msgid "Zoom In"
+msgstr "Zomi"
+
+#: data/ui/preview-menu.ui:41
+msgid "Zoom Out"
+msgstr "Malzomi"
+
+#: data/ui/preview-menu.ui:49
+msgid "Rotate ↶"
+msgstr "Turni ↶"
+
+#: data/ui/preview-menu.ui:55
+msgid "Rotate ↷"
+msgstr "Turni ↷"
+
+#: data/ui/preview-menu.ui:62 data/ui/selection-toolbar.ui:79
+#: src/properties.js:61
+msgid "Properties"
+msgstr "Atributoj"
+
+#: data/ui/selection-menu.ui:6
+msgid "Select All"
+msgstr "Elekti ĉion"
+
+#: data/ui/selection-menu.ui:11
+msgid "Select None"
+msgstr "Elekti nenion"
+
+#: data/ui/view-menu.ui:23
+msgid "View items as a grid of icons"
+msgstr "Vidigi erojn kiel bildsimbola kadro"
+
+#: data/ui/view-menu.ui:40
+msgid "View items as a list"
+msgstr "Vidigi erojn kiel listo"
+
+#: data/ui/view-menu.ui:73
+msgid "Sort"
+msgstr "Sortigi"
+
+#: data/ui/view-menu.ui:84
+msgid "Author"
+msgstr "Aŭtoro"
+
+#: data/ui/view-menu.ui:93
+msgid "Date"
+msgstr "Dato"
+
+#: data/ui/view-menu.ui:102
+msgid "Name"
+msgstr "Nomo"
+
+#: src/application.js:126
+msgid "Show the version of the program"
+msgstr "Montri la version de la programo"
+
+#: src/documents.js:794
 msgid "Failed to print document"
 msgstr "Malsukcesis presi dokumenton"
 
-#: ../src/documents.js:668 ../src/search.js:498
+#. Translators: this refers to local documents
+#: src/documents.js:836 src/search.js:459
 msgid "Local"
 msgstr "Loka"
 
-#: ../src/documents.js:695
+#. Translators: Documents ships a "Getting Started with Documents"
+#. tutorial PDF. The "GNOME" string below is displayed as the author name
+#. of that document, and doesn't normally need to be translated.
+#: src/documents.js:879
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:696
-#, fuzzy
+#: src/documents.js:880
 msgid "Getting Started with Documents"
 msgstr "Komenci tuj kun Dokumentoj"
 
-#: ../src/documents.js:712 ../src/documents.js:904 ../src/documents.js:967
-#: ../src/documents.js:1075
+#: src/documents.js:905 src/documents.js:1129 src/documents.js:1232
+#: src/documents.js:1426
 msgid "Collection"
-msgstr "Aro"
+msgstr "Kolekto"
 
-#: ../src/documents.js:783
+#. overridden
+#: src/documents.js:986
 msgid "Google Docs"
-msgstr "Guglo-Docs"
+msgstr "Google Docs"
 
-#: ../src/documents.js:784
+#: src/documents.js:987
 msgid "Google"
-msgstr "Guglo"
+msgstr "Google"
 
-#: ../src/documents.js:906 ../src/documents.js:1077
+#: src/documents.js:1131 src/documents.js:1428
 msgid "Spreadsheet"
 msgstr "Kalkultabelo"
 
-#: ../src/documents.js:908 ../src/documents.js:1079 ../src/presentation.js:47
+#: src/documents.js:1133 src/documents.js:1430 src/presentation.js:43
 msgid "Presentation"
 msgstr "Prezentaĵo"
 
-#: ../src/documents.js:910 ../src/documents.js:1081
+#: src/documents.js:1135 src/documents.js:1432
 msgid "e-Book"
-msgstr "Retlibro"
+msgstr "Bitlibro"
 
-#: ../src/documents.js:912 ../src/documents.js:1083
+#: src/documents.js:1137 src/documents.js:1434
 msgid "Document"
 msgstr "Dokumento"
 
-#: ../src/documents.js:946
+#. overridden
+#: src/documents.js:1187
 msgid "ownCloud"
 msgstr "ownCloud"
 
-#: ../src/documents.js:1009 ../src/documents.js:1010
+#. overridden
+#: src/documents.js:1321 src/documents.js:1322
 msgid "OneDrive"
 msgstr "OneDrive"
 
-#: ../src/documents.js:1254
+#: src/documents.js:1608
 msgid "Please check the network connection."
 msgstr "Bonvolu kontroli retkonekton."
 
-#: ../src/documents.js:1257
-#, fuzzy
+#: src/documents.js:1611
 msgid "Please check the network proxy settings."
 msgstr "Bonvolu kontroli la retprokurilajn agordojn."
 
-#: ../src/documents.js:1260
-#, fuzzy
-#| msgid "Unable to load the document"
+#: src/documents.js:1614
 msgid "Unable to sign in to the document service."
-msgstr "Ne eblis ŝargi la dokument-servon."
+msgstr "Ne eblis saluti en la dokumentservon."
 
-#: ../src/documents.js:1263
-#, fuzzy
-#| msgid "Unable to load the document"
+#: src/documents.js:1617
 msgid "Unable to locate this document."
 msgstr "Ne eblis trovi la dokumenton."
 
-#: ../src/documents.js:1266
+#: src/documents.js:1620
+#, javascript-format
 msgid "Hmm, something is fishy (%d)."
-msgstr ""
+msgstr "Hm, io malpravas (%d)."
 
-#: ../src/documents.js:1273
+#: src/documents.js:1627
 msgid ""
 "You are using a preview of Books. Full viewing capabilities are coming soon!"
+msgstr "Vi uzas antaŭrigardon de Libroj. Kompletaj vid-kapabloj baldaŭ venos!"
+
+#: src/documents.js:1629
+msgid ""
+"LibreOffice support is not available. Please contact your system "
+"administrator."
 msgstr ""
+"LibreOffice-subteno nedisponeblas. Bonvolu kontakti vian sistemadministranto."
 
-#: ../src/documents.js:1294
-#, fuzzy
+#. Translators: %s is the title of a document
+#: src/documents.js:1652
+#, javascript-format
 msgid "Oops! Unable to load “%s”"
-msgstr "Ha! Ne eblis ŝarĝi “%s”"
+msgstr "Ups! Ne eblas ŝargi “%s”"
 
-#: ../src/edit.js:176
-#| msgid "View as"
+#. view button, on the right of the toolbar
+#: src/edit.js:139
 msgid "View"
 msgstr "Vido"
 
-#: ../src/embed.js:108
-#| msgid "New and Recent"
-msgid "Recent"
-msgstr "Lasttempaj"
+#: src/epubview.js:228
+#, javascript-format
+msgid "chapter %s of %s"
+msgstr "ĉapitro %s de %s"
 
-#: ../src/embed.js:111 ../src/search.js:192 ../src/search.js:201
-msgid "Collections"
-msgstr "Aroj"
+#: src/evinceview.js:591 src/lib/gd-places-bookmarks.c:656
+msgid "Bookmarks"
+msgstr "Legosignoj"
 
-#: ../src/lib/gd-nav-bar.c:242
+#: src/evinceview.js:599
+msgid "Bookmark this page"
+msgstr "Legosigni tiun ĉi paĝon"
+
+#: src/lib/gd-nav-bar.c:242
 #, c-format
 msgid "Page %u of %u"
 msgstr "Paĝo %u de %u"
 
-#: ../src/lib/gd-pdf-loader.c:247
+#: src/lib/gd-pdf-loader.c:142
 msgid "Unable to load the document"
 msgstr "Ne eblis ŝargi la dokumenton"
-
-#: ../src/lib/gd-pdf-loader.c:715
-msgid "LibreOffice is required to view this document"
-msgstr "LibreOffice estas bezonata por vidigi tiun ĉi dokumenton"
 
 #. Translators: %s is the number of the page, already formatted
 #. * as a string, for example "Page 5".
 #.
-#: ../src/lib/gd-places-bookmarks.c:321
+#: src/lib/gd-places-bookmarks.c:321
 #, c-format
 msgid "Page %s"
 msgstr "Paĝo %s"
 
-#: ../src/lib/gd-places-bookmarks.c:384
+#: src/lib/gd-places-bookmarks.c:384
 msgid "No bookmarks"
 msgstr "Neniu legosigno"
 
-#: ../src/lib/gd-places-bookmarks.c:392 ../src/lib/gd-places-links.c:257
-#| msgid "Loading..."
+#: src/lib/gd-places-bookmarks.c:392 src/lib/gd-places-links.c:257
 msgid "Loading…"
 msgstr "Ŝargante…"
 
-#: ../src/lib/gd-places-bookmarks.c:656 ../src/preview.js:601
-msgid "Bookmarks"
-msgstr "Legosignoj"
-
-#: ../src/lib/gd-places-links.c:342
+#: src/lib/gd-places-links.c:342
 msgid "No table of contents"
 msgstr "Neniu enhavotabelo"
 
-#: ../src/lib/gd-places-links.c:518
+#: src/lib/gd-places-links.c:514
 msgid "Contents"
 msgstr "Enhavoj"
 
-#: ../src/lib/gd-utils.c:412
+#: src/lib/gd-utils.c:328
 msgid "A document manager application"
-msgstr "Dokumentadministrila aplikaĵo"
+msgstr "Dokumentmastrumila aplikaĵo"
 
-#: ../src/lib/gd-utils.c:419
+#: src/lib/gd-utils.c:333
 msgid "An e-books manager application"
-msgstr "Retlibro-administrila aplikaĵo"
+msgstr "Bitlibra mastrum-aplikaĵo"
 
-#: ../src/lib/gd-utils.c:427
+#: src/lib/gd-utils.c:340
 msgid "translator-credits"
 msgstr ""
 "Tiffany ANTOPOLSKI\n"
 "Kristjan SCHMIDT\n"
-"Daniel PUENTES"
+"Daniel PUENTES\n"
+"Carmen Bianca BAKKER <carmen@carmenbianca.eu>"
 
-#: ../src/mainToolbar.js:79
+#: src/mainToolbar.js:91
+msgctxt "toolbar button tooltip"
 msgid "Search"
 msgstr "Serĉi"
 
-#: ../src/mainToolbar.js:87
+#: src/mainToolbar.js:100
 msgid "Back"
 msgstr "Reen"
 
-#: ../src/mainToolbar.js:141
-msgid "View items as a list"
-msgstr "Vidigi erojn kiel listo"
-
-#: ../src/mainToolbar.js:147
-msgid "View items as a grid of icons"
-msgstr "Vidigi erojn kiel bildsimbola kadro"
-
-#: ../src/mainToolbar.js:177
-msgid "Click on items to select them"
-msgstr "Klaki sur eroj por elekti ilin"
-
-#: ../src/mainToolbar.js:179
-msgid "%d selected"
-msgid_plural "%d selected"
-msgstr[0] "%d elektita"
-msgstr[1] "%d elektitaj"
-
-#: ../src/mainToolbar.js:203
-msgid "Cancel"
-msgstr "Rezigni"
-
-#: ../src/mainToolbar.js:255
-msgid "Select Items"
-msgstr "Elektitaj eroj"
-
-#: ../src/notifications.js:54
+#. Translators: only one item has been deleted and %s is its name
+#: src/notifications.js:48
+#, javascript-format
 msgid "“%s” deleted"
 msgstr "“%s” forigita"
 
-#: ../src/notifications.js:58
-#, fuzzy
-#| msgid "Selected item has been deleted"
-#| msgid_plural "Selected items have been deleted"
+#. Translators: one or more items might have been deleted, and %d
+#. is the count
+#: src/notifications.js:52
+#, javascript-format
 msgid "%d item deleted"
 msgid_plural "%d items deleted"
 msgstr[0] "%d ero estis forigita"
 msgstr[1] "%d eroj estis forigitaj"
 
-#: ../src/notifications.js:67
+#: src/notifications.js:61 src/selections.js:387
 msgid "Undo"
 msgstr "Malfari"
 
-#: ../src/notifications.js:167
+#: src/notifications.js:159
+#, javascript-format
 msgid "Printing “%s”: %s"
 msgstr "Presante “%s”: %s"
 
-#: ../src/notifications.js:223
+#: src/notifications.js:215
 msgid "Your documents are being indexed"
 msgstr "Viaj dokumentoj estas indeksataj"
 
-#: ../src/notifications.js:224
+#: src/notifications.js:216
 msgid "Some documents might not be available during this process"
 msgstr "Povas esti ke kelkaj dokumentoj ne estos disponeblaj dum procezo"
 
-#: ../src/notifications.js:246
+#. Translators: %s refers to an online account provider, e.g.
+#. "Google", or "Windows Live".
+#: src/notifications.js:238
+#, javascript-format
 msgid "Fetching documents from %s"
 msgstr "Venigante dokumentojn de %s"
 
-#: ../src/notifications.js:248
+#: src/notifications.js:240
 msgid "Fetching documents from online accounts"
 msgstr "Venigante dokumentojn el retaj kontoj"
 
-#: ../src/password.js:46
-msgid "Password Required"
-msgstr "Necesas pasvorto"
-
-#: ../src/password.js:49
-msgid "_Unlock"
-msgstr "_Malŝlosi"
-
-#: ../src/password.js:65
-msgid "Document %s is locked and requires a password to be opened."
-msgstr "Dokumento %s estas ŝlosita, necesas pasvorton por malfermi ĝin."
-
-#: ../src/password.js:79
-msgid "_Password"
-msgstr "_Pasvorto"
-
-#: ../src/presentation.js:105
-msgid "Running in presentation mode"
-msgstr "Rulante ĉe prezentaĵa reĝimo"
-
-#: ../src/presentation.js:152
-msgid "Mirrored"
-msgstr "Spegulita"
-
-#: ../src/presentation.js:154
-msgid "Primary"
-msgstr "Ĉefa"
-
-#: ../src/presentation.js:156
-msgid "Off"
-msgstr "Elŝaltite"
-
-#: ../src/presentation.js:158
-msgid "Secondary"
-msgstr "Duarange"
-
-#: ../src/presentation.js:194
-#, fuzzy
-#| msgid "Presentation"
-msgid "Present On"
-msgstr "Prezentaĵo"
-
-#: ../src/preview.js:609
-msgid "Bookmark this page"
-msgstr "Legosigni tiun ĉi paĝon"
-
-#: ../src/preview.js:870 ../src/selections.js:859
-msgid "Open with %s"
-msgstr "Malfermi per %s"
-
-#: ../src/preview.js:933
-#, fuzzy
-msgid "Find Previous"
-msgstr "Antaŭserĉi"
-
-#: ../src/preview.js:940
-msgid "Find Next"
-msgstr "Serĉi sekvan"
-
-#: ../src/properties.js:61 ../src/resources/preview-menu.ui.h:9
-#: ../src/selections.js:769
-msgid "Properties"
-msgstr "Atributoj"
-
-#: ../src/properties.js:81
-#| msgid "Title"
-msgctxt "Document Title"
-msgid "Title"
-msgstr "Titolo"
-
-#: ../src/properties.js:90
-#| msgid "Author"
-msgctxt "Document Author"
-msgid "Author"
-msgstr "Autoro"
-
-#: ../src/properties.js:97
-#| msgid "Sources"
-msgid "Source"
-msgstr "Fonto"
-
-#: ../src/properties.js:103
-#, fuzzy
-msgid "Date Modified"
-msgstr "Daton modifita"
-
-#: ../src/properties.js:110
-#, fuzzy
-msgid "Date Created"
-msgstr "Daton kreita"
-
-#: ../src/properties.js:119
-#| msgid "Type"
-msgctxt "Document Type"
-msgid "Type"
-msgstr "Tipo"
-
-#: ../src/resources/app-menu.ui.h:1
-msgid "Fullscreen"
-msgstr "Tutekrana reĝimo"
-
-#: ../src/resources/app-menu.ui.h:2
-msgid "Night Mode"
-msgstr "Nokta reĝimo"
-
-#: ../src/resources/app-menu.ui.h:3
-msgid "Help"
-msgstr "Helpo"
-
-#: ../src/resources/app-menu.ui.h:4
-msgid "About"
-msgstr "Pri"
-
-#: ../src/resources/app-menu.ui.h:5
-msgid "Quit"
-msgstr "Ĉesi"
-
-#: ../src/resources/preview-context-menu.ui.h:1
-msgid "_Copy"
-msgstr "_Kopii"
-
-#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:747
-#: ../src/selections.js:862
-msgid "Open"
-msgstr "Malfermi"
-
-#: ../src/resources/preview-menu.ui.h:2
-msgid "Edit"
-msgstr "Redakti"
-
-#: ../src/resources/preview-menu.ui.h:3
-msgid "Print…"
-msgstr "Presi…"
-
-#: ../src/resources/preview-menu.ui.h:4
-#, fuzzy
-#| msgid "Presentation"
-msgid "Present"
-msgstr "Prezentaĵo"
-
-#: ../src/resources/preview-menu.ui.h:5
-msgid "Zoom In"
-msgstr "Enzomi"
-
-#: ../src/resources/preview-menu.ui.h:6
-msgid "Zoom Out"
-msgstr "Elzomi"
-
-#: ../src/resources/preview-menu.ui.h:7
-msgid "Rotate ↶"
-msgstr "Turni ↶"
-
-#: ../src/resources/preview-menu.ui.h:8
-msgid "Rotate ↷"
-msgstr "Turni ↷"
-
-#: ../src/resources/selection-menu.ui.h:1
-msgid "Select All"
-msgstr "Elekti ĉion"
-
-#: ../src/resources/selection-menu.ui.h:2
-msgid "Select None"
-msgstr "Elekti nenion"
-
-#: ../src/search.js:115
-msgid "Category"
-msgstr "Kategorio"
-
-#: ../src/search.js:120 ../src/search.js:189 ../src/search.js:322
-#: ../src/search.js:492
-msgid "All"
-msgstr "Ĉiuj"
-
-#: ../src/search.js:126
-msgid "Favorites"
-msgstr "Legosignoj"
-
-#: ../src/search.js:131
-msgid "Shared with you"
-msgstr "Kunhavigita kun vi"
-
-#: ../src/search.js:186
-msgctxt "Search Filter"
-msgid "Type"
-msgstr "Tipo"
-
-#: ../src/search.js:196
-msgid "PDF Documents"
-msgstr "PDF-dokumentoj"
-
-#: ../src/search.js:209
-msgid "Presentations"
-msgstr "Prezentaĵoj"
-
-#: ../src/search.js:212
-msgid "Spreadsheets"
-msgstr "Kalkultabeloj"
-
-#: ../src/search.js:215
-msgid "Text Documents"
-msgstr "Tekstdokumentoj"
-
-#: ../src/search.js:220
-msgid "e-Books"
-msgstr "Retlibroj"
-
-#: ../src/search.js:224
-msgid "Comics"
-msgstr "Komiksoj"
-
-#: ../src/search.js:319
-msgid "Match"
-msgstr "Kongruo"
-
-#: ../src/search.js:325
-msgctxt "Search Filter"
-msgid "Title"
-msgstr "Titolo"
-
-#: ../src/search.js:328
-msgctxt "Search Filter"
-msgid "Author"
-msgstr "Aŭtoro"
-
-#: ../src/search.js:488
-msgid "Sources"
-msgstr "Fontoj"
-
-#: ../src/selections.js:461
-msgid "You don't have any collections yet. Enter a new collection name above."
-msgstr "Vi ankoraŭ ne havas kolektojn. Enigu novan kolektonomon ĉi-supre."
-
-#: ../src/selections.js:604
-msgid "Create new collection"
-msgstr "Krei novan kolekton"
-
-#: ../src/selections.js:640
-msgctxt "Dialog Title"
-msgid "Collections"
-msgstr "Kolektoj"
-
-#: ../src/selections.js:752
-msgid "Print"
-msgstr "Presi"
-
-#: ../src/selections.js:757
-msgid "Delete"
-msgstr "Forigi"
-
-#: ../src/selections.js:763
-msgid "Share"
-msgstr "Kunhavigi"
-
-#: ../src/selections.js:774
-msgid "Add to Collection"
-msgstr "Aldoni al koleto"
-
-#: ../src/sharing.js:98
-#, fuzzy
-msgid "Sharing Settings"
-msgstr "Kunhavigaj agordoj"
-
-#: ../src/sharing.js:102
-msgid "Done"
-msgstr "Farite"
-
-#: ../src/sharing.js:135
-msgid "Document permissions"
-msgstr "Dokumentaj permesoj"
-
-#: ../src/sharing.js:142 ../src/sharing.js:320
-msgid "Change"
-msgstr "Ŝanĝi"
-
-#: ../src/sharing.js:166 ../src/sharing.js:295
-msgid "Private"
-msgstr "Privata"
-
-#: ../src/sharing.js:176 ../src/sharing.js:288
-msgid "Public"
-msgstr "Publika"
-
-#: ../src/sharing.js:180 ../src/sharing.js:290
-msgid "Everyone can edit"
-msgstr "Ĉiuj povas redakti"
-
-#: ../src/sharing.js:187
-msgid "Add people"
-msgstr "Aldoni personojn"
-
-#: ../src/sharing.js:194
-msgid "Enter an email address"
-msgstr "Enigi retpoŝtadreson"
-
-#: ../src/sharing.js:209 ../src/sharing.js:376
-msgid "Can edit"
-msgstr "Povas redakti"
-
-#: ../src/sharing.js:209 ../src/sharing.js:379
-msgid "Can view"
-msgstr "Povas rigardi"
-
-#: ../src/sharing.js:216
-msgid "Add"
-msgstr "Aldoni"
-
-#: ../src/sharing.js:292
-msgid "Everyone can read"
-msgstr "Ĉiuj povas legi"
-
-#: ../src/sharing.js:307
-msgid "Save"
-msgstr "Konservi"
-
-#: ../src/sharing.js:373
-msgid "Owner"
-msgstr "Posedanto"
-
-#: ../src/sharing.js:442
-#, fuzzy
-msgid "You can ask %s for access"
-msgstr "Vi povas peti al %s pri aliro"
-
-#: ../src/sharing.js:479 ../src/sharing.js:515 ../src/sharing.js:572
-#: ../src/sharing.js:589 ../src/sharing.js:608
-#, fuzzy
-msgid "The document was not updated"
-msgstr "Dokumenton oni ne ĝisdatigis"
-
-#: ../src/shellSearchProvider.js:293
-msgid "Untitled Document"
-msgstr "Sentitola dokumento"
-
-#: ../src/trackerController.js:172
-msgid "Unable to fetch the list of documents"
-msgstr "Ne eblis venigi la liston de dokumentoj"
-
-#: ../src/view.js:249
-msgid "No Books Found"
+#: src/overview.js:275
+msgid "No collections found"
+msgstr "Neniu kolekto trovita"
+
+#: src/overview.js:277
+msgid "No books found"
 msgstr "Neniu libro trovita"
 
-#: ../src/view.js:250
-msgid "No Documents Found"
+#: src/overview.js:277
+msgid "No documents found"
 msgstr "Neniu dokumento trovita"
 
-#: ../src/view.js:272
-msgid "You can add your online accounts in %s"
-msgstr "Vi povas aldoni viajn retajn kontojn en %s"
+#: src/overview.js:286
+msgid "Try a different search"
+msgstr "Provu alian serĉon"
 
-#: ../src/view.js:276
-msgid "Settings"
-msgstr "Agordoj"
+#: src/overview.js:293
+msgid "You can create collections from the Books view"
+msgstr "Vi povas krei kolektojn el la Libroj vido"
 
-#: ../src/view.js:463
+#: src/overview.js:295
+msgid "You can create collections from the Documents view"
+msgstr "Vi povas krei kolektojn el la Dokumentoj vido"
+
+#: src/overview.js:305
+#, javascript-format
+msgid ""
+"Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
+"href=\"file://%s\">Documents folder</a> will appear here."
+msgstr ""
+"Dokumentoj el via <a href=\"system-settings\">Retaj Kontoj</a> kaj <a href="
+"\"file://%s\">Dokumentoj-dosiero</a> ĉi tie aperos."
+
+#. Translators: this is the menu to change view settings
+#: src/overview.js:562
+msgid "View Menu"
+msgstr "Vidi meuon"
+
+#: src/overview.js:590
+msgid "Click on items to select them"
+msgstr "Klaki sur eroj por elekti ilin"
+
+#: src/overview.js:592
+#, javascript-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d elektita"
+msgstr[1] "%d elektitaj"
+
+#: src/overview.js:669
+msgid "Select Items"
+msgstr "Elektitaj eroj"
+
+#: src/overview.js:876
 msgid "Yesterday"
 msgstr "Hieraŭ"
 
-#: ../src/view.js:465
+#: src/overview.js:878
+#, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d tago antaŭe"
 msgstr[1] "%d tagoj antaŭe"
 
-#: ../src/view.js:469
+#: src/overview.js:882
 msgid "Last week"
 msgstr "Pasintsemajne"
 
-#: ../src/view.js:471
+#: src/overview.js:884
+#, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d semajno antaŭe"
 msgstr[1] "%d semajnoj antaŭe"
 
-#: ../src/view.js:475
+#: src/overview.js:888
 msgid "Last month"
 msgstr "Pasintmonate"
 
-#: ../src/view.js:477
+#: src/overview.js:890
+#, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d monato antaŭe"
 msgstr[1] "%d monatoj antaŭe"
 
-#: ../src/view.js:481
+#: src/overview.js:894
 msgid "Last year"
 msgstr "Pasintjare"
 
-#: ../src/view.js:483
+#: src/overview.js:896
+#, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "%d jaro antaŭe"
 msgstr[1] "%d jaroj antaŭe"
+
+#: src/password.js:42
+msgid "Password Required"
+msgstr "Necesas pasvorto"
+
+#: src/password.js:45
+msgid "_Unlock"
+msgstr "_Malŝlosi"
+
+#: src/password.js:61
+#, javascript-format
+msgid "Document %s is locked and requires a password to be opened."
+msgstr "Dokumento %s estas ŝlosita, necesas pasvorton por malfermi ĝin."
+
+#: src/password.js:75
+msgid "_Password"
+msgstr "_Pasvorto"
+
+#: src/presentation.js:101
+msgid "Running in presentation mode"
+msgstr "Rulante ĉe prezentaĵa reĝimo"
+
+#: src/presentation.js:129
+msgid "Present On"
+msgstr "Prezenti je"
+
+#. Translators: "Mirrored" describes when both displays show the same view
+#: src/presentation.js:165
+msgid "Mirrored"
+msgstr "Spegulita"
+
+#: src/presentation.js:167
+msgid "Primary"
+msgstr "Ĉefa"
+
+#: src/presentation.js:169
+msgid "Off"
+msgstr "Malŝaltita"
+
+#: src/presentation.js:171
+msgid "Secondary"
+msgstr "Duaranga"
+
+#. Translators: this is the Open action in a context menu
+#: src/preview.js:444 src/selections.js:987
+#, javascript-format
+msgid "Open with %s"
+msgstr "Malfermi per %s"
+
+#: src/preview.js:769
+msgid "Find Previous"
+msgstr "Serĉi antaŭan"
+
+#: src/preview.js:775
+msgid "Find Next"
+msgstr "Serĉi sekvan"
+
+#. Title item
+#. Translators: "Title" is the label next to the document title
+#. in the properties dialog
+#: src/properties.js:81
+msgctxt "Document Title"
+msgid "Title"
+msgstr "Titolo"
+
+#. Translators: "Author" is the label next to the document author
+#. in the properties dialog
+#: src/properties.js:90
+msgctxt "Document Author"
+msgid "Author"
+msgstr "Aŭtoro"
+
+#. Source item
+#: src/properties.js:97
+msgid "Source"
+msgstr "Fonto"
+
+#. Date Modified item
+#: src/properties.js:103
+msgid "Date Modified"
+msgstr "Dato modifita"
+
+#: src/properties.js:110
+msgid "Date Created"
+msgstr "Dato kreita"
+
+#. Document type item
+#. Translators: "Type" is the label next to the document type
+#. (PDF, spreadsheet, ...) in the properties dialog
+#: src/properties.js:119
+msgctxt "Document Type"
+msgid "Type"
+msgstr "Speco"
+
+#. Translators: "Type" refers to a search filter on the document type
+#. (PDF, spreadsheet, ...)
+#: src/search.js:120
+msgctxt "Search Filter"
+msgid "Type"
+msgstr "Speco"
+
+#. Translators: this refers to documents
+#: src/search.js:123 src/search.js:260 src/search.js:453
+msgid "All"
+msgstr "Ĉiuj"
+
+#: src/search.js:136
+msgid "PDF Documents"
+msgstr "PDF-dokumentoj"
+
+#: src/search.js:143
+msgid "e-Books"
+msgstr "Bitlibroj"
+
+#: src/search.js:147
+msgid "Comics"
+msgstr "Komiksoj"
+
+#: src/search.js:152
+msgid "Presentations"
+msgstr "Prezentaĵoj"
+
+#: src/search.js:155
+msgid "Spreadsheets"
+msgstr "Kalkultabeloj"
+
+#: src/search.js:158
+msgid "Text Documents"
+msgstr "Tekstdokumentoj"
+
+#. Translators: this is a verb that refers to "All", "Title", "Author",
+#. and "Content" as in "Match All", "Match Title", "Match Author", and
+#. "Match Content"
+#: src/search.js:257
+msgid "Match"
+msgstr "Kongruo"
+
+#. Translators: "Title" refers to "Match Title" when searching
+#: src/search.js:263
+msgctxt "Search Filter"
+msgid "Title"
+msgstr "Titolo"
+
+#. Translators: "Author" refers to "Match Author" when searching
+#: src/search.js:266
+msgctxt "Search Filter"
+msgid "Author"
+msgstr "Aŭtoro"
+
+#. Translators: "Content" refers to "Match Content" when searching
+#: src/search.js:269
+msgctxt "Search Filter"
+msgid "Content"
+msgstr "Enhavo"
+
+#: src/search.js:449
+msgid "Sources"
+msgstr "Fontoj"
+
+#. Translators: the first %s is an online account provider name,
+#. e.g. "Google". The second %s is the identity used to log in,
+#. e.g. "foo@gmail.com".
+#: src/search.js:508
+#, javascript-format
+msgid "%s (%s)"
+msgstr "%s (%s)"
+
+#: src/selections.js:360 src/selections.js:362
+msgid "Rename…"
+msgstr "Alinomi…"
+
+#: src/selections.js:366 src/selections.js:368
+msgid "Delete"
+msgstr "Forigi"
+
+#: src/selections.js:382
+#, javascript-format
+msgid "“%s” removed"
+msgstr "“%s” forigita"
+
+#: src/selections.js:779
+msgid "Rename"
+msgstr "Alinomi"
+
+#. Translators: "Collections" refers to documents in this context
+#: src/selections.js:785
+msgctxt "Dialog Title"
+msgid "Collections"
+msgstr "Kolektoj"
+
+#: src/sharing.js:108
+msgid "Sharing Settings"
+msgstr "Kunhavigaj agordoj"
+
+#. Label for widget group for changing document permissions
+#: src/sharing.js:145
+msgid "Document permissions"
+msgstr "Dokumentaj permesoj"
+
+#. Label for permission change in Sharing dialog
+#: src/sharing.js:152 src/sharing.js:330
+msgid "Change"
+msgstr "Ŝanĝi"
+
+#. Label for radiobutton that sets doc permission to private
+#: src/sharing.js:176 src/sharing.js:305
+msgid "Private"
+msgstr "Privata"
+
+#: src/sharing.js:186 src/sharing.js:298
+msgid "Public"
+msgstr "Publika"
+
+#. Label for checkbutton that sets doc permission to Can edit
+#: src/sharing.js:190 src/sharing.js:300
+msgid "Everyone can edit"
+msgstr "Ĉiuj povas redakti"
+
+#. Label for widget group used for adding new contacts
+#: src/sharing.js:197
+msgid "Add people"
+msgstr "Aldoni personojn"
+
+#. Editable text in entry field
+#: src/sharing.js:204
+msgid "Enter an email address"
+msgstr "Enigu retpoŝtadreson"
+
+#: src/sharing.js:219 src/sharing.js:371
+msgid "Can edit"
+msgstr "Povas redakti"
+
+#: src/sharing.js:219 src/sharing.js:374
+msgid "Can view"
+msgstr "Povas rigardi"
+
+#: src/sharing.js:302
+msgid "Everyone can read"
+msgstr "Ĉiuj povas legi"
+
+#: src/sharing.js:317
+msgid "Save"
+msgstr "Konservi"
+
+#: src/sharing.js:368
+msgid "Owner"
+msgstr "Posedanto"
+
+#: src/sharing.js:437
+#, javascript-format
+msgid "You can ask %s for access"
+msgstr "Vi povas peti al %s pri aliro"
+
+#: src/sharing.js:474 src/sharing.js:510 src/sharing.js:567 src/sharing.js:584
+#: src/sharing.js:603
+msgid "The document was not updated"
+msgstr "Dokumenton ne ĝisdatiĝis"
+
+#: src/shellSearchProvider.js:285
+msgid "Untitled Document"
+msgstr "Sentitola dokumento"
+
+#: src/trackerController.js:176
+msgid "Unable to fetch the list of documents"
+msgstr "Ne eblis venigi la liston de dokumentoj"
+
+#~ msgid "Recent"
+#~ msgstr "Lasttempaj"
+
+#~ msgid "LibreOffice is required to view this document"
+#~ msgstr "LibreOffice estas bezonata por vidigi tiun ĉi dokumenton"
+
+#~ msgid "Category"
+#~ msgstr "Kategorio"
+
+#~ msgid "Favorites"
+#~ msgstr "Legosignoj"
+
+#~ msgid "Shared with you"
+#~ msgstr "Kunhavigita kun vi"
+
+#~ msgid ""
+#~ "You don't have any collections yet. Enter a new collection name above."
+#~ msgstr "Vi ankoraŭ ne havas kolektojn. Enigu novan kolektonomon ĉi-supre."
+
+#~ msgid "Create new collection"
+#~ msgstr "Krei novan kolekton"
+
+#~ msgid "Print"
+#~ msgstr "Presi"
+
+#~ msgid "Share"
+#~ msgstr "Kunhavigi"
+
+#~ msgid "Add to Collection"
+#~ msgstr "Aldoni al koleto"
+
+#~ msgid "You can add your online accounts in %s"
+#~ msgstr "Vi povas aldoni viajn retajn kontojn en %s"
+
+#~ msgid "Settings"
+#~ msgstr "Agordoj"
 
 #~ msgid "The active source filter"
 #~ msgstr "La aktiva fontfiltrilo"
