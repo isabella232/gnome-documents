@@ -369,7 +369,11 @@ const Source = new Lang.Class({
 
                 // also ignore XDG locations if they are present with their full path
                 for (let idx = 0; idx < GLib.UserDirectory.N_DIRECTORIES; idx++) {
-                    let file = Gio.file_new_for_path(GLib.get_user_special_dir(idx));
+                    let path = GLib.get_user_special_dir(idx);
+                    if (!path)
+                        continue;
+
+                    let file = Gio.file_new_for_path(path);
                     if (trackerFile.equal(file))
                         return;
                 }
