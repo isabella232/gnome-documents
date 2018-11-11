@@ -7,18 +7,20 @@
     "tags": [ "nightly" ],
     "desktop-file-name-prefix": "(Nightly) ",
     "finish-args": [
-        "--env=DCONF_USER_CONFIG_DIR=.config/dconf",
-        "--filesystem=~/.config/dconf:ro",
-        "--filesystem=xdg-documents",
-        "--filesystem=xdg-download",
-        "--filesystem=xdg-run/dconf",
-        "--share=ipc",
-        "--share=network",
+        /* X11 + XShm access */
+        "--share=ipc", "--socket=x11",
+        /* Wayland access */
         "--socket=wayland",
-        "--socket=x11",
-        "--talk-name=ca.desrt.dconf",
+        /* Read-only access to users documents */
+        "--filesystem=xdg-documents:ro", "--filesystem=xdg-download:ro",
+        /* Needs to talk to the network: */
+        "--share=network",
+        /* Tracker access */
         "--talk-name=org.freedesktop.Tracker1",
-        "--talk-name=org.freedesktop.Tracker1.Miner.Extract"
+        "--talk-name=org.freedesktop.Tracker1.Miner.Extract",
+        /* Needed for dconf to work */
+        "--filesystem=xdg-run/dconf", "--filesystem=~/.config/dconf:ro",
+        "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
     ],
     "build-options" : {
         "cflags": "-O2 -g",
@@ -98,37 +100,31 @@
         {
             "name": "popplerdata",
             "no-autogen": true,
-            "make-install-args": [ "prefix=/app" ],
+            "make-install-args": ["prefix=/app"],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "http://poppler.freedesktop.org/poppler-data-0.4.7.tar.gz",
-                    "sha256": "e752b0d88a7aba54574152143e7bf76436a7ef51977c55d6bd9a48dccde3a7de"
+                    "url": "https://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz	",
+                    "sha256": "1f9c7e7de9ecd0db6ab287349e31bf815ca108a5a175cf906a90163bdbe32012"
                 }
             ]
         },
         {
             "name": "poppler",
-            "config-opts": [ "--disable-libopenjpeg" ],
-            "cleanup": [ "/bin" ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "http://poppler.freedesktop.org/poppler-0.36.0.tar.xz",
-                    "sha256": "93cc067b23c4ef7421380d3e8bd7c940b2027668446750787d7c1cb42720248e"
-                }
-            ]
-        },
-        {
-            "name": "enchant2",
+            "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-DCMAKE_INSTALL_LIBDIR=/app/lib",
+                "-DCMAKE_INSTALL_INCLUDEDIR=/app/include",
+                "-DENABLE_LIBOPENJPEG=none"
+            ],
             "cleanup": [
                 "/bin"
             ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/AbiWord/enchant/releases/download/v2.2.3/enchant-2.2.3.tar.gz",
-                    "sha256": "abd8e915675cff54c0d4da5029d95c528362266557c61c7149d53fa069b8076d"
+                    "url": "https://poppler.freedesktop.org/poppler-0.69.0.tar.xz",
+                    "sha256": "637ff943f805f304ff1da77ba2e7f1cbd675f474941fd8ae1e0fc01a5b45a3f9"
                 }
             ]
         },
