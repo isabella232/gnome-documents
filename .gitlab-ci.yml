@@ -1,0 +1,27 @@
+include: 'https://gitlab.gnome.org/GNOME/citemplates/raw/master/flatpak/flatpak_ci_initiative.yml'
+
+variables:
+    GIT_SUBMODULE_STRATEGY: normal
+
+flatpak-documents:
+    image: 'registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:master'
+    variables:
+        BUNDLE: "gnome-documents-dev.flatpak"
+        MANIFEST_PATH: "flatpak/org.gnome.Documents.json"
+        #MESON_ARGS: "-Dprofile=development"
+        FLATPAK_MODULE: "gnome-documents"
+        RUNTIME_REPO: "https://sdk.gnome.org/gnome-nightly.flatpakrepo"
+        APP_ID: "org.gnome.Documents"
+    extends: .flatpak
+
+
+flatpak-books:
+    image: 'registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:master'
+    variables:
+        BUNDLE: "gnome-books-dev.flatpak"
+        MANIFEST_PATH: "flatpak/org.gnome.Books.json"
+        #MESON_ARGS: "-Dprofile=development"
+        FLATPAK_MODULE: "gnome-books"
+        RUNTIME_REPO: "https://sdk.gnome.org/gnome-nightly.flatpakrepo"
+        APP_ID: "org.gnome.Books"
+    extends: .flatpak
