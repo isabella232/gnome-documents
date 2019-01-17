@@ -37,8 +37,8 @@ resource_data = files(
   'ui/view-menu.ui'
 )
 
-desktop_file_validate = find_program('desktop-file-validate')
-
+desktop_file_validate = find_program('desktop-file-validate', required: false)
+appstream_util = find_program('appstream-util', required: false)
 schemas = []
 
 foreach app: documents_apps
@@ -56,7 +56,7 @@ foreach app: documents_apps
 
   appdata = app + '.appdata.xml'
 
-  i18n.merge_file(
+  appdata_file = i18n.merge_file(
     appdata,
     input: appdata + '.in',
     output: appdata,
@@ -64,6 +64,15 @@ foreach app: documents_apps
     install: true,
     install_dir: join_paths(documents_datadir, 'metainfo')
   )
+  if appstream_util.found()
+    test(
+        'validate-appdata', appstream_util,
+        args: [
+            'validate-relax', '--nonet', appdata_file.full_path()
+        ]
+    )
+    endif
+
 
   desktop = app + '.desktop'
 
@@ -76,6 +85,15 @@ foreach app: documents_apps
     install: true,
     install_dir: join_paths(documents_datadir, 'applications')
   )
+  if desktop_file_validate.found()
+    test(
+        'validate-desktop',
+        desktop_file_validate,
+        args: [
+            desktop_file.full_path()
+        ]
+    )
+  endif
 
   schemas += app.to_lower() + '.gschema.xml'
 endforeach
