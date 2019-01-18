@@ -1,3 +1,16 @@
+3.30.1
+======
+
+- allow libgdprivate-1.0.so to find libgd (Special thanks to Jan Tojnar)
+- Update Basque translation (Iñaki Larrañaga Murgoitio)
+- Update Esperanto translation (Carmen Bianca BAKKER)
+- flatpak: Tell Tracker not to use a media extractor (Mathieu Bridon)
+- build: Update to latest libgd
+- flatpak: Build liboauth against NSS (Jordan Petridis)
+- Update dependencies of flatpak to use meson (Thomas Coldrick)
+- build: Ensure that the Git submodules are kept updated
+- build: Remove unused variable
+
 3.30.0 - "Shinwell"
 ===================
 
