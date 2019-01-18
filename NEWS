@@ -2,6 +2,7 @@
 ======
 
 - allow libgdprivate-1.0.so to find libgd (Special thanks to Jan Tojnar)
+- search: be more careful when constructing a GFile
 - Update Basque translation (Iñaki Larrañaga Murgoitio)
 - Update Esperanto translation (Carmen Bianca BAKKER)
 - flatpak: Tell Tracker not to use a media extractor (Mathieu Bridon)
