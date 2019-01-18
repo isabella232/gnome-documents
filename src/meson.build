@@ -136,7 +136,8 @@ libgdprivate = shared_library(
   dependencies: documents_deps,
   c_args: cflags,
   install: true,
-  install_dir: documents_pkglibdir
+  install_dir: documents_pkglibdir,
+  install_rpath: documents_pkglibdir
 )
 
 gir_incs = [
