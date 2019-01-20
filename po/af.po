@@ -7,10 +7,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2018-04-05 15:48+0000\n"
-"PO-Revision-Date: 2018-05-19 18:54+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-documents/issues\n"
+"POT-Creation-Date: 2019-01-20 19:42+0000\n"
+"PO-Revision-Date: 2019-01-20 23:05+0200\n"
 "Last-Translator: Pieter Schalk Schoeman <pieter@sonbesie.co.za>\n"
 "Language-Team: Afrikaans <pieter@sonbesie.co.za>\n"
 "Language: af\n"
@@ -18,12 +17,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.7\n"
+"X-Generator: Poedit 2.2\n"
 "X-DamnedLies-Scope: partial\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.Books.appdata.xml.in:7 data/org.gnome.Books.desktop.in:3
-#: src/application.js:112 src/overview.js:1052
+#: src/application.js:112 src/overview.js:1055
 msgid "Books"
 msgstr "Boeke"
 
@@ -131,7 +130,7 @@ msgstr "Of die toepassing in nagmodus is."
 
 #: data/org.gnome.Documents.appdata.xml.in:7
 #: data/org.gnome.Documents.desktop.in:3 src/application.js:115
-#: src/overview.js:1052
+#: src/overview.js:1055
 msgid "Documents"
 msgstr "Dokumente"
 
@@ -199,26 +198,26 @@ msgstr "org.gnome.Documents"
 msgid "Docs;PDF;Document;"
 msgstr "PDF;Dokument;"
 
-#: data/ui/app-menu.ui:6 src/preview.js:453
+#: data/ui/books-app-menu.ui:6 data/ui/documents-app-menu.ui:6
+#: src/preview.js:452
 msgid "Night Mode"
 msgstr "Nagmodus"
 
-#: data/ui/app-menu.ui:12
+#: data/ui/books-app-menu.ui:12 data/ui/documents-app-menu.ui:12
 msgid "Keyboard Shortcuts"
 msgstr "Sleutelbordkortpaaie"
 
-#: data/ui/app-menu.ui:16
+#: data/ui/books-app-menu.ui:16 data/ui/documents-app-menu.ui:16
 msgid "Help"
 msgstr "Hulp"
 
-#: data/ui/app-menu.ui:20
-msgid "About"
-msgstr "Aangaande"
+#: data/ui/books-app-menu.ui:20
+msgid "About Books"
+msgstr "Aangaande boeke"
 
-#: data/ui/app-menu.ui:24
-msgctxt "app menu"
-msgid "Quit"
-msgstr "Sluit af"
+#: data/ui/documents-app-menu.ui:20
+msgid "About Documents"
+msgstr "Aangaande dokumente"
 
 #: data/ui/help-overlay.ui:11
 msgctxt "shortcut window"
@@ -335,7 +334,7 @@ msgid "Add"
 msgstr "Voeg by"
 
 #: data/ui/organize-collection-dialog.ui:163 data/ui/selection-toolbar.ui:88
-#: src/overview.js:1056 src/search.js:126 src/search.js:132
+#: src/overview.js:1059 src/search.js:126 src/search.js:132
 msgid "Collections"
 msgstr "Versamelings"
 
@@ -354,7 +353,7 @@ msgstr "_Kopieer"
 
 #. Translators: this is the Open action in a context menu
 #: data/ui/preview-menu.ui:6 data/ui/selection-toolbar.ui:9
-#: src/selections.js:988
+#: src/selections.js:990
 msgid "Open"
 msgstr "Open"
 
@@ -366,7 +365,7 @@ msgstr "Redigeer"
 msgid "Print…"
 msgstr "Druk…"
 
-#: data/ui/preview-menu.ui:21 src/preview.js:462
+#: data/ui/preview-menu.ui:21 src/preview.js:461
 msgid "Fullscreen"
 msgstr "Volskerm"
 
@@ -436,7 +435,7 @@ msgid "Failed to print document"
 msgstr "Kon nie die dokument druk nie"
 
 #. Translators: this refers to local documents
-#: src/documents.js:836 src/search.js:459
+#: src/documents.js:836 src/search.js:463
 msgid "Local"
 msgstr "Plaaslik"
 
@@ -451,73 +450,73 @@ msgstr "GNOME"
 msgid "Getting Started with Documents"
 msgstr "Begin met Dokumente"
 
-#: src/documents.js:905 src/documents.js:1115 src/documents.js:1218
-#: src/documents.js:1412
+#: src/documents.js:905 src/documents.js:1129 src/documents.js:1232
+#: src/documents.js:1426
 msgid "Collection"
 msgstr "Versameling"
 
 #. overridden
-#: src/documents.js:972
+#: src/documents.js:986
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: src/documents.js:973
+#: src/documents.js:987
 msgid "Google"
 msgstr "Google"
 
-#: src/documents.js:1117 src/documents.js:1414
+#: src/documents.js:1131 src/documents.js:1428
 msgid "Spreadsheet"
 msgstr "Sigblad"
 
-#: src/documents.js:1119 src/documents.js:1416 src/presentation.js:43
+#: src/documents.js:1133 src/documents.js:1430 src/presentation.js:43
 msgid "Presentation"
 msgstr "Voorlegging"
 
-#: src/documents.js:1121 src/documents.js:1418
+#: src/documents.js:1135 src/documents.js:1432
 msgid "e-Book"
 msgstr "e-Boek"
 
-#: src/documents.js:1123 src/documents.js:1420
+#: src/documents.js:1137 src/documents.js:1434
 msgid "Document"
 msgstr "Dokument"
 
 #. overridden
-#: src/documents.js:1173
+#: src/documents.js:1187
 msgid "ownCloud"
 msgstr "ownCloud"
 
 #. overridden
-#: src/documents.js:1307 src/documents.js:1308
+#: src/documents.js:1321 src/documents.js:1322
 msgid "OneDrive"
 msgstr "OneDrive"
 
-#: src/documents.js:1594
+#: src/documents.js:1608
 msgid "Please check the network connection."
 msgstr "Gaan asseblief die netwerk konneksie na."
 
-#: src/documents.js:1597
+#: src/documents.js:1611
 msgid "Please check the network proxy settings."
 msgstr "Gaan asseblief die netwerkinstaner instellings na."
 
-#: src/documents.js:1600
+#: src/documents.js:1614
 msgid "Unable to sign in to the document service."
 msgstr "Kan nie in by die dokumentdiens aanteken nie."
 
-#: src/documents.js:1603
+#: src/documents.js:1617
 msgid "Unable to locate this document."
 msgstr "Kan nie die dokument opspoor nie."
 
-#: src/documents.js:1606
+#: src/documents.js:1620
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Hmm, iets is nie pluis nie (%d)."
 
-#: src/documents.js:1613
+#: src/documents.js:1627
 msgid ""
 "You are using a preview of Books. Full viewing capabilities are coming soon!"
 msgstr "Jy gebruik tans 'n voorskou van boeke. Meer funksies kom binnekort!"
 
-#: src/documents.js:1615
+#: src/documents.js:1629
 msgid ""
 "LibreOffice support is not available. Please contact your system "
 "administrator."
@@ -526,7 +525,7 @@ msgstr ""
 "stelseladministrateur."
 
 #. Translators: %s is the title of a document
-#: src/documents.js:1638
+#: src/documents.js:1652
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Oeps! Kan nie \"%s\" laai nie"
@@ -536,16 +535,16 @@ msgstr "Oeps! Kan nie \"%s\" laai nie"
 msgid "View"
 msgstr "Vertoon"
 
-#: src/epubview.js:228
+#: src/epubview.js:245
 #, javascript-format
 msgid "chapter %s of %s"
 msgstr "hoofstuk %s van %s"
 
-#: src/evinceview.js:590 src/lib/gd-places-bookmarks.c:656
+#: src/evinceview.js:591 src/lib/gd-places-bookmarks.c:656
 msgid "Bookmarks"
 msgstr "Boekmerke"
 
-#: src/evinceview.js:598
+#: src/evinceview.js:599
 msgid "Bookmark this page"
 msgstr "Boekmerk die bladsy"
 
@@ -594,12 +593,17 @@ msgstr "'n E-boekbestuurder"
 msgid "translator-credits"
 msgstr "Pieter Schoeman"
 
-#: src/mainToolbar.js:91
+#: src/mainToolbar.js:101
+msgctxt "menu button tooltip"
+msgid "Menu"
+msgstr "Kieslys"
+
+#: src/mainToolbar.js:111
 msgctxt "toolbar button tooltip"
 msgid "Search"
 msgstr "Soek"
 
-#: src/mainToolbar.js:100
+#: src/mainToolbar.js:120
 msgid "Back"
 msgstr "Terug"
 
@@ -696,48 +700,48 @@ msgid_plural "%d selected"
 msgstr[0] "%d gekies"
 msgstr[1] "%d gekies"
 
-#: src/overview.js:669
+#: src/overview.js:673
 msgid "Select Items"
 msgstr "Kies items"
 
-#: src/overview.js:876
+#: src/overview.js:879
 msgid "Yesterday"
 msgstr "Gister"
 
-#: src/overview.js:878
+#: src/overview.js:881
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d dag gelede"
 msgstr[1] "%d dae gelede"
 
-#: src/overview.js:882
+#: src/overview.js:885
 msgid "Last week"
 msgstr "Verlede week"
 
-#: src/overview.js:884
+#: src/overview.js:887
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d week gelede"
 msgstr[1] "%d weke gelede"
 
-#: src/overview.js:888
+#: src/overview.js:891
 msgid "Last month"
 msgstr "Verlede maand"
 
-#: src/overview.js:890
+#: src/overview.js:893
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d maand gelede"
 msgstr[1] "%d maande gelede"
 
-#: src/overview.js:894
+#: src/overview.js:897
 msgid "Last year"
 msgstr "Verlede jaar"
 
-#: src/overview.js:896
+#: src/overview.js:899
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -787,16 +791,16 @@ msgid "Secondary"
 msgstr "Sekondêre"
 
 #. Translators: this is the Open action in a context menu
-#: src/preview.js:445 src/selections.js:985
+#: src/preview.js:444 src/selections.js:987
 #, javascript-format
 msgid "Open with %s"
 msgstr "Open met %s"
 
-#: src/preview.js:770
+#: src/preview.js:769
 msgid "Find Previous"
 msgstr "Vind vorige"
 
-#: src/preview.js:776
+#: src/preview.js:775
 msgid "Find Next"
 msgstr "Vind volgende"
 
@@ -845,7 +849,7 @@ msgid "Type"
 msgstr "Tipe"
 
 #. Translators: this refers to documents
-#: src/search.js:123 src/search.js:260 src/search.js:453
+#: src/search.js:123 src/search.js:260 src/search.js:457
 msgid "All"
 msgstr "Alles"
 
@@ -898,14 +902,14 @@ msgctxt "Search Filter"
 msgid "Content"
 msgstr "Inhoud"
 
-#: src/search.js:449
+#: src/search.js:453
 msgid "Sources"
 msgstr "Bronne"
 
 #. Translators: the first %s is an online account provider name,
 #. e.g. "Google". The second %s is the identity used to log in,
 #. e.g. "foo@gmail.com".
-#: src/search.js:508
+#: src/search.js:512
 #, javascript-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
@@ -1008,6 +1012,13 @@ msgstr "Titelloos"
 #: src/trackerController.js:176
 msgid "Unable to fetch the list of documents"
 msgstr "Kan nie die lys van dokumente afhaal nie"
+
+#~ msgid "About"
+#~ msgstr "Aangaande"
+
+#~ msgctxt "app menu"
+#~ msgid "Quit"
+#~ msgstr "Sluit af"
 
 #~ msgctxt "shortcut window"
 #~ msgid "Rotate anti-clockwise"
