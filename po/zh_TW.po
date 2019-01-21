@@ -1,34 +1,34 @@
 # Chinese (Taiwan) translation for gnome-documents.
 # Copyright (C) 2011 gnome-documents's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-documents package.
-# Cheng-Chia Tseng <pswo10680@gmail.com>, 2011.
 #
+# Cheng-Chia Tseng <pswo10680@gmail.com>, 2011.
+# pan93412 <pan93412@gmail.com>, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents 0.3.91\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-12-03 17:11+0000\n"
-"PO-Revision-Date: 2018-02-13 20:15+0800\n"
-"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
-"Language-Team: Chinese (Taiwan) <chinese-l10n@googlegroups.com>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-documents/issues\n"
+"POT-Creation-Date: 2019-01-17 18:36+0000\n"
+"PO-Revision-Date: 2019-01-20 19:15+0800\n"
+"Last-Translator: pan93412 <pan93412@gmail.com>\n"
+"Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.0.3\n"
+"X-Generator: Lokalize 18.12.1\n"
 
-#: data/org.gnome.Books.metainfo.xml.in:7 data/org.gnome.Books.desktop.in:3
-#: src/application.js:112 src/overview.js:1052
+#: data/org.gnome.Books.appdata.xml.in:7 data/org.gnome.Books.desktop.in:3
+#: src/application.js:112 src/overview.js:1055
 msgid "Books"
 msgstr "書籍"
 
-#: data/org.gnome.Books.metainfo.xml.in:8
+#: data/org.gnome.Books.appdata.xml.in:8
 msgid "An e-book manager application for GNOME"
 msgstr "GNOME 的電子書管理員應用程式"
 
-#: data/org.gnome.Books.metainfo.xml.in:10
+#: data/org.gnome.Books.appdata.xml.in:10
 msgid ""
 "A simple application to access and organize your e-books on GNOME. It is "
 "meant to be a simple and elegant replacement for using a file manager to "
@@ -37,29 +37,29 @@ msgstr ""
 "簡單的應用程式，讓您可以在 GNOME 中存取與管理您的電子書。它希望能成為以檔案管"
 "理程式處理電子書的簡單優雅替代方案。"
 
-#: data/org.gnome.Books.metainfo.xml.in:15
-#: data/org.gnome.Documents.metainfo.xml.in:16
+#: data/org.gnome.Books.appdata.xml.in:15
+#: data/org.gnome.Documents.appdata.xml.in:16
 msgid "It lets you:"
 msgstr "它讓您可以："
 
-#: data/org.gnome.Books.metainfo.xml.in:17
+#: data/org.gnome.Books.appdata.xml.in:17
 msgid "View recent e-books"
 msgstr "檢視最近使用的電子書"
 
-#: data/org.gnome.Books.metainfo.xml.in:18
+#: data/org.gnome.Books.appdata.xml.in:18
 msgid "Search through e-books"
 msgstr "搜尋電子書"
 
-#: data/org.gnome.Books.metainfo.xml.in:19
+#: data/org.gnome.Books.appdata.xml.in:19
 msgid "View e-books (PDF and comics) fullscreen"
 msgstr "以全螢幕檢視電子書（PDF 與漫畫）"
 
-#: data/org.gnome.Books.metainfo.xml.in:20
+#: data/org.gnome.Books.appdata.xml.in:20
 msgid "Print e-books"
 msgstr "列印電子書"
 
-#: data/org.gnome.Books.metainfo.xml.in:32
-#: data/org.gnome.Documents.metainfo.xml.in:39
+#: data/org.gnome.Books.appdata.xml.in:32
+#: data/org.gnome.Documents.appdata.xml.in:39
 msgid "The GNOME Project"
 msgstr "GNOME 專案"
 
@@ -125,17 +125,17 @@ msgstr "夜晚模式"
 msgid "Whether the application is in night mode."
 msgstr "應用程式是否使用夜晚模式。"
 
-#: data/org.gnome.Documents.metainfo.xml.in:7
+#: data/org.gnome.Documents.appdata.xml.in:7
 #: data/org.gnome.Documents.desktop.in:3 src/application.js:115
-#: src/overview.js:1052
+#: src/overview.js:1055
 msgid "Documents"
 msgstr "文件"
 
-#: data/org.gnome.Documents.metainfo.xml.in:8
+#: data/org.gnome.Documents.appdata.xml.in:8
 msgid "A document manager application for GNOME"
 msgstr "GNOME 的文件管理員應用程式"
 
-#: data/org.gnome.Documents.metainfo.xml.in:10
+#: data/org.gnome.Documents.appdata.xml.in:10
 msgid ""
 "A simple application to access, organize and share your documents on GNOME. "
 "It is meant to be a simple and elegant replacement for using a file manager "
@@ -145,35 +145,35 @@ msgstr ""
 "簡單的應用程式，讓您可以在 GNOME 中存取、管理與分享您的文件。它希望能成為以檔"
 "案管理員處理文件的優雅替代方案。透過 GNOME 線上帳號提供無縫的雲端整合。"
 
-#: data/org.gnome.Documents.metainfo.xml.in:18
+#: data/org.gnome.Documents.appdata.xml.in:18
 msgid "View recent local and online documents"
 msgstr "檢視最近使用的本地與線上文件"
 
-#: data/org.gnome.Documents.metainfo.xml.in:19
+#: data/org.gnome.Documents.appdata.xml.in:19
 msgid "Access your Google, ownCloud or OneDrive content"
 msgstr "存取您的 Google、ownCloud 或 OneDrive 內容"
 
-#: data/org.gnome.Documents.metainfo.xml.in:20
+#: data/org.gnome.Documents.appdata.xml.in:20
 msgid "Search through documents"
 msgstr "搜尋所有文件"
 
-#: data/org.gnome.Documents.metainfo.xml.in:21
+#: data/org.gnome.Documents.appdata.xml.in:21
 msgid "See new documents shared by friends"
 msgstr "查閱朋友分享的新文件"
 
-#: data/org.gnome.Documents.metainfo.xml.in:22
+#: data/org.gnome.Documents.appdata.xml.in:22
 msgid "View documents fullscreen"
 msgstr "全螢幕檢視文件"
 
-#: data/org.gnome.Documents.metainfo.xml.in:23
+#: data/org.gnome.Documents.appdata.xml.in:23
 msgid "Print documents"
 msgstr "列印文件"
 
-#: data/org.gnome.Documents.metainfo.xml.in:24
+#: data/org.gnome.Documents.appdata.xml.in:24
 msgid "Select favorites"
 msgstr "選擇喜好"
 
-#: data/org.gnome.Documents.metainfo.xml.in:25
+#: data/org.gnome.Documents.appdata.xml.in:25
 msgid "Allow opening full featured editor for non-trivial changes"
 msgstr "允許開啟全功能的編輯器進行各項變更"
 
@@ -191,26 +191,26 @@ msgstr "org.gnome.Documents"
 msgid "Docs;PDF;Document;"
 msgstr "文件;PDF;Docs;Document;"
 
-#: data/ui/app-menu.ui:6 src/preview.js:453
+#: data/ui/books-app-menu.ui:6 data/ui/documents-app-menu.ui:6
+#: src/preview.js:452
 msgid "Night Mode"
 msgstr "夜晚模式"
 
-#: data/ui/app-menu.ui:12
+#: data/ui/books-app-menu.ui:12 data/ui/documents-app-menu.ui:12
 msgid "Keyboard Shortcuts"
 msgstr "鍵盤捷徑鍵"
 
-#: data/ui/app-menu.ui:16
+#: data/ui/books-app-menu.ui:16 data/ui/documents-app-menu.ui:16
 msgid "Help"
 msgstr "求助"
 
-#: data/ui/app-menu.ui:20
-msgid "About"
-msgstr "關於"
+#: data/ui/books-app-menu.ui:20
+msgid "About Books"
+msgstr "關於書籍"
 
-#: data/ui/app-menu.ui:24
-msgctxt "app menu"
-msgid "Quit"
-msgstr "退出"
+#: data/ui/documents-app-menu.ui:20
+msgid "About Documents"
+msgstr "關於文件"
 
 #: data/ui/help-overlay.ui:11
 msgctxt "shortcut window"
@@ -327,7 +327,7 @@ msgid "Add"
 msgstr "加入"
 
 #: data/ui/organize-collection-dialog.ui:163 data/ui/selection-toolbar.ui:88
-#: src/overview.js:1056 src/search.js:126 src/search.js:132
+#: src/overview.js:1059 src/search.js:126 src/search.js:132
 msgid "Collections"
 msgstr "收藏"
 
@@ -346,7 +346,7 @@ msgstr "複製(_C)"
 
 #. Translators: this is the Open action in a context menu
 #: data/ui/preview-menu.ui:6 data/ui/selection-toolbar.ui:9
-#: src/selections.js:988
+#: src/selections.js:990
 msgid "Open"
 msgstr "開啟"
 
@@ -358,7 +358,7 @@ msgstr "編輯"
 msgid "Print…"
 msgstr "列印..."
 
-#: data/ui/preview-menu.ui:21 src/preview.js:462
+#: data/ui/preview-menu.ui:21 src/preview.js:461
 msgid "Fullscreen"
 msgstr "全螢幕"
 
@@ -428,7 +428,7 @@ msgid "Failed to print document"
 msgstr "無法列印文件"
 
 #. Translators: this refers to local documents
-#: src/documents.js:836 src/search.js:459
+#: src/documents.js:836 src/search.js:463
 msgid "Local"
 msgstr "本地端"
 
@@ -443,80 +443,80 @@ msgstr "GNOME"
 msgid "Getting Started with Documents"
 msgstr "開始使用《文件》"
 
-#: src/documents.js:905 src/documents.js:1115 src/documents.js:1218
-#: src/documents.js:1412
+#: src/documents.js:905 src/documents.js:1129 src/documents.js:1232
+#: src/documents.js:1426
 msgid "Collection"
 msgstr "收藏"
 
 #. overridden
-#: src/documents.js:972
+#: src/documents.js:986
 msgid "Google Docs"
 msgstr "Google 文件"
 
-#: src/documents.js:973
+#: src/documents.js:987
 msgid "Google"
 msgstr "Google"
 
-#: src/documents.js:1117 src/documents.js:1414
+#: src/documents.js:1131 src/documents.js:1428
 msgid "Spreadsheet"
 msgstr "試算表"
 
-#: src/documents.js:1119 src/documents.js:1416 src/presentation.js:44
+#: src/documents.js:1133 src/documents.js:1430 src/presentation.js:43
 msgid "Presentation"
 msgstr "簡報"
 
-#: src/documents.js:1121 src/documents.js:1418
+#: src/documents.js:1135 src/documents.js:1432
 msgid "e-Book"
 msgstr "電子書"
 
-#: src/documents.js:1123 src/documents.js:1420
+#: src/documents.js:1137 src/documents.js:1434
 msgid "Document"
 msgstr "文件"
 
 #. overridden
-#: src/documents.js:1173
+#: src/documents.js:1187
 msgid "ownCloud"
 msgstr "ownCloud"
 
 #. overridden
-#: src/documents.js:1307 src/documents.js:1308
+#: src/documents.js:1321 src/documents.js:1322
 msgid "OneDrive"
 msgstr "OneDrive"
 
-#: src/documents.js:1594
+#: src/documents.js:1608
 msgid "Please check the network connection."
 msgstr "請檢查網路連線。"
 
-#: src/documents.js:1597
+#: src/documents.js:1611
 msgid "Please check the network proxy settings."
 msgstr "請檢查網路代理伺服器設定值。"
 
-#: src/documents.js:1600
+#: src/documents.js:1614
 msgid "Unable to sign in to the document service."
 msgstr "無法登入文件服務。"
 
-#: src/documents.js:1603
+#: src/documents.js:1617
 msgid "Unable to locate this document."
 msgstr "無法定位這份文件。"
 
-#: src/documents.js:1606
+#: src/documents.js:1620
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "嗯，有些地方發生問題 (%d)。"
 
-#: src/documents.js:1613
+#: src/documents.js:1627
 msgid ""
 "You are using a preview of Books. Full viewing capabilities are coming soon!"
 msgstr "您現在使用的是《書籍》的預覽版。完整的檢視功能即將推出！"
 
-#: src/documents.js:1615
+#: src/documents.js:1629
 msgid ""
 "LibreOffice support is not available. Please contact your system "
 "administrator."
 msgstr "LibreOffice 支援無法使用。請聯繫您的系統管理員。"
 
 #. Translators: %s is the title of a document
-#: src/documents.js:1638
+#: src/documents.js:1652
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "噢！無法載入「%s」"
@@ -531,11 +531,11 @@ msgstr "檢視"
 msgid "chapter %s of %s"
 msgstr "第 %s / %s 章"
 
-#: src/evinceview.js:590 src/lib/gd-places-bookmarks.c:656
+#: src/evinceview.js:591 src/lib/gd-places-bookmarks.c:656
 msgid "Bookmarks"
 msgstr "書籤"
 
-#: src/evinceview.js:598
+#: src/evinceview.js:599
 msgid "Bookmark this page"
 msgstr "這一頁的書籤"
 
@@ -586,12 +586,17 @@ msgstr ""
 "Cheng-Chia Tseng <pswo10680@gmail.com>, 2011. \n"
 "Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>, 2011"
 
-#: src/mainToolbar.js:91
+#: src/mainToolbar.js:101
+msgctxt "menu button tooltip"
+msgid "Menu"
+msgstr "選單"
+
+#: src/mainToolbar.js:111
 msgctxt "toolbar button tooltip"
 msgid "Search"
 msgstr "搜尋"
 
-#: src/mainToolbar.js:100
+#: src/mainToolbar.js:120
 msgid "Back"
 msgstr "返回"
 
@@ -685,45 +690,45 @@ msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "已選取 %d 個"
 
-#: src/overview.js:669
+#: src/overview.js:673
 msgid "Select Items"
 msgstr "選擇項目"
 
-#: src/overview.js:876
+#: src/overview.js:879
 msgid "Yesterday"
 msgstr "昨天"
 
-#: src/overview.js:878
+#: src/overview.js:881
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d 天以前"
 
-#: src/overview.js:882
+#: src/overview.js:885
 msgid "Last week"
 msgstr "上週"
 
-#: src/overview.js:884
+#: src/overview.js:887
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d 週前"
 
-#: src/overview.js:888
+#: src/overview.js:891
 msgid "Last month"
 msgstr "上個月"
 
-#: src/overview.js:890
+#: src/overview.js:893
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d 個月以前"
 
-#: src/overview.js:894
+#: src/overview.js:897
 msgid "Last year"
 msgstr "去年"
 
-#: src/overview.js:896
+#: src/overview.js:899
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -746,42 +751,42 @@ msgstr "文件 %s 已鎖定，需要密碼才能開啟。"
 msgid "_Password"
 msgstr "密碼(_P)"
 
-#: src/presentation.js:102
+#: src/presentation.js:101
 msgid "Running in presentation mode"
 msgstr "以簡報模式執行"
 
-#: src/presentation.js:130
+#: src/presentation.js:129
 msgid "Present On"
 msgstr "簡報開啟"
 
 #. Translators: "Mirrored" describes when both displays show the same view
-#: src/presentation.js:166
+#: src/presentation.js:165
 msgid "Mirrored"
 msgstr "鏡射"
 
-#: src/presentation.js:168
+#: src/presentation.js:167
 msgid "Primary"
 msgstr "主要"
 
-#: src/presentation.js:170
+#: src/presentation.js:169
 msgid "Off"
 msgstr "關閉"
 
-#: src/presentation.js:172
+#: src/presentation.js:171
 msgid "Secondary"
 msgstr "次要"
 
 #. Translators: this is the Open action in a context menu
-#: src/preview.js:445 src/selections.js:985
+#: src/preview.js:444 src/selections.js:987
 #, javascript-format
 msgid "Open with %s"
 msgstr "以 %s 開啟"
 
-#: src/preview.js:770
+#: src/preview.js:769
 msgid "Find Previous"
 msgstr "尋找上一筆"
 
-#: src/preview.js:776
+#: src/preview.js:775
 msgid "Find Next"
 msgstr "尋找下一筆"
 
@@ -830,7 +835,7 @@ msgid "Type"
 msgstr "類型"
 
 #. Translators: this refers to documents
-#: src/search.js:123 src/search.js:260 src/search.js:453
+#: src/search.js:123 src/search.js:260 src/search.js:457
 msgid "All"
 msgstr "全部"
 
@@ -883,14 +888,14 @@ msgctxt "Search Filter"
 msgid "Content"
 msgstr "內容"
 
-#: src/search.js:449
+#: src/search.js:453
 msgid "Sources"
 msgstr "來源"
 
 #. Translators: the first %s is an online account provider name,
 #. e.g. "Google". The second %s is the identity used to log in,
 #. e.g. "foo@gmail.com".
-#: src/search.js:508
+#: src/search.js:512
 #, javascript-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
@@ -993,136 +998,3 @@ msgstr "無標題文件"
 #: src/trackerController.js:176
 msgid "Unable to fetch the list of documents"
 msgstr "無法擷取文件清單"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Rotate anti-clockwise"
-#~ msgstr "逆時針旋轉"
-
-#~ msgid "LibreOffice is required to view this document"
-#~ msgstr "需要有 LibreOffice 才能檢視這份文件"
-
-#~ msgid "Category"
-#~ msgstr "分類"
-
-#~ msgid "Favorites"
-#~ msgstr "喜好"
-
-#~ msgid "Shared with you"
-#~ msgstr "與您分享"
-
-#~ msgid "Documents from your %s and %s will appear here."
-#~ msgstr "您的 %s 與 %s 的文件會出現在這裡。"
-
-#~ msgid "Online Accounts"
-#~ msgstr "線上帳號"
-
-#~ msgid "Documents folder"
-#~ msgstr "文件資料夾"
-
-#~ msgid "Recent"
-#~ msgstr "最近開啟"
-
-#~ msgid "Print"
-#~ msgstr "列印"
-
-#~ msgid "Share"
-#~ msgstr "分享"
-
-#~ msgid "You can add your online accounts in %s"
-#~ msgstr "您可以在 %s 加入您的線上帳號"
-
-#~ msgid "Settings"
-#~ msgstr "設定值"
-
-#~ msgid ""
-#~ "You don't have any collections yet. Enter a new collection name above."
-#~ msgstr "您還沒有任何收藏集。請在上面輸入新收藏集的名稱。"
-
-#~ msgid "Create new collection"
-#~ msgstr "建立新收藏集"
-
-#~ msgid "Add to Collection"
-#~ msgstr "加入至收藏集"
-
-#~ msgid "Load More"
-#~ msgstr "載入更多"
-
-#~| msgid ""
-#~| "<li>View recent local and online documents</li> <li>Access your Google, "
-#~| "ownCloud or SkyDrive content</li> <li>Search through documents</li> "
-#~| "<li>See new documents shared by friends</li> <li>View documents "
-#~| "fullscreen</li> <li>Print documents</li> <li>Select favorites</li> "
-#~| "<li>Allow opening full featured editor for non-trivial changes</li>"
-#~ msgid ""
-#~ "<li>View recent local and online documents</li> <li>Access your Google, "
-#~ "ownCloud or OneDrive content</li> <li>Search through documents</li> "
-#~ "<li>See new documents shared by friends</li> <li>View documents "
-#~ "fullscreen</li> <li>Print documents</li> <li>Select favorites</li> "
-#~ "<li>Allow opening full featured editor for non-trivial changes</li>"
-#~ msgstr ""
-#~ "<li>檢視最近使用的本地與線上文件</li> <li>存取您的 Google、ownCloud 或 "
-#~ "OneDrive 內容</li> <li>搜尋所有文件</li> <li>查閱朋友分享的新文件</li> "
-#~ "<li>全螢幕檢視文件</li> <li>列印文件</li> <li>選擇喜好文件</li> <li>允許開"
-#~ "啟全功能的編輯器進行各項變更</li>"
-
-#~ msgid "Results for “%s”"
-#~ msgstr "「%s」的搜尋結果"
-
-#~ msgid "Close"
-#~ msgstr "關閉"
-
-#~ msgid "Skydrive"
-#~ msgstr "Skydrive"
-
-#~ msgid "Grid"
-#~ msgstr "格線"
-
-#~ msgid "List"
-#~ msgstr "清單"
-
-#~ msgid "About Documents"
-#~ msgstr "關於文件"
-
-#~ msgctxt "Toolbar button tooltip"
-#~ msgid "Organize"
-#~ msgstr "整理"
-
-#~ msgid "Unable to load \"%s\" for preview"
-#~ msgstr "無法載入「%s」以預覽"
-
-#~ msgid "filtered by title"
-#~ msgstr "依標題過濾"
-
-#~ msgid "filtered by author"
-#~ msgstr "依作者過濾"
-
-#~ msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
-#~ msgstr "找不到「unoconv」，請檢查您的 LibreOffice 安裝"
-
-#~ msgid "Load %d more document"
-#~ msgid_plural "Load %d more documents"
-#~ msgstr[0] "載入其他 %d 份文件"
-
-#~ msgid "Print..."
-#~ msgstr "列印…"
-
-#~ msgid "Rotate Right"
-#~ msgstr "向右旋轉"
-
-#~ msgid "Remove from favorites"
-#~ msgstr "自喜好移除"
-
-#~ msgid "Add to favorites"
-#~ msgstr "加入喜好"
-
-#~ msgid "%d of %d"
-#~ msgstr "%d / %d"
-
-#~ msgid "The active source filter"
-#~ msgstr "使用中來源過濾器"
-
-#~ msgid "The last active source filter"
-#~ msgstr "上個使用中來源過濾器"
-
-#~ msgid "GNOME Documents"
-#~ msgstr "GNOME 文件"
