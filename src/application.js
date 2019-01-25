@@ -99,22 +99,15 @@ var Application = new Lang.Class({
         'miners-changed': {}
     },
 
-    _init: function(isBooks) {
+    _init: function() {
         this.minersRunning = [];
         this._activationTimestamp = Gdk.CURRENT_TIME;
         this._extractPriority = null;
         this._searchProvider = null;
 
-        this.isBooks = isBooks;
-
         let appid;
-        if (this.isBooks) {
-            GLib.set_application_name(_("Books"));
-            appid = 'org.gnome.Books';
-        } else {
-            GLib.set_application_name(_("Documents"));
-            appid = 'org.gnome.Documents';
-        }
+        GLib.set_application_name(_("Documents"));
+        appid = 'org.gnome.Documents';
 
         // needed by data/ui/view-menu.ui
         GObject.type_ensure(Gio.ThemedIcon);
@@ -183,7 +176,7 @@ var Application = new Lang.Class({
     },
 
     _onActionAbout: function() {
-        this._mainWindow.showAbout(this.isBooks);
+        this._mainWindow.showAbout();
     },
 
     _onActionHelp: function() {
@@ -349,11 +342,7 @@ var Application = new Lang.Class({
 
         EvDoc.init();
 
-        application = this;
-        if (application.isBooks)
-            settings = new Gio.Settings({ schema_id: 'org.gnome.books' });
-        else
-            settings = new Gio.Settings({ schema_id: 'org.gnome.documents' });
+        settings = new Gio.Settings({ schema_id: 'org.gnome.documents' });
 
         let gtkSettings = Gtk.Settings.get_default();
         gtkSettings.connect('notify::gtk-theme-name', Lang.bind(this, this._themeChanged));
@@ -367,13 +356,11 @@ var Application = new Lang.Class({
             return;
         }
 
-        if (!application.isBooks) {
-            try {
-                goaClient = Goa.Client.new_sync(null);
-            } catch (e) {
-                logError(e, 'Unable to create the GOA client');
-                return;
-            }
+        try {
+            goaClient = Goa.Client.new_sync(null);
+        } catch (e) {
+            logError(e, 'Unable to create the GOA client');
+            return;
         }
 
         connectionQueue = new TrackerController.TrackerConnectionQueue();
@@ -414,8 +401,7 @@ var Application = new Lang.Class({
         if (this._mainWindow)
             return;
 
-        if (!this.isBooks)
-            this._initGettingStarted();
+        this._initGettingStarted();
 
         notificationManager = new Notifications.NotificationManager();
         this._mainWindow = new MainWindow.MainWindow(this);

@@ -198,12 +198,11 @@ var EvinceView = new Lang.Class({
               accels: ['Page_Down'] }
         ];
 
-        if (!Application.application.isBooks)
-            actions.push({ name: 'present-current',
-                           callback: Utils.actionToggleCallback,
-                           state: GLib.Variant.new('b', false),
-                           stateChanged: Lang.bind(this, this._presentStateChanged),
-                           accels: ['F5'] });
+        actions.push({ name: 'present-current',
+                       callback: Utils.actionToggleCallback,
+                       state: GLib.Variant.new('b', false),
+                       stateChanged: Lang.bind(this, this._presentStateChanged),
+                       accels: ['F5'] });
 
         return actions;
     },
@@ -261,10 +260,7 @@ var EvinceView = new Lang.Class({
 
         this.parent(manager, doc, docModel);
 
-        if (Application.application.isBooks)
-            docModel.set_sizing_mode(EvView.SizingMode.FIT_PAGE);
-        else
-            docModel.set_sizing_mode(EvView.SizingMode.AUTOMATIC);
+        docModel.set_sizing_mode(EvView.SizingMode.AUTOMATIC);
 
         docModel.set_continuous(false);
         docModel.set_page_layout(EvView.PageLayout.AUTOMATIC);
@@ -570,7 +566,7 @@ var EvinceView = new Lang.Class({
     },
 
     set nightMode(v) {
-        if (this._model && !Application.application.isBooks)
+        if (this._model)
             this._model.set_inverted_colors(v);
     }
 });

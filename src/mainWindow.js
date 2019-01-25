@@ -163,7 +163,7 @@ var MainWindow = new Lang.Class({
         return false;
     },
 
-    showAbout: function(isBooks) {
-        GdPrivate.show_about_dialog(this, isBooks);
+    showAbout: function() {
+        GdPrivate.show_about_dialog(this);
     }
 });

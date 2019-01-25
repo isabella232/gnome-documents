@@ -46,7 +46,6 @@ resource_data = files(
   'documents.js',
   'edit.js',
   'embed.js',
-  'epubview.js',
   'errorBox.js',
   'evinceview.js',
   'fullscreenAction.js',

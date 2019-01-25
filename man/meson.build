@@ -16,7 +16,6 @@ xsltproc_cmd = [
 
 mans = [
   'gnome-documents',
-  'gnome-books'
 ]
 
 foreach man: mans

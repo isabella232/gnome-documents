@@ -274,7 +274,7 @@ const EmptyResultsBox = new Lang.Class({
         if (this._mode == WindowMode.WindowMode.COLLECTIONS)
             text = _("No collections found");
         else
-            text = Application.application.isBooks ? _("No books found") : _("No documents found");
+            text = _("No documents found");
 
         this.add(new Gtk.Label({ label: '<b><span size="large">' + text + '</span></b>',
                                  use_markup: true,
@@ -288,18 +288,9 @@ const EmptyResultsBox = new Lang.Class({
         }
 
         if (this._mode == WindowMode.WindowMode.COLLECTIONS) {
-            let label;
-            if (Application.application.isBooks)
-                label = _("You can create collections from the Books view");
-            else
-                label = _("You can create collections from the Documents view");
-
-            this.add(new Gtk.Label({ label: label }));
+            this.add(new Gtk.Label({ label: _("You can create collections from the Documents view") }));
             return;
         }
-
-        if (Application.application.isBooks)
-            return;
 
         let documentsPath = GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DOCUMENTS);
         let detailsStr = _("Documents from your <a href=\"system-settings\">Online Accounts</a> and " +
@@ -1052,8 +1043,7 @@ var OverviewStack = new Lang.Class({
 
         // now create the actual content widgets
         this._documents = new ViewContainer(this, WindowMode.WindowMode.DOCUMENTS);
-        let label = Application.application.isBooks ? _('Books') : _("Documents");
-        this._stack.add_titled(this._documents, 'documents', label);
+        this._stack.add_titled(this._documents, 'documents', _("Documents"));
 
         this._collections = new ViewContainer(this, WindowMode.WindowMode.COLLECTIONS);
         this._stack.add_titled(this._collections, 'collections', _("Collections"));

@@ -28,7 +28,6 @@ pkg.initSubmodule('src');
 pkg.require({ 'EvinceDocument': '3.0',
               'Gd': '1.0',
               'GdPrivate': '1.0',
-              'Gepub': '0.6',
               'Gio': '2.0',
               'GLib': '2.0',
               'Goa': '1.0',
@@ -42,7 +41,7 @@ const Application = imports.application;
 const GLib = imports.gi.GLib;
 
 function main(args) {
-    let application = new Application.Application(pkg.name == 'org.gnome.Books');
+    let application = new Application.Application();
     if (GLib.getenv('DOCUMENTS_PERSIST'))
         application.hold();
     return application.run(args);

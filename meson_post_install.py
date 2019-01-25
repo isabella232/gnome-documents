@@ -14,7 +14,6 @@ bindir = os.path.normpath(destdir + os.sep + sys.argv[2])
 # FIXME: meson will not track the creation of these files
 #        https://github.com/mesonbuild/meson/blob/master/mesonbuild/scripts/uninstall.py#L39
 apps = [
-  ['org.gnome.Books', 'gnome-books'],
   ['org.gnome.Documents', 'gnome-documents']
 ]
 

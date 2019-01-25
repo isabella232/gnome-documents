@@ -26,7 +26,6 @@ resource_data = files(
   'media/dnd-counter.svg',
   'media/thumbnail-frame.png',
   'ui/documents-app-menu.ui',
-  'ui/books-app-menu.ui',
   'ui/help-overlay.ui',
   'ui/help-overlay.ui',
   'ui/organize-collection-dialog.ui',

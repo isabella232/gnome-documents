@@ -300,8 +300,7 @@ gd_ev_view_find_changed (EvView *view,
 }
 
 void
-gd_show_about_dialog (GtkWindow *parent,
-                      gboolean is_books)
+gd_show_about_dialog (GtkWindow *parent)
 {
   GApplication *app;
 
@@ -318,29 +317,18 @@ gd_show_about_dialog (GtkWindow *parent,
     NULL
   };
 
-  const char *app_id, *comments, *website;
+  const char *app_id;
 
   app = g_application_get_default ();
   app_id = g_application_get_application_id (app);
-
-  if(!is_books)
-    {
-      comments = _("A document manager application");
-      website = "https://wiki.gnome.org/Apps/Documents";
-    }
-  else
-    {
-      comments = _("An e-books manager application");
-      website = "https://wiki.gnome.org/Apps/Books";
-    }
 
   gtk_show_about_dialog (parent,
                          "artists", artists,
                          "authors", authors,
                          "translator-credits", _("translator-credits"),
-                         "comments", comments,
+                         "comments", _("A document manager application"),
                          "logo-icon-name", app_id,
-                         "website", website,
+                         "website", "https://wiki.gnome.org/Apps/Documents",
                          "copyright", "Copyright © 2011-2014 Red Hat, Inc.",
                          "license-type", GTK_LICENSE_GPL_2_0,
                          "version", PACKAGE_VERSION,

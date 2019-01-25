@@ -105,9 +105,7 @@ var SearchTypeStock = {
     PDF: 'pdf',
     PRESENTATIONS: 'presentations',
     SPREADSHEETS: 'spreadsheets',
-    TEXTDOCS: 'textdocs',
-    EBOOKS: 'ebooks',
-    COMICS: 'comics'
+    TEXTDOCS: 'textdocs'
 };
 
 const SearchTypeManager = new Lang.Class({
@@ -121,45 +119,25 @@ const SearchTypeManager = new Lang.Class({
 
         this.addItem(new SearchType({ id: SearchTypeStock.ALL,
                                       name: _("All") }));
-        if (Application.application.isBooks) {
-            this.addItem(new SearchType({ id: SearchTypeStock.COLLECTIONS,
-                                          name: _("Collections"),
-                                          filter: 'fn:starts-with(nao:identifier(?urn), \"gb:collection\")',
-                                          where: '?urn rdf:type nfo:DataContainer .' }));
-            //FIXME we need to remove all the non-Comics PDFs here
-        } else {
-            this.addItem(new SearchType({ id: SearchTypeStock.COLLECTIONS,
-                                          name: _("Collections"),
-                                          filter: 'fn:starts-with(nao:identifier(?urn), \"gd:collection\")',
-                                          where: '?urn rdf:type nfo:DataContainer .' }));
-            this.addItem(new SearchType({ id: SearchTypeStock.PDF,
-                                          name: _("PDF Documents"),
-                                          filter: 'fn:contains(nie:mimeType(?urn), \"application/pdf\")',
-                                          where: '?urn rdf:type nfo:PaginatedTextDocument .' }));
-        }
+        this.addItem(new SearchType({ id: SearchTypeStock.COLLECTIONS,
+                                      name: _("Collections"),
+                                      filter: 'fn:starts-with(nao:identifier(?urn), \"gd:collection\")',
+                                      where: '?urn rdf:type nfo:DataContainer .' }));
+        this.addItem(new SearchType({ id: SearchTypeStock.PDF,
+                                      name: _("PDF Documents"),
+                                      filter: 'fn:contains(nie:mimeType(?urn), \"application/pdf\")',
+                                      where: '?urn rdf:type nfo:PaginatedTextDocument .' }));
 
-        if (Application.application.isBooks) {
-          this.addItem(new SearchType({ id: SearchTypeStock.EBOOKS,
-                                        name: _("e-Books"),
-                                        filter: '(nie:mimeType(?urn) IN (\"application/epub+zip\", \"application/x-mobipocket-ebook\", \"application/x-fictionbook+xml\", \"application/x-zip-compressed-fb2\", \"image/vnd.djvu+multipage\"))',
-                                        where: '?urn rdf:type nfo:EBook .' }));
-          this.addItem(new SearchType({ id: SearchTypeStock.COMICS,
-                                        name: _("Comics"),
-                                        filter: '(nie:mimeType(?urn) IN (\"application/x-cbr\", \"application/x-cbz\", \"application/vnd.comicbook+zip\", \"application/x-cbt\", \"application/x-cb7\"))',
-                                        where: '?urn rdf:type nfo:EBook .' }));
-        } else {
-            this.addItem(new SearchType({ id: SearchTypeStock.PRESENTATIONS,
-                                          name: _("Presentations"),
-                                          where: '?urn rdf:type nfo:Presentation .' }));
-            this.addItem(new SearchType({ id: SearchTypeStock.SPREADSHEETS,
-                                          name: _("Spreadsheets"),
-                                          where: '?urn rdf:type nfo:Spreadsheet .' }));
-            this.addItem(new SearchType({ id: SearchTypeStock.TEXTDOCS,
-                                          name: _("Text Documents"),
-                                          filter: 'NOT EXISTS { ?urn a nfo:EBook }',
-                                          where: '?urn rdf:type nfo:PaginatedTextDocument .' }));
-        }
-
+        this.addItem(new SearchType({ id: SearchTypeStock.PRESENTATIONS,
+                                      name: _("Presentations"),
+                                      where: '?urn rdf:type nfo:Presentation .' }));
+        this.addItem(new SearchType({ id: SearchTypeStock.SPREADSHEETS,
+                                      name: _("Spreadsheets"),
+                                      where: '?urn rdf:type nfo:Spreadsheet .' }));
+        this.addItem(new SearchType({ id: SearchTypeStock.TEXTDOCS,
+                                      name: _("Text Documents"),
+                                      filter: 'NOT EXISTS { ?urn a nfo:EBook }',
+                                      where: '?urn rdf:type nfo:PaginatedTextDocument .' }));
 
         this.setActiveItemById(SearchTypeStock.ALL);
     },
@@ -176,15 +154,10 @@ const SearchTypeManager = new Lang.Class({
     getDocumentTypes: function() {
         let types = [];
 
-        if (Application.application.isBooks) {
-            types.push(this.getItemById(SearchTypeStock.EBOOKS));
-            types.push(this.getItemById(SearchTypeStock.COMICS));
-        } else {
-            types.push(this.getItemById(SearchTypeStock.PDF));
-            types.push(this.getItemById(SearchTypeStock.PRESENTATIONS));
-            types.push(this.getItemById(SearchTypeStock.SPREADSHEETS));
-            types.push(this.getItemById(SearchTypeStock.TEXTDOCS));
-        }
+        types.push(this.getItemById(SearchTypeStock.PDF));
+        types.push(this.getItemById(SearchTypeStock.PRESENTATIONS));
+        types.push(this.getItemById(SearchTypeStock.SPREADSHEETS));
+        types.push(this.getItemById(SearchTypeStock.TEXTDOCS));
 
         return types;
     },
@@ -412,10 +385,7 @@ const Source = new Lang.Class({
                 filters.push('(fn:contains (nie:url(?urn), "%s"))'.format(location.get_uri()));
             }));
 
-        if (Application.application.isBooks)
-            filters.push('(fn:starts-with (nao:identifier(?urn), "gb:collection:local:"))');
-        else
-            filters.push('(fn:starts-with (nao:identifier(?urn), "gd:collection:local:"))');
+        filters.push('(fn:starts-with (nao:identifier(?urn), "gd:collection:local:"))');
 
         return '(' + filters.join(' || ') + ')';
     },
@@ -464,13 +434,11 @@ const SourceManager = new Lang.Class({
                               builtin: true });
         this.addItem(source);
 
-        if (!Application.application.isBooks) {
-            Application.goaClient.connect('account-added', Lang.bind(this, this._refreshGoaAccounts));
-            Application.goaClient.connect('account-changed', Lang.bind(this, this._refreshGoaAccounts));
-            Application.goaClient.connect('account-removed', Lang.bind(this, this._refreshGoaAccounts));
+        Application.goaClient.connect('account-added', Lang.bind(this, this._refreshGoaAccounts));
+        Application.goaClient.connect('account-changed', Lang.bind(this, this._refreshGoaAccounts));
+        Application.goaClient.connect('account-removed', Lang.bind(this, this._refreshGoaAccounts));
 
-            this._refreshGoaAccounts();
-        }
+        this._refreshGoaAccounts();
 
         this.setActiveItemById(SearchSourceStock.ALL);
     },
