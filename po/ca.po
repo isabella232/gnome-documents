@@ -154,11 +154,11 @@ msgstr ""
 
 #: data/org.gnome.Documents.metainfo.xml.in:18
 msgid "View recent local and online documents"
-msgstr "Visualitzeu els documents recents, tant locals com en línia"
+msgstr "Visualitzeu els documents recents, tan locals com en línia"
 
 #: data/org.gnome.Documents.metainfo.xml.in:19
 msgid "Access your Google, ownCloud or OneDrive content"
-msgstr "Accediu als vostres documents del Google, de l'ownCloud o del OneDrive"
+msgstr "Accediu als vostres documents del Google, de l'ownCloud o de l'OneDrive"
 
 #: data/org.gnome.Documents.metainfo.xml.in:20
 msgid "Search through documents"
