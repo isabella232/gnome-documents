@@ -8,25 +8,26 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2018-03-12 15:05+0000\n"
-"PO-Revision-Date: 2018-03-24 20:48+0200\n"
-"Last-Translator: Daniel Șerbănescu <daniel [at] serbanescu [dot] dk>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-documents/"
+"issues\n"
+"POT-Creation-Date: 2019-01-17 18:36+0000\n"
+"PO-Revision-Date: 2019-01-27 01:51+0200\n"
+"Last-Translator: Florentina Mușat <florentina.musat.28 [at] gmail [dot] "
+"com>\n"
 "Language-Team: Gnome Romanian Translation Team\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
-"20)) ? 1 : 2);;\n"
-"X-Generator: Virtaal 0.7.1\n"
+"20)) ? 1 : 2);\n"
+"X-Generator: Poedit 2.2.1\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.Books.appdata.xml.in:7 data/org.gnome.Books.desktop.in:3
-#: src/application.js:112 src/overview.js:1052
+#: src/application.js:112 src/overview.js:1055
 msgid "Books"
-msgstr "Cărți "
+msgstr "Cărți"
 
 #: data/org.gnome.Books.appdata.xml.in:8
 msgid "An e-book manager application for GNOME"
@@ -56,7 +57,6 @@ msgid "Search through e-books"
 msgstr "Căutați prin cărțile electronice"
 
 #: data/org.gnome.Books.appdata.xml.in:19
-#| msgid "View e-books fullscreen"
 msgid "View e-books (PDF and comics) fullscreen"
 msgstr "Vizualizează cărți electronice (PDF și benzi desenate) pe tot ecranul"
 
@@ -81,7 +81,7 @@ msgstr "org.gnome.Books"
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Books.desktop.in:15
 msgid "Books;Comics;ePub;PDF;"
-msgstr "Books;Comics;ePub;PDF;Carte;Cărți;Benzi desenate"
+msgstr "Books;Comics;ePub;PDF;Carte;Cărți;Cărți electronice;Benzi desenate;"
 
 #: data/org.gnome.books.gschema.xml:5 data/org.gnome.documents.gschema.xml:5
 msgid "View as"
@@ -133,7 +133,7 @@ msgstr "Dacă aplicația este în modul de noapte."
 
 #: data/org.gnome.Documents.appdata.xml.in:7
 #: data/org.gnome.Documents.desktop.in:3 src/application.js:115
-#: src/overview.js:1052
+#: src/overview.js:1055
 msgid "Documents"
 msgstr "Documente"
 
@@ -186,7 +186,7 @@ msgstr "Selectează favoritele"
 msgid "Allow opening full featured editor for non-trivial changes"
 msgstr ""
 "Permite deschiderea editorului cu opțiuni avansate pentru modificări "
-"importante."
+"importante"
 
 #: data/org.gnome.Documents.desktop.in:4
 msgid "Access, manage and share documents"
@@ -194,7 +194,6 @@ msgstr "Accesează, administrează și partajează documente"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 #: data/org.gnome.Documents.desktop.in:7
-#| msgid "Documents"
 msgid "org.gnome.Documents"
 msgstr "org.gnome.Documents"
 
@@ -203,27 +202,26 @@ msgstr "org.gnome.Documents"
 msgid "Docs;PDF;Document;"
 msgstr "Docs;PDF;Document;Documente;"
 
-#: data/ui/app-menu.ui:6 src/preview.js:453
+#: data/ui/books-app-menu.ui:6 data/ui/documents-app-menu.ui:6
+#: src/preview.js:452
 msgid "Night Mode"
 msgstr "Mod de noapte"
 
-#: data/ui/app-menu.ui:12
+#: data/ui/books-app-menu.ui:12 data/ui/documents-app-menu.ui:12
 msgid "Keyboard Shortcuts"
 msgstr "Scurtături de tastatură"
 
-#: data/ui/app-menu.ui:16
+#: data/ui/books-app-menu.ui:16 data/ui/documents-app-menu.ui:16
 msgid "Help"
 msgstr "Ajutor"
 
-#: data/ui/app-menu.ui:20
-msgid "About"
-msgstr "Despre"
+#: data/ui/books-app-menu.ui:20
+msgid "About Books"
+msgstr "Despre Cărți"
 
-#: data/ui/app-menu.ui:24
-#| msgid "Quit"
-msgctxt "app menu"
-msgid "Quit"
-msgstr "Ieșire"
+#: data/ui/documents-app-menu.ui:20
+msgid "About Documents"
+msgstr "Despre Documente"
 
 #: data/ui/help-overlay.ui:11
 msgctxt "shortcut window"
@@ -236,19 +234,16 @@ msgid "Show help"
 msgstr "Arată ajutorul"
 
 #: data/ui/help-overlay.ui:22
-#| msgid "Quit"
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Ieșire"
 
 #: data/ui/help-overlay.ui:29
-#| msgid "Search"
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Caută"
 
 #: data/ui/help-overlay.ui:36
-#| msgid "Print documents"
 msgctxt "shortcut window"
 msgid "Print the current document"
 msgstr "Tipăriți documentul curent"
@@ -269,19 +264,16 @@ msgid "Preview"
 msgstr "Previzualizare"
 
 #: data/ui/help-overlay.ui:71
-#| msgid "Zoom In"
 msgctxt "shortcut window"
 msgid "Zoom in"
 msgstr "Mărește"
 
 #: data/ui/help-overlay.ui:78
-#| msgid "Zoom Out"
 msgctxt "shortcut window"
 msgid "Zoom out"
 msgstr "Micșorează"
 
 #: data/ui/help-overlay.ui:85
-#| msgid "Bookmark this page"
 msgctxt "shortcut window"
 msgid "Bookmark the current page"
 msgstr "Marchează pagina curentă"
@@ -317,7 +309,6 @@ msgid "Previous occurrence of the search string"
 msgstr "Precedenta apariție a șirului de căutat"
 
 #: data/ui/help-overlay.ui:134
-#| msgid "Presentation"
 msgctxt "shortcut window"
 msgid "Presentation mode"
 msgstr "Mod de prezentare"
@@ -328,7 +319,6 @@ msgid "Open action menu"
 msgstr "Deschide meniul accțiuni"
 
 #: data/ui/help-overlay.ui:148
-#| msgid "Fullscreen"
 msgctxt "shortcut window"
 msgid "Fullscreen"
 msgstr "Pe tot ecranul"
@@ -348,7 +338,7 @@ msgid "Add"
 msgstr "Adaugă"
 
 #: data/ui/organize-collection-dialog.ui:163 data/ui/selection-toolbar.ui:88
-#: src/overview.js:1056 src/search.js:126 src/search.js:132
+#: src/overview.js:1059 src/search.js:126 src/search.js:132
 msgid "Collections"
 msgstr "Colecții"
 
@@ -367,7 +357,7 @@ msgstr "_Copiază"
 
 #. Translators: this is the Open action in a context menu
 #: data/ui/preview-menu.ui:6 data/ui/selection-toolbar.ui:9
-#: src/selections.js:988
+#: src/selections.js:990
 msgid "Open"
 msgstr "Deschide"
 
@@ -379,7 +369,7 @@ msgstr "Editează"
 msgid "Print…"
 msgstr "Tipărește…"
 
-#: data/ui/preview-menu.ui:21 src/preview.js:462
+#: data/ui/preview-menu.ui:21 src/preview.js:461
 msgid "Fullscreen"
 msgstr "Mod ecran complet"
 
@@ -425,13 +415,10 @@ msgid "View items as a list"
 msgstr "Vedeți elementele ca o listă"
 
 #: data/ui/view-menu.ui:73
-#| msgid "Sort by"
 msgid "Sort"
 msgstr "Sortează"
 
 #: data/ui/view-menu.ui:84
-#| msgctxt "Document Author"
-#| msgid "Author"
 msgid "Author"
 msgstr "Autor"
 
@@ -452,7 +439,7 @@ msgid "Failed to print document"
 msgstr "Tipărirea documentului a eșuat"
 
 #. Translators: this refers to local documents
-#: src/documents.js:836 src/search.js:459
+#: src/documents.js:836 src/search.js:463
 msgid "Local"
 msgstr "Local"
 
@@ -467,75 +454,75 @@ msgstr "GNOME"
 msgid "Getting Started with Documents"
 msgstr "Noțiuni de bază despre Documente"
 
-#: src/documents.js:905 src/documents.js:1115 src/documents.js:1218
-#: src/documents.js:1412
+#: src/documents.js:905 src/documents.js:1129 src/documents.js:1232
+#: src/documents.js:1426
 msgid "Collection"
 msgstr "Colecție"
 
 #. overridden
-#: src/documents.js:972
+#: src/documents.js:986
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: src/documents.js:973
+#: src/documents.js:987
 msgid "Google"
 msgstr "Google"
 
-#: src/documents.js:1117 src/documents.js:1414
+#: src/documents.js:1131 src/documents.js:1428
 msgid "Spreadsheet"
 msgstr "Foaie de calcul"
 
-#: src/documents.js:1119 src/documents.js:1416 src/presentation.js:43
+#: src/documents.js:1133 src/documents.js:1430 src/presentation.js:43
 msgid "Presentation"
 msgstr "Prezentare"
 
-#: src/documents.js:1121 src/documents.js:1418
+#: src/documents.js:1135 src/documents.js:1432
 msgid "e-Book"
 msgstr "carte electronică"
 
-#: src/documents.js:1123 src/documents.js:1420
+#: src/documents.js:1137 src/documents.js:1434
 msgid "Document"
 msgstr "Document"
 
 #. overridden
-#: src/documents.js:1173
+#: src/documents.js:1187
 msgid "ownCloud"
 msgstr "ownCloud"
 
 #. overridden
-#: src/documents.js:1307 src/documents.js:1308
+#: src/documents.js:1321 src/documents.js:1322
 msgid "OneDrive"
 msgstr "OneDrive"
 
-#: src/documents.js:1594
+#: src/documents.js:1608
 msgid "Please check the network connection."
 msgstr "Verificați conexiunea la rețea."
 
-#: src/documents.js:1597
+#: src/documents.js:1611
 msgid "Please check the network proxy settings."
 msgstr "Verificați configurările proxy ale rețelei."
 
-#: src/documents.js:1600
+#: src/documents.js:1614
 msgid "Unable to sign in to the document service."
 msgstr "Autentificarea la serviciului de documente a eșuat."
 
-#: src/documents.js:1603
+#: src/documents.js:1617
 msgid "Unable to locate this document."
 msgstr "Nu s-a putut localiza acest document."
 
-#: src/documents.js:1606
+#: src/documents.js:1620
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Ceva nu este în regulă (%d)."
 
-#: src/documents.js:1613
+#: src/documents.js:1627
 msgid ""
 "You are using a preview of Books. Full viewing capabilities are coming soon!"
 msgstr ""
 "Utilizați o versiune preliminară a aplicației Cărți. Funcționalitatea "
 "completă de redare va sosi în curând!"
 
-#: src/documents.js:1615
+#: src/documents.js:1629
 msgid ""
 "LibreOffice support is not available. Please contact your system "
 "administrator."
@@ -544,7 +531,7 @@ msgstr ""
 "sistem."
 
 #. Translators: %s is the title of a document
-#: src/documents.js:1638
+#: src/documents.js:1652
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Ups! Nu s-a putut încărca „%s”"
@@ -556,15 +543,14 @@ msgstr "Vizualizare"
 
 #: src/epubview.js:228
 #, javascript-format
-#| msgid "Page %u of %u"
 msgid "chapter %s of %s"
 msgstr "capitolul %s din %s"
 
-#: src/evinceview.js:590 src/lib/gd-places-bookmarks.c:656
+#: src/evinceview.js:591 src/lib/gd-places-bookmarks.c:656
 msgid "Bookmarks"
 msgstr "Semne de carte"
 
-#: src/evinceview.js:598
+#: src/evinceview.js:599
 msgid "Bookmark this page"
 msgstr "Pune un semn de carte la pagină"
 
@@ -614,15 +600,20 @@ msgid "translator-credits"
 msgstr ""
 "Bogdan Mințoi <mintoi.bogdan@gmail.com>, 2014\n"
 "Jobava <jobaval10n@gmail.com>, 2015\n"
-"Adelin Șerbănescu <sadelin106@gmail.com>, 2018"
+"Adelin Șerbănescu <sadelin106@gmail.com>, 2018\n"
+"Florentina Mușat <florentina.musat.28 [at] gmail [dot] com>, 2019"
 
-#: src/mainToolbar.js:91
-#| msgid "Search"
+#: src/mainToolbar.js:101
+msgctxt "menu button tooltip"
+msgid "Menu"
+msgstr "Meniu"
+
+#: src/mainToolbar.js:111
 msgctxt "toolbar button tooltip"
 msgid "Search"
 msgstr "Căută"
 
-#: src/mainToolbar.js:100
+#: src/mainToolbar.js:120
 msgid "Back"
 msgstr "Înapoi"
 
@@ -671,17 +662,14 @@ msgid "Fetching documents from online accounts"
 msgstr "Se preiau documente de la conturile online"
 
 #: src/overview.js:275
-#| msgid "No Books Found"
 msgid "No collections found"
 msgstr "Nicio colecție găsită"
 
 #: src/overview.js:277
-#| msgid "No Books Found"
 msgid "No books found"
 msgstr "Nicio carte găsită"
 
 #: src/overview.js:277
-#| msgid "No Documents Found"
 msgid "No documents found"
 msgstr "Niciun document găsit"
 
@@ -703,13 +691,11 @@ msgid ""
 "Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
 "href=\"file://%s\">Documents folder</a> will appear here."
 msgstr ""
-"Documente din<a href=\"system-settings\">Conturi online</a> și <a "
-"href=\"file://%s\"> dosarul de documente</a> ale Dumneavoastră vor apărea "
-"aici."
+"Documente din<a href=\"system-settings\">Conturi online</a> și <a href="
+"\"file://%s\"> dosarul de documente</a> ale Dumneavoastră vor apărea aici."
 
 #. Translators: this is the menu to change view settings
 #: src/overview.js:562
-#| msgid "View as"
 msgid "View Menu"
 msgstr "Meniul Vizualizare"
 
@@ -725,15 +711,15 @@ msgstr[0] "%d selectat"
 msgstr[1] "%d selectate"
 msgstr[2] "%d selectate"
 
-#: src/overview.js:669
+#: src/overview.js:673
 msgid "Select Items"
 msgstr "Selectați elementele"
 
-#: src/overview.js:876
+#: src/overview.js:879
 msgid "Yesterday"
 msgstr "Ieri"
 
-#: src/overview.js:878
+#: src/overview.js:881
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -741,11 +727,11 @@ msgstr[0] "acum %d zi"
 msgstr[1] "acum %d zile"
 msgstr[2] "acum %d de zile"
 
-#: src/overview.js:882
+#: src/overview.js:885
 msgid "Last week"
 msgstr "Săptămâna trecută"
 
-#: src/overview.js:884
+#: src/overview.js:887
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
@@ -753,11 +739,11 @@ msgstr[0] "acum %d săptămână"
 msgstr[1] "acum %d săptămâni"
 msgstr[2] "acum %d de săptămâni"
 
-#: src/overview.js:888
+#: src/overview.js:891
 msgid "Last month"
 msgstr "Luna trecută"
 
-#: src/overview.js:890
+#: src/overview.js:893
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
@@ -765,11 +751,11 @@ msgstr[0] "acum %d lună"
 msgstr[1] "acum %d luni"
 msgstr[2] "acum %d de luni"
 
-#: src/overview.js:894
+#: src/overview.js:897
 msgid "Last year"
 msgstr "Anul trecut"
 
-#: src/overview.js:896
+#: src/overview.js:899
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -821,16 +807,16 @@ msgid "Secondary"
 msgstr "Secundar"
 
 #. Translators: this is the Open action in a context menu
-#: src/preview.js:445 src/selections.js:985
+#: src/preview.js:444 src/selections.js:987
 #, javascript-format
 msgid "Open with %s"
 msgstr "Deschide cu %s"
 
-#: src/preview.js:770
+#: src/preview.js:769
 msgid "Find Previous"
 msgstr "Găsește precedentul"
 
-#: src/preview.js:776
+#: src/preview.js:775
 msgid "Find Next"
 msgstr "Găsește următorul"
 
@@ -879,7 +865,7 @@ msgid "Type"
 msgstr "Tip"
 
 #. Translators: this refers to documents
-#: src/search.js:123 src/search.js:260 src/search.js:453
+#: src/search.js:123 src/search.js:260 src/search.js:457
 msgid "All"
 msgstr "Toate"
 
@@ -928,19 +914,18 @@ msgstr "Autor"
 
 #. Translators: "Content" refers to "Match Content" when searching
 #: src/search.js:269
-#| msgid "Contents"
 msgctxt "Search Filter"
 msgid "Content"
 msgstr "Conținut"
 
-#: src/search.js:449
+#: src/search.js:453
 msgid "Sources"
 msgstr "Surse"
 
 #. Translators: the first %s is an online account provider name,
 #. e.g. "Google". The second %s is the identity used to log in,
 #. e.g. "foo@gmail.com".
-#: src/search.js:508
+#: src/search.js:512
 #, javascript-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
@@ -1043,6 +1028,14 @@ msgstr "Document fără titlu"
 #: src/trackerController.js:176
 msgid "Unable to fetch the list of documents"
 msgstr "Nu se poate prelua lista documentelor"
+
+#~ msgid "About"
+#~ msgstr "Despre"
+
+#~| msgid "Quit"
+#~ msgctxt "app menu"
+#~ msgid "Quit"
+#~ msgstr "Ieșire"
 
 #~ msgid "LibreOffice is required to view this document"
 #~ msgstr "Este necesară suita LibreOffice pentru a vedea acest document"
