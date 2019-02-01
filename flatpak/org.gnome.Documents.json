@@ -34,8 +34,7 @@
                  "/share/pkgconfig", "/share/aclocal",
                  "/man", "/share/man", "/share/gtk-doc",
                  "/share/vala",
-                 "*.la", "*.a",
-                 "/bin/gnome-books"],
+                 "*.la", "*.a"],
     "modules": [
         {
             "name": "librest",
@@ -182,16 +181,6 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/tracker-miners.git"
-                }
-            ]
-        },
-        {
-            "name": "libgepub",
-            "buildsystem": "meson",
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/libgepub.git"
                 }
             ]
         },

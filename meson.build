@@ -15,7 +15,6 @@ documents_api_version = '1.0'
 documents_gir_version = '1.0'
 
 documents_apps = [
-  'org.gnome.Books',
   'org.gnome.Documents'
 ]
 
@@ -77,7 +76,6 @@ documents_deps = [
 
 # we just check their existence for gir
 dependency('libgdata')
-dependency('libgepub-0.6')
 dependency('goa-1.0')
 dependency('zapojit-0.0')
 

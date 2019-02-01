@@ -22,7 +22,6 @@
 const EvDocument = imports.gi.EvinceDocument;
 const EvView = imports.gi.EvinceView;
 const LOKView = imports.lokview;
-const EPUBView = imports.epubview;
 const GdkPixbuf = imports.gi.GdkPixbuf;
 const Gio = imports.gi.Gio;
 const Gd = imports.gi.Gd;
@@ -709,17 +708,7 @@ const DocCommon = new Lang.Class({
     loadLocal: function(passwd, cancellable, callback) {
         Utils.debug('Loading ' + this.__name__ + ' ' + this.id + ' from ' + this.uriToLoad);
 
-        if (this.mimeType == 'application/x-mobipocket-ebook' ||
-            this.mimeType == 'application/x-fictionbook+xml' ||
-            this.mimeType == 'application/x-zip-compressed-fb2') {
-            let exception = new GLib.Error(Gio.IOErrorEnum,
-                                           Gio.IOErrorEnum.NOT_SUPPORTED,
-                                           "Internal error: Ebooks preview isn't support yet");
-            callback(this, null, exception);
-            return;
-        }
-
-        if (LOKView.isOpenDocumentFormat(this.mimeType) && !Application.application.isBooks) {
+        if (LOKView.isOpenDocumentFormat(this.mimeType)) {
             let exception = null;
             if (!LOKView.isAvailable()) {
                 exception = new GLib.Error(Gio.IOErrorEnum,
@@ -727,11 +716,6 @@ const DocCommon = new Lang.Class({
                                            "Internal error: LibreOffice isn't available");
             }
             callback (this, null, exception);
-            return;
-        }
-
-        if (EPUBView.isEpub(this.mimeType) && Application.application.isBooks) {
-            callback(this, null, null);
             return;
         }
 
@@ -1131,8 +1115,6 @@ const GoogleDocument = new Lang.Class({
             description = _("Spreadsheet");
         else if (this.rdfType.indexOf('nfo#Presentation') != -1)
             description = _("Presentation");
-        else if (this.rdfType.indexOf('nfo#EBook') != -1)
-            description = _("e-Book");
         else
             description = _("Document");
 
@@ -1428,8 +1410,6 @@ const SkydriveDocument = new Lang.Class({
             description = _("Spreadsheet");
         else if (this.rdfType.indexOf('nfo#Presentation') != -1)
             description = _("Presentation");
-        else if (this.rdfType.indexOf('nfo#EBook') != -1)
-            description = _("e-Book");
         else
             description = _("Document");
 
@@ -1623,10 +1603,7 @@ var DocumentManager = new Lang.Class({
         } else if (error.domain == Gio.IOErrorEnum) {
             switch (error.code) {
             case Gio.IOErrorEnum.NOT_SUPPORTED:
-                if (Application.application.isBooks)
-                    message = _("You are using a preview of Books. Full viewing capabilities are coming soon!");
-                else
-                    message = _("LibreOffice support is not available. Please contact your system administrator.");
+                message = _("LibreOffice support is not available. Please contact your system administrator.");
                 break;
             default:
                 break;
@@ -1667,10 +1644,8 @@ var DocumentManager = new Lang.Class({
 
     _requestPreview: function(doc) {
         let windowMode;
-        if (LOKView.isOpenDocumentFormat(doc.mimeType) && !Application.application.isBooks) {
+        if (LOKView.isOpenDocumentFormat(doc.mimeType)) {
             windowMode = WindowMode.WindowMode.PREVIEW_LOK;
-        } else if (EPUBView.isEpub(doc.mimeType) && Application.application.isBooks) {
-            windowMode = WindowMode.WindowMode.PREVIEW_EPUB;
         } else {
             windowMode = WindowMode.WindowMode.PREVIEW_EV;
         }

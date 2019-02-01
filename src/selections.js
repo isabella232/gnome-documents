@@ -154,13 +154,6 @@ const FetchCollectionStateForSelectionJob = new Lang.Class({
                     hidden = true;
             }
 
-            let application = Gio.Application.get_default();
-            let collectionsIdentifier;
-            if (application.isBooks)
-                collectionsIdentifier = Query.LOCAL_BOOKS_COLLECTIONS_IDENTIFIER;
-            else
-                collectionsIdentifier = Query.LOCAL_DOCUMENTS_COLLECTIONS_IDENTIFIER;
-
             for (let itemIdx in this._collectionsForItems) {
                 let item = Application.documentManager.getItemById(itemIdx);
                 let collectionsForItem = this._collectionsForItems[itemIdx];
@@ -172,7 +165,7 @@ const FetchCollectionStateForSelectionJob = new Lang.Class({
                     notFound = true;
 
                 if ((item.resourceUrn != collection.resourceUrn) &&
-                    (collection.identifier.indexOf(collectionsIdentifier) == -1)) {
+                    (collection.identifier.indexOf(Query.LOCAL_DOCUMENTS_COLLECTIONS_IDENTIFIER) == -1)) {
                     hidden = true;
                 }
             }
@@ -870,10 +863,9 @@ var SelectionToolbar = new Lang.Class({
         this._toolbarPrint.connect('clicked', Lang.bind(this, this._onToolbarPrint));
         this._toolbarTrash.connect('clicked', Lang.bind(this, this._onToolbarTrash));
 
-        if (!Application.application.isBooks) {
-            this._toolbarShare.connect('clicked', Lang.bind(this, this._onToolbarShare));
-            this._toolbarShare.show();
-        }
+        this._toolbarShare.connect('clicked', Lang.bind(this, this._onToolbarShare));
+        this._toolbarShare.show();
+
         this._toolbarProperties.connect('clicked', Lang.bind(this, this._onToolbarProperties));
         this._toolbarCollection.connect('clicked', Lang.bind(this, this._onToolbarCollection));
 
@@ -995,8 +987,7 @@ var SelectionToolbar = new Lang.Class({
         this._toolbarProperties.set_sensitive(showProperties);
         this._toolbarTrash.set_sensitive(showTrash);
         this._toolbarOpen.set_sensitive(showOpen);
-        if (!Application.application.isBooks)
-            this._toolbarShare.set_sensitive(showShare);
+        this._toolbarShare.set_sensitive(showShare);
         this._toolbarCollection.set_sensitive(showCollection);
 
         this._insideRefresh = false;

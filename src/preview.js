@@ -418,11 +418,6 @@ var PreviewToolbar = new Lang.Class({
                                               action_name: 'view.gear-menu' });
         this.toolbar.pack_end(menuButton);
 
-        if (this.preview.canFullscreen && Application.application.isBooks) {
-            this._addFullscreenButton();
-            this._addNightmodeButton();
-        }
-
         this.updateTitle();
         this.toolbar.show_all();
 

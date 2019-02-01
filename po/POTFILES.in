@@ -1,12 +1,8 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
-data/org.gnome.Books.appdata.xml.in
-data/org.gnome.Books.desktop.in
-data/org.gnome.books.gschema.xml
 data/org.gnome.Documents.appdata.xml.in
 data/org.gnome.Documents.desktop.in
 data/org.gnome.documents.gschema.xml
-data/ui/books-app-menu.ui
 data/ui/documents-app-menu.ui
 data/ui/help-overlay.ui
 data/ui/organize-collection-dialog.ui
@@ -19,7 +15,6 @@ src/application.js
 src/documents.js
 src/edit.js
 src/embed.js
-src/epubview.js
 src/evinceview.js
 src/lib/gd-nav-bar.c
 src/lib/gd-pdf-loader.c
