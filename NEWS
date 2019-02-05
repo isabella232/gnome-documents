@@ -1,3 +1,22 @@
+3.31.90
+=======
+* Updated menus for 3.32 recommendations
+* Bugs fixed:
+ - #11 Documents/Books hang if any of the XDG_*_DIR vars are not defined
+ - #12 Doesn't show any documents when started through search provider
+ - #21 Flatpak builds broken due to meson
+ - #30 Night/black mode should also invert color of black/white paper pages
+
+* Translation updates:
+ - Greek
+ - Spanish
+ - Swedish
+ - ja
+ - zh_TW
+ - af
+ - ml
+ - eo
+
 3.30.0 - "Shinwell"
 ===================
 

@@ -337,6 +337,7 @@ var Application = new Lang.Class({
     },
 
     vfunc_startup: function() {
+        application = this;
         this.parent();
         String.prototype.format = Format.format;
 
