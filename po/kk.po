@@ -6,10 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-12-03 17:11+0000\n"
-"PO-Revision-Date: 2018-03-03 20:31+0500\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-documents/issues\n"
+"POT-Creation-Date: 2019-02-01 01:55+0000\n"
+"PO-Revision-Date: 2019-02-16 18:43+0500\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
 "Language: kk\n"
@@ -17,126 +16,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.2.1\n"
 
-#: data/org.gnome.Books.metainfo.xml.in:7 data/org.gnome.Books.desktop.in:3
-#: src/application.js:112 src/overview.js:1052
-msgid "Books"
-msgstr "Кітаптар"
-
-#: data/org.gnome.Books.metainfo.xml.in:8
-msgid "An e-book manager application for GNOME"
-msgstr "GNOME үшін электрондық кітаптарды басқару қолданбасы"
-
-#: data/org.gnome.Books.metainfo.xml.in:10
-msgid ""
-"A simple application to access and organize your e-books on GNOME. It is "
-"meant to be a simple and elegant replacement for using a file manager to "
-"deal with e-books."
-msgstr ""
-"GNOME ішінде электрондық кітаптарыңызға қатынау және оларды реттеу үшін "
-"арналған қарапайым қолданба. Ол эл. кітаптармен жұмысы үшін файлдар "
-"басқарушысын алмастыратын қарапайым әрі элегантты шешім ретінде ұсынылады."
-
-#: data/org.gnome.Books.metainfo.xml.in:15
-#: data/org.gnome.Documents.metainfo.xml.in:16
-msgid "It lets you:"
-msgstr "Мүмкіндіктері:"
-
-#: data/org.gnome.Books.metainfo.xml.in:17
-msgid "View recent e-books"
-msgstr "Соңғы эл. кітаптарды қарау"
-
-#: data/org.gnome.Books.metainfo.xml.in:18
-msgid "Search through e-books"
-msgstr "Эл. кітаптар ішінен іздеу"
-
-#: data/org.gnome.Books.metainfo.xml.in:19
-msgid "View e-books (PDF and comics) fullscreen"
-msgstr "Эл. кітаптарды (PDF және комикстер) толық экранда қарау"
-
-#: data/org.gnome.Books.metainfo.xml.in:20
-msgid "Print e-books"
-msgstr "Эл. кітаптарды баспаға шығару"
-
-#: data/org.gnome.Books.metainfo.xml.in:32
-#: data/org.gnome.Documents.metainfo.xml.in:39
-msgid "The GNOME Project"
-msgstr "GNOME жобасы"
-
-#: data/org.gnome.Books.desktop.in:4
-msgid "Access, manage and share books"
-msgstr "Кітаптарға қатынау, басқару және олармен бөлісу"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.Books.desktop.in:7
-msgid "org.gnome.Books"
-msgstr "org.gnome.Books"
-
-#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.Books.desktop.in:15
-msgid "Books;Comics;ePub;PDF;"
-msgstr "Books;Comics;ePub;PDF;Кітаптар;комикстер;"
-
-#: data/org.gnome.books.gschema.xml:5 data/org.gnome.documents.gschema.xml:5
-msgid "View as"
-msgstr "Қалайша қарау"
-
-#: data/org.gnome.books.gschema.xml:6 data/org.gnome.documents.gschema.xml:6
-msgid "View as type"
-msgstr "Түрі ретінде қарау"
-
-#: data/org.gnome.books.gschema.xml:10 data/org.gnome.documents.gschema.xml:10
-msgid "Sort by"
-msgstr "Бойынша сұрыптау"
-
-#: data/org.gnome.books.gschema.xml:11 data/org.gnome.documents.gschema.xml:11
-msgid "Sort by type"
-msgstr "Түрі бойынша сұрыптау"
-
-#: data/org.gnome.books.gschema.xml:15 data/org.gnome.documents.gschema.xml:15
-msgid "Window size"
-msgstr "Терезе өлшемі"
-
-#: data/org.gnome.books.gschema.xml:16 data/org.gnome.documents.gschema.xml:16
-msgid "Window size (width and height)."
-msgstr "Терезе өлшемі (ені мен биіктігі)."
-
-#: data/org.gnome.books.gschema.xml:20 data/org.gnome.documents.gschema.xml:20
-msgid "Window position"
-msgstr "Терезе орны"
-
-#: data/org.gnome.books.gschema.xml:21 data/org.gnome.documents.gschema.xml:21
-msgid "Window position (x and y)."
-msgstr "Терезе орны (x және y)."
-
-#: data/org.gnome.books.gschema.xml:25 data/org.gnome.documents.gschema.xml:25
-msgid "Window maximized"
-msgstr "Терезе максималды етілген"
-
-#: data/org.gnome.books.gschema.xml:26 data/org.gnome.documents.gschema.xml:26
-msgid "Window maximized state"
-msgstr "Терезе максималды күйі"
-
-#: data/org.gnome.books.gschema.xml:30 data/org.gnome.documents.gschema.xml:30
-msgid "Night mode"
-msgstr "Түнгі режимі"
-
-#: data/org.gnome.books.gschema.xml:31 data/org.gnome.documents.gschema.xml:31
-msgid "Whether the application is in night mode."
-msgstr "Қолданба түнгі режимінде ме, соны көрсетеді."
-
-#: data/org.gnome.Documents.metainfo.xml.in:7
-#: data/org.gnome.Documents.desktop.in:3 src/application.js:115
-#: src/overview.js:1052
+#: data/org.gnome.Documents.appdata.xml.in:7
+#: data/org.gnome.Documents.desktop.in:3 src/application.js:109
+#: src/overview.js:1046
 msgid "Documents"
 msgstr "Құжаттар қолданбасы"
 
-#: data/org.gnome.Documents.metainfo.xml.in:8
+#: data/org.gnome.Documents.appdata.xml.in:8
 msgid "A document manager application for GNOME"
 msgstr "GNOME үшін құжаттарды басқару қолданбасы"
 
-#: data/org.gnome.Documents.metainfo.xml.in:10
+#: data/org.gnome.Documents.appdata.xml.in:10
 msgid ""
 "A simple application to access, organize and share your documents on GNOME. "
 "It is meant to be a simple and elegant replacement for using a file manager "
@@ -148,37 +40,45 @@ msgstr ""
 "алмастыратын қарапайым әрі элегантты шешім ретінде ұсынылады. GNOME желілік "
 "тіркелгілері арқылы бұлттық қызметтермен жапсарсыз интеграция іске асырылады."
 
-#: data/org.gnome.Documents.metainfo.xml.in:18
+#: data/org.gnome.Documents.appdata.xml.in:16
+msgid "It lets you:"
+msgstr "Мүмкіндіктері:"
+
+#: data/org.gnome.Documents.appdata.xml.in:18
 msgid "View recent local and online documents"
 msgstr "Жуырдағы жергілікті және онлайн құжаттарын қарау"
 
-#: data/org.gnome.Documents.metainfo.xml.in:19
+#: data/org.gnome.Documents.appdata.xml.in:19
 msgid "Access your Google, ownCloud or OneDrive content"
 msgstr "Өзіңіздің Google, ownCloud не OneDrive құрамасына қатынаңыз"
 
-#: data/org.gnome.Documents.metainfo.xml.in:20
+#: data/org.gnome.Documents.appdata.xml.in:20
 msgid "Search through documents"
 msgstr "Құжаттар ішінен іздеу"
 
-#: data/org.gnome.Documents.metainfo.xml.in:21
+#: data/org.gnome.Documents.appdata.xml.in:21
 msgid "See new documents shared by friends"
 msgstr "Достар бөліскен жаңа құжаттарды қарау"
 
-#: data/org.gnome.Documents.metainfo.xml.in:22
+#: data/org.gnome.Documents.appdata.xml.in:22
 msgid "View documents fullscreen"
 msgstr "Құжаттарды толық экранда қарау"
 
-#: data/org.gnome.Documents.metainfo.xml.in:23
+#: data/org.gnome.Documents.appdata.xml.in:23
 msgid "Print documents"
 msgstr "Құжаттарды баспаға шығару"
 
-#: data/org.gnome.Documents.metainfo.xml.in:24
+#: data/org.gnome.Documents.appdata.xml.in:24
 msgid "Select favorites"
 msgstr "Таңдамалыларды таңдау"
 
-#: data/org.gnome.Documents.metainfo.xml.in:25
+#: data/org.gnome.Documents.appdata.xml.in:25
 msgid "Allow opening full featured editor for non-trivial changes"
 msgstr "Қарапайым емес өзгерістер үшін түзеткішті ашуды рұқсат ету"
+
+#: data/org.gnome.Documents.appdata.xml.in:39
+msgid "The GNOME Project"
+msgstr "GNOME жобасы"
 
 #: data/org.gnome.Documents.desktop.in:4
 msgid "Access, manage and share documents"
@@ -194,26 +94,69 @@ msgstr "org.gnome.Documents"
 msgid "Docs;PDF;Document;"
 msgstr "Құжаттар;PDF;Құжат;"
 
-#: data/ui/app-menu.ui:6 src/preview.js:453
+#: data/org.gnome.documents.gschema.xml:5
+msgid "View as"
+msgstr "Қалайша қарау"
+
+#: data/org.gnome.documents.gschema.xml:6
+msgid "View as type"
+msgstr "Түрі ретінде қарау"
+
+#: data/org.gnome.documents.gschema.xml:10
+msgid "Sort by"
+msgstr "Бойынша сұрыптау"
+
+#: data/org.gnome.documents.gschema.xml:11
+msgid "Sort by type"
+msgstr "Түрі бойынша сұрыптау"
+
+#: data/org.gnome.documents.gschema.xml:15
+msgid "Window size"
+msgstr "Терезе өлшемі"
+
+#: data/org.gnome.documents.gschema.xml:16
+msgid "Window size (width and height)."
+msgstr "Терезе өлшемі (ені мен биіктігі)."
+
+#: data/org.gnome.documents.gschema.xml:20
+msgid "Window position"
+msgstr "Терезе орны"
+
+#: data/org.gnome.documents.gschema.xml:21
+msgid "Window position (x and y)."
+msgstr "Терезе орны (x және y)."
+
+#: data/org.gnome.documents.gschema.xml:25
+msgid "Window maximized"
+msgstr "Терезе максималды етілген"
+
+#: data/org.gnome.documents.gschema.xml:26
+msgid "Window maximized state"
+msgstr "Терезе максималды күйі"
+
+#: data/org.gnome.documents.gschema.xml:30
+msgid "Night mode"
+msgstr "Түнгі режимі"
+
+#: data/org.gnome.documents.gschema.xml:31
+msgid "Whether the application is in night mode."
+msgstr "Қолданба түнгі режимінде ме, соны көрсетеді."
+
+#: data/ui/documents-app-menu.ui:6 src/preview.js:447
 msgid "Night Mode"
 msgstr "Түнгі режимі"
 
-#: data/ui/app-menu.ui:12
+#: data/ui/documents-app-menu.ui:12
 msgid "Keyboard Shortcuts"
 msgstr "Пернетақта жарлықтары"
 
-#: data/ui/app-menu.ui:16
+#: data/ui/documents-app-menu.ui:16
 msgid "Help"
 msgstr "Көмек"
 
-#: data/ui/app-menu.ui:20
-msgid "About"
-msgstr "Осы туралы"
-
-#: data/ui/app-menu.ui:24
-msgctxt "app menu"
-msgid "Quit"
-msgstr "Шығу"
+#: data/ui/documents-app-menu.ui:20
+msgid "About Documents"
+msgstr "Құжаттар қолданбасы туралы"
 
 #: data/ui/help-overlay.ui:11
 msgctxt "shortcut window"
@@ -330,11 +273,11 @@ msgid "Add"
 msgstr "Қосу"
 
 #: data/ui/organize-collection-dialog.ui:163 data/ui/selection-toolbar.ui:88
-#: src/overview.js:1056 src/search.js:126 src/search.js:132
+#: src/overview.js:1049 src/search.js:123
 msgid "Collections"
 msgstr "Жинақтар"
 
-#: data/ui/organize-collection-dialog.ui:167 src/overview.js:616
+#: data/ui/organize-collection-dialog.ui:167 src/overview.js:607
 msgid "Cancel"
 msgstr "Бас тарту"
 
@@ -349,7 +292,7 @@ msgstr "_Көшіру"
 
 #. Translators: this is the Open action in a context menu
 #: data/ui/preview-menu.ui:6 data/ui/selection-toolbar.ui:9
-#: src/selections.js:988
+#: src/selections.js:982
 msgid "Open"
 msgstr "Ашу"
 
@@ -361,7 +304,7 @@ msgstr "Түзету"
 msgid "Print…"
 msgstr "Баспаға шығару…"
 
-#: data/ui/preview-menu.ui:21 src/preview.js:462
+#: data/ui/preview-menu.ui:21 src/preview.js:456
 msgid "Fullscreen"
 msgstr "Толық экранға"
 
@@ -422,106 +365,95 @@ msgstr "Күні"
 msgid "Name"
 msgstr "Аты"
 
-#: src/application.js:126
+#: src/application.js:119
 msgid "Show the version of the program"
 msgstr "Бағдарлама нұсқасын көрсету"
 
-#: src/documents.js:794
+#: src/documents.js:778
 msgid "Failed to print document"
 msgstr "Құжатты баспаға шығару сәтсіз аяқталды"
 
 #. Translators: this refers to local documents
-#: src/documents.js:836 src/search.js:459
+#: src/documents.js:820 src/search.js:433
 msgid "Local"
 msgstr "Жергілікті"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: src/documents.js:879
+#: src/documents.js:863
 msgid "GNOME"
 msgstr "GNOME"
 
-#: src/documents.js:880
+#: src/documents.js:864
 msgid "Getting Started with Documents"
 msgstr "Құжаттар қолданбасымен жұмысты бастау"
 
-#: src/documents.js:905 src/documents.js:1115 src/documents.js:1218
-#: src/documents.js:1412
+#: src/documents.js:889 src/documents.js:1113 src/documents.js:1214
+#: src/documents.js:1408
 msgid "Collection"
 msgstr "Жинақ"
 
 #. overridden
-#: src/documents.js:972
+#: src/documents.js:970
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: src/documents.js:973
+#: src/documents.js:971
 msgid "Google"
 msgstr "Google"
 
-#: src/documents.js:1117 src/documents.js:1414
+#: src/documents.js:1115 src/documents.js:1410
 msgid "Spreadsheet"
 msgstr "Электрондық кесте"
 
-#: src/documents.js:1119 src/documents.js:1416 src/presentation.js:44
+#: src/documents.js:1117 src/documents.js:1412 src/presentation.js:43
 msgid "Presentation"
 msgstr "Презентация"
 
-#: src/documents.js:1121 src/documents.js:1418
-msgid "e-Book"
-msgstr "эл. кітап"
-
-#: src/documents.js:1123 src/documents.js:1420
+#: src/documents.js:1119 src/documents.js:1414
 msgid "Document"
 msgstr "Құжат"
 
 #. overridden
-#: src/documents.js:1173
+#: src/documents.js:1169
 msgid "ownCloud"
 msgstr "ownCloud"
 
 #. overridden
-#: src/documents.js:1307 src/documents.js:1308
+#: src/documents.js:1303 src/documents.js:1304
 msgid "OneDrive"
 msgstr "OneDrive"
 
-#: src/documents.js:1594
+#: src/documents.js:1588
 msgid "Please check the network connection."
 msgstr "Желілік байланысты тексеріңіз."
 
-#: src/documents.js:1597
+#: src/documents.js:1591
 msgid "Please check the network proxy settings."
 msgstr "Желілік прокси баптауларын тексеріңіз."
 
-#: src/documents.js:1600
+#: src/documents.js:1594
 msgid "Unable to sign in to the document service."
 msgstr "Құжаттарды сақтау қызметіне кіру мүмкін емес."
 
-#: src/documents.js:1603
+#: src/documents.js:1597
 msgid "Unable to locate this document."
 msgstr "Бұл құжатты табу мүмкін емес."
 
-#: src/documents.js:1606
+#: src/documents.js:1600
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Қап, бірнәрсе біртүрлі болып тұр (%d)."
 
-#: src/documents.js:1613
-msgid ""
-"You are using a preview of Books. Full viewing capabilities are coming soon!"
-msgstr ""
-"Сіз Кітаптар қолданбасының алдын-ала нұсқасын қолданудасыз. Толық "
-"мүмкіндіктері жақында шығарылады!"
-
-#: src/documents.js:1615
+#: src/documents.js:1606
 msgid ""
 "LibreOffice support is not available. Please contact your system "
 "administrator."
 msgstr "LibreOffice қолдауы қолжетерсіз. Жүйелік әкімшіңізге хабарласыңыз."
 
 #. Translators: %s is the title of a document
-#: src/documents.js:1638
+#: src/documents.js:1629
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Қап! “%s” жүктеу мүмкін емес"
@@ -531,16 +463,11 @@ msgstr "Қап! “%s” жүктеу мүмкін емес"
 msgid "View"
 msgstr "Қарау"
 
-#: src/epubview.js:228
-#, javascript-format
-msgid "chapter %s of %s"
-msgstr "санат %s, барлығы %s"
-
-#: src/evinceview.js:590 src/lib/gd-places-bookmarks.c:656
+#: src/evinceview.js:587 src/lib/gd-places-bookmarks.c:656
 msgid "Bookmarks"
 msgstr "Бетбелгілер"
 
-#: src/evinceview.js:598
+#: src/evinceview.js:595
 msgid "Bookmark this page"
 msgstr "Бұл парақты бетбелгілерге қосу"
 
@@ -578,23 +505,24 @@ msgid "Contents"
 msgstr "Құрамасы"
 
 #: src/lib/gd-utils.c:328
-msgid "A document manager application"
-msgstr "Құжаттарды басқару қолданбасы"
-
-#: src/lib/gd-utils.c:333
-msgid "An e-books manager application"
-msgstr "Электрондық кітаптарды басқару қолданбасы"
-
-#: src/lib/gd-utils.c:340
 msgid "translator-credits"
 msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com>"
 
-#: src/mainToolbar.js:91
+#: src/lib/gd-utils.c:329
+msgid "A document manager application"
+msgstr "Құжаттарды басқару қолданбасы"
+
+#: src/mainToolbar.js:95
+msgctxt "menu button tooltip"
+msgid "Menu"
+msgstr "Мәзір"
+
+#: src/mainToolbar.js:105
 msgctxt "toolbar button tooltip"
 msgid "Search"
 msgstr "Іздеу"
 
-#: src/mainToolbar.js:100
+#: src/mainToolbar.js:114
 msgid "Back"
 msgstr "Артқа"
 
@@ -612,7 +540,7 @@ msgid "%d item deleted"
 msgid_plural "%d items deleted"
 msgstr[0] "%d нәрсе өшірілді"
 
-#: src/notifications.js:61 src/selections.js:387
+#: src/notifications.js:61 src/selections.js:380
 msgid "Undo"
 msgstr "Болдырмау"
 
@@ -645,10 +573,6 @@ msgid "No collections found"
 msgstr "Жинақтар табылмады"
 
 #: src/overview.js:277
-msgid "No books found"
-msgstr "Кітаптар табылмады"
-
-#: src/overview.js:277
 msgid "No documents found"
 msgstr "Құжаттар табылмады"
 
@@ -656,15 +580,11 @@ msgstr "Құжаттар табылмады"
 msgid "Try a different search"
 msgstr "Басқа сөздерді іздеп көріңіз"
 
-#: src/overview.js:293
-msgid "You can create collections from the Books view"
-msgstr "Сіз жинақтарды кітаптар көрінісінен жасай аласыз"
-
-#: src/overview.js:295
+#: src/overview.js:291
 msgid "You can create collections from the Documents view"
 msgstr "Сіз жинақтарды құжаттар көрінісінен жасай аласыз"
 
-#: src/overview.js:305
+#: src/overview.js:296
 #, javascript-format
 msgid ""
 "Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
@@ -674,59 +594,59 @@ msgstr ""
 "\"file://%s\">Құжаттар бумасы</a> ішінен құжаттар осында көрсетілетін болады."
 
 #. Translators: this is the menu to change view settings
-#: src/overview.js:562
+#: src/overview.js:553
 msgid "View Menu"
 msgstr "Көрініс мәзірі"
 
-#: src/overview.js:590
+#: src/overview.js:581
 msgid "Click on items to select them"
 msgstr "Бірнәрсені таңдау үшін оның үстіне шертіңіз"
 
-#: src/overview.js:592
+#: src/overview.js:583
 #, javascript-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d таңдалды"
 
-#: src/overview.js:669
+#: src/overview.js:664
 msgid "Select Items"
 msgstr "Нәрселерді таңдау"
 
-#: src/overview.js:876
+#: src/overview.js:870
 msgid "Yesterday"
 msgstr "Кеше"
 
-#: src/overview.js:878
+#: src/overview.js:872
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d күн бұрын"
 
-#: src/overview.js:882
+#: src/overview.js:876
 msgid "Last week"
 msgstr "Өткен апта"
 
-#: src/overview.js:884
+#: src/overview.js:878
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d апта бұрын"
 
-#: src/overview.js:888
+#: src/overview.js:882
 msgid "Last month"
 msgstr "Өткен ай"
 
-#: src/overview.js:890
+#: src/overview.js:884
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d ай бұрын"
 
-#: src/overview.js:894
+#: src/overview.js:888
 msgid "Last year"
 msgstr "Былтыр"
 
-#: src/overview.js:896
+#: src/overview.js:890
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -749,42 +669,42 @@ msgstr "%s құжаты блокталған және оны ашу үшін п�
 msgid "_Password"
 msgstr "_Пароль"
 
-#: src/presentation.js:102
+#: src/presentation.js:101
 msgid "Running in presentation mode"
 msgstr "Презентация режимінде орындалу"
 
-#: src/presentation.js:130
+#: src/presentation.js:129
 msgid "Present On"
 msgstr "Қайда бар"
 
 #. Translators: "Mirrored" describes when both displays show the same view
-#: src/presentation.js:166
+#: src/presentation.js:165
 msgid "Mirrored"
 msgstr "Айналы"
 
-#: src/presentation.js:168
+#: src/presentation.js:167
 msgid "Primary"
 msgstr "Біріншілік"
 
-#: src/presentation.js:170
+#: src/presentation.js:169
 msgid "Off"
 msgstr "Сөндірілген"
 
-#: src/presentation.js:172
+#: src/presentation.js:171
 msgid "Secondary"
 msgstr "Екіншілік"
 
 #. Translators: this is the Open action in a context menu
-#: src/preview.js:445 src/selections.js:985
+#: src/preview.js:439 src/selections.js:979
 #, javascript-format
 msgid "Open with %s"
 msgstr "%s көмегімен ашу"
 
-#: src/preview.js:770
+#: src/preview.js:764
 msgid "Find Previous"
 msgstr "Алдыңғысын табу"
 
-#: src/preview.js:776
+#: src/preview.js:770
 msgid "Find Next"
 msgstr "Келесісін табу"
 
@@ -827,96 +747,88 @@ msgstr "Түрі"
 
 #. Translators: "Type" refers to a search filter on the document type
 #. (PDF, spreadsheet, ...)
-#: src/search.js:120
+#: src/search.js:118
 msgctxt "Search Filter"
 msgid "Type"
 msgstr "Түрі"
 
 #. Translators: this refers to documents
-#: src/search.js:123 src/search.js:260 src/search.js:453
+#: src/search.js:121 src/search.js:233 src/search.js:427
 msgid "All"
 msgstr "Барлығы"
 
-#: src/search.js:136
+#: src/search.js:127
 msgid "PDF Documents"
 msgstr "PDF құжаттары"
 
-#: src/search.js:143
-msgid "e-Books"
-msgstr "эл. кітаптар"
-
-#: src/search.js:147
-msgid "Comics"
-msgstr "Комикстер"
-
-#: src/search.js:152
+#: src/search.js:132
 msgid "Presentations"
 msgstr "Презентациялар"
 
-#: src/search.js:155
+#: src/search.js:135
 msgid "Spreadsheets"
 msgstr "Электрондық кесте құжаттары"
 
-#: src/search.js:158
+#: src/search.js:138
 msgid "Text Documents"
 msgstr "Мәтiндiк құжаттар"
 
 #. Translators: this is a verb that refers to "All", "Title", "Author",
 #. and "Content" as in "Match All", "Match Title", "Match Author", and
 #. "Match Content"
-#: src/search.js:257
+#: src/search.js:230
 msgid "Match"
 msgstr "Сәйкес"
 
 #. Translators: "Title" refers to "Match Title" when searching
-#: src/search.js:263
+#: src/search.js:236
 msgctxt "Search Filter"
 msgid "Title"
 msgstr "Атауы"
 
 #. Translators: "Author" refers to "Match Author" when searching
-#: src/search.js:266
+#: src/search.js:239
 msgctxt "Search Filter"
 msgid "Author"
 msgstr "Авторы"
 
 #. Translators: "Content" refers to "Match Content" when searching
-#: src/search.js:269
+#: src/search.js:242
 msgctxt "Search Filter"
 msgid "Content"
 msgstr "Құрамасы"
 
-#: src/search.js:449
+#: src/search.js:423
 msgid "Sources"
 msgstr "Қайнар көздер"
 
 #. Translators: the first %s is an online account provider name,
 #. e.g. "Google". The second %s is the identity used to log in,
 #. e.g. "foo@gmail.com".
-#: src/search.js:508
+#: src/search.js:480
 #, javascript-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: src/selections.js:360 src/selections.js:362
+#: src/selections.js:353 src/selections.js:355
 msgid "Rename…"
 msgstr "Атын ауыстыру…"
 
-#: src/selections.js:366 src/selections.js:368
+#: src/selections.js:359 src/selections.js:361
 msgid "Delete"
 msgstr "Өшіру"
 
-#: src/selections.js:382
+#: src/selections.js:375
 #, javascript-format
 msgid "“%s” removed"
 msgstr "\"%s\" өшірілді"
 
-#: src/selections.js:779
+#: src/selections.js:772
 msgid "Rename"
 msgstr "Атын ауыстыру"
 
 #. Translators: "Collections" refers to documents in this context
-#: src/selections.js:785
+#: src/selections.js:778
 msgctxt "Dialog Title"
 msgid "Collections"
 msgstr "Жинақтар"
@@ -996,6 +908,77 @@ msgstr "Атаусыз құжат"
 #: src/trackerController.js:176
 msgid "Unable to fetch the list of documents"
 msgstr "Құжаттар тізімін алу мүмкін емес"
+
+#~ msgid "Books"
+#~ msgstr "Кітаптар"
+
+#~ msgid "An e-book manager application for GNOME"
+#~ msgstr "GNOME үшін электрондық кітаптарды басқару қолданбасы"
+
+#~ msgid ""
+#~ "A simple application to access and organize your e-books on GNOME. It is "
+#~ "meant to be a simple and elegant replacement for using a file manager to "
+#~ "deal with e-books."
+#~ msgstr ""
+#~ "GNOME ішінде электрондық кітаптарыңызға қатынау және оларды реттеу үшін "
+#~ "арналған қарапайым қолданба. Ол эл. кітаптармен жұмысы үшін файлдар "
+#~ "басқарушысын алмастыратын қарапайым әрі элегантты шешім ретінде ұсынылады."
+
+#~ msgid "View recent e-books"
+#~ msgstr "Соңғы эл. кітаптарды қарау"
+
+#~ msgid "Search through e-books"
+#~ msgstr "Эл. кітаптар ішінен іздеу"
+
+#~ msgid "View e-books (PDF and comics) fullscreen"
+#~ msgstr "Эл. кітаптарды (PDF және комикстер) толық экранда қарау"
+
+#~ msgid "Print e-books"
+#~ msgstr "Эл. кітаптарды баспаға шығару"
+
+#~ msgid "Access, manage and share books"
+#~ msgstr "Кітаптарға қатынау, басқару және олармен бөлісу"
+
+#~ msgid "org.gnome.Books"
+#~ msgstr "org.gnome.Books"
+
+#~ msgid "Books;Comics;ePub;PDF;"
+#~ msgstr "Books;Comics;ePub;PDF;Кітаптар;комикстер;"
+
+#~ msgid "About"
+#~ msgstr "Осы туралы"
+
+#~ msgctxt "app menu"
+#~ msgid "Quit"
+#~ msgstr "Шығу"
+
+#~ msgid "e-Book"
+#~ msgstr "эл. кітап"
+
+#~ msgid ""
+#~ "You are using a preview of Books. Full viewing capabilities are coming "
+#~ "soon!"
+#~ msgstr ""
+#~ "Сіз Кітаптар қолданбасының алдын-ала нұсқасын қолданудасыз. Толық "
+#~ "мүмкіндіктері жақында шығарылады!"
+
+#~ msgid "chapter %s of %s"
+#~ msgstr "санат %s, барлығы %s"
+
+#~ msgid "An e-books manager application"
+#~ msgstr "Электрондық кітаптарды басқару қолданбасы"
+
+#~ msgid "No books found"
+#~ msgstr "Кітаптар табылмады"
+
+#~ msgid "You can create collections from the Books view"
+#~ msgstr "Сіз жинақтарды кітаптар көрінісінен жасай аласыз"
+
+#~ msgid "e-Books"
+#~ msgstr "эл. кітаптар"
+
+#~ msgid "Comics"
+#~ msgstr "Комикстер"
 
 #~ msgctxt "shortcut window"
 #~ msgid "Rotate anti-clockwise"
