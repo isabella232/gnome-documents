@@ -9,10 +9,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-documents/"
-"issues\n"
-"POT-Creation-Date: 2018-10-06 19:34+0000\n"
-"PO-Revision-Date: 2018-10-18 14:23+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-documents/issues\n"
+"POT-Creation-Date: 2019-02-03 19:03+0000\n"
+"PO-Revision-Date: 2019-02-22 14:05+0100\n"
 "Last-Translator: Carmen Bianca BAKKER <carmen@carmenbianca.eu>\n"
 "Language-Team: Esperanto <gnome-eo-list@gnome.org>\n"
 "Language: eo\n"
@@ -20,112 +19,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2\n"
+"X-Generator: Poedit 2.2.1\n"
 "X-DamnedLies-Scope: partial\n"
 "X-Project-Style: gnome\n"
 
-#: data/org.gnome.Books.appdata.xml.in:7 data/org.gnome.Books.desktop.in:3
-#: src/application.js:112 src/overview.js:1052
-msgid "Books"
-msgstr "Libroj"
-
-#: data/org.gnome.Books.appdata.xml.in:8
-msgid "An e-book manager application for GNOME"
-msgstr "Bitlibra mastrum-aplikaĵo por GNOME"
-
-#: data/org.gnome.Books.appdata.xml.in:10
-msgid ""
-"A simple application to access and organize your e-books on GNOME. It is "
-"meant to be a simple and elegant replacement for using a file manager to "
-"deal with e-books."
-msgstr ""
-"Simpla aplikaĵo por aliri kaj organizi viajn bitlibrojn ene de GNOME. Ĝi "
-"celas esti simpla kaj eleganta anstataŭigo de dosierfoliumilo, rilate al "
-"dokumentojn."
-
-#: data/org.gnome.Books.appdata.xml.in:15
-#: data/org.gnome.Documents.appdata.xml.in:16
-msgid "It lets you:"
-msgstr "Ĝi permesas al vi:"
-
-#: data/org.gnome.Books.appdata.xml.in:17
-msgid "View recent e-books"
-msgstr "Rigardi freŝdatajn bitlibrojn"
-
-#: data/org.gnome.Books.appdata.xml.in:18
-msgid "Search through e-books"
-msgstr "Serĉi tra dokumentoj"
-
-#: data/org.gnome.Books.appdata.xml.in:19
-msgid "View e-books (PDF and comics) fullscreen"
-msgstr "Montri bitlibrojn (PDF-ojn kaj komiksojn) tutekrane"
-
-#: data/org.gnome.Books.appdata.xml.in:20
-msgid "Print e-books"
-msgstr "Presi bitlibrojn"
-
-#: data/org.gnome.Books.appdata.xml.in:32
-#: data/org.gnome.Documents.appdata.xml.in:39
-msgid "The GNOME Project"
-msgstr "La GNOME-projekto"
-
-#: data/org.gnome.Books.desktop.in:4
-msgid "Access, manage and share books"
-msgstr "Aliri, mastrumi kaj kunhavigi librojn"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.Books.desktop.in:7
-msgid "org.gnome.Books"
-msgstr "org.gnome.Books"
-
-#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.Books.desktop.in:15
-msgid "Books;Comics;ePub;PDF;"
-msgstr "Libroj;Komiksoj;ePub;PDF;"
-
-#: data/org.gnome.books.gschema.xml:5 data/org.gnome.documents.gschema.xml:5
-msgid "View as"
-msgstr "Vidi kiel"
-
-#: data/org.gnome.books.gschema.xml:6 data/org.gnome.documents.gschema.xml:6
-msgid "View as type"
-msgstr "Vidi kiel speco"
-
-#: data/org.gnome.books.gschema.xml:15 data/org.gnome.documents.gschema.xml:15
-msgid "Window size"
-msgstr "Fenestrogrando"
-
-#: data/org.gnome.books.gschema.xml:16 data/org.gnome.documents.gschema.xml:16
-msgid "Window size (width and height)."
-msgstr "Fenestrogrando (larĝo kaj alto)."
-
-#: data/org.gnome.books.gschema.xml:20 data/org.gnome.documents.gschema.xml:20
-msgid "Window position"
-msgstr "Pozicio de fenestro"
-
-#: data/org.gnome.books.gschema.xml:21 data/org.gnome.documents.gschema.xml:21
-msgid "Window position (x and y)."
-msgstr "Pozicio de fenestro (x kaj y)."
-
-#: data/org.gnome.books.gschema.xml:25 data/org.gnome.documents.gschema.xml:25
-msgid "Window maximized"
-msgstr "Fenestro maksimumigita"
-
-#: data/org.gnome.books.gschema.xml:26 data/org.gnome.documents.gschema.xml:26
-msgid "Window maximized state"
-msgstr "Maksimumigita stato de fenestro"
-
-#: data/org.gnome.books.gschema.xml:30 data/org.gnome.documents.gschema.xml:30
-msgid "Night mode"
-msgstr "Nokta reĝimo"
-
-#: data/org.gnome.books.gschema.xml:31 data/org.gnome.documents.gschema.xml:31
-msgid "Whether the application is in night mode."
-msgstr "Ĉu la aplikaĵo estas en nokta reĝimo aŭ ne."
-
 #: data/org.gnome.Documents.appdata.xml.in:7
-#: data/org.gnome.Documents.desktop.in:3 src/application.js:115
-#: src/overview.js:1052
+#: data/org.gnome.Documents.desktop.in:3 src/application.js:109
+#: src/overview.js:1046
 msgid "Documents"
 msgstr "Dokumentoj"
 
@@ -144,6 +44,10 @@ msgstr ""
 "GNOME. Ĝi celas esti simpla kaj eleganta anstataŭigo de dosieradministrilo, "
 "rilate al dokumentojn. Eblas flua integrado kun retaj kontoj pere de GNOME "
 "Retaj Kontoj."
+
+#: data/org.gnome.Documents.appdata.xml.in:16
+msgid "It lets you:"
+msgstr "Ĝi permesas al vi:"
 
 #: data/org.gnome.Documents.appdata.xml.in:18
 msgid "View recent local and online documents"
@@ -177,6 +81,10 @@ msgstr "Elekti ŝatatajn"
 msgid "Allow opening full featured editor for non-trivial changes"
 msgstr "Permesi malfermon de kompleta redaktilo por netrivialaj ŝanĝoj"
 
+#: data/org.gnome.Documents.appdata.xml.in:39
+msgid "The GNOME Project"
+msgstr "La GNOME-projekto"
+
 #: data/org.gnome.Documents.desktop.in:4
 msgid "Access, manage and share documents"
 msgstr "Aliri, mastrumi kaj kunhavigi dokumentojn"
@@ -191,26 +99,65 @@ msgstr "org.gnome.Documents"
 msgid "Docs;PDF;Document;"
 msgstr "Dok-oj;PDF;Dokumento;"
 
-#: data/ui/app-menu.ui:6 src/preview.js:452
+#: data/org.gnome.documents.gschema.xml:5
+msgid "View as"
+msgstr "Vidi kiel"
+
+#: data/org.gnome.documents.gschema.xml:6
+msgid "View as type"
+msgstr "Vidi kiel speco"
+
+#: data/org.gnome.documents.gschema.xml:10
+msgid "Sort by"
+msgstr "Ordigi laŭ"
+
+#: data/org.gnome.documents.gschema.xml:15
+msgid "Window size"
+msgstr "Fenestrogrando"
+
+#: data/org.gnome.documents.gschema.xml:16
+msgid "Window size (width and height)."
+msgstr "Fenestrogrando (larĝo kaj alto)."
+
+#: data/org.gnome.documents.gschema.xml:20
+msgid "Window position"
+msgstr "Pozicio de fenestro"
+
+#: data/org.gnome.documents.gschema.xml:21
+msgid "Window position (x and y)."
+msgstr "Pozicio de fenestro (x kaj y)."
+
+#: data/org.gnome.documents.gschema.xml:25
+msgid "Window maximized"
+msgstr "Fenestro maksimumigita"
+
+#: data/org.gnome.documents.gschema.xml:26
+msgid "Window maximized state"
+msgstr "Maksimumigita stato de fenestro"
+
+#: data/org.gnome.documents.gschema.xml:30
+msgid "Night mode"
+msgstr "Nokta reĝimo"
+
+#: data/org.gnome.documents.gschema.xml:31
+msgid "Whether the application is in night mode."
+msgstr "Ĉu la aplikaĵo estas en nokta reĝimo aŭ ne."
+
+#: data/ui/documents-app-menu.ui:6 src/preview.js:447
 msgid "Night Mode"
 msgstr "Nokta reĝimo"
 
-#: data/ui/app-menu.ui:12
+#: data/ui/documents-app-menu.ui:12
 msgid "Keyboard Shortcuts"
 msgstr "Klavokombinoj"
 
-#: data/ui/app-menu.ui:16
+#: data/ui/documents-app-menu.ui:16
 msgid "Help"
 msgstr "Helpo"
 
-#: data/ui/app-menu.ui:20
-msgid "About"
-msgstr "Pri"
-
-#: data/ui/app-menu.ui:24
-msgctxt "app menu"
-msgid "Quit"
-msgstr "Ĉesi"
+#: data/ui/documents-app-menu.ui:20
+msgid "About Documents"
+msgstr "Pri Dokumentoj"
 
 #: data/ui/help-overlay.ui:11
 msgctxt "shortcut window"
@@ -327,11 +274,11 @@ msgid "Add"
 msgstr "Aldoni"
 
 #: data/ui/organize-collection-dialog.ui:163 data/ui/selection-toolbar.ui:88
-#: src/overview.js:1056 src/search.js:126 src/search.js:132
+#: src/overview.js:1049 src/search.js:123
 msgid "Collections"
 msgstr "Kolektoj"
 
-#: data/ui/organize-collection-dialog.ui:167 src/overview.js:616
+#: data/ui/organize-collection-dialog.ui:167 src/overview.js:607
 msgid "Cancel"
 msgstr "Nuligi"
 
@@ -346,7 +293,7 @@ msgstr "_Kopii"
 
 #. Translators: this is the Open action in a context menu
 #: data/ui/preview-menu.ui:6 data/ui/selection-toolbar.ui:9
-#: src/selections.js:990
+#: src/selections.js:982
 msgid "Open"
 msgstr "Malfermi"
 
@@ -358,7 +305,7 @@ msgstr "Redakti"
 msgid "Print…"
 msgstr "Presi…"
 
-#: data/ui/preview-menu.ui:21 src/preview.js:461
+#: data/ui/preview-menu.ui:21 src/preview.js:456
 msgid "Fullscreen"
 msgstr "Tutekrana reĝimo"
 
@@ -419,106 +366,96 @@ msgstr "Dato"
 msgid "Name"
 msgstr "Nomo"
 
-#: src/application.js:126
+#: src/application.js:119
 msgid "Show the version of the program"
 msgstr "Montri la version de la programo"
 
-#: src/documents.js:794
+#: src/documents.js:778
 msgid "Failed to print document"
 msgstr "Malsukcesis presi dokumenton"
 
 #. Translators: this refers to local documents
-#: src/documents.js:836 src/search.js:459
+#: src/documents.js:820 src/search.js:433
 msgid "Local"
 msgstr "Loka"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: src/documents.js:879
+#: src/documents.js:863
 msgid "GNOME"
 msgstr "GNOME"
 
-#: src/documents.js:880
+#: src/documents.js:864
 msgid "Getting Started with Documents"
 msgstr "Komenci tuj kun Dokumentoj"
 
-#: src/documents.js:905 src/documents.js:1129 src/documents.js:1232
-#: src/documents.js:1426
+#: src/documents.js:889 src/documents.js:1113 src/documents.js:1214
+#: src/documents.js:1408
 msgid "Collection"
 msgstr "Kolekto"
 
 #. overridden
-#: src/documents.js:986
+#: src/documents.js:970
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: src/documents.js:987
+#: src/documents.js:971
 msgid "Google"
 msgstr "Google"
 
-#: src/documents.js:1131 src/documents.js:1428
+#: src/documents.js:1115 src/documents.js:1410
 msgid "Spreadsheet"
 msgstr "Kalkultabelo"
 
-#: src/documents.js:1133 src/documents.js:1430 src/presentation.js:43
+#: src/documents.js:1117 src/documents.js:1412 src/presentation.js:43
 msgid "Presentation"
 msgstr "Prezentaĵo"
 
-#: src/documents.js:1135 src/documents.js:1432
-msgid "e-Book"
-msgstr "Bitlibro"
-
-#: src/documents.js:1137 src/documents.js:1434
+#: src/documents.js:1119 src/documents.js:1414
 msgid "Document"
 msgstr "Dokumento"
 
 #. overridden
-#: src/documents.js:1187
+#: src/documents.js:1169
 msgid "ownCloud"
 msgstr "ownCloud"
 
 #. overridden
-#: src/documents.js:1321 src/documents.js:1322
+#: src/documents.js:1303 src/documents.js:1304
 msgid "OneDrive"
 msgstr "OneDrive"
 
-#: src/documents.js:1608
+#: src/documents.js:1588
 msgid "Please check the network connection."
 msgstr "Bonvolu kontroli retkonekton."
 
-#: src/documents.js:1611
+#: src/documents.js:1591
 msgid "Please check the network proxy settings."
 msgstr "Bonvolu kontroli la retprokurilajn agordojn."
 
-#: src/documents.js:1614
+#: src/documents.js:1594
 msgid "Unable to sign in to the document service."
 msgstr "Ne eblis saluti en la dokumentservon."
 
-#: src/documents.js:1617
+#: src/documents.js:1597
 msgid "Unable to locate this document."
 msgstr "Ne eblis trovi la dokumenton."
 
-#: src/documents.js:1620
+#: src/documents.js:1600
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Hm, io malpravas (%d)."
 
-#: src/documents.js:1627
-msgid ""
-"You are using a preview of Books. Full viewing capabilities are coming soon!"
-msgstr "Vi uzas antaŭrigardon de Libroj. Kompletaj vid-kapabloj baldaŭ venos!"
-
-#: src/documents.js:1629
+#: src/documents.js:1606
 msgid ""
 "LibreOffice support is not available. Please contact your system "
 "administrator."
 msgstr ""
-"LibreOffice-subteno nedisponeblas. Bonvolu kontakti vian "
-"sistemadministranto."
+"LibreOffice-subteno nedisponeblas. Bonvolu kontakti vian sistemadministranto."
 
 #. Translators: %s is the title of a document
-#: src/documents.js:1652
+#: src/documents.js:1629
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Ups! Ne eblas ŝargi “%s”"
@@ -528,16 +465,11 @@ msgstr "Ups! Ne eblas ŝargi “%s”"
 msgid "View"
 msgstr "Vido"
 
-#: src/epubview.js:228
-#, javascript-format
-msgid "chapter %s of %s"
-msgstr "ĉapitro %s de %s"
-
-#: src/evinceview.js:591 src/lib/gd-places-bookmarks.c:656
+#: src/evinceview.js:587 src/lib/gd-places-bookmarks.c:656
 msgid "Bookmarks"
 msgstr "Legosignoj"
 
-#: src/evinceview.js:599
+#: src/evinceview.js:595
 msgid "Bookmark this page"
 msgstr "Legosigni tiun ĉi paĝon"
 
@@ -575,14 +507,6 @@ msgid "Contents"
 msgstr "Enhavoj"
 
 #: src/lib/gd-utils.c:328
-msgid "A document manager application"
-msgstr "Dokumentmastrumila aplikaĵo"
-
-#: src/lib/gd-utils.c:333
-msgid "An e-books manager application"
-msgstr "Bitlibra mastrum-aplikaĵo"
-
-#: src/lib/gd-utils.c:340
 msgid "translator-credits"
 msgstr ""
 "Tiffany ANTOPOLSKI\n"
@@ -590,12 +514,21 @@ msgstr ""
 "Daniel PUENTES\n"
 "Carmen Bianca BAKKER <carmen@carmenbianca.eu>"
 
-#: src/mainToolbar.js:91
+#: src/lib/gd-utils.c:329
+msgid "A document manager application"
+msgstr "Dokumentmastrumila aplikaĵo"
+
+#: src/mainToolbar.js:95
+msgctxt "menu button tooltip"
+msgid "Menu"
+msgstr "Menuo"
+
+#: src/mainToolbar.js:105
 msgctxt "toolbar button tooltip"
 msgid "Search"
 msgstr "Serĉi"
 
-#: src/mainToolbar.js:100
+#: src/mainToolbar.js:114
 msgid "Back"
 msgstr "Reen"
 
@@ -614,7 +547,7 @@ msgid_plural "%d items deleted"
 msgstr[0] "%d ero estis forigita"
 msgstr[1] "%d eroj estis forigitaj"
 
-#: src/notifications.js:61 src/selections.js:387
+#: src/notifications.js:61 src/selections.js:380
 msgid "Undo"
 msgstr "Malfari"
 
@@ -647,10 +580,6 @@ msgid "No collections found"
 msgstr "Neniu kolekto trovita"
 
 #: src/overview.js:277
-msgid "No books found"
-msgstr "Neniu libro trovita"
-
-#: src/overview.js:277
 msgid "No documents found"
 msgstr "Neniu dokumento trovita"
 
@@ -658,15 +587,11 @@ msgstr "Neniu dokumento trovita"
 msgid "Try a different search"
 msgstr "Provu alian serĉon"
 
-#: src/overview.js:293
-msgid "You can create collections from the Books view"
-msgstr "Vi povas krei kolektojn el la Libroj vido"
-
-#: src/overview.js:295
+#: src/overview.js:291
 msgid "You can create collections from the Documents view"
 msgstr "Vi povas krei kolektojn el la Dokumentoj vido"
 
-#: src/overview.js:305
+#: src/overview.js:296
 #, javascript-format
 msgid ""
 "Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
@@ -676,63 +601,63 @@ msgstr ""
 "\"file://%s\">Dokumentoj-dosiero</a> ĉi tie aperos."
 
 #. Translators: this is the menu to change view settings
-#: src/overview.js:562
+#: src/overview.js:553
 msgid "View Menu"
 msgstr "Vidi meuon"
 
-#: src/overview.js:590
+#: src/overview.js:581
 msgid "Click on items to select them"
 msgstr "Klaki sur eroj por elekti ilin"
 
-#: src/overview.js:592
+#: src/overview.js:583
 #, javascript-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d elektita"
 msgstr[1] "%d elektitaj"
 
-#: src/overview.js:669
+#: src/overview.js:664
 msgid "Select Items"
 msgstr "Elektitaj eroj"
 
-#: src/overview.js:876
+#: src/overview.js:870
 msgid "Yesterday"
 msgstr "Hieraŭ"
 
-#: src/overview.js:878
+#: src/overview.js:872
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d tago antaŭe"
 msgstr[1] "%d tagoj antaŭe"
 
-#: src/overview.js:882
+#: src/overview.js:876
 msgid "Last week"
 msgstr "Pasintsemajne"
 
-#: src/overview.js:884
+#: src/overview.js:878
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d semajno antaŭe"
 msgstr[1] "%d semajnoj antaŭe"
 
-#: src/overview.js:888
+#: src/overview.js:882
 msgid "Last month"
 msgstr "Pasintmonate"
 
-#: src/overview.js:890
+#: src/overview.js:884
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d monato antaŭe"
 msgstr[1] "%d monatoj antaŭe"
 
-#: src/overview.js:894
+#: src/overview.js:888
 msgid "Last year"
 msgstr "Pasintjare"
 
-#: src/overview.js:896
+#: src/overview.js:890
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -782,16 +707,16 @@ msgid "Secondary"
 msgstr "Duaranga"
 
 #. Translators: this is the Open action in a context menu
-#: src/preview.js:444 src/selections.js:987
+#: src/preview.js:439 src/selections.js:979
 #, javascript-format
 msgid "Open with %s"
 msgstr "Malfermi per %s"
 
-#: src/preview.js:769
+#: src/preview.js:764
 msgid "Find Previous"
 msgstr "Serĉi antaŭan"
 
-#: src/preview.js:775
+#: src/preview.js:770
 msgid "Find Next"
 msgstr "Serĉi sekvan"
 
@@ -834,96 +759,88 @@ msgstr "Speco"
 
 #. Translators: "Type" refers to a search filter on the document type
 #. (PDF, spreadsheet, ...)
-#: src/search.js:120
+#: src/search.js:118
 msgctxt "Search Filter"
 msgid "Type"
 msgstr "Speco"
 
 #. Translators: this refers to documents
-#: src/search.js:123 src/search.js:260 src/search.js:453
+#: src/search.js:121 src/search.js:233 src/search.js:427
 msgid "All"
 msgstr "Ĉiuj"
 
-#: src/search.js:136
+#: src/search.js:127
 msgid "PDF Documents"
 msgstr "PDF-dokumentoj"
 
-#: src/search.js:143
-msgid "e-Books"
-msgstr "Bitlibroj"
-
-#: src/search.js:147
-msgid "Comics"
-msgstr "Komiksoj"
-
-#: src/search.js:152
+#: src/search.js:132
 msgid "Presentations"
 msgstr "Prezentaĵoj"
 
-#: src/search.js:155
+#: src/search.js:135
 msgid "Spreadsheets"
 msgstr "Kalkultabeloj"
 
-#: src/search.js:158
+#: src/search.js:138
 msgid "Text Documents"
 msgstr "Tekstdokumentoj"
 
 #. Translators: this is a verb that refers to "All", "Title", "Author",
 #. and "Content" as in "Match All", "Match Title", "Match Author", and
 #. "Match Content"
-#: src/search.js:257
+#: src/search.js:230
 msgid "Match"
 msgstr "Kongruo"
 
 #. Translators: "Title" refers to "Match Title" when searching
-#: src/search.js:263
+#: src/search.js:236
 msgctxt "Search Filter"
 msgid "Title"
 msgstr "Titolo"
 
 #. Translators: "Author" refers to "Match Author" when searching
-#: src/search.js:266
+#: src/search.js:239
 msgctxt "Search Filter"
 msgid "Author"
 msgstr "Aŭtoro"
 
 #. Translators: "Content" refers to "Match Content" when searching
-#: src/search.js:269
+#: src/search.js:242
 msgctxt "Search Filter"
 msgid "Content"
 msgstr "Enhavo"
 
-#: src/search.js:449
+#: src/search.js:423
 msgid "Sources"
 msgstr "Fontoj"
 
 #. Translators: the first %s is an online account provider name,
 #. e.g. "Google". The second %s is the identity used to log in,
 #. e.g. "foo@gmail.com".
-#: src/search.js:508
+#: src/search.js:480
 #, javascript-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: src/selections.js:360 src/selections.js:362
+#: src/selections.js:353 src/selections.js:355
 msgid "Rename…"
 msgstr "Alinomi…"
 
-#: src/selections.js:366 src/selections.js:368
+#: src/selections.js:359 src/selections.js:361
 msgid "Delete"
 msgstr "Forigi"
 
-#: src/selections.js:382
+#: src/selections.js:375
 #, javascript-format
 msgid "“%s” removed"
 msgstr "“%s” forigita"
 
-#: src/selections.js:779
+#: src/selections.js:772
 msgid "Rename"
 msgstr "Alinomi"
 
 #. Translators: "Collections" refers to documents in this context
-#: src/selections.js:785
+#: src/selections.js:778
 msgctxt "Dialog Title"
 msgid "Collections"
 msgstr "Kolektoj"
@@ -1003,6 +920,76 @@ msgstr "Sentitola dokumento"
 #: src/trackerController.js:176
 msgid "Unable to fetch the list of documents"
 msgstr "Ne eblis venigi la liston de dokumentoj"
+
+#~ msgid "Books"
+#~ msgstr "Libroj"
+
+#~ msgid "An e-book manager application for GNOME"
+#~ msgstr "Bitlibra mastrum-aplikaĵo por GNOME"
+
+#~ msgid ""
+#~ "A simple application to access and organize your e-books on GNOME. It is "
+#~ "meant to be a simple and elegant replacement for using a file manager to "
+#~ "deal with e-books."
+#~ msgstr ""
+#~ "Simpla aplikaĵo por aliri kaj organizi viajn bitlibrojn ene de GNOME. Ĝi "
+#~ "celas esti simpla kaj eleganta anstataŭigo de dosierfoliumilo, rilate al "
+#~ "dokumentojn."
+
+#~ msgid "View recent e-books"
+#~ msgstr "Rigardi freŝdatajn bitlibrojn"
+
+#~ msgid "Search through e-books"
+#~ msgstr "Serĉi tra dokumentoj"
+
+#~ msgid "View e-books (PDF and comics) fullscreen"
+#~ msgstr "Montri bitlibrojn (PDF-ojn kaj komiksojn) tutekrane"
+
+#~ msgid "Print e-books"
+#~ msgstr "Presi bitlibrojn"
+
+#~ msgid "Access, manage and share books"
+#~ msgstr "Aliri, mastrumi kaj kunhavigi librojn"
+
+#~ msgid "org.gnome.Books"
+#~ msgstr "org.gnome.Books"
+
+#~ msgid "Books;Comics;ePub;PDF;"
+#~ msgstr "Libroj;Komiksoj;ePub;PDF;"
+
+#~ msgid "About"
+#~ msgstr "Pri"
+
+#~ msgctxt "app menu"
+#~ msgid "Quit"
+#~ msgstr "Ĉesi"
+
+#~ msgid "e-Book"
+#~ msgstr "Bitlibro"
+
+#~ msgid ""
+#~ "You are using a preview of Books. Full viewing capabilities are coming "
+#~ "soon!"
+#~ msgstr ""
+#~ "Vi uzas antaŭrigardon de Libroj. Kompletaj vid-kapabloj baldaŭ venos!"
+
+#~ msgid "chapter %s of %s"
+#~ msgstr "ĉapitro %s de %s"
+
+#~ msgid "An e-books manager application"
+#~ msgstr "Bitlibra mastrum-aplikaĵo"
+
+#~ msgid "No books found"
+#~ msgstr "Neniu libro trovita"
+
+#~ msgid "You can create collections from the Books view"
+#~ msgstr "Vi povas krei kolektojn el la Libroj vido"
+
+#~ msgid "e-Books"
+#~ msgstr "Bitlibroj"
+
+#~ msgid "Comics"
+#~ msgstr "Komiksoj"
 
 #~| msgid "New and Recent"
 #~ msgid "Recent"
