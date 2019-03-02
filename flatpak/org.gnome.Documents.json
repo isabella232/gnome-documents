@@ -16,6 +16,7 @@
         "--filesystem=host:ro",
         /* Needs to talk to the network: */
         "--share=network",
+        "--talk-name=org.gnome.Mutter.DisplayConfig",
         /* Tracker access */
         "--talk-name=org.freedesktop.Tracker1",
         "--talk-name=org.freedesktop.Tracker1.Miner.Extract",

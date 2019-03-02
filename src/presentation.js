@@ -235,7 +235,7 @@ var PresentationOutputs = new Lang.Class({
         this.list = [];
 
         let gdkscreen = Gdk.Screen.get_default();
-        this._screen = GnomeDesktop.RRScreen.new(gdkscreen, null);
+        this._screen = GnomeDesktop.RRScreen.new(gdkscreen);
         this._screen.connect('changed', Lang.bind(this, this._onScreenChanged));
 
         this._config = GnomeDesktop.RRConfig.new_current(this._screen);
