@@ -13,7 +13,7 @@
         "--socket=wayland",
         /* Read-only access to users documents */
         /* Docs can be outside xdg-dirs */
-        "--filesystem=host:ro",
+        "--filesystem=home:ro",
         /* Needs to talk to the network: */
         "--share=network",
         "--talk-name=org.gnome.Mutter.DisplayConfig",
