@@ -1,4 +1,3 @@
-# FIXME: are config.js and path.js (missing) not needed anymore?
 '''
 js_conf = configuration_data()
 js_conf.set('PACKAGE_NAME', meson.project_name())
