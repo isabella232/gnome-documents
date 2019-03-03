@@ -1,3 +1,25 @@
+3.31.92
+=======
+* Bugs fixed:
+ - !21 build: remove more autotools leftovers
+ - #24 Present checkbox doesn't do anything
+
+* Translation updates:
+ - Czech
+ - Danish
+ - Dutch
+ - Esperanto
+ - Finnish
+ - French
+ - German
+ - Italian
+ - Kazakh
+ - Korean
+ - Lithuanian
+ - Portuguese (Brazil)
+ - Russian
+ - Serbian
+
 3.31.90
 =======
 * Updated menus for 3.32 recommendations
