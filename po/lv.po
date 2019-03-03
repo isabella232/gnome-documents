@@ -4,14 +4,13 @@
 #
 #
 # Rūdofls Mazurs <rudolfs.mazurs@gmail.com>, 2011, 2012, 2013.
-# Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2013, 2014, 2015, 2016, 2017, 2018.
+# Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2013, 2014, 2015, 2016, 2017, 2018, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-d"
-"ocuments&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-12-03 17:11+0000\n"
-"PO-Revision-Date: 2018-02-24 18:00+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-documents/issues\n"
+"POT-Creation-Date: 2019-02-01 01:55+0000\n"
+"PO-Revision-Date: 2019-03-03 12:34+0200\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "Language: lv\n"
@@ -22,124 +21,17 @@ msgstr ""
 " 2);\n"
 "X-Generator: Lokalize 2.0\n"
 
-#: data/org.gnome.Books.metainfo.xml.in:7 data/org.gnome.Books.desktop.in:3
-#: src/application.js:112 src/overview.js:1052
-msgid "Books"
-msgstr "Grāmatas"
-
-#: data/org.gnome.Books.metainfo.xml.in:8
-msgid "An e-book manager application for GNOME"
-msgstr "E-grāmatu pārvaldības lietotne GNOME vidē"
-
-#: data/org.gnome.Books.metainfo.xml.in:10
-msgid ""
-"A simple application to access and organize your e-books on GNOME. It is "
-"meant to be a simple and elegant replacement for using a file manager to "
-"deal with e-books."
-msgstr ""
-"Vienkārša lietotne e-grāmatu piekļūšanai, organizēšanai un koplietošanai "
-"GNOME vidē. Tā ir paredzēta kā datņu pārvaldnieka aizvietotājs darbam ar e-"
-"grāmatām."
-
-#: data/org.gnome.Books.metainfo.xml.in:15
-#: data/org.gnome.Documents.metainfo.xml.in:16
-msgid "It lets you:"
-msgstr "Tās jums ļauj:"
-
-#: data/org.gnome.Books.metainfo.xml.in:17
-msgid "View recent e-books"
-msgstr "Skatīt nesenās e-grāmatas"
-
-#: data/org.gnome.Books.metainfo.xml.in:18
-msgid "Search through e-books"
-msgstr "Meklēt e-grāmatās"
-
-#: data/org.gnome.Books.metainfo.xml.in:19
-msgid "View e-books (PDF and comics) fullscreen"
-msgstr "Skatīt e-grāmatas (PDF un komiksus) pilnekrāna režīmā"
-
-#: data/org.gnome.Books.metainfo.xml.in:20
-msgid "Print e-books"
-msgstr "Drukāt e-grāmatas"
-
-#: data/org.gnome.Books.metainfo.xml.in:32
-#: data/org.gnome.Documents.metainfo.xml.in:39
-msgid "The GNOME Project"
-msgstr "GNOME projekts"
-
-#: data/org.gnome.Books.desktop.in:4
-msgid "Access, manage and share books"
-msgstr "Piekļūt, pārvaldīt un koplietot e-grāmatas"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.Books.desktop.in:7
-msgid "org.gnome.Books"
-msgstr "org.gnome.Books"
-
-#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.Books.desktop.in:15
-msgid "Books;Comics;ePub;PDF;"
-msgstr "Grāmatas;Komiksi;ePub;PDF;"
-
-#: data/org.gnome.books.gschema.xml:5 data/org.gnome.documents.gschema.xml:5
-msgid "View as"
-msgstr "Skatīt kā"
-
-#: data/org.gnome.books.gschema.xml:6 data/org.gnome.documents.gschema.xml:6
-msgid "View as type"
-msgstr "Skatīt kā tipu"
-
-#: data/org.gnome.books.gschema.xml:10 data/org.gnome.documents.gschema.xml:10
-msgid "Sort by"
-msgstr "Kārtot pēc"
-
-#: data/org.gnome.books.gschema.xml:11 data/org.gnome.documents.gschema.xml:11
-msgid "Sort by type"
-msgstr "Kārtot pēc tipa"
-
-#: data/org.gnome.books.gschema.xml:15 data/org.gnome.documents.gschema.xml:15
-msgid "Window size"
-msgstr "Loga izmērs"
-
-#: data/org.gnome.books.gschema.xml:16 data/org.gnome.documents.gschema.xml:16
-msgid "Window size (width and height)."
-msgstr "Loga izmērs (platums un augstums)."
-
-#: data/org.gnome.books.gschema.xml:20 data/org.gnome.documents.gschema.xml:20
-msgid "Window position"
-msgstr "Loga novietojums"
-
-#: data/org.gnome.books.gschema.xml:21 data/org.gnome.documents.gschema.xml:21
-msgid "Window position (x and y)."
-msgstr "Loga novietojums (x un y)."
-
-#: data/org.gnome.books.gschema.xml:25 data/org.gnome.documents.gschema.xml:25
-msgid "Window maximized"
-msgstr "Logs maksimizēts"
-
-#: data/org.gnome.books.gschema.xml:26 data/org.gnome.documents.gschema.xml:26
-msgid "Window maximized state"
-msgstr "Loga stāvoklis — maksimizēts"
-
-#: data/org.gnome.books.gschema.xml:30 data/org.gnome.documents.gschema.xml:30
-msgid "Night mode"
-msgstr "Nakts režīms"
-
-#: data/org.gnome.books.gschema.xml:31 data/org.gnome.documents.gschema.xml:31
-msgid "Whether the application is in night mode."
-msgstr "Vai lietotne ir nakts režīmā."
-
-#: data/org.gnome.Documents.metainfo.xml.in:7
-#: data/org.gnome.Documents.desktop.in:3 src/application.js:115
-#: src/overview.js:1052
+#: data/org.gnome.Documents.appdata.xml.in:7
+#: data/org.gnome.Documents.desktop.in:3 src/application.js:109
+#: src/overview.js:1046
 msgid "Documents"
 msgstr "Dokumenti"
 
-#: data/org.gnome.Documents.metainfo.xml.in:8
+#: data/org.gnome.Documents.appdata.xml.in:8
 msgid "A document manager application for GNOME"
 msgstr "Dokumentu pārvaldības lietotne GNOME vidē"
 
-#: data/org.gnome.Documents.metainfo.xml.in:10
+#: data/org.gnome.Documents.appdata.xml.in:10
 msgid ""
 "A simple application to access, organize and share your documents on GNOME. "
 "It is meant to be a simple and elegant replacement for using a file manager "
@@ -151,37 +43,45 @@ msgstr ""
 "darbam ar dokumentiem. Integrāciju ar mākoņpakalpojumiem nodrošina caur "
 "GNOME tiešsaistes kontiem."
 
-#: data/org.gnome.Documents.metainfo.xml.in:18
+#: data/org.gnome.Documents.appdata.xml.in:16
+msgid "It lets you:"
+msgstr "Tās jums ļauj:"
+
+#: data/org.gnome.Documents.appdata.xml.in:18
 msgid "View recent local and online documents"
 msgstr "Skatiet nesenos lokālos un tiešsaistes dokumentus"
 
-#: data/org.gnome.Documents.metainfo.xml.in:19
+#: data/org.gnome.Documents.appdata.xml.in:19
 msgid "Access your Google, ownCloud or OneDrive content"
 msgstr "Piekļūstiet savam Google, ownCloud vai OneDrive saturam"
 
-#: data/org.gnome.Documents.metainfo.xml.in:20
+#: data/org.gnome.Documents.appdata.xml.in:20
 msgid "Search through documents"
 msgstr "Meklējiet dokumentos"
 
-#: data/org.gnome.Documents.metainfo.xml.in:21
+#: data/org.gnome.Documents.appdata.xml.in:21
 msgid "See new documents shared by friends"
 msgstr "Skatiet jaunus dokumentus, ar kuriem dalījušies draugi"
 
-#: data/org.gnome.Documents.metainfo.xml.in:22
+#: data/org.gnome.Documents.appdata.xml.in:22
 msgid "View documents fullscreen"
 msgstr "Skatiet dokumentus pilnekrāna režīmā"
 
-#: data/org.gnome.Documents.metainfo.xml.in:23
+#: data/org.gnome.Documents.appdata.xml.in:23
 msgid "Print documents"
 msgstr "Drukājiet dokumentus"
 
-#: data/org.gnome.Documents.metainfo.xml.in:24
+#: data/org.gnome.Documents.appdata.xml.in:24
 msgid "Select favorites"
 msgstr "Izvēlēties izlasi"
 
-#: data/org.gnome.Documents.metainfo.xml.in:25
+#: data/org.gnome.Documents.appdata.xml.in:25
 msgid "Allow opening full featured editor for non-trivial changes"
 msgstr "Ļauj atvērt redaktoru netriviālām izmaiņām"
+
+#: data/org.gnome.Documents.appdata.xml.in:39
+msgid "The GNOME Project"
+msgstr "GNOME projekts"
 
 #: data/org.gnome.Documents.desktop.in:4
 msgid "Access, manage and share documents"
@@ -197,26 +97,70 @@ msgstr "org.gnome.Documents"
 msgid "Docs;PDF;Document;"
 msgstr "Dokuments;PDF;"
 
-#: data/ui/app-menu.ui:6 src/preview.js:453
+#: data/org.gnome.documents.gschema.xml:5
+msgid "View as"
+msgstr "Skatīt kā"
+
+#: data/org.gnome.documents.gschema.xml:6
+msgid "View as type"
+msgstr "Skatīt kā tipu"
+
+#: data/org.gnome.documents.gschema.xml:10
+msgid "Sort by"
+msgstr "Kārtot pēc"
+
+#: data/org.gnome.documents.gschema.xml:11
+msgid "Sort by type"
+msgstr "Kārtot pēc tipa"
+
+#: data/org.gnome.documents.gschema.xml:15
+msgid "Window size"
+msgstr "Loga izmērs"
+
+#: data/org.gnome.documents.gschema.xml:16
+msgid "Window size (width and height)."
+msgstr "Loga izmērs (platums un augstums)."
+
+#: data/org.gnome.documents.gschema.xml:20
+msgid "Window position"
+msgstr "Loga novietojums"
+
+#: data/org.gnome.documents.gschema.xml:21
+msgid "Window position (x and y)."
+msgstr "Loga novietojums (x un y)."
+
+#: data/org.gnome.documents.gschema.xml:25
+msgid "Window maximized"
+msgstr "Logs maksimizēts"
+
+#: data/org.gnome.documents.gschema.xml:26
+msgid "Window maximized state"
+msgstr "Loga stāvoklis — maksimizēts"
+
+#: data/org.gnome.documents.gschema.xml:30
+msgid "Night mode"
+msgstr "Nakts režīms"
+
+#: data/org.gnome.documents.gschema.xml:31
+msgid "Whether the application is in night mode."
+msgstr "Vai lietotne ir nakts režīmā."
+
+#: data/ui/documents-app-menu.ui:6 src/preview.js:447
 msgid "Night Mode"
 msgstr "Nakts režīms"
 
-#: data/ui/app-menu.ui:12
+#: data/ui/documents-app-menu.ui:12
 msgid "Keyboard Shortcuts"
 msgstr "Tastatūras saīsnes"
 
-#: data/ui/app-menu.ui:16
+#: data/ui/documents-app-menu.ui:16
 msgid "Help"
 msgstr "Palīdzība"
 
-#: data/ui/app-menu.ui:20
-msgid "About"
-msgstr "Par"
-
-#: data/ui/app-menu.ui:24
-msgctxt "app menu"
-msgid "Quit"
-msgstr "Iziet"
+#: data/ui/documents-app-menu.ui:20
+#| msgid "Text Documents"
+msgid "About Documents"
+msgstr "Par dokumentiem"
 
 #: data/ui/help-overlay.ui:11
 msgctxt "shortcut window"
@@ -284,8 +228,6 @@ msgid "Copy selected text to clipboard"
 msgstr "Kopēt izvēlēto starpliktuvē"
 
 #: data/ui/help-overlay.ui:106
-#| msgctxt "shortcut window"
-#| msgid "Rotate clockwise"
 msgctxt "shortcut window"
 msgid "Rotate counterclockwise"
 msgstr "Pagriezt pretēji pulksteņrādītāja virzienam"
@@ -335,11 +277,11 @@ msgid "Add"
 msgstr "Pievienot"
 
 #: data/ui/organize-collection-dialog.ui:163 data/ui/selection-toolbar.ui:88
-#: src/overview.js:1056 src/search.js:126 src/search.js:132
+#: src/overview.js:1049 src/search.js:123
 msgid "Collections"
 msgstr "Kolekcijas"
 
-#: data/ui/organize-collection-dialog.ui:167 src/overview.js:616
+#: data/ui/organize-collection-dialog.ui:167 src/overview.js:607
 msgid "Cancel"
 msgstr "Atcelt"
 
@@ -354,7 +296,7 @@ msgstr "_Kopēt"
 
 #. Translators: this is the Open action in a context menu
 #: data/ui/preview-menu.ui:6 data/ui/selection-toolbar.ui:9
-#: src/selections.js:988
+#: src/selections.js:982
 msgid "Open"
 msgstr "Atvērt"
 
@@ -366,7 +308,7 @@ msgstr "Rediģēt"
 msgid "Print…"
 msgstr "Drukāt…"
 
-#: data/ui/preview-menu.ui:21 src/preview.js:462
+#: data/ui/preview-menu.ui:21 src/preview.js:456
 msgid "Fullscreen"
 msgstr "Pilnekrāns"
 
@@ -427,98 +369,88 @@ msgstr "Datums"
 msgid "Name"
 msgstr "Nosaukums"
 
-#: src/application.js:126
+#: src/application.js:119
 msgid "Show the version of the program"
 msgstr "Rādīt programmas versiju"
 
-#: src/documents.js:794
+#: src/documents.js:778
 msgid "Failed to print document"
 msgstr "Neizdevās izdrukāt dokumentu"
 
 #. Translators: this refers to local documents
-#: src/documents.js:836 src/search.js:459
+#: src/documents.js:820 src/search.js:433
 msgid "Local"
 msgstr "Lokāls"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: src/documents.js:879
+#: src/documents.js:863
 msgid "GNOME"
 msgstr "GNOME"
 
-#: src/documents.js:880
+#: src/documents.js:864
 msgid "Getting Started with Documents"
 msgstr "Darba sākšana ar Dokumentiem"
 
-#: src/documents.js:905 src/documents.js:1115 src/documents.js:1218
-#: src/documents.js:1412
+#: src/documents.js:889 src/documents.js:1113 src/documents.js:1214
+#: src/documents.js:1408
 msgid "Collection"
 msgstr "Kolekcija"
 
 #. overridden
-#: src/documents.js:972
+#: src/documents.js:970
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: src/documents.js:973
+#: src/documents.js:971
 msgid "Google"
 msgstr "Google"
 
-#: src/documents.js:1117 src/documents.js:1414
+#: src/documents.js:1115 src/documents.js:1410
 msgid "Spreadsheet"
 msgstr "Izklājlapa"
 
-#: src/documents.js:1119 src/documents.js:1416 src/presentation.js:44
+#: src/documents.js:1117 src/documents.js:1412 src/presentation.js:43
 msgid "Presentation"
 msgstr "Prezentācija"
 
-#: src/documents.js:1121 src/documents.js:1418
-msgid "e-Book"
-msgstr "e-grāmata"
-
-#: src/documents.js:1123 src/documents.js:1420
+#: src/documents.js:1119 src/documents.js:1414
 msgid "Document"
 msgstr "Dokuments"
 
 #. overridden
-#: src/documents.js:1173
+#: src/documents.js:1169
 msgid "ownCloud"
 msgstr "ownCloud"
 
 #. overridden
-#: src/documents.js:1307 src/documents.js:1308
+#: src/documents.js:1303 src/documents.js:1304
 msgid "OneDrive"
 msgstr "OneDrive"
 
-#: src/documents.js:1594
+#: src/documents.js:1588
 msgid "Please check the network connection."
 msgstr "Lūdzu, pārbaudiet tīkla savienojumu."
 
-#: src/documents.js:1597
+#: src/documents.js:1591
 msgid "Please check the network proxy settings."
 msgstr "Lūdzu, pārbaudiet tīkla starpnieka iestatījumus."
 
-#: src/documents.js:1600
+#: src/documents.js:1594
 msgid "Unable to sign in to the document service."
 msgstr "Nevar ierakstīties dokumentu servisā."
 
-#: src/documents.js:1603
+#: src/documents.js:1597
 msgid "Unable to locate this document."
 msgstr "Neizdevās atrast šo dokumentu."
 
-#: src/documents.js:1606
+#: src/documents.js:1600
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Hmm, kaut kas nav tā (%d)."
 
-#: src/documents.js:1613
-msgid ""
-"You are using a preview of Books. Full viewing capabilities are coming soon!"
-msgstr ""
-"Jūs izmantojat Grāmatu priekšskatījumu. Drīz būs pieejamas pilnas iespējas!"
-
-#: src/documents.js:1615
+#: src/documents.js:1606
 msgid ""
 "LibreOffice support is not available. Please contact your system "
 "administrator."
@@ -526,7 +458,7 @@ msgstr ""
 "Nav pieejams LibreOffice atbalsts. Sazinieties ar sistēmas administratoru."
 
 #. Translators: %s is the title of a document
-#: src/documents.js:1638
+#: src/documents.js:1629
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Ak vai! Neizdevās ielādēt “%s”"
@@ -536,16 +468,11 @@ msgstr "Ak vai! Neizdevās ielādēt “%s”"
 msgid "View"
 msgstr "Skats"
 
-#: src/epubview.js:228
-#, javascript-format
-msgid "chapter %s of %s"
-msgstr "nodaļa %s no %s"
-
-#: src/evinceview.js:590 src/lib/gd-places-bookmarks.c:656
+#: src/evinceview.js:587 src/lib/gd-places-bookmarks.c:656
 msgid "Bookmarks"
 msgstr "Grāmatzīmes"
 
-#: src/evinceview.js:598
+#: src/evinceview.js:595
 msgid "Bookmark this page"
 msgstr "Pievienot lappusi grāmatzīmēm"
 
@@ -583,25 +510,27 @@ msgid "Contents"
 msgstr "Saturs"
 
 #: src/lib/gd-utils.c:328
-msgid "A document manager application"
-msgstr "Dokumentu pārvaldības lietotne"
-
-#: src/lib/gd-utils.c:333
-msgid "An e-books manager application"
-msgstr "E-grāmatu pārvaldības lietotne"
-
-#: src/lib/gd-utils.c:340
 msgid "translator-credits"
 msgstr ""
 "Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Anita Reitere <nitalynx@gmail.com>"
 
-#: src/mainToolbar.js:91
+#: src/lib/gd-utils.c:329
+msgid "A document manager application"
+msgstr "Dokumentu pārvaldības lietotne"
+
+#: src/mainToolbar.js:95
+#| msgid "View Menu"
+msgctxt "menu button tooltip"
+msgid "Menu"
+msgstr "Izvēlne"
+
+#: src/mainToolbar.js:105
 msgctxt "toolbar button tooltip"
 msgid "Search"
 msgstr "Meklēt"
 
-#: src/mainToolbar.js:100
+#: src/mainToolbar.js:114
 msgid "Back"
 msgstr "Atpakaļ"
 
@@ -621,7 +550,7 @@ msgstr[0] "Izdzēsts %d vienums"
 msgstr[1] "Izdzēsti %d vienumi"
 msgstr[2] "Izdzēsti %d vienumi"
 
-#: src/notifications.js:61 src/selections.js:387
+#: src/notifications.js:61 src/selections.js:380
 msgid "Undo"
 msgstr "Atsaukt"
 
@@ -654,10 +583,6 @@ msgid "No collections found"
 msgstr "Nav atrastu kolekciju"
 
 #: src/overview.js:277
-msgid "No books found"
-msgstr "Nav atrastu grāmatu"
-
-#: src/overview.js:277
 msgid "No documents found"
 msgstr "Nav atrastu dokumentu"
 
@@ -665,15 +590,11 @@ msgstr "Nav atrastu dokumentu"
 msgid "Try a different search"
 msgstr "Mēģiniet ar citu meklējamo vārdu"
 
-#: src/overview.js:293
-msgid "You can create collections from the Books view"
-msgstr "Varat izveidot kolekcijas no grāmatu skata"
-
-#: src/overview.js:295
+#: src/overview.js:291
 msgid "You can create collections from the Documents view"
 msgstr "Varat izveidot kolekcijas no dokumentu skata"
 
-#: src/overview.js:305
+#: src/overview.js:296
 #, javascript-format
 msgid ""
 "Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
@@ -683,15 +604,15 @@ msgstr ""
 "\"file://%s\">dokumentu mapes</a> parādīsies šeit."
 
 #. Translators: this is the menu to change view settings
-#: src/overview.js:562
+#: src/overview.js:553
 msgid "View Menu"
 msgstr "Skata izvēlne"
 
-#: src/overview.js:590
+#: src/overview.js:581
 msgid "Click on items to select them"
 msgstr "Spiediet uz vienumiem, lai tos izvēlētos"
 
-#: src/overview.js:592
+#: src/overview.js:583
 #, javascript-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -699,15 +620,15 @@ msgstr[0] "%d izvēlēts"
 msgstr[1] "%d izvēlēti"
 msgstr[2] "%d izvēlētu"
 
-#: src/overview.js:669
+#: src/overview.js:664
 msgid "Select Items"
 msgstr "Izvēlēties vienumus"
 
-#: src/overview.js:876
+#: src/overview.js:870
 msgid "Yesterday"
 msgstr "Vakar"
 
-#: src/overview.js:878
+#: src/overview.js:872
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -715,11 +636,11 @@ msgstr[0] "Pirms %d dienas"
 msgstr[1] "Pirms %d dienām"
 msgstr[2] "Pirms %d dienām"
 
-#: src/overview.js:882
+#: src/overview.js:876
 msgid "Last week"
 msgstr "Pagājušajā nedēļā"
 
-#: src/overview.js:884
+#: src/overview.js:878
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
@@ -727,11 +648,11 @@ msgstr[0] "Pirms %d nedēļas"
 msgstr[1] "Pirms %d nedēļām"
 msgstr[2] "Pirms %d nedēļām"
 
-#: src/overview.js:888
+#: src/overview.js:882
 msgid "Last month"
 msgstr "Pagājušajā mēnesī"
 
-#: src/overview.js:890
+#: src/overview.js:884
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
@@ -739,11 +660,11 @@ msgstr[0] "Pirms %d mēneša"
 msgstr[1] "Pirms %d mēnešiem"
 msgstr[2] "Pirms %d mēnešiem"
 
-#: src/overview.js:894
+#: src/overview.js:888
 msgid "Last year"
 msgstr "Pagājušajā gadā"
 
-#: src/overview.js:896
+#: src/overview.js:890
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -768,42 +689,42 @@ msgstr "Dokuments %s ir bloķēts; lai to atvērtu, ir vajadzīga parole."
 msgid "_Password"
 msgstr "_Parole"
 
-#: src/presentation.js:102
+#: src/presentation.js:101
 msgid "Running in presentation mode"
 msgstr "Darbojas prezentācijas režīmā"
 
-#: src/presentation.js:130
+#: src/presentation.js:129
 msgid "Present On"
 msgstr "Parādīt"
 
 #. Translators: "Mirrored" describes when both displays show the same view
-#: src/presentation.js:166
+#: src/presentation.js:165
 msgid "Mirrored"
 msgstr "Simetriski"
 
-#: src/presentation.js:168
+#: src/presentation.js:167
 msgid "Primary"
 msgstr "Primārais"
 
-#: src/presentation.js:170
+#: src/presentation.js:169
 msgid "Off"
 msgstr "Izslēgts"
 
-#: src/presentation.js:172
+#: src/presentation.js:171
 msgid "Secondary"
 msgstr "Sekundārais"
 
 #. Translators: this is the Open action in a context menu
-#: src/preview.js:445 src/selections.js:985
+#: src/preview.js:439 src/selections.js:979
 #, javascript-format
 msgid "Open with %s"
 msgstr "Atvērt ar %s"
 
-#: src/preview.js:770
+#: src/preview.js:764
 msgid "Find Previous"
 msgstr "Meklēt iepriekšējo"
 
-#: src/preview.js:776
+#: src/preview.js:770
 msgid "Find Next"
 msgstr "Meklēt nākamo"
 
@@ -846,96 +767,88 @@ msgstr "Tips"
 
 #. Translators: "Type" refers to a search filter on the document type
 #. (PDF, spreadsheet, ...)
-#: src/search.js:120
+#: src/search.js:118
 msgctxt "Search Filter"
 msgid "Type"
 msgstr "Tips"
 
 #. Translators: this refers to documents
-#: src/search.js:123 src/search.js:260 src/search.js:453
+#: src/search.js:121 src/search.js:233 src/search.js:427
 msgid "All"
 msgstr "Visi"
 
-#: src/search.js:136
+#: src/search.js:127
 msgid "PDF Documents"
 msgstr "PDF dokumenti"
 
-#: src/search.js:143
-msgid "e-Books"
-msgstr "E-grāmatas"
-
-#: src/search.js:147
-msgid "Comics"
-msgstr "Komikss"
-
-#: src/search.js:152
+#: src/search.js:132
 msgid "Presentations"
 msgstr "Prezentācijas"
 
-#: src/search.js:155
+#: src/search.js:135
 msgid "Spreadsheets"
 msgstr "Izklājlapas"
 
-#: src/search.js:158
+#: src/search.js:138
 msgid "Text Documents"
 msgstr "Teksta dokumenti"
 
 #. Translators: this is a verb that refers to "All", "Title", "Author",
 #. and "Content" as in "Match All", "Match Title", "Match Author", and
 #. "Match Content"
-#: src/search.js:257
+#: src/search.js:230
 msgid "Match"
 msgstr "Atbilst"
 
 #. Translators: "Title" refers to "Match Title" when searching
-#: src/search.js:263
+#: src/search.js:236
 msgctxt "Search Filter"
 msgid "Title"
 msgstr "Nosaukums"
 
 #. Translators: "Author" refers to "Match Author" when searching
-#: src/search.js:266
+#: src/search.js:239
 msgctxt "Search Filter"
 msgid "Author"
 msgstr "Autors"
 
 #. Translators: "Content" refers to "Match Content" when searching
-#: src/search.js:269
+#: src/search.js:242
 msgctxt "Search Filter"
 msgid "Content"
 msgstr "Saturs"
 
-#: src/search.js:449
+#: src/search.js:423
 msgid "Sources"
 msgstr "Avoti"
 
 #. Translators: the first %s is an online account provider name,
 #. e.g. "Google". The second %s is the identity used to log in,
 #. e.g. "foo@gmail.com".
-#: src/search.js:508
+#: src/search.js:480
 #, javascript-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: src/selections.js:360 src/selections.js:362
+#: src/selections.js:353 src/selections.js:355
 msgid "Rename…"
 msgstr "Pārdēvēt…"
 
-#: src/selections.js:366 src/selections.js:368
+#: src/selections.js:359 src/selections.js:361
 msgid "Delete"
 msgstr "Dzēst"
 
-#: src/selections.js:382
+#: src/selections.js:375
 #, javascript-format
 msgid "“%s” removed"
 msgstr "“%s” ir izņemts"
 
-#: src/selections.js:779
+#: src/selections.js:772
 msgid "Rename"
 msgstr "Pārdēvēt"
 
 #. Translators: "Collections" refers to documents in this context
-#: src/selections.js:785
+#: src/selections.js:778
 msgctxt "Dialog Title"
 msgid "Collections"
 msgstr "Kolekcijas"
@@ -1015,3 +928,74 @@ msgstr "Nenosaukts dokuments"
 #: src/trackerController.js:176
 msgid "Unable to fetch the list of documents"
 msgstr "Neizdevās saņemt dokumentu sarakstu"
+
+#~ msgid "Books"
+#~ msgstr "Grāmatas"
+
+#~ msgid "An e-book manager application for GNOME"
+#~ msgstr "E-grāmatu pārvaldības lietotne GNOME vidē"
+
+#~ msgid ""
+#~ "A simple application to access and organize your e-books on GNOME. It is "
+#~ "meant to be a simple and elegant replacement for using a file manager to "
+#~ "deal with e-books."
+#~ msgstr ""
+#~ "Vienkārša lietotne e-grāmatu piekļūšanai, organizēšanai un koplietošanai "
+#~ "GNOME vidē. Tā ir paredzēta kā datņu pārvaldnieka aizvietotājs darbam ar "
+#~ "e-grāmatām."
+
+#~ msgid "View recent e-books"
+#~ msgstr "Skatīt nesenās e-grāmatas"
+
+#~ msgid "Search through e-books"
+#~ msgstr "Meklēt e-grāmatās"
+
+#~ msgid "View e-books (PDF and comics) fullscreen"
+#~ msgstr "Skatīt e-grāmatas (PDF un komiksus) pilnekrāna režīmā"
+
+#~ msgid "Print e-books"
+#~ msgstr "Drukāt e-grāmatas"
+
+#~ msgid "Access, manage and share books"
+#~ msgstr "Piekļūt, pārvaldīt un koplietot e-grāmatas"
+
+#~ msgid "org.gnome.Books"
+#~ msgstr "org.gnome.Books"
+
+#~ msgid "Books;Comics;ePub;PDF;"
+#~ msgstr "Grāmatas;Komiksi;ePub;PDF;"
+
+#~ msgid "About"
+#~ msgstr "Par"
+
+#~ msgctxt "app menu"
+#~ msgid "Quit"
+#~ msgstr "Iziet"
+
+#~ msgid "e-Book"
+#~ msgstr "e-grāmata"
+
+#~ msgid ""
+#~ "You are using a preview of Books. Full viewing capabilities are coming "
+#~ "soon!"
+#~ msgstr ""
+#~ "Jūs izmantojat Grāmatu priekšskatījumu. Drīz būs pieejamas pilnas "
+#~ "iespējas!"
+
+#~ msgid "chapter %s of %s"
+#~ msgstr "nodaļa %s no %s"
+
+#~ msgid "An e-books manager application"
+#~ msgstr "E-grāmatu pārvaldības lietotne"
+
+#~ msgid "No books found"
+#~ msgstr "Nav atrastu grāmatu"
+
+#~ msgid "You can create collections from the Books view"
+#~ msgstr "Varat izveidot kolekcijas no grāmatu skata"
+
+#~ msgid "e-Books"
+#~ msgstr "E-grāmatas"
+
+#~ msgid "Comics"
+#~ msgstr "Komikss"
