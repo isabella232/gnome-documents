@@ -1,3 +1,44 @@
+3.32.0
+======
+* Documents and Books are now separate apps
+* New icon
+* Replaced app menu with primary menu
+
+* Bugs fixed:
+ - #11 Documents hangs if any of the XDG_*_DIR vars are not defined
+ - #12 Doesn't show any documents when started through search provider
+ - #24 Present checkbox doesn't do anything
+
+* Translation updates:
+ - Afrikaans
+ - Catalan
+ - Chinese (Taiwan)
+ - Czech
+ - Danish
+ - Dutch
+ - Esperanto
+ - Finnish
+ - French
+ - Friulian
+ - Galician
+ - German
+ - Greek, Modern (1453-)
+ - Hungarian
+ - Indonesian
+ - Italian
+ - Japanese
+ - Kazakh
+ - Korean
+ - Latvian
+ - Lithuanian
+ - Malayalam
+ - Persian
+ - Polish
+ - Portuguese (Brazil)
+ - Romanian
+ - Russian
+ - Serbian
+
 3.31.92
 =======
 * Bugs fixed:
