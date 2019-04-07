@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-documents/issues\n"
-"POT-Creation-Date: 2019-02-01 01:55+0000\n"
+"POT-Creation-Date: 2019-04-04 17:50+0000\n"
 "PO-Revision-Date: 2019-02-11 19:41+0100\n"
 "Last-Translator: Alan Mortensen <alanmortensen.am@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -42,8 +42,8 @@ msgid ""
 msgstr ""
 "En simpel applikation til at tilgå, organisere og dele dine dokumenter i "
 "GNOME. Det er påtænkt at være en simpel og elegant erstatning for at bruge "
-"et filhåndteringsprogram til at håndtere dokumenter. Problemfri cloud-"
-"integration tilbydes gennem GNOME online-konti."
+"et filhåndteringsprogram til at håndtere dokumenter. Problemfri "
+"cloud-integration tilbydes gennem GNOME online-konti."
 
 #: data/org.gnome.Documents.appdata.xml.in:16
 msgid "It lets you:"
@@ -90,11 +90,6 @@ msgstr "GNOME-projektet"
 #: data/org.gnome.Documents.desktop.in:4
 msgid "Access, manage and share documents"
 msgstr "Tilgå, håndtér og del dokumenter"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.Documents.desktop.in:7
-msgid "org.gnome.Documents"
-msgstr "org.gnome.Documents"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Documents.desktop.in:15
@@ -520,8 +515,9 @@ msgstr ""
 "Ask Hjorth Larsen\n"
 "scootergrisen\n"
 "\n"
-"Dansk-gruppen <dansk@dansk-gruppen.dk>\n"
-"Mere info: http://www.dansk-gruppen.dk"
+"Dansk-gruppen\n"
+"Websted <http://dansk-gruppen.dk>\n"
+"E-mail <dansk@dansk-gruppen.dk>"
 
 #: src/lib/gd-utils.c:329
 msgid "A document manager application"
@@ -930,6 +926,9 @@ msgstr "Unavngivet dokument"
 msgid "Unable to fetch the list of documents"
 msgstr "Kunne ikke hente dokumentlisten"
 
+#~ msgid "org.gnome.Documents"
+#~ msgstr "org.gnome.Documents"
+
 #~ msgid "Books"
 #~ msgstr "Bøger"
 
@@ -941,8 +940,8 @@ msgstr "Kunne ikke hente dokumentlisten"
 #~ "meant to be a simple and elegant replacement for using a file manager to "
 #~ "deal with e-books."
 #~ msgstr ""
-#~ "Et simpelt program til at tilgå og organisere dine e-bøger i GNOME. Det "
-#~ "er påtænkt at være en simpel og elegant erstatning for at bruge et "
+#~ "Et simpelt program til at tilgå og organisere dine e-bøger i GNOME. Det er "
+#~ "påtænkt at være en simpel og elegant erstatning for at bruge et "
 #~ "filhåndteringsprogram til at håndtere e-bøger."
 
 #~ msgid "View recent e-books"
@@ -977,8 +976,7 @@ msgstr "Kunne ikke hente dokumentlisten"
 #~ msgstr "e-bog"
 
 #~ msgid ""
-#~ "You are using a preview of Books. Full viewing capabilities are coming "
-#~ "soon!"
+#~ "You are using a preview of Books. Full viewing capabilities are coming soon!"
 #~ msgstr ""
 #~ "Du bruger en tidlig udgave af Bøger. De fulde visningsmuligheder kommer "
 #~ "snart!"
@@ -1025,3 +1023,4 @@ msgstr "Kunne ikke hente dokumentlisten"
 
 #~ msgid "Documents folder"
 #~ msgstr "mappen Dokumenter"
+
