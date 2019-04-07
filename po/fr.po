@@ -4,7 +4,7 @@
 #
 #
 # guillemin <luc.guillemin@gmail.com>, 2011.
-# Alexandre Franke <alexandre.franke@gmail.com>, 2011.
+# Alexandre Franke <afranke@gnome.org>, 2011, 2019.
 # Andre Matuch <andre.matuch@videotron.ca>, 2012.
 # Bruno Brouard <annoa.b@gmail.com>, 2011-12, 2012, 2013.
 # Mickael Albertus <mickael.albertus@gmail.com>, 2012.
@@ -18,9 +18,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-documents/issues\n"
-"POT-Creation-Date: 2019-02-03 15:09+0000\n"
-"PO-Revision-Date: 2019-02-12 12:55+0100\n"
-"Last-Translator: Charles Monzat <charles.monzat@free.fr>\n"
+"POT-Creation-Date: 2019-04-04 17:50+0000\n"
+"PO-Revision-Date: 2019-04-07 18:20+0200\n"
+"Last-Translator: Alexandre Franke <afranke@gnome.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -95,11 +95,6 @@ msgstr "Le projet GNOME"
 msgid "Access, manage and share documents"
 msgstr "Accéder à, gérer et partager des documents"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.Documents.desktop.in:7
-msgid "org.gnome.Documents"
-msgstr "org.gnome.Documents"
-
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Documents.desktop.in:15
 msgid "Docs;PDF;Document;"
@@ -166,7 +161,6 @@ msgid "Help"
 msgstr "Aide"
 
 #: data/ui/documents-app-menu.ui:20
-#| msgid "Text Documents"
 msgid "About Documents"
 msgstr "À propos de Documents"
 
@@ -522,7 +516,7 @@ msgstr "Sommaire"
 msgid "translator-credits"
 msgstr ""
 "guillemin <luc.guillemin@gmail.com>\n"
-"Alexandre Franke <alexandre.franke@gmail.com>\n"
+"Alexandre Franke <afranke@gnome.org>\n"
 "Bruno Brouard <annoa.b@gmail.com>\n"
 "Andre Matuch <andre.matuch@videotron.ca>\n"
 "Mickael Albertus <mickael.albertus@gmail.com>\n"
@@ -534,7 +528,6 @@ msgid "A document manager application"
 msgstr "Une application de gestion de documents"
 
 #: src/mainToolbar.js:95
-#| msgid "View Menu"
 msgctxt "menu button tooltip"
 msgid "Menu"
 msgstr "Menu"
@@ -616,7 +609,7 @@ msgid ""
 "href=\"file://%s\">Documents folder</a> will appear here."
 msgstr ""
 "Les documents de vos <a href=\"system-settings\">Comptes en ligne</a> et <a "
-"\"href=\"file://%s\">dossier Documents</a> apparaîtront ici.\""
+"\"href=\"file://%s\">dossier Documents</a> apparaîtront ici."
 
 #. Translators: this is the menu to change view settings
 #: src/overview.js:553
@@ -940,115 +933,3 @@ msgstr "Document sans nom"
 msgid "Unable to fetch the list of documents"
 msgstr "Impossible de récupérer la liste de documents"
 
-#~ msgid "Books"
-#~ msgstr "Livres"
-
-#~ msgid "An e-book manager application for GNOME"
-#~ msgstr "Une application de gestion des livres numériques pour GNOME"
-
-#~ msgid ""
-#~ "A simple application to access and organize your e-books on GNOME. It is "
-#~ "meant to be a simple and elegant replacement for using a file manager to "
-#~ "deal with e-books."
-#~ msgstr ""
-#~ "Une application simple pour accéder à vos livres numériques et les "
-#~ "organiser dans GNOME. Son but est d’être une alternative simple et "
-#~ "élégante à l’utilisation d’un gestionnaire de fichiers pour traiter les "
-#~ "livres numériques."
-
-#~ msgid "View recent e-books"
-#~ msgstr "Consulter les dernières parutions"
-
-#~ msgid "Search through e-books"
-#~ msgstr "Chercher parmi votre bibliothèque"
-
-#~ msgid "View e-books (PDF and comics) fullscreen"
-#~ msgstr "Lire les livres numériques (PDF et bandes dessinées) en plein écran"
-
-#~ msgid "Print e-books"
-#~ msgstr "Imprimer les livres numériques"
-
-#~ msgid "Access, manage and share books"
-#~ msgstr "Accéder à, gérer et partager des livres"
-
-#~ msgid "org.gnome.Books"
-#~ msgstr "org.gnome.Books"
-
-#~ msgid "Books;Comics;ePub;PDF;"
-#~ msgstr "livres;livres numériques;bandes dessinées;ePub;PDF;"
-
-#~ msgid "About"
-#~ msgstr "À propos"
-
-#~ msgctxt "app menu"
-#~ msgid "Quit"
-#~ msgstr "Quitter"
-
-#~ msgid "e-Book"
-#~ msgstr "Livre numérique"
-
-#~ msgid ""
-#~ "You are using a preview of Books. Full viewing capabilities are coming "
-#~ "soon!"
-#~ msgstr ""
-#~ "Vous utilisez une pré-version de Livres. L’ensemble des fonctionnalités "
-#~ "de lecture arrive bientôt !"
-
-#~ msgid "chapter %s of %s"
-#~ msgstr "chapitre %s sur %s"
-
-#~ msgid "An e-books manager application"
-#~ msgstr "Une application de gestion des livres numériques"
-
-#~ msgid "No books found"
-#~ msgstr "Aucun livre trouvé"
-
-#~ msgid "You can create collections from the Books view"
-#~ msgstr ""
-#~ "Vous pouvez créer des collections à partir de l’affichage par livres"
-
-#~ msgid "e-Books"
-#~ msgstr "Livres numériques"
-
-#~ msgid "Comics"
-#~ msgstr "Bandes dessinées"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Rotate anti-clockwise"
-#~ msgstr "Tourner en sens horaire inverse"
-
-#~ msgid "LibreOffice is required to view this document"
-#~ msgstr "LibreOffice est requis pour afficher ce document"
-
-#~ msgid "Category"
-#~ msgstr "Catégorie"
-
-#~ msgid "Favorites"
-#~ msgstr "Favoris"
-
-#~ msgid "Shared with you"
-#~ msgstr "Partagés avec vous"
-
-#~ msgid "Documents from your %s and %s will appear here."
-#~ msgstr "Les documents de vos %s et %s vont s'afficher ici."
-
-#~ msgid "Online Accounts"
-#~ msgstr "Comptes en ligne"
-
-#~ msgid "Documents folder"
-#~ msgstr "Dossier Documents"
-
-#~ msgid "Recent"
-#~ msgstr "Récent"
-
-#~ msgid "Print"
-#~ msgstr "Imprimer"
-
-#~ msgid "Share"
-#~ msgstr "Partager"
-
-#~ msgid "You can add your online accounts in %s"
-#~ msgstr "Vous pouvez ajouter vos comptes en ligne dans %s"
-
-#~ msgid "Settings"
-#~ msgstr "Paramètres"
