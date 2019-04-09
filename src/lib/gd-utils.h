@@ -40,10 +40,6 @@ gchar *gd_iso8601_from_timestamp (gint64 timestamp);
 GIcon *gd_create_collection_icon (gint base_size,
                                   GList *pixbufs);
 
-void gd_ev_view_find_changed (EvView *view,
-                              EvJobFind *job,
-                              gint page);
-
 void gd_show_about_dialog (GtkWindow *parent);
 
 #endif /* __GD_UTILS_H__ */
