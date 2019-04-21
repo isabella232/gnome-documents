@@ -37,15 +37,13 @@ const QueryType = {
     UPDATE_BLANK: 2
 };
 
-var TrackerConnectionQueue = new Lang.Class({
-    Name: 'TrackerConnectionQueue',
-
-    _init: function() {
+var TrackerConnectionQueue = class TrackerConnectionQueue {
+    constructor() {
         this._queue = [];
         this._running = false;
-    },
+    }
 
-    add: function(query, cancellable, callback) {
+    add(query, cancellable, callback) {
         let params = { query: query,
                        cancellable: cancellable,
                        callback: callback,
@@ -53,9 +51,9 @@ var TrackerConnectionQueue = new Lang.Class({
         this._queue.push(params);
 
         this._checkQueue();
-    },
+    }
 
-    update: function(query, cancellable, callback) {
+    update(query, cancellable, callback) {
         let params = { query: query,
                        cancellable: cancellable,
                        callback: callback,
@@ -63,9 +61,9 @@ var TrackerConnectionQueue = new Lang.Class({
         this._queue.push(params);
 
         this._checkQueue();
-    },
+    }
 
-    updateBlank: function(query, cancellable, callback) {
+    updateBlank(query, cancellable, callback) {
         let params = { query: query,
                        cancellable: cancellable,
                        callback: callback,
@@ -73,9 +71,9 @@ var TrackerConnectionQueue = new Lang.Class({
         this._queue.push(params);
 
         this._checkQueue();
-    },
+    }
 
-    _checkQueue: function() {
+    _checkQueue() {
         if (this._running)
             return;
 
@@ -94,24 +92,22 @@ var TrackerConnectionQueue = new Lang.Class({
         else if (params.queryType == QueryType.UPDATE_BLANK)
             Application.connection.update_blank_async(params.query, GLib.PRIORITY_DEFAULT, params.cancellable,
                                                  Lang.bind(this, this._queueCollector, params));
-    },
+    }
 
-    _queueCollector: function(connection, res, params) {
+    _queueCollector(connection, res, params) {
         params.callback(connection, res);
         this._running = false;
         this._checkQueue();
     }
-});
+}
 
 const RefreshFlags = {
     NONE: 0,
     RESET_OFFSET: 1 << 0
 };
 
-const TrackerController = new Lang.Class({
-    Name: 'TrackerController',
-
-    _init: function(windowMode) {
+const TrackerController = class TrackerController {
+    constructor(windowMode) {
         this._currentQuery = null;
         this._cancellable = new Gio.Cancellable();
         this._mode = windowMode;
@@ -139,13 +135,13 @@ const TrackerController = new Lang.Class({
 
         Application.settings.connect('changed::sort-by', Lang.bind(this, this._updateSortForSettings));
         this._updateSortForSettings();
-    },
+    }
 
-    getOffsetController: function() {
+    getOffsetController() {
         log('Error: TrackerController implementations must override getOffsetController');
-    },
+    }
 
-    _setQueryStatus: function(status) {
+    _setQueryStatus(status) {
         if (this._querying == status)
             return;
 
@@ -159,25 +155,25 @@ const TrackerController = new Lang.Class({
 
         this._querying = status;
         this.emit('query-status-changed', this._querying);
-    },
+    }
 
-    getQuery: function() {
+    getQuery() {
         log('Error: TrackerController implementations must override getQuery');
-    },
+    }
 
-    getQueryStatus: function() {
+    getQueryStatus() {
         return this._querying;
-    },
+    }
 
-    _onQueryError: function(exception) {
+    _onQueryError(exception) {
         if (exception.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
             return;
 
         let message = _("Unable to fetch the list of documents");
         this.emit('query-error', message, exception);
-    },
+    }
 
-    _onQueryFinished: function(exception) {
+    _onQueryFinished(exception) {
         this._setQueryStatus(false);
 
         if (exception)
@@ -189,9 +185,9 @@ const TrackerController = new Lang.Class({
             this._queryQueued = false;
             this._refreshInternal(this._queryQueuedFlags);
         }
-    },
+    }
 
-    _onCursorNext: function(cursor, res) {
+    _onCursorNext(cursor, res) {
         try {
             let valid = cursor.next_finish(res);
 
@@ -211,9 +207,9 @@ const TrackerController = new Lang.Class({
                     + (GLib.get_monotonic_time() - this._lastQueryTime) / 1000000);
         Application.documentManager.addDocumentFromCursor(cursor);
         cursor.next_async(this._cancellable, Lang.bind(this, this._onCursorNext));
-    },
+    }
 
-    _onQueryExecuted: function(object, res) {
+    _onQueryExecuted(object, res) {
         try {
             Utils.debug('Query Executed: '
                         + (GLib.get_monotonic_time() - this._lastQueryTime) / 1000000);
@@ -223,17 +219,17 @@ const TrackerController = new Lang.Class({
         } catch (e) {
             this._onQueryFinished(e);
         }
-    },
+    }
 
-    _performCurrentQuery: function() {
+    _performCurrentQuery() {
         this._currentQuery = this.getQuery();
         this._cancellable.reset();
 
         Application.connectionQueue.add(this._currentQuery.sparql,
                                         this._cancellable, Lang.bind(this, this._onQueryExecuted));
-    },
+    }
 
-    _refreshInternal: function(flags) {
+    _refreshInternal(flags) {
         if (!this._isStarted)
             throw(new Error('!this._isStarted'));
 
@@ -250,13 +246,13 @@ const TrackerController = new Lang.Class({
 
         this._setQueryStatus(true);
         this._performCurrentQuery();
-    },
+    }
 
-    refreshForObject: function(_object, _item) {
+    refreshForObject(_object, _item) {
         this._refreshInternal(RefreshFlags.RESET_OFFSET);
-    },
+    }
 
-    _refreshForSource: function() {
+    _refreshForSource() {
         // When a source is added or removed, refresh the model only if
         // the current source is All.
         // If it was the current source to be removed, we will get an
@@ -266,18 +262,18 @@ const TrackerController = new Lang.Class({
             this._refreshInternal(RefreshFlags.NONE);
 
         this._refreshPending = false;
-    },
+    }
 
-    _onSourceAddedRemoved: function(manager, item) {
+    _onSourceAddedRemoved(manager, item) {
         let mode = Application.modeController.getWindowMode();
 
         if (mode == this._mode)
             this._refreshForSource();
         else
             this._refreshPending = true;
-    },
+    }
 
-    _updateSortForSettings: function() {
+    _updateSortForSettings() {
         let sortBy = Application.settings.get_enum('sort-by');
 
         if(this.sortBy == sortBy)
@@ -289,24 +285,21 @@ const TrackerController = new Lang.Class({
             return;
 
         this._refreshInternal(RefreshFlags.RESET_OFFSET);
-    },
+    }
 
-    start: function() {
+    start() {
         if (this._isStarted)
             return;
 
         this._isStarted = true;
         this._refreshInternal(RefreshFlags.NONE);
     }
-});
+}
 Signals.addSignalMethods(TrackerController.prototype);
 
-var TrackerCollectionsController = new Lang.Class({
-    Name: 'TrackerCollectionsController',
-    Extends: TrackerController,
-
-    _init: function() {
-        this.parent(WindowMode.WindowMode.COLLECTIONS);
+var TrackerCollectionsController = class TrackerCollectionsController extends TrackerController {
+    constructor() {
+        super(WindowMode.WindowMode.COLLECTIONS);
 
         Application.documentManager.connect('active-collection-changed', Lang.bind(this,
             function() {
@@ -314,13 +307,13 @@ var TrackerCollectionsController = new Lang.Class({
                 if (windowMode == WindowMode.WindowMode.COLLECTIONS)
                     this.refreshForObject();
             }));
-    },
+    }
 
-    getOffsetController: function() {
+    getOffsetController() {
         return Application.offsetCollectionsController;
-    },
+    }
 
-    getQuery: function() {
+    getQuery() {
         let flags;
         let activeCollection = Application.documentManager.getActiveCollection();
 
@@ -332,34 +325,28 @@ var TrackerCollectionsController = new Lang.Class({
         return Application.queryBuilder.buildGlobalQuery(flags,
                                                          Application.offsetCollectionsController,
                                                          this.sortBy);
-    },
-});
+    }
+}
 
-var TrackerDocumentsController = new Lang.Class({
-    Name: 'TrackerDocumentsController',
-    Extends: TrackerController,
+var TrackerDocumentsController = class TrackerDocumentsController extends TrackerController {
+    constructor() {
+        super(WindowMode.WindowMode.DOCUMENTS);
+    }
 
-    _init: function() {
-        this.parent(WindowMode.WindowMode.DOCUMENTS);
-    },
-
-    getOffsetController: function() {
+    getOffsetController() {
         return Application.offsetDocumentsController;
-    },
+    }
 
-    getQuery: function() {
+    getQuery() {
         return Application.queryBuilder.buildGlobalQuery(Query.QueryFlags.DOCUMENTS,
                                                          Application.offsetDocumentsController,
                                                          this.sortBy);
-    },
-});
+    }
+}
 
-var TrackerSearchController = new Lang.Class({
-    Name: 'TrackerSearchController',
-    Extends: TrackerController,
-
-    _init: function() {
-        this.parent(WindowMode.WindowMode.SEARCH);
+var TrackerSearchController = class TrackerSearchController extends TrackerController {
+    constructor() {
+        super(WindowMode.WindowMode.SEARCH);
 
         Application.documentManager.connect('active-collection-changed', Lang.bind(this,
             function() {
@@ -373,22 +360,22 @@ var TrackerSearchController = new Lang.Class({
         Application.searchTypeManager.connect('active-changed', Lang.bind(this, this.refreshForObject));
 
         Application.searchMatchManager.connect('active-changed', Lang.bind(this, this._onSearchMatchChanged));
-    },
+    }
 
-    _onSearchMatchChanged: function() {
+    _onSearchMatchChanged() {
         // when the "match" search setting changes, refresh only if
         // the search string is not empty
         if (Application.searchController.getString() != '')
             this.refreshForObject();
-    },
+    }
 
-    getOffsetController: function() {
+    getOffsetController() {
         return Application.offsetSearchController;
-    },
+    }
 
-    getQuery: function() {
+    getQuery() {
         return Application.queryBuilder.buildGlobalQuery(Query.QueryFlags.SEARCH,
                                                          Application.offsetSearchController,
                                                          this.sortBy);
-    },
-});
+    }
+}

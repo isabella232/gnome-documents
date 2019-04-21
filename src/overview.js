@@ -70,12 +70,9 @@ function getController(windowMode) {
 
 const _RESET_COUNT_TIMEOUT = 500; // msecs
 
-const ViewModel = new Lang.Class({
-    Name: 'ViewModel',
-    Extends: Gtk.ListStore,
-
-    _init: function(windowMode) {
-        this.parent();
+const ViewModel = GObject.registerClass(class ViewModel extends Gtk.ListStore {
+    _init(windowMode) {
+        super._init();
         this.set_column_types(
             [ GObject.TYPE_STRING,
               GObject.TYPE_STRING,
@@ -110,9 +107,9 @@ const ViewModel = new Lang.Class({
         for (let idx in items) {
             this._onItemAdded(Application.documentManager, items[idx]);
         }
-    },
+    }
 
-    _clear: function() {
+    _clear() {
         let items = Application.documentManager.getItems();
         for (let idx in items) {
             let doc = items[idx];
@@ -120,9 +117,9 @@ const ViewModel = new Lang.Class({
         }
 
         this.clear();
-    },
+    }
 
-    _addItem: function(doc) {
+    _addItem(doc) {
         // Update the count so that OffsetController has the correct
         // values. Otherwise things like loading more items and "No
         // Results" page will not work correctly.
@@ -137,9 +134,9 @@ const ViewModel = new Lang.Class({
         let treePath = this.get_path(iter);
         let treeRowRef = Gtk.TreeRowReference.new(this, treePath);
         doc.rowRefs[this._rowRefKey] = treeRowRef;
-    },
+    }
 
-    _removeItem: function(doc) {
+    _removeItem(doc) {
         // Update the count so that OffsetController has the correct
         // values. Otherwise things like loading more items and "No
         // Results" page will not work correctly.
@@ -158,9 +155,9 @@ const ViewModel = new Lang.Class({
             }));
 
         doc.rowRefs[this._rowRefKey] = null;
-    },
+    }
 
-    _onInfoUpdated: function(doc) {
+    _onInfoUpdated(doc) {
         let activeCollection = Application.documentManager.getActiveCollection();
         let treeRowRef = doc.rowRefs[this._rowRefKey];
 
@@ -191,9 +188,9 @@ const ViewModel = new Lang.Class({
                     [ doc.id, doc.uri, doc.name,
                       doc.author, doc.surface, doc.mtime ]);
         }
-    },
+    }
 
-    _onItemAdded: function(source, doc) {
+    _onItemAdded(source, doc) {
         if (doc.rowRefs[this._rowRefKey])
             return;
 
@@ -216,15 +213,15 @@ const ViewModel = new Lang.Class({
 
         this._addItem(doc);
         this._infoUpdatedIds[doc.id] = doc.connect('info-updated', Lang.bind(this, this._onInfoUpdated));
-    },
+    }
 
-    _onItemRemoved: function(source, doc) {
+    _onItemRemoved(source, doc) {
         this._removeItem(doc);
         doc.disconnect(this._infoUpdatedIds[doc.id]);
         delete this._infoUpdatedIds[doc.id];
-    },
+    }
 
-    _resetCount: function() {
+    _resetCount() {
         if (this._resetCountId == 0) {
             this._resetCountId = Mainloop.timeout_add(_RESET_COUNT_TIMEOUT, Lang.bind(this,
                 function() {
@@ -236,13 +233,10 @@ const ViewModel = new Lang.Class({
     }
 });
 
-const EmptyResultsBox = new Lang.Class({
-    Name: 'EmptyResultsBox',
-    Extends: Gtk.Grid,
-
-    _init: function(mode) {
+const EmptyResultsBox = GObject.registerClass(class EmptyResultsBox extends Gtk.Grid {
+    _init(mode) {
         this._mode = mode;
-        this.parent({ orientation: Gtk.Orientation.VERTICAL,
+        super._init({ orientation: Gtk.Orientation.VERTICAL,
                       row_spacing: 12,
                       hexpand: true,
                       vexpand: true,
@@ -255,9 +249,9 @@ const EmptyResultsBox = new Lang.Class({
         this._addSecondaryLabel();
 
         this.show_all();
-    },
+    }
 
-    _addImage: function() {
+    _addImage() {
         let iconName;
         if (this._mode == WindowMode.WindowMode.SEARCH)
             iconName = 'system-search-symbolic';
@@ -267,9 +261,9 @@ const EmptyResultsBox = new Lang.Class({
             iconName = 'x-office-document-symbolic';
 
         this.add(new Gtk.Image({ pixel_size: 128, icon_name: iconName, margin_bottom: 9 }));
-    },
+    }
 
-    _addPrimaryLabel: function() {
+    _addPrimaryLabel() {
         let text;
         if (this._mode == WindowMode.WindowMode.COLLECTIONS)
             text = _("No collections found");
@@ -279,9 +273,9 @@ const EmptyResultsBox = new Lang.Class({
         this.add(new Gtk.Label({ label: '<b><span size="large">' + text + '</span></b>',
                                  use_markup: true,
                                  margin_top: 9 }));
-    },
+    }
 
-    _addSecondaryLabel: function() {
+    _addSecondaryLabel() {
         if (this._mode == WindowMode.WindowMode.SEARCH) {
             this.add(new Gtk.Label({ label: _("Try a different search") }));
             return;
@@ -325,14 +319,11 @@ const EmptyResultsBox = new Lang.Class({
     }
 });
 
-const OverviewSearchbar = new Lang.Class({
-    Name: 'OverviewSearchbar',
-    Extends: Searchbar.Searchbar,
-
-    _init: function(view) {
+const OverviewSearchbar = GObject.registerClass(class OverviewSearchbar extends Searchbar.Searchbar {
+    _init(view) {
         this._view = view;
 
-        this.parent();
+        super._init();
 
         let sourcesId = Application.sourceManager.connect('active-changed',
             Lang.bind(this, this._onActiveSourceChanged));
@@ -367,9 +358,9 @@ const OverviewSearchbar = new Lang.Class({
 
                 searchAction.disconnect(searchStateId);
             }));
-    },
+    }
 
-    createSearchWidget: function() {
+    createSearchWidget() {
         // create the search entry
         this.searchEntry = new Gd.TaggedEntry({ width_request: 500 });
         this.searchEntry.connect('tag-clicked',
@@ -403,9 +394,9 @@ const OverviewSearchbar = new Lang.Class({
         box.show_all();
 
         return box;
-    },
+    }
 
-    entryChanged: function() {
+    entryChanged() {
         let currentText = this.searchEntry.get_text();
 
         Application.searchController.disconnect(this._searchChangedId);
@@ -414,13 +405,13 @@ const OverviewSearchbar = new Lang.Class({
         // connect to search string changes in the controller
         this._searchChangedId = Application.searchController.connect('search-string-changed',
             Lang.bind(this, this._onSearchStringChanged));
-    },
+    }
 
-    _onSearchStringChanged: function(controller, string) {
+    _onSearchStringChanged(controller, string) {
         this.searchEntry.set_text(string);
-    },
+    }
 
-    _onActiveCollectionChanged: function(manager, collection) {
+    _onActiveCollectionChanged(manager, collection) {
         if (!collection)
             return;
 
@@ -431,9 +422,9 @@ const OverviewSearchbar = new Lang.Class({
             Application.searchTypeManager.setActiveItemById('all');
             this.searchEntry.set_text('');
         }
-    },
+    }
 
-    _onActiveChangedCommon: function(id, manager, tag) {
+    _onActiveChangedCommon(id, manager, tag) {
         let item = manager.getActiveItem();
 
         if (item.id == 'all') {
@@ -444,21 +435,21 @@ const OverviewSearchbar = new Lang.Class({
         }
 
         this.searchEntry.grab_focus_without_selecting();
-    },
+    }
 
-    _onActiveSourceChanged: function() {
+    _onActiveSourceChanged() {
         this._onActiveChangedCommon('source', Application.sourceManager, this._sourceTag);
-    },
+    }
 
-    _onActiveTypeChanged: function() {
+    _onActiveTypeChanged() {
         this._onActiveChangedCommon('type', Application.searchTypeManager, this._typeTag);
-    },
+    }
 
-    _onActiveMatchChanged: function() {
+    _onActiveMatchChanged() {
         this._onActiveChangedCommon('match', Application.searchMatchManager, this._matchTag);
-    },
+    }
 
-    _onTagButtonClicked: function(entry, tag) {
+    _onTagButtonClicked(entry, tag) {
         let manager = null;
 
         if (tag == this._matchTag) {
@@ -472,35 +463,32 @@ const OverviewSearchbar = new Lang.Class({
         if (manager) {
             manager.setActiveItemById('all');
         }
-    },
+    }
 
-    _onTagClicked: function() {
+    _onTagClicked() {
         this._dropdownButton.set_active(true);
-    },
+    }
 
-    _onActionStateChanged: function(action) {
+    _onActionStateChanged(action) {
         if (action.state.get_boolean())
             this.reveal();
         else
             this.conceal();
-    },
+    }
 
-    conceal: function() {
+    conceal() {
         this._dropdownButton.set_active(false);
 
         Application.searchTypeManager.setActiveItemById('all');
         Application.searchMatchManager.setActiveItemById('all');
         Application.sourceManager.setActiveItemById('all');
 
-        this.parent();
+        super.conceal();
     }
 });
 
-const OverviewToolbar = new Lang.Class({
-    Name: 'OverviewToolbar',
-    Extends: MainToolbar.MainToolbar,
-
-    _init: function(view) {
+const OverviewToolbar = GObject.registerClass(class OverviewToolbar extends MainToolbar.MainToolbar {
+    _init(view) {
         this._collBackButton = null;
         this._collectionId = 0;
         this._selectionChangedId = 0;
@@ -512,7 +500,7 @@ const OverviewToolbar = new Lang.Class({
 
         this._view = view;
 
-        this.parent();
+        super._init();
 
         let builder = new Gtk.Builder();
         builder.add_from_resource('/org/gnome/Documents/ui/selection-menu.ui');
@@ -542,9 +530,9 @@ const OverviewToolbar = new Lang.Class({
                 this._clearStateData();
                 selectionModeAction.disconnect(selectionModeStateId);
             }));
-    },
+    }
 
-    _addViewMenuButton: function() {
+    _addViewMenuButton() {
         let builder = new Gtk.Builder();
         builder.add_from_resource('/org/gnome/Documents/ui/view-menu.ui');
         let viewMenu = builder.get_object('viewMenu');
@@ -557,15 +545,15 @@ const OverviewToolbar = new Lang.Class({
         this._viewSettingsId = Application.settings.connect('changed::view-as',
             Lang.bind(this, this._updateViewMenuButton));
         this._updateViewMenuButton();
-    },
+    }
 
-    _updateViewMenuButton: function() {
+    _updateViewMenuButton() {
         let viewType = Application.settings.get_enum('view-as');
         let iconName = viewType == Gd.MainViewType.ICON ? 'view-grid-symbolic' : 'view-list-symbolic';
         this._viewMenuButton.image = new Gtk.Image({ icon_name: iconName, pixel_size: 16 })
-    },
+    }
 
-    _setToolbarTitle: function() {
+    _setToolbarTitle() {
         let selectionMode = this._view.getAction('selection-mode').state.get_boolean();
         let activeCollection = Application.documentManager.getActiveCollection();
         let primary = null;
@@ -598,9 +586,9 @@ const OverviewToolbar = new Lang.Class({
         } else {
             this.toolbar.set_title(primary);
         }
-    },
+    }
 
-    _populateForSelectionMode: function() {
+    _populateForSelectionMode() {
         this.toolbar.get_style_context().add_class('selection-mode');
         this.toolbar.set_custom_title(this._selectionMenu);
 
@@ -614,9 +602,9 @@ const OverviewToolbar = new Lang.Class({
                                                Lang.bind(this, this._setToolbarTitle));
 
         this.addSearchButton('view.search');
-    },
+    }
 
-    _checkCollectionWidgets: function() {
+    _checkCollectionWidgets() {
         let customTitle;
         let item = Application.documentManager.getActiveCollection();
 
@@ -636,9 +624,9 @@ const OverviewToolbar = new Lang.Class({
         }
 
         this.toolbar.set_custom_title(customTitle);
-    },
+    }
 
-    _onActiveCollectionChanged: function(manager, activeCollection) {
+    _onActiveCollectionChanged(manager, activeCollection) {
         if (activeCollection) {
             this._infoUpdatedId = activeCollection.connect('info-updated', Lang.bind(this, this._setToolbarTitle));
         } else {
@@ -650,9 +638,9 @@ const OverviewToolbar = new Lang.Class({
         this._activeCollection = activeCollection;
         this._checkCollectionWidgets();
         this._setToolbarTitle();
-    },
+    }
 
-    _populateForOverview: function() {
+    _populateForOverview() {
         this.toolbar.set_show_close_button(true);
         this.toolbar.set_custom_title(this._stackSwitcher);
         this._checkCollectionWidgets();
@@ -671,9 +659,9 @@ const OverviewToolbar = new Lang.Class({
         this._collectionId =
             Application.documentManager.connect('active-collection-changed',
                                              Lang.bind(this, this._onActiveCollectionChanged));
-    },
+    }
 
-    _clearStateData: function() {
+    _clearStateData() {
         this._collBackButton = null;
         this._viewMenuButton = null;
         this.toolbar.set_custom_title(null);
@@ -697,18 +685,18 @@ const OverviewToolbar = new Lang.Class({
             Application.settings.disconnect(this._viewSettingsId);
             this._viewSettingsId = 0;
         }
-    },
+    }
 
-    _clearToolbar: function() {
+    _clearToolbar() {
         this._clearStateData();
         this.toolbar.set_show_close_button(false);
 
         this.toolbar.get_style_context().remove_class('selection-mode');
         let children = this.toolbar.get_children();
         children.forEach(function(child) { child.destroy(); });
-    },
+    }
 
-    _resetToolbarMode: function() {
+    _resetToolbarMode() {
         this._clearToolbar();
 
         let selectionMode = this._view.getAction('selection-mode').state.get_boolean();
@@ -730,24 +718,21 @@ const OverviewToolbar = new Lang.Class({
 
         if (Application.searchController.getString() != '')
             this._view.getAction('search').change_state(GLib.Variant.new('b', true));
-    },
+    }
 
-    createSearchbar: function() {
+    createSearchbar() {
         return new OverviewSearchbar(this._view);
     }
 });
 
-const ViewContainer = new Lang.Class({
-    Name: 'ViewContainer',
-    Extends: Gtk.Stack,
-
-    _init: function(overview, windowMode) {
+const ViewContainer = GObject.registerClass(class ViewContainer extends Gtk.Stack {
+    _init(overview, windowMode) {
         this._edgeHitId = 0;
         this._mode = windowMode;
 
         this._model = new ViewModel(this._mode);
 
-        this.parent({ homogeneous: true,
+        super._init({ homogeneous: true,
                       transition_type: Gtk.StackTransitionType.CROSSFADE });
 
         this.view = new Gd.MainView({ shadow_type: Gtk.ShadowType.NONE });
@@ -807,14 +792,14 @@ const ViewContainer = new Lang.Class({
 
         // this will create the model if we're done querying
         this._onQueryStatusChanged();
-    },
+    }
 
-    _onViewTypeChanged: function() {
+    _onViewTypeChanged() {
         if (this.view.view_type == Gd.MainViewType.LIST)
             this._addListRenderers();
-    },
+    }
 
-    _onSizeAllocate: function() {
+    _onSizeAllocate() {
         let vadjustment = this.view.get_vadjustment();
         let viewHeight = this.view.get_generic_view().get_allocation().height;
         let scrollIsAtTop = vadjustment.value == 0;
@@ -822,12 +807,10 @@ const ViewContainer = new Lang.Class({
         let hasMoreDocuments = this._offsetController.getRemainingDocs() > 0;
 
         if (scrollIsAtTop && scrollMaxIsHeight && hasMoreDocuments)
-        {
             this._offsetController.increaseOffset();
-        }
-    },
+    }
 
-    _getFirstDocument: function() {
+    _getFirstDocument() {
         let doc = null;
 
         let [success, iter] = this._model.get_iter_first();
@@ -837,9 +820,9 @@ const ViewContainer = new Lang.Class({
         }
 
         return doc;
-    },
+    }
 
-    _addListRenderers: function() {
+    _addListRenderers() {
         let listWidget = this.view.get_generic_view();
 
         let typeRenderer =
@@ -908,21 +891,21 @@ const ViewContainer = new Lang.Class({
                                                          years).format(years);
                 }
             }));
-    },
+    }
 
-    _onSelectionModeRequest: function() {
+    _onSelectionModeRequest() {
         this._selectionModeAction.change_state(GLib.Variant.new('b', true));
-    },
+    }
 
-    _onItemActivated: function(widget, id, path) {
+    _onItemActivated(widget, id, path) {
         Application.documentManager.setActiveItemById(id);
-    },
+    }
 
-    _onQueryError: function(manager, message, exception) {
+    _onQueryError(manager, message, exception) {
         this._setError(message, exception.message);
-    },
+    }
 
-    _onQueryStatusChanged: function() {
+    _onQueryStatusChanged() {
         let status = this._trackerController.getQueryStatus();
 
         if (!status) {
@@ -948,14 +931,14 @@ const ViewContainer = new Lang.Class({
             this._spinner.start();
             this.set_visible_child_name('spinner');
         }
-    },
+    }
 
-    _setError: function(primary, secondary) {
+    _setError(primary, secondary) {
         this._errorBox.update(primary, secondary);
         this.set_visible_child_name('error');
-    },
+    }
 
-    _updateSelection: function() {
+    _updateSelection() {
         let selected = Application.selectionController.getSelection();
         let newSelection = [];
 
@@ -986,14 +969,14 @@ const ViewContainer = new Lang.Class({
             }));
 
         Application.selectionController.setSelection(newSelection);
-    },
+    }
 
-    _onSelectionModeChanged: function() {
+    _onSelectionModeChanged() {
         let selectionMode = this._selectionModeAction.state.get_boolean();
         this.view.set_selection_mode(selectionMode);
-    },
+    }
 
-    _onViewSelectionChanged: function() {
+    _onViewSelectionChanged() {
         let mode = Application.modeController.getWindowMode();
         if (this._mode != mode)
             return;
@@ -1002,48 +985,45 @@ const ViewContainer = new Lang.Class({
         let selectedURNs = Utils.getURNsFromPaths(this.view.get_selection(),
                                                   this._model);
         Application.selectionController.setSelection(selectedURNs);
-    },
+    }
 
-    _onWindowModeChanged: function() {
+    _onWindowModeChanged() {
         let mode = Application.modeController.getWindowMode();
         if (mode == this._mode)
             this._connectView();
         else
             this._disconnectView();
-    },
+    }
 
-    _connectView: function() {
+    _connectView() {
         this._edgeHitId = this.view.connect('edge-reached', Lang.bind(this,
             function (view, pos) {
                 if (pos == Gtk.PositionType.BOTTOM)
                     this._offsetController.increaseOffset();
             }));
-    },
+    }
 
-    _disconnectView: function() {
+    _disconnectView() {
         if (this._edgeHitId != 0) {
             this.view.disconnect(this._edgeHitId);
             this._edgeHitId = 0;
         }
-    },
+    }
 
-    activateResult: function() {
+    activateResult() {
         let doc = this._getFirstDocument();
         if (doc)
             Application.documentManager.setActiveItem(doc)
-    },
+    }
 
     get model() {
         return this._model;
     }
 });
 
-var OverviewStack = new Lang.Class({
-    Name: 'OverviewStack',
-    Extends: Gtk.Box,
-
-    _init: function() {
-        this.parent({ orientation: Gtk.Orientation.VERTICAL,
+var OverviewStack = GObject.registerClass(class OverviewStack extends Gtk.Box {
+    _init() {
+        super._init({ orientation: Gtk.Orientation.VERTICAL,
                       visible: true });
 
         let actions = this._getDefaultActions();
@@ -1069,9 +1049,9 @@ var OverviewStack = new Lang.Class({
 
         this._stack.connect('notify::visible-child',
                             Lang.bind(this, this._onVisibleChildChanged));
-    },
+    }
 
-    _getDefaultActions: function() {
+    _getDefaultActions() {
         let backAccels = ['Back'];
         if (this.get_direction() == Gtk.TextDirection.LTR)
             backAccels.push('<Alt>Left');
@@ -1115,27 +1095,27 @@ var OverviewStack = new Lang.Class({
               stateChanged: Lang.bind(this, this._updateSearchMatch),
               create_hook: Lang.bind(this, this._initSearchMatch) }
         ];
-    },
+    }
 
-    _goBack: function() {
+    _goBack() {
         Application.documentManager.activatePreviousCollection();
-    },
+    }
 
-    _selectAll: function() {
+    _selectAll() {
         this.getAction('selection-mode').change_state(GLib.Variant.new('b', true));
         this.view.view.select_all();
-    },
+    }
 
-    _selectNone: function() {
+    _selectNone() {
         this.view.view.unselect_all();
-    },
+    }
 
-    _updateTypeForSettings: function() {
+    _updateTypeForSettings() {
         let viewType = Application.settings.get_enum('view-as');
         this.view.view.set_view_type(viewType);
-    },
+    }
 
-    _updateSortForSettings: function() {
+    _updateSortForSettings() {
         let sortBy = Application.settings.get_enum('sort-by');
         let sortType;
 
@@ -1156,9 +1136,9 @@ var OverviewStack = new Lang.Class({
         }
 
         this.view.model.set_sort_column_id(sortBy, sortType);
-    },
+    }
 
-    _updateSelectionMode: function(action) {
+    _updateSelectionMode(action) {
         let selectionMode = action.state.get_boolean();
 
         if (selectionMode) {
@@ -1168,42 +1148,42 @@ var OverviewStack = new Lang.Class({
             Application.application.set_accels_for_action('view.selection-mode', []);
             this._selectionToolbar.hide();
         }
-    },
+    }
 
-    _initSearchSource: function(action) {
+    _initSearchSource(action) {
         Application.sourceManager.connect('active-changed', Lang.bind(this, function(manager, activeItem) {
             action.state = GLib.Variant.new('s', activeItem.id);
         }));
-    },
+    }
 
-    _initSearchType: function(action) {
+    _initSearchType(action) {
         Application.searchTypeManager.connect('active-changed', Lang.bind(this, function(manager, activeItem) {
             action.state = GLib.Variant.new('s', activeItem.id);
         }));
-    },
+    }
 
-    _initSearchMatch: function(action) {
+    _initSearchMatch(action) {
         Application.searchMatchManager.connect('active-changed', Lang.bind(this, function(manager, activeItem) {
             action.state = GLib.Variant.new('s', activeItem.id);
         }));
-    },
+    }
 
-    _updateSearchSource: function(action) {
+    _updateSearchSource(action) {
         let itemId = action.state.get_string()[0];
         Application.sourceManager.setActiveItemById(itemId);
-    },
+    }
 
-    _updateSearchType: function(action) {
+    _updateSearchType(action) {
         let itemId = action.state.get_string()[0];
         Application.searchTypeManager.setActiveItemById(itemId);
-    },
+    }
 
-    _updateSearchMatch: function(action) {
+    _updateSearchMatch(action) {
         let itemId = action.state.get_string()[0];
         Application.searchMatchManager.setActiveItemById(itemId);
-    },
+    }
 
-    _onVisibleChildChanged: function() {
+    _onVisibleChildChanged() {
         let windowMode;
 
         if (this.view == this._collections)
@@ -1214,7 +1194,7 @@ var OverviewStack = new Lang.Class({
             return;
 
         Application.modeController.setWindowMode(windowMode);
-    },
+    }
 
     set windowMode(mode) {
         let visibleChild;
@@ -1236,23 +1216,23 @@ var OverviewStack = new Lang.Class({
         this._stack.visible_child = visibleChild;
         this._updateSortForSettings();
         this._updateTypeForSettings();
-    },
+    }
 
-    activateResult: function() {
+    activateResult() {
         this.view.activateResult();
-    },
+    }
 
-    createToolbar: function() {
+    createToolbar() {
         return new OverviewToolbar(this);
-    },
+    }
 
-    getAction: function(name) {
+    getAction(name) {
         return this.actionGroup.lookup_action(name);
-    },
+    }
 
     get stack() {
         return this._stack;
-    },
+    }
 
     get view() {
         return this._stack.visible_child;

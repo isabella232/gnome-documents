@@ -119,17 +119,15 @@ function _createGIcon(cursor) {
     return gicon;
 }
 
-const CreateCollectionIconJob = new Lang.Class({
-    Name: 'CreateCollectionIconJob',
-
-    _init: function(id) {
+const CreateCollectionIconJob = class CreateCollectionIconJob {
+    constructor(id) {
         this._id = id;
         this._itemIcons = [];
         this._itemIds = [];
         this._itemJobs = 0;
-    },
+    }
 
-    run: function(callback) {
+    run(callback) {
         this._callback = callback;
 
         let query = queryBuilder.buildCollectionIconQuery(this._id);
@@ -145,9 +143,9 @@ const CreateCollectionIconJob = new Lang.Class({
                     this._hasItemIds();
                 }
             }));
-    },
+    }
 
-    _createItemIcon: function(cursor) {
+    _createItemIcon(cursor) {
         let pixbuf = null;
         let icon = _createGIcon(cursor);
 
@@ -174,9 +172,9 @@ const CreateCollectionIconJob = new Lang.Class({
         }
 
         return pixbuf;
-    },
+    }
 
-    _onCursorNext: function(cursor, res) {
+    _onCursorNext(cursor, res) {
         let valid = false;
 
         try {
@@ -195,9 +193,9 @@ const CreateCollectionIconJob = new Lang.Class({
             cursor.close();
             this._hasItemIds();
         }
-    },
+    }
 
-    _hasItemIds: function() {
+    _hasItemIds() {
         if (this._itemIds.length == 0) {
             this._returnPixbuf();
             return;
@@ -215,36 +213,34 @@ const CreateCollectionIconJob = new Lang.Class({
                         this._itemJobCollector();
                     }));
             }));
-    },
+    }
 
-    _itemJobCollector: function() {
+    _itemJobCollector() {
         this._itemJobs--;
 
         if (this._itemJobs == 0)
             this._returnPixbuf();
-    },
+    }
 
-    _returnPixbuf: function() {
+    _returnPixbuf() {
         this._callback(GdPrivate.create_collection_icon(_SHELL_SEARCH_ICON_SIZE, this._itemIcons));
     }
-});
+}
 
-const FetchMetasJob = new Lang.Class({
-    Name: 'FetchMetasJob',
-
-    _init: function(ids) {
+const FetchMetasJob = class FetchMetasJob {
+    constructor(ids) {
         this._ids = ids;
         this._metas = [];
-    },
+    }
 
-    _jobCollector: function() {
+    _jobCollector() {
         this._activeJobs--;
 
         if (this._activeJobs == 0)
             this._callback(this._metas);
-    },
+    }
 
-    _createCollectionPixbuf: function(meta) {
+    _createCollectionPixbuf(meta) {
         let job = new CreateCollectionIconJob(meta.id);
         job.run(Lang.bind(this,
             function(icon) {
@@ -254,9 +250,9 @@ const FetchMetasJob = new Lang.Class({
                 this._metas.push(meta);
                 this._jobCollector();
             }));
-    },
+    }
 
-    run: function(callback) {
+    run(callback) {
         this._callback = callback;
         this._activeJobs = this._ids.length;
 
@@ -295,17 +291,15 @@ const FetchMetasJob = new Lang.Class({
                     }));
             }));
     }
-});
+}
 
-const FetchIdsJob = new Lang.Class({
-    Name: 'FetchIdsJob',
-
-    _init: function(terms) {
+const FetchIdsJob = class FetchIdsJob {
+    constructor(terms) {
         this._terms = terms;
         this._ids = [];
-    },
+    }
 
-    run: function(callback, cancellable) {
+    run(callback, cancellable) {
         this._callback = callback;
         this._cancellable = cancellable;
         searchController.setString(this._terms.join(' '));
@@ -324,9 +318,9 @@ const FetchIdsJob = new Lang.Class({
                     callback(this._ids);
                 }
             }));
-    },
+    }
 
-    _onCursorNext: function(cursor, res) {
+    _onCursorNext(cursor, res) {
         let valid = false;
 
         try {
@@ -346,26 +340,24 @@ const FetchIdsJob = new Lang.Class({
             this._callback(this._ids);
         }
     }
-});
+}
 
-var ShellSearchProvider = new Lang.Class({
-    Name: 'ShellSearchProvider',
-
-    _init: function() {
+var ShellSearchProvider = class ShellSearchProvider {
+    constructor() {
         this._impl = Gio.DBusExportedObject.wrapJSObject(SearchProviderIface, this);
         this._cache = {};
         this._cancellable = new Gio.Cancellable();
-    },
+    }
 
-    export: function(connection) {
+    export(connection) {
         return this._impl.export(connection, SEARCH_PROVIDER_PATH);
-    },
+    }
 
-    unexport: function(connection) {
+    unexport(connection) {
         return this._impl.unexport_from_connection(connection);
-    },
+    }
 
-    _returnMetasFromCache: function(ids, invocation) {
+    _returnMetasFromCache(ids, invocation) {
         let metas = [];
         for (let i = 0; i < ids.length; i++) {
             let id = ids[i];
@@ -383,9 +375,9 @@ var ShellSearchProvider = new Lang.Class({
 
         Application.application.release();
         invocation.return_value(GLib.Variant.new('(aa{sv})', [ metas ]));
-    },
+    }
 
-    GetInitialResultSetAsync: function(params, invocation) {
+    GetInitialResultSetAsync(params, invocation) {
         let terms = params[0];
         Application.application.hold();
 
@@ -398,9 +390,9 @@ var ShellSearchProvider = new Lang.Class({
                 Application.application.release();
                 invocation.return_value(GLib.Variant.new('(as)', [ ids ]));
             }), this._cancellable);
-    },
+    }
 
-    GetSubsearchResultSetAsync: function(params, invocation) {
+    GetSubsearchResultSetAsync(params, invocation) {
         let [previousResults, terms] = params;
         Application.application.hold();
 
@@ -413,9 +405,9 @@ var ShellSearchProvider = new Lang.Class({
                 Application.application.release();
                 invocation.return_value(GLib.Variant.new('(as)', [ ids ]));
             }), this._cancellable);
-    },
+    }
 
-    GetResultMetasAsync: function(params, invocation) {
+    GetResultMetasAsync(params, invocation) {
         let ids = params[0];
         Application.application.hold();
 
@@ -439,14 +431,14 @@ var ShellSearchProvider = new Lang.Class({
         } else {
             this._returnMetasFromCache(ids, invocation);
         }
-    },
+    }
 
-    ActivateResult: function(id, terms, timestamp) {
+    ActivateResult(id, terms, timestamp) {
         this.emit('activate-result', id, terms, timestamp);
-    },
+    }
 
-    LaunchSearch: function(terms, timestamp) {
+    LaunchSearch(terms, timestamp) {
         this.emit('launch-search', terms, timestamp);
     }
-});
+}
 Signals.addSignalMethods(ShellSearchProvider.prototype);

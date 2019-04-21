@@ -42,62 +42,56 @@ function initSearch(context) {
     context.queryBuilder = new Query.QueryBuilder(context);
 };
 
-const SearchState = new Lang.Class({
-    Name: 'SearchState',
-
-    _init: function(searchMatch, searchType, source, str) {
+const SearchState = class SearchState {
+    constructor(searchMatch, searchType, source, str) {
         this.searchMatch = searchMatch;
         this.searchType = searchType;
         this.source = source;
         this.str = str;
     }
-});
+}
 
-const SearchController = new Lang.Class({
-    Name: 'SearchController',
-
-    _init: function() {
+const SearchController = class SearchController {
+    constructor() {
         this._string = '';
-    },
+    }
 
-    setString: function(string) {
+    setString(string) {
         if (this._string == string)
             return;
 
         this._string = string;
         this.emit('search-string-changed', this._string);
-    },
+    }
 
-    getString: function() {
+    getString() {
         return this._string;
-    },
+    }
 
-    getTerms: function() {
+    getTerms() {
         let escapedStr = Tracker.sparql_escape_string(this._string);
         let [tokens, ] = GLib.str_tokenize_and_fold(escapedStr, null);
         return tokens;
     }
-});
+}
 Signals.addSignalMethods(SearchController.prototype);
 
-const SearchType = new Lang.Class({
-    Name: 'SearchType',
-
-    _init: function(params) {
+const SearchType = class SearchType {
+    constructor(params) {
         this.id = params.id;
         this.name = params.name;
         this._filter = (params.filter) ? (params.filter) : '(true)';
         this._where = (params.where) ? (params.where) : '';
-    },
+    }
 
-    getFilter: function() {
+    getFilter() {
         return this._filter;
-    },
+    }
 
-    getWhere: function() {
+    getWhere() {
         return this._where;
     }
-});
+}
 
 var SearchTypeStock = {
     ALL: 'all',
@@ -108,14 +102,11 @@ var SearchTypeStock = {
     TEXTDOCS: 'textdocs'
 };
 
-const SearchTypeManager = new Lang.Class({
-    Name: 'SearchTypeManager',
-    Extends: Manager.BaseManager,
-
-    _init: function(context) {
+const SearchTypeManager = class SearchTypeManager extends Manager.BaseManager {
+    constructor(context) {
         // Translators: "Type" refers to a search filter on the document type
         // (PDF, spreadsheet, ...)
-        this.parent(C_("Search Filter", "Type"), 'search-type', context);
+        super(C_("Search Filter", "Type"), 'search-type', context);
 
         this.addItem(new SearchType({ id: SearchTypeStock.ALL,
                                       name: _("All") }));
@@ -140,18 +131,18 @@ const SearchTypeManager = new Lang.Class({
                                       where: '?urn rdf:type nfo:PaginatedTextDocument .' }));
 
         this.setActiveItemById(SearchTypeStock.ALL);
-    },
+    }
 
-    getCurrentTypes: function() {
+    getCurrentTypes() {
         let activeItem = this.getActiveItem();
 
         if (activeItem.id == SearchTypeStock.ALL)
             return this.getAllTypes();
 
         return [ activeItem ];
-    },
+    }
 
-    getDocumentTypes: function() {
+    getDocumentTypes() {
         let types = [];
 
         types.push(this.getItemById(SearchTypeStock.PDF));
@@ -160,9 +151,9 @@ const SearchTypeManager = new Lang.Class({
         types.push(this.getItemById(SearchTypeStock.TEXTDOCS));
 
         return types;
-    },
+    }
 
-    getAllTypes: function() {
+    getAllTypes() {
         let types = [];
 
         this.forEachItem(function(item) {
@@ -172,7 +163,7 @@ const SearchTypeManager = new Lang.Class({
 
         return types;
     }
-});
+}
 
 var SearchMatchStock = {
     ALL: 'all',
@@ -181,20 +172,18 @@ var SearchMatchStock = {
     CONTENT: 'content'
 };
 
-const SearchMatch = new Lang.Class({
-    Name: 'SearchMatch',
-
-    _init: function(params) {
+const SearchMatch = class SearchMatch {
+    constructor(params) {
         this.id = params.id;
         this.name = params.name;
         this._term = '';
-    },
+    }
 
-    setFilterTerm: function(term) {
+    setFilterTerm(term) {
         this._term = term;
-    },
+    }
 
-    getFilter: function() {
+    getFilter() {
         if (this.id == SearchMatchStock.TITLE)
             return ('fn:contains ' +
                     '(tracker:unaccent(tracker:case-fold' +
@@ -217,17 +206,14 @@ const SearchMatch = new Lang.Class({
             return '(false)';
         return '';
     }
-});
+}
 
-const SearchMatchManager = new Lang.Class({
-    Name: 'SearchMatchManager',
-    Extends: Manager.BaseManager,
-
-    _init: function(context) {
+const SearchMatchManager = class SearchMatchManager extends Manager.BaseManager {
+    constructor(context) {
         // Translators: this is a verb that refers to "All", "Title", "Author",
         // and "Content" as in "Match All", "Match Title", "Match Author", and
         // "Match Content"
-        this.parent(_("Match"), 'search-match', context);
+        super(_("Match"), 'search-match', context);
 
         this.addItem(new SearchMatch({ id: SearchMatchStock.ALL,
                                        name: _("All") }));
@@ -242,9 +228,9 @@ const SearchMatchManager = new Lang.Class({
                                        name: C_("Search Filter", "Content") }));
 
         this.setActiveItemById(SearchMatchStock.ALL);
-    },
+    }
 
-    getWhere: function() {
+    getWhere() {
         let item = this.getActiveItem();
         if (item.id != SearchMatchStock.ALL &&
             item.id != SearchMatchStock.CONTENT)
@@ -261,9 +247,9 @@ const SearchMatchManager = new Lang.Class({
         }
 
         return '?urn fts:match \'%s\' . '.format(ftsterms.join(' '));
-    },
+    }
 
-    getFilter: function(flags) {
+    getFilter(flags) {
         if ((flags & Query.QueryFlags.SEARCH) == 0)
             return '(true)';
 
@@ -287,7 +273,7 @@ const SearchMatchManager = new Lang.Class({
         }
         return filters.length ? '( ' + filters.join(' && ') + ')' : '(true)';
     }
-});
+}
 
 var SearchSourceStock = {
     ALL: 'all',
@@ -297,10 +283,8 @@ var SearchSourceStock = {
 const TRACKER_SCHEMA = 'org.freedesktop.Tracker.Miner.Files';
 const TRACKER_KEY_RECURSIVE_DIRECTORIES = 'index-recursive-directories';
 
-const Source = new Lang.Class({
-    Name: 'Source',
-
-    _init: function(params) {
+const Source = class Source {
+    constructor(params) {
         this.id = null;
         this.name = null;
         this.icon = null;
@@ -318,16 +302,16 @@ const Source = new Lang.Class({
         }
 
         this.builtin = params.builtin;
-    },
+    }
 
-    _getGettingStartedLocations: function() {
+    _getGettingStartedLocations() {
         if (Application.application.gettingStartedLocation)
             return Application.application.gettingStartedLocation;
         else
             return [];
-    },
+    }
 
-    _getTrackerLocations: function() {
+    _getTrackerLocations() {
         let settings = new Gio.Settings({ schema_id: TRACKER_SCHEMA });
         let locations = settings.get_strv(TRACKER_KEY_RECURSIVE_DIRECTORIES);
         let files = [];
@@ -355,9 +339,9 @@ const Source = new Lang.Class({
             }));
 
         return files;
-    },
+    }
 
-    _getBuiltinLocations: function() {
+    _getBuiltinLocations() {
         let files = [];
         let xdgDirs = [GLib.UserDirectory.DIRECTORY_DESKTOP,
                        GLib.UserDirectory.DIRECTORY_DOCUMENTS,
@@ -371,9 +355,9 @@ const Source = new Lang.Class({
             }));
 
         return files;
-    },
+    }
 
-    _buildFilterLocal: function() {
+    _buildFilterLocal() {
         let locations = this._getBuiltinLocations();
         locations = locations.concat(
             this._getTrackerLocations(),
@@ -388,9 +372,9 @@ const Source = new Lang.Class({
         filters.push('(fn:starts-with (nao:identifier(?urn), "gd:collection:local:"))');
 
         return '(' + filters.join(' || ') + ')';
-    },
+    }
 
-    getFilter: function() {
+    getFilter() {
         let filters = [];
 
         if (this.id == SearchSourceStock.LOCAL) {
@@ -403,9 +387,9 @@ const Source = new Lang.Class({
         }
 
         return '(' + filters.join(' || ') + ')';
-    },
+    }
 
-    _buildFilterResource: function() {
+    _buildFilterResource() {
         let filter = '(false)';
 
         if (!this.builtin)
@@ -413,14 +397,11 @@ const Source = new Lang.Class({
 
         return filter;
     }
-});
+}
 
-const SourceManager = new Lang.Class({
-    Name: 'SourceManager',
-    Extends: Manager.BaseManager,
-
-    _init: function(context) {
-        this.parent(_("Sources"), 'search-source', context);
+const SourceManager = class SourceManager extends Manager.BaseManager {
+    constructor(context) {
+        super(_("Sources"), 'search-source', context);
 
         let source = new Source({ id: SearchSourceStock.ALL,
         // Translators: this refers to documents
@@ -441,9 +422,9 @@ const SourceManager = new Lang.Class({
         this._refreshGoaAccounts();
 
         this.setActiveItemById(SearchSourceStock.ALL);
-    },
+    }
 
-    _refreshGoaAccounts: function() {
+    _refreshGoaAccounts() {
         let newItems = {};
         let newSources = new Map();
         let accounts = Application.goaClient.get_accounts();
@@ -483,9 +464,9 @@ const SourceManager = new Lang.Class({
         });
 
         this.processNewItems(newItems);
-    },
+    }
 
-    getFilter: function(flags) {
+    getFilter(flags) {
         let item;
 
         if (flags & Query.QueryFlags.SEARCH)
@@ -501,9 +482,9 @@ const SourceManager = new Lang.Class({
             filter = item.getFilter();
 
         return filter;
-    },
+    }
 
-    getFilterNotLocal: function() {
+    getFilterNotLocal() {
         let sources = this.getItems();
         let filters = [];
 
@@ -517,9 +498,9 @@ const SourceManager = new Lang.Class({
             filters.push('false');
 
         return '(' + filters.join(' || ') + ')';
-    },
+    }
 
-    hasOnlineSources: function() {
+    hasOnlineSources() {
         let hasOnline = false;
         this.forEachItem(
             function(source) {
@@ -528,14 +509,14 @@ const SourceManager = new Lang.Class({
             });
 
         return hasOnline;
-    },
+    }
 
-    hasProviderType: function(providerType) {
+    hasProviderType(providerType) {
         let items = this.getForProviderType(providerType);
         return (items.length > 0);
-    },
+    }
 
-    getForProviderType: function(providerType) {
+    getForProviderType(providerType) {
         let items = [];
         this.forEachItem(Lang.bind(this,
             function(source) {
@@ -549,26 +530,24 @@ const SourceManager = new Lang.Class({
 
         return items;
     }
-});
+}
 
 var OFFSET_STEP = 50;
 
-const OffsetController = new Lang.Class({
-    Name: 'OffsetController',
-
-    _init: function() {
+const OffsetController = class OffsetController {
+    constructor() {
         this._offset = 0;
         this._itemCount = 0;
-    },
+    }
 
     // to be called by the view
-    increaseOffset: function() {
+    increaseOffset() {
         this._offset += OFFSET_STEP;
         this.emit('offset-changed', this._offset);
-    },
+    }
 
     // to be called by the model
-    resetItemCount: function() {
+    resetItemCount() {
         let query = this.getQuery();
 
         Application.connectionQueue.add
@@ -594,44 +573,37 @@ const OffsetController = new Lang.Class({
                             cursor.close();
                         }));
                 }));
-    },
+    }
 
-    getQuery: function() {
+    getQuery() {
         log('Error: OffsetController implementations must override getQuery');
-    },
+    }
 
     // to be called by the model
-    resetOffset: function() {
+    resetOffset() {
         this._offset = 0;
-    },
+    }
 
-    getItemCount: function() {
+    getItemCount() {
         return this._itemCount;
-    },
+    }
 
-    getRemainingDocs: function() {
+    getRemainingDocs() {
         return (this._itemCount - (this._offset + OFFSET_STEP));
-    },
+    }
 
-    getOffsetStep: function() {
+    getOffsetStep() {
         return OFFSET_STEP;
-    },
+    }
 
-    getOffset: function() {
+    getOffset() {
         return this._offset;
     }
-});
+}
 Signals.addSignalMethods(OffsetController.prototype);
 
-var OffsetCollectionsController = new Lang.Class({
-    Name: 'OffsetCollectionsController',
-    Extends: OffsetController,
-
-    _init: function() {
-        this.parent();
-    },
-
-    getQuery: function() {
+var OffsetCollectionsController = class OffsetCollectionsController extends OffsetController {
+    getQuery() {
         let activeCollection = Application.documentManager.getActiveCollection();
         let flags;
 
@@ -642,30 +614,16 @@ var OffsetCollectionsController = new Lang.Class({
 
         return Application.queryBuilder.buildCountQuery(flags);
     }
-});
+}
 
-var OffsetDocumentsController = new Lang.Class({
-    Name: 'OffsetDocumentsController',
-    Extends: OffsetController,
-
-    _init: function() {
-        this.parent();
-    },
-
-    getQuery: function() {
+var OffsetDocumentsController = class OffsetDocumentsController extends OffsetController {
+    getQuery() {
         return Application.queryBuilder.buildCountQuery(Query.QueryFlags.DOCUMENTS);
     }
-});
+}
 
-var OffsetSearchController = new Lang.Class({
-    Name: 'OffsetSearchController',
-    Extends: OffsetController,
-
-    _init: function() {
-        this.parent();
-    },
-
-    getQuery: function() {
+var OffsetSearchController = class OffsetSearchController extends OffsetController {
+    getQuery() {
         return Application.queryBuilder.buildCountQuery(Query.QueryFlags.SEARCH);
     }
-});
+}

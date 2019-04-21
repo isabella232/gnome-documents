@@ -48,15 +48,13 @@ const TrackerUtils = imports.trackerUtils;
 const Utils = imports.utils;
 const WindowMode = imports.windowMode;
 
-const DeleteItemJob = new Lang.Class({
-    Name: 'DeleteItemJob',
-// deletes the given resource
-
-    _init: function(urn) {
+const DeleteItemJob = class DeleteItemJob {
+    // deletes the given resource
+    constructor(urn) {
         this._urn = urn;
-    },
+    }
 
-    run: function(callback) {
+    run(callback) {
         this._callback = callback;
 
         let query = Application.queryBuilder.buildDeleteResourceQuery(this._urn);
@@ -72,26 +70,23 @@ const DeleteItemJob = new Lang.Class({
                     this._callback();
             }));
     }
-});
+}
 
-
-const CollectionIconWatcher = new Lang.Class({
-    Name: 'CollectionIconWatcher',
-
-    _init: function(collection) {
+const CollectionIconWatcher = class CollectionIconWatcher {
+    constructor(collection) {
         this._collection = collection;
         this._pixbuf = null;
 
         this._start();
-    },
+    }
 
-    _clear: function() {
+    _clear() {
         this._docConnections = {};
         this._urns = [];
         this._docs = [];
-    },
+    }
 
-    _start: function() {
+    _start() {
         this._clear();
 
         let query = Application.queryBuilder.buildCollectionIconQuery(this._collection.id);
@@ -107,9 +102,9 @@ const CollectionIconWatcher = new Lang.Class({
 
                 cursor.next_async(null, Lang.bind(this, this._onCursorNext));
             }));
-    },
+    }
 
-    _onCursorNext: function(cursor, res) {
+    _onCursorNext(cursor, res) {
         let valid = false;
 
         try {
@@ -131,9 +126,9 @@ const CollectionIconWatcher = new Lang.Class({
         this._urns.push(urn);
 
         cursor.next_async(null, Lang.bind(this, this._onCursorNext));
-    },
+    }
 
-    _onCollectionIconFinished: function() {
+    _onCollectionIconFinished() {
         if (!this._urns.length)
             return;
 
@@ -168,16 +163,16 @@ const CollectionIconWatcher = new Lang.Class({
                         this._toQueryCollector();
                     }));
             }));
-    },
+    }
 
-    _toQueryCollector: function() {
+    _toQueryCollector() {
         this._toQueryRemaining--;
 
         if (!this._toQueryRemaining)
             this._allDocsReady();
-    },
+    }
 
-    _allDocsReady: function() {
+    _allDocsReady() {
         this._docs.forEach(Lang.bind(this,
             function(doc) {
                 let updateId = doc.connect('info-updated',
@@ -186,9 +181,9 @@ const CollectionIconWatcher = new Lang.Class({
             }));
 
         this._createCollectionIcon();
-    },
+    }
 
-    _createCollectionIcon: function() {
+    _createCollectionIcon() {
         // now this._docs has an array of Document objects from which we will create the
         // collection icon
         let pixbufs = [];
@@ -208,30 +203,28 @@ const CollectionIconWatcher = new Lang.Class({
             Utils.getIconSize() * Application.application.getScaleFactor(),
             pixbufs);
         this._emitRefresh();
-    },
+    }
 
-    _emitRefresh: function() {
+    _emitRefresh() {
         this.emit('icon-updated', this._pixbuf);
-    },
+    }
 
-    destroy: function() {
+    destroy() {
         for (let id in this._docConnections) {
             let doc = this._docConnections[id];
             doc.disconnect(id);
         }
-    },
+    }
 
-    refresh: function() {
+    refresh() {
         this.destroy();
         this._start();
     }
-});
+}
 Signals.addSignalMethods(CollectionIconWatcher.prototype);
 
-const DocCommon = new Lang.Class({
-    Name: 'DocCommon',
-
-    _init: function(cursor) {
+const DocCommon = class DocCommon {
+    constructor(cursor) {
         this.id = null;
         this.uri = null;
         this.uriToLoad = null;
@@ -264,9 +257,9 @@ const DocCommon = new Lang.Class({
         this._refreshIconId =
             Application.settings.connect('changed::view-as',
                                          Lang.bind(this, this.refreshIcon));
-    },
+    }
 
-    refresh: function() {
+    refresh() {
         let job = new TrackerUtils.SingleItemJob(this.id, Application.queryBuilder);
         job.run(Query.QueryFlags.NONE, Lang.bind(this,
             function(cursor) {
@@ -275,13 +268,13 @@ const DocCommon = new Lang.Class({
 
                 this.populateFromCursor(cursor);
             }));
-    },
+    }
 
-    _sanitizeTitle: function() {
+    _sanitizeTitle() {
         this.name = this.name.replace(/Microsoft Word - /g, '');
-    },
+    }
 
-    populateFromCursor: function(cursor) {
+    populateFromCursor(cursor) {
         this.uri = cursor.get_string(Query.QueryColumns.URI)[0];
         this.id = cursor.get_string(Query.QueryColumns.URN)[0];
         this.identifier = cursor.get_string(Query.QueryColumns.IDENTIFIER)[0];
@@ -325,9 +318,9 @@ const DocCommon = new Lang.Class({
         this._sanitizeTitle();
 
         this.refreshIcon();
-    },
+    }
 
-    updateIconFromType: function() {
+    updateIconFromType() {
         let icon = null;
 
         if (this.mimeType)
@@ -350,9 +343,9 @@ const DocCommon = new Lang.Class({
                 logError(e, 'Unable to load pixbuf');
             }
         }
-    },
+    }
 
-    _refreshCollectionIcon: function() {
+    _refreshCollectionIcon() {
         if (!this._collectionIconWatcher) {
             this._collectionIconWatcher = new CollectionIconWatcher(this);
 
@@ -363,16 +356,16 @@ const DocCommon = new Lang.Class({
         } else {
             this._collectionIconWatcher.refresh();
         }
-    },
+    }
 
-    download: function(useCache, cancellable, callback) {
+    download(useCache, cancellable, callback) {
         let localFile = Gio.File.new_for_uri(this.uriToLoad);
         let localPath = localFile.get_path();
         let localDir = GLib.path_get_dirname(localPath);
         GLib.mkdir_with_parents(localDir, 448);
 
         if (!useCache) {
-            Utils.debug('Downloading ' + this.__name__ + ' ' + this.id + ' to ' + this.uriToLoad +
+            Utils.debug('Downloading ' + this.constructor.name + ' ' + this.id + ' to ' + this.uriToLoad +
                         ': bypass cache ');
             this.downloadImpl(localFile, cancellable, callback);
             return;
@@ -389,7 +382,7 @@ const DocCommon = new Lang.Class({
                 try {
                     info = object.query_info_finish(res);
                 } catch (e) {
-                    Utils.debug('Downloading ' + this.__name__ + ' ' + this.id + ' to ' + this.uriToLoad +
+                    Utils.debug('Downloading ' + this.constructor.name + ' ' + this.id + ' to ' + this.uriToLoad +
                                 ': cache miss');
                     this.downloadImpl(localFile, cancellable, callback);
                     return;
@@ -401,18 +394,18 @@ const DocCommon = new Lang.Class({
                     return;
                 }
 
-                Utils.debug('Downloading ' + this.__name__ + ' ' + this.id + ' to ' + this.uriToLoad +
+                Utils.debug('Downloading ' + this.constructor.name + ' ' + this.id + ' to ' + this.uriToLoad +
                             ': cache stale (' + this.mtime + ' > ' + cacheMtime + ')');
                 this.downloadImpl(localFile, cancellable, callback);
             }));
-    },
+    }
 
-    downloadImpl: function(localFile, cancellable, callback) {
+    downloadImpl(localFile, cancellable, callback) {
         throw(new Error('DocCommon implementations must override downloadImpl'));
-    },
+    }
 
-    load: function(passwd, cancellable, callback) {
-        Utils.debug('Loading ' + this.__name__ + ' ' + this.id);
+    load(passwd, cancellable, callback) {
+        Utils.debug('Loading ' + this.constructor.name + ' ' + this.id);
 
         if (this.collection) {
             Mainloop.idle_add(Lang.bind(this,
@@ -458,25 +451,25 @@ const DocCommon = new Lang.Class({
                         callback(this, docModel, null);
                     }));
             }));
-    },
+    }
 
-    canEdit: function() {
+    canEdit() {
         throw(new Error('DocCommon implementations must override canEdit'));
-    },
+    }
 
-    canEditTitle: function() {
+    canEditTitle() {
         return false;
-    },
+    }
 
-    canShare: function() {
+    canShare() {
         throw(new Error('DocCommon implementations must override canShare'));
-    },
+    }
 
-    canTrash: function() {
+    canTrash() {
         throw(new Error('DocCommon implementations must override canTrash'));
-    },
+    }
 
-    canPrint: function(docModel) {
+    canPrint(docModel) {
         if (this.collection)
             return false;
 
@@ -484,9 +477,9 @@ const DocCommon = new Lang.Class({
             return false;
 
         return EvView.PrintOperation.exists_for_document(docModel.get_document());
-    },
+    }
 
-    trash: function() {
+    trash() {
         if (!this.canTrash())
             return;
 
@@ -494,17 +487,17 @@ const DocCommon = new Lang.Class({
 
         let job = new DeleteItemJob(this.id);
         job.run(null);
-    },
+    }
 
-    trashImpl: function() {
+    trashImpl() {
         throw(new Error('DocCommon implementations must override trashImpl'));
-    },
+    }
 
-    createThumbnail: function(callback) {
+    createThumbnail(callback) {
         throw(new Error('DocCommon implementations must override createThumbnail'));
-    },
+    }
 
-    refreshIcon: function() {
+    refreshIcon() {
         if (this._thumbPath) {
             this._refreshThumbPath();
             return;
@@ -526,9 +519,9 @@ const DocCommon = new Lang.Class({
                                     GLib.PRIORITY_DEFAULT,
                                     null,
                                     Lang.bind(this, this._onFileQueryInfo));
-    },
+    }
 
-    _onFileQueryInfo: function(object, res) {
+    _onFileQueryInfo(object, res) {
         let info = null;
         let haveNewIcon = false;
 
@@ -546,9 +539,9 @@ const DocCommon = new Lang.Class({
         } else {
             this.createThumbnail(Lang.bind(this, this._onCreateThumbnail));
         }
-    },
+    }
 
-    _onCreateThumbnail: function(thumbnailed) {
+    _onCreateThumbnail(thumbnailed) {
         if (!thumbnailed) {
             this._failedThumbnailing = true;
             return;
@@ -560,9 +553,9 @@ const DocCommon = new Lang.Class({
                                     GLib.PRIORITY_DEFAULT,
                                     null,
                                     Lang.bind(this, this._onThumbnailPathInfo));
-    },
+    }
 
-    _onThumbnailPathInfo: function(object, res) {
+    _onThumbnailPathInfo(object, res) {
         let info = null;
 
         try {
@@ -578,9 +571,9 @@ const DocCommon = new Lang.Class({
             this._refreshThumbPath();
         else
             this._failedThumbnailing = true;
-    },
+    }
 
-    _refreshThumbPath: function() {
+    _refreshThumbPath() {
         let thumbFile = Gio.file_new_for_path(this._thumbPath);
 
         thumbFile.read_async(GLib.PRIORITY_DEFAULT, null, Lang.bind(this,
@@ -622,16 +615,16 @@ const DocCommon = new Lang.Class({
                             this._setOrigPixbuf(pixbuf);
                         }));
             }));
-    },
+    }
 
-    _updateInfoFromType: function() {
+    _updateInfoFromType() {
         if (this.rdfType.indexOf('nfo#DataContainer') != -1)
             this.collection = true;
 
         this.updateTypeDescription();
-    },
+    }
 
-    _createSymbolicEmblem: function(name) {
+    _createSymbolicEmblem(name) {
         let pix = Gd.create_symbolic_icon(name, Utils.getIconSize() *
                                           Application.application.getScaleFactor());
 
@@ -639,17 +632,17 @@ const DocCommon = new Lang.Class({
             pix = new Gio.ThemedIcon({ name: name });
 
         return pix;
-    },
+    }
 
-    _setOrigPixbuf: function(pixbuf) {
+    _setOrigPixbuf(pixbuf) {
         if (pixbuf) {
             this.origPixbuf = pixbuf;
         }
 
         this._checkEffectsAndUpdateInfo();
-    },
+    }
 
-    _checkEffectsAndUpdateInfo: function() {
+    _checkEffectsAndUpdateInfo() {
         if (!this.origPixbuf)
             return;
 
@@ -698,19 +691,19 @@ const DocCommon = new Lang.Class({
             Application.application.getGdkWindow());
 
         this.emit('info-updated');
-    },
+    }
 
-    destroy: function() {
+    destroy() {
         if (this._collectionIconWatcher) {
             this._collectionIconWatcher.destroy();
             this._collectionIconWatcher = null;
         }
 
         Application.settings.disconnect(this._refreshIconId);
-    },
+    }
 
-    loadLocal: function(passwd, cancellable, callback) {
-        Utils.debug('Loading ' + this.__name__ + ' ' + this.id + ' from ' + this.uriToLoad);
+    loadLocal(passwd, cancellable, callback) {
+        Utils.debug('Loading ' + this.constructor.name + ' ' + this.id + ' from ' + this.uriToLoad);
 
         if (LOKView.isOpenDocumentFormat(this.mimeType)) {
             let exception = null;
@@ -732,9 +725,9 @@ const DocCommon = new Lang.Class({
                     callback(this, null, e);
                 }
             }));
-    },
+    }
 
-    open: function(parent, timestamp) {
+    open(parent, timestamp) {
         if (!this.defaultAppName)
             return;
 
@@ -748,9 +741,9 @@ const DocCommon = new Lang.Class({
         } catch (e) {
             logError(e, 'Unable to show URI ' + this.uri);
         }
-    },
+    }
 
-    print: function(toplevel) {
+    print(toplevel) {
         this.load(null, null, Lang.bind(this,
             function(doc, docModel, error) {
                 if (error) {
@@ -794,33 +787,29 @@ const DocCommon = new Lang.Class({
 
                 printOp.run(toplevel);
             }));
-    },
+    }
 
-    getSourceLink: function() {
+    getSourceLink() {
         // This should return an array of URI and source name
         log('Error: DocCommon implementations must override getSourceLink');
-    },
+    }
 
-    getWhere: function() {
+    getWhere() {
         let retval = '';
 
         if (this.collection)
             retval = '{ ?urn nie:isPartOf <' + this.id + '> }';
 
         return retval;
-    },
-});
+    }
+}
 Signals.addSignalMethods(DocCommon.prototype);
 
-var LocalDocument = new Lang.Class({
-    Name: 'LocalDocument',
-    Extends: DocCommon,
+var LocalDocument = class LocalDocument extends DocCommon {
+    constructor(cursor) {
+        super(cursor);
 
-    _init: function(cursor) {
         this._failedThumbnailing = false;
-
-        this.parent(cursor);
-
         this.sourceName = _("Local");
 
         if (this.mimeType) {
@@ -850,10 +839,10 @@ var LocalDocument = new Lang.Class({
 
         if (this.defaultApp)
             this.defaultAppName = this.defaultApp.get_name();
-    },
+    }
 
-    populateFromCursor: function(cursor) {
-        this.parent(cursor);
+    populateFromCursor(cursor) {
+        super.populateFromCursor(cursor);
         this.uriToLoad = this.uri;
 
         if (!Application.application.gettingStartedLocation)
@@ -867,9 +856,9 @@ var LocalDocument = new Lang.Class({
             this.author = _("GNOME");
             this.name = this.title = _("Getting Started with Documents");
         }
-    },
+    }
 
-    createThumbnail: function(callback) {
+    createThumbnail(callback) {
         GdPrivate.queue_thumbnail_job_for_file_async(this._file, Lang.bind(this,
             function(object, res) {
                 let thumbnailed = false;
@@ -884,9 +873,9 @@ var LocalDocument = new Lang.Class({
 
                 callback(thumbnailed);
             }));
-    },
+    }
 
-    updateTypeDescription: function() {
+    updateTypeDescription() {
         let description = '';
 
         if (this.collection)
@@ -895,14 +884,14 @@ var LocalDocument = new Lang.Class({
             description = Gio.content_type_get_description(this.mimeType);
 
         this.typeDescription = description;
-    },
+    }
 
-    downloadImpl: function(localFile, cancellable, callback) {
+    downloadImpl(localFile, cancellable, callback) {
         throw(new Error('LocalDocuments need not be downloaded'));
-    },
+    }
 
-    load: function(passwd, cancellable, callback) {
-        Utils.debug('Loading ' + this.__name__ + ' ' + this.id);
+    load(passwd, cancellable, callback) {
+        Utils.debug('Loading ' + this.constructor.name + ' ' + this.id);
 
         if (this.collection) {
             Mainloop.idle_add(Lang.bind(this,
@@ -918,25 +907,25 @@ var LocalDocument = new Lang.Class({
         }
 
         this.loadLocal(passwd, cancellable, callback);
-    },
+    }
 
-    canEdit: function() {
+    canEdit() {
         return this.collection;
-    },
+    }
 
-    canEditTitle: function() {
+    canEditTitle() {
         return true;
-    },
+    }
 
-    canShare: function() {
+    canShare() {
         return false;
-    },
+    }
 
-    canTrash: function() {
+    canTrash() {
         return true;
-    },
+    }
 
-    trashImpl: function() {
+    trashImpl() {
         if (this.collection)
             return;
 
@@ -949,9 +938,9 @@ var LocalDocument = new Lang.Class({
                     logError(e, 'Unable to trash ' + this.uri);
                 }
             }));
-    },
+    }
 
-    getSourceLink: function() {
+    getSourceLink() {
         if (this.collection)
             return [ null, this.sourceName ];
 
@@ -961,25 +950,22 @@ var LocalDocument = new Lang.Class({
         let uri = sourceLink.get_uri();
         return [ uri, sourcePath ];
     }
-});
+}
 
 const GOOGLE_PREFIX = 'google:drive:';
 
-const GoogleDocument = new Lang.Class({
-    Name: 'GoogleDocument',
-    Extends: DocCommon,
+const GoogleDocument = class GoogleDocument extends DocCommon {
+    constructor(cursor) {
+        super(cursor);
 
-    _init: function(cursor) {
         this._failedThumbnailing = false;
-
-        this.parent(cursor);
 
         // overridden
         this.defaultAppName = _("Google Docs");
         this.sourceName = _("Google");
-    },
+    }
 
-    createGDataEntry: function(cancellable, callback) {
+    createGDataEntry(cancellable, callback) {
         let source = Application.sourceManager.getItemById(this.resourceUrn);
 
         let authorizer = new GData.GoaAuthorizer({ goa_object: source.object });
@@ -1003,9 +989,9 @@ const GoogleDocument = new Lang.Class({
 
                      callback(entry, service, exception);
                  }));
-    },
+    }
 
-    downloadImpl: function(localFile, cancellable, callback) {
+    downloadImpl(localFile, cancellable, callback) {
         this.createGDataEntry(cancellable, Lang.bind(this,
             function(entry, service, error) {
                 if (error) {
@@ -1058,9 +1044,9 @@ const GoogleDocument = new Lang.Class({
                             }));
                     }));
             }))
-    },
+    }
 
-    createThumbnail: function(callback) {
+    createThumbnail(callback) {
         this.createGDataEntry(null, Lang.bind(this,
             function(entry, service, exception) {
                 if (exception) {
@@ -1112,9 +1098,9 @@ const GoogleDocument = new Lang.Class({
                                     }));
                         }));
             }));
-    },
+    }
 
-    updateTypeDescription: function() {
+    updateTypeDescription() {
         let description;
 
         if (this.collection)
@@ -1127,12 +1113,12 @@ const GoogleDocument = new Lang.Class({
             description = _("Document");
 
         this.typeDescription = description;
-    },
+    }
 
-    populateFromCursor: function(cursor) {
+    populateFromCursor(cursor) {
         this.shared = cursor.get_boolean(Query.QueryColumns.SHARED);
 
-        this.parent(cursor);
+        super.populateFromCursor(cursor);
 
         let localDir = GLib.build_filenamev([GLib.get_user_cache_dir(), "gnome-documents", "google"]);
 
@@ -1142,36 +1128,33 @@ const GoogleDocument = new Lang.Class({
         let localPath = GLib.build_filenamev([localDir, localFilename]);
         let localFile = Gio.File.new_for_path(localPath);
         this.uriToLoad = localFile.get_uri();
-    },
+    }
 
-    canEdit: function() {
+    canEdit() {
         return !this.collection;
-    },
+    }
 
-    canShare: function() {
+    canShare() {
         return true;
-    },
+    }
 
-    canTrash: function() {
+    canTrash() {
         return false;
-    },
+    }
 
-    getSourceLink: function() {
+    getSourceLink() {
         let uri = 'http://docs.google.com/';
         return [ uri, this.sourceName ];
     }
-});
+}
 
 const OWNCLOUD_PREFIX = 'owncloud:';
 
-const OwncloudDocument = new Lang.Class({
-    Name: 'OwncloudDocument',
-    Extends: DocCommon,
+const OwncloudDocument = class OwncloudDocument extends DocCommon {
+    constructor(cursor) {
+        super(cursor);
 
-    _init: function(cursor) {
         this._failedThumbnailing = true;
-
-        this.parent(cursor);
 
         // overridden
         this.sourceName = _("ownCloud");
@@ -1181,10 +1164,10 @@ const OwncloudDocument = new Lang.Class({
 
         if (this.defaultApp)
             this.defaultAppName = this.defaultApp.get_name();
-    },
+    }
 
-    populateFromCursor: function(cursor) {
-        this.parent(cursor);
+    populateFromCursor(cursor) {
+        super.populateFromCursor(cursor);
 
         let localDir = GLib.build_filenamev([GLib.get_user_cache_dir(), "gnome-documents", "owncloud"]);
 
@@ -1196,9 +1179,9 @@ const OwncloudDocument = new Lang.Class({
         let localPath = GLib.build_filenamev([localDir, localFilename]);
         let localFile = Gio.File.new_for_path(localPath);
         this.uriToLoad = localFile.get_uri();
-    },
+    }
 
-    createThumbnail: function(callback) {
+    createThumbnail(callback) {
         GdPrivate.queue_thumbnail_job_for_file_async(this._file, Lang.bind(this,
             function(object, res) {
                 let thumbnailed = false;
@@ -1213,9 +1196,9 @@ const OwncloudDocument = new Lang.Class({
 
                 callback(thumbnailed);
             }));
-    },
+    }
 
-    updateTypeDescription: function() {
+    updateTypeDescription() {
         let description = '';
 
         if (this.collection)
@@ -1224,9 +1207,9 @@ const OwncloudDocument = new Lang.Class({
             description = Gio.content_type_get_description(this.mimeType);
 
         this.typeDescription = description;
-    },
+    }
 
-    downloadImpl: function(localFile, cancellable, callback) {
+    downloadImpl(localFile, cancellable, callback) {
         let remoteFile = Gio.File.new_for_uri(this.uri);
         remoteFile.read_async(GLib.PRIORITY_DEFAULT, cancellable, Lang.bind(this,
             function(object, res) {
@@ -1273,47 +1256,44 @@ const OwncloudDocument = new Lang.Class({
                             }));
                     }));
             }));
-    },
+    }
 
-    canEdit: function() {
+    canEdit() {
         return false;
-    },
+    }
 
-    canShare: function() {
+    canShare() {
         return false;
-    },
+    }
 
-    canTrash: function() {
+    canTrash() {
         return false;
-    },
+    }
 
-    getSourceLink: function() {
+    getSourceLink() {
         let source = Application.sourceManager.getItemById(this.resourceUrn);
         let account = source.object.get_account();
         let presentationIdentity = account.presentation_identity;
         let uri ='https://' + presentationIdentity + '/';
         return [ uri, presentationIdentity ];
     }
-});
+}
 
 const SKYDRIVE_PREFIX = 'windows-live:skydrive:';
 
-const SkydriveDocument = new Lang.Class({
-    Name: 'SkydriveDocument',
-    Extends: DocCommon,
+const SkydriveDocument = class SkydriveDocument extends DocCommon {
+    constructor(cursor) {
+        super(cursor);
 
-    _init: function(cursor) {
         this._failedThumbnailing = true;
-
-        this.parent(cursor);
 
         // overridden
         this.defaultAppName = _("OneDrive");
         this.sourceName = _("OneDrive");
-    },
+    }
 
-    populateFromCursor: function(cursor) {
-        this.parent(cursor);
+    populateFromCursor(cursor) {
+        super.populateFromCursor(cursor);
 
         let localDir = GLib.build_filenamev([GLib.get_user_cache_dir(), "gnome-documents", "skydrive"]);
 
@@ -1325,9 +1305,9 @@ const SkydriveDocument = new Lang.Class({
         let localPath = GLib.build_filenamev([localDir, localFilename]);
         let localFile = Gio.File.new_for_path(localPath);
         this.uriToLoad = localFile.get_uri();
-    },
+    }
 
-    _createZpjEntry: function(cancellable, callback) {
+    _createZpjEntry(cancellable, callback) {
         let source = Application.sourceManager.getItemById(this.resourceUrn);
 
         let authorizer = new Zpj.GoaAuthorizer({ goa_object: source.object });
@@ -1349,9 +1329,9 @@ const SkydriveDocument = new Lang.Class({
 
                      callback(entry, service, exception);
                  }));
-    },
+    }
 
-    downloadImpl: function(localFile, cancellable, callback) {
+    downloadImpl(localFile, cancellable, callback) {
         this._createZpjEntry(cancellable, Lang.bind(this,
             function(entry, service, error) {
                 if (error) {
@@ -1407,9 +1387,9 @@ const SkydriveDocument = new Lang.Class({
                             }));
                     }));
             }));
-    },
+    }
 
-    updateTypeDescription: function() {
+    updateTypeDescription() {
         let description;
 
         if (this.collection)
@@ -1422,32 +1402,29 @@ const SkydriveDocument = new Lang.Class({
             description = _("Document");
 
         this.typeDescription = description;
-    },
+    }
 
-    canEdit: function() {
+    canEdit() {
         return false;
-    },
+    }
 
-    canShare: function() {
+    canShare() {
         return false;
-    },
+    }
 
-    canTrash: function() {
+    canTrash() {
         return false;
-    },
+    }
 
-    getSourceLink: function() {
+    getSourceLink() {
         let uri = 'https://onedrive.live.com';
         return [ uri, this.sourceName ];
     }
-});
+}
 
-var DocumentManager = new Lang.Class({
-    Name: 'DocumentManager',
-    Extends: Manager.BaseManager,
-
-    _init: function() {
-        this.parent();
+var DocumentManager = class DocumentManager extends Manager.BaseManager {
+    constructor() {
+        super();
 
         this._loaderCancellable = null;
 
@@ -1460,9 +1437,9 @@ var DocumentManager = new Lang.Class({
 
         Application.changeMonitor.connect('changes-pending',
                                           Lang.bind(this, this._onChangesPending));
-    },
+    }
 
-    _onChangesPending: function(monitor, changes) {
+    _onChangesPending(monitor, changes) {
         for (let idx in changes) {
             let changeEvent = changes[idx];
 
@@ -1482,9 +1459,9 @@ var DocumentManager = new Lang.Class({
                 }
             }
         }
-    },
+    }
 
-    _onDocumentCreated: function(urn) {
+    _onDocumentCreated(urn) {
         let job = new TrackerUtils.SingleItemJob(urn, Application.queryBuilder);
         job.run(Query.QueryFlags.NONE, Lang.bind(this,
             function(cursor) {
@@ -1493,24 +1470,24 @@ var DocumentManager = new Lang.Class({
 
                 this.addDocumentFromCursor(cursor);
             }));
-    },
+    }
 
-    _identifierIsGoogle: function(identifier) {
+    _identifierIsGoogle(identifier) {
         return (identifier &&
                 (identifier.indexOf(GOOGLE_PREFIX) != -1));
-    },
+    }
 
-    _identifierIsOwncloud: function(identifier) {
+    _identifierIsOwncloud(identifier) {
         return (identifier &&
                 (identifier.indexOf(OWNCLOUD_PREFIX) != -1));
-    },
+    }
 
-    _identifierIsSkydrive: function(identifier) {
+    _identifierIsSkydrive(identifier) {
         return (identifier &&
                 (identifier.indexOf(SKYDRIVE_PREFIX) != -1));
-    },
+    }
 
-    createDocumentFromCursor: function(cursor) {
+    createDocumentFromCursor(cursor) {
         let identifier = cursor.get_string(Query.QueryColumns.IDENTIFIER)[0];
         let doc;
 
@@ -1524,9 +1501,9 @@ var DocumentManager = new Lang.Class({
             doc = new LocalDocument(cursor);
 
         return doc;
-    },
+    }
 
-    addDocumentFromCursor: function(cursor) {
+    addDocumentFromCursor(cursor) {
         let id = cursor.get_string(Query.QueryColumns.URN)[0];
         let doc = this.getItemById(id);
 
@@ -1538,9 +1515,9 @@ var DocumentManager = new Lang.Class({
         }
 
         return doc;
-    },
+    }
 
-    addItem: function(doc) {
+    addItem(doc) {
         if (doc.collection) {
             let oldCollection = this._collections[doc.id];
             if (oldCollection)
@@ -1549,10 +1526,10 @@ var DocumentManager = new Lang.Class({
             this._collections[doc.id] = doc;
         }
 
-        this.parent(doc);
-    },
+        super.addItem(doc);
+    }
 
-    clear: function() {
+    clear() {
         this._collections = {};
         this._activeCollection = null;
 
@@ -1561,34 +1538,34 @@ var DocumentManager = new Lang.Class({
             items[idx].destroy();
         };
 
-        this.parent();
-    },
+        super.clear();
+    }
 
-    clearRowRefs: function() {
+    clearRowRefs() {
         let items = this.getItems();
         for (let idx in items) {
             items[idx].rowRefs = {};
         }
-    },
+    }
 
-    getActiveCollection: function() {
+    getActiveCollection() {
         return this._activeCollection;
-    },
+    }
 
-    getCollections: function() {
+    getCollections() {
         return this._collections;
-    },
+    }
 
-    getWhere: function() {
+    getWhere() {
         let retval = '';
 
         if (this._activeCollection)
             retval = this._activeCollection.getWhere();
 
         return retval;
-    },
+    }
 
-    _humanizeError: function(error) {
+    _humanizeError(error) {
         let message = error.message;
         if (error.domain == GData.ServiceError) {
             switch (error.code) {
@@ -1620,9 +1597,9 @@ var DocumentManager = new Lang.Class({
 
         let exception = new GLib.Error(error.domain, error.code, message);
         return exception;
-    },
+    }
 
-    _onDocumentLoadError: function(doc, error) {
+    _onDocumentLoadError(doc, error) {
         if (error.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
             return;
 
@@ -1637,9 +1614,9 @@ var DocumentManager = new Lang.Class({
         let message = _("Oops! Unable to load “%s”").format(doc.name);
         let exception = this._humanizeError(error);
         this.emit('load-error', doc, message, exception);
-    },
+    }
 
-    _onDocumentLoaded: function(doc, docModel, error) {
+    _onDocumentLoaded(doc, docModel, error) {
         this._loaderCancellable = null;
 
         if (error) {
@@ -1648,9 +1625,9 @@ var DocumentManager = new Lang.Class({
         }
 
         this.emit('load-finished', doc, docModel);
-    },
+    }
 
-    _requestPreview: function(doc) {
+    _requestPreview(doc) {
         let windowMode;
         if (LOKView.isOpenDocumentFormat(doc.mimeType)) {
             windowMode = WindowMode.WindowMode.PREVIEW_LOK;
@@ -1659,18 +1636,18 @@ var DocumentManager = new Lang.Class({
         }
 
         Application.modeController.setWindowMode(windowMode);
-    },
+    }
 
-    _loadActiveItem: function(passwd) {
+    _loadActiveItem(passwd) {
         let doc = this.getActiveItem();
 
         this._loaderCancellable = new Gio.Cancellable();
         this._requestPreview(doc);
         this.emit('load-started', doc);
         doc.load(passwd, this._loaderCancellable, Lang.bind(this, this._onDocumentLoaded));
-    },
+    }
 
-    reloadActiveItem: function(passwd) {
+    reloadActiveItem(passwd) {
         let doc = this.getActiveItem();
 
         if (!doc)
@@ -1683,17 +1660,17 @@ var DocumentManager = new Lang.Class({
         this._clearActiveDocModel();
 
         this._loadActiveItem(passwd);
-    },
+    }
 
-    removeItemById: function(id) {
+    removeItemById(id) {
         if (this._collections[id]) {
             delete this._collections[id];
         }
 
-        this.parent(id);
-    },
+        super.removeItemById(id);
+    }
 
-    setActiveItem: function(doc) {
+    setActiveItem(doc) {
         let activeCollectionChanged = false;
         let activeDoc = this.getActiveItem();
         let retval = false;
@@ -1729,7 +1706,7 @@ var DocumentManager = new Lang.Class({
             }
         }
 
-        retval = this.parent(doc);
+        retval = super.setActiveItem(doc);
 
         if (retval && activeCollectionChanged)
             this.emit('active-collection-changed', this._activeCollection);
@@ -1742,22 +1719,22 @@ var DocumentManager = new Lang.Class({
         }
 
         return retval;
-    },
+    }
 
-    activatePreviousCollection: function() {
+    activatePreviousCollection() {
         this._clearActiveDocModel();
 
         let collection = this._collectionPath.pop();
         this._activeCollection = collection;
         Manager.BaseManager.prototype.setActiveItem.call(this, collection);
         this.emit('active-collection-changed', this._activeCollection);
-    },
+    }
 
-    _clearActiveDocModel: function() {
+    _clearActiveDocModel() {
         // cancel any pending load operation
         if (this._loaderCancellable) {
             this._loaderCancellable.cancel();
             this._loaderCancellable = null;
         }
     }
-});
+}

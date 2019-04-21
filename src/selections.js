@@ -23,6 +23,7 @@
 const Gdk = imports.gi.Gdk;
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
+const GObject = imports.gi.GObject;
 const Gtk = imports.gi.Gtk;
 const Pango = imports.gi.Pango;
 const _ = imports.gettext.gettext;
@@ -41,15 +42,13 @@ const Lang = imports.lang;
 const Signals = imports.signals;
 
 // fetch all the collections a given item is part of
-const FetchCollectionsJob = new Lang.Class({
-    Name: 'FetchCollectionsJob',
-
-    _init: function(urn) {
+const FetchCollectionsJob = class FetchCollectionsJob {
+    constructor(urn) {
         this._urn = urn;
         this._collections = [];
-    },
+    }
 
-    run: function(callback) {
+    run(callback) {
         this._callback = callback;
 
         let query = Application.queryBuilder.buildFetchCollectionsQuery(this._urn);
@@ -65,9 +64,9 @@ const FetchCollectionsJob = new Lang.Class({
                     this._emitCallback();
                 }
             }));
-    },
+    }
 
-    _onCursorNext: function(cursor, res) {
+    _onCursorNext(cursor, res) {
         let valid = false;
 
         try {
@@ -87,13 +86,13 @@ const FetchCollectionsJob = new Lang.Class({
         this._collections.push(urn);
 
         cursor.next_async(null, Lang.bind(this, this._onCursorNext));
-    },
+    }
 
-    _emitCallback: function() {
+    _emitCallback() {
         if (this._callback)
             this._callback(this._collections);
     }
-});
+}
 
 // fetch the state of every collection applicable to the selected items
 const OrganizeCollectionState = {
@@ -103,15 +102,13 @@ const OrganizeCollectionState = {
     HIDDEN: 1 << 2
 };
 
-const FetchCollectionStateForSelectionJob = new Lang.Class({
-    Name: 'FetchCollectionStateForSelectionJob',
-
-    _init: function() {
+const FetchCollectionStateForSelectionJob = class FetchCollectionStateForSelectionJob {
+    constructor() {
         this._collectionsForItems = {};
         this._runningJobs = 0;
-    },
+    }
 
-    run: function(callback) {
+    run(callback) {
         this._callback = callback;
 
         let urns = Application.selectionController.getSelection();
@@ -122,17 +119,17 @@ const FetchCollectionStateForSelectionJob = new Lang.Class({
                 this._runningJobs++;
                 job.run(Lang.bind(this, this._jobCollector, urn));
             }));
-    },
+    }
 
-    _jobCollector: function(collectionsForItem, urn) {
+    _jobCollector(collectionsForItem, urn) {
         this._collectionsForItems[urn] = collectionsForItem;
 
         this._runningJobs--;
         if (!this._runningJobs)
             this._emitCallback();
-    },
+    }
 
-    _emitCallback: function() {
+    _emitCallback() {
         let collectionState = {};
         let collections = Application.documentManager.getCollections();
 
@@ -188,17 +185,15 @@ const FetchCollectionStateForSelectionJob = new Lang.Class({
         if (this._callback)
             this._callback(collectionState);
     }
-});
+}
 
 // updates the mtime for the given resource to the current system time
-const UpdateMtimeJob = new Lang.Class({
-    Name: 'UpdateMtimeJob',
-
-    _init: function(urn) {
+const UpdateMtimeJob = class UpdateMtimeJob {
+    constructor(urn) {
         this._urn = urn;
-    },
+    }
 
-    run: function(callback) {
+    run(callback) {
         this._callback = callback;
 
         let query = Application.queryBuilder.buildUpdateMtimeQuery(this._urn);
@@ -214,19 +209,17 @@ const UpdateMtimeJob = new Lang.Class({
                     this._callback();
             }));
     }
-});
+}
 
 // adds or removes the selected items to the given collection
-const SetCollectionForSelectionJob = new Lang.Class({
-    Name: 'SetCollectionForSelectionJob',
-
-    _init: function(collectionUrn, setting) {
+const SetCollectionForSelectionJob = class SetCollectionForSelectionJob {
+    constructor(collectionUrn, setting) {
         this._collectionUrn = collectionUrn;
         this._setting = setting;
         this._runningJobs = 0;
-    },
+    }
 
-    run: function(callback) {
+    run(callback) {
         this._callback = callback;
 
         let urns = Application.selectionController.getSelection();
@@ -251,9 +244,9 @@ const SetCollectionForSelectionJob = new Lang.Class({
                         this._jobCollector();
                     }));
             }));
-    },
+    }
 
-    _jobCollector: function() {
+    _jobCollector() {
         this._runningJobs--;
 
         if (this._runningJobs == 0) {
@@ -266,18 +259,16 @@ const SetCollectionForSelectionJob = new Lang.Class({
                 }));
         }
     }
-});
+}
 
 // creates an (empty) collection with the given name
-const CreateCollectionJob = new Lang.Class({
-    Name: 'CreateCollectionJob',
-
-    _init: function(name) {
+const CreateCollectionJob = class CreateCollectionJob {
+    constructor(name) {
         this._name = name;
         this._createdUrn = null;
-    },
+    }
 
-    run: function(callback) {
+    run(callback) {
         this._callback = callback;
 
         let query = Application.queryBuilder.buildCreateCollectionQuery(this._name);
@@ -304,7 +295,7 @@ const CreateCollectionJob = new Lang.Class({
                     this._callback(this._createdUrn);
             }));
     }
-});
+}
 
 const CollectionRowViews = {
     DEFAULT: 'default-view',
@@ -312,21 +303,18 @@ const CollectionRowViews = {
     RENAME: 'rename-view'
 };
 
-const CollectionRow = new Lang.Class({
-    Name: "CollectionRow",
-    Extends: Gtk.ListBoxRow,
-
-    _init: function(collection, collectionState) {
+const CollectionRow = GObject.registerClass(class CollectionRow extends Gtk.ListBoxRow {
+    _init(collection, collectionState) {
         this.collection = collection;
         this._collectionState = collectionState;
         this._timeoutId = 0;
         this.views = new Gtk.Stack();
-        this.parent();
+        super._init();
         this.add(this.views);
         this.setDefaultView();
-    },
+    }
 
-    _initDefaultView: function() {
+    _initDefaultView() {
         let isActive = (this._collectionState & OrganizeCollectionState.ACTIVE);
         let isInconsistent = (this._collectionState & OrganizeCollectionState.INCONSISTENT);
 
@@ -368,9 +356,9 @@ const CollectionRow = new Lang.Class({
         grid.add(menuButton);
         grid.show_all();
         this.views.add_named(grid, CollectionRowViews.DEFAULT);
-    },
+    }
 
-    _initDeleteView: function() {
+    _initDeleteView() {
         let grid = new Gtk.Grid({ margin: 6, orientation: Gtk.Orientation.HORIZONTAL });
         let message = _("“%s” removed").format(this.collection.name);
         let deleteLabel = new Gtk.Label({ label: message,
@@ -390,9 +378,9 @@ const CollectionRow = new Lang.Class({
 
         grid.show_all();
         this.views.add_named(grid, CollectionRowViews.DELETE);
-    },
+    }
 
-    _initRenameView: function() {
+    _initRenameView() {
         this.renameEntry = new Gtk.Entry({ activates_default: true,
                                            expand: true,
                                            text: this.collection.name,
@@ -412,23 +400,23 @@ const CollectionRow = new Lang.Class({
             }));
         this.renameEntry.show();
         this.views.add_named(this.renameEntry, CollectionRowViews.RENAME);
-    },
+    }
 
-    _resetTimeout: function() {
+    _resetTimeout() {
         if (this._timeoutId != 0) {
             Mainloop.source_remove(this._timeoutId);
             this._timeoutId = 0;
         }
-    },
+    }
 
-    applyRename: function() {
+    applyRename() {
         let newName = this.renameEntry.get_text();
         this.collection.name = newName;
         TrackerUtils.setEditedName(newName, this.collection.id, null);
         this.checkButton.set_label(newName);
-    },
+    }
 
-    conceal: function() {
+    conceal() {
         let revealer = new Gtk.Revealer({ reveal_child: true, transition_duration: 500 });
         revealer.show();
         // inserting revealer between (this) and (this.views)
@@ -438,23 +426,23 @@ const CollectionRow = new Lang.Class({
 
         revealer.connect("notify::child-revealed", Lang.bind(this, this.deleteCollection));
         revealer.reveal_child = false;
-    },
+    }
 
-    deleteCollection: function() {
+    deleteCollection() {
         this._resetTimeout();
         Application.documentManager.removeItem(this.collection);
         this.collection.trash();
-    },
+    }
 
-    setDefaultView: function() {
+    setDefaultView() {
         if (!this.views.get_child_by_name(CollectionRowViews.DEFAULT))
             this._initDefaultView();
 
         this.get_style_context().remove_class('delete-row');
         this.views.set_visible_child_name(CollectionRowViews.DEFAULT);
-    },
+    }
 
-    setDeleteView: function() {
+    setDeleteView() {
         if (!this.views.get_child_by_name(CollectionRowViews.DELETE))
             this._initDeleteView();
 
@@ -469,9 +457,9 @@ const CollectionRow = new Lang.Class({
         this.get_style_context().add_class('delete-row');
         this.views.set_visible_child_name(CollectionRowViews.DELETE);
 
-    },
+    }
 
-    setRenameView: function(onTextChanged) {
+    setRenameView(onTextChanged) {
         if (!this.views.get_child_by_name(CollectionRowViews.RENAME)) {
             this._initRenameView();
             this.renameEntry.connect('changed', onTextChanged);
@@ -481,16 +469,13 @@ const CollectionRow = new Lang.Class({
         this.views.set_transition_duration(200);
         this.renameEntry.set_text(this.collection.name);
         this.views.set_visible_child_name(CollectionRowViews.RENAME);
-    },
+    }
 
 });
 
-const CollectionList = new Lang.Class({
-    Name: 'CollectionList',
-    Extends: Gtk.ListBox,
-
-    _init: function() {
-        this.parent({ vexpand: false,
+const CollectionList = GObject.registerClass(class CollectionList extends Gtk.ListBox {
+    _init() {
+        super._init({ vexpand: false,
                       margin: 0,
                       selection_mode: Gtk.SelectionMode.NONE });
 
@@ -533,18 +518,18 @@ const CollectionList = new Lang.Class({
         // populate the list
         let job = new FetchCollectionStateForSelectionJob();
         job.run(Lang.bind(this, this._onFetchCollectionStateForSelection));
-    },
+    }
 
-    _onCollectionAdded: function(manager, itemAdded) {
+    _onCollectionAdded(manager, itemAdded) {
         if (!itemAdded.collection)
             return;
 
         let collection =  new CollectionRow(itemAdded, OrganizeCollectionState.ACTIVE);
         collection.show_all();
         this.add(collection);
-    },
+    }
 
-    _onCollectionRemoved: function(manager, itemRemoved) {
+    _onCollectionRemoved(manager, itemRemoved) {
         if (!itemRemoved.collection)
             return;
 
@@ -555,9 +540,9 @@ const CollectionList = new Lang.Class({
                 return;
             }
         }
-    },
+    }
 
-    _onFetchCollectionStateForSelection: function(collectionState) {
+    _onFetchCollectionStateForSelection(collectionState) {
         for (let idx in collectionState) {
             let item = Application.documentManager.getItemById(idx);
 
@@ -569,14 +554,14 @@ const CollectionList = new Lang.Class({
 
             this.add(collection);
         }
-    },
+    }
 
-    isEmpty: function() {
+    isEmpty() {
         let rows = this.get_children();
         return (rows.length == 0);
-    },
+    }
 
-    isValidName: function(name) {
+    isValidName(name) {
         if (!name || name == '')
             return false;
 
@@ -590,9 +575,7 @@ const CollectionList = new Lang.Class({
     }
 });
 
-const OrganizeCollectionDialog = new Lang.Class({
-    Name: 'OrganizeCollectionDialog',
-    Extends: Gtk.Window,
+const OrganizeCollectionDialog = GObject.registerClass({
     Template: 'resource:///org/gnome/Documents/ui/organize-collection-dialog.ui',
     InternalChildren: [ 'content',
                         'viewEmpty',
@@ -607,9 +590,9 @@ const OrganizeCollectionDialog = new Lang.Class({
                         'headerBar',
                         'cancelButton',
                         'doneButton' ],
-
-    _init: function(toplevel) {
-        this.parent({ transient_for: toplevel });
+}, class OrganizeCollectionDialog extends Gtk.Window {
+    _init(toplevel) {
+        super._init({ transient_for: toplevel });
 
         this._renameMode = false;
 
@@ -666,9 +649,9 @@ const OrganizeCollectionDialog = new Lang.Class({
                 this._content.set_transition_type(Gtk.StackTransitionType.CROSSFADE)
                 return false;
             }));
-    },
+    }
 
-    _onAddClicked: function() {
+    _onAddClicked() {
         let addEntry = this._collectionList.isEmpty() ? this._addEntryEmpty : this._addEntryCollections;
         let newText = addEntry.get_text();
         let job = new CreateCollectionJob(newText);
@@ -687,9 +670,9 @@ const OrganizeCollectionDialog = new Lang.Class({
         } else {
             this._scrolledWindowCollections.get_vadjustment().set_value(0);
         }
-    },
+    }
 
-    _onTextChanged: function(entry) {
+    _onTextChanged(entry) {
         let sensitive = this._collectionList.isValidName(entry.get_text());
         if (this._renameMode)
             this._doneButton.set_sensitive(sensitive);
@@ -697,9 +680,9 @@ const OrganizeCollectionDialog = new Lang.Class({
             let addButton = this._collectionList.isEmpty() ? this._addButtonEmpty : this._addButtonCollections;
             addButton.set_sensitive(sensitive);
         }
-    },
+    }
 
-    _onKeyPressed: function (window, event) {
+    _onKeyPressed (window, event) {
         let keyval = event.get_keyval()[1];
         if (keyval == Gdk.KEY_Escape) {
             if (this._renameMode)
@@ -710,9 +693,9 @@ const OrganizeCollectionDialog = new Lang.Class({
             return Gdk.EVENT_STOP;
         }
         return Gdk.EVENT_PROPAGATE;
-    },
+    }
 
-    _renameModeStart: function(action, parameter) {
+    _renameModeStart(action, parameter) {
         let collId = parameter.get_string()[0];
         this._setRenameMode(true);
 
@@ -732,9 +715,9 @@ const OrganizeCollectionDialog = new Lang.Class({
 
                 row.setRenameView(Lang.bind(this, this._onTextChanged));
             }));
-    },
+    }
 
-    _renameModeStop: function(rename) {
+    _renameModeStop(rename) {
         this._setRenameMode(false);
 
         let rows = this._collectionList.get_children();
@@ -750,9 +733,9 @@ const OrganizeCollectionDialog = new Lang.Class({
 
             row.setDefaultView();
         });
-    },
+    }
 
-    _onCollectionListChanged: function() {
+    _onCollectionListChanged() {
         if (this._collectionList.isEmpty()) {
             this._viewSpinner.stop();
             this._content.set_visible_child(this._viewEmpty);
@@ -764,9 +747,9 @@ const OrganizeCollectionDialog = new Lang.Class({
             this._addEntryCollections.grab_focus();
             this._addButtonCollections.grab_default();
         }
-    },
+    }
 
-    _setRenameMode: function(renameMode) {
+    _setRenameMode(renameMode) {
         this._renameMode = renameMode;
         if (this._renameMode) {
             this._headerBar.set_title(_("Rename"));
@@ -786,17 +769,15 @@ const OrganizeCollectionDialog = new Lang.Class({
     }
 });
 
-var SelectionController = new Lang.Class({
-    Name: 'SelectionController',
-
-    _init: function() {
+var SelectionController = class SelectionController {
+    constructor() {
         this._selection = [];
 
         Application.documentManager.connect('item-removed',
             Lang.bind(this, this._onDocumentRemoved));
-    },
+    }
 
-    _onDocumentRemoved: function(manager, item) {
+    _onDocumentRemoved(manager, item) {
         let changed = false;
         let filtered = this._selection.filter(Lang.bind(this,
             function(value, index) {
@@ -809,9 +790,9 @@ var SelectionController = new Lang.Class({
             this._selection = filtered;
             this.emit('selection-changed', this._selection);
         }
-    },
+    }
 
-    setSelection: function(selection) {
+    setSelection(selection) {
         if (this._isFrozen)
             return;
 
@@ -821,26 +802,24 @@ var SelectionController = new Lang.Class({
             this._selection = selection;
 
         this.emit('selection-changed', this._selection);
-    },
+    }
 
-    getSelection: function() {
+    getSelection() {
         return this._selection;
-    },
+    }
 
-    freezeSelection: function(freeze) {
+    freezeSelection(freeze) {
         if (freeze == this._isFrozen)
             return;
 
         this._isFrozen = freeze;
     }
-});
+}
 Signals.addSignalMethods(SelectionController.prototype);
 
 const _SELECTION_TOOLBAR_DEFAULT_WIDTH = 500;
 
-var SelectionToolbar = new Lang.Class({
-    Name: 'SelectionToolbar',
-    Extends: Gtk.ActionBar,
+var SelectionToolbar = GObject.registerClass({
     Template: 'resource:///org/gnome/Documents/ui/selection-toolbar.ui',
     InternalChildren: [ 'toolbarOpen',
                         'toolbarPrint',
@@ -848,14 +827,15 @@ var SelectionToolbar = new Lang.Class({
                         'toolbarShare',
                         'toolbarProperties',
                         'toolbarCollection' ],
+}, class SelectionToolbar extends Gtk.ActionBar {
 
-    _init: function(overview) {
+    _init(overview) {
         this._docToPrint = null;
         this._docBeginPrintId = 0;
         this._itemListeners = {};
         this._insideRefresh = false;
 
-        this.parent();
+        super._init();
 
         this._selectionModeAction = overview.getAction('selection-mode');
 
@@ -882,38 +862,38 @@ var SelectionToolbar = new Lang.Class({
             function() {
                 this._disconnectDocToPrint();
             }));
-    },
+    }
 
-    vfunc_hide: function() {
+    vfunc_hide() {
         this._disconnectDocToPrint();
-        this.parent();
-    },
+        super.vfunc_hide();
+    }
 
-    _disconnectDocToPrint: function() {
+    _disconnectDocToPrint() {
         if (this._docToPrint != null && this._docBeginPrintId != 0) {
             this._docToPrint.disconnect(this._docBeginPrintId);
             this._docToPrint = null;
             this._docBeginPrintId = 0;
         }
-    },
+    }
 
-    _updateCollectionsButton: function() {
+    _updateCollectionsButton() {
         let windowMode = Application.modeController.getWindowMode();
         let activeCollection = Application.documentManager.getActiveCollection();
         if (windowMode == WindowMode.WindowMode.COLLECTIONS && !activeCollection)
             this._toolbarCollection.hide();
         else
             this._toolbarCollection.show();
-    },
+    }
 
-    _onSelectionChanged: function() {
+    _onSelectionChanged() {
         let selection = Application.selectionController.getSelection();
         this._setItemListeners(selection);
 
         this._setItemVisibility();
-    },
+    }
 
-    _setItemListeners: function(selection) {
+    _setItemListeners(selection) {
         for (let idx in this._itemListeners) {
             let doc = this._itemListeners[idx];
             doc.disconnect(idx);
@@ -926,9 +906,9 @@ var SelectionToolbar = new Lang.Class({
                 let id = doc.connect('info-updated', Lang.bind(this, this._setItemVisibility));
                 this._itemListeners[id] = doc;
             }));
-    },
+    }
 
-    _setItemVisibility: function() {
+    _setItemVisibility() {
         let apps = [];
         let selection = Application.selectionController.getSelection();
         let hasSelection = (selection.length > 0);
@@ -991,9 +971,9 @@ var SelectionToolbar = new Lang.Class({
         this._toolbarCollection.set_sensitive(showCollection);
 
         this._insideRefresh = false;
-    },
+    }
 
-    _onToolbarCollection: function() {
+    _onToolbarCollection() {
         let toplevel = this.get_toplevel();
         if (!toplevel.is_toplevel())
             throw(new Error('Code should not be reached'));
@@ -1002,9 +982,9 @@ var SelectionToolbar = new Lang.Class({
         dialog.connect('destroy', Lang.bind(this, function() {
             this._selectionModeAction.change_state(GLib.Variant.new('b', false));
         }));
-    },
+    }
 
-    _onToolbarOpen: function(widget) {
+    _onToolbarOpen(widget) {
         let selection = Application.selectionController.getSelection();
         this._selectionModeAction.change_state(GLib.Variant.new('b', false));
 
@@ -1017,9 +997,9 @@ var SelectionToolbar = new Lang.Class({
 
                 doc.open(toplevel, Gtk.get_current_event_time());
             }));
-    },
+    }
 
-    _onToolbarTrash: function(widget) {
+    _onToolbarTrash(widget) {
         let selection = Application.selectionController.getSelection();
         let docs = [];
 
@@ -1038,9 +1018,9 @@ var SelectionToolbar = new Lang.Class({
 
         let deleteNotification = new Notifications.DeleteNotification(docs);
         this._selectionModeAction.change_state(GLib.Variant.new('b', false));
-    },
+    }
 
-    _onToolbarProperties: function(widget) {
+    _onToolbarProperties(widget) {
         let selection = Application.selectionController.getSelection();
         let dialog = new Properties.PropertiesDialog(selection[0]);
 
@@ -1049,9 +1029,9 @@ var SelectionToolbar = new Lang.Class({
                 dialog.destroy();
                 this._selectionModeAction.change_state(GLib.Variant.new('b', false));
             }));
-    },
+    }
 
-   _onToolbarShare: function(widget) {
+   _onToolbarShare(widget) {
        let dialog = new Sharing.SharingDialog();
 
        dialog.connect('response', Lang.bind(this,
@@ -1059,9 +1039,9 @@ var SelectionToolbar = new Lang.Class({
                dialog.destroy();
                this._selectionModeAction.change_state(GLib.Variant.new('b', false));
            }));
-    },
+    }
 
-    _onToolbarPrint: function(widget) {
+    _onToolbarPrint(widget) {
         let selection = Application.selectionController.getSelection();
 
         if (selection.length != 1)
@@ -1076,5 +1056,5 @@ var SelectionToolbar = new Lang.Class({
             }));
 
         this._docToPrint.print(this.get_toplevel());
-    },
+    }
 });

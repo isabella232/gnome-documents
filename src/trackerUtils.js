@@ -40,16 +40,14 @@ function setEditedName(newTitle, docId, callback) {
 
 }
 
-var SingleItemJob = new Lang.Class({
-    Name: 'SingleItemJob',
-
-    _init: function(urn, queryBuilder) {
+var SingleItemJob = class SingleItemJob {
+    constructor(urn, queryBuilder) {
         this._urn = urn;
         this._cursor = null;
         this._builder = queryBuilder;
-    },
+    }
 
-    run: function(flags, callback) {
+    run(flags, callback) {
         this._callback = callback;
 
         let query = this._builder.buildSingleQuery(flags, this._urn);
@@ -63,9 +61,9 @@ var SingleItemJob = new Lang.Class({
                     this._emitCallback();
                 }
             }));
-    },
+    }
 
-    _onCursorNext: function(cursor, res) {
+    _onCursorNext(cursor, res) {
         let valid = false;
 
         try {
@@ -84,9 +82,9 @@ var SingleItemJob = new Lang.Class({
         this._cursor = cursor;
         this._emitCallback();
         cursor.close();
-    },
+    }
 
-    _emitCallback: function() {
+    _emitCallback() {
         this._callback(this._cursor);
     }
-});
+}

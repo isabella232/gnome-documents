@@ -21,14 +21,13 @@
 
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
+const GObject = imports.gi.GObject;
 
 const Lang = imports.lang;
 const Signals = imports.signals;
 
-var BaseManager = new Lang.Class({
-    Name: 'BaseManager',
-
-    _init: function(title, actionId, context) {
+var BaseManager = class BaseManager {
+    constructor(title, actionId, context) {
         this._items = {};
         this._activeItem = null;
         this._title = null;
@@ -41,26 +40,26 @@ var BaseManager = new Lang.Class({
             this._actionId = actionId;
 
         this.context = context;
-    },
+    }
 
-    getActionId: function() {
+    getActionId() {
         return this._actionId;
-    },
+    }
 
-    getTitle: function() {
+    getTitle() {
         return this._title;
-    },
+    }
 
-    getItemById: function(id) {
+    getItemById(id) {
         let retval = this._items[id];
 
         if (!retval)
             retval = null;
 
         return retval;
-    },
+    }
 
-    addItem: function(item) {
+    addItem(item) {
         item._manager = this;
 
         let oldItem = this._items[item.id];
@@ -69,9 +68,9 @@ var BaseManager = new Lang.Class({
 
         this._items[item.id] = item;
         this.emit('item-added', item);
-    },
+    }
 
-    setActiveItem: function(item) {
+    setActiveItem(item) {
         if (item != this._activeItem) {
             this._activeItem = item;
             this.emit('active-changed', this._activeItem);
@@ -80,30 +79,30 @@ var BaseManager = new Lang.Class({
         }
 
         return false;
-    },
+    }
 
-    setActiveItemById: function(id) {
+    setActiveItemById(id) {
         let item = this.getItemById(id);
         return this.setActiveItem(item);
-    },
+    }
 
-    getItems: function() {
+    getItems() {
         return this._items;
-    },
+    }
 
-    getItemsCount: function() {
+    getItemsCount() {
         return Object.keys(this._items).length;
-    },
+    }
 
-    getActiveItem: function() {
+    getActiveItem() {
         return this._activeItem;
-    },
+    }
 
-    removeItem: function(item) {
+    removeItem(item) {
         this.removeItemById(item.id);
-    },
+    }
 
-    removeItemById: function(id) {
+    removeItemById(id) {
         let item = this._items[id];
 
         if (item) {
@@ -111,19 +110,19 @@ var BaseManager = new Lang.Class({
             this.emit('item-removed', item);
             item._manager = null;
         }
-    },
+    }
 
-    clear: function() {
+    clear() {
         this._items = {};
         this._activeItem = null;
         this.emit('clear');
-    },
+    }
 
-    getFilter: function(flags) {
+    getFilter(flags) {
         log('Error: BaseManager implementations must override getFilter');
-    },
+    }
 
-    getWhere: function() {
+    getWhere() {
         let item = this.getActiveItem();
         let retval = '';
 
@@ -131,14 +130,14 @@ var BaseManager = new Lang.Class({
             retval = item.getWhere();
 
         return retval;
-    },
+    }
 
-    forEachItem: function(func) {
+    forEachItem(func) {
         for (let idx in this._items)
             func(this._items[idx]);
-    },
+    }
 
-    getAllFilter: function() {
+    getAllFilter() {
         let filters = [];
 
         this.forEachItem(function(item) {
@@ -147,9 +146,9 @@ var BaseManager = new Lang.Class({
         });
 
         return '(' + filters.join(' || ') + ')';
-    },
+    }
 
-    processNewItems: function(newItems) {
+    processNewItems(newItems) {
         let oldItems = this.getItems();
         let idx;
 
@@ -171,23 +170,20 @@ var BaseManager = new Lang.Class({
 
         // TODO: merge existing item properties with new values
     }
-});
+}
 Signals.addSignalMethods(BaseManager.prototype);
 
-var BaseModel = new Lang.Class({
-    Name: 'BaseModel',
-    Extends: Gio.Menu,
-
-    _init: function(manager) {
-        this.parent();
+var BaseModel = GObject.registerClass(class BaseModel extends Gio.Menu {
+    _init(manager) {
+        super._init();
         this._manager = manager;
         this._manager.connect('item-added', Lang.bind(this, this._refreshModel));
         this._manager.connect('item-removed', Lang.bind(this, this._refreshModel));
 
         this._refreshModel();
-    },
+    }
 
-    _refreshModel: function() {
+    _refreshModel() {
         this.remove_all();
 
         let menuItem;

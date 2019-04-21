@@ -21,6 +21,7 @@
  */
 
 const GLib = imports.gi.GLib;
+const GObject = imports.gi.GObject;
 const Gtk = imports.gi.Gtk;
 const Pango = imports.gi.Pango;
 const _ = imports.gettext.gettext;
@@ -34,11 +35,8 @@ const Lang = imports.lang;
 
 const _TITLE_ENTRY_TIMEOUT = 200;
 
-var PropertiesDialog = new Lang.Class({
-    Name: 'PropertiesDialog',
-    Extends: Gtk.Dialog,
-
-    _init: function(urn) {
+var PropertiesDialog = GObject.registerClass(class PropertiesDialog extends Gtk.Dialog {
+    _init(urn) {
         let doc = Application.documentManager.getItemById(urn);
 
         let dateModified = GLib.DateTime.new_from_unix_local(doc.mtime);
@@ -51,7 +49,7 @@ var PropertiesDialog = new Lang.Class({
         }
 
         let toplevel = Application.application.get_windows()[0];
-        this.parent({ resizable: false,
+        super._init({ resizable: false,
                       transient_for: toplevel,
                       modal: true,
                       destroy_with_parent: true,

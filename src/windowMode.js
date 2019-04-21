@@ -19,7 +19,6 @@
  *
  */
 
-const Lang = imports.lang;
 const Signals = imports.signals;
 
 var WindowMode = {
@@ -32,15 +31,13 @@ var WindowMode = {
     SEARCH: 6,
 };
 
-var ModeController = new Lang.Class({
-    Name: 'ModeController',
-
-    _init: function() {
+var ModeController = class ModeController {
+    constructor() {
         this._mode = WindowMode.NONE;
         this._history = [];
-    },
+    }
 
-    goBack: function(steps) {
+    goBack(steps) {
         if (!steps)
             steps = 1;
 
@@ -67,9 +64,9 @@ var ModeController = new Lang.Class({
         this._mode = tmp;
 
         this.emit('window-mode-changed', this._mode, oldMode);
-    },
+    }
 
-    setWindowMode: function(mode) {
+    setWindowMode(mode) {
         let oldMode = this._mode;
 
         if (oldMode == mode)
@@ -79,10 +76,10 @@ var ModeController = new Lang.Class({
         this._mode = mode;
 
         this.emit('window-mode-changed', this._mode, oldMode);
-    },
+    }
 
-    getWindowMode: function() {
+    getWindowMode() {
         return this._mode;
     }
-});
+}
 Signals.addSignalMethods(ModeController.prototype);
