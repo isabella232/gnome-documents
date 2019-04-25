@@ -776,6 +776,9 @@ const ViewContainer = new Lang.Class({
                           Lang.bind(this, this._onViewSelectionChanged));
         this.view.connect('notify::view-type',
                           Lang.bind(this, this._onViewTypeChanged));
+        this.view.connect('size_allocate',
+                          Lang.bind(this, this._onSizeAllocate));
+
 
         this._selectionModeAction = overview.getAction('selection-mode');
         this._selectionModeAction.connect('notify::state', Lang.bind(this, this._onSelectionModeChanged));
@@ -809,6 +812,19 @@ const ViewContainer = new Lang.Class({
     _onViewTypeChanged: function() {
         if (this.view.view_type == Gd.MainViewType.LIST)
             this._addListRenderers();
+    },
+
+    _onSizeAllocate: function() {
+        let vadjustment = this.view.get_vadjustment();
+        let viewHeight = this.view.get_generic_view().get_allocation().height;
+        let scrollIsAtTop = vadjustment.value == 0;
+        let scrollMaxIsHeight = vadjustment.upper <= viewHeight;
+        let hasMoreDocuments = this._offsetController.getRemainingDocs() > 0;
+
+        if (scrollIsAtTop && scrollMaxIsHeight && hasMoreDocuments)
+        {
+            this._offsetController.increaseOffset();
+        }
     },
 
     _getFirstDocument: function() {
