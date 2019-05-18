@@ -480,7 +480,7 @@ msgstr "Comenceu a escriure paraules clau i la cerca començarà immediatament. 
 msgid ""
 "You can restrict or filter the search results by clicking the <_:media-1/> "
 "button and selecting various <link xref=\"filter\">filters</link>."
-msgstr "Es poden restringir o filtrar els resultats de la cerca fent clic al botó <_:media-1/> i seleccionant varis <link xref=\"filter\">filtres</link>."
+msgstr "Es poden restringir o filtrar els resultats de la cerca fent clic al botó <_:media-1/> i seleccionant diversos <link xref=\"filter\">filtres</link>."
 
 #. (itstool) path: info/desc
 #: C/viewgrid.page:29
