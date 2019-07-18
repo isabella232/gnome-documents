@@ -1,0 +1,909 @@
+# Karbi translation for gnome-documents.
+# Copyright (C) 2019 gnome-documents's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-documents package.
+# Jor Teron <jor.teron@gmail.com>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-documents master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-documents/"
+"issues\n"
+"POT-Creation-Date: 2019-07-06 07:59+0000\n"
+"PO-Revision-Date: 2019-07-18 23:51+0530\n"
+"Last-Translator: Jor Teron <jor.teron@gmail.com>\n"
+"Language-Team: Karbi <mjw@li.org>\n"
+"Language: mjw\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Last-Translator: \n"
+"X-Generator: Poedit 2.0.6\n"
+
+#: data/org.gnome.Documents.appdata.xml.in:7
+#: data/org.gnome.Documents.desktop.in:3 src/application.js:109
+#: src/overview.js:1062
+msgid "Documents"
+msgstr "Documents"
+
+#: data/org.gnome.Documents.appdata.xml.in:8
+msgid "A document manager application for GNOME"
+msgstr ""
+
+#: data/org.gnome.Documents.appdata.xml.in:10
+msgid ""
+"A simple application to access, organize and share your documents on GNOME. "
+"It is meant to be a simple and elegant replacement for using a file manager "
+"to deal with documents. Seamless cloud integration is offered through GNOME "
+"Online Accounts."
+msgstr ""
+
+#: data/org.gnome.Documents.appdata.xml.in:16
+msgid "It lets you:"
+msgstr ""
+
+#: data/org.gnome.Documents.appdata.xml.in:18
+msgid "View recent local and online documents"
+msgstr ""
+
+#: data/org.gnome.Documents.appdata.xml.in:19
+msgid "Access your Google, ownCloud or OneDrive content"
+msgstr "Access your Google, ownCloud or OneDrive content"
+
+#: data/org.gnome.Documents.appdata.xml.in:20
+msgid "Search through documents"
+msgstr "Documents along/alom kiri"
+
+#: data/org.gnome.Documents.appdata.xml.in:21
+msgid "See new documents shared by friends"
+msgstr ""
+
+#: data/org.gnome.Documents.appdata.xml.in:22
+msgid "View documents fullscreen"
+msgstr ""
+
+#: data/org.gnome.Documents.appdata.xml.in:23
+msgid "Print documents"
+msgstr "Print documents"
+
+#: data/org.gnome.Documents.appdata.xml.in:24
+msgid "Select favorites"
+msgstr ""
+
+#: data/org.gnome.Documents.appdata.xml.in:25
+msgid "Allow opening full featured editor for non-trivial changes"
+msgstr ""
+
+#: data/org.gnome.Documents.appdata.xml.in:39
+msgid "The GNOME Project"
+msgstr "GNOME Project"
+
+#: data/org.gnome.Documents.desktop.in:4
+msgid "Access, manage and share documents"
+msgstr ""
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Documents.desktop.in:15
+msgid "Docs;PDF;Document;"
+msgstr "Docs;PDF;Document;"
+
+#: data/org.gnome.documents.gschema.xml:5
+msgid "View as"
+msgstr ""
+
+#: data/org.gnome.documents.gschema.xml:6
+msgid "View as type"
+msgstr ""
+
+#: data/org.gnome.documents.gschema.xml:10
+msgid "Sort by"
+msgstr ""
+
+#: data/org.gnome.documents.gschema.xml:11
+msgid "Sort by type"
+msgstr ""
+
+#: data/org.gnome.documents.gschema.xml:15
+msgid "Window size"
+msgstr "Window apun"
+
+#: data/org.gnome.documents.gschema.xml:16
+msgid "Window size (width and height)."
+msgstr "Window apun (arpan pen arjon)"
+
+#: data/org.gnome.documents.gschema.xml:20
+msgid "Window position"
+msgstr ""
+
+#: data/org.gnome.documents.gschema.xml:21
+msgid "Window position (x and y)."
+msgstr ""
+
+#: data/org.gnome.documents.gschema.xml:25
+msgid "Window maximized"
+msgstr ""
+
+#: data/org.gnome.documents.gschema.xml:26
+msgid "Window maximized state"
+msgstr ""
+
+#: data/org.gnome.documents.gschema.xml:30
+msgid "Night mode"
+msgstr ""
+
+#: data/org.gnome.documents.gschema.xml:31
+msgid "Whether the application is in night mode."
+msgstr ""
+
+#: data/ui/documents-app-menu.ui:6 src/preview.js:447
+msgid "Night Mode"
+msgstr ""
+
+#: data/ui/documents-app-menu.ui:12
+msgid "Keyboard Shortcuts"
+msgstr "Keyboard Shortcuts"
+
+#: data/ui/documents-app-menu.ui:16
+msgid "Help"
+msgstr ""
+
+#: data/ui/documents-app-menu.ui:20
+msgid "About Documents"
+msgstr "Documents aputhak"
+
+#: data/ui/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr ""
+
+#: data/ui/help-overlay.ui:15
+msgctxt "shortcut window"
+msgid "Show help"
+msgstr ""
+
+#: data/ui/help-overlay.ui:22
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr ""
+
+#: data/ui/help-overlay.ui:29
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Kiri"
+
+#: data/ui/help-overlay.ui:36
+msgctxt "shortcut window"
+msgid "Print the current document"
+msgstr ""
+
+#: data/ui/help-overlay.ui:45
+msgctxt "shortcut window"
+msgid "Navigation"
+msgstr ""
+
+#: data/ui/help-overlay.ui:49 data/ui/help-overlay.ui:57
+msgctxt "shortcut window"
+msgid "Go back"
+msgstr ""
+
+#: data/ui/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Preview"
+msgstr ""
+
+#: data/ui/help-overlay.ui:71
+msgctxt "shortcut window"
+msgid "Zoom in"
+msgstr "Pathe"
+
+#: data/ui/help-overlay.ui:78
+msgctxt "shortcut window"
+msgid "Zoom out"
+msgstr "Pabi"
+
+#: data/ui/help-overlay.ui:85
+msgctxt "shortcut window"
+msgid "Bookmark the current page"
+msgstr ""
+
+#: data/ui/help-overlay.ui:92
+msgctxt "shortcut window"
+msgid "Open places and bookmarks dialog"
+msgstr ""
+
+#: data/ui/help-overlay.ui:99
+msgctxt "shortcut window"
+msgid "Copy selected text to clipboard"
+msgstr ""
+
+#: data/ui/help-overlay.ui:106
+msgctxt "shortcut window"
+msgid "Rotate counterclockwise"
+msgstr ""
+
+#: data/ui/help-overlay.ui:113
+msgctxt "shortcut window"
+msgid "Rotate clockwise"
+msgstr ""
+
+#: data/ui/help-overlay.ui:120
+msgctxt "shortcut window"
+msgid "Next occurrence of the search string"
+msgstr ""
+
+#: data/ui/help-overlay.ui:127
+msgctxt "shortcut window"
+msgid "Previous occurrence of the search string"
+msgstr ""
+
+#: data/ui/help-overlay.ui:134
+msgctxt "shortcut window"
+msgid "Presentation mode"
+msgstr "Presentation mode"
+
+#: data/ui/help-overlay.ui:141
+msgctxt "shortcut window"
+msgid "Open action menu"
+msgstr ""
+
+#: data/ui/help-overlay.ui:148
+msgctxt "shortcut window"
+msgid "Fullscreen"
+msgstr "Fullscreen"
+
+#: data/ui/organize-collection-dialog.ui:40
+msgid "Enter a name for your first collection"
+msgstr ""
+
+#: data/ui/organize-collection-dialog.ui:56
+#: data/ui/organize-collection-dialog.ui:113
+msgid "New Collection…"
+msgstr "Kimi Collection…"
+
+#: data/ui/organize-collection-dialog.ui:73
+#: data/ui/organize-collection-dialog.ui:122 src/sharing.js:226
+msgid "Add"
+msgstr "Kethap"
+
+#: data/ui/organize-collection-dialog.ui:163 data/ui/selection-toolbar.ui:88
+#: src/overview.js:1065 src/search.js:123
+msgid "Collections"
+msgstr ""
+
+#: data/ui/organize-collection-dialog.ui:167 src/overview.js:607
+msgid "Cancel"
+msgstr ""
+
+#. Label for Done button in Sharing dialog
+#: data/ui/organize-collection-dialog.ui:173 src/sharing.js:112
+msgid "Done"
+msgstr "Tanglo"
+
+#: data/ui/preview-context-menu.ui:6
+msgid "_Copy"
+msgstr ""
+
+#. Translators: this is the Open action in a context menu
+#: data/ui/preview-menu.ui:6 data/ui/selection-toolbar.ui:9
+#: src/selections.js:982
+msgid "Open"
+msgstr "Ingpu"
+
+#: data/ui/preview-menu.ui:10
+msgid "Edit"
+msgstr ""
+
+#: data/ui/preview-menu.ui:15
+msgid "Print…"
+msgstr "Print…"
+
+#: data/ui/preview-menu.ui:21 src/preview.js:456
+msgid "Fullscreen"
+msgstr "Fullscreen"
+
+#: data/ui/preview-menu.ui:27
+msgid "Present"
+msgstr ""
+
+#: data/ui/preview-menu.ui:35
+msgid "Zoom In"
+msgstr ""
+
+#: data/ui/preview-menu.ui:41
+msgid "Zoom Out"
+msgstr ""
+
+#: data/ui/preview-menu.ui:49
+msgid "Rotate ↶"
+msgstr "Tewar ↶"
+
+#: data/ui/preview-menu.ui:55
+msgid "Rotate ↷"
+msgstr "Tewar ↷"
+
+#: data/ui/preview-menu.ui:62 data/ui/selection-toolbar.ui:79
+#: src/properties.js:61
+msgid "Properties"
+msgstr ""
+
+#: data/ui/selection-menu.ui:6
+msgid "Select All"
+msgstr ""
+
+#: data/ui/selection-menu.ui:11
+msgid "Select None"
+msgstr ""
+
+#: data/ui/view-menu.ui:23
+msgid "View items as a grid of icons"
+msgstr ""
+
+#: data/ui/view-menu.ui:40
+msgid "View items as a list"
+msgstr ""
+
+#: data/ui/view-menu.ui:73
+msgid "Sort"
+msgstr ""
+
+#: data/ui/view-menu.ui:84
+msgid "Author"
+msgstr "Hemphu"
+
+#: data/ui/view-menu.ui:93
+msgid "Date"
+msgstr "Arni"
+
+#: data/ui/view-menu.ui:102
+msgid "Name"
+msgstr "Amen"
+
+#: src/application.js:119
+msgid "Show the version of the program"
+msgstr ""
+
+#: src/documents.js:778
+msgid "Failed to print document"
+msgstr "Document print un-eh det"
+
+#. Translators: this refers to local documents
+#: src/documents.js:820 src/search.js:433
+msgid "Local"
+msgstr ""
+
+#. Translators: Documents ships a "Getting Started with Documents"
+#. tutorial PDF. The "GNOME" string below is displayed as the author name
+#. of that document, and doesn't normally need to be translated.
+#: src/documents.js:863
+msgid "GNOME"
+msgstr "GNOME"
+
+#: src/documents.js:864
+msgid "Getting Started with Documents"
+msgstr "Documents koson ke-ot ke lang"
+
+#: src/documents.js:889 src/documents.js:1113 src/documents.js:1214
+#: src/documents.js:1408
+msgid "Collection"
+msgstr ""
+
+#. overridden
+#: src/documents.js:970
+msgid "Google Docs"
+msgstr "Google Docs"
+
+#: src/documents.js:971
+msgid "Google"
+msgstr "Google"
+
+#: src/documents.js:1115 src/documents.js:1410
+msgid "Spreadsheet"
+msgstr "Spreadsheet"
+
+#: src/documents.js:1117 src/documents.js:1412 src/presentation.js:43
+msgid "Presentation"
+msgstr "Presentation"
+
+#: src/documents.js:1119 src/documents.js:1414
+msgid "Document"
+msgstr "Document"
+
+#. overridden
+#: src/documents.js:1169
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#. overridden
+#: src/documents.js:1303 src/documents.js:1304
+msgid "OneDrive"
+msgstr "OneDrive"
+
+#: src/documents.js:1588
+msgid "Please check the network connection."
+msgstr ""
+
+#: src/documents.js:1591
+msgid "Please check the network proxy settings."
+msgstr ""
+
+#: src/documents.js:1594
+msgid "Unable to sign in to the document service."
+msgstr ""
+
+#: src/documents.js:1597
+msgid "Unable to locate this document."
+msgstr ""
+
+#: src/documents.js:1600
+#, javascript-format
+msgid "Hmm, something is fishy (%d)."
+msgstr "Hmm, kopine son do (%d)."
+
+#: src/documents.js:1606
+msgid ""
+"LibreOffice support is not available. Please contact your system "
+"administrator."
+msgstr ""
+"LibreOffice support awe. CHoningri nangli system administrator "
+"pen birta tha."
+
+#. Translators: %s is the title of a document
+#: src/documents.js:1629
+#, javascript-format
+msgid "Oops! Unable to load “%s”"
+msgstr "Oops! Wan un-eh det “%s”"
+
+#. view button, on the right of the toolbar
+#: src/edit.js:139
+msgid "View"
+msgstr ""
+
+#: src/evinceview.js:584 src/lib/gd-places-bookmarks.c:656
+msgid "Bookmarks"
+msgstr "Bookmarks"
+
+#: src/evinceview.js:592
+msgid "Bookmark this page"
+msgstr ""
+
+#: src/lib/gd-nav-bar.c:242
+#, c-format
+msgid "Page %u of %u"
+msgstr "Page %u/%u"
+
+#: src/lib/gd-pdf-loader.c:142
+msgid "Unable to load the document"
+msgstr "Document wan un-eh det"
+
+#. Translators: %s is the number of the page, already formatted
+#. * as a string, for example "Page 5".
+#.
+#: src/lib/gd-places-bookmarks.c:321
+#, c-format
+msgid "Page %s"
+msgstr "Page %s"
+
+#: src/lib/gd-places-bookmarks.c:384
+msgid "No bookmarks"
+msgstr ""
+
+#: src/lib/gd-places-bookmarks.c:392 src/lib/gd-places-links.c:257
+msgid "Loading…"
+msgstr "Wang bomlo…"
+
+#: src/lib/gd-places-links.c:342
+msgid "No table of contents"
+msgstr ""
+
+#: src/lib/gd-places-links.c:514
+msgid "Contents"
+msgstr ""
+
+#: src/lib/gd-utils.c:318
+msgid "translator-credits"
+msgstr "Jor Teron <jor.teron@gmail.com>"
+
+#: src/lib/gd-utils.c:319
+msgid "A document manager application"
+msgstr ""
+
+#: src/mainToolbar.js:95
+msgctxt "menu button tooltip"
+msgid "Menu"
+msgstr ""
+
+#: src/mainToolbar.js:105
+msgctxt "toolbar button tooltip"
+msgid "Search"
+msgstr "Kiri"
+
+#: src/mainToolbar.js:114
+msgid "Back"
+msgstr "Aphi"
+
+#. Translators: only one item has been deleted and %s is its name
+#: src/notifications.js:48
+#, javascript-format
+msgid "“%s” deleted"
+msgstr "“%s” musi ed-lo"
+
+#. Translators: one or more items might have been deleted, and %d
+#. is the count
+#: src/notifications.js:52
+#, javascript-format
+msgid "%d item deleted"
+msgid_plural "%d items deleted"
+msgstr[0] "%d musi ed-lo"
+msgstr[1] "Son %d musi ed-lo"
+
+#: src/notifications.js:61 src/selections.js:380
+msgid "Undo"
+msgstr ""
+
+#: src/notifications.js:159
+#, javascript-format
+msgid "Printing “%s”: %s"
+msgstr "“%s” print bomlo: %s"
+
+#: src/notifications.js:215
+msgid "Your documents are being indexed"
+msgstr ""
+
+#: src/notifications.js:216
+msgid "Some documents might not be available during this process"
+msgstr ""
+
+#. Translators: %s refers to an online account provider, e.g.
+#. "Google", or "Windows Live".
+#: src/notifications.js:238
+#, javascript-format
+msgid "Fetching documents from %s"
+msgstr ""
+
+#: src/notifications.js:240
+msgid "Fetching documents from online accounts"
+msgstr ""
+
+#: src/overview.js:275
+msgid "No collections found"
+msgstr ""
+
+#: src/overview.js:277
+msgid "No documents found"
+msgstr ""
+
+#: src/overview.js:286
+msgid "Try a different search"
+msgstr "Kaprek ri thu tha"
+
+#: src/overview.js:291
+msgid "You can create collections from the Documents view"
+msgstr ""
+
+#: src/overview.js:296
+#, javascript-format
+msgid ""
+"Documents from your <a href=\"system-settings\">Online Accounts</a> and <a "
+"href=\"file://%s\">Documents folder</a> will appear here."
+msgstr ""
+
+#. Translators: this is the menu to change view settings
+#: src/overview.js:553
+msgid "View Menu"
+msgstr ""
+
+#: src/overview.js:581
+msgid "Click on items to select them"
+msgstr ""
+
+#: src/overview.js:583
+#, javascript-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/overview.js:664
+msgid "Select Items"
+msgstr ""
+
+#: src/overview.js:886
+msgid "Yesterday"
+msgstr "Tumi"
+
+#: src/overview.js:888
+#, javascript-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "Ni %d aphrang"
+msgstr[1] "Ni %d aphrang"
+
+#: src/overview.js:892
+msgid "Last week"
+msgstr "Chu rui"
+
+#: src/overview.js:894
+#, javascript-format
+msgid "%d week ago"
+msgid_plural "%d weeks ago"
+msgstr[0] "Rui %d aphrang"
+msgstr[1] "Rui %d aphrang"
+
+#: src/overview.js:898
+msgid "Last month"
+msgstr "Chu cheklo"
+
+#: src/overview.js:900
+#, javascript-format
+msgid "%d month ago"
+msgid_plural "%d months ago"
+msgstr[0] "Cheklo %d aphrang"
+msgstr[1] "Cheklo %d aphrang"
+
+#: src/overview.js:904
+msgid "Last year"
+msgstr "Chu ning"
+
+#: src/overview.js:906
+#, javascript-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] "Ningkan %d aphrang"
+msgstr[1] "Ningkan %d aphrang"
+
+#: src/password.js:42
+msgid "Password Required"
+msgstr "Password Nangji"
+
+#: src/password.js:45
+msgid "_Unlock"
+msgstr ""
+
+#: src/password.js:61
+#, javascript-format
+msgid "Document %s is locked and requires a password to be opened."
+msgstr ""
+
+#: src/password.js:75
+msgid "_Password"
+msgstr "_Password"
+
+#: src/presentation.js:101
+msgid "Running in presentation mode"
+msgstr ""
+
+#: src/presentation.js:129
+msgid "Present On"
+msgstr ""
+
+#. Translators: "Mirrored" describes when both displays show the same view
+#: src/presentation.js:165
+msgid "Mirrored"
+msgstr ""
+
+#: src/presentation.js:167
+msgid "Primary"
+msgstr ""
+
+#: src/presentation.js:169
+msgid "Off"
+msgstr ""
+
+#: src/presentation.js:171
+msgid "Secondary"
+msgstr ""
+
+#. Translators: this is the Open action in a context menu
+#: src/preview.js:439 src/selections.js:979
+#, javascript-format
+msgid "Open with %s"
+msgstr "%s pen ingpu noi"
+
+#: src/preview.js:764
+msgid "Find Previous"
+msgstr ""
+
+#: src/preview.js:770
+msgid "Find Next"
+msgstr ""
+
+#. Title item
+#. Translators: "Title" is the label next to the document title
+#. in the properties dialog
+#: src/properties.js:81
+msgctxt "Document Title"
+msgid "Title"
+msgstr ""
+
+#. Translators: "Author" is the label next to the document author
+#. in the properties dialog
+#: src/properties.js:90
+msgctxt "Document Author"
+msgid "Author"
+msgstr "Tokbang"
+
+#. Source item
+#: src/properties.js:97
+msgid "Source"
+msgstr "Source"
+
+#. Date Modified item
+#: src/properties.js:103
+msgid "Date Modified"
+msgstr "Kelar arni"
+
+#: src/properties.js:110
+msgid "Date Created"
+msgstr "Semar arni"
+
+#. Document type item
+#. Translators: "Type" is the label next to the document type
+#. (PDF, spreadsheet, ...) in the properties dialog
+#: src/properties.js:119
+msgctxt "Document Type"
+msgid "Type"
+msgstr ""
+
+#. Translators: "Type" refers to a search filter on the document type
+#. (PDF, spreadsheet, ...)
+#: src/search.js:118
+msgctxt "Search Filter"
+msgid "Type"
+msgstr ""
+
+#. Translators: this refers to documents
+#: src/search.js:121 src/search.js:233 src/search.js:427
+msgid "All"
+msgstr ""
+
+#: src/search.js:127
+msgid "PDF Documents"
+msgstr "PDF Documents"
+
+#: src/search.js:132
+msgid "Presentations"
+msgstr "Presentations"
+
+#: src/search.js:135
+msgid "Spreadsheets"
+msgstr "Spreadsheets"
+
+#: src/search.js:138
+msgid "Text Documents"
+msgstr "Text Documents"
+
+#. Translators: this is a verb that refers to "All", "Title", "Author",
+#. and "Content" as in "Match All", "Match Title", "Match Author", and
+#. "Match Content"
+#: src/search.js:230
+msgid "Match"
+msgstr ""
+
+#. Translators: "Title" refers to "Match Title" when searching
+#: src/search.js:236
+msgctxt "Search Filter"
+msgid "Title"
+msgstr ""
+
+#. Translators: "Author" refers to "Match Author" when searching
+#: src/search.js:239
+msgctxt "Search Filter"
+msgid "Author"
+msgstr "Tokbang"
+
+#. Translators: "Content" refers to "Match Content" when searching
+#: src/search.js:242
+msgctxt "Search Filter"
+msgid "Content"
+msgstr ""
+
+#: src/search.js:423
+msgid "Sources"
+msgstr ""
+
+#. Translators: the first %s is an online account provider name,
+#. e.g. "Google". The second %s is the identity used to log in,
+#. e.g. "foo@gmail.com".
+#: src/search.js:480
+#, javascript-format
+msgid "%s (%s)"
+msgstr "%s (%s)"
+
+#: src/selections.js:353 src/selections.js:355
+msgid "Rename…"
+msgstr ""
+
+#: src/selections.js:359 src/selections.js:361
+msgid "Delete"
+msgstr ""
+
+#: src/selections.js:375
+#, javascript-format
+msgid "“%s” removed"
+msgstr ""
+
+#: src/selections.js:772
+msgid "Rename"
+msgstr ""
+
+#. Translators: "Collections" refers to documents in this context
+#: src/selections.js:778
+msgctxt "Dialog Title"
+msgid "Collections"
+msgstr ""
+
+#: src/sharing.js:108
+msgid "Sharing Settings"
+msgstr ""
+
+#. Label for widget group for changing document permissions
+#: src/sharing.js:145
+msgid "Document permissions"
+msgstr ""
+
+#. Label for permission change in Sharing dialog
+#: src/sharing.js:152 src/sharing.js:330
+msgid "Change"
+msgstr ""
+
+#. Label for radiobutton that sets doc permission to private
+#: src/sharing.js:176 src/sharing.js:305
+msgid "Private"
+msgstr ""
+
+#: src/sharing.js:186 src/sharing.js:298
+msgid "Public"
+msgstr ""
+
+#. Label for checkbutton that sets doc permission to Can edit
+#: src/sharing.js:190 src/sharing.js:300
+msgid "Everyone can edit"
+msgstr ""
+
+#. Label for widget group used for adding new contacts
+#: src/sharing.js:197
+msgid "Add people"
+msgstr ""
+
+#. Editable text in entry field
+#: src/sharing.js:204
+msgid "Enter an email address"
+msgstr "Email tok tha"
+
+#: src/sharing.js:219 src/sharing.js:371
+msgid "Can edit"
+msgstr ""
+
+#: src/sharing.js:219 src/sharing.js:374
+msgid "Can view"
+msgstr ""
+
+#: src/sharing.js:302
+msgid "Everyone can read"
+msgstr "Majok ta lang long"
+
+#: src/sharing.js:317
+msgid "Save"
+msgstr ""
+
+#: src/sharing.js:368
+msgid "Owner"
+msgstr "Hemphu"
+
+#: src/sharing.js:437
+#, javascript-format
+msgid "You can ask %s for access"
+msgstr ""
+
+#: src/sharing.js:474 src/sharing.js:510 src/sharing.js:567 src/sharing.js:584
+#: src/sharing.js:603
+msgid "The document was not updated"
+msgstr ""
+
+#: src/shellSearchProvider.js:285
+msgid "Untitled Document"
+msgstr ""
+
+#: src/trackerController.js:176
+msgid "Unable to fetch the list of documents"
+msgstr ""
