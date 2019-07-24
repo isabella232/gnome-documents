@@ -582,7 +582,7 @@ msgid ""
 " panel. You may want to do this if you keep some of your documents in a non-"
 "standard location such as another folder on your computer or on an external "
 "hard disk."
-msgstr "<app>Documents</app> normalment només mostra els documents que estan a les carpetes estàndard <file>Documents</file> o <file>Baixades</file>. Es poden afegir les carpetes que es vulguin utilitzar des de <app>Cerca</app> al panell de preferències. És possible que es vulgui fer això si es conserven alguns documents en una ubicació no estàndard com ara una altra carpeta a l'ordinador o en un disc dur extern."
+msgstr "<app>Documents</app> normalment només mostra els documents que estan a les carpetes estàndard <file>Documents</file> o <file>Baixades</file>. Es poden afegir les carpetes que es vulguin utilitzar des de <app>Cerca</app> al quadre de preferències. És possible que es vulgui fer això si es conserven alguns documents en una ubicació no estàndard com ara una altra carpeta a l'ordinador o en un disc dur extern."
 
 #. (itstool) path: item/p
 #: C/view-add.page:36
@@ -594,7 +594,7 @@ msgstr "Obrir el resum d'<gui href=\"help:gnome-help/shell-terminology\">Activit
 #. (itstool) path: item/p
 #: C/view-add.page:41
 msgid "Click on <gui>Search</gui> to open the panel."
-msgstr "Feu clic a <gui>Cercar</gui> per obrir el panell."
+msgstr "Feu clic a <gui>Cerca</gui> per obrir el quadre."
 
 #. (itstool) path: item/p
 #: C/view-add.page:44
