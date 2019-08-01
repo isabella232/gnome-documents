@@ -898,7 +898,7 @@ msgstr "Tothom pot llegir"
 
 #: src/sharing.js:317
 msgid "Save"
-msgstr "Desat"
+msgstr "Desa"
 
 #: src/sharing.js:368
 msgid "Owner"
