@@ -1,7 +1,7 @@
 {
     "app-id": "org.gnome.Documents",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "master",
+    "runtime-version": "3.32",
     "sdk": "org.gnome.Sdk",
     "command": "gnome-documents",
     "tags": [ "nightly" ],
@@ -86,7 +86,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/libgdata.git"
+                    "url": "https://gitlab.gnome.org/GNOME/libgdata.git",
+                    "tag": "0.17.10"
                 }
             ]
         },
@@ -192,8 +193,8 @@
             "config-opts": [ "-Denable-documentation=false" ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/gnome-documents.git"
+                    "type": "dir",
+                    "path": ".."
                 }
             ]
         }
