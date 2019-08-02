@@ -464,6 +464,10 @@ const DocCommon = new Lang.Class({
         throw(new Error('DocCommon implementations must override canEdit'));
     },
 
+    canEditTitle: function() {
+        return false;
+    },
+
     canShare: function() {
         throw(new Error('DocCommon implementations must override canShare'));
     },
@@ -918,6 +922,10 @@ var LocalDocument = new Lang.Class({
 
     canEdit: function() {
         return this.collection;
+    },
+
+    canEditTitle: function() {
+        return true;
     },
 
     canShare: function() {

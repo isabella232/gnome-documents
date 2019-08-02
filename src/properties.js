@@ -27,7 +27,6 @@ const _ = imports.gettext.gettext;
 const C_ = imports.gettext.pgettext;
 
 const Application = imports.application;
-const Documents = imports.documents;
 const Mainloop = imports.mainloop;
 const TrackerUtils = imports.trackerUtils;
 
@@ -122,7 +121,7 @@ var PropertiesDialog = new Lang.Class({
         grid.add (this._docType);
 
         // Title value
-        if (doc instanceof Documents.LocalDocument) {
+        if (doc.canEditTitle()) {
             this._titleEntry = new Gtk.Entry({ activates_default: true,
                                                text: doc.name,
                                                editable: true,
