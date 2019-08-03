@@ -590,7 +590,7 @@ var PreviewNavControls = class PreviewNavControls {
         this._prevRevealer.show_all();
         this._nextRevealer.show_all();
 
-        this._overlay.connect('motion-notify-event', this._onMotion.bind(this));
+        this._overlayMotionId = this._overlay.connect('motion-notify-event', this._onMotion.bind(this));
 
         this._tapGesture = new Gtk.GestureMultiPress({ propagation_phase: Gtk.PropagationPhase.CAPTURE,
                                                        touch_only: true,
@@ -611,6 +611,14 @@ var PreviewNavControls = class PreviewNavControls {
     _onLeaveNotify() {
         this._queueAutoHide();
         return false;
+    }
+
+    _removeMotionTimeout() {
+        if (this._motionId == 0)
+            return;
+
+        Mainloop.source_remove(this._motionId);
+        this._motionId = 0;
     }
 
     _motionTimeout() {
@@ -706,6 +714,14 @@ var PreviewNavControls = class PreviewNavControls {
     }
 
     destroy() {
+        this._unqueueAutoHide();
+        this._removeMotionTimeout();
+
+        if (this._overlayMotionId != 0) {
+            this._overlay.disconnect(this._overlayMotionId);
+            this._overlayMotionId = 0;
+        }
+
         if (this._barRevealer)
             this._barRevealer.destroy();
         this._prevRevealer.destroy();
