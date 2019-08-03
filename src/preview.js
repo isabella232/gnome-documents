@@ -1,4 +1,3 @@
-const GdPrivate = imports.gi.GdPrivate;
 const Gio = imports.gi.Gio;
 const Gdk = imports.gi.Gdk;
 const GLib = imports.gi.GLib;

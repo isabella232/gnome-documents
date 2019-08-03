@@ -19,8 +19,6 @@
  *
  */
 
-const Mainloop = imports.mainloop;
-
 const Application = imports.application;
 const Edit = imports.edit;
 const EvinceView = imports.evinceview;

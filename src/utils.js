@@ -27,8 +27,6 @@ const Gtk = imports.gi.Gtk;
 
 const Application = imports.application;
 
-const Signals = imports.signals;
-
 const _ICON_VIEW_SIZE = 128;
 const _LIST_VIEW_SIZE = 48;
 

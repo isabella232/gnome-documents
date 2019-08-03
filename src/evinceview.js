@@ -28,8 +28,6 @@ const GObject = imports.gi.GObject;
 const Gtk = imports.gi.Gtk;
 const _ = imports.gettext.gettext;
 
-const Mainloop = imports.mainloop;
-
 const Application = imports.application;
 const Documents = imports.documents;
 const Places = imports.places;

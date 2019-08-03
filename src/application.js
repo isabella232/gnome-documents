@@ -37,7 +37,6 @@ const Format = imports.format;
 const MainWindow = imports.mainWindow;
 const Miners = imports.miners;
 const Notifications = imports.notifications;
-const Properties = imports.properties;
 const Query = imports.query;
 const Search = imports.search;
 const Selections = imports.selections;
