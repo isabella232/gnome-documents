@@ -47,8 +47,6 @@ const _ = imports.gettext.gettext;
 
 const Application = imports.application;
 
-const Lang = imports.lang;
-
 const SharingDialogColumns = {
     NAME: 0,
     ROLE: 1
@@ -80,15 +78,14 @@ var SharingDialog = GObject.registerClass(class SharingDialog extends Gtk.Dialog
         this._entry = null;
         this._feed = null;
 
-        this._doc.createGDataEntry(null, Lang.bind(this,
-            function(entry, service, exception) {
-                if (exception) {
-                    logError(exception, 'Error getting GData Entry');
-                    return;
-                }
-                this._entry = entry;
-                this._refreshEntryACL();
-            }));
+        this._doc.createGDataEntry(null, (entry, service, exception) => {
+            if (exception) {
+                logError(exception, 'Error getting GData Entry');
+                return;
+            }
+            this._entry = entry;
+            this._refreshEntryACL();
+        });
 
         this._docShare = DocumentShareState.UNKNOWN;
         this._pubEdit = false;
@@ -149,7 +146,7 @@ var SharingDialog = GObject.registerClass(class SharingDialog extends Gtk.Dialog
         this._changeButton = new Gtk.Button({ label: _("Change"),
                                               sensitive: false,
                                               halign: Gtk.Align.END });
-        this._changeButton.connect("clicked", Lang.bind(this, this._onPermissionsButtonClicked));
+        this._changeButton.connect("clicked", this._onPermissionsButtonClicked.bind(this));
         this._grid.attach(this._changeButton, 2, 0, 1, 1);
 
         let settingBox = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL,
@@ -202,12 +199,11 @@ var SharingDialog = GObject.registerClass(class SharingDialog extends Gtk.Dialog
                                              no_show_all: true,
                                              hexpand: true,
                                              halign: Gtk.Align.START });
-        this._contactEntry.connect('changed', Lang.bind(this,
-            function() {
-                let hasText = !!this._isValidEmail();
-                this._saveShare.sensitive = hasText;
-                this._comboBoxText.sensitive = hasText;
-            }));
+        this._contactEntry.connect('changed', () => {
+            let hasText = !!this._isValidEmail();
+            this._saveShare.sensitive = hasText;
+            this._comboBoxText.sensitive = hasText;
+        });
         this._grid.add(this._contactEntry);
 
         // Permission setting labels in combobox
@@ -223,7 +219,7 @@ var SharingDialog = GObject.registerClass(class SharingDialog extends Gtk.Dialog
         this._saveShare = new Gtk.Button({ label: _("Add"),
                                            no_show_all: true,
                                            sensitive: false });
-        this._saveShare.connect ('clicked', Lang.bind(this, this._onAddClicked));
+        this._saveShare.connect ('clicked', this._onAddClicked.bind(this));
         this._grid.attach_next_to(this._saveShare, this._comboBoxText, Gtk.PositionType.RIGHT, 1, 1);
 
         this._noPermission = new Gtk.Label({ halign: Gtk.Align.START,
@@ -335,26 +331,24 @@ var SharingDialog = GObject.registerClass(class SharingDialog extends Gtk.Dialog
 
     // Return a feed containing the acl related to the entry
     _refreshEntryACL() {
-        this._entry.get_rules_async(this._service, null, null, Lang.bind(this,
-            function(entry, result) {
-                try {
-                    this._feed = this._service.query_finish(result);
-                    this._getScopeRulesEntry();
-                } catch(e) {
-                    logError(e, 'Error getting ACL Feed');
-                }
-            }));
+        this._entry.get_rules_async(this._service, null, null, (entry, result) => {
+            try {
+                this._feed = this._service.query_finish(result);
+                this._getScopeRulesEntry();
+            } catch(e) {
+                logError(e, 'Error getting ACL Feed');
+            }
+        });
     }
 
     _getAccountNames() {
         let retval = [];
         let sources = Application.sourceManager.getForProviderType('google');
 
-        sources.forEach(Lang.bind(this,
-            function(source) {
-                let account = source.object.get_account();
-                retval.push(account.identity);
-            }));
+        sources.forEach((source) => {
+            let account = source.object.get_account();
+            retval.push(account.identity);
+        });
 
         return retval;
     }
@@ -384,38 +378,36 @@ var SharingDialog = GObject.registerClass(class SharingDialog extends Gtk.Dialog
         let pubEdit = false;
         let docShare = DocumentShareState.PRIVATE;
 
-        entries.forEach(Lang.bind(this,
-            function(entry) {
-                let [type, value] = entry.get_scope();
-                let role = entry.get_role();
+        entries.forEach((entry) => {
+            let [type, value] = entry.get_scope();
+            let role = entry.get_role();
 
-                if (value != null) {
-                    values.push({ name: value, role: this._getUserRoleString(role) });
+            if (value != null) {
+                values.push({ name: value, role: this._getUserRoleString(role) });
 
-                    if ((accountNames.indexOf(value) != -1) &&
-                        (role == GData.DOCUMENTS_ACCESS_ROLE_WRITER || role == GData.DOCUMENTS_ACCESS_ROLE_OWNER))
-                        allowChanges = true;
-                } else {
-                    if (role != GData.ACCESS_ROLE_NONE)
-                        docShare = DocumentShareState.PUBLIC;
-                    if (role == GData.DOCUMENTS_ACCESS_ROLE_WRITER)
-                        pubEdit = true;
-                }
+                if ((accountNames.indexOf(value) != -1) &&
+                    (role == GData.DOCUMENTS_ACCESS_ROLE_WRITER || role == GData.DOCUMENTS_ACCESS_ROLE_OWNER))
+                    allowChanges = true;
+            } else {
+                if (role != GData.ACCESS_ROLE_NONE)
+                    docShare = DocumentShareState.PUBLIC;
+                if (role == GData.DOCUMENTS_ACCESS_ROLE_WRITER)
+                    pubEdit = true;
+            }
 
-                if (role == GData.DOCUMENTS_ACCESS_ROLE_OWNER)
-                   ownerId = value;
-             }));
+            if (role == GData.DOCUMENTS_ACCESS_ROLE_OWNER)
+                ownerId = value;
+        });
 
         this._ensureTreeview();
 
         // Set values in the treemodel
-        values.forEach(Lang.bind (this,
-            function(value) {
-                let iter = this._model.append();
-                this._model.set(iter,
-                    [SharingDialogColumns.NAME, SharingDialogColumns.ROLE],
-                    [value.name, value.role]);
-            }));
+        values.forEach((value) => {
+            let iter = this._model.append();
+            this._model.set(iter,
+                            [SharingDialogColumns.NAME, SharingDialogColumns.ROLE],
+                            [value.name, value.role]);
+        });
 
         // Propagate new state
         this._docShare = docShare;
@@ -457,20 +449,20 @@ var SharingDialog = GObject.registerClass(class SharingDialog extends Gtk.Dialog
 
         this._contactEntry.set_sensitive(false);
 
-        this._service.insert_entry_async(GData.DocumentsService.get_primary_authorization_domain(),
-            aclLink.get_uri(), accessRule, null, Lang.bind(this,
-                function(service, res) {
-                    this._contactEntry.set_sensitive(true);
-                    this._contactEntry.set_text('');
+        this._service.insert_entry_async(
+            GData.DocumentsService.get_primary_authorization_domain(),
+            aclLink.get_uri(), accessRule, null, (service, res) => {
+                this._contactEntry.set_sensitive(true);
+                this._contactEntry.set_text('');
 
-                    try {
-                        this._service.insert_entry_finish(res);
-                        this._refreshEntryACL();
-                    } catch(e) {
-                        logError(e, 'Error inserting new ACL rule');
-                        this._showErrorDialog(_("The document was not updated"));
-                    }
-                }));
+                try {
+                    this._service.insert_entry_finish(res);
+                    this._refreshEntryACL();
+                } catch(e) {
+                    logError(e, 'Error inserting new ACL rule');
+                    this._showErrorDialog(_("The document was not updated"));
+                }
+            });
     }
 
     // Get the scope from the radiobuttons
@@ -496,19 +488,19 @@ var SharingDialog = GObject.registerClass(class SharingDialog extends Gtk.Dialog
         let accessRule = new GData.AccessRule({ scope_type: scopeType,
                                                 role: role });
 
-        this._service.insert_entry_async(GData.DocumentsService.get_primary_authorization_domain(),
-            aclLink.get_uri(), accessRule, null, Lang.bind(this,
-                function(service, res) {
-                    try {
-                        service.insert_entry_finish(res);
-                        this._refreshEntryACL();
-                    } catch(e) {
-                        logError(e, 'Error inserting new ACL scope for document');
-                        this._showErrorDialog(_("The document was not updated"));
-                    }
+        this._service.insert_entry_async(
+            GData.DocumentsService.get_primary_authorization_domain(),
+            aclLink.get_uri(), accessRule, null, (service, res) => {
+                try {
+                    service.insert_entry_finish(res);
+                    this._refreshEntryACL();
+                } catch(e) {
+                    logError(e, 'Error inserting new ACL scope for document');
+                    this._showErrorDialog(_("The document was not updated"));
+                }
 
-                    this._permissionChangeFinished();
-                }));
+                this._permissionChangeFinished();
+            });
     }
 
     _sendNewDocumentRule() {
@@ -553,53 +545,53 @@ var SharingDialog = GObject.registerClass(class SharingDialog extends Gtk.Dialog
             let accessRule = entries[idx];
             accessRule.set_role(newRole);
 
-            this._service.update_entry_async(GData.DocumentsService.get_primary_authorization_domain(),
-                accessRule, null, Lang.bind(this,
-                    function(service, res) {
-                        try {
-                            service.update_entry_finish(res);
-                            this._refreshEntryACL();
-                        } catch(e) {
-                            logError(e, 'Error updating ACL scope for document');
-                            this._showErrorDialog(_("The document was not updated"));
-                        }
+            this._service.update_entry_async(
+                GData.DocumentsService.get_primary_authorization_domain(),
+                accessRule, null, (service, res) => {
+                    try {
+                        service.update_entry_finish(res);
+                        this._refreshEntryACL();
+                    } catch(e) {
+                        logError(e, 'Error updating ACL scope for document');
+                        this._showErrorDialog(_("The document was not updated"));
+                    }
 
-                        this._permissionChangeFinished();
-                    }));
+                    this._permissionChangeFinished();
+                });
         } else if (updateType == DocumentUpdateType.DELETE_PUBLIC) {
             // If we are changing the permission to private, delete the public entry.
             let accessRule = entries[idx];
 
-            this._service.delete_entry_async(GData.DocumentsService.get_primary_authorization_domain(),
-                accessRule, null, Lang.bind(this,
-                    function(service, res) {
-                        try {
-                            service.delete_entry_finish(res);
-                            this._refreshEntryACL();
-                        } catch(e) {
-                            logError(e, 'Error deleting ACL scope for document');
-                            this._showErrorDialog(_("The document was not updated"));
-                        }
+            this._service.delete_entry_async(
+                GData.DocumentsService.get_primary_authorization_domain(),
+                accessRule, null, (service, res) => {
+                    try {
+                        service.delete_entry_finish(res);
+                        this._refreshEntryACL();
+                    } catch(e) {
+                        logError(e, 'Error deleting ACL scope for document');
+                        this._showErrorDialog(_("The document was not updated"));
+                    }
 
-                        this._permissionChangeFinished();
-                    }));
+                    this._permissionChangeFinished();
+                });
         } else if (updateType == DocumentUpdateType.DELETE_SHARE_LINK) {
             // Workaround if the doc is shared with link: step 1 delete shared with link permission.
             let accessRule = entries[idx];
 
-            this._service.delete_entry_async(GData.DocumentsService.get_primary_authorization_domain(),
-                accessRule, null, Lang.bind(this,
-                    function(service, res) {
-                        try {
-                            service.delete_entry_finish(res);
+            this._service.delete_entry_async(
+                GData.DocumentsService.get_primary_authorization_domain(),
+                accessRule, null, (service, res) => {
+                    try {
+                        service.delete_entry_finish(res);
 
-                            // Workaround if the doc is shared with link: step 2 add the new public permisssion.
-                            this._insertNewPermission(newScopeType, newRole);
-                        } catch(e) {
-                            logError(e, 'Error deleting ACL scope for document');
-                            this._showErrorDialog(_("The document was not updated"));
-                        }
-                    }));
+                        // Workaround if the doc is shared with link: step 2 add the new public permisssion.
+                        this._insertNewPermission(newScopeType, newRole);
+                    } catch(e) {
+                        logError(e, 'Error deleting ACL scope for document');
+                        this._showErrorDialog(_("The document was not updated"));
+                    }
+                });
         }
     }
 
@@ -617,10 +609,9 @@ var SharingDialog = GObject.registerClass(class SharingDialog extends Gtk.Dialog
                                                    message_type: Gtk.MessageType.WARNING,
                                                    text: errorStr });
 
-        errorDialog.connect ('response', Lang.bind(this,
-            function() {
-                errorDialog.destroy();
-            }));
+        errorDialog.connect ('response', () => {
+            errorDialog.destroy();
+        });
         errorDialog.show();
     }
 });

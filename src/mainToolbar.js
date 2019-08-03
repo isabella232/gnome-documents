@@ -28,8 +28,6 @@ const Gtk = imports.gi.Gtk;
 const Gettext = imports.gettext;
 const _ = imports.gettext.gettext;
 
-const Lang = imports.lang;
-
 const Application = imports.application;
 const Searchbar = imports.searchbar;
 
@@ -50,22 +48,18 @@ var MainToolbar = GObject.registerClass(class MainToolbar extends Gtk.Box {
         if (this.searchbar)
             this.add(this.searchbar);
 
-        let loadStartedId = Application.documentManager.connect('load-started', Lang.bind(this,
-            function() {
-                this._handleEvent = true;
-            }));
+        let loadStartedId = Application.documentManager.connect('load-started', () => {
+            this._handleEvent = true;
+        });
 
-        let loadErrorId = Application.documentManager.connect('load-error',
-            Lang.bind(this, this._onLoadErrorOrPassword));
-        let passwordNeededId = Application.documentManager.connect('password-needed',
-            Lang.bind(this, this._onLoadErrorOrPassword));
+        let loadErrorId = Application.documentManager.connect('load-error', this._onLoadErrorOrPassword.bind(this));
+        let passwordNeededId = Application.documentManager.connect('password-needed', this._onLoadErrorOrPassword.bind(this));
 
-        this.connect('destroy', Lang.bind(this,
-            function() {
-                Application.documentManager.disconnect(loadStartedId);
-                Application.documentManager.disconnect(loadErrorId);
-                Application.documentManager.disconnect(passwordNeededId);
-            }));
+        this.connect('destroy', () => {
+            Application.documentManager.disconnect(loadStartedId);
+            Application.documentManager.disconnect(loadErrorId);
+            Application.documentManager.disconnect(passwordNeededId);
+        });
     }
 
     createSearchbar() {

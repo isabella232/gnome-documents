@@ -29,7 +29,6 @@ const _ = imports.gettext.gettext;
 const Application = imports.application;
 const WindowMode = imports.windowMode;
 
-const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 
 var DELETE_TIMEOUT = 10; // seconds
@@ -60,16 +59,14 @@ var DeleteNotification = class DeleteNotification {
         let undo = new Gtk.Button({ label: _("Undo"),
                                     valign: Gtk.Align.CENTER });
         this.widget.add(undo);
-        undo.connect('clicked', Lang.bind(this,
-            function() {
-                this._docs.forEach(Lang.bind(this,
-                    function(doc) {
-                        Application.documentManager.addItem(doc);
-                    }));
+        undo.connect('clicked', () => {
+            this._docs.forEach((doc) => {
+                Application.documentManager.addItem(doc);
+            });
 
-                this._removeTimeout();
-                this.widget.destroy();
-            }));
+            this._removeTimeout();
+            this.widget.destroy();
+        });
 
         let close = new Gtk.Button({ image: new Gtk.Image({ icon_name: 'window-close-symbolic',
                                                             pixel_size: 16,
@@ -79,22 +76,20 @@ var DeleteNotification = class DeleteNotification {
                                      focus_on_click: false,
                                      relief: Gtk.ReliefStyle.NONE });
         this.widget.add(close);
-        close.connect('clicked', Lang.bind(this, this._deleteItems));
+        close.connect('clicked', this._deleteItems.bind(this));
 
         Application.notificationManager.addNotification(this);
-        this._timeoutId = Mainloop.timeout_add_seconds(DELETE_TIMEOUT, Lang.bind(this,
-            function() {
-                this._timeoutId = 0;
-                this._deleteItems();
-                return false;
-            }));
+        this._timeoutId = Mainloop.timeout_add_seconds(DELETE_TIMEOUT, () => {
+            this._timeoutId = 0;
+            this._deleteItems();
+            return false;
+        });
     }
 
     _deleteItems() {
-        this._docs.forEach(Lang.bind(this,
-            function(doc) {
-                doc.trash();
-            }))
+        this._docs.forEach((doc) => {
+            doc.trash();
+        });
 
         this._removeTimeout();
         this.widget.destroy();
@@ -114,10 +109,8 @@ var PrintNotification = class PrintNotification {
         this._printOp = printOp;
         this._doc = doc;
 
-        this._printOp.connect('begin-print',
-                              Lang.bind(this, this._onPrintBegin));
-        this._printOp.connect('status-changed',
-                              Lang.bind(this, this._onPrintStatus));
+        this._printOp.connect('begin-print', this._onPrintBegin.bind(this));
+        this._printOp.connect('status-changed', this._onPrintStatus.bind(this));
     }
 
     _onPrintBegin() {
@@ -138,11 +131,10 @@ var PrintNotification = class PrintNotification {
                                             });
         this.widget.attach_next_to(this._stopButton, this._statusLabel,
                                    Gtk.PositionType.RIGHT, 1, 2);
-        this._stopButton.connect('clicked', Lang.bind(this,
-            function() {
-                this._printOp.cancel();
-                this.widget.destroy();
-            }));
+        this._stopButton.connect('clicked', () => {
+            this._printOp.cancel();
+            this.widget.destroy();
+        });
 
         Application.notificationManager.addNotification(this);
     }
@@ -173,15 +165,15 @@ const IndexingNotification = class IndexingNotification {
 
         try {
             this._manager = TrackerControl.MinerManager.new_full(false);
-            this._manager.connect('miner-progress', Lang.bind(this, this._checkNotification));
+            this._manager.connect('miner-progress', this._checkNotification.bind(this));
         } catch(e) {
             logError(e, 'Unable to create a TrackerMinerManager, indexing progress ' +
                      'notification won\'t work');
             return;
         }
 
-        Application.application.connect('miners-changed', Lang.bind(this, this._checkNotification));
-        Application.modeController.connect('window-mode-changed', Lang.bind(this, this._checkNotification));
+        Application.application.connect('miners-changed', this._checkNotification.bind(this));
+        Application.modeController.connect('window-mode-changed', this._checkNotification.bind(this));
     }
 
     _checkNotification() {
@@ -211,7 +203,7 @@ const IndexingNotification = class IndexingNotification {
                           _("Some documents might not be available during this process"));
         } else if (isIndexingRemote) {
             this._removeTimeout();
-            this._timeoutId = Mainloop.timeout_add_seconds(REMOTE_MINER_TIMEOUT, Lang.bind(this, this._onTimeoutExpired));
+            this._timeoutId = Mainloop.timeout_add_seconds(REMOTE_MINER_TIMEOUT, this._onTimeoutExpired.bind(this));
         } else {
             this._destroy(false);
         }
@@ -274,10 +266,9 @@ const IndexingNotification = class IndexingNotification {
                                      valign: Gtk.Align.CENTER,
                                      focus_on_click: false,
                                      relief: Gtk.ReliefStyle.NONE });
-        close.connect('clicked', Lang.bind(this,
-            function() {
-                this._destroy(true);
-            }));
+        close.connect('clicked', () => {
+            this._destroy(true);
+        });
         this.widget.add(close);
 
         Application.notificationManager.addNotification(this);
@@ -339,7 +330,7 @@ var NotificationManager = GObject.registerClass(class NotificationManager extend
 
     addNotification(notification) {
         this._grid.add(notification.widget);
-        notification.widget.connect('destroy', Lang.bind(this, this._onWidgetDestroy));
+        notification.widget.connect('destroy', this._onWidgetDestroy.bind(this));
 
         this.show_all();
         this.reveal_child = true;

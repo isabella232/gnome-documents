@@ -19,7 +19,6 @@
  *
  */
 
-const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 const _ = imports.gettext.gettext;
 
@@ -154,15 +153,14 @@ var Application = GObject.registerClass({
     }
 
     _nightModeCreateHook(action) {
-        settings.connect('changed::night-mode', Lang.bind(this,
-            function() {
-                let state = settings.get_value('night-mode');
-                if (state.get_boolean() != action.state.get_boolean())
-                    action.change_state(state);
+        settings.connect('changed::night-mode', () => {
+            let state = settings.get_value('night-mode');
+            if (state.get_boolean() != action.state.get_boolean())
+                action.change_state(state);
 
-                let gtkSettings = Gtk.Settings.get_default();
-                gtkSettings.gtk_application_prefer_dark_theme = state.get_boolean();
-            }));
+            let gtkSettings = Gtk.Settings.get_default();
+            gtkSettings.gtk_application_prefer_dark_theme = state.get_boolean();
+        });
 
         let state = settings.get_value('night-mode');
         let gtkSettings = Gtk.Settings.get_default();
@@ -195,26 +193,23 @@ var Application = GObject.registerClass({
     _createMiners(callback) {
         let count = 3;
 
-        this.gdataMiner = new Miners.GDataMiner(Lang.bind(this,
-            function() {
-                count--;
-                if (count == 0)
-                    callback();
-            }));
+        this.gdataMiner = new Miners.GDataMiner(() => {
+            count--;
+            if (count == 0)
+                callback();
+        });
 
-        this.owncloudMiner = new Miners.OwncloudMiner(Lang.bind(this,
-            function() {
-                count--;
-                if (count == 0)
-                    callback();
-            }));
+        this.owncloudMiner = new Miners.OwncloudMiner(() => {
+            count--;
+            if (count == 0)
+                callback();
+        });
 
-        this.zpjMiner = new Miners.ZpjMiner(Lang.bind(this,
-            function() {
-                count--;
-                if (count == 0)
-                    callback();
-            }));
+        this.zpjMiner = new Miners.ZpjMiner(() => {
+            count--;
+            if (count == 0)
+                callback();
+        });
     }
 
     _refreshMinerNow(miner) {
@@ -229,26 +224,25 @@ var Application = GObject.registerClass({
         this.emit('miners-changed');
 
         miner._cancellable = new Gio.Cancellable();
-        miner.RefreshDBRemote(['documents'], miner._cancellable, Lang.bind(this,
-            function(res, error) {
-                this.minersRunning = this.minersRunning.filter(
-                    function(element) {
-                        return element != miner;
-                    });
-                this.emit('miners-changed');
+        miner.RefreshDBRemote(['documents'], miner._cancellable, (res, error) => {
+            this.minersRunning = this.minersRunning.filter(
+                function(element) {
+                    return element != miner;
+                });
+            this.emit('miners-changed');
 
-                if (error) {
-                    if (!error.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                        logError(error, 'Error updating the cache');
+            if (error) {
+                if (!error.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                    logError(error, 'Error updating the cache');
 
-                    return;
-                }
+                return;
+            }
 
-                Mainloop.timeout_add_seconds(MINER_REFRESH_TIMEOUT,
-                                             Lang.bind(this, function() {
-                                                 this._refreshMinerNow(miner);
-                                             }));
-            }));
+            Mainloop.timeout_add_seconds(MINER_REFRESH_TIMEOUT, () => {
+                this._refreshMinerNow(miner);
+                return false;
+            });
+        });
 
         return false;
     }
@@ -283,15 +277,12 @@ var Application = GObject.registerClass({
     }
 
     _startMiners() {
-        this._createMiners(Lang.bind(this,
-            function() {
-                this._refreshMiners();
+        this._createMiners(() => {
+            this._refreshMiners();
 
-                this._sourceAddedId = sourceManager.connect('item-added',
-                                                            Lang.bind(this, this._refreshMiners));
-                this._sourceRemovedId = sourceManager.connect('item-removed',
-                                                              Lang.bind(this, this._refreshMiners));
-            }));
+            this._sourceAddedId = sourceManager.connect('item-added', this._refreshMiners.bind(this));
+            this._sourceRemovedId = sourceManager.connect('item-removed', this._refreshMiners.bind(this));
+        });
     }
 
     _stopMiners() {
@@ -305,10 +296,9 @@ var Application = GObject.registerClass({
             this._sourceRemovedId = 0;
         }
 
-        this.minersRunning.forEach(Lang.bind(this,
-            function(miner) {
-                miner._cancellable.cancel();
-            }));
+        this.minersRunning.forEach(() => {
+            miner._cancellable.cancel();
+        });
         this.minersRunning = [];
 
         this.gdataMiner = null;
@@ -344,7 +334,7 @@ var Application = GObject.registerClass({
         settings = new Gio.Settings({ schema_id: 'org.gnome.documents' });
 
         let gtkSettings = Gtk.Settings.get_default();
-        gtkSettings.connect('notify::gtk-theme-name', Lang.bind(this, this._themeChanged));
+        gtkSettings.connect('notify::gtk-theme-name', this._themeChanged.bind(this));
         this._themeChanged(gtkSettings);
 
         // connect to tracker
@@ -380,16 +370,16 @@ var Application = GObject.registerClass({
 
         let actionEntries = [
             { name: 'quit',
-              callback: Lang.bind(this, this._onActionQuit),
+              callback: this._onActionQuit.bind(this),
               accels: ['<Primary>q'] },
             { name: 'about',
-              callback: Lang.bind(this, this._onActionAbout) },
+              callback: this._onActionAbout.bind(this) },
             { name: 'help',
-              callback: Lang.bind(this, this._onActionHelp),
+              callback: this._onActionHelp.bind(this),
               accels: ['F1'] },
             { name: 'night-mode',
-              callback: Lang.bind(this, this._onActionNightMode),
-              create_hook: Lang.bind(this, this._nightModeCreateHook),
+              callback: this._onActionNightMode.bind(this),
+              create_hook: this._nightModeCreateHook.bind(this),
               state: settings.get_value('night-mode') },
         ];
 
@@ -404,7 +394,7 @@ var Application = GObject.registerClass({
 
         notificationManager = new Notifications.NotificationManager();
         this._mainWindow = new MainWindow.MainWindow(this);
-        this._mainWindow.connect('destroy', Lang.bind(this, this._onWindowDestroy));
+        this._mainWindow.connect('destroy', this._onWindowDestroy.bind(this));
 
         try {
             this._extractPriority = TrackerExtractPriority();
@@ -424,8 +414,8 @@ var Application = GObject.registerClass({
             throw(new Error('ShellSearchProvider already instantiated - dbus_register called twice?'));
 
         this._searchProvider = new ShellSearchProvider.ShellSearchProvider();
-        this._searchProvider.connect('activate-result', Lang.bind(this, this._onActivateResult));
-        this._searchProvider.connect('launch-search', Lang.bind(this, this._onLaunchSearch));
+        this._searchProvider.connect('activate-result', this._onActivateResult.bind(this));
+        this._searchProvider.connect('launch-search', this._onLaunchSearch.bind(this));
 
         try {
             this._searchProvider.export(connection);
@@ -497,7 +487,7 @@ var Application = GObject.registerClass({
 
         // clear our state in an idle, so other handlers connected
         // to 'destroy' have the chance to perform their cleanups first
-        Mainloop.idle_add(Lang.bind(this, this._clearState));
+        Mainloop.idle_add(this._clearState.bind(this));
     }
 
     _onActivateResult(provider, urn, terms, timestamp) {
@@ -508,13 +498,12 @@ var Application = GObject.registerClass({
             doActivate.apply(this, [doc]);
         } else {
             let job = new TrackerUtils.SingleItemJob(urn, queryBuilder);
-            job.run(Query.QueryFlags.UNFILTERED, Lang.bind(this,
-                function(cursor) {
-                    if (cursor)
-                        doc = documentManager.addDocumentFromCursor(cursor);
+            job.run(Query.QueryFlags.UNFILTERED, (cursor) => {
+                if (cursor)
+                    doc = documentManager.addDocumentFromCursor(cursor);
 
-                    doActivate.apply(this, [doc]);
-                }));
+                doActivate.apply(this, [doc]);
+            });
         }
 
         function doActivate(doc) {
@@ -524,13 +513,12 @@ var Application = GObject.registerClass({
             this.activate();
 
             // forward the search terms next time we enter the overview
-            let modeChangeId = modeController.connect('window-mode-changed', Lang.bind(this,
-                function(object, newMode) {
-                    if (newMode == WindowMode.WindowMode.DOCUMENTS) {
-                        modeController.disconnect(modeChangeId);
-                        searchController.setString(terms.join(' '));
-                    }
-                }));
+            let modeChangeId = modeController.connect('window-mode-changed', (object, newMode) => {
+                if (newMode == WindowMode.WindowMode.DOCUMENTS) {
+                    modeController.disconnect(modeChangeId);
+                    searchController.setString(terms.join(' '));
+                }
+            });
         }
     }
 

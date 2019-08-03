@@ -34,7 +34,6 @@ const Gtk = imports.gi.Gtk;
 const Zpj = imports.gi.Zpj;
 const _ = imports.gettext.gettext;
 
-const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 const Signals = imports.signals;
 
@@ -58,17 +57,16 @@ const DeleteItemJob = class DeleteItemJob {
         this._callback = callback;
 
         let query = Application.queryBuilder.buildDeleteResourceQuery(this._urn);
-        Application.connectionQueue.update(query.sparql, null, Lang.bind(this,
-            function(object, res) {
-                try {
-                    object.update_finish(res);
-                } catch (e) {
-                    logError(e, 'Failed to delete resource ' + this._urn);
-                }
+        Application.connectionQueue.update(query.sparql, null, (object, res) => {
+            try {
+                object.update_finish(res);
+            } catch (e) {
+                logError(e, 'Failed to delete resource ' + this._urn);
+            }
 
-                if (this._callback)
-                    this._callback();
-            }));
+            if (this._callback)
+                this._callback();
+        });
     }
 }
 
@@ -90,18 +88,17 @@ const CollectionIconWatcher = class CollectionIconWatcher {
         this._clear();
 
         let query = Application.queryBuilder.buildCollectionIconQuery(this._collection.id);
-        Application.connectionQueue.add(query.sparql, null, Lang.bind(this,
-            function(object, res) {
-                let cursor = null;
-                try {
-                    cursor = object.query_finish(res);
-                } catch (e) {
-                    logError(e, 'Unable to query collection items');
-                    return;
-                }
+        Application.connectionQueue.add(query.sparql, null, (object, res) => {
+            let cursor = null;
+            try {
+                cursor = object.query_finish(res);
+            } catch (e) {
+                logError(e, 'Unable to query collection items');
+                return;
+            }
 
-                cursor.next_async(null, Lang.bind(this, this._onCursorNext));
-            }));
+            cursor.next_async(null, this._onCursorNext.bind(this));
+        });
     }
 
     _onCursorNext(cursor, res) {
@@ -125,7 +122,7 @@ const CollectionIconWatcher = class CollectionIconWatcher {
         let urn = cursor.get_string(0)[0];
         this._urns.push(urn);
 
-        cursor.next_async(null, Lang.bind(this, this._onCursorNext));
+        cursor.next_async(null, this._onCursorNext.bind(this));
     }
 
     _onCollectionIconFinished() {
@@ -135,14 +132,13 @@ const CollectionIconWatcher = class CollectionIconWatcher {
         // now this._urns has all the URNs of items contained in the collection
         let toQuery = [];
 
-        this._urns.forEach(Lang.bind(this,
-            function(urn) {
-                let doc = Application.documentManager.getItemById(urn);
-                if (doc)
-                    this._docs.push(doc);
-                else
-                    toQuery.push(urn);
-            }));
+        this._urns.forEach((urn) => {
+            let doc = Application.documentManager.getItemById(urn);
+            if (doc)
+                this._docs.push(doc);
+            else
+                toQuery.push(urn);
+        });
 
         this._toQueryRemaining = toQuery.length;
         if (!this._toQueryRemaining) {
@@ -150,19 +146,17 @@ const CollectionIconWatcher = class CollectionIconWatcher {
             return;
         }
 
-        toQuery.forEach(Lang.bind(this,
-            function(urn) {
-                let job = new TrackerUtils.SingleItemJob(urn, Application.queryBuilder);
-                job.run(Query.QueryFlags.UNFILTERED, Lang.bind(this,
-                    function(cursor) {
-                        if (cursor) {
-                            let doc = Application.documentManager.createDocumentFromCursor(cursor);
-                            this._docs.push(doc);
-                        }
+        toQuery.forEach((urn) => {
+            let job = new TrackerUtils.SingleItemJob(urn, Application.queryBuilder);
+            job.run(Query.QueryFlags.UNFILTERED, (cursor) => {
+                if (cursor) {
+                    let doc = Application.documentManager.createDocumentFromCursor(cursor);
+                    this._docs.push(doc);
+                }
 
-                        this._toQueryCollector();
-                    }));
-            }));
+                this._toQueryCollector();
+            });
+        });
     }
 
     _toQueryCollector() {
@@ -173,12 +167,10 @@ const CollectionIconWatcher = class CollectionIconWatcher {
     }
 
     _allDocsReady() {
-        this._docs.forEach(Lang.bind(this,
-            function(doc) {
-                let updateId = doc.connect('info-updated',
-                                           Lang.bind(this, this._createCollectionIcon));
-                this._docConnections[updateId] = doc;
-            }));
+        this._docs.forEach((doc) => {
+            let updateId = doc.connect('info-updated', this._createCollectionIcon.bind(this));
+            this._docConnections[updateId] = doc;
+        });
 
         this._createCollectionIcon();
     }
@@ -188,16 +180,15 @@ const CollectionIconWatcher = class CollectionIconWatcher {
         // collection icon
         let pixbufs = [];
 
-        this._docs.forEach(
-            function(doc) {
-                if (doc.origPixbuf) {
-                    if (doc._thumbPath && !doc._failedThumbnailing)
-                        doc.origPixbuf.set_option('-documents-has-thumb', 'true');
-                    else
-                        doc.origPixbuf.remove_option('-documents-has-thumb');
-                    pixbufs.push(doc.origPixbuf);
-                }
-            });
+        this._docs.forEach((doc) => {
+            if (doc.origPixbuf) {
+                if (doc._thumbPath && !doc._failedThumbnailing)
+                    doc.origPixbuf.set_option('-documents-has-thumb', 'true');
+                else
+                    doc.origPixbuf.remove_option('-documents-has-thumb');
+                pixbufs.push(doc.origPixbuf);
+            }
+        });
 
         this._pixbuf = GdPrivate.create_collection_icon(
             Utils.getIconSize() * Application.application.getScaleFactor(),
@@ -255,19 +246,17 @@ const DocCommon = class DocCommon {
         this.populateFromCursor(cursor);
 
         this._refreshIconId =
-            Application.settings.connect('changed::view-as',
-                                         Lang.bind(this, this.refreshIcon));
+            Application.settings.connect('changed::view-as', this.refreshIcon.bind(this));
     }
 
     refresh() {
         let job = new TrackerUtils.SingleItemJob(this.id, Application.queryBuilder);
-        job.run(Query.QueryFlags.NONE, Lang.bind(this,
-            function(cursor) {
-                if (!cursor)
-                    return;
+        job.run(Query.QueryFlags.NONE, (cursor) => {
+            if (!cursor)
+                return;
 
-                this.populateFromCursor(cursor);
-            }));
+            this.populateFromCursor(cursor);
+        });
     }
 
     _sanitizeTitle() {
@@ -349,10 +338,9 @@ const DocCommon = class DocCommon {
         if (!this._collectionIconWatcher) {
             this._collectionIconWatcher = new CollectionIconWatcher(this);
 
-            this._collectionIconWatcher.connect('icon-updated', Lang.bind(this,
-                function(watcher, pixbuf) {
-                    this._setOrigPixbuf(pixbuf);
-                }));
+            this._collectionIconWatcher.connect('icon-updated', (watcher, pixbuf) => {
+                this._setOrigPixbuf(pixbuf);
+            });
         } else {
             this._collectionIconWatcher.refresh();
         }
@@ -371,12 +359,12 @@ const DocCommon = class DocCommon {
             return;
         }
 
-        localFile.query_info_async(Gio.FILE_ATTRIBUTE_TIME_MODIFIED,
-                                   Gio.FileQueryInfoFlags.NONE,
-                                   GLib.PRIORITY_DEFAULT,
-                                   cancellable,
-                                   Lang.bind(this,
-            function(object, res) {
+        localFile.query_info_async(
+            Gio.FILE_ATTRIBUTE_TIME_MODIFIED,
+            Gio.FileQueryInfoFlags.NONE,
+            GLib.PRIORITY_DEFAULT,
+            cancellable,
+            (object, res) => {
                 let info;
 
                 try {
@@ -397,7 +385,7 @@ const DocCommon = class DocCommon {
                 Utils.debug('Downloading ' + this.constructor.name + ' ' + this.id + ' to ' + this.uriToLoad +
                             ': cache stale (' + this.mtime + ' > ' + cacheMtime + ')');
                 this.downloadImpl(localFile, cancellable, callback);
-            }));
+            });
     }
 
     downloadImpl(localFile, cancellable, callback) {
@@ -408,49 +396,45 @@ const DocCommon = class DocCommon {
         Utils.debug('Loading ' + this.constructor.name + ' ' + this.id);
 
         if (this.collection) {
-            Mainloop.idle_add(Lang.bind(this,
-                function() {
-                    let error = new GLib.Error(Gio.IOErrorEnum,
-                                               Gio.IOErrorEnum.NOT_SUPPORTED,
-                                               "Collections can't be loaded");
-                    callback(this, null, error);
-                    return GLib.SOURCE_REMOVE;
-                }));
+            Mainloop.idle_add(() => {
+                let error = new GLib.Error(Gio.IOErrorEnum,
+                                           Gio.IOErrorEnum.NOT_SUPPORTED,
+                                           "Collections can't be loaded");
+                callback(this, null, error);
+                return GLib.SOURCE_REMOVE;
+            });
 
             return;
         }
 
-        this.download(true, cancellable, Lang.bind(this,
-            function(fromCache, error) {
+        this.download(true, cancellable, (fromCache, error) => {
+            if (error) {
+                callback(this, null, error);
+                return;
+            }
+
+            this.loadLocal(passwd, cancellable, (doc, docModel, error) => {
                 if (error) {
-                    callback(this, null, error);
+                    if (fromCache &&
+                        !error.matches(EvDocument.DocumentError, EvDocument.DocumentError.ENCRYPTED)) {
+                        this.download(false, cancellable, (fromCache, error) => {
+                            if (error) {
+                                callback(this, null, error);
+                                return;
+                            }
+
+                            this.loadLocal(passwd, cancellable, callback);
+                        });
+                    } else {
+                        callback(this, null, error);
+                    }
+
                     return;
                 }
 
-                this.loadLocal(passwd, cancellable, Lang.bind(this,
-                    function(doc, docModel, error) {
-                        if (error) {
-                            if (fromCache &&
-                                !error.matches(EvDocument.DocumentError, EvDocument.DocumentError.ENCRYPTED)) {
-                                this.download(false, cancellable, Lang.bind(this,
-                                    function(fromCache, error) {
-                                        if (error) {
-                                            callback(this, null, error);
-                                            return;
-                                        }
-
-                                        this.loadLocal(passwd, cancellable, callback);
-                                    }));
-                            } else {
-                                callback(this, null, error);
-                            }
-
-                            return;
-                        }
-
-                        callback(this, docModel, null);
-                    }));
-            }));
+                callback(this, docModel, null);
+            });
+        });
     }
 
     canEdit() {
@@ -518,7 +502,7 @@ const DocCommon = class DocCommon {
                                     Gio.FileQueryInfoFlags.NONE,
                                     GLib.PRIORITY_DEFAULT,
                                     null,
-                                    Lang.bind(this, this._onFileQueryInfo));
+                                    this._onFileQueryInfo.bind(this));
     }
 
     _onFileQueryInfo(object, res) {
@@ -537,7 +521,7 @@ const DocCommon = class DocCommon {
         if (this._thumbPath) {
             this._refreshThumbPath();
         } else {
-            this.createThumbnail(Lang.bind(this, this._onCreateThumbnail));
+            this.createThumbnail(this._onCreateThumbnail.bind(this));
         }
     }
 
@@ -552,7 +536,7 @@ const DocCommon = class DocCommon {
                                     Gio.FileQueryInfoFlags.NONE,
                                     GLib.PRIORITY_DEFAULT,
                                     null,
-                                    Lang.bind(this, this._onThumbnailPathInfo));
+                                    this._onThumbnailPathInfo.bind(this));
     }
 
     _onThumbnailPathInfo(object, res) {
@@ -576,45 +560,44 @@ const DocCommon = class DocCommon {
     _refreshThumbPath() {
         let thumbFile = Gio.file_new_for_path(this._thumbPath);
 
-        thumbFile.read_async(GLib.PRIORITY_DEFAULT, null, Lang.bind(this,
-            function(object, res) {
-                let stream;
+        thumbFile.read_async(GLib.PRIORITY_DEFAULT, null, (object, res) => {
+            let stream;
 
-                try {
-                    stream = object.read_finish(res);
-                } catch (e) {
-                    logError(e, 'Unable to read file at ' + thumbFile.get_uri());
-                    this._failedThumbnailing = true;
-                    this._thumbPath = null;
-                    thumbFile.delete_async(GLib.PRIORITY_DEFAULT, null, null);
-                    return;
-                }
+            try {
+                stream = object.read_finish(res);
+            } catch (e) {
+                logError(e, 'Unable to read file at ' + thumbFile.get_uri());
+                this._failedThumbnailing = true;
+                this._thumbPath = null;
+                thumbFile.delete_async(GLib.PRIORITY_DEFAULT, null, null);
+                return;
+            }
 
-                let scale = Application.application.getScaleFactor();
-                GdkPixbuf.Pixbuf.new_from_stream_at_scale_async(stream,
-                    Utils.getIconSize() * scale, Utils.getIconSize() * scale,
-                    true, null, Lang.bind(this,
-                        function(object, res) {
-                            // close the underlying stream immediately
-                            stream.close_async(0, null, null);
+            let scale = Application.application.getScaleFactor();
+            GdkPixbuf.Pixbuf.new_from_stream_at_scale_async(
+                stream,
+                Utils.getIconSize() * scale, Utils.getIconSize() * scale,
+                true, null, (object, res) => {
+                    // close the underlying stream immediately
+                    stream.close_async(0, null, null);
 
-                            let pixbuf;
+                    let pixbuf;
 
-                            try {
-                                pixbuf = GdkPixbuf.Pixbuf.new_from_stream_finish(res);
-                            } catch (e) {
-                                if (!e.matches(GdkPixbuf.PixbufError, GdkPixbuf.PixbufError.UNKNOWN_TYPE))
-                                    logError(e, 'Unable to create pixbuf from ' + thumbFile.get_uri());
+                    try {
+                        pixbuf = GdkPixbuf.Pixbuf.new_from_stream_finish(res);
+                    } catch (e) {
+                        if (!e.matches(GdkPixbuf.PixbufError, GdkPixbuf.PixbufError.UNKNOWN_TYPE))
+                            logError(e, 'Unable to create pixbuf from ' + thumbFile.get_uri());
 
-                                this._failedThumbnailing = true;
-                                this._thumbPath = null;
-                                thumbFile.delete_async(GLib.PRIORITY_DEFAULT, null, null);
-                                return;
-                            }
+                        this._failedThumbnailing = true;
+                        this._thumbPath = null;
+                        thumbFile.delete_async(GLib.PRIORITY_DEFAULT, null, null);
+                        return;
+                    }
 
-                            this._setOrigPixbuf(pixbuf);
-                        }));
-            }));
+                    this._setOrigPixbuf(pixbuf);
+                });
+        });
     }
 
     _updateInfoFromType() {
@@ -716,15 +699,14 @@ const DocCommon = class DocCommon {
             return;
         }
 
-        GdPrivate.pdf_loader_load_uri_async(this.uriToLoad, passwd, cancellable, Lang.bind(this,
-            function(source, res) {
-                try {
-                    let docModel = GdPrivate.pdf_loader_load_uri_finish(res);
-                    callback(this, docModel, null);
-                } catch (e) {
-                    callback(this, null, e);
-                }
-            }));
+        GdPrivate.pdf_loader_load_uri_async(this.uriToLoad, passwd, cancellable, (source, res) => {
+            try {
+                let docModel = GdPrivate.pdf_loader_load_uri_finish(res);
+                callback(this, docModel, null);
+            } catch (e) {
+                callback(this, null, e);
+            }
+        });
     }
 
     open(parent, timestamp) {
@@ -744,49 +726,45 @@ const DocCommon = class DocCommon {
     }
 
     print(toplevel) {
-        this.load(null, null, Lang.bind(this,
-            function(doc, docModel, error) {
-                if (error) {
-                    logError(error, 'Unable to print document ' + this.uri);
-                    return;
+        this.load(null, null, (doc, docModel, error) => {
+            if (error) {
+                logError(error, 'Unable to print document ' + this.uri);
+                return;
+            }
+
+            if (!this.canPrint(docModel))
+                return;
+
+            let printOp = EvView.PrintOperation.new(docModel.get_document());
+
+            printOp.connect('begin-print', () => {
+                this.emit('begin-print');
+            });
+
+            printOp.connect('done', (op, res) => {
+                if (res == Gtk.PrintOperationResult.ERROR) {
+                    try {
+                        printOp.get_error();
+                    } catch (e) {
+                        let errorDialog = new Gtk.MessageDialog ({ transient_for: toplevel,
+                                                                   modal: true,
+                                                                   destroy_with_parent: true,
+                                                                   buttons: Gtk.ButtonsType.OK,
+                                                                   message_type: Gtk.MessageType.ERROR,
+                                                                   text: _("Failed to print document"),
+                                                                   secondary_text: e.message });
+                        errorDialog.connect ('response', () => {
+                            errorDialog.destroy();
+                        });
+                        errorDialog.show();
+                    }
                 }
+            });
 
-                if (!this.canPrint(docModel))
-                    return;
+            let printNotification = new Notifications.PrintNotification(printOp, doc);
 
-                let printOp = EvView.PrintOperation.new(docModel.get_document());
-
-                printOp.connect('begin-print', Lang.bind(this,
-                    function() {
-                        this.emit('begin-print');
-                    }));
-
-                printOp.connect('done', Lang.bind(this,
-                    function(op, res) {
-                        if (res == Gtk.PrintOperationResult.ERROR) {
-                            try {
-                                printOp.get_error();
-                            } catch (e) {
-                                let errorDialog = new Gtk.MessageDialog ({ transient_for: toplevel,
-                                                                           modal: true,
-                                                                           destroy_with_parent: true,
-                                                                           buttons: Gtk.ButtonsType.OK,
-                                                                           message_type: Gtk.MessageType.ERROR,
-                                                                           text: _("Failed to print document"),
-                                                                           secondary_text: e.message });
-                                errorDialog.connect ('response', Lang.bind(this,
-                                    function() {
-                                        errorDialog.destroy();
-                                    }));
-                                errorDialog.show();
-                            }
-                        }
-                    }));
-
-                let printNotification = new Notifications.PrintNotification(printOp, doc);
-
-                printOp.run(toplevel);
-            }));
+            printOp.run(toplevel);
+        });
     }
 
     getSourceLink() {
@@ -859,20 +837,19 @@ var LocalDocument = class LocalDocument extends DocCommon {
     }
 
     createThumbnail(callback) {
-        GdPrivate.queue_thumbnail_job_for_file_async(this._file, Lang.bind(this,
-            function(object, res) {
-                let thumbnailed = false;
+        GdPrivate.queue_thumbnail_job_for_file_async(this._file, (object, res) => {
+            let thumbnailed = false;
 
-                try {
-                    thumbnailed = GdPrivate.queue_thumbnail_job_for_file_finish(res);
-                } catch (e) {
-                    /* We don't care about reporting errors here, just fail the
-                     * thumbnail.
-                     */
-                }
+            try {
+                thumbnailed = GdPrivate.queue_thumbnail_job_for_file_finish(res);
+            } catch (e) {
+                /* We don't care about reporting errors here, just fail the
+                 * thumbnail.
+                 */
+            }
 
-                callback(thumbnailed);
-            }));
+            callback(thumbnailed);
+        });
     }
 
     updateTypeDescription() {
@@ -894,14 +871,13 @@ var LocalDocument = class LocalDocument extends DocCommon {
         Utils.debug('Loading ' + this.constructor.name + ' ' + this.id);
 
         if (this.collection) {
-            Mainloop.idle_add(Lang.bind(this,
-                function() {
-                    let error = new GLib.Error(Gio.IOErrorEnum,
-                                               Gio.IOErrorEnum.NOT_SUPPORTED,
-                                               "Collections can't be loaded");
-                    callback(this, null, error);
-                    return GLib.SOURCE_REMOVE;
-                }));
+            Mainloop.idle_add(() => {
+                let error = new GLib.Error(Gio.IOErrorEnum,
+                                           Gio.IOErrorEnum.NOT_SUPPORTED,
+                                           "Collections can't be loaded");
+                callback(this, null, error);
+                return GLib.SOURCE_REMOVE;
+            });
 
             return;
         }
@@ -930,14 +906,13 @@ var LocalDocument = class LocalDocument extends DocCommon {
             return;
 
         let file = Gio.file_new_for_uri(this.uri);
-        file.trash_async(GLib.PRIORITY_DEFAULT, null, Lang.bind(this,
-            function(source, res) {
-                try {
-                    file.trash_finish(res);
-                } catch(e) {
-                    logError(e, 'Unable to trash ' + this.uri);
-                }
-            }));
+        file.trash_async(GLib.PRIORITY_DEFAULT, null, (source, res) => {
+            try {
+                file.trash_finish(res);
+            } catch(e) {
+                logError(e, 'Unable to trash ' + this.uri);
+            }
+        });
     }
 
     getSourceLink() {
@@ -976,128 +951,121 @@ const GoogleDocument = class GoogleDocument extends DocCommon {
             (GData.DocumentsService.get_primary_authorization_domain(),
              gdata_id, null,
              GData.DocumentsText,
-             cancellable, Lang.bind(this,
-                 function(object, res) {
-                     let entry = null;
-                     let exception = null;
+             cancellable,
+             (object, res) => {
+                 let entry = null;
+                 let exception = null;
 
-                     try {
-                         entry = object.query_single_entry_finish(res);
-                     } catch (e) {
-                         exception = e;
-                     }
+                 try {
+                     entry = object.query_single_entry_finish(res);
+                 } catch (e) {
+                     exception = e;
+                 }
 
-                     callback(entry, service, exception);
-                 }));
+                 callback(entry, service, exception);
+             });
     }
 
     downloadImpl(localFile, cancellable, callback) {
-        this.createGDataEntry(cancellable, Lang.bind(this,
-            function(entry, service, error) {
-                if (error) {
-                    callback(false, error);
-                    return;
-                }
+        this.createGDataEntry(cancellable, (entry, service, error) => {
+            if (error) {
+                callback(false, error);
+                return;
+            }
 
-                Utils.debug('Created GDataEntry for ' + this.id);
+            Utils.debug('Created GDataEntry for ' + this.id);
 
-                let inputStream;
+            let inputStream;
 
-                try {
-                    inputStream = entry.download(service, 'pdf', cancellable);
-                } catch(e) {
-                    callback(false, e);
-                    return;
-                }
+            try {
+                inputStream = entry.download(service, 'pdf', cancellable);
+            } catch(e) {
+                callback(false, e);
+                return;
+            }
 
-                localFile.replace_async(null,
-                                        false,
-                                        Gio.FileCreateFlags.PRIVATE,
-                                        GLib.PRIORITY_DEFAULT,
-                                        cancellable,
-                                        Lang.bind(this,
-                    function(object, res) {
-                        let outputStream;
+            localFile.replace_async(
+                null, false, Gio.FileCreateFlags.PRIVATE,
+                GLib.PRIORITY_DEFAULT, cancellable,
+                (object, res) => {
+                    let outputStream;
 
-                        try {
-                            outputStream = object.replace_finish(res);
-                        } catch (e) {
-                            callback(false, e);
-                            return;
-                        }
+                    try {
+                        outputStream = object.replace_finish(res);
+                    } catch (e) {
+                        callback(false, e);
+                        return;
+                    }
 
-                        outputStream.splice_async(inputStream,
-                                                  Gio.OutputStreamSpliceFlags.CLOSE_SOURCE |
-                                                  Gio.OutputStreamSpliceFlags.CLOSE_TARGET,
-                                                  GLib.PRIORITY_DEFAULT,
-                                                  cancellable,
-                                                  Lang.bind(this,
-                            function(object, res) {
-                                try {
-                                    object.splice_finish(res);
-                                } catch (e) {
-                                    callback(false, e);
-                                    return;
-                                }
+                    outputStream.splice_async(
+                        inputStream,
+                        Gio.OutputStreamSpliceFlags.CLOSE_SOURCE | Gio.OutputStreamSpliceFlags.CLOSE_TARGET,
+                        GLib.PRIORITY_DEFAULT, cancellable,
+                        (object, res) => {
+                            try {
+                                object.splice_finish(res);
+                            } catch (e) {
+                                callback(false, e);
+                                return;
+                            }
 
-                                callback(false, null);
-                            }));
-                    }));
-            }))
+                            callback(false, null);
+                        });
+                });
+        });
     }
 
     createThumbnail(callback) {
-        this.createGDataEntry(null, Lang.bind(this,
-            function(entry, service, exception) {
-                if (exception) {
-                    callback(false);
-                    return;
-                }
+        this.createGDataEntry(null, (entry, service, exception) => {
+            if (exception) {
+                callback(false);
+                return;
+            }
 
-                let uri = entry.get_thumbnail_uri();
-                if (!uri) {
-                    callback(false);
-                    return;
-                }
+            let uri = entry.get_thumbnail_uri();
+            if (!uri) {
+                callback(false);
+                return;
+            }
 
-                let authorizationDomain = GData.DocumentsService.get_primary_authorization_domain();
-                let inputStream = new GData.DownloadStream({ service: service,
-                                                             authorization_domain: authorizationDomain,
-                                                             download_uri: uri });
+            let authorizationDomain = GData.DocumentsService.get_primary_authorization_domain();
+            let inputStream = new GData.DownloadStream({ service: service,
+                                                         authorization_domain: authorizationDomain,
+                                                         download_uri: uri });
 
-                let path = GnomeDesktop.desktop_thumbnail_path_for_uri (this.uri,
-                                                                        GnomeDesktop.DesktopThumbnailSize.NORMAL);
-                let dirPath = GLib.path_get_dirname(path);
-                GLib.mkdir_with_parents(dirPath, 448);
+            let path = GnomeDesktop.desktop_thumbnail_path_for_uri (this.uri,
+                                                                    GnomeDesktop.DesktopThumbnailSize.NORMAL);
+            let dirPath = GLib.path_get_dirname(path);
+            GLib.mkdir_with_parents(dirPath, 448);
 
-                let downloadFile = Gio.File.new_for_path(path);
-                downloadFile.replace_async
-                    (null, false, Gio.FileCreateFlags.PRIVATE, GLib.PRIORITY_DEFAULT, null, Lang.bind(this,
-                        function(source, res) {
-                            let outputStream;
+            let downloadFile = Gio.File.new_for_path(path);
+            downloadFile.replace_async(
+                null, false, Gio.FileCreateFlags.PRIVATE, GLib.PRIORITY_DEFAULT, null, (source, res) => {
+                    let outputStream;
 
+                    try {
+                        outputStream = downloadFile.replace_finish(res);
+                    } catch (e) {
+                        callback(false);
+                        return;
+                    }
+
+                    outputStream.splice_async(
+                        inputStream,
+                        Gio.OutputStreamSpliceFlags.CLOSE_SOURCE | Gio.OutputStreamSpliceFlags.CLOSE_TARGET,
+                        GLib.PRIORITY_DEFAULT, null,
+                        (source, res) => {
                             try {
-                                outputStream = downloadFile.replace_finish(res);
+                                outputStream.splice_finish(res);
                             } catch (e) {
                                 callback(false);
                                 return;
                             }
 
-                            outputStream.splice_async(inputStream,
-                                Gio.OutputStreamSpliceFlags.CLOSE_SOURCE | Gio.OutputStreamSpliceFlags.CLOSE_TARGET,
-                                GLib.PRIORITY_DEFAULT, null, Lang.bind(this,
-                                    function(source, res) {
-                                        try {
-                                            outputStream.splice_finish(res);
-                                        } catch (e) {
-                                            callback(false);
-                                            return;
-                                        }
-
-                                        callback(true);
-                                    }));
-                        }));
-            }));
+                            callback(true);
+                        });
+                });
+        });
     }
 
     updateTypeDescription() {
@@ -1182,20 +1150,19 @@ const OwncloudDocument = class OwncloudDocument extends DocCommon {
     }
 
     createThumbnail(callback) {
-        GdPrivate.queue_thumbnail_job_for_file_async(this._file, Lang.bind(this,
-            function(object, res) {
-                let thumbnailed = false;
+        GdPrivate.queue_thumbnail_job_for_file_async(this._file, (object, res) => {
+            let thumbnailed = false;
 
-                try {
-                    thumbnailed = GdPrivate.queue_thumbnail_job_for_file_finish(res);
-                } catch (e) {
-                    /* We don't care about reporting errors here, just fail the
-                     * thumbnail.
-                     */
-                }
+            try {
+                thumbnailed = GdPrivate.queue_thumbnail_job_for_file_finish(res);
+            } catch (e) {
+                /* We don't care about reporting errors here, just fail the
+                 * thumbnail.
+                 */
+            }
 
-                callback(thumbnailed);
-            }));
+            callback(thumbnailed);
+        });
     }
 
     updateTypeDescription() {
@@ -1211,51 +1178,49 @@ const OwncloudDocument = class OwncloudDocument extends DocCommon {
 
     downloadImpl(localFile, cancellable, callback) {
         let remoteFile = Gio.File.new_for_uri(this.uri);
-        remoteFile.read_async(GLib.PRIORITY_DEFAULT, cancellable, Lang.bind(this,
-            function(object, res) {
-                let inputStream;
+        remoteFile.read_async(GLib.PRIORITY_DEFAULT, cancellable, (object, res) => {
+            let inputStream;
 
-                try {
-                    inputStream = object.read_finish(res);
-                } catch (e) {
-                    callback(false, e);
-                    return;
-                }
+            try {
+                inputStream = object.read_finish(res);
+            } catch (e) {
+                callback(false, e);
+                return;
+            }
 
-                localFile.replace_async(null,
-                                        false,
-                                        Gio.FileCreateFlags.PRIVATE,
-                                        GLib.PRIORITY_DEFAULT,
-                                        cancellable,
-                                        Lang.bind(this,
-                    function(object, res) {
-                        let outputStream;
+            localFile.replace_async(
+                null,
+                false,
+                Gio.FileCreateFlags.PRIVATE,
+                GLib.PRIORITY_DEFAULT,
+                cancellable,
+                (object, res) => {
+                    let outputStream;
 
-                        try {
-                            outputStream = object.replace_finish(res);
-                        } catch (e) {
-                            callback(false, e);
-                            return;
-                        }
+                    try {
+                        outputStream = object.replace_finish(res);
+                    } catch (e) {
+                        callback(false, e);
+                        return;
+                    }
 
-                        outputStream.splice_async(inputStream,
-                                                  Gio.OutputStreamSpliceFlags.CLOSE_SOURCE |
-                                                  Gio.OutputStreamSpliceFlags.CLOSE_TARGET,
-                                                  GLib.PRIORITY_DEFAULT,
-                                                  cancellable,
-                                                  Lang.bind(this,
-                            function(object, res) {
-                                try {
-                                    object.splice_finish(res);
-                                } catch (e) {
-                                    callback(false, e);
-                                    return;
-                                }
+                    outputStream.splice_async(
+                        inputStream,
+                        Gio.OutputStreamSpliceFlags.CLOSE_SOURCE | Gio.OutputStreamSpliceFlags.CLOSE_TARGET,
+                        GLib.PRIORITY_DEFAULT,
+                        cancellable,
+                        (object, res) => {
+                            try {
+                                object.splice_finish(res);
+                            } catch (e) {
+                                callback(false, e);
+                                return;
+                            }
 
-                                callback(false, null);
-                            }));
-                    }));
-            }));
+                            callback(false, null);
+                        });
+                });
+        });
     }
 
     canEdit() {
@@ -1315,78 +1280,73 @@ const SkydriveDocument = class SkydriveDocument extends DocCommon {
         let zpj_id = this.identifier.substring(SKYDRIVE_PREFIX.length);
 
         service.query_info_from_id_async
-            (zpj_id, cancellable,
-             Lang.bind(this,
-                 function(object, res) {
-                     let entry = null;
-                     let exception = null;
+            (zpj_id, cancellable, (object, res) => {
+                let entry = null;
+                let exception = null;
 
-                     try {
-                         entry = object.query_info_from_id_finish(res);
-                     } catch (e) {
-                         exception = e;
-                     }
+                try {
+                    entry = object.query_info_from_id_finish(res);
+                } catch (e) {
+                    exception = e;
+                }
 
-                     callback(entry, service, exception);
-                 }));
+                callback(entry, service, exception);
+            });
     }
 
     downloadImpl(localFile, cancellable, callback) {
-        this._createZpjEntry(cancellable, Lang.bind(this,
-            function(entry, service, error) {
-                if (error) {
-                    callback(false, error);
+        this._createZpjEntry(cancellable, (entry, service, error) => {
+            if (error) {
+                callback(false, error);
+                return;
+            }
+
+            Utils.debug('Created ZpjEntry for ' + this.id);
+
+            service.download_file_to_stream_async(entry, cancellable, (object, res) => {
+                let inputStream;
+
+                try {
+                    inputStream = object.download_file_to_stream_finish(res);
+                } catch (e) {
+                    callback(false, e);
                     return;
                 }
 
-                Utils.debug('Created ZpjEntry for ' + this.id);
-
-                service.download_file_to_stream_async(entry, cancellable, Lang.bind(this,
-                    function(object, res) {
-                        let inputStream;
+                localFile.replace_async(
+                    null,
+                    false,
+                    Gio.FileCreateFlags.PRIVATE,
+                    GLib.PRIORITY_DEFAULT,
+                    cancellable,
+                    (object, res) => {
+                        let outputStream;
 
                         try {
-                            inputStream = object.download_file_to_stream_finish(res);
+                            outputStream = object.replace_finish(res);
                         } catch (e) {
                             callback(false, e);
                             return;
                         }
 
-                        localFile.replace_async(null,
-                                                false,
-                                                Gio.FileCreateFlags.PRIVATE,
-                                                GLib.PRIORITY_DEFAULT,
-                                                cancellable,
-                                                Lang.bind(this,
-                            function(object, res) {
-                                let outputStream;
-
+                        outputStream.splice_async(
+                            inputStream,
+                            Gio.OutputStreamSpliceFlags.CLOSE_SOURCE | Gio.OutputStreamSpliceFlags.CLOSE_TARGET,
+                            GLib.PRIORITY_DEFAULT,
+                            cancellable,
+                            (object, res) => {
                                 try {
-                                    outputStream = object.replace_finish(res);
+                                    object.splice_finish(res);
                                 } catch (e) {
                                     callback(false, e);
                                     return;
                                 }
 
-                                outputStream.splice_async(inputStream,
-                                                          Gio.OutputStreamSpliceFlags.CLOSE_SOURCE |
-                                                          Gio.OutputStreamSpliceFlags.CLOSE_TARGET,
-                                                          GLib.PRIORITY_DEFAULT,
-                                                          cancellable,
-                                                          Lang.bind(this,
-                                    function(object, res) {
-                                        try {
-                                            object.splice_finish(res);
-                                        } catch (e) {
-                                            callback(false, e);
-                                            return;
-                                        }
-
-                                        callback(false, null);
-                                    }));
-                            }));
-                    }));
-            }));
+                                callback(false, null);
+                            });
+                    });
+            });
+        });
     }
 
     updateTypeDescription() {
@@ -1435,8 +1395,7 @@ var DocumentManager = class DocumentManager extends Manager.BaseManager {
         // navigate to the active document or collection
         this._collectionPath = [];
 
-        Application.changeMonitor.connect('changes-pending',
-                                          Lang.bind(this, this._onChangesPending));
+        Application.changeMonitor.connect('changes-pending', this._onChangesPending.bind(this));
     }
 
     _onChangesPending(monitor, changes) {
@@ -1463,13 +1422,12 @@ var DocumentManager = class DocumentManager extends Manager.BaseManager {
 
     _onDocumentCreated(urn) {
         let job = new TrackerUtils.SingleItemJob(urn, Application.queryBuilder);
-        job.run(Query.QueryFlags.NONE, Lang.bind(this,
-            function(cursor) {
-                if (!cursor)
-                    return;
+        job.run(Query.QueryFlags.NONE, (cursor) => {
+            if (!cursor)
+                return;
 
-                this.addDocumentFromCursor(cursor);
-            }));
+            this.addDocumentFromCursor(cursor);
+        });
     }
 
     _identifierIsGoogle(identifier) {
@@ -1644,7 +1602,7 @@ var DocumentManager = class DocumentManager extends Manager.BaseManager {
         this._loaderCancellable = new Gio.Cancellable();
         this._requestPreview(doc);
         this.emit('load-started', doc);
-        doc.load(passwd, this._loaderCancellable, Lang.bind(this, this._onDocumentLoaded));
+        doc.load(passwd, this._loaderCancellable, this._onDocumentLoaded.bind(this));
     }
 
     reloadActiveItem(passwd) {

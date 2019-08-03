@@ -19,8 +19,6 @@
  *
  */
 
-const Lang = imports.lang;
-
 const Application = imports.application;
 
 function setEditedName(newTitle, docId, callback) {
@@ -51,16 +49,15 @@ var SingleItemJob = class SingleItemJob {
         this._callback = callback;
 
         let query = this._builder.buildSingleQuery(flags, this._urn);
-        Application.connectionQueue.add(query.sparql, null, Lang.bind(this,
-            function(object, res) {
-                try {
-                    let cursor = object.query_finish(res);
-                    cursor.next_async(null, Lang.bind(this, this._onCursorNext));
-                } catch (e) {
-                    logError(e, 'Unable to query single item');
-                    this._emitCallback();
-                }
-            }));
+        Application.connectionQueue.add(query.sparql, null, (object, res) => {
+            try {
+                let cursor = object.query_finish(res);
+                cursor.next_async(null, this._onCursorNext.bind(this));
+            } catch (e) {
+                logError(e, 'Unable to query single item');
+                this._emitCallback();
+            }
+        });
     }
 
     _onCursorNext(cursor, res) {

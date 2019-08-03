@@ -24,7 +24,6 @@ const Documents = imports.documents;
 const Manager = imports.manager;
 const Query = imports.query;
 
-const Lang = imports.lang;
 const Signals = imports.signals;
 
 const Gio = imports.gi.Gio;
@@ -316,27 +315,26 @@ const Source = class Source {
         let locations = settings.get_strv(TRACKER_KEY_RECURSIVE_DIRECTORIES);
         let files = [];
 
-        locations.forEach(Lang.bind(this,
-            function(location) {
-                // ignore special XDG placeholders, since we handle those internally
-                if (location[0] == '&' || location[0] == '$')
+        locations.forEach((location) => {
+            // ignore special XDG placeholders, since we handle those internally
+            if (location[0] == '&' || location[0] == '$')
+                return;
+
+            let trackerFile = Gio.file_new_for_commandline_arg(location);
+
+            // also ignore XDG locations if they are present with their full path
+            for (let idx = 0; idx < GLib.UserDirectory.N_DIRECTORIES; idx++) {
+                let path = GLib.get_user_special_dir(idx);
+                if (!path)
+                    continue;
+
+                let file = Gio.file_new_for_path(path);
+                if (trackerFile.equal(file))
                     return;
+            }
 
-                let trackerFile = Gio.file_new_for_commandline_arg(location);
-
-                // also ignore XDG locations if they are present with their full path
-                for (let idx = 0; idx < GLib.UserDirectory.N_DIRECTORIES; idx++) {
-                    let path = GLib.get_user_special_dir(idx);
-                    if (!path)
-                        continue;
-
-                    let file = Gio.file_new_for_path(path);
-                    if (trackerFile.equal(file))
-                        return;
-                }
-
-                files.push(trackerFile);
-            }));
+            files.push(trackerFile);
+        });
 
         return files;
     }
@@ -347,12 +345,11 @@ const Source = class Source {
                        GLib.UserDirectory.DIRECTORY_DOCUMENTS,
                        GLib.UserDirectory.DIRECTORY_DOWNLOAD];
 
-        xdgDirs.forEach(Lang.bind(this,
-            function(dir) {
-                let path = GLib.get_user_special_dir(dir);
-                if (path)
-                    files.push(Gio.file_new_for_path(path));
-            }));
+        xdgDirs.forEach((dir) => {
+            let path = GLib.get_user_special_dir(dir);
+            if (path)
+                files.push(Gio.file_new_for_path(path));
+        });
 
         return files;
     }
@@ -364,10 +361,9 @@ const Source = class Source {
             this._getGettingStartedLocations());
 
         let filters = [];
-        locations.forEach(Lang.bind(this,
-            function(location) {
-                filters.push('(fn:contains (nie:url(?urn), "%s"))'.format(location.get_uri()));
-            }));
+        locations.forEach((location) => {
+            filters.push('(fn:contains (nie:url(?urn), "%s"))'.format(location.get_uri()));
+        });
 
         filters.push('(fn:starts-with (nao:identifier(?urn), "gd:collection:local:"))');
 
@@ -415,9 +411,9 @@ const SourceManager = class SourceManager extends Manager.BaseManager {
                               builtin: true });
         this.addItem(source);
 
-        Application.goaClient.connect('account-added', Lang.bind(this, this._refreshGoaAccounts));
-        Application.goaClient.connect('account-changed', Lang.bind(this, this._refreshGoaAccounts));
-        Application.goaClient.connect('account-removed', Lang.bind(this, this._refreshGoaAccounts));
+        Application.goaClient.connect('account-added', this._refreshGoaAccounts.bind(this));
+        Application.goaClient.connect('account-changed', this._refreshGoaAccounts.bind(this));
+        Application.goaClient.connect('account-removed', this._refreshGoaAccounts.bind(this));
 
         this._refreshGoaAccounts();
 
@@ -429,24 +425,23 @@ const SourceManager = class SourceManager extends Manager.BaseManager {
         let newSources = new Map();
         let accounts = Application.goaClient.get_accounts();
 
-        accounts.forEach(Lang.bind(this,
-            function(object) {
-                if (!object.get_account())
-                    return;
+        accounts.forEach((object) => {
+            if (!object.get_account())
+                return;
 
-                if (!object.get_documents())
-                    return;
+            if (!object.get_documents())
+                return;
 
-                let source = new Source({ object: object });
+            let source = new Source({ object: object });
 
-                let otherSources = newSources.get(source.name);
-                if (!otherSources)
-                    otherSources = [];
+            let otherSources = newSources.get(source.name);
+            if (!otherSources)
+                otherSources = [];
 
-                otherSources.push(source);
-                newSources.set(source.name, otherSources);
-                newItems[source.id] = source;
-            }));
+            otherSources.push(source);
+            newSources.set(source.name, otherSources);
+            newItems[source.id] = source;
+        });
 
         // Ensure an unique name for GOA accounts from the same provider
         newSources.forEach(function(sources, name) {
@@ -518,15 +513,14 @@ const SourceManager = class SourceManager extends Manager.BaseManager {
 
     getForProviderType(providerType) {
         let items = [];
-        this.forEachItem(Lang.bind(this,
-            function(source) {
-                if (!source.object)
-                    return;
+        this.forEachItem((source) => {
+            if (!source.object)
+                return;
 
-                let account = source.object.get_account();
-                if (account.provider_type == providerType)
-                    items.push(source);
-            }));
+            let account = source.object.get_account();
+            if (account.provider_type == providerType)
+                items.push(source);
+        });
 
         return items;
     }
@@ -550,29 +544,27 @@ const OffsetController = class OffsetController {
     resetItemCount() {
         let query = this.getQuery();
 
-        Application.connectionQueue.add
-            (query.sparql, null, Lang.bind(this,
-                function(object, res) {
-                    let cursor = null;
-                    try {
-                        cursor = object.query_finish(res);
-                    } catch (e) {
-                        logError(e, 'Unable to execute count query');
-                        return;
+        Application.connectionQueue.add(
+            query.sparql, null, (object, res) => {
+                let cursor = null;
+                try {
+                    cursor = object.query_finish(res);
+                } catch (e) {
+                    logError(e, 'Unable to execute count query');
+                    return;
+                }
+
+                cursor.next_async(null, (object, res) => {
+                    let valid = object.next_finish(res);
+
+                    if (valid) {
+                        this._itemCount = cursor.get_integer(0);
+                        this.emit('item-count-changed', this._itemCount);
                     }
 
-                    cursor.next_async(null, Lang.bind(this,
-                        function(object, res) {
-                            let valid = object.next_finish(res);
-
-                            if (valid) {
-                                this._itemCount = cursor.get_integer(0);
-                                this.emit('item-count-changed', this._itemCount);
-                            }
-
-                            cursor.close();
-                        }));
-                }));
+                    cursor.close();
+                });
+            });
     }
 
     getQuery() {

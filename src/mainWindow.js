@@ -25,7 +25,6 @@ const GLib = imports.gi.GLib;
 const GObject = imports.gi.GObject;
 const Gtk = imports.gi.Gtk;
 
-const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 
 const Application = imports.application;
@@ -68,11 +67,11 @@ var MainWindow = GObject.registerClass(class MainWindow extends Gtk.ApplicationW
         if (Application.settings.get_boolean('window-maximized'))
             this.maximize();
 
-        this.connect('delete-event', Lang.bind(this, this._quit));
-        this.connect('button-press-event', Lang.bind(this, this._onButtonPressEvent));
-        this.connect('key-press-event', Lang.bind(this, this._onKeyPressEvent));
-        this.connect('configure-event', Lang.bind(this, this._onConfigureEvent));
-        this.connect('window-state-event', Lang.bind(this, this._onWindowStateEvent));
+        this.connect('delete-event', this._quit.bind(this));
+        this.connect('button-press-event', this._onButtonPressEvent.bind(this));
+        this.connect('key-press-event', this._onKeyPressEvent.bind(this));
+        this.connect('configure-event', this._onConfigureEvent.bind(this));
+        this.connect('window-state-event', this._onWindowStateEvent.bind(this));
 
         this._embed = new Embed.Embed(this);
         this.add(this._embed);
@@ -107,12 +106,11 @@ var MainWindow = GObject.registerClass(class MainWindow extends Gtk.ApplicationW
             this._configureId = 0;
         }
 
-        this._configureId = Mainloop.timeout_add(_CONFIGURE_ID_TIMEOUT, Lang.bind(this,
-            function() {
-                this._configureId = 0;
-                this._saveWindowGeometry();
-                return false;
-            }));
+        this._configureId = Mainloop.timeout_add(_CONFIGURE_ID_TIMEOUT, () => {
+            this._configureId = 0;
+            this._saveWindowGeometry();
+            return false;
+        });
     }
 
     _onWindowStateEvent(widget, event) {

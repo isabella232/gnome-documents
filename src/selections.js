@@ -38,7 +38,6 @@ const Sharing = imports.sharing;
 const TrackerUtils = imports.trackerUtils;
 const WindowMode = imports.windowMode;
 
-const Lang = imports.lang;
 const Signals = imports.signals;
 
 // fetch all the collections a given item is part of
@@ -52,18 +51,17 @@ const FetchCollectionsJob = class FetchCollectionsJob {
         this._callback = callback;
 
         let query = Application.queryBuilder.buildFetchCollectionsQuery(this._urn);
-        Application.connectionQueue.add(query.sparql, null, Lang.bind(this,
-            function(object, res) {
-                let cursor = null;
+        Application.connectionQueue.add(query.sparql, null, (object, res) => {
+            let cursor = null;
 
-                try {
-                    cursor = object.query_finish(res);
-                    cursor.next_async(null, Lang.bind(this, this._onCursorNext));
-                } catch (e) {
-                    logError(e, 'Unable to run FetchCollectionsJob');
-                    this._emitCallback();
-                }
-            }));
+            try {
+                cursor = object.query_finish(res);
+                cursor.next_async(null, this._onCursorNext.bind(this));
+            } catch (e) {
+                logError(e, 'Unable to run FetchCollectionsJob');
+                this._emitCallback();
+            }
+        });
     }
 
     _onCursorNext(cursor, res) {
@@ -85,7 +83,7 @@ const FetchCollectionsJob = class FetchCollectionsJob {
         let urn = cursor.get_string(0)[0];
         this._collections.push(urn);
 
-        cursor.next_async(null, Lang.bind(this, this._onCursorNext));
+        cursor.next_async(null, this._onCursorNext.bind(this));
     }
 
     _emitCallback() {
@@ -112,16 +110,15 @@ const FetchCollectionStateForSelectionJob = class FetchCollectionStateForSelecti
         this._callback = callback;
 
         let urns = Application.selectionController.getSelection();
-        urns.forEach(Lang.bind(this,
-            function(urn) {
-                let job = new FetchCollectionsJob(urn);
+        urns.forEach((urn) => {
+            let job = new FetchCollectionsJob(urn);
 
-                this._runningJobs++;
-                job.run(Lang.bind(this, this._jobCollector, urn));
-            }));
+            this._runningJobs++;
+            job.run(this._jobCollector.bind(this, urn));
+        });
     }
 
-    _jobCollector(collectionsForItem, urn) {
+    _jobCollector(urn, collectionsForItem) {
         this._collectionsForItems[urn] = collectionsForItem;
 
         this._runningJobs--;
@@ -197,17 +194,16 @@ const UpdateMtimeJob = class UpdateMtimeJob {
         this._callback = callback;
 
         let query = Application.queryBuilder.buildUpdateMtimeQuery(this._urn);
-        Application.connectionQueue.update(query.sparql, null, Lang.bind(this,
-            function(object, res) {
-                try {
-                    object.update_finish(res);
-                } catch (e) {
-                    logError(e, 'Unable to run UpdateMtimeJob');
-                }
+        Application.connectionQueue.update(query.sparql, null, (object, res) => {
+            try {
+                object.update_finish(res);
+            } catch (e) {
+                logError(e, 'Unable to run UpdateMtimeJob');
+            }
 
-                if (this._callback)
-                    this._callback();
-            }));
+            if (this._callback)
+                this._callback();
+        });
     }
 }
 
@@ -223,27 +219,25 @@ const SetCollectionForSelectionJob = class SetCollectionForSelectionJob {
         this._callback = callback;
 
         let urns = Application.selectionController.getSelection();
-        urns.forEach(Lang.bind(this,
-            function(urn) {
-                // never add a collection to itself!!
-                if (urn == this._collectionUrn)
-                    return;
+        urns.forEach((urn) => {
+            // never add a collection to itself!!
+            if (urn == this._collectionUrn)
+                return;
 
-                let query = Application.queryBuilder.buildSetCollectionQuery(urn,
-                    this._collectionUrn, this._setting);
-                this._runningJobs++;
+            let query = Application.queryBuilder.buildSetCollectionQuery(
+                urn, this._collectionUrn, this._setting);
+            this._runningJobs++;
 
-                Application.connectionQueue.update(query.sparql, null, Lang.bind(this,
-                    function(object, res) {
-                        try {
-                            object.update_finish(res);
-                        } catch (e) {
-                            logError(e, 'Unable to run SetCollectionForSelectionJob');
-                        }
+            Application.connectionQueue.update(query.sparql, null, (object, res) => {
+                try {
+                    object.update_finish(res);
+                } catch (e) {
+                    logError(e, 'Unable to run SetCollectionForSelectionJob');
+                }
 
-                        this._jobCollector();
-                    }));
-            }));
+                this._jobCollector();
+            });
+        });
     }
 
     _jobCollector() {
@@ -251,12 +245,10 @@ const SetCollectionForSelectionJob = class SetCollectionForSelectionJob {
 
         if (this._runningJobs == 0) {
             let job = new UpdateMtimeJob(this._collectionUrn);
-            job.run(Lang.bind(this,
-                function() {
-
-                    if (this._callback)
-                        this._callback();
-                }));
+            job.run(() => {
+                if (this._callback)
+                    this._callback();
+            });
         }
     }
 }
@@ -272,28 +264,27 @@ const CreateCollectionJob = class CreateCollectionJob {
         this._callback = callback;
 
         let query = Application.queryBuilder.buildCreateCollectionQuery(this._name);
-        Application.connectionQueue.updateBlank(query.sparql, null, Lang.bind(this,
-            function(object, res) {
-                let variant = null;
-                try {
-                    variant = object.update_blank_finish(res); // variant is aaa{ss}
-                } catch (e) {
-                    logError(e, 'Unable to run CreateCollectionJob');
-                }
+        Application.connectionQueue.updateBlank(query.sparql, null, (object, res) => {
+            let variant = null;
+            try {
+                variant = object.update_blank_finish(res); // variant is aaa{ss}
+            } catch (e) {
+                logError(e, 'Unable to run CreateCollectionJob');
+            }
 
-                variant = variant.get_child_value(0); // variant is now aa{ss}
-                variant = variant.get_child_value(0); // variant is now a{ss}
-                variant = variant.get_child_value(0); // variant is now {ss}
+            variant = variant.get_child_value(0); // variant is now aa{ss}
+            variant = variant.get_child_value(0); // variant is now a{ss}
+            variant = variant.get_child_value(0); // variant is now {ss}
 
-                let key = variant.get_child_value(0).get_string()[0];
-                let val = variant.get_child_value(1).get_string()[0];
+            let key = variant.get_child_value(0).get_string()[0];
+            let val = variant.get_child_value(1).get_string()[0];
 
-                if (key == 'res')
-                    this._createdUrn = val;
+            if (key == 'res')
+                this._createdUrn = val;
 
-                if (this._callback)
-                    this._callback(this._createdUrn);
-            }));
+            if (this._callback)
+                this._callback(this._createdUrn);
+        });
     }
 }
 
@@ -328,14 +319,13 @@ const CollectionRow = GObject.registerClass(class CollectionRow extends Gtk.List
                                                  active: isActive,
                                                  inconsistent: isInconsistent });
         this.checkButton.get_child().set_ellipsize(Pango.EllipsizeMode.END);
-        this.checkButton.connect('toggled', Lang.bind(this,
-            function(checkButton) {
-                let collId = this.collection.id;
-                let state = checkButton.get_active();
+        this.checkButton.connect('toggled', (checkButton) => {
+            let collId = this.collection.id;
+            let state = checkButton.get_active();
 
-                let job = new SetCollectionForSelectionJob(collId, state);
-                job.run();
-            }));
+            let job = new SetCollectionForSelectionJob(collId, state);
+            job.run();
+        });
         let menu = new Gio.Menu();
         if (this.collection.canEdit())
             menu.append(_("Rename…"), 'dialog.rename-collection(\'' + this.collection.id + '\')');
@@ -366,13 +356,12 @@ const CollectionRow = GObject.registerClass(class CollectionRow extends Gtk.List
                                           expand: true,
                                           halign: Gtk.Align.START });
         let undoButton = new Gtk.Button({ label: _("Undo") });
-        undoButton.connect('clicked', Lang.bind(this,
-            function() {
-                this._resetTimeout()
-                this.views.set_transition_type(Gtk.StackTransitionType.SLIDE_RIGHT);
-                this.views.set_transition_duration(200);
-                this.setDefaultView();
-            }));
+        undoButton.connect('clicked', () => {
+            this._resetTimeout()
+            this.views.set_transition_type(Gtk.StackTransitionType.SLIDE_RIGHT);
+            this.views.set_transition_duration(200);
+            this.setDefaultView();
+        });
         grid.add(deleteLabel);
         grid.add(undoButton);
 
@@ -385,19 +374,17 @@ const CollectionRow = GObject.registerClass(class CollectionRow extends Gtk.List
                                            expand: true,
                                            text: this.collection.name,
                                            secondary_icon_name: 'edit-clear-symbolic'});
-        this.renameEntry.connect('icon-press', Lang.bind(this,
-            function(renameEntry, iconPos) {
-                if (iconPos == Gtk.EntryIconPosition.SECONDARY) {
-                    renameEntry.set_text("");
-                }
-            }));
-        this.renameEntry.connect('changed', Lang.bind(this,
-            function(renameEntry) {
-                if (renameEntry.get_text() != "")
-                    renameEntry.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY, 'edit-clear-symbolic');
-                else
-                    renameEntry.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY, null);
-            }));
+        this.renameEntry.connect('icon-press', (renameEntry, iconPos) => {
+            if (iconPos == Gtk.EntryIconPosition.SECONDARY) {
+                renameEntry.set_text("");
+            }
+        });
+        this.renameEntry.connect('changed', (renameEntry) => {
+            if (renameEntry.get_text() != "")
+                renameEntry.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY, 'edit-clear-symbolic');
+            else
+                renameEntry.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY, null);
+        });
         this.renameEntry.show();
         this.views.add_named(this.renameEntry, CollectionRowViews.RENAME);
     }
@@ -424,7 +411,7 @@ const CollectionRow = GObject.registerClass(class CollectionRow extends Gtk.List
         revealer.add(this.views);
         this.add(revealer);
 
-        revealer.connect("notify::child-revealed", Lang.bind(this, this.deleteCollection));
+        revealer.connect("notify::child-revealed", this.deleteCollection.bind(this));
         revealer.reveal_child = false;
     }
 
@@ -446,12 +433,11 @@ const CollectionRow = GObject.registerClass(class CollectionRow extends Gtk.List
         if (!this.views.get_child_by_name(CollectionRowViews.DELETE))
             this._initDeleteView();
 
-        this._timeoutId = Mainloop.timeout_add_seconds(Notifications.DELETE_TIMEOUT, Lang.bind(this,
-            function() {
-                this._timeoutId = 0;
-                this.conceal();
-                return false;
-            }));
+        this._timeoutId = Mainloop.timeout_add_seconds(Notifications.DELETE_TIMEOUT, () => {
+            this._timeoutId = 0;
+            this.conceal();
+            return false;
+        });
         this.views.set_transition_type(Gtk.StackTransitionType.SLIDE_LEFT);
         this.views.set_transition_duration(500);
         this.get_style_context().add_class('delete-row');
@@ -479,45 +465,40 @@ const CollectionList = GObject.registerClass(class CollectionList extends Gtk.Li
                       margin: 0,
                       selection_mode: Gtk.SelectionMode.NONE });
 
-        let collAddedId = Application.documentManager.connect('item-added',
-            Lang.bind(this, this._onCollectionAdded));
-        let collRemovedId = Application.documentManager.connect('item-removed',
-            Lang.bind(this, this._onCollectionRemoved));
+        let collAddedId = Application.documentManager.connect('item-added', this._onCollectionAdded.bind(this));
+        let collRemovedId = Application.documentManager.connect('item-removed', this._onCollectionRemoved.bind(this));
 
-        this.set_header_func(Lang.bind(this,
-            function(row, before) {
-                if (!before) {
-                    row.set_header(null);
-                    return;
+        this.set_header_func((row, before) => {
+            if (!before) {
+                row.set_header(null);
+                return;
+            }
+            let current = row.get_header();
+            if (!current) {
+                current = new Gtk.Separator({ orientation: Gtk.Orientation.HORIZONTAL });
+                row.set_header(current);
+            }
+        });
+
+        this.set_sort_func((row1, row2) => {
+            return row2.collection.mtime - row1.collection.mtime;
+        });
+
+        this.connect('destroy', () => {
+            let rows = this.get_children();
+            rows.forEach(function(row) {
+                let currentView = row.views.get_visible_child_name();
+                if (currentView == CollectionRowViews.DELETE) {
+                    row.deleteCollection();
                 }
-                let current = row.get_header();
-                if (!current) {
-                    current = new Gtk.Separator({ orientation: Gtk.Orientation.HORIZONTAL });
-                    row.set_header(current);
-                }
-            }));
-
-        this.set_sort_func(Lang.bind(this,
-            function(row1, row2) {
-                return row2.collection.mtime - row1.collection.mtime;
-            }));
-
-        this.connect('destroy', Lang.bind(this,
-            function() {
-                let rows = this.get_children();
-                rows.forEach(function(row) {
-                    let currentView = row.views.get_visible_child_name();
-                    if (currentView == CollectionRowViews.DELETE) {
-                        row.deleteCollection();
-                    }
-                });
-                Application.documentManager.disconnect(collAddedId);
-                Application.documentManager.disconnect(collRemovedId);
-            }));
+            });
+            Application.documentManager.disconnect(collAddedId);
+            Application.documentManager.disconnect(collRemovedId);
+        });
 
         // populate the list
         let job = new FetchCollectionStateForSelectionJob();
-        job.run(Lang.bind(this, this._onFetchCollectionStateForSelection));
+        job.run(this._onFetchCollectionStateForSelection.bind(this));
     }
 
     _onCollectionAdded(manager, itemAdded) {
@@ -596,11 +577,11 @@ const OrganizeCollectionDialog = GObject.registerClass({
 
         this._renameMode = false;
 
-        this._keyPressEventId = this.connect('key-press-event', Lang.bind(this, this._onKeyPressed));
-        this._addButtonEmpty.connect('clicked', Lang.bind(this, this._onAddClicked));
-        this._addButtonCollections.connect('clicked', Lang.bind(this, this._onAddClicked));
-        this._addEntryEmpty.connect('changed', Lang.bind(this, this._onTextChanged));
-        this._addEntryCollections.connect('changed', Lang.bind(this, this._onTextChanged));
+        this._keyPressEventId = this.connect('key-press-event', this._onKeyPressed.bind(this));
+        this._addButtonEmpty.connect('clicked', this._onAddClicked.bind(this));
+        this._addButtonCollections.connect('clicked', this._onAddClicked.bind(this));
+        this._addEntryEmpty.connect('changed', this._onTextChanged.bind(this));
+        this._addEntryCollections.connect('changed', this._onTextChanged.bind(this));
 
         let actionGroup = new Gio.SimpleActionGroup();
         let deleteAction = new Gio.SimpleAction({ name: 'delete-collection',
@@ -611,59 +592,55 @@ const OrganizeCollectionDialog = GObject.registerClass({
         actionGroup.add_action(renameAction);
         this.insert_action_group('dialog', actionGroup);
 
-        renameAction.connect('activate', Lang.bind(this, this._renameModeStart));
-        deleteAction.connect('activate', Lang.bind(this,
-            function(action, parameter) {
-                let collId = parameter.get_string()[0];
-                let rows = this._collectionList.get_children();
-                rows.forEach(function(row) {
-                    if (row.collection.id != collId)
-                        return;
+        renameAction.connect('activate', this._renameModeStart.bind(this));
+        deleteAction.connect('activate', (action, parameter) => {
+            let collId = parameter.get_string()[0];
+            let rows = this._collectionList.get_children();
+            rows.forEach(function(row) {
+                if (row.collection.id != collId)
+                    return;
 
-                    row.setDeleteView();
-                });
-            }));
+                row.setDeleteView();
+            });
+        });
 
-        this._cancelButton.connect('clicked', Lang.bind(this, function() { this._renameModeStop(false); }));
-        this._doneButton.connect('clicked', Lang.bind(this, function() { this._renameModeStop(true); }));
+        this._cancelButton.connect('clicked', () => { this._renameModeStop(false); });
+        this._doneButton.connect('clicked', () => { this._renameModeStop(true); });
 
         this._collectionList = new CollectionList();
-        let addId = this._collectionList.connect('add', Lang.bind(this, this._onCollectionListChanged));
-        let removeId = this._collectionList.connect('remove', Lang.bind(this, this._onCollectionListChanged));
+        let addId = this._collectionList.connect('add', this._onCollectionListChanged.bind(this));
+        let removeId = this._collectionList.connect('remove', this._onCollectionListChanged.bind(this));
         this._scrolledWindowCollections.add(this._collectionList);
 
         this.show_all();
 
-        this.connect('destroy', Lang.bind(this,
-            function() {
-                this._collectionList.disconnect(addId);
-                this._collectionList.disconnect(removeId);
-            }));
+        this.connect('destroy', () => {
+            this._collectionList.disconnect(addId);
+            this._collectionList.disconnect(removeId);
+        });
 
         /* We want a CROSSFADE effect when switching from ViewEmpty to ViewCollections (and the other way around)
          * but when we create the dialog we don't want to see the effect, so for the first second we don't use
          * any effect and after that we use the CROSSFADE effect.
          */
-        Mainloop.timeout_add_seconds(1, Lang.bind(this,
-            function() {
-                this._content.set_transition_type(Gtk.StackTransitionType.CROSSFADE)
-                return false;
-            }));
+        Mainloop.timeout_add_seconds(1, () => {
+            this._content.set_transition_type(Gtk.StackTransitionType.CROSSFADE)
+            return false;
+        });
     }
 
     _onAddClicked() {
         let addEntry = this._collectionList.isEmpty() ? this._addEntryEmpty : this._addEntryCollections;
         let newText = addEntry.get_text();
         let job = new CreateCollectionJob(newText);
-        job.run(Lang.bind(this,
-            function(createdUrn) {
-                if (!createdUrn)
-                    return;
+        job.run((createdUrn) => {
+            if (!createdUrn)
+                return;
 
-                addEntry.set_text('');
-                let job = new SetCollectionForSelectionJob(createdUrn, true);
-                job.run(null);
-            }));
+            addEntry.set_text('');
+            let job = new SetCollectionForSelectionJob(createdUrn, true);
+            job.run(null);
+        });
         if (this._collectionList.isEmpty()) {
             this._viewSpinner.start();
             this._content.set_visible_child(this._viewSpinner);
@@ -700,21 +677,20 @@ const OrganizeCollectionDialog = GObject.registerClass({
         this._setRenameMode(true);
 
         let rows = this._collectionList.get_children();
-        rows.forEach(Lang.bind(this,
-            function(row) {
-                let currentView = row.views.get_visible_child_name();
-                if (currentView == CollectionRowViews.DELETE) {
-                    row.conceal();
-                    return;
-                }
+        rows.forEach((row) => {
+            let currentView = row.views.get_visible_child_name();
+            if (currentView == CollectionRowViews.DELETE) {
+                row.conceal();
+                return;
+            }
 
-                if (row.collection.id != collId) {
-                    row.set_sensitive(false);
-                    return;
-                }
+            if (row.collection.id != collId) {
+                row.set_sensitive(false);
+                return;
+            }
 
-                row.setRenameView(Lang.bind(this, this._onTextChanged));
-            }));
+            row.setRenameView(this._onTextChanged.bind(this));
+        });
     }
 
     _renameModeStop(rename) {
@@ -773,19 +749,17 @@ var SelectionController = class SelectionController {
     constructor() {
         this._selection = [];
 
-        Application.documentManager.connect('item-removed',
-            Lang.bind(this, this._onDocumentRemoved));
+        Application.documentManager.connect('item-removed', this._onDocumentRemoved.bind(this));
     }
 
     _onDocumentRemoved(manager, item) {
         let changed = false;
-        let filtered = this._selection.filter(Lang.bind(this,
-            function(value, index) {
-                if (item.id == value)
-                    changed = true;
+        let filtered = this._selection.filter((value, index) => {
+            if (item.id == value)
+                changed = true;
 
-                return (item.id != value);
-            }));
+            return (item.id != value);
+        });
         if (changed) {
             this._selection = filtered;
             this.emit('selection-changed', this._selection);
@@ -839,29 +813,25 @@ var SelectionToolbar = GObject.registerClass({
 
         this._selectionModeAction = overview.getAction('selection-mode');
 
-        this._toolbarOpen.connect('clicked', Lang.bind(this, this._onToolbarOpen));
-        this._toolbarPrint.connect('clicked', Lang.bind(this, this._onToolbarPrint));
-        this._toolbarTrash.connect('clicked', Lang.bind(this, this._onToolbarTrash));
+        this._toolbarOpen.connect('clicked', this._onToolbarOpen.bind(this));
+        this._toolbarPrint.connect('clicked', this._onToolbarPrint.bind(this));
+        this._toolbarTrash.connect('clicked', this._onToolbarTrash.bind(this));
 
-        this._toolbarShare.connect('clicked', Lang.bind(this, this._onToolbarShare));
+        this._toolbarShare.connect('clicked', this._onToolbarShare.bind(this));
         this._toolbarShare.show();
 
-        this._toolbarProperties.connect('clicked', Lang.bind(this, this._onToolbarProperties));
-        this._toolbarCollection.connect('clicked', Lang.bind(this, this._onToolbarCollection));
+        this._toolbarProperties.connect('clicked', this._onToolbarProperties.bind(this));
+        this._toolbarCollection.connect('clicked', this._onToolbarCollection.bind(this));
 
-        Application.modeController.connect('window-mode-changed',
-            Lang.bind(this, this._updateCollectionsButton));
-        Application.documentManager.connect('active-collection-changed',
-            Lang.bind(this, this._updateCollectionsButton));
+        Application.modeController.connect('window-mode-changed', this._updateCollectionsButton.bind(this));
+        Application.documentManager.connect('active-collection-changed', this._updateCollectionsButton.bind(this));
 
-        Application.selectionController.connect('selection-changed',
-            Lang.bind(this, this._onSelectionChanged));
+        Application.selectionController.connect('selection-changed', this._onSelectionChanged.bind(this));
         this._onSelectionChanged();
 
-        this.connect('destroy', Lang.bind(this,
-            function() {
-                this._disconnectDocToPrint();
-            }));
+        this.connect('destroy', () => {
+            this._disconnectDocToPrint();
+        });
     }
 
     vfunc_hide() {
@@ -900,12 +870,11 @@ var SelectionToolbar = GObject.registerClass({
             delete this._itemListeners[idx];
         }
 
-        selection.forEach(Lang.bind(this,
-            function(urn) {
-                let doc = Application.documentManager.getItemById(urn);
-                let id = doc.connect('info-updated', Lang.bind(this, this._setItemVisibility));
-                this._itemListeners[id] = doc;
-            }));
+        selection.forEach((urn) => {
+            let doc = Application.documentManager.getItemById(urn);
+            let id = doc.connect('info-updated', this._setItemVisibility.bind(this));
+            this._itemListeners[id] = doc;
+        });
     }
 
     _setItemVisibility() {
@@ -922,31 +891,29 @@ var SelectionToolbar = GObject.registerClass({
 
         this._insideRefresh = true;
 
-        selection.forEach(Lang.bind(this,
-            function(urn) {
-                let doc = Application.documentManager.getItemById(urn);
+        selection.forEach((urn) => {
+            let doc = Application.documentManager.getItemById(urn);
 
-                if ((doc.defaultAppName) &&
-                    (apps.indexOf(doc.defaultAppName) == -1))
-                    apps.push(doc.defaultAppName);
-                if (!doc.canShare() ||
-                    (doc.collection != false) ||
-                    (selection.length > 1))
-                    showShare = false;
+            if ((doc.defaultAppName) &&
+                (apps.indexOf(doc.defaultAppName) == -1))
+                apps.push(doc.defaultAppName);
+            if (!doc.canShare() ||
+                (doc.collection != false) ||
+                (selection.length > 1))
+                showShare = false;
 
-                showTrash &= doc.canTrash();
-            }));
+            showTrash &= doc.canTrash();
+        });
 
         showOpen = (apps.length > 0);
 
         if (selection.length == 1) {
             let doc = Application.documentManager.getItemById(selection[0]);
             if (!doc.collection) {
-                doc.load(null, null, Lang.bind(this,
-                    function(doc, docModel, error) {
-                        showPrint = doc.canPrint(docModel);
-                        this._toolbarPrint.set_sensitive(showPrint);
-                    }));
+                doc.load(null, null, (doc, docModel, error) => {
+                    showPrint = doc.canPrint(docModel);
+                    this._toolbarPrint.set_sensitive(showPrint);
+                });
             }
         }
 
@@ -979,42 +946,39 @@ var SelectionToolbar = GObject.registerClass({
             throw(new Error('Code should not be reached'));
 
         let dialog = new OrganizeCollectionDialog(toplevel);
-        dialog.connect('destroy', Lang.bind(this, function() {
+        dialog.connect('destroy', () => {
             this._selectionModeAction.change_state(GLib.Variant.new('b', false));
-        }));
+        });
     }
 
     _onToolbarOpen(widget) {
         let selection = Application.selectionController.getSelection();
         this._selectionModeAction.change_state(GLib.Variant.new('b', false));
 
-        selection.forEach(Lang.bind(this,
-            function(urn) {
-                let doc = Application.documentManager.getItemById(urn);
-                let toplevel = this.get_toplevel();
-                if (!toplevel.is_toplevel())
-                    throw(new Error('Code should not be reached'));
+        selection.forEach((urn) => {
+            let doc = Application.documentManager.getItemById(urn);
+            let toplevel = this.get_toplevel();
+            if (!toplevel.is_toplevel())
+                throw(new Error('Code should not be reached'));
 
-                doc.open(toplevel, Gtk.get_current_event_time());
-            }));
+            doc.open(toplevel, Gtk.get_current_event_time());
+        });
     }
 
     _onToolbarTrash(widget) {
         let selection = Application.selectionController.getSelection();
         let docs = [];
 
-        selection.forEach(Lang.bind(this,
-            function(urn) {
-                let doc = Application.documentManager.getItemById(urn);
-                docs.push(doc);
-            }));
+        selection.forEach((urn) => {
+            let doc = Application.documentManager.getItemById(urn);
+            docs.push(doc);
+        });
 
         // Removing an item from DocumentManager changes the selection, so
         // we can't use the selection while removing items.
-        docs.forEach(Lang.bind(this,
-            function(doc) {
-                Application.documentManager.removeItem(doc);
-            }));
+        docs.forEach((doc) => {
+            Application.documentManager.removeItem(doc);
+        });
 
         let deleteNotification = new Notifications.DeleteNotification(docs);
         this._selectionModeAction.change_state(GLib.Variant.new('b', false));
@@ -1024,21 +988,19 @@ var SelectionToolbar = GObject.registerClass({
         let selection = Application.selectionController.getSelection();
         let dialog = new Properties.PropertiesDialog(selection[0]);
 
-        dialog.connect('response', Lang.bind(this,
-            function(widget, response) {
-                dialog.destroy();
-                this._selectionModeAction.change_state(GLib.Variant.new('b', false));
-            }));
+        dialog.connect('response', (widget, response) => {
+            dialog.destroy();
+            this._selectionModeAction.change_state(GLib.Variant.new('b', false));
+        });
     }
 
    _onToolbarShare(widget) {
        let dialog = new Sharing.SharingDialog();
 
-       dialog.connect('response', Lang.bind(this,
-           function(widget, response) {
-               dialog.destroy();
-               this._selectionModeAction.change_state(GLib.Variant.new('b', false));
-           }));
+       dialog.connect('response', (widget, response) => {
+           dialog.destroy();
+           this._selectionModeAction.change_state(GLib.Variant.new('b', false));
+       });
     }
 
     _onToolbarPrint(widget) {
@@ -1050,10 +1012,9 @@ var SelectionToolbar = GObject.registerClass({
         this._disconnectDocToPrint();
 
         this._docToPrint = Application.documentManager.getItemById(selection[0]);
-        this._docBeginPrintId = this._docToPrint.connect('begin-print', Lang.bind(this,
-            function(doc) {
-                this._selectionModeAction.change_state(GLib.Variant.new('b', false));
-            }));
+        this._docBeginPrintId = this._docToPrint.connect('begin-print', (doc) => {
+            this._selectionModeAction.change_state(GLib.Variant.new('b', false));
+        });
 
         this._docToPrint.print(this.get_toplevel());
     }

@@ -31,8 +31,6 @@ const Application = imports.application;
 const Mainloop = imports.mainloop;
 const TrackerUtils = imports.trackerUtils;
 
-const Lang = imports.lang;
-
 const _TITLE_ENTRY_TIMEOUT = 200;
 
 var PropertiesDialog = GObject.registerClass(class PropertiesDialog extends Gtk.Dialog {
@@ -131,21 +129,19 @@ var PropertiesDialog = GObject.registerClass(class PropertiesDialog extends Gtk.
             let docId = doc.id;
             this._titleEntryTimeout = 0;
 
-            this._titleEntry.connect('changed', Lang.bind (this,
-                function() {
-                    if (this._titleEntryTimeout != 0) {
-                        Mainloop.source_remove(this._titleEntryTimeout);
-                        this._titleEntryTimeout = 0;
-                    }
+            this._titleEntry.connect('changed', () => {
+                if (this._titleEntryTimeout != 0) {
+                    Mainloop.source_remove(this._titleEntryTimeout);
+                    this._titleEntryTimeout = 0;
+                }
 
-                    this._titleEntryTimeout = Mainloop.timeout_add(_TITLE_ENTRY_TIMEOUT, Lang.bind(this,
-                        function() {
-                            this._titleEntryTimeout = 0;
-                            let newTitle = this._titleEntry.get_text();
-                            TrackerUtils.setEditedName(newTitle, docId, null);
-                            return false;
-                        }));
-                }));
+                this._titleEntryTimeout = Mainloop.timeout_add(_TITLE_ENTRY_TIMEOUT, () => {
+                    this._titleEntryTimeout = 0;
+                    let newTitle = this._titleEntry.get_text();
+                    TrackerUtils.setEditedName(newTitle, docId, null);
+                    return false;
+                });
+            });
         } else {
             this._titleEntry = new Gtk.Label({ label: doc.name,
                                                halign: Gtk.Align.START });

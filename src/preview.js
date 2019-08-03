@@ -5,7 +5,6 @@ const GLib = imports.gi.GLib;
 const GObject = imports.gi.GObject;
 const Gtk = imports.gi.Gtk;
 
-const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 
 const Application = imports.application;
@@ -60,56 +59,50 @@ var Preview = GObject.registerClass(class Preview extends Gtk.Stack {
         this.navControls.show();
         this.show_all();
 
-        this._loadStartedId = Application.documentManager.connect('load-started',
-                                                                  Lang.bind(this, this.onLoadStarted));
-        this._loadFinishedId = Application.documentManager.connect('load-finished',
-                                                                   Lang.bind(this, this.onLoadFinished));
-        this._loadErrorId = Application.documentManager.connect('load-error',
-                                                                Lang.bind(this, this.onLoadError));
-        this._passwordNeededId = Application.documentManager.connect('password-needed',
-                                                                     Lang.bind(this, this.onPasswordNeeded));
+        this._loadStartedId = Application.documentManager.connect('load-started', this.onLoadStarted.bind(this));
+        this._loadFinishedId = Application.documentManager.connect('load-finished', this.onLoadFinished.bind(this));
+        this._loadErrorId = Application.documentManager.connect('load-error', this.onLoadError.bind(this));
+        this._passwordNeededId = Application.documentManager.connect('password-needed', this.onPasswordNeeded.bind(this));
 
-        this._nightModeId = Application.application.connect('action-state-changed::night-mode',
-            Lang.bind(this, this._updateNightMode));
+        this._nightModeId = Application.application.connect('action-state-changed::night-mode', this._updateNightMode.bind(this));
 
-        this.connect('destroy', Lang.bind(this,
-            function() {
-                if (this._loadStartedId > 0) {
-                    Application.documentManager.disconnect(this._loadStartedId);
-                    this._loadStartedId = 0;
-                }
-                if (this._loadFinishedId > 0) {
-                    Application.documentManager.disconnect(this._loadFinishedId);
-                    this._loadFinishedId = 0;
-                }
-                if (this._loadErrorId > 0) {
-                    Application.documentManager.disconnect(this._loadErrorId);
-                    this._loadErrorId = 0;
-                }
-                if (this._passwordNeededId > 0) {
-                    Application.documentManager.disconnect(this._passwordNeededId);
-                    this._passwordNeededId = 0;
-                }
-                if (this.navControls) {
-                    this.navControls.destroy();
-                    this.navControls = null;
-                }
+        this.connect('destroy', () => {
+            if (this._loadStartedId > 0) {
+                Application.documentManager.disconnect(this._loadStartedId);
+                this._loadStartedId = 0;
+            }
+            if (this._loadFinishedId > 0) {
+                Application.documentManager.disconnect(this._loadFinishedId);
+                this._loadFinishedId = 0;
+            }
+            if (this._loadErrorId > 0) {
+                Application.documentManager.disconnect(this._loadErrorId);
+                this._loadErrorId = 0;
+            }
+            if (this._passwordNeededId > 0) {
+                Application.documentManager.disconnect(this._passwordNeededId);
+                this._passwordNeededId = 0;
+            }
+            if (this.navControls) {
+                this.navControls.destroy();
+                this.navControls = null;
+            }
 
-                if (this._fsToolbar) {
-                    this._fsToolbar.destroy();
-                    this._fsToolbar = null;
-                }
+            if (this._fsToolbar) {
+                this._fsToolbar.destroy();
+                this._fsToolbar = null;
+            }
 
-                if (this._fullscreenAction) {
-                    this._fullscreenAction.change_state(new GLib.Variant('b', false));
-                    this._fullscreenAction.disconnect(this._fsStateId);
-                }
+            if (this._fullscreenAction) {
+                this._fullscreenAction.change_state(new GLib.Variant('b', false));
+                this._fullscreenAction.disconnect(this._fsStateId);
+            }
 
-                if (this._nightModeId > 0) {
-                    Application.application.disconnect(this._nightModeId);
-                    this._nightModeId = 0;
-                }
-            }));
+            if (this._nightModeId > 0) {
+                Application.application.disconnect(this._nightModeId);
+                this._nightModeId = 0;
+            }
+        });
     }
 
     _getDefaultActions() {
@@ -125,17 +118,17 @@ var Preview = GObject.registerClass(class Preview extends Gtk.Stack {
               state: GLib.Variant.new('b', false),
               accels: ['F10'] },
             { name: 'properties',
-              callback: Lang.bind(this, this._properties) },
+              callback: this._properties.bind(this) },
             { name: 'open-current',
-              callback: Lang.bind(this, this._openCurrent) },
+              callback: this._openCurrent.bind(this) },
             { name: 'prev-page',
-              callback: Lang.bind(this, this.goPrev),
+              callback: this.goPrev.bind(this),
               accels: ['<Primary>Page_Up', 'Left'] },
             { name: 'next-page',
-              callback: Lang.bind(this, this.goNext),
+              callback: this.goNext.bind(this),
               accels: ['<Primary>Page_Down', 'Right'] },
             { name: 'go-back',
-              callback: Lang.bind(this, this.goBack),
+              callback: this.goBack.bind(this),
               accels: backAccels }
         ];
     }
@@ -146,9 +139,9 @@ var Preview = GObject.registerClass(class Preview extends Gtk.Stack {
             return;
 
         let dialog = new Properties.PropertiesDialog(doc.id);
-        dialog.connect('response', Lang.bind(this, function(widget, response) {
+        dialog.connect('response', (widget, response) => {
             widget.destroy();
-        }));
+        });
     }
 
     _openCurrent() {
@@ -172,9 +165,9 @@ var Preview = GObject.registerClass(class Preview extends Gtk.Stack {
             this._fsToolbar = this.createFullscreenToolbar();
             this.overlay.add_overlay(this._fsToolbar);
 
-            this._fsToolbar.connect('show-controls', Lang.bind(this, function() {
+            this._fsToolbar.connect('show-controls', () => {
                 this.controlsVisible = true;
-            }));
+            });
 
             Application.application.set_accels_for_action('view.fullscreen',
                                                           ['F11', 'Escape']);
@@ -222,7 +215,7 @@ var Preview = GObject.registerClass(class Preview extends Gtk.Stack {
          let settings = Gtk.Settings.get_default();
          let doubleClick = settings.gtk_double_click_time;
 
-         this._controlsFlipId = Mainloop.timeout_add(doubleClick, Lang.bind(this, this._flipControlsTimeout));
+         this._controlsFlipId = Mainloop.timeout_add(doubleClick, this._flipControlsTimeout.bind(this));
      }
 
      cancelControlsFlip() {
@@ -249,7 +242,7 @@ var Preview = GObject.registerClass(class Preview extends Gtk.Stack {
 
         if (this.canFullscreen) {
             this._fullscreenAction = new FullscreenAction.FullscreenAction({ window: this.mainWindow });
-            this._fsStateId = this._fullscreenAction.connect('notify::state', Lang.bind(this, this._onFullscreenChanged));
+            this._fsStateId = this._fullscreenAction.connect('notify::state', this._onFullscreenChanged.bind(this));
             actionGroup.add_action(this._fullscreenAction);
             Application.application.set_accels_for_action('view.fullscreen', ['F11']);
         }
@@ -300,22 +293,22 @@ var Preview = GObject.registerClass(class Preview extends Gtk.Stack {
         this._spinner.stop();
 
         let dialog = new Password.PasswordDialog(doc);
-        dialog.connect('response', Lang.bind(this, function(widget, response) {
+        dialog.connect('response', (widget, response) => {
             dialog.destroy();
             if (response == Gtk.ResponseType.CANCEL || response == Gtk.ResponseType.DELETE_EVENT)
                 Application.documentManager.setActiveItem(null);
-        }));
+        });
     }
 
     onLoadStarted(manager, doc) {
         this._clearLoadTimer();
-        this._loadShowId = Mainloop.timeout_add(_PDF_LOADER_TIMEOUT, Lang.bind(this, function() {
+        this._loadShowId = Mainloop.timeout_add(_PDF_LOADER_TIMEOUT, () => {
             this._loadShowId = 0;
 
             this.set_visible_child_name('spinner');
             this._spinner.start();
             return false;
-        }));
+        });
     }
 
     onLoadFinished(manager, doc) {
@@ -416,10 +409,10 @@ var PreviewToolbar = GObject.registerClass(class PreviewToolbar extends MainTool
         this.updateTitle();
         this.toolbar.show_all();
 
-        this.connect('destroy', Lang.bind(this, function() {
+        this.connect('destroy', () => {
             if (this._fsStateId > 0)
                 this.preview.getAction('fullscreen').disconnect(this._fsStateId);
-        }));
+        });
     }
 
     _getPreviewMenu() {
@@ -454,7 +447,7 @@ var PreviewToolbar = GObject.registerClass(class PreviewToolbar extends MainTool
         this.toolbar.pack_end(this._fullscreenButton);
 
         let action = this.preview.getAction('fullscreen');
-        this._fsStateId = action.connect('notify::state', Lang.bind(this, this._fullscreenStateChanged));
+        this._fsStateId = action.connect('notify::state', this._fullscreenStateChanged.bind(this));
         this._fullscreenStateChanged();
     }
 
@@ -500,23 +493,22 @@ const PreviewFullscreenToolbar = GObject.registerClass({
         let actionNames = ['gear-menu', 'find'];
         let signalIds = [];
 
-        actionNames.forEach(Lang.bind(this, function(actionName) {
+        actionNames.forEach((actionName) => {
             let signalName = 'action-state-changed::' + actionName;
-            let signalId = preview.actionGroup.connect(signalName, Lang.bind(this,
-                function(actionGroup, actionName, value) {
-                    let state = value.get_boolean();
-                    if (state)
-                        this.emit('show-controls');
-                }));
+            let signalId = preview.actionGroup.connect(signalName, (actionGroup, actionName, value) => {
+                let state = value.get_boolean();
+                if (state)
+                    this.emit('show-controls');
+            });
 
             signalIds.push(signalId);
-        }));
+        });
 
-        this.toolbar.connect('destroy', Lang.bind(this, function() {
+        this.toolbar.connect('destroy', () => {
             signalIds.forEach(function(signalId) {
                 preview.actionGroup.disconnect(signalId);
             });
-        }));
+        });
     }
 
     handleEvent(event) {
@@ -556,12 +548,12 @@ var PreviewNavControls = class PreviewNavControls {
 
             this.barWidget.get_style_context().add_class('osd');
             this._barRevealer.add(this.barWidget);
-            this.barWidget.connect('notify::hover', Lang.bind(this, function() {
+            this.barWidget.connect('notify::hover', () => {
                 if (this.barWidget.hover)
                     this._onEnterNotify();
                 else
                     this._onLeaveNotify();
-            }));
+            });
 
             this._barRevealer.show_all();
         }
@@ -577,9 +569,9 @@ var PreviewNavControls = class PreviewNavControls {
                                                                   pixel_size: 16 }), });
         prevButton.get_style_context().add_class('osd');
         this._prevRevealer.add(prevButton);
-        prevButton.connect('clicked', Lang.bind(this, this._onPrevClicked));
-        prevButton.connect('enter-notify-event', Lang.bind(this, this._onEnterNotify));
-        prevButton.connect('leave-notify-event', Lang.bind(this, this._onLeaveNotify));
+        prevButton.connect('clicked', this._onPrevClicked.bind(this));
+        prevButton.connect('enter-notify-event', this._onEnterNotify.bind(this));
+        prevButton.connect('leave-notify-event', this._onLeaveNotify.bind(this));
 
         this._nextRevealer = new Gtk.Revealer({ transition_type: Gtk.RevealerTransitionType.CROSSFADE,
                                                 margin_start: PREVIEW_NAVBAR_MARGIN,
@@ -592,20 +584,20 @@ var PreviewNavControls = class PreviewNavControls {
                                                                   pixel_size: 16 }) });
         nextButton.get_style_context().add_class('osd');
         this._nextRevealer.add(nextButton);
-        nextButton.connect('clicked', Lang.bind(this, this._onNextClicked));
-        nextButton.connect('enter-notify-event', Lang.bind(this, this._onEnterNotify));
-        nextButton.connect('leave-notify-event', Lang.bind(this, this._onLeaveNotify));
+        nextButton.connect('clicked', this._onNextClicked.bind(this));
+        nextButton.connect('enter-notify-event', this._onEnterNotify.bind(this));
+        nextButton.connect('leave-notify-event', this._onLeaveNotify.bind(this));
 
         this._prevRevealer.show_all();
         this._nextRevealer.show_all();
 
-        this._overlay.connect('motion-notify-event', Lang.bind(this, this._onMotion));
+        this._overlay.connect('motion-notify-event', this._onMotion.bind(this));
 
         this._tapGesture = new Gtk.GestureMultiPress({ propagation_phase: Gtk.PropagationPhase.CAPTURE,
                                                        touch_only: true,
                                                        widget: this.preview.view });
-        this._tapGesture.connect('released', Lang.bind(this, this._onMultiPressReleased));
-        this._tapGesture.connect('stopped', Lang.bind(this, this._onMultiPressStopped));
+        this._tapGesture.connect('released', this._onMultiPressReleased.bind(this));
+        this._tapGesture.connect('stopped', this._onMultiPressStopped.bind(this));
     }
 
     createBarWidget() {
@@ -639,7 +631,7 @@ var PreviewNavControls = class PreviewNavControls {
         if (device.input_source == Gdk.InputSource.TOUCHSCREEN)
             return false;
 
-        this._motionId = Mainloop.idle_add(Lang.bind(this, this._motionTimeout));
+        this._motionId = Mainloop.idle_add(this._motionTimeout.bind(this));
         return false;
     }
 
@@ -679,7 +671,7 @@ var PreviewNavControls = class PreviewNavControls {
 
     _queueAutoHide() {
         this._unqueueAutoHide();
-        this._autoHideId = Mainloop.timeout_add_seconds(_AUTO_HIDE_TIMEOUT, Lang.bind(this, this._autoHide));
+        this._autoHideId = Mainloop.timeout_add_seconds(_AUTO_HIDE_TIMEOUT, this._autoHide.bind(this));
     }
 
     _updateVisibility() {
@@ -729,10 +721,10 @@ var PreviewSearchbar = GObject.registerClass(class PreviewSearchbar extends Sear
 
         super._init();
 
-        this.connect('notify::search-mode-enabled', Lang.bind(this, function() {
+        this.connect('notify::search-mode-enabled', () => {
             let action = this.preview.getAction('find');
             action.change_state(GLib.Variant.new('b', this.search_mode_enabled));
-        }));
+        });
     }
 
     createSearchWidget() {
@@ -741,9 +733,9 @@ var PreviewSearchbar = GObject.registerClass(class PreviewSearchbar extends Sear
         box.get_style_context().add_class('linked');
 
         this.searchEntry = new Gtk.SearchEntry({ width_request: 500 });
-        this.searchEntry.connect('activate', Lang.bind(this, function() {
+        this.searchEntry.connect('activate', () => {
             this.preview.activateResult();
-        }));
+        });
         box.add(this.searchEntry);
 
         this._prev = new Gtk.Button({ action_name: 'view.find-prev' });

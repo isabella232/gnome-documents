@@ -25,8 +25,6 @@ const _ = imports.gettext.gettext;
 
 const Application = imports.application;
 
-const Lang = imports.lang;
-
 var PasswordDialog = GObject.registerClass(class PasswordDialog extends Gtk.Dialog {
     _init(doc) {
         let toplevel = Application.application.get_windows()[0];
@@ -77,23 +75,20 @@ var PasswordDialog = GObject.registerClass(class PasswordDialog extends Gtk.Dial
         grid.attach(label, 0, 1, 1, 1);
         grid.attach(entry, 1, 1, 1, 1);
 
-        entry.connect('realize', Lang.bind(this,
-            function() {
-                entry.grab_focus();
-            }));
-        entry.connect('changed', Lang.bind(this,
-            function() {
-                let length = entry.get_text_length();
-                this.set_response_sensitive(Gtk.ResponseType.OK, (length != 0));
-            }));
+        entry.connect('realize', () => {
+            entry.grab_focus();
+        });
+        entry.connect('changed', () => {
+            let length = entry.get_text_length();
+            this.set_response_sensitive(Gtk.ResponseType.OK, (length != 0));
+        });
 
-        this.connect('response', Lang.bind(this,
-            function(widget, response) {
-                if (response != Gtk.ResponseType.OK)
-                    return;
-                let passwd = entry.get_text();
-                Application.documentManager.reloadActiveItem(passwd);
-            }));
+        this.connect('response', (widget, response) => {
+            if (response != Gtk.ResponseType.OK)
+                return;
+            let passwd = entry.get_text();
+            Application.documentManager.reloadActiveItem(passwd);
+        });
 
         this.show_all();
     }

@@ -23,7 +23,6 @@ const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const GObject = imports.gi.GObject;
 
-const Lang = imports.lang;
 const Signals = imports.signals;
 
 var BaseManager = class BaseManager {
@@ -177,8 +176,8 @@ var BaseModel = GObject.registerClass(class BaseModel extends Gio.Menu {
     _init(manager) {
         super._init();
         this._manager = manager;
-        this._manager.connect('item-added', Lang.bind(this, this._refreshModel));
-        this._manager.connect('item-removed', Lang.bind(this, this._refreshModel));
+        this._manager.connect('item-added', this._refreshModel.bind(this));
+        this._manager.connect('item-removed', this._refreshModel.bind(this));
 
         this._refreshModel();
     }

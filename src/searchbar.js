@@ -24,8 +24,6 @@ const GLib = imports.gi.GLib;
 const GObject = imports.gi.GObject;
 const Gtk = imports.gi.Gtk;
 
-const Lang = imports.lang;
-
 const Application = imports.application;
 const Manager = imports.manager;
 
@@ -45,13 +43,12 @@ var Searchbar = GObject.registerClass({
         this.add(searchWidget);
         this.connect_entry(this.searchEntry);
 
-        this.searchEntry.connect('search-changed', Lang.bind(this,
-            function() {
-                if (this.searchChangeBlocked)
-                    return;
+        this.searchEntry.connect('search-changed', () => {
+            if (this.searchChangeBlocked)
+                return;
 
-                this.entryChanged();
-            }));
+            this.entryChanged();
+        });
 
         this.show_all();
     }
@@ -104,7 +101,7 @@ var Dropdown = GObject.registerClass(class Dropdown extends Gtk.Popover {
 
         [Application.sourceManager,
          Application.searchTypeManager,
-         Application.searchMatchManager].forEach(Lang.bind(this, function(manager) {
+         Application.searchMatchManager].forEach((manager) => {
              let model = new Manager.BaseModel(manager);
 
              // HACK: see https://bugzilla.gnome.org/show_bug.cgi?id=733977
@@ -115,6 +112,6 @@ var Dropdown = GObject.registerClass(class Dropdown extends Gtk.Popover {
              w.valign = Gtk.Align.START;
              w.vexpand = true;
              popover.destroy();
-         }));
+         });
     }
 });

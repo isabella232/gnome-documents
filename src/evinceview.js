@@ -28,7 +28,6 @@ const GObject = imports.gi.GObject;
 const Gtk = imports.gi.Gtk;
 const _ = imports.gettext.gettext;
 
-const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 
 const Application = imports.application;
@@ -90,9 +89,9 @@ var EvinceView = GObject.registerClass(class EvinceView extends Preview.Preview 
 
     _places() {
         let dialog = new Places.PlacesDialog(this._model, this._bookmarks);
-        dialog.connect('response', Lang.bind(this, function(widget, response) {
+        dialog.connect('response', (widget, response) => {
             widget.destroy();
-        }));
+        });
     }
 
     _findStateChanged(action) {
@@ -150,56 +149,56 @@ var EvinceView = GObject.registerClass(class EvinceView extends Preview.Preview 
     createActions() {
         let actions = [
             { name: 'zoom-in',
-              callback: Lang.bind(this, this._zoomIn),
+              callback: this._zoomIn.bind(this),
               accels: ['<Primary>plus', '<Primary>equal'] },
             { name: 'zoom-out',
-              callback: Lang.bind(this, this._zoomOut),
+              callback: this._zoomOut.bind(this),
               accels: ['<Primary>minus'] },
             { name: 'copy',
-              callback: Lang.bind(this, this._copy),
+              callback: this._copy.bind(this),
               accels: ['<Primary>c'] },
             { name: 'rotate-left',
-              callback: Lang.bind(this, this._rotateLeft),
+              callback: this._rotateLeft.bind(this),
               accels: ['<Primary>Left'] },
             { name: 'rotate-right',
-              callback: Lang.bind(this, this._rotateRight),
+              callback: this._rotateRight.bind(this),
               accels: ['<Primary>Right'] },
             { name: 'find',
               callback: Utils.actionToggleCallback,
               state: GLib.Variant.new('b', false),
-              stateChanged: Lang.bind(this, this._findStateChanged),
+              stateChanged: this._findStateChanged.bind(this),
               accels: ['<Primary>f'] },
             { name: 'find-prev',
-              callback: Lang.bind(this, this.findPrev),
+              callback: this.findPrev.bind(this),
               accels: ['<Shift><Primary>g'] },
             { name: 'find-next',
-              callback: Lang.bind(this, this.findNext),
+              callback: this.findNext.bind(this),
               accels: ['<Primary>g'] },
             { name: 'places',
-              callback: Lang.bind(this, this._places),
+              callback: this._places.bind(this),
               accels: ['<Primary>b'] },
             { name: 'bookmark-page',
               callback: Utils.actionToggleCallback,
               state: GLib.Variant.new('b', false),
-              stateChanged: Lang.bind(this, this._bookmarkStateChanged),
+              stateChanged: this._bookmarkStateChanged.bind(this),
               accels: ['<Primary>d'] },
             { name: 'edit-current',
-              callback: Lang.bind(this, this._edit) },
+              callback: this._edit.bind(this) },
             { name: 'print-current',
-              callback: Lang.bind(this, this._print),
+              callback: this._print.bind(this),
               accels: ['<Primary>p'] },
             { name: 'scroll-up',
-              callback: Lang.bind(this, this._scrollUp),
+              callback: this._scrollUp.bind(this),
               accels: ['Page_Up'] },
             { name: 'scroll-down',
-              callback: Lang.bind(this, this._scrollDown),
+              callback: this._scrollDown.bind(this),
               accels: ['Page_Down'] }
         ];
 
         actions.push({ name: 'present-current',
                        callback: Utils.actionToggleCallback,
                        state: GLib.Variant.new('b', false),
-                       stateChanged: Lang.bind(this, this._presentStateChanged),
+                       stateChanged: this._presentStateChanged.bind(this),
                        accels: ['F5'] });
 
         return actions;
@@ -217,27 +216,21 @@ var EvinceView = GObject.registerClass(class EvinceView extends Preview.Preview 
         let sw = new Gtk.ScrolledWindow({ hexpand: true,
                                           vexpand: true });
         sw.get_style_context().add_class('documents-scrolledwin');
-        sw.get_hscrollbar().connect('button-press-event', Lang.bind(this, this._onScrollbarClick));
-        sw.get_vscrollbar().connect('button-press-event', Lang.bind(this, this._onScrollbarClick));
-        sw.get_hadjustment().connect('value-changed', Lang.bind(this, this._onAdjustmentChanged));
-        sw.get_vadjustment().connect('value-changed', Lang.bind(this, this._onAdjustmentChanged));
+        sw.get_hscrollbar().connect('button-press-event', this._onScrollbarClick.bind(this));
+        sw.get_vscrollbar().connect('button-press-event', this._onScrollbarClick.bind(this));
+        sw.get_hadjustment().connect('value-changed', this._onAdjustmentChanged.bind(this));
+        sw.get_vadjustment().connect('value-changed', this._onAdjustmentChanged.bind(this));
 
         this._evView = EvView.View.new();
         sw.add(this._evView);
         this._evView.show();
 
-        this._evView.connect('notify::can-zoom-in', Lang.bind(this,
-            this._onCanZoomInChanged));
-        this._evView.connect('notify::can-zoom-out', Lang.bind(this,
-            this._onCanZoomOutChanged));
-        this._evView.connect('button-press-event', Lang.bind(this,
-            this._onButtonPressEvent));
-        this._evView.connect('button-release-event', Lang.bind(this,
-            this._onButtonReleaseEvent));
-        this._evView.connect('selection-changed', Lang.bind(this,
-            this._onViewSelectionChanged));
-        this._evView.connect('external-link', Lang.bind(this,
-            this._handleExternalLink));
+        this._evView.connect('notify::can-zoom-in', this._onCanZoomInChanged.bind(this));
+        this._evView.connect('notify::can-zoom-out', this._onCanZoomOutChanged.bind(this));
+        this._evView.connect('button-press-event', this._onButtonPressEvent.bind(this));
+        this._evView.connect('button-release-event', this._onButtonReleaseEvent.bind(this));
+        this._evView.connect('selection-changed', this._onViewSelectionChanged.bind(this));
+        this._evView.connect('external-link', this._handleExternalLink.bind(this));
 
         return sw;
     }
@@ -263,7 +256,7 @@ var EvinceView = GObject.registerClass(class EvinceView extends Preview.Preview 
         docModel.set_continuous(false);
         docModel.set_page_layout(EvView.PageLayout.AUTOMATIC);
 
-        this._model.connect('page-changed', Lang.bind(this, this._onPageChanged));
+        this._model.connect('page-changed', this._onPageChanged.bind(this));
 
         this._metadata = this._loadMetadata();
         if (this._metadata)
@@ -344,7 +337,7 @@ var EvinceView = GObject.registerClass(class EvinceView extends Preview.Preview 
 
     _showPresentation(output) {
         this._presentation = new Presentation.PresentationWindow(this._model);
-        this._presentation.connect('destroy', Lang.bind(this, this._hidePresentation));
+        this._presentation.connect('destroy', this._hidePresentation.bind(this));
         if (output)
             this._presentation.setOutput(output);
     }
@@ -355,15 +348,12 @@ var EvinceView = GObject.registerClass(class EvinceView extends Preview.Preview 
             this._showPresentation();
         } else {
             let chooser = new Presentation.PresentationOutputChooser(outputs);
-            chooser.connect('output-activated', Lang.bind(this,
-                function(chooser, output) {
-                    if (output) {
-                        this._showPresentation(output);
-                    } else {
-                        this._hidePresentation();
-                    }
-                }));
-
+            chooser.connect('output-activated', (chooser, output) => {
+                if (output)
+                    this._showPresentation(output);
+                else
+                    this._hidePresentation();
+            });
         }
     }
 
@@ -509,7 +499,7 @@ var EvinceView = GObject.registerClass(class EvinceView extends Preview.Preview 
         let evDoc = this._model.get_document();
         this._jobFind = EvView.JobFind.new(evDoc, this._model.get_page(), evDoc.get_n_pages(),
                                            str, false);
-        this._jobFind.connect('updated', Lang.bind(this, this._onSearchJobUpdated));
+        this._jobFind.connect('updated', this._onSearchJobUpdated.bind(this));
         this._evView.find_started(this._jobFind);
 
         this._jobFind.scheduler_push_job(EvView.JobPriority.PRIORITY_NONE);
@@ -593,7 +583,7 @@ const EvinceViewNavControls = class EvinceViewNavControls extends Preview.Previe
 
     setModel(model) {
         this.barWidget.document_model = model;
-        model.connect('page-changed', Lang.bind(this, this._updateVisibility));
+        model.connect('page-changed', this._updateVisibility.bind(this));
     }
 }
 

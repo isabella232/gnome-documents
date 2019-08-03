@@ -23,7 +23,6 @@ const GObject = imports.gi.GObject;
 const Gtk = imports.gi.Gtk;
 const _ = imports.gettext.gettext;
 
-const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 
 const Application = imports.application;
@@ -44,7 +43,7 @@ var EditView = GObject.registerClass(class EditView extends Preview.Preview {
     createActions() {
         return [
             { name: 'view-current',
-              callback: Lang.bind(this, this._viewCurrent) }
+              callback: this._viewCurrent.bind(this) }
         ];
     }
 
@@ -54,7 +53,7 @@ var EditView = GObject.registerClass(class EditView extends Preview.Preview {
         this._webView = new WebKit.WebView();
         overlay.add(this._webView);
         this._webView.show();
-        this._webView.connect('notify::estimated-load-progress', Lang.bind(this, this._onProgressChanged));
+        this._webView.connect('notify::estimated-load-progress', this._onProgressChangedbind(this));
 
         this._progressBar = new Gtk.ProgressBar({ halign: Gtk.Align.FILL,
                                                   valign: Gtk.Align.START });
@@ -105,7 +104,7 @@ var EditView = GObject.registerClass(class EditView extends Preview.Preview {
 
         if (progress == 1.0 || !loading) {
             if (!this._timeoutId)
-                this._timeoutId = Mainloop.timeout_add(500, Lang.bind(this, this._onTimeoutExpired));
+                this._timeoutId = Mainloop.timeout_add(500, this._onTimeoutExpiredbind(this));
         } else {
             if (this._timeoutId) {
                 Mainloop.source_remove(this._timeoutId);

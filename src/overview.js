@@ -29,7 +29,6 @@ const GObject = imports.gi.GObject;
 const Gtk = imports.gi.Gtk;
 const _ = imports.gettext.gettext;
 
-const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 
 const Application = imports.application;
@@ -89,18 +88,15 @@ const ViewModel = GObject.registerClass(class ViewModel extends Gtk.ListStore {
         this._mode = windowMode;
         this._rowRefKey = "row-ref-" + this._mode;
 
-        Application.documentManager.connect('item-added',
-            Lang.bind(this, this._onItemAdded));
-        Application.documentManager.connect('item-removed',
-            Lang.bind(this, this._onItemRemoved));
+        Application.documentManager.connect('item-added', this._onItemAdded.bind(this));
+        Application.documentManager.connect('item-removed', this._onItemRemoved.bind(this));
 
         [ this._offsetController, this._trackerController ] = getController(this._mode);
-        this._trackerController.connect('query-status-changed', Lang.bind(this,
-            function(o, status) {
-                if (!status)
-                    return;
-                this._clear();
-            }));
+        this._trackerController.connect('query-status-changed', (o, status) => {
+            if (!status)
+                return;
+            this._clear();
+        });
 
         // populate with the initial items
         let items = Application.documentManager.getItems();
@@ -142,17 +138,16 @@ const ViewModel = GObject.registerClass(class ViewModel extends Gtk.ListStore {
         // Results" page will not work correctly.
         this._resetCount();
 
-        this.foreach(Lang.bind(this,
-            function(model, path, iter) {
-                let id = model.get_value(iter, Gd.MainColumns.ID);
+        this.foreach((model, path, iter) => {
+            let id = model.get_value(iter, Gd.MainColumns.ID);
 
-                if (id == doc.id) {
-                    this.remove(iter);
-                    return true;
-                }
+            if (id == doc.id) {
+                this.remove(iter);
+                return true;
+            }
 
-                return false;
-            }));
+            return false;
+        });
 
         doc.rowRefs[this._rowRefKey] = null;
     }
@@ -206,13 +201,13 @@ const ViewModel = GObject.registerClass(class ViewModel extends Gtk.ListStore {
         if (!activeCollection || this._mode != windowMode) {
             if (this._mode == WindowMode.WindowMode.COLLECTIONS && !doc.collection
                 || this._mode == WindowMode.WindowMode.DOCUMENTS && doc.collection) {
-                this._infoUpdatedIds[doc.id] = doc.connect('info-updated', Lang.bind(this, this._onInfoUpdated));
+                this._infoUpdatedIds[doc.id] = doc.connect('info-updated', this._onInfoUpdated.bind(this));
                 return;
             }
         }
 
         this._addItem(doc);
-        this._infoUpdatedIds[doc.id] = doc.connect('info-updated', Lang.bind(this, this._onInfoUpdated));
+        this._infoUpdatedIds[doc.id] = doc.connect('info-updated', this._onInfoUpdated.bind(this));
     }
 
     _onItemRemoved(source, doc) {
@@ -223,12 +218,11 @@ const ViewModel = GObject.registerClass(class ViewModel extends Gtk.ListStore {
 
     _resetCount() {
         if (this._resetCountId == 0) {
-            this._resetCountId = Mainloop.timeout_add(_RESET_COUNT_TIMEOUT, Lang.bind(this,
-                function() {
-                    this._resetCountId = 0;
-                    this._offsetController.resetItemCount();
-                    return false;
-                }));
+            this._resetCountId = Mainloop.timeout_add(_RESET_COUNT_TIMEOUT, () => {
+                this._resetCountId = 0;
+                this._offsetController.resetItemCount();
+                return false;
+            });
         }
     }
 });
@@ -293,29 +287,28 @@ const EmptyResultsBox = GObject.registerClass(class EmptyResultsBox extends Gtk.
                                       use_markup: true });
         this.add(details);
 
-        details.connect('activate-link', Lang.bind(this,
-            function(label, uri) {
-                if (uri != 'system-settings')
-                    return false;
+        details.connect('activate-link', (label, uri) => {
+            if (uri != 'system-settings')
+                return false;
 
-                try {
-                    let app = Gio.AppInfo.create_from_commandline(
-                        'gnome-control-center online-accounts', null, 0);
+            try {
+                let app = Gio.AppInfo.create_from_commandline(
+                    'gnome-control-center online-accounts', null, 0);
 
-                    let screen = this.get_screen();
-                    let display = screen ? screen.get_display() : Gdk.Display.get_default();
-                    let ctx = display.get_app_launch_context();
+                let screen = this.get_screen();
+                let display = screen ? screen.get_display() : Gdk.Display.get_default();
+                let ctx = display.get_app_launch_context();
 
-                    if (screen)
-                        ctx.set_screen(screen);
+                if (screen)
+                    ctx.set_screen(screen);
 
-                    app.launch([], ctx);
-                } catch(e) {
-                    logError(e, 'Unable to launch gnome-control-center');
-                }
+                app.launch([], ctx);
+            } catch(e) {
+                logError(e, 'Unable to launch gnome-control-center');
+            }
 
-                return true;
-            }));
+            return true;
+        });
     }
 });
 
@@ -325,61 +318,52 @@ const OverviewSearchbar = GObject.registerClass(class OverviewSearchbar extends 
 
         super._init();
 
-        let sourcesId = Application.sourceManager.connect('active-changed',
-            Lang.bind(this, this._onActiveSourceChanged));
-        let searchTypeId = Application.searchTypeManager.connect('active-changed',
-            Lang.bind(this, this._onActiveTypeChanged));
-        let searchMatchId = Application.searchMatchManager.connect('active-changed',
-            Lang.bind(this, this._onActiveMatchChanged));
-        let collectionId = Application.documentManager.connect('active-collection-changed',
-            Lang.bind(this, this._onActiveCollectionChanged));
+        let sourcesId = Application.sourceManager.connect('active-changed', this._onActiveSourceChanged.bind(this));
+        let searchTypeId = Application.searchTypeManager.connect('active-changed', this._onActiveTypeChanged.bind(this));
+        let searchMatchId = Application.searchMatchManager.connect('active-changed', this._onActiveMatchChanged.bind(this));
+        let collectionId = Application.documentManager.connect('active-collection-changed', this._onActiveCollectionChanged.bind(this));
 
         this._onActiveSourceChanged();
         this._onActiveTypeChanged();
         this._onActiveMatchChanged();
 
         let searchAction = this._view.getAction('search');
-        this.connect('notify::search-mode-enabled', Lang.bind(this, function() {
+        this.connect('notify::search-mode-enabled', () => {
             let searchEnabled = this.search_mode_enabled;
             searchAction.change_state(GLib.Variant.new('b', searchEnabled));
-        }));
+        });
 
         // connect to the search action state for visibility
-        let searchStateId = searchAction.connect('notify::state', Lang.bind(this, this._onActionStateChanged));
+        let searchStateId = searchAction.connect('notify::state', this._onActionStateChanged.bind(this));
         this._onActionStateChanged(searchAction);
 
         this.searchEntry.set_text(Application.searchController.getString());
-        this.connect('destroy', Lang.bind(this,
-            function() {
-                Application.sourceManager.disconnect(sourcesId);
-                Application.searchTypeManager.disconnect(searchTypeId);
-                Application.searchMatchManager.disconnect(searchMatchId);
-                Application.documentManager.disconnect(collectionId);
+        this.connect('destroy', () => {
+            Application.sourceManager.disconnect(sourcesId);
+            Application.searchTypeManager.disconnect(searchTypeId);
+            Application.searchMatchManager.disconnect(searchMatchId);
+            Application.documentManager.disconnect(collectionId);
 
-                searchAction.disconnect(searchStateId);
-            }));
+            searchAction.disconnect(searchStateId);
+        });
     }
 
     createSearchWidget() {
         // create the search entry
         this.searchEntry = new Gd.TaggedEntry({ width_request: 500 });
-        this.searchEntry.connect('tag-clicked',
-            Lang.bind(this, this._onTagClicked));
-        this.searchEntry.connect('tag-button-clicked',
-            Lang.bind(this, this._onTagButtonClicked));
+        this.searchEntry.connect('tag-clicked', this._onTagClicked.bind(this));
+        this.searchEntry.connect('tag-button-clicked', this._onTagButtonClicked.bind(this));
 
         this._sourceTag = new Gd.TaggedEntryTag();
         this._typeTag = new Gd.TaggedEntryTag();
         this._matchTag = new Gd.TaggedEntryTag();
 
         // connect to search string changes in the controller
-        this._searchChangedId = Application.searchController.connect('search-string-changed',
-            Lang.bind(this, this._onSearchStringChanged));
+        this._searchChangedId = Application.searchController.connect('search-string-changed', this._onSearchStringChanged.bind(this));
 
-        this.searchEntry.connect('destroy', Lang.bind(this,
-            function() {
-                Application.searchController.disconnect(this._searchChangedId);
-            }));
+        this.searchEntry.connect('destroy', () => {
+            Application.searchController.disconnect(this._searchChangedId);
+        });
 
         // create the dropdown button
         let dropdown = new Searchbar.Dropdown();
@@ -403,8 +387,7 @@ const OverviewSearchbar = GObject.registerClass(class OverviewSearchbar extends 
         Application.searchController.setString(currentText);
 
         // connect to search string changes in the controller
-        this._searchChangedId = Application.searchController.connect('search-string-changed',
-            Lang.bind(this, this._onSearchStringChanged));
+        this._searchChangedId = Application.searchController.connect('search-string-changed', this._onSearchStringChanged.bind(this));
     }
 
     _onSearchStringChanged(controller, string) {
@@ -514,22 +497,20 @@ const OverviewToolbar = GObject.registerClass(class OverviewToolbar extends Main
 
         // setup listeners to mode changes that affect the toolbar layout
         let selectionModeAction = this._view.getAction('selection-mode');
-        let selectionModeStateId = selectionModeAction.connect('notify::state',
-            Lang.bind(this, this._resetToolbarMode));
+        let selectionModeStateId = selectionModeAction.connect('notify::state', this._resetToolbarMode.bind(this));
         this._resetToolbarMode();
 
         this._activeCollection = Application.documentManager.getActiveCollection();
         if (this._activeCollection)
-            this._activeCollection.connect('info-updated', Lang.bind(this, this._setToolbarTitle));
+            this._activeCollection.connect('info-updated', this._setToolbarTitle.bind(this));
 
-        this.connect('destroy', Lang.bind(this,
-            function() {
-                if (this._infoUpdatedId != 0)
-                    this._activeCollection.disconnect(this._infoUpdatedId);
+        this.connect('destroy', () => {
+            if (this._infoUpdatedId != 0)
+                this._activeCollection.disconnect(this._infoUpdatedId);
 
-                this._clearStateData();
-                selectionModeAction.disconnect(selectionModeStateId);
-            }));
+            this._clearStateData();
+            selectionModeAction.disconnect(selectionModeStateId);
+        });
     }
 
     _addViewMenuButton() {
@@ -542,8 +523,7 @@ const OverviewToolbar = GObject.registerClass(class OverviewToolbar extends Main
                                                     popover: viewMenu });
         this.toolbar.pack_end(this._viewMenuButton);
 
-        this._viewSettingsId = Application.settings.connect('changed::view-as',
-            Lang.bind(this, this._updateViewMenuButton));
+        this._viewSettingsId = Application.settings.connect('changed::view-as', this._updateViewMenuButton.bind(this));
         this._updateViewMenuButton();
     }
 
@@ -598,8 +578,7 @@ const OverviewToolbar = GObject.registerClass(class OverviewToolbar extends Main
 
         // connect to selection changes while in this mode
         this._selectionChangedId =
-            Application.selectionController.connect('selection-changed',
-                                               Lang.bind(this, this._setToolbarTitle));
+            Application.selectionController.connect('selection-changed', this._setToolbarTitle.bind(this));
 
         this.addSearchButton('view.search');
     }
@@ -628,7 +607,7 @@ const OverviewToolbar = GObject.registerClass(class OverviewToolbar extends Main
 
     _onActiveCollectionChanged(manager, activeCollection) {
         if (activeCollection) {
-            this._infoUpdatedId = activeCollection.connect('info-updated', Lang.bind(this, this._setToolbarTitle));
+            this._infoUpdatedId = activeCollection.connect('info-updated', this._setToolbarTitle.bind(this));
         } else {
             if (this._infoUpdatedId != 0) {
                 this._activeCollection.disconnect(this._infoUpdatedId);
@@ -657,8 +636,7 @@ const OverviewToolbar = GObject.registerClass(class OverviewToolbar extends Main
 
         // connect to active collection changes while in this mode
         this._collectionId =
-            Application.documentManager.connect('active-collection-changed',
-                                             Lang.bind(this, this._onActiveCollectionChanged));
+            Application.documentManager.connect('active-collection-changed', this._onActiveCollectionChanged.bind(this));
     }
 
     _clearStateData() {
@@ -708,13 +686,11 @@ const OverviewToolbar = GObject.registerClass(class OverviewToolbar extends Main
         this._setToolbarTitle();
         this.toolbar.show_all();
 
-        this._countChangedId = Application.offsetDocumentsController.connect('item-count-changed', Lang.bind(this,
-            function(controller, count) {
-                this.toolbar.foreach(Lang.bind(this,
-                    function(child) {
-                        child.set_sensitive(count != 0);
-                    }));
-            }));
+        this._countChangedId = Application.offsetDocumentsController.connect('item-count-changed', (controller, count) => {
+            this.toolbar.foreach((child) => {
+                child.set_sensitive(count != 0);
+            });
+        });
 
         if (Application.searchController.getString() != '')
             this._view.getAction('search').change_state(GLib.Variant.new('b', true));
@@ -753,40 +729,31 @@ const ViewContainer = GObject.registerClass(class ViewContainer extends Gtk.Stac
         this.show_all();
         this.set_visible_child_full('view', Gtk.StackTransitionType.NONE);
 
-        this.view.connect('item-activated',
-                          Lang.bind(this, this._onItemActivated));
-        this.view.connect('selection-mode-request',
-                          Lang.bind(this, this._onSelectionModeRequest));
-        this.view.connect('view-selection-changed',
-                          Lang.bind(this, this._onViewSelectionChanged));
-        this.view.connect('notify::view-type',
-                          Lang.bind(this, this._onViewTypeChanged));
-        this.view.connect('size_allocate',
-                          Lang.bind(this, this._onSizeAllocate));
+        this.view.connect('item-activated', this._onItemActivated.bind(this));
+        this.view.connect('selection-mode-request', this._onSelectionModeRequest.bind(this));
+        this.view.connect('view-selection-changed', this._onViewSelectionChanged.bind(this));
+        this.view.connect('notify::view-type', this._onViewTypeChanged.bind(this));
+        this.view.connect('size_allocate', this._onSizeAllocate.bind(this));
 
 
         this._selectionModeAction = overview.getAction('selection-mode');
-        this._selectionModeAction.connect('notify::state', Lang.bind(this, this._onSelectionModeChanged));
+        this._selectionModeAction.connect('notify::state', this._onSelectionModeChanged.bind(this));
         this._onSelectionModeChanged();
 
-        Application.modeController.connect('window-mode-changed',
-            Lang.bind(this, this._onWindowModeChanged));
+        Application.modeController.connect('window-mode-changed', this._onWindowModeChanged.bind(this));
         this._onWindowModeChanged();
 
         [ this._offsetController, this._trackerController ] = getController(this._mode);
 
-        this._offsetController.connect('item-count-changed', Lang.bind(this,
-            function(controller, count) {
-                if (count == 0)
-                    this.set_visible_child_name('no-results');
-                else
-                    this.set_visible_child_name('view');
-            }));
+        this._offsetController.connect('item-count-changed', (controller, count) => {
+            if (count == 0)
+                this.set_visible_child_name('no-results');
+            else
+                this.set_visible_child_name('view');
+        });
 
-        this._trackerController.connect('query-error',
-            Lang.bind(this, this._onQueryError));
-        this._trackerController.connect('query-status-changed',
-            Lang.bind(this, this._onQueryStatusChanged));
+        this._trackerController.connect('query-error', this._onQueryError.bind(this));
+        this._trackerController.connect('query-status-changed', this._onQueryStatusChanged.bind(this));
         // ensure the tracker controller is started
         this._trackerController.start();
 
@@ -828,69 +795,66 @@ const ViewContainer = GObject.registerClass(class ViewContainer extends Gtk.Stac
         let typeRenderer =
             new Gd.StyledTextRenderer({ xpad: 16 });
         typeRenderer.add_class('dim-label');
-        listWidget.add_renderer(typeRenderer, Lang.bind(this,
-            function(col, cell, model, iter) {
-                let id = model.get_value(iter, Gd.MainColumns.ID);
-                let doc = Application.documentManager.getItemById(id);
+        listWidget.add_renderer(typeRenderer, (col, cell, model, iter) => {
+            let id = model.get_value(iter, Gd.MainColumns.ID);
+            let doc = Application.documentManager.getItemById(id);
 
-                typeRenderer.text = doc.typeDescription;
-            }));
+            typeRenderer.text = doc.typeDescription;
+        });
 
         let whereRenderer =
             new Gd.StyledTextRenderer({ xpad: 16 });
         whereRenderer.add_class('dim-label');
-        listWidget.add_renderer(whereRenderer, Lang.bind(this,
-            function(col, cell, model, iter) {
-                let id = model.get_value(iter, Gd.MainColumns.ID);
-                let doc = Application.documentManager.getItemById(id);
+        listWidget.add_renderer(whereRenderer, (col, cell, model, iter) => {
+            let id = model.get_value(iter, Gd.MainColumns.ID);
+            let doc = Application.documentManager.getItemById(id);
 
-                whereRenderer.text = doc.sourceName;
-            }));
+            whereRenderer.text = doc.sourceName;
+        });
 
         let dateRenderer =
             new Gtk.CellRendererText({ xpad: 32 });
-        listWidget.add_renderer(dateRenderer, Lang.bind(this,
-            function(col, cell, model, iter) {
-                let id = model.get_value(iter, Gd.MainColumns.ID);
-                let doc = Application.documentManager.getItemById(id);
-                let DAY = 86400000000;
+        listWidget.add_renderer(dateRenderer, (col, cell, model, iter) => {
+            let id = model.get_value(iter, Gd.MainColumns.ID);
+            let doc = Application.documentManager.getItemById(id);
+            let DAY = 86400000000;
 
-                let now = GLib.DateTime.new_now_local();
-                let mtime = GLib.DateTime.new_from_unix_local(doc.mtime);
-                let difference = now.difference(mtime);
-                let days = Math.floor(difference / DAY);
-                let weeks = Math.floor(difference / (7 * DAY));
-                let months = Math.floor(difference / (30 * DAY));
-                let years = Math.floor(difference / (365 * DAY));
+            let now = GLib.DateTime.new_now_local();
+            let mtime = GLib.DateTime.new_from_unix_local(doc.mtime);
+            let difference = now.difference(mtime);
+            let days = Math.floor(difference / DAY);
+            let weeks = Math.floor(difference / (7 * DAY));
+            let months = Math.floor(difference / (30 * DAY));
+            let years = Math.floor(difference / (365 * DAY));
 
-                if (difference < DAY) {
-                    dateRenderer.text = mtime.format('%X');
-                } else if (difference < 2 * DAY) {
-                    dateRenderer.text = _("Yesterday");
-                } else if (difference < 7 * DAY) {
-                    dateRenderer.text = Gettext.ngettext("%d day ago",
-                                                         "%d days ago",
-                                                         days).format(days);
-                } else if (difference < 14 * DAY) {
-                    dateRenderer.text = _("Last week");
-                } else if (difference < 28 * DAY) {
-                    dateRenderer.text = Gettext.ngettext("%d week ago",
-                                                         "%d weeks ago",
-                                                         weeks).format(weeks);
-                } else if (difference < 60 * DAY) {
-                    dateRenderer.text = _("Last month");
-                } else if (difference < 360 * DAY) {
-                    dateRenderer.text = Gettext.ngettext("%d month ago",
-                                                         "%d months ago",
-                                                         months).format(months);
-                } else if (difference < 730 * DAY) {
-                    dateRenderer.text = _("Last year");
-                } else {
-                    dateRenderer.text = Gettext.ngettext("%d year ago",
-                                                         "%d years ago",
-                                                         years).format(years);
-                }
-            }));
+            if (difference < DAY) {
+                dateRenderer.text = mtime.format('%X');
+            } else if (difference < 2 * DAY) {
+                dateRenderer.text = _("Yesterday");
+            } else if (difference < 7 * DAY) {
+                dateRenderer.text = Gettext.ngettext("%d day ago",
+                                                     "%d days ago",
+                                                     days).format(days);
+            } else if (difference < 14 * DAY) {
+                dateRenderer.text = _("Last week");
+            } else if (difference < 28 * DAY) {
+                dateRenderer.text = Gettext.ngettext("%d week ago",
+                                                     "%d weeks ago",
+                                                     weeks).format(weeks);
+            } else if (difference < 60 * DAY) {
+                dateRenderer.text = _("Last month");
+            } else if (difference < 360 * DAY) {
+                dateRenderer.text = Gettext.ngettext("%d month ago",
+                                                     "%d months ago",
+                                                     months).format(months);
+            } else if (difference < 730 * DAY) {
+                dateRenderer.text = _("Last year");
+            } else {
+                dateRenderer.text = Gettext.ngettext("%d year ago",
+                                                     "%d years ago",
+                                                     years).format(years);
+            }
+        });
     }
 
     _onSelectionModeRequest() {
@@ -947,26 +911,25 @@ const ViewContainer = GObject.registerClass(class ViewContainer extends Gtk.Stac
 
         let generic = this.view.get_generic_view();
         let first = true;
-        this._model.foreach(Lang.bind(this,
-            function(model, path, iter) {
-                let id = this._model.get_value(iter, Gd.MainColumns.ID);
-                let idIndex = selected.indexOf(id);
+        this._model.foreach((model, path, iter) => {
+            let id = this._model.get_value(iter, Gd.MainColumns.ID);
+            let idIndex = selected.indexOf(id);
 
-                if (idIndex != -1) {
-                    this._model.set_value(iter, Gd.MainColumns.SELECTED, true);
-                    newSelection.push(id);
+            if (idIndex != -1) {
+                this._model.set_value(iter, Gd.MainColumns.SELECTED, true);
+                newSelection.push(id);
 
-                    if (first) {
-                        generic.scroll_to_path(path);
-                        first = false;
-                    }
+                if (first) {
+                    generic.scroll_to_path(path);
+                    first = false;
                 }
+            }
 
-                if (newSelection.length == selected.length)
-                    return true;
+            if (newSelection.length == selected.length)
+                return true;
 
-                return false;
-            }));
+            return false;
+        });
 
         Application.selectionController.setSelection(newSelection);
     }
@@ -996,11 +959,10 @@ const ViewContainer = GObject.registerClass(class ViewContainer extends Gtk.Stac
     }
 
     _connectView() {
-        this._edgeHitId = this.view.connect('edge-reached', Lang.bind(this,
-            function (view, pos) {
-                if (pos == Gtk.PositionType.BOTTOM)
-                    this._offsetController.increaseOffset();
-            }));
+        this._edgeHitId = this.view.connect('edge-reached', (view, pos) => {
+            if (pos == Gtk.PositionType.BOTTOM)
+                this._offsetController.increaseOffset();
+        });
     }
 
     _disconnectView() {
@@ -1047,8 +1009,7 @@ var OverviewStack = GObject.registerClass(class OverviewStack extends Gtk.Box {
         this._search = new ViewContainer(this, WindowMode.WindowMode.SEARCH);
         this._stack.add_named(this._search, 'search');
 
-        this._stack.connect('notify::visible-child',
-                            Lang.bind(this, this._onVisibleChildChanged));
+        this._stack.connect('notify::visible-child', this._onVisibleChildChanged.bind(this));
     }
 
     _getDefaultActions() {
@@ -1060,21 +1021,21 @@ var OverviewStack = GObject.registerClass(class OverviewStack extends Gtk.Box {
 
         return [
             { name: 'go-back',
-              callback: Lang.bind(this, this._goBack),
+              callback: this._goBack.bind(this),
               accels: backAccels },
             { name: 'selection-mode',
               callback: Utils.actionToggleCallback,
               state: GLib.Variant.new('b', false),
-              stateChanged: Lang.bind(this, this._updateSelectionMode) },
+              stateChanged: this._updateSelectionMode.bind(this) },
             { name: 'select-all',
-              callback: Lang.bind(this, this._selectAll),
+              callback: this._selectAll.bind(this),
               accels: ['<Primary>a'] },
             { name: 'select-none',
-              callback: Lang.bind(this, this._selectNone) },
+              callback: this._selectNone.bind(this) },
             { settingsKey: 'view-as',
-              stateChanged: Lang.bind(this, this._updateTypeForSettings) },
+              stateChanged: this._updateTypeForSettings.bind(this) },
             { settingsKey: 'sort-by',
-              stateChanged: Lang.bind(this, this._updateSortForSettings) },
+              stateChanged: this._updateSortForSettings.bind(this) },
             { name: 'search',
               callback: Utils.actionToggleCallback,
               state: GLib.Variant.new('b', false),
@@ -1082,18 +1043,18 @@ var OverviewStack = GObject.registerClass(class OverviewStack extends Gtk.Box {
             { name: 'search-source',
               parameter_type: 's',
               state: GLib.Variant.new('s', Search.SearchSourceStock.ALL),
-              stateChanged: Lang.bind(this, this._updateSearchSource),
-              create_hook: Lang.bind(this, this._initSearchSource) },
+              stateChanged: this._updateSearchSource.bind(this),
+              create_hook: this._initSearchSource.bind(this) },
             { name: 'search-type',
               parameter_type: 's',
               state: GLib.Variant.new('s', Search.SearchTypeStock.ALL),
-              stateChanged: Lang.bind(this, this._updateSearchType),
-              create_hook: Lang.bind(this, this._initSearchType) },
+              stateChanged: this._updateSearchType.bind(this),
+              create_hook: this._initSearchType.bind(this) },
             { name: 'search-match',
               parameter_type: 's',
               state: GLib.Variant.new('s', Search.SearchMatchStock.ALL),
-              stateChanged: Lang.bind(this, this._updateSearchMatch),
-              create_hook: Lang.bind(this, this._initSearchMatch) }
+              stateChanged: this._updateSearchMatch.bind(this),
+              create_hook: this._initSearchMatch.bind(this) }
         ];
     }
 
@@ -1151,21 +1112,21 @@ var OverviewStack = GObject.registerClass(class OverviewStack extends Gtk.Box {
     }
 
     _initSearchSource(action) {
-        Application.sourceManager.connect('active-changed', Lang.bind(this, function(manager, activeItem) {
+        Application.sourceManager.connect('active-changed', (manager, activeItem) => {
             action.state = GLib.Variant.new('s', activeItem.id);
-        }));
+        });
     }
 
     _initSearchType(action) {
-        Application.searchTypeManager.connect('active-changed', Lang.bind(this, function(manager, activeItem) {
+        Application.searchTypeManager.connect('active-changed', (manager, activeItem) => {
             action.state = GLib.Variant.new('s', activeItem.id);
-        }));
+        });
     }
 
     _initSearchMatch(action) {
-        Application.searchMatchManager.connect('active-changed', Lang.bind(this, function(manager, activeItem) {
+        Application.searchMatchManager.connect('active-changed', (manager, activeItem) => {
             action.state = GLib.Variant.new('s', activeItem.id);
-        }));
+        });
     }
 
     _updateSearchSource(action) {

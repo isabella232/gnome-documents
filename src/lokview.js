@@ -34,8 +34,6 @@ const GObject = imports.gi.GObject;
 const Gtk = imports.gi.Gtk;
 const _ = imports.gettext.gettext;
 
-const Lang = imports.lang;
-
 const Documents = imports.documents;
 const Preview = imports.preview;
 const Utils = imports.utils;
@@ -111,13 +109,13 @@ var LOKView = GObject.registerClass(class LOKView extends Preview.Preview {
     createActions() {
         return [
             { name: 'zoom-in',
-              callback: Lang.bind(this, this._zoomIn),
+              callback: this._zoomIn.bind(this),
               accels: ['<Primary>plus', '<Primary>equal'] },
             { name: 'zoom-out',
-              callback: Lang.bind(this, this._zoomOut),
+              callback: this._zoomOut.bind(this),
               accels: ['<Primary>minus'] },
             { name: 'copy',
-              callback: Lang.bind(this, this._copy),
+              callback: this._copy.bind(this),
               accels: ['<Primary>c'] }
         ];
     }
@@ -132,11 +130,11 @@ var LOKView = GObject.registerClass(class LOKView extends Preview.Preview {
             sw.add(this._lokview);
 
             this._lokview.show();
-            this._lokview.connect('button-press-event', Lang.bind(this, this._onButtonPressEvent));
-            this._lokview.connect('load-changed', Lang.bind(this, this._onProgressChanged));
-            this._lokview.connect('text-selection', Lang.bind(this, this._onTextSelection));
-            this._lokview.connect('notify::can-zoom-in', Lang.bind(this, this._onCanZoomInChanged));
-            this._lokview.connect('notify::can-zoom-out', Lang.bind(this, this._onCanZoomOutChanged));
+            this._lokview.connect('button-press-event', this._onButtonPressEvent.bind(this));
+            this._lokview.connect('load-changed', this._onProgressChanged.bind(this));
+            this._lokview.connect('text-selection', this._onTextSelection.bind(this));
+            this._lokview.connect('notify::can-zoom-in', this._onCanZoomInChanged.bind(this));
+            this._lokview.connect('notify::can-zoom-out', this._onCanZoomOutChanged.bind(this));
         }
 
         return sw;
@@ -148,7 +146,7 @@ var LOKView = GObject.registerClass(class LOKView extends Preview.Preview {
         if (!isAvailable())
             return;
         this._doc = doc;
-        this._lokview.open_document(doc.uriToLoad, '{}', null, Lang.bind(this, this._onDocumentOpened));
+        this._lokview.open_document(doc.uriToLoad, '{}', null, this._onDocumentOpened.bind(this));
         this._progressBar.show();
     }
 

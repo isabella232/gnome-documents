@@ -19,7 +19,6 @@
  *
  */
 
-const Lang = imports.lang;
 const Signals = imports.signals;
 
 const Application = imports.application;
@@ -85,16 +84,16 @@ var TrackerConnectionQueue = class TrackerConnectionQueue {
 
         if (params.queryType == QueryType.SELECT)
             Application.connection.query_async(params.query, params.cancellable,
-                                          Lang.bind(this, this._queueCollector, params));
+                                               this._queueCollector.bind(this, params));
         else if (params.queryType == QueryType.UPDATE)
             Application.connection.update_async(params.query, GLib.PRIORITY_DEFAULT, params.cancellable,
-                                           Lang.bind(this, this._queueCollector, params));
+                                                this._queueCollector.bind(this, params));
         else if (params.queryType == QueryType.UPDATE_BLANK)
             Application.connection.update_blank_async(params.query, GLib.PRIORITY_DEFAULT, params.cancellable,
-                                                 Lang.bind(this, this._queueCollector, params));
+                                                      this._queueCollector.bind(this, params));
     }
 
-    _queueCollector(connection, res, params) {
+    _queueCollector(params, connection, res) {
         params.callback(connection, res);
         this._running = false;
         this._checkQueue();
@@ -121,19 +120,18 @@ const TrackerController = class TrackerController {
         // useful for debugging
         this._lastQueryTime = 0;
 
-        Application.sourceManager.connect('item-added', Lang.bind(this, this._onSourceAddedRemoved));
-        Application.sourceManager.connect('item-removed', Lang.bind(this, this._onSourceAddedRemoved));
+        Application.sourceManager.connect('item-added', this._onSourceAddedRemoved.bind(this));
+        Application.sourceManager.connect('item-removed', this._onSourceAddedRemoved.bind(this));
 
-        Application.modeController.connect('window-mode-changed', Lang.bind(this,
-            function(object, newMode) {
-                if (this._refreshPending && newMode == this._mode)
-                    this._refreshForSource();
-            }));
+        Application.modeController.connect('window-mode-changed', (object, newMode) => {
+            if (this._refreshPending && newMode == this._mode)
+                this._refreshForSource();
+        });
 
         this._offsetController = this.getOffsetController();
-        this._offsetController.connect('offset-changed', Lang.bind(this, this._performCurrentQuery));
+        this._offsetController.connect('offset-changed', this._performCurrentQuery.bind(this));
 
-        Application.settings.connect('changed::sort-by', Lang.bind(this, this._updateSortForSettings));
+        Application.settings.connect('changed::sort-by', this._updateSortForSettings.bind(this));
         this._updateSortForSettings();
     }
 
@@ -206,7 +204,7 @@ const TrackerController = class TrackerController {
         Utils.debug('Query Cursor: '
                     + (GLib.get_monotonic_time() - this._lastQueryTime) / 1000000);
         Application.documentManager.addDocumentFromCursor(cursor);
-        cursor.next_async(this._cancellable, Lang.bind(this, this._onCursorNext));
+        cursor.next_async(this._cancellable, this._onCursorNext.bind(this));
     }
 
     _onQueryExecuted(object, res) {
@@ -215,7 +213,7 @@ const TrackerController = class TrackerController {
                         + (GLib.get_monotonic_time() - this._lastQueryTime) / 1000000);
 
             let cursor = object.query_finish(res);
-            cursor.next_async(this._cancellable, Lang.bind(this, this._onCursorNext));
+            cursor.next_async(this._cancellable, this._onCursorNext.bind(this));
         } catch (e) {
             this._onQueryFinished(e);
         }
@@ -226,7 +224,7 @@ const TrackerController = class TrackerController {
         this._cancellable.reset();
 
         Application.connectionQueue.add(this._currentQuery.sparql,
-                                        this._cancellable, Lang.bind(this, this._onQueryExecuted));
+                                        this._cancellable, this._onQueryExecuted.bind(this));
     }
 
     _refreshInternal(flags) {
@@ -301,12 +299,11 @@ var TrackerCollectionsController = class TrackerCollectionsController extends Tr
     constructor() {
         super(WindowMode.WindowMode.COLLECTIONS);
 
-        Application.documentManager.connect('active-collection-changed', Lang.bind(this,
-            function() {
-                let windowMode = Application.modeController.getWindowMode();
-                if (windowMode == WindowMode.WindowMode.COLLECTIONS)
-                    this.refreshForObject();
-            }));
+        Application.documentManager.connect('active-collection-changed', () => {
+            let windowMode = Application.modeController.getWindowMode();
+            if (windowMode == WindowMode.WindowMode.COLLECTIONS)
+                this.refreshForObject();
+        });
     }
 
     getOffsetController() {
@@ -348,18 +345,17 @@ var TrackerSearchController = class TrackerSearchController extends TrackerContr
     constructor() {
         super(WindowMode.WindowMode.SEARCH);
 
-        Application.documentManager.connect('active-collection-changed', Lang.bind(this,
-            function() {
-                let windowMode = Application.modeController.getWindowMode();
-                if (windowMode == WindowMode.WindowMode.SEARCH)
-                    this.refreshForObject();
-            }));
+        Application.documentManager.connect('active-collection-changed', () => {
+            let windowMode = Application.modeController.getWindowMode();
+            if (windowMode == WindowMode.WindowMode.SEARCH)
+                this.refreshForObject();
+        });
 
-        Application.sourceManager.connect('active-changed', Lang.bind(this, this.refreshForObject));
-        Application.searchController.connect('search-string-changed', Lang.bind(this, this.refreshForObject));
-        Application.searchTypeManager.connect('active-changed', Lang.bind(this, this.refreshForObject));
+        Application.sourceManager.connect('active-changed', this.refreshForObject.bind(this));
+        Application.searchController.connect('search-string-changed', this.refreshForObject.bind(this));
+        Application.searchTypeManager.connect('active-changed', this.refreshForObject.bind(this));
 
-        Application.searchMatchManager.connect('active-changed', Lang.bind(this, this._onSearchMatchChanged));
+        Application.searchMatchManager.connect('active-changed', this._onSearchMatchChanged.bind(this));
     }
 
     _onSearchMatchChanged() {

@@ -24,8 +24,6 @@ const EvDocument = imports.gi.EvinceDocument;
 const GdPrivate = imports.gi.GdPrivate;
 const Application = imports.application;
 
-const Lang = imports.lang;
-
 var PlacesDialog = GObject.registerClass(class PlacesDialog extends Gtk.Dialog {
     _init(model, bookmarks) {
         let toplevel = Application.application.get_windows()[0];
@@ -63,19 +61,17 @@ var PlacesDialog = GObject.registerClass(class PlacesDialog extends Gtk.Dialog {
 
         if (docHasLinks) {
             this._linksPage = new GdPrivate.PlacesLinks();
-            this._linksPage.connect('link-activated', Lang.bind(this,
-                function(widget, link) {
-                    this._handleLink(link);
-                }));
+            this._linksPage.connect('link-activated', (widget, link) => {
+                this._handleLink(link);
+            });
             this._addPage(this._linksPage);
         }
 
         if (this._bookmarks) {
             this._bookmarksPage = new GdPrivate.PlacesBookmarks({ bookmarks: this._bookmarks });
-            this._bookmarksPage.connect('bookmark-activated', Lang.bind(this,
-                function(widget, link) {
-                    this._handleBookmark(link);
-                }));
+            this._bookmarksPage.connect('bookmark-activated', (widget, link) => {
+                this._handleBookmark(link);
+            });
             this._addPage(this._bookmarksPage);
         }
 

@@ -23,7 +23,6 @@ const Gd = imports.gi.Gd;
 const GdPrivate = imports.gi.GdPrivate;
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
-const Lang = imports.lang;
 const Search = imports.search;
 
 var QueryColumns = {
@@ -86,21 +85,20 @@ var QueryBuilder = class QueryBuilder {
     _addWhereClauses(partsList, global, flags, searchTypes, ftsQuery) {
         // build an array of WHERE clauses; each clause maps to one
         // type of resource we're looking for.
-        searchTypes.forEach(Lang.bind(this,
-            function(currentType) {
-                let part = '{ ' + currentType.getWhere() + ftsQuery;
-                part += this._buildOptional();
+        searchTypes.forEach((currentType) => {
+            let part = '{ ' + currentType.getWhere() + ftsQuery;
+            part += this._buildOptional();
 
-                if ((flags & QueryFlags.UNFILTERED) == 0) {
-                    if (global)
-                        part += this._context.documentManager.getWhere();
+            if ((flags & QueryFlags.UNFILTERED) == 0) {
+                if (global)
+                    part += this._context.documentManager.getWhere();
 
-                    part += this._buildFilterString(currentType, flags, ftsQuery.length > 0);
-                }
+                part += this._buildFilterString(currentType, flags, ftsQuery.length > 0);
+            }
 
-                part += ' }';
-                partsList.push(part);
-            }));
+            part += ' }';
+            partsList.push(part);
+        });
     }
 
     _buildWhere(global, flags) {

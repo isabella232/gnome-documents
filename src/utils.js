@@ -27,7 +27,6 @@ const Gtk = imports.gi.Gtk;
 
 const Application = imports.application;
 
-const Lang = imports.lang;
 const Signals = imports.signals;
 
 const _ICON_VIEW_SIZE = 128;
@@ -88,10 +87,9 @@ function iconFromRdfType(type) {
 }
 
 function getURNsFromPaths(paths, model) {
-    return paths.map(Lang.bind(this,
-            function(path) {
-                return getURNFromPath(path, model);
-            }));
+    return paths.map((path) => {
+        return getURNFromPath(path, model);
+    });
 }
 
 function getURNFromPath(path, model) {

@@ -25,8 +25,6 @@ const GLib = imports.gi.GLib;
 const GObject = imports.gi.GObject;
 const Gtk = imports.gi.Gtk;
 
-const Lang = imports.lang;
-
 var FullscreenAction = GObject.registerClass({
     Implements: [Gio.Action],
     Properties: {
@@ -60,8 +58,7 @@ var FullscreenAction = GObject.registerClass({
 
     _connectToWindow() {
         if (this._window) {
-            this._windowStateId = this._window.connect('window-state-event',
-                                                       Lang.bind(this, this._onWindowStateEvent));
+            this._windowStateId = this._window.connect('window-state-event', this._onWindowStateEvent.bind(this));
             this._onWindowStateEvent();
         }
     }

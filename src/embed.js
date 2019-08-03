@@ -19,7 +19,6 @@
  *
  */
 
-const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 
 const Application = imports.application;
@@ -130,8 +129,7 @@ const View = GObject.registerClass(class View extends Gtk.Overlay {
                 this._toolbar = this.view.createToolbar(this._stack);
 
             if (this._toolbar.searchbar)
-                this._toolbar.searchbar.connect('activate-result',
-                                                Lang.bind(this, this._onActivateResult));
+                this._toolbar.searchbar.connect('activate-result', this._onActivateResult.bind(this));
             this._window.get_titlebar().add(this._toolbar);
         }
     }
@@ -156,16 +154,10 @@ var Embed = GObject.registerClass(class Embed extends Gtk.Box {
         this._view = new View(mainWindow);
         this.pack_end(this._view, true, true, 0);
 
-        Application.modeController.connect('window-mode-changed',
-                                           Lang.bind(this, this._onWindowModeChanged));
-
-        Application.searchTypeManager.connect('active-changed',
-                                              Lang.bind(this, this._onSearchChanged));
-        Application.sourceManager.connect('active-changed',
-                                          Lang.bind(this, this._onSearchChanged));
-
-        Application.searchController.connect('search-string-changed',
-                                             Lang.bind(this, this._onSearchChanged));
+        Application.modeController.connect('window-mode-changed', this._onWindowModeChanged.bind(this));
+        Application.searchTypeManager.connect('active-changed', this._onSearchChanged.bind(this));
+        Application.sourceManager.connect('active-changed', this._onSearchChanged.bind(this));
+        Application.searchController.connect('search-string-changed', this._onSearchChanged.bind(this));
 
         this._view.windowMode = Application.modeController.getWindowMode();
     }

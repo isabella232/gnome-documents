@@ -25,8 +25,6 @@ const GObject = imports.gi.GObject;
 const Gtk = imports.gi.Gtk;
 const _ = imports.gettext.gettext;
 
-const Lang = imports.lang;
-
 const Application = imports.application;
 
 var PresentationWindow = GObject.registerClass(class PresentationWindow extends Gtk.Window {
@@ -40,11 +38,9 @@ var PresentationWindow = GObject.registerClass(class PresentationWindow extends 
                       destroy_with_parent: true,
                       title: _("Presentation"),
                       hexpand: true });
-        this.connect('key-press-event',
-                     Lang.bind(this, this._onKeyPressEvent));
+        this.connect('key-press-event', this._onKeyPressEvent.bind(this));
 
-        this._model.connect('page-changed',
-                            Lang.bind(this, this._onPageChanged));
+        this._model.connect('page-changed', this._onPageChanged.bind(this));
 
         this._createView();
         this.fullscreen();
@@ -79,8 +75,8 @@ var PresentationWindow = GObject.registerClass(class PresentationWindow extends 
                                                   current_page: page,
                                                   rotation: rotation,
                                                   inverted_colors: inverted });
-        this.view.connect('finished', Lang.bind(this, this.close));
-        this.view.connect('notify::current-page', Lang.bind(this, this._onPresentationPageChanged));
+        this.view.connect('finished', this.close.bind(this));
+        this.view.connect('notify::current-page', this._onPresentationPageChanged.bind(this));
 
         this.add(this.view);
         this.view.show();
@@ -194,10 +190,9 @@ var PresentationOutputChooser = GObject.registerClass({
     }
 
     _createWindow() {
-        this.connect('response', Lang.bind(this,
-            function(widget, response) {
-                this.emit('output-activated', null);
-            }));
+        this.connect('response', (widget, response) => {
+            this.emit('output-activated', null);
+        });
 
         let frame = new Gtk.Frame({ shadow_type: Gtk.ShadowType.IN });
 
@@ -205,19 +200,18 @@ var PresentationOutputChooser = GObject.registerClass({
                                       valign: Gtk.Align.CENTER,
                                       selection_mode: Gtk.SelectionMode.NONE });
         frame.add(this._box);
-        this._box.connect('row-activated', Lang.bind(this, this._onActivated));
-        this._box.set_header_func(Lang.bind(this,
-            function(row, before) {
-                if (!before)
-                    return;
+        this._box.connect('row-activated', this._onActivated.bind(this));
+        this._box.set_header_func((row, before) => {
+            if (!before)
+                return;
 
-                let current = row.get_header();
-                if (!current) {
-                    current = new Gtk.Separator({ orientation: Gtk.Orientation.HORIZONTAL });
-                    current.show();
-                    row.set_header(current);
-                }
-            }));
+            let current = row.get_header();
+            if (!current) {
+                current = new Gtk.Separator({ orientation: Gtk.Orientation.HORIZONTAL });
+                current.show();
+                row.set_header(current);
+            }
+        });
 
         let contentArea = this.get_content_area();
         contentArea.pack_start(frame, true, false, 0);
@@ -230,7 +224,7 @@ var PresentationOutputs = class PresentationOutputs {
 
         let gdkscreen = Gdk.Screen.get_default();
         this._screen = GnomeDesktop.RRScreen.new(gdkscreen);
-        this._screen.connect('changed', Lang.bind(this, this._onScreenChanged));
+        this._screen.connect('changed', this._onScreenChanged.bind(this));
 
         this._config = GnomeDesktop.RRConfig.new_current(this._screen);
         this.clone = this._config.get_clone();

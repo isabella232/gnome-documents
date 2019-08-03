@@ -20,7 +20,6 @@
  */
 
 const Gio = imports.gi.Gio;
-const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 const Signals = imports.signals;
 
@@ -91,19 +90,17 @@ var TrackerChangeMonitor = class TrackerChangeMonitor {
         this._pendingEventsId = 0;
 
         this._resourceService = new TrackerResourcesService();
-        this._resourceService.connectSignal('GraphUpdated', Lang.bind(this, this._onGraphUpdated));
+        this._resourceService.connectSignal('GraphUpdated', this._onGraphUpdated.bind(this));
     }
 
     _onGraphUpdated(proxy, senderName, [className, deleteEvents, insertEvents]) {
-        deleteEvents.forEach(Lang.bind(this,
-            function(event) {
-                this._addPendingEvent(event, true);
-            }));
+        deleteEvents.forEach((event) => {
+            this._addPendingEvent(event, true);
+        });
 
-        insertEvents.forEach(Lang.bind(this,
-            function(event) {
-                this._addPendingEvent(event, false);
-            }));
+        insertEvents.forEach((event) => {
+            this._addPendingEvent(event, false);
+        });
     }
 
     _addPendingEvent(event, isDelete) {
@@ -118,7 +115,7 @@ var TrackerChangeMonitor = class TrackerChangeMonitor {
             this._processEvents();
         else
             this._pendingEventsId =
-                Mainloop.timeout_add(CHANGE_MONITOR_TIMEOUT, Lang.bind(this, this._processEvents));
+                Mainloop.timeout_add(CHANGE_MONITOR_TIMEOUT, this._processEvents.bind(this));
     }
 
     _processEvents() {
@@ -130,40 +127,36 @@ var TrackerChangeMonitor = class TrackerChangeMonitor {
         this._unresolvedIds = {};
 
         let sparql = 'SELECT';
-        Object.keys(idTable).forEach(Lang.bind(this,
-            function(unresolvedId) {
-                sparql += (' tracker:uri(%d)').format(unresolvedId);
-            }));
+        Object.keys(idTable).forEach((unresolvedId) => {
+            sparql += (' tracker:uri(%d)').format(unresolvedId);
+        });
         sparql += ' {}';
 
         // resolve all the unresolved IDs we got so far
-        Application.connectionQueue.add(sparql, null, Lang.bind(this,
-            function(object, res) {
-                let cursor = object.query_finish(res);
+        Application.connectionQueue.add(sparql, null, (object, res) => {
+            let cursor = object.query_finish(res);
 
-                cursor.next_async(null, Lang.bind(this,
-                    function(object, res) {
-                        let valid = false;
-                        try {
-                            valid = cursor.next_finish(res);
-                        } catch(e) {
-                            logError(e, 'Unable to resolve item URNs for graph changes');
-                        }
+            cursor.next_async(null, (object, res) => {
+                let valid = false;
+                try {
+                    valid = cursor.next_finish(res);
+                } catch(e) {
+                    logError(e, 'Unable to resolve item URNs for graph changes');
+                }
 
-                        if (valid) {
-                            let idx = 0;
-                            Object.keys(idTable).forEach(Lang.bind(this,
-                                function(unresolvedId) {
-                                    idTable[unresolvedId] = cursor.get_string(idx)[0];
-                                    idx++;
-                                }));
+                if (valid) {
+                    let idx = 0;
+                    Object.keys(idTable).forEach((unresolvedId) => {
+                        idTable[unresolvedId] = cursor.get_string(idx)[0];
+                        idx++;
+                    });
 
-                            this._sendEvents(events, idTable);
-                        }
+                    this._sendEvents(events, idTable);
+                }
 
-                        cursor.close();
-                    }));
-            }));
+                cursor.close();
+            });
+        });
 
         return false;
     }
@@ -181,11 +174,10 @@ var TrackerChangeMonitor = class TrackerChangeMonitor {
     }
 
     _sendEvents(events, idTable) {
-        events.forEach(Lang.bind(this,
-            function(event) {
-                event.setResolvedValues(idTable[event.urnId], idTable[event.predicateId]);
-                this._addEvent(event);
-            }));
+        events.forEach((event) => {
+            event.setResolvedValues(idTable[event.urnId], idTable[event.predicateId]);
+            this._addEvent(event);
+        });
 
         this.emit('changes-pending', this._pendingChanges);
         this._pendingChanges = {};

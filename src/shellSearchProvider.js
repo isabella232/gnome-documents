@@ -19,7 +19,6 @@
  *
  */
 
-const Lang = imports.lang;
 const Signals = imports.signals;
 
 const GdPrivate = imports.gi.GdPrivate;
@@ -131,18 +130,17 @@ const CreateCollectionIconJob = class CreateCollectionIconJob {
         this._callback = callback;
 
         let query = queryBuilder.buildCollectionIconQuery(this._id);
-        Application.connectionQueue.add(query.sparql, null, Lang.bind(this,
-            function(object, res) {
-                let cursor = null;
+        Application.connectionQueue.add(query.sparql, null, (object, res) => {
+            let cursor = null;
 
-                try {
-                    cursor = object.query_finish(res);
-                    cursor.next_async(null, Lang.bind(this, this._onCursorNext));
-                } catch (e) {
-                    logError(e, 'Unable to run CreateCollectionIconJob');
-                    this._hasItemIds();
-                }
-            }));
+            try {
+                cursor = object.query_finish(res);
+                cursor.next_async(null, this._onCursorNext.bind(this));
+            } catch (e) {
+                logError(e, 'Unable to run CreateCollectionIconJob');
+                this._hasItemIds();
+            }
+        });
     }
 
     _createItemIcon(cursor) {
@@ -188,7 +186,7 @@ const CreateCollectionIconJob = class CreateCollectionIconJob {
 
         if (valid) {
             this._itemIds.push(cursor.get_string(0)[0]);
-            cursor.next_async(null, Lang.bind(this, this._onCursorNext));
+            cursor.next_async(null, this._onCursorNext.bind(this));
         } else {
             cursor.close();
             this._hasItemIds();
@@ -201,18 +199,16 @@ const CreateCollectionIconJob = class CreateCollectionIconJob {
             return;
         }
 
-        this._itemIds.forEach(Lang.bind(this,
-            function(itemId) {
-                let job = new TrackerUtils.SingleItemJob(itemId, queryBuilder);
-                this._itemJobs++;
-                job.run(Query.QueryFlags.UNFILTERED, Lang.bind(this,
-                    function(cursor) {
-                        let icon = this._createItemIcon(cursor);
-                        if (icon)
-                            this._itemIcons.push(icon);
-                        this._itemJobCollector();
-                    }));
-            }));
+        this._itemIds.forEach((itemId) => {
+            let job = new TrackerUtils.SingleItemJob(itemId, queryBuilder);
+            this._itemJobs++;
+            job.run(Query.QueryFlags.UNFILTERED, (cursor) => {
+                let icon = this._createItemIcon(cursor);
+                if (icon)
+                    this._itemIcons.push(icon);
+                this._itemJobCollector();
+            });
+        });
     }
 
     _itemJobCollector() {
@@ -242,54 +238,51 @@ const FetchMetasJob = class FetchMetasJob {
 
     _createCollectionPixbuf(meta) {
         let job = new CreateCollectionIconJob(meta.id);
-        job.run(Lang.bind(this,
-            function(icon) {
-                if (icon)
-                    meta.icon = icon;
+        job.run((icon) => {
+            if (icon)
+                meta.icon = icon;
 
-                this._metas.push(meta);
-                this._jobCollector();
-            }));
+            this._metas.push(meta);
+            this._jobCollector();
+        });
     }
 
     run(callback) {
         this._callback = callback;
         this._activeJobs = this._ids.length;
 
-        this._ids.forEach(Lang.bind(this,
-            function(id) {
-                let single = new TrackerUtils.SingleItemJob(id, queryBuilder);
-                single.run(Query.QueryFlags.UNFILTERED, Lang.bind(this,
-                    function(cursor) {
-                        let title =    cursor.get_string(Query.QueryColumns.TITLE)[0];
-                        let filename = cursor.get_string(Query.QueryColumns.FILENAME)[0];
-                        let rdftype =  cursor.get_string(Query.QueryColumns.RDFTYPE)[0];
+        this._ids.forEach((id) => {
+            let single = new TrackerUtils.SingleItemJob(id, queryBuilder);
+            single.run(Query.QueryFlags.UNFILTERED, (cursor) => {
+                let title = cursor.get_string(Query.QueryColumns.TITLE)[0];
+                let filename = cursor.get_string(Query.QueryColumns.FILENAME)[0];
+                let rdftype = cursor.get_string(Query.QueryColumns.RDFTYPE)[0];
 
-                        let gicon = null;
-                        let pixbuf = null;
+                let gicon = null;
+                let pixbuf = null;
 
-                        // Collection
-                        let isCollection = (rdftype.indexOf('nfo#DataContainer') != -1);
+                // Collection
+                let isCollection = (rdftype.indexOf('nfo#DataContainer') != -1);
 
-                        if (!isCollection)
-                            gicon = _createGIcon(cursor);
+                if (!isCollection)
+                    gicon = _createGIcon(cursor);
 
-                        if (!title || title == '')
-                            title = GdPrivate.filename_strip_extension(filename);
+                if (!title || title == '')
+                    title = GdPrivate.filename_strip_extension(filename);
 
-                        if (!title || title == '')
-                            title = _("Untitled Document");
+                if (!title || title == '')
+                    title = _("Untitled Document");
 
-                        let meta = { id: id, title: title, icon: gicon };
+                let meta = { id: id, title: title, icon: gicon };
 
-                        if (isCollection) {
-                            this._createCollectionPixbuf(meta);
-                        } else {
-                            this._metas.push(meta);
-                            this._jobCollector();
-                        }
-                    }));
-            }));
+                if (isCollection) {
+                    this._createCollectionPixbuf(meta);
+                } else {
+                    this._metas.push(meta);
+                    this._jobCollector();
+                }
+            });
+        });
     }
 }
 
@@ -306,18 +299,17 @@ const FetchIdsJob = class FetchIdsJob {
 
         let sortBy = Application.settings.get_enum('sort-by');
         let query = queryBuilder.buildGlobalQuery(Query.QueryFlags.SEARCH, null, sortBy);
-        Application.connectionQueue.add(query.sparql, this._cancellable, Lang.bind(this,
-            function(object, res) {
-                let cursor = null;
+        Application.connectionQueue.add(query.sparql, this._cancellable, (object, res) => {
+            let cursor = null;
 
-                try {
-                    cursor = object.query_finish(res);
-                    cursor.next_async(this._cancellable, Lang.bind(this, this._onCursorNext));
-                } catch (e) {
-                    logError(e, 'Unable to run FetchIdsJob');
-                    callback(this._ids);
-                }
-            }));
+            try {
+                cursor = object.query_finish(res);
+                cursor.next_async(this._cancellable, this._onCursorNext.bind(this));
+            } catch (e) {
+                logError(e, 'Unable to run FetchIdsJob');
+                callback(this._ids);
+            }
+        });
     }
 
     _onCursorNext(cursor, res) {
@@ -334,7 +326,7 @@ const FetchIdsJob = class FetchIdsJob {
 
         if (valid) {
             this._ids.push(cursor.get_string(Query.QueryColumns.URN)[0]);
-            cursor.next_async(this._cancellable, Lang.bind(this, this._onCursorNext));
+            cursor.next_async(this._cancellable, this._onCursorNext.bind(this));
         } else {
             cursor.close();
             this._callback(this._ids);
@@ -385,11 +377,10 @@ var ShellSearchProvider = class ShellSearchProvider {
         this._cancellable.reset();
 
         let job = new FetchIdsJob(terms);
-        job.run(Lang.bind(this,
-            function(ids) {
-                Application.application.release();
-                invocation.return_value(GLib.Variant.new('(as)', [ ids ]));
-            }), this._cancellable);
+        job.run((ids) => {
+            Application.application.release();
+            invocation.return_value(GLib.Variant.new('(as)', [ ids ]));
+        }, this._cancellable);
     }
 
     GetSubsearchResultSetAsync(params, invocation) {
@@ -400,34 +391,30 @@ var ShellSearchProvider = class ShellSearchProvider {
         this._cancellable.reset();
 
         let job = new FetchIdsJob(terms);
-        job.run(Lang.bind(this,
-            function(ids) {
-                Application.application.release();
-                invocation.return_value(GLib.Variant.new('(as)', [ ids ]));
-            }), this._cancellable);
+        job.run((ids) => {
+            Application.application.release();
+            invocation.return_value(GLib.Variant.new('(as)', [ ids ]));
+        }, this._cancellable);
     }
 
     GetResultMetasAsync(params, invocation) {
         let ids = params[0];
         Application.application.hold();
 
-        let toFetch = ids.filter(Lang.bind(this,
-            function(id) {
-                return !(this._cache[id]);
-            }));
+        let toFetch = ids.filter((id) => {
+            return !(this._cache[id]);
+        });
 
         if (toFetch.length > 0) {
             let job = new FetchMetasJob(toFetch);
-            job.run(Lang.bind(this,
-                function(metas) {
-                    // cache the newly fetched results
-                    metas.forEach(Lang.bind(this,
-                        function(meta) {
-                            this._cache[meta.id] = meta;
-                        }));
+            job.run((metas) => {
+                // cache the newly fetched results
+                metas.forEach((meta) => {
+                    this._cache[meta.id] = meta;
+                });
 
-                    this._returnMetasFromCache(ids, invocation);
-                }));
+                this._returnMetasFromCache(ids, invocation);
+            });
         } else {
             this._returnMetasFromCache(ids, invocation);
         }
