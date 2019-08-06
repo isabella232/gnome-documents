@@ -1,6 +1,6 @@
 project(
   'gnome-documents', 'c',
-  version: '3.32.0',
+  version: '3.33.90',
   license: 'GPL2+',
   default_options: 'buildtype=debugoptimized',
   meson_version: '>= 0.50.0'
