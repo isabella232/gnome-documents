@@ -193,8 +193,8 @@
             "config-opts": [ "-Denable-documentation=false" ],
             "sources": [
                 {
-                    "type": "dir",
-                    "path": ".."
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/gnome-documents.git"
                 }
             ]
         }
