@@ -3,7 +3,7 @@ project(
   version: '3.32.0',
   license: 'GPL2+',
   default_options: 'buildtype=debugoptimized',
-  meson_version: '>= 0.42.0'
+  meson_version: '>= 0.50.0'
 )
 
 documents_version = meson.project_version()
