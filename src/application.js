@@ -295,7 +295,7 @@ var Application = GObject.registerClass({
             this._sourceRemovedId = 0;
         }
 
-        this.minersRunning.forEach(() => {
+        this.minersRunning.forEach((miner) => {
             miner._cancellable.cancel();
         });
         this.minersRunning = [];
