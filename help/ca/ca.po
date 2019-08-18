@@ -99,12 +99,12 @@ msgstr "Premeu el botó <gui>✓</gui>."
 #. (itstool) path: item/p
 #: C/collections.page:58
 msgid "In selection mode, select related documents."
-msgstr "En mode selecció, selecciona els documents relacionats."
+msgstr "En mode selecció, seleccioneu els documents relacionats."
 
 #. (itstool) path: item/p
 #: C/collections.page:61
 msgid "Press <gui>Add to Collection</gui>."
-msgstr "Premeu <gui>Afegir a la col·lecció</gui>."
+msgstr "Premeu <gui>Afegeix a la col·lecció</gui>."
 
 #. (itstool) path: item/p
 #: C/collections.page:64
@@ -297,7 +297,7 @@ msgstr "Font: el camí a la carpeta contenidora del document;"
 #. (itstool) path: item/p
 #: C/info.page:53
 msgid "Date Modified;"
-msgstr "Data de Modificació;"
+msgstr "Data de modificació;"
 
 #. (itstool) path: item/p
 #: C/info.page:56
@@ -399,7 +399,7 @@ msgid ""
 "inside your <file>Documents</file> or <file>Downloads</file> folders, or "
 "inside folders that are in those directories. Documents that are in other "
 "places on your computer will not be shown."
-msgstr "Per a que els documents locals apareguin a <app>Documents</app>, han d'estar dins de les carpetes <file>Documents</file> o <file>Baixades</file> o en carpetes incloses en aquestes. No es mostraran els documents que estiguin en altres ubicacions de l'ordinador."
+msgstr "Perquè els documents locals apareguin a <app>Documents</app>, han d'estar dins de les carpetes <file>Documents</file> o <file>Baixades</file> o en carpetes incloses en aquestes. No es mostraran els documents que estiguin en altres ubicacions de l'ordinador."
 
 #. (itstool) path: page/p
 #: C/prob-no-show.page:55
@@ -420,7 +420,7 @@ msgstr "Només es poden previsualitzar els fitxers desats localment, a Google Dr
 #. (itstool) path: page/title
 #: C/prob-previews.page:33
 msgid "Why do some files not have previews?"
-msgstr "Per què alguns arxius no tenen previsualització?"
+msgstr "Per què alguns fitxers no tenen previsualització?"
 
 #. (itstool) path: page/p
 #: C/prob-previews.page:41
@@ -497,7 +497,7 @@ msgstr "Mostrar els fitxers en format llista o quadrícula"
 msgid ""
 "Documents and collections are presented in <gui>Grid</gui> format by "
 "default. To view in <gui>List</gui> format:"
-msgstr "Els documents i les col·leccions es mostren en format <gui>quadrícula</gui> per defecte. Per veure en format <gui>Llista</gui>:"
+msgstr "Els documents i les col·leccions es mostren en format <gui>quadrícula</gui> per defecte. Per veure en format <gui>llista</gui>:"
 
 #. (itstool) path: item/p
 #: C/viewgrid.page:46
@@ -509,7 +509,7 @@ msgstr "Prémer el botó llista a la cantonada superior dreta de la finestra."
 msgid ""
 "List view has columns displaying the document type and date modified, and "
 "whether it's stored locally or remotely in one of your online accounts."
-msgstr "La vista en Llista té columnes que mostren el tipus de document, la data de modificació, i si està emmagatzemat de forma local o remota en algun dels comptes en línia."
+msgstr "La vista en llista té columnes que mostren el tipus de document, la data de modificació, i si està emmagatzemat de forma local o remota en algun dels comptes en línia."
 
 #. (itstool) path: page/p
 #: C/viewgrid.page:56
@@ -566,7 +566,7 @@ msgstr "2014–2015"
 msgid ""
 "Add extra directories to those which are already searched by "
 "<app>Documents</app>."
-msgstr "Afegir carpetes extra a les que ja s'han cercat amb <app>Documents</app>."
+msgstr "Afegir carpetes extres a les que ja s'han cercat amb <app>Documents</app>."
 
 #. (itstool) path: page/title
 #: C/view-add.page:25
@@ -589,7 +589,7 @@ msgstr "<app>Documents</app> normalment només mostra els documents que estan a 
 msgid ""
 "Open the <gui href=\"help:gnome-help/shell-terminology\">Activities</gui> "
 "overview and start typing <gui>Search</gui>."
-msgstr "Obrir el resum d'<gui href=\"help:gnome-help/shell-terminology\">Activitats</gui> i començar a escriure la <gui>Cerca</gui>."
+msgstr "Obriu el resum d'<gui href=\"help:gnome-help/shell-terminology\">Activitats</gui> i comenceu a escriure <gui>Cerca</gui>."
 
 #. (itstool) path: item/p
 #: C/view-add.page:41
@@ -613,7 +613,7 @@ msgstr "Premeu <gui style=\"button\">+</gui> per afegir una nova ubicació de ce
 msgid ""
 "Select the folder that you want to add and press <gui "
 "style=\"button\">OK</gui> to add the folder."
-msgstr "Seleccioneu la carpeta que es vol afegir i premeu <gui style=\"button\">OK</gui> per afegir la carpeta."
+msgstr "Seleccioneu la carpeta que es vol afegir i premeu <gui style=\"button\">D'acord</gui> per afegir la carpeta."
 
 #. (itstool) path: page/p
 #: C/view-add.page:63
