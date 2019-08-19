@@ -6,11 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-08-23 15:36+0000\n"
-"PO-Revision-Date: 2017-09-22 22:21+0330\n"
-"Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-documents/issues\n"
+"POT-Creation-Date: 2019-03-25 19:05+0000\n"
+"PO-Revision-Date: 2019-08-13 14:44+0430\n"
+"Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
@@ -18,117 +17,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Poedit 2.0.3\n"
-
-#: data/org.gnome.Books.appdata.xml.in:7 data/org.gnome.Books.desktop.in:3
-#: src/application.js:112 src/overview.js:1052
-msgid "Books"
-msgstr "کتاب‌ها"
-
-#: data/org.gnome.Books.appdata.xml.in:8
-msgid "An e-book manager application for GNOME"
-msgstr "یک برنامه مدیریت کتاب‌های الکترونیکی برای گنوم"
-
-#: data/org.gnome.Books.appdata.xml.in:10
-msgid ""
-"A simple application to access and organize your e-books on GNOME. It is meant "
-"to be a simple and elegant replacement for using a file manager to deal with e-"
-"books."
-msgstr ""
-"یک برنامه ساده برای دسترسی و مدیریت کتاب‌های الکترونیکی در گنوم. این برنامه سعی "
-"می‌کند نسبت به یک برنامه مدیریت پرونده ساده‌تر و بهتر برای کتاب‌های الکترونیکی عمل "
-"کند."
-
-#: data/org.gnome.Books.appdata.xml.in:15
-#: data/org.gnome.Documents.appdata.xml.in:16
-msgid "It lets you:"
-msgstr "به شما اجازه می‌دهد:"
-
-#: data/org.gnome.Books.appdata.xml.in:17
-msgid "View recent e-books"
-msgstr "نمایش کتاب‌های الکترونیکی اخیر"
-
-#: data/org.gnome.Books.appdata.xml.in:18
-msgid "Search through e-books"
-msgstr "جست‌وجو بر اساس کتاب‌های الکترونیکی"
-
-#: data/org.gnome.Books.appdata.xml.in:19
-msgid "View e-books (PDF and comics) fullscreen"
-msgstr "نمایش کتاب‌های الکترونیک (PDFها و کمیک‌ها) بصورت تمام‌صفحه"
-
-#: data/org.gnome.Books.appdata.xml.in:20
-msgid "Print e-books"
-msgstr "چاپ کتاب‌های الکترونیکی"
-
-#: data/org.gnome.Books.appdata.xml.in:32
-#: data/org.gnome.Documents.appdata.xml.in:39
-msgid "The GNOME Project"
-msgstr "پروژه گنوم"
-
-#: data/org.gnome.Books.desktop.in:4
-msgid "Access, manage and share books"
-msgstr "دسترسی، مدیریت و اشتراک‌گذاری کتاب‌های الکترونیکی"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.Books.desktop.in:7
-msgid "org.gnome.Books"
-msgstr "org.gnome.Books"
-
-#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.Books.desktop.in:15
-msgid "Books;Comics;ePub;PDF;"
-msgstr "Books;Comics;ePub;PDF;کتابها;کمیکها;"
-
-#: data/org.gnome.books.gschema.xml:5 data/org.gnome.documents.gschema.xml:5
-msgid "View as"
-msgstr "نمایش به عنوان"
-
-#: data/org.gnome.books.gschema.xml:6 data/org.gnome.documents.gschema.xml:6
-msgid "View as type"
-msgstr "نمایش همزمان با تایپ"
-
-#: data/org.gnome.books.gschema.xml:10 data/org.gnome.documents.gschema.xml:10
-msgid "Sort by"
-msgstr "چیدمان بر اساس"
-
-#: data/org.gnome.books.gschema.xml:11 data/org.gnome.documents.gschema.xml:11
-msgid "Sort by type"
-msgstr "چیدمان بر اساس نوع"
-
-#: data/org.gnome.books.gschema.xml:15 data/org.gnome.documents.gschema.xml:15
-msgid "Window size"
-msgstr "اندازه پنجره"
-
-#: data/org.gnome.books.gschema.xml:16 data/org.gnome.documents.gschema.xml:16
-msgid "Window size (width and height)."
-msgstr "اندازه پنجره (عرض و ارتفاع)"
-
-#: data/org.gnome.books.gschema.xml:20 data/org.gnome.documents.gschema.xml:20
-msgid "Window position"
-msgstr "مکان پنجره"
-
-#: data/org.gnome.books.gschema.xml:21 data/org.gnome.documents.gschema.xml:21
-msgid "Window position (x and y)."
-msgstr "مکان پنجره (x و y)"
-
-#: data/org.gnome.books.gschema.xml:25 data/org.gnome.documents.gschema.xml:25
-msgid "Window maximized"
-msgstr "پنجره بیشینه شد"
-
-#: data/org.gnome.books.gschema.xml:26 data/org.gnome.documents.gschema.xml:26
-msgid "Window maximized state"
-msgstr "وضعیت بیشینه شده‌ی پنجره"
-
-#: data/org.gnome.books.gschema.xml:30 data/org.gnome.documents.gschema.xml:30
-msgid "Night mode"
-msgstr "حالت شبانه"
-
-#: data/org.gnome.books.gschema.xml:31 data/org.gnome.documents.gschema.xml:31
-msgid "Whether the application is in night mode."
-msgstr "اینکه یا برنامه در حالت شبانه است یا خیر."
+"X-Generator: Poedit 2.2.1\n"
 
 #: data/org.gnome.Documents.appdata.xml.in:7 data/org.gnome.Documents.desktop.in:3
-#: src/application.js:115 src/overview.js:1052
+#: src/application.js:109 src/overview.js:1046
 msgid "Documents"
 msgstr "سندها"
 
@@ -146,6 +38,10 @@ msgstr ""
 "یک برنامه ساده برای دسترسی، مدیریت و اشتراک‌گذاری سندهایتان در گنوم. این برنامه "
 "سعی می‌کند نسبت به یک برنامه مدیریت پرونده ساده‌تر و بهتر برای سندها عمل کند. "
 "یکپارچه‌سازی با فضای ابری از طریق «حساب‌های برخط گنوم» پشتیبانی می‌شود."
+
+#: data/org.gnome.Documents.appdata.xml.in:16
+msgid "It lets you:"
+msgstr "به شما اجازه می‌دهد:"
 
 #: data/org.gnome.Documents.appdata.xml.in:18
 msgid "View recent local and online documents"
@@ -177,43 +73,84 @@ msgstr "انتخاب موارد مورد علاقه"
 
 #: data/org.gnome.Documents.appdata.xml.in:25
 msgid "Allow opening full featured editor for non-trivial changes"
-msgstr ""
-"اجازه باز کردن یک ویرایشگر پیشرفته در هنگام انجام تغییرات پیچیده، داده شود"
+msgstr "اجازه گشودن یک ویرایشگر پیشرفته در هنگام انجام تغییرات پیچیده، داده شود"
+
+#: data/org.gnome.Documents.appdata.xml.in:39
+msgid "The GNOME Project"
+msgstr "پروژه گنوم"
 
 #: data/org.gnome.Documents.desktop.in:4
 msgid "Access, manage and share documents"
 msgstr "دسترسی، مدیریت و اشتراک‌گذاری سندها"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.Documents.desktop.in:7
-msgid "org.gnome.Documents"
-msgstr "org.gnome.Documents"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Documents.desktop.in:15
 msgid "Docs;PDF;Document;"
 msgstr "Docs;PDF;سند;"
 
-#: data/ui/app-menu.ui:6 src/preview.js:453
+#: data/org.gnome.documents.gschema.xml:5
+msgid "View as"
+msgstr "نمایش به عنوان"
+
+#: data/org.gnome.documents.gschema.xml:6
+msgid "View as type"
+msgstr "نمایش همزمان با تایپ"
+
+#: data/org.gnome.documents.gschema.xml:10
+msgid "Sort by"
+msgstr "چیدمان بر اساس"
+
+#: data/org.gnome.documents.gschema.xml:11
+msgid "Sort by type"
+msgstr "چیدمان بر اساس نوع"
+
+#: data/org.gnome.documents.gschema.xml:15
+msgid "Window size"
+msgstr "اندازه پنجره"
+
+#: data/org.gnome.documents.gschema.xml:16
+msgid "Window size (width and height)."
+msgstr "اندازه پنجره (عرض و ارتفاع)"
+
+#: data/org.gnome.documents.gschema.xml:20
+msgid "Window position"
+msgstr "مکان پنجره"
+
+#: data/org.gnome.documents.gschema.xml:21
+msgid "Window position (x and y)."
+msgstr "مکان پنجره (x و y)"
+
+#: data/org.gnome.documents.gschema.xml:25
+msgid "Window maximized"
+msgstr "پنجره بیشینه شد"
+
+#: data/org.gnome.documents.gschema.xml:26
+msgid "Window maximized state"
+msgstr "وضعیت بیشینه شدهٔ پنجره"
+
+#: data/org.gnome.documents.gschema.xml:30
+msgid "Night mode"
+msgstr "حالت شبانه"
+
+#: data/org.gnome.documents.gschema.xml:31
+msgid "Whether the application is in night mode."
+msgstr "اینکه یا برنامه در حالت شبانه است یا خیر."
+
+#: data/ui/documents-app-menu.ui:6 src/preview.js:447
 msgid "Night Mode"
 msgstr "حالت شبانه"
 
-#: data/ui/app-menu.ui:12
+#: data/ui/documents-app-menu.ui:12
 msgid "Keyboard Shortcuts"
 msgstr "میانبرهای صفحه‌کلید"
 
-#: data/ui/app-menu.ui:16
+#: data/ui/documents-app-menu.ui:16
 msgid "Help"
 msgstr "راهنما"
 
-#: data/ui/app-menu.ui:20
-msgid "About"
-msgstr "راهنما"
-
-#: data/ui/app-menu.ui:24
-msgctxt "app menu"
-msgid "Quit"
-msgstr "خروج"
+#: data/ui/documents-app-menu.ui:20
+msgid "About Documents"
+msgstr "دربارهٔ سندها"
 
 #: data/ui/help-overlay.ui:11
 msgctxt "shortcut window"
@@ -273,7 +210,7 @@ msgstr "نشانک‌گذاری صفحه فعلی"
 #: data/ui/help-overlay.ui:92
 msgctxt "shortcut window"
 msgid "Open places and bookmarks dialog"
-msgstr "باز کردن محاوره مکان‌ها و نشانک‌ها"
+msgstr "گشودن محاوره مکان‌ها و نشانک‌ها"
 
 #: data/ui/help-overlay.ui:99
 msgctxt "shortcut window"
@@ -282,13 +219,13 @@ msgstr "رونوشت از متن انتخاب شده به تخته‌گیره"
 
 #: data/ui/help-overlay.ui:106
 msgctxt "shortcut window"
-msgid "Rotate anti-clockwise"
-msgstr "چرخش برعکس عقربه‌ها"
+msgid "Rotate counterclockwise"
+msgstr "جرخش پادساعتگرد"
 
 #: data/ui/help-overlay.ui:113
 msgctxt "shortcut window"
 msgid "Rotate clockwise"
-msgstr "جرخش در جهت عقربه‌ها"
+msgstr "جرخش ساعتگرد"
 
 #: data/ui/help-overlay.ui:120
 msgctxt "shortcut window"
@@ -308,7 +245,7 @@ msgstr "حالت ارائه"
 #: data/ui/help-overlay.ui:141
 msgctxt "shortcut window"
 msgid "Open action menu"
-msgstr "باز کردن منو کنش"
+msgstr "گشودن فهرست کنش"
 
 #: data/ui/help-overlay.ui:148
 msgctxt "shortcut window"
@@ -327,9 +264,14 @@ msgstr "مجموعه جدید..."
 #: data/ui/organize-collection-dialog.ui:73
 #: data/ui/organize-collection-dialog.ui:122 src/sharing.js:226
 msgid "Add"
-msgstr "اضافه کردن"
+msgstr "افزودن"
 
-#: data/ui/organize-collection-dialog.ui:167 src/overview.js:616
+#: data/ui/organize-collection-dialog.ui:163 data/ui/selection-toolbar.ui:88
+#: src/overview.js:1049 src/search.js:123
+msgid "Collections"
+msgstr "مجموعه"
+
+#: data/ui/organize-collection-dialog.ui:167 src/overview.js:607
 msgid "Cancel"
 msgstr "لغو"
 
@@ -343,9 +285,9 @@ msgid "_Copy"
 msgstr "_رونوشت"
 
 #. Translators: this is the Open action in a context menu
-#: data/ui/preview-menu.ui:6 data/ui/selection-toolbar.ui:9 src/selections.js:988
+#: data/ui/preview-menu.ui:6 data/ui/selection-toolbar.ui:9 src/selections.js:982
 msgid "Open"
-msgstr "باز کردن"
+msgstr "گشودن"
 
 #: data/ui/preview-menu.ui:10
 msgid "Edit"
@@ -355,7 +297,7 @@ msgstr "ویرایش"
 msgid "Print…"
 msgstr "چاپ..."
 
-#: data/ui/preview-menu.ui:21 src/preview.js:462
+#: data/ui/preview-menu.ui:21 src/preview.js:456
 msgid "Fullscreen"
 msgstr "تمام‌صفحه"
 
@@ -391,11 +333,6 @@ msgstr "انتخاب همه"
 msgid "Select None"
 msgstr "انتخاب هیچکدام"
 
-#: data/ui/selection-toolbar.ui:88 src/overview.js:1056 src/search.js:126
-#: src/search.js:132
-msgid "Collections"
-msgstr "مجموعه"
-
 #: data/ui/view-menu.ui:23
 msgid "View items as a grid of icons"
 msgstr "نمایش موارد در شبکه‌ای از شمایل‌ها"
@@ -420,106 +357,94 @@ msgstr "تاریخ"
 msgid "Name"
 msgstr "نام"
 
-#: src/application.js:126
+#: src/application.js:119
 msgid "Show the version of the program"
 msgstr "نمایش نسخه برنامه"
 
-#: src/documents.js:794
+#: src/documents.js:778
 msgid "Failed to print document"
 msgstr "چاپ سند شکست خورد"
 
 #. Translators: this refers to local documents
-#: src/documents.js:836 src/search.js:459
+#: src/documents.js:820 src/search.js:433
 msgid "Local"
 msgstr "محلی"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: src/documents.js:879
+#: src/documents.js:863
 msgid "GNOME"
 msgstr "گنوم"
 
-#: src/documents.js:880
+#: src/documents.js:864
 msgid "Getting Started with Documents"
 msgstr "شروع کردن با سندها"
 
-#: src/documents.js:905 src/documents.js:1115 src/documents.js:1218
-#: src/documents.js:1412
+#: src/documents.js:889 src/documents.js:1113 src/documents.js:1214
+#: src/documents.js:1408
 msgid "Collection"
 msgstr "مجموعه"
 
 #. overridden
-#: src/documents.js:972
+#: src/documents.js:970
 msgid "Google Docs"
 msgstr "اسناد گوگل"
 
-#: src/documents.js:973
+#: src/documents.js:971
 msgid "Google"
 msgstr "گوگل"
 
-#: src/documents.js:1117 src/documents.js:1414
+#: src/documents.js:1115 src/documents.js:1410
 msgid "Spreadsheet"
 msgstr "صفحه‌گسترده"
 
-#: src/documents.js:1119 src/documents.js:1416 src/presentation.js:44
+#: src/documents.js:1117 src/documents.js:1412 src/presentation.js:43
 msgid "Presentation"
 msgstr "ارائه"
 
-#: src/documents.js:1121 src/documents.js:1418
-msgid "e-Book"
-msgstr "کتاب الکترونیکی"
-
-#: src/documents.js:1123 src/documents.js:1420
+#: src/documents.js:1119 src/documents.js:1414
 msgid "Document"
 msgstr "سند"
 
 #. overridden
-#: src/documents.js:1173
+#: src/documents.js:1169
 msgid "ownCloud"
-msgstr "ownCloud"
+msgstr "اون‌کلود"
 
 #. overridden
-#: src/documents.js:1307 src/documents.js:1308
+#: src/documents.js:1303 src/documents.js:1304
 msgid "OneDrive"
-msgstr "OneDrive"
+msgstr "وان‌درایو"
+
+#: src/documents.js:1588
+msgid "Please check the network connection."
+msgstr "لطفاً اتصال شبکه را بررسی کنید."
+
+#: src/documents.js:1591
+msgid "Please check the network proxy settings."
+msgstr "لطفاً تنظیمات پیشکار شبکه را بررسی کنید."
 
 #: src/documents.js:1594
-msgid "Please check the network connection."
-msgstr "لطفا اتصال شبکه را بررسی کنید."
-
-#: src/documents.js:1597
-msgid "Please check the network proxy settings."
-msgstr "لطفا تنظیمات پیشکار شبکه را بررسی کنید."
-
-#: src/documents.js:1600
 msgid "Unable to sign in to the document service."
 msgstr "نمی‌توان وارد سرویس سند شد."
 
-#: src/documents.js:1603
+#: src/documents.js:1597
 msgid "Unable to locate this document."
 msgstr "نمی‌توان مکان سند را پیدا کرد."
 
-#: src/documents.js:1606
+#: src/documents.js:1600
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "هممم، یک چیزی مشکوک است (%Id)."
 
-#: src/documents.js:1613
-msgid ""
-"You are using a preview of Books. Full viewing capabilities are coming soon!"
-msgstr ""
-"شما در حال استفاده از پیش‌نمایش کتاب‌ها هستید. امکانات نمایش کامل بزودی ارائه "
-"خواهد شد!"
-
-#: src/documents.js:1615
+#: src/documents.js:1606
 msgid ""
 "LibreOffice support is not available. Please contact your system administrator."
-msgstr ""
-"پشتیبانی از LibreOffice در دسترس نیست. لطفا با مدیر سیستم خود تماس بگیرید."
+msgstr "پشتیبانی لیبره‌آفیس موجود نیست. لطفاً با مدیر سیستم خود تماس بگیرید."
 
 #. Translators: %s is the title of a document
-#: src/documents.js:1638
+#: src/documents.js:1629
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "اوه! نمی‌توان «%s» را بارگیری کرد"
@@ -529,16 +454,11 @@ msgstr "اوه! نمی‌توان «%s» را بارگیری کرد"
 msgid "View"
 msgstr "نما"
 
-#: src/epubview.js:228
-#, javascript-format
-msgid "chapter %s of %s"
-msgstr "فصل %s از %s"
-
-#: src/evinceview.js:590 src/lib/gd-places-bookmarks.c:656
+#: src/evinceview.js:587 src/lib/gd-places-bookmarks.c:656
 msgid "Bookmarks"
 msgstr "نشانک‌ها"
 
-#: src/evinceview.js:598
+#: src/evinceview.js:595
 msgid "Bookmark this page"
 msgstr "نشانک‌گذاری این صفحه"
 
@@ -576,23 +496,26 @@ msgid "Contents"
 msgstr "محتوا"
 
 #: src/lib/gd-utils.c:328
-msgid "A document manager application"
-msgstr "یک برنامه مدیریت سندها"
-
-#: src/lib/gd-utils.c:333
-msgid "An e-books manager application"
-msgstr "یک برنامه مدیریت کتاب‌های الکترونیکی"
-
-#: src/lib/gd-utils.c:340
 msgid "translator-credits"
-msgstr "آرش موسوی <mousavi.arash@gmail.com>"
+msgstr ""
+"آرش موسوی <mousavi.arash@gmail.com>\n"
+"دانیال بهزادی <dani.behzi@ubuntu.com>"
 
-#: src/mainToolbar.js:91
+#: src/lib/gd-utils.c:329
+msgid "A document manager application"
+msgstr "یک برنامه مدیریت سند"
+
+#: src/mainToolbar.js:95
+msgctxt "menu button tooltip"
+msgid "Menu"
+msgstr "فهرست"
+
+#: src/mainToolbar.js:105
 msgctxt "toolbar button tooltip"
 msgid "Search"
 msgstr "جست‌وجو"
 
-#: src/mainToolbar.js:100
+#: src/mainToolbar.js:114
 msgid "Back"
 msgstr "برگشت"
 
@@ -611,7 +534,7 @@ msgid_plural "%d items deleted"
 msgstr[0] "تعداد %Id مورد حذف شد"
 msgstr[1] "تعداد %Id مورد حذف شدند"
 
-#: src/notifications.js:61 src/selections.js:387
+#: src/notifications.js:61 src/selections.js:380
 msgid "Undo"
 msgstr "برگردان"
 
@@ -644,10 +567,6 @@ msgid "No collections found"
 msgstr "هیچ مجموعه‌ای پیدا نشد"
 
 #: src/overview.js:277
-msgid "No books found"
-msgstr "هیچ کتابی پیدا نشد"
-
-#: src/overview.js:277
 msgid "No documents found"
 msgstr "هیچ سندی پیدا نشد"
 
@@ -655,15 +574,11 @@ msgstr "هیچ سندی پیدا نشد"
 msgid "Try a different search"
 msgstr "جست‌وجو متفاوتی را امتحان کنید"
 
-#: src/overview.js:293
-msgid "You can create collections from the Books view"
-msgstr "می‌توانید مجموعه‌ای از طریق نمای کتاب‌ها بسازید"
-
-#: src/overview.js:295
+#: src/overview.js:291
 msgid "You can create collections from the Documents view"
 msgstr "می‌توانید مجموعه‌ای از طریق نمای سندها بسازید"
 
-#: src/overview.js:305
+#: src/overview.js:296
 #, javascript-format
 msgid ""
 "Documents from your <a href=\"system-settings\">Online Accounts</a> and <a href="
@@ -673,63 +588,63 @@ msgstr ""
 "\"file://%s\">پوشه سندها</a> در اینجا ظاهر می‌شوند."
 
 #. Translators: this is the menu to change view settings
-#: src/overview.js:562
+#: src/overview.js:553
 msgid "View Menu"
-msgstr "نمایش منو"
+msgstr "نمایش فهرست"
 
-#: src/overview.js:590
+#: src/overview.js:581
 msgid "Click on items to select them"
 msgstr "برای انتخاب موارد روی آنها کلیک کنید"
 
-#: src/overview.js:592
+#: src/overview.js:583
 #, javascript-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%Id انتخاب شد"
 msgstr[1] "%Id انتخاب شد"
 
-#: src/overview.js:669
+#: src/overview.js:664
 msgid "Select Items"
 msgstr "انتخاب موارد"
 
-#: src/overview.js:876
+#: src/overview.js:870
 msgid "Yesterday"
 msgstr "دیروز"
 
-#: src/overview.js:878
+#: src/overview.js:872
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%Id روز گذشته"
 msgstr[1] "%Id روز گذشته"
 
-#: src/overview.js:882
+#: src/overview.js:876
 msgid "Last week"
 msgstr "هفته گذشته"
 
-#: src/overview.js:884
+#: src/overview.js:878
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%Id هفته گذشته"
 msgstr[1] "%Id هفته گذشته"
 
-#: src/overview.js:888
+#: src/overview.js:882
 msgid "Last month"
 msgstr "ماه گذشته"
 
-#: src/overview.js:890
+#: src/overview.js:884
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%Id ماه گذشته"
 msgstr[1] "%Id ماه گذشته"
 
-#: src/overview.js:894
+#: src/overview.js:888
 msgid "Last year"
 msgstr "سال گذشته"
 
-#: src/overview.js:896
+#: src/overview.js:890
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -742,7 +657,7 @@ msgstr "گذرواژه لازم است"
 
 #: src/password.js:45
 msgid "_Unlock"
-msgstr "_بازکردن قفل"
+msgstr "قفل‌_گشایی"
 
 #: src/password.js:61
 #, javascript-format
@@ -753,44 +668,44 @@ msgstr "سند %s قفل است و نیاز به گذرواژه برای باز 
 msgid "_Password"
 msgstr "_گذرواژه"
 
-#: src/presentation.js:102
+#: src/presentation.js:101
 msgid "Running in presentation mode"
 msgstr "اجرا در حالت ارائه"
 
-#: src/presentation.js:130
+#: src/presentation.js:129
 msgid "Present On"
 msgstr "ارائه بر روی"
 
 #. Translators: "Mirrored" describes when both displays show the same view
-#: src/presentation.js:166
+#: src/presentation.js:165
 msgid "Mirrored"
 msgstr "آینه"
 
-#: src/presentation.js:168
+#: src/presentation.js:167
 msgid "Primary"
 msgstr "اصلی"
 
-#: src/presentation.js:170
+#: src/presentation.js:169
 msgid "Off"
 msgstr "خاموش"
 
-#: src/presentation.js:172
+#: src/presentation.js:171
 msgid "Secondary"
 msgstr "ثانوی"
 
 #. Translators: this is the Open action in a context menu
-#: src/preview.js:445 src/selections.js:985
+#: src/preview.js:439 src/selections.js:979
 #, javascript-format
 msgid "Open with %s"
-msgstr "باز کردن با %s"
+msgstr "گشودن با %s"
+
+#: src/preview.js:764
+msgid "Find Previous"
+msgstr "یافتن پیشین"
 
 #: src/preview.js:770
-msgid "Find Previous"
-msgstr "پیداکردن قبلی"
-
-#: src/preview.js:776
 msgid "Find Next"
-msgstr "پیداکردن بعدی"
+msgstr "یافتن بعدی"
 
 #. Title item
 #. Translators: "Title" is the label next to the document title
@@ -831,96 +746,88 @@ msgstr "نوع"
 
 #. Translators: "Type" refers to a search filter on the document type
 #. (PDF, spreadsheet, ...)
-#: src/search.js:120
+#: src/search.js:118
 msgctxt "Search Filter"
 msgid "Type"
 msgstr "نوع"
 
 #. Translators: this refers to documents
-#: src/search.js:123 src/search.js:260 src/search.js:453
+#: src/search.js:121 src/search.js:233 src/search.js:427
 msgid "All"
 msgstr "همه"
 
-#: src/search.js:136
+#: src/search.js:127
 msgid "PDF Documents"
 msgstr "سندهای PDF"
 
-#: src/search.js:143
-msgid "e-Books"
-msgstr "کتاب‌های الکترونیکی"
-
-#: src/search.js:147
-msgid "Comics"
-msgstr "کمیک‌ها"
-
-#: src/search.js:152
+#: src/search.js:132
 msgid "Presentations"
 msgstr "ارائه‌ها"
 
-#: src/search.js:155
+#: src/search.js:135
 msgid "Spreadsheets"
 msgstr "صفحه‌گسترده‌ها"
 
-#: src/search.js:158
+#: src/search.js:138
 msgid "Text Documents"
 msgstr "سندهای متنی"
 
 #. Translators: this is a verb that refers to "All", "Title", "Author",
 #. and "Content" as in "Match All", "Match Title", "Match Author", and
 #. "Match Content"
-#: src/search.js:257
+#: src/search.js:230
 msgid "Match"
 msgstr "تطابق"
 
 #. Translators: "Title" refers to "Match Title" when searching
-#: src/search.js:263
+#: src/search.js:236
 msgctxt "Search Filter"
 msgid "Title"
 msgstr "عنوان"
 
 #. Translators: "Author" refers to "Match Author" when searching
-#: src/search.js:266
+#: src/search.js:239
 msgctxt "Search Filter"
 msgid "Author"
 msgstr "نویسنده"
 
 #. Translators: "Content" refers to "Match Content" when searching
-#: src/search.js:269
+#: src/search.js:242
 msgctxt "Search Filter"
 msgid "Content"
 msgstr "محتوا"
 
-#: src/search.js:449
+#: src/search.js:423
 msgid "Sources"
 msgstr "منابع"
 
 #. Translators: the first %s is an online account provider name,
 #. e.g. "Google". The second %s is the identity used to log in,
 #. e.g. "foo@gmail.com".
-#: src/search.js:508
+#: src/search.js:480
 #, javascript-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: src/selections.js:360 src/selections.js:362
+#: src/selections.js:353 src/selections.js:355
 msgid "Rename…"
 msgstr "تغییرنام..."
 
-#: src/selections.js:366 src/selections.js:368
+#: src/selections.js:359 src/selections.js:361
 msgid "Delete"
 msgstr "حذف"
 
-#: src/selections.js:382
+#: src/selections.js:375
 #, javascript-format
 msgid "“%s” removed"
 msgstr "مورد «%s» حذف شد"
 
-#: src/selections.js:779
+#: src/selections.js:772
 msgid "Rename"
 msgstr "تغییرنام"
 
 #. Translators: "Collections" refers to documents in this context
-#: src/selections.js:785
+#: src/selections.js:778
 msgctxt "Dialog Title"
 msgid "Collections"
 msgstr "مجموعه‌ها"
@@ -956,12 +863,12 @@ msgstr "همه می‌توانند ویرایش کنند"
 #. Label for widget group used for adding new contacts
 #: src/sharing.js:197
 msgid "Add people"
-msgstr "اضافه کردن دیگران"
+msgstr "افزودن دیگران"
 
 #. Editable text in entry field
 #: src/sharing.js:204
 msgid "Enter an email address"
-msgstr "یک آدرس پست‌الکترونیکی وارد کنید"
+msgstr "یک نشانی رایانامه وارد کنید"
 
 #: src/sharing.js:219 src/sharing.js:371
 msgid "Can edit"
@@ -977,7 +884,7 @@ msgstr "همه می‌توانند بخوانند"
 
 #: src/sharing.js:317
 msgid "Save"
-msgstr "ذخیره کردن"
+msgstr "ذخیره"
 
 #: src/sharing.js:368
 msgid "Owner"
@@ -1000,6 +907,83 @@ msgstr "سند بی‌عنوان"
 #: src/trackerController.js:176
 msgid "Unable to fetch the list of documents"
 msgstr "نمی‌توان فهرست اسناد را دریافت کرد"
+
+#~ msgid "Books"
+#~ msgstr "کتاب‌ها"
+
+#~ msgid "An e-book manager application for GNOME"
+#~ msgstr "یک برنامه مدیریت کتاب‌های الکترونیکی برای گنوم"
+
+#~ msgid ""
+#~ "A simple application to access and organize your e-books on GNOME. It is "
+#~ "meant to be a simple and elegant replacement for using a file manager to "
+#~ "deal with e-books."
+#~ msgstr ""
+#~ "یک برنامه ساده برای دسترسی و مدیریت کتاب‌های الکترونیکی در گنوم. این برنامه "
+#~ "سعی می‌کند نسبت به یک برنامه مدیریت پرونده ساده‌تر و بهتر برای کتاب‌های "
+#~ "الکترونیکی عمل کند."
+
+#~ msgid "View recent e-books"
+#~ msgstr "نمایش کتاب‌های الکترونیکی اخیر"
+
+#~ msgid "Search through e-books"
+#~ msgstr "جست‌وجو بر اساس کتاب‌های الکترونیکی"
+
+#~ msgid "View e-books (PDF and comics) fullscreen"
+#~ msgstr "نمایش کتاب‌های الکترونیک (PDFها و کمیک‌ها) بصورت تمام‌صفحه"
+
+#~ msgid "Print e-books"
+#~ msgstr "چاپ کتاب‌های الکترونیکی"
+
+#~ msgid "Access, manage and share books"
+#~ msgstr "دسترسی، مدیریت و اشتراک‌گذاری کتاب‌های الکترونیکی"
+
+#~ msgid "org.gnome.Books"
+#~ msgstr "org.gnome.Books"
+
+#~ msgid "Books;Comics;ePub;PDF;"
+#~ msgstr "Books;Comics;ePub;PDF;کتابها;کمیکها;"
+
+#~ msgid "org.gnome.Documents"
+#~ msgstr "org.gnome.Documents"
+
+#~ msgid "About"
+#~ msgstr "راهنما"
+
+#~ msgctxt "app menu"
+#~ msgid "Quit"
+#~ msgstr "خروج"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Rotate anti-clockwise"
+#~ msgstr "چرخش برعکس عقربه‌ها"
+
+#~ msgid "e-Book"
+#~ msgstr "کتاب الکترونیکی"
+
+#~ msgid ""
+#~ "You are using a preview of Books. Full viewing capabilities are coming soon!"
+#~ msgstr ""
+#~ "شما در حال استفاده از پیش‌نمایش کتاب‌ها هستید. امکانات نمایش کامل بزودی ارائه "
+#~ "خواهد شد!"
+
+#~ msgid "chapter %s of %s"
+#~ msgstr "فصل %s از %s"
+
+#~ msgid "An e-books manager application"
+#~ msgstr "یک برنامه مدیریت کتاب‌های الکترونیکی"
+
+#~ msgid "No books found"
+#~ msgstr "هیچ کتابی پیدا نشد"
+
+#~ msgid "You can create collections from the Books view"
+#~ msgstr "می‌توانید مجموعه‌ای از طریق نمای کتاب‌ها بسازید"
+
+#~ msgid "e-Books"
+#~ msgstr "کتاب‌های الکترونیکی"
+
+#~ msgid "Comics"
+#~ msgstr "کمیک‌ها"
 
 #~ msgid "LibreOffice is required to view this document"
 #~ msgstr "برای نمایش این سند به LibreOffice احتیاج است"
@@ -1055,9 +1039,6 @@ msgstr "نمی‌توان فهرست اسناد را دریافت کرد"
 
 #~ msgid "List"
 #~ msgstr "فهرست"
-
-#~ msgid "About Documents"
-#~ msgstr "درباره‌ی سندها"
 
 #~ msgid "You don't have any collections yet. Enter a new collection name above."
 #~ msgstr ""
