@@ -210,7 +210,7 @@ var LOKView = GObject.registerClass(class LOKView extends Preview.Preview {
     }
 
     goPrev() {
-        let currentPart = this._lokview.get_part();
+        let currentPart = this.page;
         currentPart -= 1;
         if (currentPart < 0)
             return;
@@ -220,8 +220,8 @@ var LOKView = GObject.registerClass(class LOKView extends Preview.Preview {
     }
 
     goNext() {
-        let totalParts  = this._lokview.get_parts();
-        let currentPart = this._lokview.get_part();
+        let totalParts  = this.numPages;
+        let currentPart = this.page;
         currentPart += 1;
         if (currentPart > totalParts)
             return;
@@ -235,10 +235,10 @@ var LOKView = GObject.registerClass(class LOKView extends Preview.Preview {
     }
 
     get page() {
-        return this._lokview.get_part();
+        return this._lokview ? this._lokview.get_part() : 0;
     }
 
     get numPages() {
-        return this._lokview.get_parts();
+        return this._lokview ? this._lokview.get_parts() : 0;
     }
 });
