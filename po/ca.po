@@ -372,7 +372,7 @@ msgstr "Nom"
 
 #: src/application.js:119
 msgid "Show the version of the program"
-msgstr "Mostra la versió del programa."
+msgstr "Mostra la versió del programa"
 
 #: src/documents.js:778
 msgid "Failed to print document"
