@@ -1,3 +1,21 @@
+3.34.0
+======
+* Bugs fixed:
+ - !27 Use Files GOA provider feature
+
+* Translation updates:
+ - Basque
+ - Bokmål, Norwegian
+ - Catalan
+ - Chinese (China)
+ - Croatian
+ - Danish
+ - French
+ - Icelandic
+ - Karbi
+ - Persian
+ - Slovak
+
 3.33.90
 =======
 * Translation updates:
