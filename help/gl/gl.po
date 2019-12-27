@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-user-doc\n"
-"POT-Creation-Date: 2018-03-12 15:06+0000\n"
+"POT-Creation-Date: 2019-09-26 07:26+0000\n"
 "PO-Revision-Date: 2018-03-21 22:17+0100\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
