@@ -4,15 +4,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-user-doc\n"
 "POT-Creation-Date: 2019-09-26 07:26+0000\n"
-"PO-Revision-Date: 2018-03-21 22:17+0100\n"
-"Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
+"PO-Revision-Date: 2019-12-27 18:19+0100\n"
+"Last-Translator: Fran Diéguez <frandieguez@gnome.org>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.2.4\n"
 "X-Project-Style: gnome\n"
 
 #. (itstool) path: p/link
@@ -28,7 +28,7 @@ msgstr "Este traballo está baixo a licenza <_:link-1/>."
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr "Fran Dieguez <frandieguez@gnome.org>, 2011-2018."
+msgstr "Fran Diéguez <frandieguez@gnome.org>, 2011-2020"
 
 #. (itstool) path: credit/name
 #: C/collections.page:12 C/index.page:14 C/info.page:12 C/print.page:11
@@ -285,7 +285,7 @@ msgid ""
 "and print the documents on your computer or those created remotely using "
 "<em>Google Docs</em>, <em>ownCloud</em> or <em>OneDrive</em>."
 msgstr ""
-"<app>Documentos</app> é un aplicativo de GNOME que lle permite mostrar, "
+"<app>Documentos</app> é unha aplicación de GNOME que lle permite mostrar, "
 "organizar e imprimir os documentos do seu computador ou aqueles creados "
 "usando en <em>Google Docs</em>, <em>ownCloud</em> ou <em>OneDrive</em>."
 
@@ -384,8 +384,8 @@ msgid ""
 "app>)."
 msgstr ""
 "<app>Documentos</app> non ofrece actualmente ningún mecanismo para engadir "
-"privacidade ao documento. Porén, xeralmente pode facer isto desde o seu "
-"aplicativo para crear o contido (p.ex., <app>LibreOffice</app> ou <app>Adobe "
+"privacidade ao documento. Porén, xeralmente pode facer isto desde a súa "
+"aplicación para crear o contido (p.ex., <app>LibreOffice</app> ou <app>Adobe "
 "Acrobat</app>)."
 
 #. (itstool) path: info/desc
@@ -729,129 +729,6 @@ msgid ""
 "search that folder. Unfortunately, it is not possible to tell which "
 "applications will be affected without testing them."
 msgstr ""
-"Engadir un novo cartafol á busca permítelle a algúns dos seus aplicativos "
-"buscar no cartafol. Desafortunadamente, non é posíbel decirlle que "
-"aplicativos afectarán sen probar."
-
-#~ msgid "In selection mode, check the documents to be collected."
-#~ msgstr "No modo de selección, marque os documentos para agrupar."
-
-#~ msgid ""
-#~ "Collections do not behave like folders and their hierarchy: <em>you "
-#~ "cannot put collections inside collections.</em>"
-#~ msgstr ""
-#~ "As coleccións non se comportan como os cartafoles e a súa xerarquía: "
-#~ "<em>non pode incluír coleccións dentro de coleccións.</em>"
-
-#, fuzzy
-#~ msgctxt "_"
-#~ msgid ""
-#~ "external ref='media/go-down.png' md5='e8c16f5ab9ed933f4a537b740506f4d4'"
-#~ msgstr ""
-#~ "external ref='figures/go-down.png' md5='e8c16f5ab9ed933f4a537b740506f4d4'"
-
-#~ msgid "<em>Sources</em>: Local, Google, SkyDrive, or All."
-#~ msgstr "<em>Orixes</em>: Local, Google, SkyDrive ou Todo."
-
-#~ msgid "Title, Author, or All."
-#~ msgstr "Título, autor ou todo."
-
-#~ msgid "Formats supported"
-#~ msgstr "Formatos compatíbeis"
-
-#~ msgid "Questions"
-#~ msgstr "Destinos"
-
-#~ msgid "Use selection mode to select more than one document or collection."
-#~ msgstr ""
-#~ "Use o modo de selección para seleccionar máis dun documento ou colección."
-
-#~ msgid "Selecting documents"
-#~ msgstr "Seleccionar documentos"
-
-#~ msgid ""
-#~ "From <app>Documents</app> selection mode you can open, print, view or "
-#~ "make collections of your documents. To use selection mode:"
-#~ msgstr ""
-#~ "Desde o modo de selección de <app>Documentos</app> pode abrir, imprimir, "
-#~ "ver ou crear coleccións dos seus documentos. Para usar o modo de "
-#~ "selección:"
-
-#~ msgid ""
-#~ "Select one or more documents or collections. The button bar appears with "
-#~ "the actions that are valid for your selection."
-#~ msgstr ""
-#~ "Seleccione un ou máis documentos ou coleccións. Aparecerá a barra de "
-#~ "botóns coas accións dispoñíbeis para a súa selección."
-
-#~ msgid "Selection mode actions"
-#~ msgstr "Accións do modo de selección"
-
-#~ msgid "After selecting one or more documents you can:"
-#~ msgstr "Despois de seleccionar un ou máis documentos pode:"
-
-#~ msgid "Open with Document Viewer (folder icon)."
-#~ msgstr "Abrilo co Visor de documentos (icona de cartafol)."
-
-#~ msgid ""
-#~ "Print (printer icon): print a document (only available when a single "
-#~ "document is selected)."
-#~ msgstr ""
-#~ "Imprimir (icona de impresora): imprimir un documento (só dispoñíbel cando "
-#~ "se selecciona un único documento)."
-
-#~ msgid "Organize (plus icon): create a collection of documents."
-#~ msgstr "Organizar (icona de máis): crear unha colección de documentos."
-
-#~ msgid ""
-#~ "Properties (wrench icon): display the properties of a document (only "
-#~ "available when a single document is selected)."
-#~ msgstr ""
-#~ "Propiedades (icona da ferramenta): mostra as propiedades do documento (só "
-#~ "dispoñíbel cando selecciona un único documento)."
-
-#~ msgid "Delete (trash icon): delete one or more collections."
-#~ msgstr "Eliminar (icona de lixo): eliminar unha ou máis coleccións."
-
-#~ msgid "Local or remote documents do not appear."
-#~ msgstr "Os documentos locais e remotos non aparecen."
-
-#~ msgid ""
-#~ "Go to the top bar and click <app>Documents</app> to display the app menu."
-#~ msgstr ""
-#~ "Vaia á na barra superior e prema <app>Documentos</app> para mostrar o "
-#~ "menú do aplicativo."
-
-#~ msgid "Click <gui>List</gui> from the <gui>View as</gui> section."
-#~ msgstr ""
-#~ "Prema <gui>Personalizar</gui> e seleccione a lapela <gui>Cores</gui>."
-
-#~ msgid ""
-#~ "Click <gui>Grid</gui> in the app menu to return to the default format."
-#~ msgstr ""
-#~ "Prema <gui>Grade</gui> no menú do aplicativo para volver ao formato "
-#~ "predeterminado."
-
-#~ msgid "View documents full-screen."
-#~ msgstr "Ver documentos a pantalla completa."
-
-#~ msgid "Display documents stored locally or online"
-#~ msgstr "Ver documentos almacenados en local ou en liña."
-
-#, fuzzy
-#~ msgid ""
-#~ "In order for your <em>Google Docs</em> or <em>SkyDrive</em> documents to "
-#~ "appear, it is necessary to configure Google or Windows Live, "
-#~ "respectively, as an <link href=\"gnome-help:accounts-add\">online "
-#~ "account</link>."
-#~ msgstr ""
-#~ "Para que aparezan os documentos de  <em>Google Docs</em> ou <em>SkyDrive</"
-#~ "em> debe configurar Google como unha <link xref=\"accounts-add\">conta en "
-#~ "liña</link>."
-
-#~ msgid ""
-#~ "Click the thumbnail. The document is displayed full-width in the "
-#~ "<app>Documents</app> window (or full-screen if maximized)."
-#~ msgstr ""
-#~ "Prema na miniatura. O documento mostrarase a todo o ancho na xanela de "
-#~ "<app>Documentos</app> (ou a pantalla completa se está maximizado)."
+"Engadir un novo cartafol á busca permítelle a algúns das súas aplicacións "
+"buscar no cartafol. Desafortunadamente, non é posíbel dicirlle que "
+"aplicacións afectarán sen probar."
