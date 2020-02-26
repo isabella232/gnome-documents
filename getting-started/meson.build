@@ -21,7 +21,7 @@ foreach lingua: linguas
       source,
       input: join_paths(lingua, source + '.svg'),
       output: source + '.pdf',
-      command: [inkscape, '-z', '-A', '@OUTPUT@', '@INPUT@']
+      command: [inkscape, '--export-filename', '@OUTPUT@', '@INPUT@']
     )
   endforeach
 
