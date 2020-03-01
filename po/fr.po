@@ -609,7 +609,7 @@ msgid ""
 "href=\"file://%s\">Documents folder</a> will appear here."
 msgstr ""
 "Les documents de vos <a href=\"system-settings\">Comptes en ligne</a> et <a "
-"\"href=\"file://%s\">dossier Documents</a> apparaîtront ici."
+"href=\"file://%s\">dossier Documents</a> apparaîtront ici."
 
 #. Translators: this is the menu to change view settings
 #: src/overview.js:553
