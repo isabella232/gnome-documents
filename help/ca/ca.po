@@ -73,7 +73,7 @@ msgstr "Agrupeu els documents relacionats per ajudar a ordenar-los."
 #. (itstool) path: page/title
 #: C/collections.page:32
 msgid "Make collections of documents"
-msgstr "Feu col·leccions de documents"
+msgstr "Fer col·leccions de documents"
 
 #. (itstool) path: page/p
 #: C/collections.page:45
@@ -84,7 +84,7 @@ msgid ""
 "business trip where you made a presentation, your slides, a PDF of your "
 "flight itinerary, your budget spreadsheet, and other word processor and PDF "
 "documents can be grouped in one collection."
-msgstr "Podeu posar junts documents de diferent tipus en un lloc anomenat <em>collection</em>. Si teniu documents relacionats, podeu agrupar-los per fer més fàcil la seva localització. Per exemple, si vas fer un viatge de treball on vas fer una presentació, les teves diapositives, el PDF del teu itinerari de vol, el full de càlcul amb les teves despeses, i altres documents Word i PDF, es poden agrupar en una única col·lecció."
+msgstr "Podeu posar junts documents de diferent tipus en un lloc anomenat <em>col·lecció</em>. Si teniu documents relacionats, podeu agrupar-los per fer més fàcil la seva localització. Per exemple, si vas fer un viatge de treball on vas fer una presentació, les teves diapositives, el PDF del teu itinerari de vol, el full de càlcul amb les teves despeses, i altres documents Word i PDF, es poden agrupar en una única col·lecció."
 
 #. (itstool) path: steps/title
 #: C/collections.page:53
@@ -139,7 +139,7 @@ msgstr "Seleccioneu quins documents mostrar."
 #. (itstool) path: page/title
 #: C/filter.page:27
 msgid "Filter documents"
-msgstr "Filtrant documents"
+msgstr "Filtrar documents"
 
 #. (itstool) path: media/span
 #: C/filter.page:31 C/search.page:54
@@ -242,7 +242,7 @@ msgstr "Organitzeu, mostreu i editeu els documents que estan emmagatzemats al vo
 #. (itstool) path: page/title
 #: C/index.page:35
 msgid "<_:media-1/> Documents"
-msgstr "Documents <_:media-1/> "
+msgstr "Documents <_:media-1/>"
 
 #. (itstool) path: page/p
 #: C/index.page:50
@@ -312,7 +312,7 @@ msgstr "Per veure les propietats d'un document:"
 #. (itstool) path: item/p
 #: C/info.page:63
 msgid "Click the check button to switch to selection mode."
-msgstr "Fer clic sobre el botó de verificació per canviar el mode de selecció. "
+msgstr "Fer clic sobre el botó de verificació per canviar el mode de selecció."
 
 #. (itstool) path: item/p
 #: C/info.page:66
@@ -365,7 +365,7 @@ msgstr "En mode selecció, seleccionar el document per imprimir-lo."
 #: C/print.page:44
 msgid ""
 "Click the Print button in the button bar. The <gui>Print</gui> dialog opens."
-msgstr "Fer clic al botó Imprimir a la barra de botons. El diàleg <gui>Imprimir</gui> s'obre."
+msgstr "Fer clic al botó Imprimir a la barra de botons. El diàleg <gui>Imprimeix</gui> s'obre."
 
 #. (itstool) path: note/p
 #: C/print.page:50
@@ -566,7 +566,7 @@ msgstr "2014–2015"
 msgid ""
 "Add extra directories to those which are already searched by "
 "<app>Documents</app>."
-msgstr "Afegir carpetes extres a les que ja s'han cercat amb <app>Documents</app>."
+msgstr "Afegir carpetes extres a les quals ja s'han cercat amb <app>Documents</app>."
 
 #. (itstool) path: page/title
 #: C/view-add.page:25
