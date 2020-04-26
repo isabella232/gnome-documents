@@ -1,0 +1,748 @@
+# Ukrainian translation for gnome-documents.
+# Copyright (C) 2020 gnome-documents's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-documents package.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-documents master\n"
+"POT-Creation-Date: 2020-03-29 16:35+0000\n"
+"PO-Revision-Date: 2020-04-26 16:49+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 20.07.70\n"
+
+#. (itstool) path: p/link
+#: C/legal.xml:3
+msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+
+#. (itstool) path: license/p
+#: C/legal.xml:3
+msgid "This work is licensed under a <_:link-1/>."
+msgstr "Ця робота розповсюджується за умов дотримання <_:link-1/>."
+
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+msgctxt "_"
+msgid "translator-credits"
+msgstr "Юрій Чорноіван <yurchor@ukr.net>, 2020"
+
+#. (itstool) path: credit/name
+#: C/collections.page:12 C/index.page:14 C/info.page:12 C/print.page:11
+#: C/prob-no-show.page:12 C/prob-previews.page:12 C/search.page:11
+#: C/viewgrid.page:12 C/view.page:12
+msgid "Julita Inca"
+msgstr "Хуліта Інка (Julita Inca)"
+
+#. (itstool) path: credit/years
+#: C/collections.page:14 C/collections.page:19 C/filter.page:14
+#: C/formats.page:14 C/index.page:16 C/index.page:21 C/info.page:14
+#: C/info.page:19 C/print.page:13 C/print.page:18 C/prob-no-show.page:14
+#: C/prob-no-show.page:19 C/prob-previews.page:14 C/prob-previews.page:19
+#: C/search.page:13 C/search.page:18 C/viewgrid.page:14 C/viewgrid.page:19
+#: C/view.page:14 C/view.page:19
+msgid "2012"
+msgstr "2012"
+
+#. (itstool) path: credit/name
+#: C/collections.page:17 C/filter.page:12 C/formats.page:12 C/index.page:19
+#: C/info.page:17 C/print.page:16 C/prob-no-show.page:17
+#: C/prob-previews.page:17 C/search.page:16 C/viewgrid.page:17 C/view.page:17
+msgid "Michael Hill"
+msgstr "Майкл Гілл (Michael Hill)"
+
+#. (itstool) path: credit/name
+#: C/collections.page:22 C/filter.page:17 C/formats.page:17 C/index.page:24
+#: C/info.page:22 C/prob-no-show.page:22 C/prob-previews.page:22
+#: C/viewgrid.page:22 C/view.page:22 C/view-add.page:13
+msgid "Ekaterina Gerasimova"
+msgstr "Єкатерина Герасимова (Ekaterina Gerasimova)"
+
+#. (itstool) path: credit/years
+#: C/collections.page:24 C/filter.page:19 C/formats.page:19 C/index.page:26
+#: C/info.page:24 C/prob-no-show.page:24 C/prob-previews.page:24
+#: C/viewgrid.page:24 C/view.page:24
+msgid "2014"
+msgstr "2014"
+
+#. (itstool) path: info/desc
+#: C/collections.page:29
+msgid "Group related documents together to help sort them."
+msgstr "Групування пов'язаних документів для полегшення їхнього упорядкування."
+
+#. (itstool) path: page/title
+#: C/collections.page:32
+msgid "Make collections of documents"
+msgstr "Створення збірок документів"
+
+#. (itstool) path: page/p
+#: C/collections.page:45
+msgid ""
+"You can put together documents of different types in one place which is "
+"called a <em>collection</em>. If you have documents that are related, you "
+"can group them to make them easier to find. For example, if you had a "
+"business trip where you made a presentation, your slides, a PDF of your "
+"flight itinerary, your budget spreadsheet, and other word processor and PDF "
+"documents can be grouped in one collection."
+msgstr ""
+"Ви можете зібрати документи різних типів в одному місці, яке називається <em"
+">збіркою</em>. Якщо у вас є пов'язані документи, ви можете згрупувати їх, щоб"
+" їх було простіше шукати. Наприклад, якщо ви перебували у відрядженні, де ви"
+" демонстрували презентацію, ваші слайди, PDF ваших квитків для перельоту,"
+" таблиця ваших витрат та інші документи текстового процесора та PDF можна"
+" зібрати у одну збірку."
+
+#. (itstool) path: steps/title
+#: C/collections.page:53
+msgid "To create or add to a collection:"
+msgstr "Щоб створити або додати збірку, виконайте такі дії:"
+
+#. (itstool) path: item/p
+#: C/collections.page:55 C/collections.page:73 C/print.page:38
+msgid "Press the <gui>✓</gui> button."
+msgstr "Натисніть кнопку <gui>✓</gui>."
+
+#. (itstool) path: item/p
+#: C/collections.page:58
+msgid "In selection mode, select related documents."
+msgstr "У режимі вибору виберіть пов'язані документи."
+
+#. (itstool) path: item/p
+#: C/collections.page:61
+msgid "Press <gui>Add to Collection</gui>."
+msgstr "Натисніть кнопку <gui>Додати до збірки</gui>."
+
+#. (itstool) path: item/p
+#: C/collections.page:64
+msgid ""
+"In the collection list, press on <gui>Create new collection</gui> twice and "
+"type a new collection name, or select an existing collection. The selected "
+"documents will be added to the collection."
+msgstr ""
+"У списку збірки натисніть кнопку <gui>Створити збірку</gui> двічі і введіть"
+" назву нової збірки або виберіть наявну збірку. Вибрані документи буде додано"
+" до збірки."
+
+#. (itstool) path: steps/title
+#: C/collections.page:71
+msgid "To delete a collection:"
+msgstr "Щоб вилучити збірку, виконайте такі дії:"
+
+#. (itstool) path: item/p
+#: C/collections.page:76
+msgid "In selection mode, select the collection that you want to delete."
+msgstr "У режимі вибору виберіть збірку, яку ви хочете вилучити."
+
+#. (itstool) path: item/p
+#: C/collections.page:79
+msgid ""
+"Press <gui style=\"button\">Delete</gui>. The collection will be deleted, "
+"leaving the original documents as they are."
+msgstr ""
+"Натисніть кнопку <gui style=\"button\">Вилучити</gui>. Збірку буде вилучено,"
+" а початкові документи лишаться на своїх місцях."
+
+#. (itstool) path: info/desc
+#: C/filter.page:24
+msgid "Choose which documents to display."
+msgstr "Вибір документів, які слід показувати."
+
+#. (itstool) path: page/title
+#: C/filter.page:27
+msgid "Filter documents"
+msgstr "Фільтрування документів"
+
+#. (itstool) path: media/span
+#: C/filter.page:31 C/search.page:54
+msgid "down"
+msgstr "вниз"
+
+#. (itstool) path: page/p
+#: C/filter.page:29
+msgid ""
+"<link xref=\"search\">Open the search</link> and click the <_:media-1/> "
+"button next to the search bar to limit the scope of the search in these "
+"categories:"
+msgstr ""
+"<link xref=\"search\">Відкрийте пошук</link> і натисніть кнопку <_:media-1/>,"
+" розташовану поряд із полем для пошуку, щоб обмежити область пошуку у цих"
+" категоріях:"
+
+#. (itstool) path: item/title
+#: C/filter.page:36
+msgid "Sources"
+msgstr "Джерела"
+
+#. (itstool) path: item/p
+#: C/filter.page:37
+msgid ""
+"Choose to search documents that are <gui>Local</gui>, accessed through <link "
+"href=\"help:gnome-help/online-accounts\">online accounts</link> with "
+"<gui>Google</gui>, <gui>OneDrive</gui>, <gui>ownCloud</gui>, or <gui>All</"
+"gui>."
+msgstr ""
+"Виберіть документи для пошуку, які є <gui>Локальними</gui>, доступними за"
+" допомогою <link href=\"help:gnome-help/online-accounts\">облікових записів в"
+" інтернеті</link> у службах "
+"<gui>Google</gui>, <gui>OneDrive</gui>, <gui>ownCloud</gui> або <gui>Все</"
+"gui>."
+
+#. (itstool) path: item/title
+#: C/filter.page:43
+msgid "Type"
+msgstr "Тип"
+
+#. (itstool) path: item/p
+#: C/filter.page:44
+msgid ""
+"Search only documents that are <gui>Collections</gui>, <gui>PDF Documents</"
+"gui>, <gui>Presentations</gui>, <gui>Spreadsheets</gui>, <gui>Text "
+"Documents</gui>, or <gui>All</gui>."
+msgstr ""
+"Можна шукати лише документи, які є <gui>Збірками</gui>, <gui>Документами PDF<"
+"/gui>, <gui>Презентаціями</gui>, <gui>Електронними таблицями</gui>, <gui"
+">Текстовими документами</gui>, або шукати в <gui>Усіх</gui> документах."
+
+#. (itstool) path: item/title
+#: C/filter.page:49
+msgid "Match"
+msgstr "Відповідність"
+
+#. (itstool) path: item/p
+#: C/filter.page:50
+msgid ""
+"Choose to search only the <gui>Title</gui>, the <gui>Author</gui>, or "
+"<gui>All</gui>."
+msgstr ""
+"Виберіть місце пошуку — <gui>Заголовок</gui>, <gui>Автор</gui> або <gui>Все<"
+"/gui>."
+
+#. (itstool) path: note/p
+#: C/filter.page:56
+msgid ""
+"In order for <gui>Google</gui>, <gui>OneDrive</gui> or <gui>ownCloud</gui> "
+"to appear in the filter list, it is necessary to configure Google, ownCloud "
+"or Windows Live as an <link href=\"help:gnome-help/accounts-add\">online "
+"account</link>."
+msgstr ""
+"Щоб пункти <gui>Google</gui>, <gui>OneDrive</gui> та <gui>ownCloud</gui>"
+" з'явилися у списку фільтрування, слід налаштувати Google, ownCloud або"
+" Windows Live як <link href=\"help:gnome-help/accounts-add\">обліковий запис"
+" в інтернеті</link>."
+
+#. (itstool) path: info/desc
+#: C/formats.page:24
+msgid "<app>Documents</app> displays a number of popular document types."
+msgstr "<app>Документи</app> показують документи багатьох популярних типів."
+
+#. (itstool) path: page/title
+#: C/formats.page:28
+msgid "Supported formats"
+msgstr "Підтримувані формати"
+
+#. (itstool) path: page/p
+#: C/formats.page:31
+msgid ""
+"<app>Documents</app> displays PDF, DVI, XPS, PostScript and the formats "
+"supported by <app href=\"help:evince\">Document Viewer</app>, <app>Microsoft "
+"Office</app>, <app>LibreOffice</app> and <app>Google Docs</app>."
+msgstr ""
+"<app>Документи</app> показують документи у форматах PDF, DVI, XPS, PostScript"
+" та інших форматах, підтримку яких передбачено у <app href=\"help:evince\""
+">Переглядачі документів</app>, <app>Microsoft Office</app>, <app>LibreOffice<"
+"/app> та <app>Документах Google</app>."
+
+#. (itstool) path: info/title
+#: C/index.page:7
+msgctxt "link"
+msgid "Documents"
+msgstr "Документи"
+
+#. (itstool) path: info/title
+#: C/index.page:8
+msgctxt "text"
+msgid "Documents"
+msgstr "Документи"
+
+#. (itstool) path: info/desc
+#: C/index.page:31
+msgid ""
+"Organize, view and edit the documents that are stored locally on your "
+"computer or online."
+msgstr ""
+"Впорядковуйте, переглядайте та редагуйте документи, які зберігаються на"
+" вашому комп'ютері або у мережі."
+
+#. (itstool) path: page/title
+#: C/index.page:35
+msgid "<_:media-1/> Documents"
+msgstr "<_:media-1/> Документи"
+
+#. (itstool) path: page/p
+#: C/index.page:50
+msgid ""
+"<app>Documents</app> is a GNOME application that lets you display, organize "
+"and print the documents on your computer or those created remotely using "
+"<em>Google Docs</em>, <em>ownCloud</em> or <em>OneDrive</em>."
+msgstr ""
+"<app>Документи</app> — програма GNOME, за допомогою якої ви можете"
+" переглядати, упорядковувати та друкувати документи на вашому комп'ютері або"
+" створені віддалено за допомогою <em>Документів Google</em>, <em>ownCloud</em"
+"> або <em>OneDrive</em>."
+
+#. (itstool) path: section/title
+#: C/index.page:55
+msgid "View, sort and search"
+msgstr "Перегляд, упорядкування та пошук"
+
+#. (itstool) path: section/title
+#: C/index.page:59
+msgid "Select, organize and print"
+msgstr "Вибір, упорядкування і друк"
+
+#. (itstool) path: section/title
+#: C/index.page:63
+msgid "Problems"
+msgstr "Проблеми"
+
+#. (itstool) path: info/desc
+#: C/info.page:29
+msgid "See a document's name, location, date modified, or type."
+msgstr "Перегляд назви документа, розташування, дати внесення змін або типів."
+
+#. (itstool) path: page/title
+#: C/info.page:32
+msgid "Find information about documents"
+msgstr "Пошук інформації про документи"
+
+#. (itstool) path: page/p
+#: C/info.page:42
+msgid ""
+"When a document is created, it contains <em>metadata</em>. <app>Documents</"
+"app> displays the following metadata for each document:"
+msgstr ""
+"При створенні документа до нього буде записано <em>метадані</em>. <app"
+">Документи</app> показують наступні метадані для кожного документа:"
+
+#. (itstool) path: item/p
+#: C/info.page:47
+msgid "Title: the name of the document, which can be edited;"
+msgstr "Заголовок: назва документа, її можна редагувати;"
+
+#. (itstool) path: item/p
+#: C/info.page:50
+msgid "Source: the path to the folder containing the document;"
+msgstr "Джерело: шлях до теки, де зберігається документ;"
+
+#. (itstool) path: item/p
+#: C/info.page:53
+msgid "Date Modified;"
+msgstr "Дата зміни;"
+
+#. (itstool) path: item/p
+#: C/info.page:56
+msgid "Type: the <link xref=\"formats\">file format</link> of the document."
+msgstr "Тип: <link xref=\"formats\">формат файла</link> документа."
+
+#. (itstool) path: page/p
+#: C/info.page:60
+msgid "To see a document's properties:"
+msgstr "Щоб переглянути документи, виконайте такі дії:"
+
+#. (itstool) path: item/p
+#: C/info.page:63
+msgid "Click the check button to switch to selection mode."
+msgstr "Натисніть кнопку з позначкою, щоб перемкнутися у режимі вибору."
+
+#. (itstool) path: item/p
+#: C/info.page:66
+msgid "Select a document."
+msgstr "Виберіть документ."
+
+#. (itstool) path: item/p
+#: C/info.page:69
+msgid ""
+"Click the <gui>Properties</gui> button at the right end of the button bar."
+msgstr ""
+"Натисніть кнопку <gui>Властивості</gui> у правій частині панелі кнопок."
+
+#. (itstool) path: note/p
+#: C/info.page:75
+msgid ""
+"Some types of documents (e.g. PDF files) can be password protected, "
+"preventing access to their metadata or content."
+msgstr ""
+"Документи деяких типів (наприклад файли PDF) може бути захищено паролем, що"
+" запобігає доступу до їхніх метаданих або вмісту."
+
+#. (itstool) path: note/p
+#: C/info.page:80
+msgid ""
+"<app>Documents</app> does not currently offer any mechanism to add privacy "
+"to a document. You may be able to do this from the application you used to "
+"create the document (e.g. <app>LibreOffice</app> or <app>Adobe Acrobat</"
+"app>)."
+msgstr ""
+"У поточній версії <app>Документів</app> не передбачено механізмів додавання"
+" захисту до документа. Ви можете зробити це за допомогою програми, яку було"
+" використано для створення документа (наприклад <app>LibreOffice</app> або <"
+"app>Adobe Acrobat</app>)."
+
+#. (itstool) path: info/desc
+#: C/print.page:23
+msgid "Print documents that are stored locally or online."
+msgstr "Друк документів, які зберігаються локально або у мережі."
+
+#. (itstool) path: page/title
+#: C/print.page:26
+msgid "Print a document"
+msgstr "Друк документа"
+
+#. (itstool) path: steps/title
+#: C/print.page:36
+msgid "To print a document:"
+msgstr "Щоб надрукувати документ, виконайте такі дії:"
+
+#. (itstool) path: item/p
+#: C/print.page:41
+msgid "In selection mode, check the document to be printed."
+msgstr "У режимі вибору позначте документ, який має бути надруковано."
+
+#. (itstool) path: item/p
+#: C/print.page:44
+msgid ""
+"Click the Print button in the button bar. The <gui>Print</gui> dialog opens."
+msgstr ""
+"Натисніть кнопку «Надрукувати» на панелі кнопок. У відповідь буде відкрито"
+" діалогове вікно <gui>Друкувати</gui>."
+
+#. (itstool) path: note/p
+#: C/print.page:50
+msgid ""
+"Printing is not available when more than one document is selected, or when a "
+"collection is selected."
+msgstr "Друк є недоступним, якщо позначено декілька документів або збірку."
+
+#. (itstool) path: info/desc
+#: C/prob-no-show.page:29
+msgid "Your local documents do not appear in <gui>Documents</gui>."
+msgstr "Ваші локальні документи не показано у <gui>Документи</gui>."
+
+#. (itstool) path: page/title
+#: C/prob-no-show.page:32
+msgid "My documents are not shown"
+msgstr "Документи не показано"
+
+#. (itstool) path: page/p
+#: C/prob-no-show.page:46
+msgid ""
+"<app>Documents</app> supports only certain types of documents such as PDFs "
+"and office suite documents such as spreadsheets and word processor "
+"documents. It will not show text documents and photos."
+msgstr ""
+"У <app>Документах</app> передбачено підтримку лише деяких типів документів,"
+" зокрема документів PDF і офісних документів, зокрема електронних таблиць та"
+" документів текстових процесорів. Програма не може показувати текстові"
+" документи та фотографії."
+
+#. (itstool) path: page/p
+#: C/prob-no-show.page:50
+msgid ""
+"For your local documents to appear in <app>Documents</app>, they must be "
+"inside your <file>Documents</file> or <file>Downloads</file> folders, or "
+"inside folders that are in those directories. Documents that are in other "
+"places on your computer will not be shown."
+msgstr ""
+"Щоб ваші локальні документи з'явилися у <app>Документах</app>, вони мають"
+" зберігатися у ваших теках <file>Документи</file> або <file>Завантаження<"
+"/file>, або у теках, які зберігаються у цих каталогах. Документи, які"
+" зберігаються у інших місцях на вашому комп'ютері, не буде показано."
+
+#. (itstool) path: page/p
+#: C/prob-no-show.page:55
+msgid ""
+"If your documents fail to display in <app>Documents</app>, <app>Tracker</"
+"app> may not be running or properly configured. Make sure <app>Tracker</app> "
+"is running in your session. The default configuration, set to index files in "
+"your home directory (non-recursively) and XDG folders (recursively), should "
+"be adequate."
+msgstr ""
+"Якщо ваші документи не показуються у <app>Докуметах</app>, можливо, <app"
+">Tracker</app> не запущено або не налаштовано належним чином. Переконайтеся,"
+" що у вашому сеансі запущено <app>Tracker</app>. Типові налаштування, за яких"
+" встановлено індексування файлів у вашому домашньому каталозі (не рекурсивно)"
+" і теках XDG (рекурсивно), мають працювати належним чином."
+
+#. (itstool) path: info/desc
+#: C/prob-previews.page:29
+msgid "You can only preview files stored locally, on Google Drive or ownCloud."
+msgstr ""
+"Попередній перегляд передбачено лише для файлів, які зберігаються локально,"
+" на Диску Google і ownCloud."
+
+#. (itstool) path: page/title
+#: C/prob-previews.page:33
+msgid "Why do some files not have previews?"
+msgstr ""
+"Чому для деяких файлів програма не показує мініатюри попереднього перегляду?"
+
+#. (itstool) path: page/p
+#: C/prob-previews.page:41
+msgid ""
+"When you open <app>Documents</app>, a preview thumbnail is displayed for "
+"documents that are stored locally, on <em>Google Drive</em> or <em>ownCloud</"
+"em>. Those stored in <em>OneDrive</em> show as missing (or blank) preview "
+"thumbnails."
+msgstr ""
+"Коли ви відкриєте <app>Документи</app>, буде показано мініаютюру попереднього"
+" перегляду для документів, які зберігаються локально, на <em>Диску Google</em"
+"> або <em>ownCloud</"
+"em>. Для документів, які зберігаються на <em>OneDrive</em>, не буде показано"
+" мініатюри або буде показано порожні мініатюри."
+
+#. (itstool) path: page/p
+#: C/prob-previews.page:46
+msgid ""
+"If you download a <em>OneDrive</em> document to local storage through the "
+"web interface, a thumbnail will be generated."
+msgstr ""
+"Якщо ви отримаєте документ <em>OneDrive</em> до локального сховища даних за"
+" допомогою вебінтерфейсу, мініатюру попереднього перегляду буде негайно"
+" створено."
+
+#. (itstool) path: note/p
+#: C/prob-previews.page:50
+msgid ""
+"The local copy of a document downloaded from an online account will lose its "
+"ability to be updated online. If you want to continue to edit it online, it "
+"is better not to download it."
+msgstr ""
+"Локальна копія отриманого з облікового запису в інтернеті документа втратить"
+" можливість інтернет-оновлення. Якщо ви хочете продовжити його редагування,"
+" не варто його отримувати локально."
+
+#. (itstool) path: info/desc
+#: C/search.page:23
+msgid "Find your documents by title or author."
+msgstr "Знайдіть документи за заголовком або автором."
+
+#. (itstool) path: page/title
+#: C/search.page:26
+msgid "Search for files"
+msgstr "Пошук файлів"
+
+#. (itstool) path: page/p
+#: C/search.page:38
+msgid "To start a search in <app>Documents</app>:"
+msgstr "Щоб почати пошук у <app>Документах</app>, виконайте такі дії:"
+
+#. (itstool) path: item/p
+#: C/search.page:42
+msgid ""
+"Press <keyseq><key>Ctrl</key><key>F</key></keyseq> to open the search bar at "
+"the top of the window."
+msgstr ""
+"Натисніть комбінацію клавіш <keyseq><key>Ctrl</key><key>F</key></keyseq>, щоб"
+" відкрити панель пошуку у верхній частині вікна."
+
+#. (itstool) path: item/p
+#: C/search.page:46
+msgid ""
+"Start typing keywords, and searching begins instantly. You will see a list "
+"of documents whose title or author matches the keywords."
+msgstr ""
+"Почніть вводити ключові слова пошуку, і пошук буде негайно розпочато. Ви"
+" побачите список документів, чий заголовок або автор відповідає ключовим"
+" словам."
+
+#. (itstool) path: note/p
+#: C/search.page:52
+msgid ""
+"You can restrict or filter the search results by clicking the <_:media-1/> "
+"button and selecting various <link xref=\"filter\">filters</link>."
+msgstr ""
+"Ви можете обмежити результати або виконати фільтрування результатів, якщо"
+" натиснете кнопку <_:media-1/> і виберете якийсь <link xref=\"filter\""
+">фільтр</link>."
+
+#. (itstool) path: info/desc
+#: C/viewgrid.page:29
+msgid "Change the way documents are displayed."
+msgstr "Зміна режиму показу документів."
+
+#. (itstool) path: page/title
+#: C/viewgrid.page:32
+msgid "View files in a list or grid"
+msgstr "Перегляд файлів у форматі списку або таблиці"
+
+#. (itstool) path: page/p
+#: C/viewgrid.page:41
+msgid ""
+"Documents and collections are presented in <gui>Grid</gui> format by "
+"default. To view in <gui>List</gui> format:"
+msgstr ""
+"Документи і збірки типово буде показано у форматі <gui>Таблиці</gui>. Щоб"
+" переглянути їх у форматі <gui>Списку</gui>, виконайте такі дії:"
+
+#. (itstool) path: item/p
+#: C/viewgrid.page:46
+msgid "Press the list button in the top-right corner of the window."
+msgstr "Натисніть кнопку списку у верхньому правому куті вікна програми."
+
+#. (itstool) path: note/p
+#: C/viewgrid.page:51
+msgid ""
+"List view has columns displaying the document type and date modified, and "
+"whether it's stored locally or remotely in one of your online accounts."
+msgstr ""
+"У режимі перегляду списком буде показано стовпчики із типом документа, датою"
+" внесення змін та даними щодо того, зберігаються документ локально чи"
+" віддалено на одному з ваших облікових записів в інтернеті."
+
+#. (itstool) path: page/p
+#: C/viewgrid.page:56
+msgid ""
+"Click the grid button in the top-right corner of the window to return to the "
+"grid view."
+msgstr ""
+"Натисніть кнопку із граткою у верхньому правому куті вікна програми, щоб"
+" повернутися до режиму перегляд таблиці."
+
+#. (itstool) path: info/desc
+#: C/view.page:29
+msgid "Open documents that are stored locally or online."
+msgstr "Відкриття документів, які зберігаються локально або у мережі."
+
+#. (itstool) path: page/title
+#: C/view.page:32
+msgid "View your documents"
+msgstr "Перегляд ваших документів"
+
+#. (itstool) path: page/p
+#: C/view.page:42
+msgid ""
+"When you open <app>Documents</app>, documents which are stored locally in "
+"one of the standard folders such as <file>Documents</file> or "
+"<file>Downloads</file> and in one of your online accounts, are displayed as "
+"thumbnails."
+msgstr ""
+"Після відкриття вікна <app>Документів</app> ви побачити мініатюри вмісту"
+" документів, які зберігаються локально в одній зі стандартних тек, зокрема <"
+"file>Документи</file> або "
+"<file>Завантаження</file> і на ваших облікових записах в інтернеті."
+
+#. (itstool) path: note/p
+#: C/view.page:48
+msgid ""
+"To see documents from your online accounts, it is necessary to <link href="
+"\"help:gnome-help/accounts-add\">set up the accounts</link>."
+msgstr ""
+"Щоб мати змогу переглядати документи з ваших облікових записів у інтернеті,"
+" слід <link href=\"help:gnome-help/accounts-add\">налаштувати облікові"
+" записи</link>."
+
+#. (itstool) path: page/p
+#: C/view.page:52
+msgid "To view the contents of a document, press on the thumbnail."
+msgstr "Щоб переглянути вміст документа, натисніть його мініатюру."
+
+#. (itstool) path: page/p
+#: C/view.page:54
+msgid ""
+"To exit the document, click the back arrow button in the top-left of the "
+"window."
+msgstr ""
+"Щоб вийти з режиму перегляду документа, натисніть кнопку зі стрілкою назад у"
+" верхньому лівому куті вікна програми."
+
+#. (itstool) path: credit/years
+#: C/view-add.page:15
+msgid "2014–2015"
+msgstr "2014–2015"
+
+#. (itstool) path: info/desc
+#: C/view-add.page:20
+msgid ""
+"Add extra directories to those which are already searched by <app>Documents</"
+"app>."
+msgstr ""
+"Додавання каталогів до списку каталогів пошуку у <app>Документах</app>."
+
+#. (itstool) path: page/title
+#: C/view-add.page:25
+msgid "Add custom directories"
+msgstr "Додавання нетипових каталогів"
+
+#. (itstool) path: page/p
+#: C/view-add.page:27
+msgid ""
+"<app>Documents</app> normally shows only documents that are in standard "
+"folders such as <file>Documents</file> or <file>Downloads</file>. You can "
+"add extra folders that you want to use from the <app>Search</app> preference "
+"panel. You may want to do this if you keep some of your documents in a non-"
+"standard location such as another folder on your computer or on an external "
+"hard disk."
+msgstr ""
+"Зазвичай, <app>Документи</app> показують лише документи, які зберігаються у"
+" стандартних теках, зокрема теках <file>Документи</file> і <file"
+">Завантаження</file>. Ви можете додати теки, якими хочете користуватися для"
+" зберігання документів, за допомогою панелі налаштувань <app>Пошук</app>."
+" Потреба у додаванні може виникнути, якщо ви зберігаєте документи у"
+" нестандратних місцях, зокрема у іншій теці на вашому комп'ютері або на"
+" зовнішньому жорсткому диску."
+
+#. (itstool) path: item/p
+#: C/view-add.page:36
+msgid ""
+"Open the <gui href=\"help:gnome-help/shell-terminology\">Activities</gui> "
+"overview and start typing <gui>Search</gui>."
+msgstr ""
+"Відкрийте огляд <gui href=\"help:gnome-help/shell-terminology\">Діяльності<"
+"/gui> і почніть введення слова <gui>Пошук</gui>."
+
+#. (itstool) path: item/p
+#: C/view-add.page:41
+msgid "Click on <gui>Search</gui> to open the panel."
+msgstr "Натисніть пункт <gui>Пошук</gui>, щоб відкрити панель."
+
+#. (itstool) path: item/p
+#: C/view-add.page:44
+msgid ""
+"Press the button in the bottom-right of the window which will open "
+"<gui>Search Locations</gui>."
+msgstr ""
+"Натисніть кнопку у нижньому правому куті вікна програми. У відповідь буде"
+" відкрито вікно <gui>Місця пошуку</gui>."
+
+#. (itstool) path: item/p
+#: C/view-add.page:48
+msgid "Press <gui style=\"button\">+</gui> to add a new search location."
+msgstr ""
+"Натисніть кнопку <gui style=\"button\">+</gui>, щоб додати нове місце для"
+" пошуку."
+
+#. (itstool) path: item/p
+#: C/view-add.page:51
+msgid ""
+"Select the folder that you want to add and press <gui style=\"button\">OK</"
+"gui> to add the folder."
+msgstr ""
+"Виберіть теку, яку ви хочете додати, і натисніть кнопку <gui style=\"button\""
+">Гаразд</gui>, щоб додати теку."
+
+#. (itstool) path: page/p
+#: C/view-add.page:63
+msgid ""
+"Adding a new folder to the search may let some of your other applications "
+"search that folder. Unfortunately, it is not possible to tell which "
+"applications will be affected without testing them."
+msgstr ""
+"Додавання нової теки до пошуку може надати вашим іншим програмам змогу"
+" виконувати пошук у цій теці. На жаль, неможливо сказати, які саме програми"
+" зможуть виконувати там пошук без тестування."
