@@ -2,14 +2,14 @@
 # Copyright (C) 2011 gnome-documents's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-documents package.
 #
-# Matej Urbančič <mateju@svn.gnome.org>, 2011–2019.
+# Matej Urbančič <mateju@svn.gnome.org>, 2011–2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-documents/issues\n"
 "POT-Creation-Date: 2019-01-22 07:09+0000\n"
-"PO-Revision-Date: 2019-01-25 18:10+0100\n"
+"PO-Revision-Date: 2020-06-03 21:42+0200\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 2.1.1\n"
+"X-Generator: Poedit 2.3\n"
 
 #: data/org.gnome.Books.appdata.xml.in:7 data/org.gnome.Books.desktop.in:3
 #: src/application.js:112 src/overview.js:1055
@@ -126,7 +126,7 @@ msgstr "Nočni način"
 
 #: data/org.gnome.books.gschema.xml:31 data/org.gnome.documents.gschema.xml:31
 msgid "Whether the application is in night mode."
-msgstr "Ali naj bo vmesnik programa  zagnan v nočnem načinu"
+msgstr "Ali naj bo vmesnik programa zagnan v nočnem načinu"
 
 #: data/org.gnome.Documents.appdata.xml.in:7
 #: data/org.gnome.Documents.desktop.in:3 src/application.js:115
@@ -225,22 +225,22 @@ msgstr "Splošno"
 #: data/ui/help-overlay.ui:15
 msgctxt "shortcut window"
 msgid "Show help"
-msgstr "Pokaži pomoč"
+msgstr "Pokaže pomoč"
 
 #: data/ui/help-overlay.ui:22
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr "Končaj"
+msgstr "Konča program"
 
 #: data/ui/help-overlay.ui:29
 msgctxt "shortcut window"
 msgid "Search"
-msgstr "Poišči"
+msgstr "Omogoči iskanje"
 
 #: data/ui/help-overlay.ui:36
 msgctxt "shortcut window"
 msgid "Print the current document"
-msgstr "Natisni trenutni dokument"
+msgstr "Natisne trenutni dokument"
 
 #: data/ui/help-overlay.ui:45
 msgctxt "shortcut window"
@@ -250,7 +250,7 @@ msgstr "Krmarjenje"
 #: data/ui/help-overlay.ui:49 data/ui/help-overlay.ui:57
 msgctxt "shortcut window"
 msgid "Go back"
-msgstr "Pojdi nazaj"
+msgstr "Skoči nazaj"
 
 #: data/ui/help-overlay.ui:67
 msgctxt "shortcut window"
@@ -260,12 +260,12 @@ msgstr "Predogled"
 #: data/ui/help-overlay.ui:71
 msgctxt "shortcut window"
 msgid "Zoom in"
-msgstr "Približaj"
+msgstr "Približa pogled"
 
 #: data/ui/help-overlay.ui:78
 msgctxt "shortcut window"
 msgid "Zoom out"
-msgstr "Oddalji"
+msgstr "Oddalji pogled"
 
 #: data/ui/help-overlay.ui:85
 msgctxt "shortcut window"
@@ -275,12 +275,12 @@ msgstr "Ustvari zaznamek trenutne strani"
 #: data/ui/help-overlay.ui:92
 msgctxt "shortcut window"
 msgid "Open places and bookmarks dialog"
-msgstr "Odpri pogovorno okno zaznamkov"
+msgstr "Odpre pogovorno okno zaznamkov"
 
 #: data/ui/help-overlay.ui:99
 msgctxt "shortcut window"
 msgid "Copy selected text to clipboard"
-msgstr "Kopiraj izbrano besedilo v odložišče"
+msgstr "Kopira izbrano besedilo v odložišče"
 
 #: data/ui/help-overlay.ui:106
 msgctxt "shortcut window"
@@ -295,12 +295,12 @@ msgstr "Zavrti v smeri urinega kazalca"
 #: data/ui/help-overlay.ui:120
 msgctxt "shortcut window"
 msgid "Next occurrence of the search string"
-msgstr "Naslednja pojavitev iskalnega niza"
+msgstr "Skoči na naslednjo pojavitev iskalnega niza"
 
 #: data/ui/help-overlay.ui:127
 msgctxt "shortcut window"
 msgid "Previous occurrence of the search string"
-msgstr "Predhodna pojavitev iskalnega niza"
+msgstr "Skoči na predhodno pojavitev iskalnega niza"
 
 #: data/ui/help-overlay.ui:134
 msgctxt "shortcut window"
@@ -310,12 +310,12 @@ msgstr "Predstavitveni način"
 #: data/ui/help-overlay.ui:141
 msgctxt "shortcut window"
 msgid "Open action menu"
-msgstr "Odpri meni dejanj"
+msgstr "Odpre meni dejanj"
 
 #: data/ui/help-overlay.ui:148
 msgctxt "shortcut window"
 msgid "Fullscreen"
-msgstr "Celozaslonski način"
+msgstr "Omogoči celozaslonski način"
 
 #: data/ui/organize-collection-dialog.ui:40
 msgid "Enter a name for your first collection"
@@ -324,7 +324,7 @@ msgstr "Ime prve zbirke"
 #: data/ui/organize-collection-dialog.ui:56
 #: data/ui/organize-collection-dialog.ui:113
 msgid "New Collection…"
-msgstr "Nova zbirka ..."
+msgstr "Nova zbirka …"
 
 #: data/ui/organize-collection-dialog.ui:73
 #: data/ui/organize-collection-dialog.ui:122 src/sharing.js:226
@@ -361,7 +361,7 @@ msgstr "Uredi"
 
 #: data/ui/preview-menu.ui:15
 msgid "Print…"
-msgstr "Natisni ..."
+msgstr "Natisni …"
 
 #: data/ui/preview-menu.ui:21 src/preview.js:461
 msgid "Fullscreen"
@@ -414,15 +414,15 @@ msgstr "Razvrsti"
 
 #: data/ui/view-menu.ui:84
 msgid "Author"
-msgstr "Avtor"
+msgstr "po avtorju"
 
 #: data/ui/view-menu.ui:93
 msgid "Date"
-msgstr "Datum"
+msgstr "po datumu"
 
 #: data/ui/view-menu.ui:102
 msgid "Name"
-msgstr "Ime"
+msgstr "po imenu"
 
 #: src/application.js:126
 msgid "Show the version of the program"
@@ -528,7 +528,7 @@ msgstr ""
 #: src/documents.js:1652
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
-msgstr "Napaka! Ni mogoče naložiti dokumenta “%s”."
+msgstr "Napaka! Ni mogoče naložiti dokumenta »%s«."
 
 #. view button, on the right of the toolbar
 #: src/edit.js:139
@@ -571,7 +571,7 @@ msgstr "Ni zaznamkov"
 
 #: src/lib/gd-places-bookmarks.c:392 src/lib/gd-places-links.c:257
 msgid "Loading…"
-msgstr "Nalaganje ..."
+msgstr "Nalaganje …"
 
 #: src/lib/gd-places-links.c:342
 msgid "No table of contents"
@@ -611,7 +611,7 @@ msgstr "Nazaj"
 #: src/notifications.js:48
 #, javascript-format
 msgid "“%s” deleted"
-msgstr "Predmet “%s” je izbrisan"
+msgstr "Dokument »%s« je izbrisan"
 
 #. Translators: one or more items might have been deleted, and %d
 #. is the count
@@ -631,7 +631,7 @@ msgstr "Razveljavi"
 #: src/notifications.js:159
 #, javascript-format
 msgid "Printing “%s”: %s"
-msgstr "Tiskanje “%s”:%s"
+msgstr "Poteka tiskanje »%s«: %s"
 
 #: src/notifications.js:215
 msgid "Your documents are being indexed"
@@ -927,7 +927,7 @@ msgstr "%s (%s)"
 
 #: src/selections.js:360 src/selections.js:362
 msgid "Rename…"
-msgstr "Preimenuj ..."
+msgstr "Preimenuj …"
 
 #: src/selections.js:366 src/selections.js:368
 msgid "Delete"
@@ -936,7 +936,7 @@ msgstr "Izbriši"
 #: src/selections.js:382
 #, javascript-format
 msgid "“%s” removed"
-msgstr "“%s” je odstranjena"
+msgstr "Dokument »%s« je odstranjen"
 
 #: src/selections.js:779
 msgid "Rename"
