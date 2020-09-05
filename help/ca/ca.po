@@ -1,16 +1,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-user-docs master\n"
-"POT-Creation-Date: 2020-03-09 19:41+0000\n"
-"PO-Revision-Date: 2013-09-27 22:39+0200\n"
-"Last-Translator: Jaume Jorba <jaume.jorba@gmail.com>\n"
+"POT-Creation-Date: 2020-08-13 06:59+0000\n"
+"PO-Revision-Date: 2020-09-05 22:25+0200\n"
+"Last-Translator: Miquel-Àngel Burgos i Fradeja <miquel.angel.burgos@gmail."
+"com>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bits\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Poedit 2.3\n"
 
 #. (itstool) path: p/link
 #: C/legal.xml:3
@@ -25,7 +26,9 @@ msgstr "Aquest treball està sota llicència  <_:link-1/>."
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr "Jaume Jorba <jaume.jorba@gmail.com>, 2018"
+msgstr ""
+"Jaume Jorba <jaume.jorba@gmail.com>, 2018\n"
+"Miquel-Àngel Burgos i Fradeja <miquel.angel.burgos@gmail.com>, 2020"
 
 #. (itstool) path: credit/name
 #: C/collections.page:12 C/index.page:14 C/info.page:12 C/print.page:11
@@ -181,10 +184,10 @@ msgid ""
 "<gui>Google</gui>, <gui>OneDrive</gui>, <gui>ownCloud</gui>, or <gui>All</"
 "gui>."
 msgstr ""
-"Seleccioneu-lo per a cercar els documents que són <gui>Locals</gui>, accedits "
-"a través de <link href=\"help:gnome-help/online-accounts\">comptes en línia</"
-"link> amb <gui>Google</gui>, <gui>OneDrive</gui>, <gui>ownCloud</gui>, o "
-"<gui>Tots</gui>."
+"Seleccioneu-lo per a cercar els documents que són <gui>Locals</gui>, "
+"accedits a través de <link href=\"help:gnome-help/online-accounts\">comptes "
+"en línia</link> amb <gui>Google</gui>, <gui>OneDrive</gui>, <gui>ownCloud</"
+"gui>, o <gui>Tots</gui>."
 
 #. (itstool) path: item/title
 #: C/filter.page:43
@@ -351,7 +354,8 @@ msgstr "Per a veure les propietats d'un document:"
 #. (itstool) path: item/p
 #: C/info.page:63
 msgid "Click the check button to switch to selection mode."
-msgstr "Fer clic sobre el botó de verificació per a canviar el mode de selecció."
+msgstr ""
+"Fer clic sobre el botó de verificació per a canviar el mode de selecció."
 
 #. (itstool) path: item/p
 #: C/info.page:66
@@ -385,8 +389,8 @@ msgid ""
 msgstr ""
 "<app>Documents</app> actualment no ofereix cap mecanisme per afegir "
 "privacitat a un document. Això es pot aconseguir des de l'aplicació que s'ha "
-"utilitzat per a crear-lo (p. ex. <app>LibreOffice</app> o <app>Adobe Acrobat</"
-"app>)."
+"utilitzat per a crear-lo (p. ex. <app>LibreOffice</app> o <app>Adobe "
+"Acrobat</app>)."
 
 #. (itstool) path: info/desc
 #: C/print.page:23
@@ -468,6 +472,12 @@ msgid ""
 "your home directory (non-recursively) and XDG folders (recursively), should "
 "be adequate."
 msgstr ""
+"Si els vostres documents no es mostren al <app>Documents</app>, és possible "
+"que el <app>Tracker</app> no s'estigui executant o que estigui mal "
+"configurat. Assegureu-vos que el <app>Tracker</app> s'està executant a la "
+"vostra sessió. La configuració per defecte, definida per a indexar fitxers "
+"del vostre directori d'inici (no recursivament) i carpetes XDG "
+"(recursivament), hauria de ser adequada."
 
 #. (itstool) path: info/desc
 #: C/prob-previews.page:29
