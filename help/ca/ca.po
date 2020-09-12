@@ -122,7 +122,7 @@ msgid ""
 "type a new collection name, or select an existing collection. The selected "
 "documents will be added to the collection."
 msgstr ""
-"A la llista de col·leccions premeu sobre <gui>Crea una nova col·lecció</gui> "
+"A la llista de col·leccions premeu sobre <gui>Crea una col·lecció nova</gui> "
 "dues vegades i escriviu el nom de la nova col·lecció. Els documents "
 "seleccionats s'afegiran a la col·lecció."
 
@@ -202,7 +202,7 @@ msgid ""
 "Documents</gui>, or <gui>All</gui>."
 msgstr ""
 "Cerca només documents que són <gui>Col·leccions</gui>, <gui>Documents PDF</"
-"gui>, <gui>Presentacions</gui>, <gui>Fulls de càlcul</gui>, <gui>Documents "
+"gui>, <gui>Presentacions</gui>, <gui>Fulls de càlcul</gui>, <gui>Documents de "
 "text</gui>, o <gui>Tots</gui>."
 
 #. (itstool) path: item/title
