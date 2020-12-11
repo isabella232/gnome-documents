@@ -1,0 +1,626 @@
+# Basque translation for gnome-documents.
+# Copyright (C) 2020 gnome-documents's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-documents package.
+# Asier Sarasua Garmendia <asiersarasua@ni.eus>, 2020.
+#
+msgid ""
+msgstr "Project-Id-Version: gnome-documents master\n"
+"POT-Creation-Date: 2020-09-12 09:19+0000\n"
+"PO-Revision-Date: 2020-12-11 20:06+0000\n"
+"Last-Translator: Asier Sarasua Garmendia <asiersarasua@ni.eus>\n"
+"Language-Team: Basque <librezale@librezale.eus>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: eu\n"
+
+#. (itstool) path: p/link
+#: C/legal.xml:3
+msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported lizentzia"
+
+#. (itstool) path: license/p
+#: C/legal.xml:3
+msgid "This work is licensed under a <_:link-1/>."
+msgstr "Lan honen lizentzia: <_:link-1/>."
+
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+msgctxt "_"
+msgid "translator-credits"
+msgstr "translator-credits"
+
+#. (itstool) path: credit/name
+#: C/collections.page:12 C/index.page:14 C/info.page:12 C/print.page:11
+#: C/prob-no-show.page:12 C/prob-previews.page:12 C/search.page:11
+#: C/viewgrid.page:12 C/view.page:12
+msgid "Julita Inca"
+msgstr "Julita Inca"
+
+#. (itstool) path: credit/years
+#: C/collections.page:14 C/collections.page:19 C/filter.page:14
+#: C/formats.page:14 C/index.page:16 C/index.page:21 C/info.page:14
+#: C/info.page:19 C/print.page:13 C/print.page:18 C/prob-no-show.page:14
+#: C/prob-no-show.page:19 C/prob-previews.page:14 C/prob-previews.page:19
+#: C/search.page:13 C/search.page:18 C/viewgrid.page:14 C/viewgrid.page:19
+#: C/view.page:14 C/view.page:19
+msgid "2012"
+msgstr "2012"
+
+#. (itstool) path: credit/name
+#: C/collections.page:17 C/filter.page:12 C/formats.page:12 C/index.page:19
+#: C/info.page:17 C/print.page:16 C/prob-no-show.page:17
+#: C/prob-previews.page:17 C/search.page:16 C/viewgrid.page:17 C/view.page:17
+msgid "Michael Hill"
+msgstr "Michael Hill"
+
+#. (itstool) path: credit/name
+#: C/collections.page:22 C/filter.page:17 C/formats.page:17 C/index.page:24
+#: C/info.page:22 C/prob-no-show.page:22 C/prob-previews.page:22
+#: C/viewgrid.page:22 C/view.page:22 C/view-add.page:13
+msgid "Ekaterina Gerasimova"
+msgstr "Ekaterina Gerasimova"
+
+#. (itstool) path: credit/years
+#: C/collections.page:24 C/filter.page:19 C/formats.page:19 C/index.page:26
+#: C/info.page:24 C/prob-no-show.page:24 C/prob-previews.page:24
+#: C/viewgrid.page:24 C/view.page:24
+msgid "2014"
+msgstr "2014"
+
+#. (itstool) path: info/desc
+#: C/collections.page:29
+msgid "Group related documents together to help sort them."
+msgstr "Bildu erlazionatutako dokumentuak, haiek hobeto ordenatzeko."
+
+#. (itstool) path: page/title
+#: C/collections.page:32
+msgid "Make collections of documents"
+msgstr "Sortu dokumentuen bildumak"
+
+#. (itstool) path: page/p
+#: C/collections.page:45
+msgid ""
+"You can put together documents of different types in one place which is "
+"called a <em>collection</em>. If you have documents that are related, you "
+"can group them to make them easier to find. For example, if you had a "
+"business trip where you made a presentation, your slides, a PDF of your "
+"flight itinerary, your budget spreadsheet, and other word processor and PDF "
+"documents can be grouped in one collection."
+msgstr ""
+
+#. (itstool) path: steps/title
+#: C/collections.page:53
+msgid "To create or add to a collection:"
+msgstr "Bilduma bat sortu edo dokumentu bat bildumari gehitzeko:"
+
+#. (itstool) path: item/p
+#: C/collections.page:55 C/collections.page:73 C/print.page:38
+msgid "Press the <gui>✓</gui> button."
+msgstr "Sakatu <gui>✓</gui> botoia."
+
+#. (itstool) path: item/p
+#: C/collections.page:58
+msgid "In selection mode, select related documents."
+msgstr "Hautapen moduan, hautatu erlazionatutako dokumentuak."
+
+#. (itstool) path: item/p
+#: C/collections.page:61
+msgid "Press <gui>Add to Collection</gui>."
+msgstr "Sakatu <gui>Gehitu bildumari</gui>."
+
+#. (itstool) path: item/p
+#: C/collections.page:64
+msgid ""
+"In the collection list, press on <gui>Create new collection</gui> twice and "
+"type a new collection name, or select an existing collection. The selected "
+"documents will be added to the collection."
+msgstr ""
+
+#. (itstool) path: steps/title
+#: C/collections.page:71
+msgid "To delete a collection:"
+msgstr "Bilduma bat ezabatzeko:"
+
+#. (itstool) path: item/p
+#: C/collections.page:76
+msgid "In selection mode, select the collection that you want to delete."
+msgstr "Hautapen moduan, hautatu ezabatu nahi duzun bilduma."
+
+#. (itstool) path: item/p
+#: C/collections.page:79
+msgid ""
+"Press <gui style=\"button\">Delete</gui>. The collection will be deleted, "
+"leaving the original documents as they are."
+msgstr ""
+
+#. (itstool) path: info/desc
+#: C/filter.page:24
+msgid "Choose which documents to display."
+msgstr "Aukeratu zein dokumentu bistaratuko den."
+
+#. (itstool) path: page/title
+#: C/filter.page:27
+msgid "Filter documents"
+msgstr "Iragazi dokumentuak"
+
+#. (itstool) path: media/span
+#: C/filter.page:31 C/search.page:54
+msgid "down"
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/filter.page:29
+msgid ""
+"<link xref=\"search\">Open the search</link> and click the <_:media-1/> "
+"button next to the search bar to limit the scope of the search in these "
+"categories:"
+msgstr ""
+
+#. (itstool) path: item/title
+#: C/filter.page:36
+msgid "Sources"
+msgstr "Iturburuak"
+
+#. (itstool) path: item/p
+#: C/filter.page:37
+msgid ""
+"Choose to search documents that are <gui>Local</gui>, accessed through <link "
+"href=\"help:gnome-help/online-accounts\">online accounts</link> with "
+"<gui>Google</gui>, <gui>OneDrive</gui>, <gui>ownCloud</gui>, or <gui>All</"
+"gui>."
+msgstr ""
+
+#. (itstool) path: item/title
+#: C/filter.page:43
+msgid "Type"
+msgstr "Mota"
+
+#. (itstool) path: item/p
+#: C/filter.page:44
+msgid ""
+"Search only documents that are <gui>Collections</gui>, <gui>PDF Documents</"
+"gui>, <gui>Presentations</gui>, <gui>Spreadsheets</gui>, <gui>Text "
+"Documents</gui>, or <gui>All</gui>."
+msgstr ""
+
+#. (itstool) path: item/title
+#: C/filter.page:49
+msgid "Match"
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/filter.page:50
+msgid ""
+"Choose to search only the <gui>Title</gui>, the <gui>Author</gui>, or "
+"<gui>All</gui>."
+msgstr ""
+
+#. (itstool) path: note/p
+#: C/filter.page:56
+msgid ""
+"In order for <gui>Google</gui>, <gui>OneDrive</gui> or <gui>ownCloud</gui> "
+"to appear in the filter list, it is necessary to configure Google, ownCloud "
+"or Windows Live as an <link href=\"help:gnome-help/accounts-add\">online "
+"account</link>."
+msgstr ""
+
+#. (itstool) path: info/desc
+#: C/formats.page:24
+msgid "<app>Documents</app> displays a number of popular document types."
+msgstr ""
+
+#. (itstool) path: page/title
+#: C/formats.page:28
+msgid "Supported formats"
+msgstr "Onartutako formatuak"
+
+#. (itstool) path: page/p
+#: C/formats.page:31
+msgid ""
+"<app>Documents</app> displays PDF, DVI, XPS, PostScript and the formats "
+"supported by <app href=\"help:evince\">Document Viewer</app>, <app>Microsoft "
+"Office</app>, <app>LibreOffice</app> and <app>Google Docs</app>."
+msgstr ""
+
+#. (itstool) path: info/title
+#: C/index.page:7
+msgctxt "link"
+msgid "Documents"
+msgstr "Dokumentuak"
+
+#. (itstool) path: info/title
+#: C/index.page:8
+msgctxt "text"
+msgid "Documents"
+msgstr "Dokumentuak"
+
+#. (itstool) path: info/desc
+#: C/index.page:31
+msgid ""
+"Organize, view and edit the documents that are stored locally on your "
+"computer or online."
+msgstr "Antolatu, bistaratu eta editatu zure ordenagailuan gordeta dauden edo linean dituzun dokumentuak."
+
+#. (itstool) path: page/title
+#: C/index.page:35
+msgid "<_:media-1/> Documents"
+msgstr "<_:media-1/> Dokumentuak"
+
+#. (itstool) path: page/p
+#: C/index.page:50
+msgid ""
+"<app>Documents</app> is a GNOME application that lets you display, organize "
+"and print the documents on your computer or those created remotely using "
+"<em>Google Docs</em>, <em>ownCloud</em> or <em>OneDrive</em>."
+msgstr ""
+
+#. (itstool) path: section/title
+#: C/index.page:55
+msgid "View, sort and search"
+msgstr "Ikusi, ordenatu eta bilatu"
+
+#. (itstool) path: section/title
+#: C/index.page:59
+msgid "Select, organize and print"
+msgstr "Hautatu, antolatu eta inprimatu"
+
+#. (itstool) path: section/title
+#: C/index.page:63
+msgid "Problems"
+msgstr "Arazoak"
+
+#. (itstool) path: info/desc
+#: C/info.page:29
+msgid "See a document's name, location, date modified, or type."
+msgstr "Ikusi dokumentu baten izena, kokalekua, aldatze-data edo mota."
+
+#. (itstool) path: page/title
+#: C/info.page:32
+msgid "Find information about documents"
+msgstr "Bilatu dokumentuei buruzko informazioa"
+
+#. (itstool) path: page/p
+#: C/info.page:42
+msgid ""
+"When a document is created, it contains <em>metadata</em>. <app>Documents</"
+"app> displays the following metadata for each document:"
+msgstr "Dokumentu bat sortzen denean, dokumentu horrek <em>metadatuak</em> ditu. <app>Dokumentuak</app> aplikazioak honako metadatuak erakusten ditu dokumentu bakoitzeko:"
+
+#. (itstool) path: item/p
+#: C/info.page:47
+msgid "Title: the name of the document, which can be edited;"
+msgstr "Titulua: dokumentuaren izena, editagarria dena;"
+
+#. (itstool) path: item/p
+#: C/info.page:50
+msgid "Source: the path to the folder containing the document;"
+msgstr "Iturburua: dokumentua gordeta dagoen karpetaren bide-izena;"
+
+#. (itstool) path: item/p
+#: C/info.page:53
+msgid "Date Modified;"
+msgstr "Aldatze-data;"
+
+#. (itstool) path: item/p
+#: C/info.page:56
+msgid "Type: the <link xref=\"formats\">file format</link> of the document."
+msgstr "Mota: dokumentuaren <link xref=\"formats\">fitxategi-formatua</link>."
+
+#. (itstool) path: page/p
+#: C/info.page:60
+msgid "To see a document's properties:"
+msgstr "Dokumentu baten propietateak ikusteko:"
+
+#. (itstool) path: item/p
+#: C/info.page:63
+msgid "Click the check button to switch to selection mode."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/info.page:66
+msgid "Select a document."
+msgstr "Hautatu dokumentu bat."
+
+#. (itstool) path: item/p
+#: C/info.page:69
+msgid ""
+"Click the <gui>Properties</gui> button at the right end of the button bar."
+msgstr "Egin klik <gui style=\"button\">Propietateak</gui> botoian, botoi-barrako eskuineko muturrean."
+
+#. (itstool) path: note/p
+#: C/info.page:75
+msgid ""
+"Some types of documents (e.g. PDF files) can be password protected, "
+"preventing access to their metadata or content."
+msgstr ""
+
+#. (itstool) path: note/p
+#: C/info.page:80
+msgid ""
+"<app>Documents</app> does not currently offer any mechanism to add privacy "
+"to a document. You may be able to do this from the application you used to "
+"create the document (e.g. <app>LibreOffice</app> or <app>Adobe Acrobat</"
+"app>)."
+msgstr ""
+
+#. (itstool) path: info/desc
+#: C/print.page:23
+msgid "Print documents that are stored locally or online."
+msgstr "Inprimatu ordenagailuan bertan edo linean dituzun dokumentuak."
+
+#. (itstool) path: page/title
+#: C/print.page:26
+msgid "Print a document"
+msgstr "Inprimatu dokumentu bat"
+
+#. (itstool) path: steps/title
+#: C/print.page:36
+msgid "To print a document:"
+msgstr "Dokumentu bat inprimatzeko:"
+
+#. (itstool) path: item/p
+#: C/print.page:41
+msgid "In selection mode, check the document to be printed."
+msgstr "Hautapen moduan, markatu inprimatuko den dokumentua."
+
+#. (itstool) path: item/p
+#: C/print.page:44
+msgid ""
+"Click the Print button in the button bar. The <gui>Print</gui> dialog opens."
+msgstr ""
+
+#. (itstool) path: note/p
+#: C/print.page:50
+msgid ""
+"Printing is not available when more than one document is selected, or when a "
+"collection is selected."
+msgstr ""
+
+#. (itstool) path: info/desc
+#: C/prob-no-show.page:29
+msgid "Your local documents do not appear in <gui>Documents</gui>."
+msgstr ""
+
+#. (itstool) path: page/title
+#: C/prob-no-show.page:32
+msgid "My documents are not shown"
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/prob-no-show.page:46
+msgid ""
+"<app>Documents</app> supports only certain types of documents such as PDFs "
+"and office suite documents such as spreadsheets and word processor "
+"documents. It will not show text documents and photos."
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/prob-no-show.page:50
+msgid ""
+"For your local documents to appear in <app>Documents</app>, they must be "
+"inside your <file>Documents</file> or <file>Downloads</file> folders, or "
+"inside folders that are in those directories. Documents that are in other "
+"places on your computer will not be shown."
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/prob-no-show.page:55
+msgid ""
+"If your documents fail to display in <app>Documents</app>, <app>Tracker</"
+"app> may not be running or properly configured. Make sure <app>Tracker</app> "
+"is running in your session. The default configuration, set to index files in "
+"your home directory (non-recursively) and XDG folders (recursively), should "
+"be adequate."
+msgstr ""
+
+#. (itstool) path: info/desc
+#: C/prob-previews.page:29
+msgid "You can only preview files stored locally, on Google Drive or ownCloud."
+msgstr ""
+
+#. (itstool) path: page/title
+#: C/prob-previews.page:33
+msgid "Why do some files not have previews?"
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/prob-previews.page:41
+msgid ""
+"When you open <app>Documents</app>, a preview thumbnail is displayed for "
+"documents that are stored locally, on <em>Google Drive</em> or <em>ownCloud</"
+"em>. Those stored in <em>OneDrive</em> show as missing (or blank) preview "
+"thumbnails."
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/prob-previews.page:46
+msgid ""
+"If you download a <em>OneDrive</em> document to local storage through the "
+"web interface, a thumbnail will be generated."
+msgstr ""
+
+#. (itstool) path: note/p
+#: C/prob-previews.page:50
+msgid ""
+"The local copy of a document downloaded from an online account will lose its "
+"ability to be updated online. If you want to continue to edit it online, it "
+"is better not to download it."
+msgstr ""
+
+#. (itstool) path: info/desc
+#: C/search.page:23
+msgid "Find your documents by title or author."
+msgstr "Bilatu dokumentuak tituluaren edo egilearen arabera."
+
+#. (itstool) path: page/title
+#: C/search.page:26
+msgid "Search for files"
+msgstr "Bilatu fitxategiak"
+
+#. (itstool) path: page/p
+#: C/search.page:38
+msgid "To start a search in <app>Documents</app>:"
+msgstr "<app>Dokumentuak</app> aplikazioan bilaketa bat egiteko:"
+
+#. (itstool) path: item/p
+#: C/search.page:42
+msgid ""
+"Press <keyseq><key>Ctrl</key><key>F</key></keyseq> to open the search bar at "
+"the top of the window."
+msgstr "Sakatu <keyseq><key>Ctrl</key><key>F</key></keyseq> bilaketa-barra irekitzeko leihoaren goiko aldean."
+
+#. (itstool) path: item/p
+#: C/search.page:46
+msgid ""
+"Start typing keywords, and searching begins instantly. You will see a list "
+"of documents whose title or author matches the keywords."
+msgstr "Hasi gako-hitzak idazten, eta bilaketa berehala hasiko da. Gako-hitzekin bat datozen tituluak edo egileak dituzten dokumentuen zerrenda bat ikusiko duzu."
+
+#. (itstool) path: note/p
+#: C/search.page:52
+msgid ""
+"You can restrict or filter the search results by clicking the <_:media-1/> "
+"button and selecting various <link xref=\"filter\">filters</link>."
+msgstr ""
+
+#. (itstool) path: info/desc
+#: C/viewgrid.page:29
+msgid "Change the way documents are displayed."
+msgstr "Aldatu dokumentuak bistaratuko diren modua."
+
+#. (itstool) path: page/title
+#: C/viewgrid.page:32
+msgid "View files in a list or grid"
+msgstr "Ikusi fitxategiak zerrenda edo sareta gisa"
+
+#. (itstool) path: page/p
+#: C/viewgrid.page:41
+msgid ""
+"Documents and collections are presented in <gui>Grid</gui> format by "
+"default. To view in <gui>List</gui> format:"
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/viewgrid.page:46
+msgid "Press the list button in the top-right corner of the window."
+msgstr ""
+
+#. (itstool) path: note/p
+#: C/viewgrid.page:51
+msgid ""
+"List view has columns displaying the document type and date modified, and "
+"whether it's stored locally or remotely in one of your online accounts."
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/viewgrid.page:56
+msgid ""
+"Click the grid button in the top-right corner of the window to return to the "
+"grid view."
+msgstr ""
+
+#. (itstool) path: info/desc
+#: C/view.page:29
+msgid "Open documents that are stored locally or online."
+msgstr "Ireki ordenagailuan bertan edo linean gordeta dauden dokumentuak."
+
+#. (itstool) path: page/title
+#: C/view.page:32
+msgid "View your documents"
+msgstr "Bistaratu zure dokumentuak"
+
+#. (itstool) path: page/p
+#: C/view.page:42
+msgid ""
+"When you open <app>Documents</app>, documents which are stored locally in "
+"one of the standard folders such as <file>Documents</file> or "
+"<file>Downloads</file> and in one of your online accounts, are displayed as "
+"thumbnails."
+msgstr ""
+
+#. (itstool) path: note/p
+#: C/view.page:48
+msgid ""
+"To see documents from your online accounts, it is necessary to <link href="
+"\"help:gnome-help/accounts-add\">set up the accounts</link>."
+msgstr "Zure lineako kontuetan dauden dokumentuak ikusteko, lehenago <link href=\"help:gnome-help/accounts-add\">kontuak konfiguratu</link> behar dira."
+
+#. (itstool) path: page/p
+#: C/view.page:52
+msgid "To view the contents of a document, press on the thumbnail."
+msgstr "Dokumentu bateko edukiak bistaratzeko, sakatu miniaturan."
+
+#. (itstool) path: page/p
+#: C/view.page:54
+msgid ""
+"To exit the document, click the back arrow button in the top-left of the "
+"window."
+msgstr "Dokumentutik irteteko, egin klik leihoaren goian ezkerrean dagoen gezi-botoian."
+
+#. (itstool) path: credit/years
+#: C/view-add.page:15
+msgid "2014–2015"
+msgstr "2014–2015"
+
+#. (itstool) path: info/desc
+#: C/view-add.page:20
+msgid ""
+"Add extra directories to those which are already searched by <app>Documents</"
+"app>."
+msgstr ""
+
+#. (itstool) path: page/title
+#: C/view-add.page:25
+msgid "Add custom directories"
+msgstr "Gehitu direktorio pertsonalizatuak"
+
+#. (itstool) path: page/p
+#: C/view-add.page:27
+msgid ""
+"<app>Documents</app> normally shows only documents that are in standard "
+"folders such as <file>Documents</file> or <file>Downloads</file>. You can "
+"add extra folders that you want to use from the <app>Search</app> preference "
+"panel. You may want to do this if you keep some of your documents in a non-"
+"standard location such as another folder on your computer or on an external "
+"hard disk."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/view-add.page:36
+msgid ""
+"Open the <gui href=\"help:gnome-help/shell-terminology\">Activities</gui> "
+"overview and start typing <gui>Search</gui>."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/view-add.page:41
+msgid "Click on <gui>Search</gui> to open the panel."
+msgstr "Egin klik <gui>Bilatu</gui> aukeran panela irekitzeko."
+
+#. (itstool) path: item/p
+#: C/view-add.page:44
+msgid ""
+"Press the button in the bottom-right of the window which will open "
+"<gui>Search Locations</gui>."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/view-add.page:48
+msgid "Press <gui style=\"button\">+</gui> to add a new search location."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/view-add.page:51
+msgid ""
+"Select the folder that you want to add and press <gui style=\"button\">OK</"
+"gui> to add the folder."
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/view-add.page:63
+msgid ""
+"Adding a new folder to the search may let some of your other applications "
+"search that folder. Unfortunately, it is not possible to tell which "
+"applications will be affected without testing them."
+msgstr ""
