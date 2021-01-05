@@ -30,7 +30,7 @@ msgstr "Documents"
 
 #: data/org.gnome.Documents.appdata.xml.in:8
 msgid "A document manager application for GNOME"
-msgstr "Una aplicació per gestionar documents pel GNOME"
+msgstr "Una aplicació per a gestionar documents pel GNOME"
 
 #: data/org.gnome.Documents.appdata.xml.in:10
 msgid ""
@@ -39,10 +39,10 @@ msgid ""
 "to deal with documents. Seamless cloud integration is offered through GNOME "
 "Online Accounts."
 msgstr ""
-"Un programa simple per accedir, organitzar i compartir els documents al "
+"Un programa simple per a accedir, organitzar i compartir els documents al "
 "GNOME. Està pensat per a ser un substitut simple i elegant del gestor de "
-"fitxers per gestionar els documents. S'integra transparentment amb el núvol "
-"mitjançant els comptes en línia del GNOME."
+"fitxers per a gestionar els documents. S'integra transparentment amb el "
+"núvol mitjançant els comptes en línia del GNOME."
 
 #: data/org.gnome.Documents.appdata.xml.in:16
 msgid "It lets you:"
@@ -79,7 +79,7 @@ msgstr "Seleccioneu els preferits"
 
 #: data/org.gnome.Documents.appdata.xml.in:25
 msgid "Allow opening full featured editor for non-trivial changes"
-msgstr "Permet l'obertura d'editors específics per fer canvis avançats"
+msgstr "Permet l'obertura d'editors específics per a fer canvis avançats"
 
 #: data/org.gnome.Documents.appdata.xml.in:39
 msgid "The GNOME Project"
@@ -89,12 +89,14 @@ msgstr "El projecte GNOME"
 msgid "Access, manage and share documents"
 msgstr "Accediu, gestioneu i compartiu documents"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#. Translators: Do NOT translate or transliterate this text (this is an icon
+#. file name)!
 #: data/org.gnome.Documents.desktop.in:7
 msgid "org.gnome.Documents"
 msgstr "org.gnome.Documents"
 
-#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or
+#. localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Documents.desktop.in:15
 msgid "Docs;PDF;Document;"
 msgstr "Documents;PDF;Document;"
@@ -196,7 +198,7 @@ msgstr "Navegació"
 #: data/ui/help-overlay.ui:49 data/ui/help-overlay.ui:57
 msgctxt "shortcut window"
 msgid "Go back"
-msgstr "Vés enrere"
+msgstr "Ves enrere"
 
 #: data/ui/help-overlay.ui:67
 msgctxt "shortcut window"
@@ -489,7 +491,6 @@ msgstr "No es pot carregar el document"
 
 #. Translators: %s is the number of the page, already formatted
 #. * as a string, for example "Page 5".
-#.
 #: src/lib/gd-places-bookmarks.c:321
 #, c-format
 msgid "Page %s"
@@ -517,7 +518,7 @@ msgstr "Pau Iranzo <paugnu@gmail.com>"
 
 #: src/lib/gd-utils.c:329
 msgid "A document manager application"
-msgstr "Una aplicació per gestionar documents"
+msgstr "Una aplicació per a gestionar documents"
 
 #: src/mainToolbar.js:95
 msgctxt "menu button tooltip"
@@ -608,7 +609,7 @@ msgstr "Mostra el menú"
 
 #: src/overview.js:581
 msgid "Click on items to select them"
-msgstr "Feu clic als elements per seleccionar-los"
+msgstr "Feu clic als elements per a seleccionar-los"
 
 #: src/overview.js:583
 #, javascript-format
@@ -676,7 +677,7 @@ msgstr "_Desbloca"
 #: src/password.js:61
 #, javascript-format
 msgid "Document %s is locked and requires a password to be opened."
-msgstr "S'ha blocat el document %s i cal una contrasenya per obrir-lo."
+msgstr "S'ha blocat el document %s i cal una contrasenya per a obrir-lo."
 
 #: src/password.js:75
 msgid "_Password"
@@ -907,7 +908,7 @@ msgstr "Propietari"
 #: src/sharing.js:437
 #, javascript-format
 msgid "You can ask %s for access"
-msgstr "Podeu demanar-li a %s per accedir-hi"
+msgstr "Podeu demanar-li a %s per a accedir-hi"
 
 #: src/sharing.js:474 src/sharing.js:510 src/sharing.js:567 src/sharing.js:584
 #: src/sharing.js:603
@@ -921,121 +922,3 @@ msgstr "Document sense títol"
 #: src/trackerController.js:176
 msgid "Unable to fetch the list of documents"
 msgstr "No es pot obtenir el llistat de documents"
-
-#~ msgid "Books"
-#~ msgstr "Llibres"
-
-#~ msgid "An e-book manager application for GNOME"
-#~ msgstr "Una aplicació per gestionar llibres electrònics al GNOME"
-
-#~ msgid ""
-#~ "A simple application to access and organize your e-books on GNOME. It is "
-#~ "meant to be a simple and elegant replacement for using a file manager to "
-#~ "deal with e-books."
-#~ msgstr ""
-#~ "Un programa simple per accedir i organitzar els llibres electrònics al "
-#~ "GNOME. Està pensat per a ser un substitut simple i elegant d'un gestor de "
-#~ "fitxers per als llibres electrònics."
-
-#~ msgid "View recent e-books"
-#~ msgstr "Visualitza els llibres electrònics recents"
-
-#~ msgid "Search through e-books"
-#~ msgstr "Cerqueu als llibres"
-
-#~ msgid "View e-books (PDF and comics) fullscreen"
-#~ msgstr ""
-#~ "Visualitzeu els llibres electrònics (PDF i còmics) a pantalla completa"
-
-#~ msgid "Print e-books"
-#~ msgstr "Imprimeix els llibres electrònics"
-
-#~ msgid "Access, manage and share books"
-#~ msgstr "Accediu, gestioneu i compartiu llibres electrònics"
-
-#~ msgid "org.gnome.Books"
-#~ msgstr "org.gnome.Books"
-
-#~ msgid "Books;Comics;ePub;PDF;"
-#~ msgstr "Llibres;Còmics;ePub;PDF;"
-
-#~ msgid "About"
-#~ msgstr "Quant a"
-
-#~ msgctxt "app menu"
-#~ msgid "Quit"
-#~ msgstr "Surt"
-
-#~ msgid "e-Book"
-#~ msgstr "Llibre electrònic"
-
-#~ msgid ""
-#~ "You are using a preview of Books. Full viewing capabilities are coming "
-#~ "soon!"
-#~ msgstr ""
-#~ "Esteu utilitzant el previsualitzador del Llibres. Les funcionalitats "
-#~ "completes de visualització estaran aviat disponibles"
-
-#~ msgid "chapter %s of %s"
-#~ msgstr "capítol %s de %s"
-
-#~ msgid "An e-books manager application"
-#~ msgstr "Una aplicació per gestionar llibres electrònics"
-
-#~ msgid "No books found"
-#~ msgstr "No s'ha trobat cap llibre"
-
-#~ msgid "You can create collections from the Books view"
-#~ msgstr "Podeu crear col·leccions a partir de les vistes dels llibres"
-
-#~ msgid "e-Books"
-#~ msgstr "Llibres electrònics"
-
-#~ msgid "Comics"
-#~ msgstr "Còmics"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Rotate anti-clockwise"
-#~ msgstr "Gira en sentit antihorari"
-
-#~ msgid "LibreOffice is required to view this document"
-#~ msgstr "Fa falta el LibreOffice per veure aquest document"
-
-#~ msgid "Category"
-#~ msgstr "Categoria"
-
-#~ msgid "Favorites"
-#~ msgstr "Preferits"
-
-#~ msgid "Shared with you"
-#~ msgstr "Compartits"
-
-#~ msgid "Recent"
-#~ msgstr "Recent"
-
-#~ msgid ""
-#~ "You don't have any collections yet. Enter a new collection name above."
-#~ msgstr ""
-#~ "Encara no teniu cap col·lecció. Poseu aquí damunt el nom de la col·lecció "
-#~ "nova."
-
-#~ msgid "Create new collection"
-#~ msgstr "Crea una col·lecció nova"
-
-#~ msgid "Print"
-#~ msgstr "Imprimeix"
-
-#~ msgid "Share"
-#~ msgstr "Comparteix"
-
-#~ msgid "Add to Collection"
-#~ msgstr "Afegeix a la col·lecció"
-
-#~ msgid "You can add your online accounts in %s"
-#~ msgstr "Podeu afegir els vostres comptes en línia a %s"
-
-#~ msgid "Settings"
-#~ msgstr "Paràmetres"
-
-#~ msgid "Load More"
-#~ msgstr "Carrega'n més"
