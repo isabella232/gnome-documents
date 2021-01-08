@@ -168,7 +168,7 @@ msgid ""
 "categories:"
 msgstr ""
 "<link xref=\"search\">Obriu la cerca</link> i feu clic al botó <_:media-1/> "
-"al costat de la barra de cerca per limitar l'abast de la cerca a aquestes "
+"al costat de la barra de cerca per a limitar l'abast de la cerca a aquestes "
 "categories:"
 
 #. (itstool) path: item/title
@@ -387,7 +387,7 @@ msgid ""
 "create the document (e.g. <app>LibreOffice</app> or <app>Adobe Acrobat</"
 "app>)."
 msgstr ""
-"<app>Documents</app> actualment no ofereix cap mecanisme per afegir "
+"<app>Documents</app> actualment no ofereix cap mecanisme per a afegir "
 "privacitat a un document. Això es pot aconseguir des de l'aplicació que s'ha "
 "utilitzat per a crear-lo (p. ex. <app>LibreOffice</app> o <app>Adobe "
 "Acrobat</app>)."
@@ -446,9 +446,9 @@ msgid ""
 "and office suite documents such as spreadsheets and word processor "
 "documents. It will not show text documents and photos."
 msgstr ""
-"<app>Documents</app> tan sols suporta alguns tipus de documents com  PDFs i "
-"documents de la suite d'office com fulls de càlcul i documents del "
-"processador de textos. No es mostren documents de text ni fotografies."
+"<app>Documents</app> tan sols suporta alguns tipus de documents com PDF i "
+"documents de paquet ofimàtics com fulls de càlcul i documents del "
+"processador de textos. No mostrarà documents de text ni fotografies."
 
 #. (itstool) path: page/p
 #: C/prob-no-show.page:50
@@ -608,7 +608,7 @@ msgid ""
 "grid view."
 msgstr ""
 "Feu clic sobre el botó quadrícula a la part superior dreta de la finestra "
-"per tornar a la vista en quadrícula."
+"per a tornar a la vista en quadrícula."
 
 #. (itstool) path: info/desc
 #: C/view.page:29
