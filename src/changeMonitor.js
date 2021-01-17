@@ -20,27 +20,12 @@
  */
 
 const Gio = imports.gi.Gio;
+const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 const Signals = imports.signals;
+const Tracker = imports.gi.Tracker;
 
 const Application = imports.application;
-
-const TrackerResourcesServiceIface = '<node> \
-<interface name="org.freedesktop.Tracker1.Resources"> \
-    <signal name="GraphUpdated"> \
-        <arg name="className" type="s" /> \
-        <arg name="deleteEvents" type="a(iiii)" /> \
-        <arg name="insertEvents" type="a(iiii)" /> \
-    </signal> \
-</interface> \
-</node>';
-
-var TrackerResourcesServiceProxy = Gio.DBusProxy.makeProxyWrapper(TrackerResourcesServiceIface);
-function TrackerResourcesService() {
-    return new TrackerResourcesServiceProxy(Gio.DBus.session,
-                                            'org.freedesktop.Tracker1',
-                                            '/org/freedesktop/Tracker1/Resources');
-}
 
 var ChangeEventType = {
     CHANGED: 0,
@@ -48,139 +33,44 @@ var ChangeEventType = {
     DELETED: 2
 };
 
-const _RDF_TYPE = "http://www.w3.org/1999/02/22-rdf-syntax-ns#type";
+const ChangeEvent = new Lang.Class({
+    Name: 'ChangeEvent',
 
-const ChangeEvent = class ChangeEvent {
-    constructor(urnId, predicateId, isDelete) {
-        this.urnId = urnId;
-        this.predicateId = predicateId;
-
-        if (isDelete)
-            this.type = ChangeEventType.DELETED;
-        else
-            this.type = ChangeEventType.CREATED;
-    }
-
-    setResolvedValues(urn, predicate) {
+    _init: function(type, urn) {
         this.urn = urn;
-        this.predicate = predicate;
 
-        if (predicate != _RDF_TYPE)
+        if (type == Tracker.NotifierEventType.CREATE)
+            this.type = ChangeEventType.CREATED;
+        else if (type == Tracker.NotifierEventType.DELETE)
+            this.type = ChangeEventType.DELETED;
+        else if (type == Tracker.NotifierEventType.UPDATE)
             this.type = ChangeEventType.CHANGED;
     }
+});
 
-    merge(event) {
-        // deletions or creations override the current type
-        if (event.type == ChangeEventType.DELETED ||
-            event.type == ChangeEventType.CREATED) {
-            this.type = event.type;
-        }
+var TrackerChangeMonitor = new Lang.Class({
+    Name: 'TrackerChangeMonitor',
+
+    _init: function() {
+        this._notifier = Application.connection.create_notifier();
+        this._notifier.signal_subscribe(Gio.DBus.session,
+                                        'org.freedesktop.Tracker3.Miner.Files',
+                                        null,
+                                        'http://tracker.api.gnome.org/ontology/v3/tracker#Documents');
+        this._notifier.connect('events', Lang.bind(this, this._onNotifierEvents));
+    },
+
+    _onNotifierEvents: function(notifier, service, graph, events) {
+        let pendingChanges = {};
+
+        events.forEach(Lang.bind(this,
+            function(event) {
+                let urn = event.get_urn();
+                let changeEvent = new ChangeEvent(event.get_event_type(), urn);
+                pendingChanges[urn] = changeEvent;
+            }));
+
+        this.emit('changes-pending', pendingChanges);
     }
-}
-
-const CHANGE_MONITOR_TIMEOUT = 500; // msecs
-const CHANGE_MONITOR_MAX_ITEMS = 500; // items
-
-var TrackerChangeMonitor = class TrackerChangeMonitor {
-    constructor() {
-        this._pendingChanges = {};
-        this._unresolvedIds = {};
-
-        this._pendingEvents = [];
-        this._pendingEventsId = 0;
-
-        this._resourceService = new TrackerResourcesService();
-        this._resourceService.connectSignal('GraphUpdated', this._onGraphUpdated.bind(this));
-    }
-
-    _onGraphUpdated(proxy, senderName, [className, deleteEvents, insertEvents]) {
-        deleteEvents.forEach((event) => {
-            this._addPendingEvent(event, true);
-        });
-
-        insertEvents.forEach((event) => {
-            this._addPendingEvent(event, false);
-        });
-    }
-
-    _addPendingEvent(event, isDelete) {
-        if (this._pendingEventsId != 0)
-            Mainloop.source_remove(this._pendingEventsId);
-
-        this._unresolvedIds[event[1]] = event[1];
-        this._unresolvedIds[event[2]] = event[2];
-        this._pendingEvents.push(new ChangeEvent(event[1], event[2], isDelete));
-
-        if (this._pendingEvents.length >= CHANGE_MONITOR_MAX_ITEMS)
-            this._processEvents();
-        else
-            this._pendingEventsId =
-                Mainloop.timeout_add(CHANGE_MONITOR_TIMEOUT, this._processEvents.bind(this));
-    }
-
-    _processEvents() {
-        let events = this._pendingEvents;
-        let idTable = this._unresolvedIds;
-
-        this._pendingEventsId = 0;
-        this._pendingEvents = [];
-        this._unresolvedIds = {};
-
-        let sparql = 'SELECT';
-        Object.keys(idTable).forEach((unresolvedId) => {
-            sparql += (' tracker:uri(%d)').format(unresolvedId);
-        });
-        sparql += ' {}';
-
-        // resolve all the unresolved IDs we got so far
-        Application.connectionQueue.add(sparql, null, (object, res) => {
-            let cursor = object.query_finish(res);
-
-            cursor.next_async(null, (object, res) => {
-                let valid = false;
-                try {
-                    valid = cursor.next_finish(res);
-                } catch(e) {
-                    logError(e, 'Unable to resolve item URNs for graph changes');
-                }
-
-                if (valid) {
-                    let idx = 0;
-                    Object.keys(idTable).forEach((unresolvedId) => {
-                        idTable[unresolvedId] = cursor.get_string(idx)[0];
-                        idx++;
-                    });
-
-                    this._sendEvents(events, idTable);
-                }
-
-                cursor.close();
-            });
-        });
-
-        return false;
-    }
-
-    _addEvent(event) {
-        let urn = event.urn;
-        let oldEvent = this._pendingChanges[urn];
-
-        if (oldEvent != null) {
-            oldEvent.merge(event);
-            this._pendingChanges[urn] = oldEvent;
-        } else {
-            this._pendingChanges[urn] = event;
-        }
-    }
-
-    _sendEvents(events, idTable) {
-        events.forEach((event) => {
-            event.setResolvedValues(idTable[event.urnId], idTable[event.predicateId]);
-            this._addEvent(event);
-        });
-
-        this.emit('changes-pending', this._pendingChanges);
-        this._pendingChanges = {};
-    }
-}
+});
 Signals.addSignalMethods(TrackerChangeMonitor.prototype);
