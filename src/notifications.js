@@ -23,7 +23,6 @@ const Gd = imports.gi.Gd;
 const Gettext = imports.gettext;
 const GObject = imports.gi.GObject;
 const Gtk = imports.gi.Gtk;
-const TrackerControl = imports.gi.TrackerControl;
 const _ = imports.gettext.gettext;
 
 const Application = imports.application;
@@ -155,161 +154,6 @@ var PrintNotification = class PrintNotification {
     }
 }
 
-const REMOTE_MINER_TIMEOUT = 10; // seconds
-const TRACKER_MINER_FILES_NAME = 'org.freedesktop.Tracker1.Miner.Files';
-
-const IndexingNotification = class IndexingNotification {
-    constructor() {
-        this._closed = false;
-        this._timeoutId = 0;
-
-        try {
-            this._manager = TrackerControl.MinerManager.new_full(false);
-            this._manager.connect('miner-progress', this._checkNotification.bind(this));
-        } catch(e) {
-            logError(e, 'Unable to create a TrackerMinerManager, indexing progress ' +
-                     'notification won\'t work');
-            return;
-        }
-
-        Application.application.connect('miners-changed', this._checkNotification.bind(this));
-        Application.modeController.connect('window-mode-changed', this._checkNotification.bind(this));
-    }
-
-    _checkNotification() {
-        if (Application.modeController.getWindowMode() == WindowMode.WindowMode.PREVIEW_EV) {
-            this._destroy(false);
-            return;
-        }
-
-        let isIndexingLocal = false;
-        let isIndexingRemote = false;
-
-        if (this._manager) {
-            let running = this._manager.get_running();
-            if (running.indexOf(TRACKER_MINER_FILES_NAME) != -1) {
-                let [res, status, progress, time] = this._manager.get_status(TRACKER_MINER_FILES_NAME);
-
-                if (progress < 1)
-                    isIndexingLocal = true;
-            }
-        }
-
-        if (Application.application.minersRunning.length > 0)
-            isIndexingRemote = true;
-
-        if (isIndexingLocal) {
-            this._display(_("Your documents are being indexed"),
-                          _("Some documents might not be available during this process"));
-        } else if (isIndexingRemote) {
-            this._removeTimeout();
-            this._timeoutId = Mainloop.timeout_add_seconds(REMOTE_MINER_TIMEOUT, this._onTimeoutExpired.bind(this));
-        } else {
-            this._destroy(false);
-        }
-    }
-
-    _onTimeoutExpired() {
-        this._timeoutId = 0;
-
-        let primary = null;
-        let miner = null;
-
-        if (Application.application.minersRunning.length == 1) {
-            miner = Application.application.minersRunning[0];
-        }
-
-        if (miner && miner.DisplayName) {
-            // Translators: %s refers to an online account provider, e.g.
-            // "Google", or "Windows Live".
-            primary = _("Fetching documents from %s").format(miner.DisplayName);
-        } else {
-            primary = _("Fetching documents from online accounts");
-        }
-
-        this._display(primary, null);
-
-        return false;
-    }
-
-    _removeTimeout() {
-        if (this._timeoutId != 0) {
-            Mainloop.source_remove(this._timeoutId);
-            this._timeoutId = 0;
-        }
-    }
-
-    _buildWidget() {
-        this.widget = new Gtk.Grid({ orientation: Gtk.Orientation.HORIZONTAL,
-                                     column_spacing: 12 });
-
-        let spinner = new Gtk.Spinner({ width_request: 16,
-                                        height_request: 16 });
-        spinner.start();
-        this.widget.add(spinner);
-
-        let labels = new Gtk.Grid({ orientation: Gtk.Orientation.VERTICAL,
-                                    row_spacing: 3 });
-        this.widget.add(labels);
-
-        this._primaryLabel = new Gtk.Label({ halign: Gtk.Align.START });
-        labels.add(this._primaryLabel);
-
-        this._secondaryLabel = new Gtk.Label({ halign: Gtk.Align.START });
-        this._secondaryLabel.get_style_context().add_class('dim-label');
-        labels.add(this._secondaryLabel);
-
-        let close = new Gtk.Button({ image: new Gtk.Image({ icon_name: 'window-close-symbolic',
-                                                            pixel_size: 16,
-                                                            margin_top: 2,
-                                                            margin_bottom: 2 }),
-                                     valign: Gtk.Align.CENTER,
-                                     focus_on_click: false,
-                                     relief: Gtk.ReliefStyle.NONE });
-        close.connect('clicked', () => {
-            this._destroy(true);
-        });
-        this.widget.add(close);
-
-        Application.notificationManager.addNotification(this);
-    }
-
-    _update(primaryText, secondaryText) {
-        this._primaryLabel.label = primaryText;
-        this._secondaryLabel.label = secondaryText;
-
-        if (secondaryText) {
-            this._primaryLabel.vexpand = false;
-            this._secondaryLabel.show();
-        } else {
-            this._primaryLabel.vexpand = true;
-            this._secondaryLabel.hide();
-        }
-    }
-
-    _display(primaryText, secondaryText) {
-        if (this._closed) {
-            return;
-        }
-
-        if (!this.widget)
-            this._buildWidget();
-
-        this._update(primaryText, secondaryText);
-    }
-
-    _destroy(closed) {
-        this._removeTimeout();
-
-        if (this.widget) {
-            this.widget.destroy();
-            this.widget = null;
-        }
-
-        this._closed = closed;
-    }
-}
-
 var NotificationManager = GObject.registerClass(class NotificationManager extends Gtk.Revealer {
     _init() {
         super._init({ halign: Gtk.Align.CENTER,
@@ -323,9 +167,6 @@ var NotificationManager = GObject.registerClass(class NotificationManager extend
                                     row_spacing: 6 });
 
         frame.add(this._grid);
-
-        // add indexing monitor notification
-        this._indexingNotification = new IndexingNotification();
     }
 
     addNotification(notification) {
