@@ -30,7 +30,6 @@ const Gtk = imports.gi.Gtk;
 const GLib = imports.gi.GLib;
 const GObject = imports.gi.GObject;
 const Tracker = imports.gi.Tracker;
-const TrackerControl = imports.gi.TrackerControl;
 
 const ChangeMonitor = imports.changeMonitor;
 const Format = imports.format;
