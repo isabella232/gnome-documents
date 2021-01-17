@@ -337,9 +337,13 @@ var Application = GObject.registerClass({
 
         // connect to tracker
         try {
-            connection = Tracker.SparqlConnection.get(null);
+            let cacheDir = GLib.build_filenamev([GLib.get_user_cache_dir(), 'org.gnome.Documents', 'db']);
+            let nepomuk = Tracker.sparql_get_ontology_nepomuk();
+            connection = Tracker.SparqlConnection.new(Tracker.SparqlConnectionFlags.NONE,
+                                                      Gio.File.new_for_path(cacheDir),
+                                                      nepomuk, null);
         } catch (e) {
-            logError(e, 'Unable to connect to the tracker database');
+            logError(e, 'Unable to set up the tracker database');
             return;
         }
 

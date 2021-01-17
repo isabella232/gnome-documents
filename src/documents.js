@@ -776,7 +776,7 @@ const DocCommon = class DocCommon {
         let retval = '';
 
         if (this.collection)
-            retval = '{ ?urn nie:isPartOf <' + this.id + '> }';
+            retval = '{ ?urn nie:isLogicalPartOf <' + this.id + '> }';
 
         return retval;
     }

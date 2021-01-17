@@ -19,6 +19,8 @@
  *
  */
 
+imports.gi.versions.Tracker = '3.0';
+
 const Application = imports.application;
 const Documents = imports.documents;
 const Manager = imports.manager;
@@ -328,7 +330,7 @@ const Source = class Source {
 
         let filters = [];
         locations.forEach((location) => {
-            filters.push('(fn:contains (nie:url(?urn), "%s"))'.format(location.get_uri()));
+            filters.push('(fn:contains (nie:isStoredAs(?urn), "%s"))'.format(location.get_uri()));
         });
 
         filters.push('(fn:starts-with (nao:identifier(?urn), "gd:collection:local:"))');

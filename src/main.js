@@ -33,8 +33,7 @@ pkg.require({ 'EvinceDocument': '3.0',
               'Goa': '1.0',
               'Gtk': '3.0',
               'GObject': '2.0',
-              'Tracker': '2.0',
-              'TrackerControl': '2.0',
+              'Tracker': '3.0',
               'WebKit2': '4.0' });
 
 const Application = imports.application;

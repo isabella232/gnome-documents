@@ -90,9 +90,6 @@ var QueryBuilder = class QueryBuilder {
             part += this._buildOptional();
 
             if ((flags & QueryFlags.UNFILTERED) == 0) {
-                if (global)
-                    part += this._context.documentManager.getWhere();
-
                 part += this._buildFilterString(currentType, flags, ftsQuery.length > 0);
             }
 
@@ -141,6 +138,18 @@ var QueryBuilder = class QueryBuilder {
     }
 
     _buildQueryInternal(global, flags, offsetController, sortBy) {
+        let selectClauses =
+            '    (COALESCE (nie:url(?urn), nie:isStoredAs(?urn)) AS ?uri) ' +
+            '    (COALESCE (nfo:fileName(?urn), tracker:string-from-filename(nie:isStoredAs(?urn))) AS ?filename) ' +
+            '    (nie:mimeType(?urn) AS ?mimetype) ' +
+            '    (nie:title(?urn) AS ?title) ' +
+            '    (tracker:coalesce(nco:fullname(?creator), nco:fullname(?publisher), \'\') AS ?author) ' +
+            '    (nie:contentLastModified(?urn) AS ?mtime) ' +
+            '    (nao:identifier(?urn) AS ?identifier) ' +
+            '    (rdf:type(?urn) AS ?type) ' +
+            '    (nie:dataSource(?urn) AS ?datasource ) ' +
+            '    (( EXISTS { ?urn nco:contributor ?contributor FILTER ( ?contributor != ?creator ) } ) AS ?shared) ' +
+            '    (nie:contentCreated(?urn) AS ?created) ';
         let whereSparql = this._buildWhere(global, flags);
         let tailSparql = '';
 
@@ -175,19 +184,61 @@ var QueryBuilder = class QueryBuilder {
         }
 
         let sparql =
-            'SELECT DISTINCT ?urn ' + // urn
-            'nie:url(?urn) ' + // uri
-            'nfo:fileName(?urn) AS ?filename ' + // filename
-            'nie:mimeType(?urn)' + // mimetype
-            'nie:title(?urn) AS ?title ' + // title
-            'tracker:coalesce(nco:fullname(?creator), nco:fullname(?publisher), \'\') AS ?author ' + // author
-            'tracker:coalesce(nfo:fileLastModified(?urn), nie:contentLastModified(?urn)) AS ?mtime ' + // mtime
-            'nao:identifier(?urn) ' + // identifier
-            'rdf:type(?urn) ' + // type
-            'nie:dataSource(?urn) ' + // resource URN
-            '( EXISTS { ?urn nco:contributor ?contributor FILTER ( ?contributor != ?creator ) } ) ' + // shared
-            'tracker:coalesce(nfo:fileCreated(?urn), nie:contentCreated(?urn)) ' + // date created
-            whereSparql + tailSparql;
+            'SELECT ?urn ' +
+            '  ?uri ' +
+            '  ?filename ' +
+            '  ?mimetype ' +
+            '  COALESCE (?localTitle, ?title, ?filename) AS ?t ' +
+            '  ?author ' +
+            '  ?mtime ' +
+            '  ?identifier ' +
+            '  ?type ' +
+            '  ?datasource ' +
+            '  ?shared ' +
+            '  ?created ' +
+            'WHERE { ';
+
+        // Collections queries are local
+        if (flags & QueryFlags.COLLECTIONS) {
+            sparql +=
+                'SELECT DISTINCT ?urn ' +
+                selectClauses +
+                whereSparql;
+        } else {
+	    let services = ['org.freedesktop.Tracker3.Miner.Files'];
+	    let serviceQueries = [];
+
+            if (this._context.sourceManager.hasProviderType('google'))
+		services.push('org.gnome.OnlineMiners.GData');
+            if (this._context.sourceManager.hasProviderType('owncloud'))
+		services.push('org.gnome.OnlineMiners.Owncloud');
+            if (this._context.sourceManager.hasProviderType('windows_live'))
+		services.push('org.gnome.OnlineMiners.Zpj');
+
+	    services.forEach((service) => {
+		let serviceQuery =
+		    '{' +
+                    '  SERVICE SILENT <dbus:' + service + '> {' +
+                    '    GRAPH tracker:Documents { ' +
+                    '      SELECT DISTINCT ?urn ' +
+                    selectClauses +
+                    whereSparql +
+                    '    }' +
+                    '  }' +
+		    '}';
+
+		serviceQueries.push(serviceQuery);
+	    });
+
+            sparql += serviceQueries.join(' UNION ');
+            sparql += 'OPTIONAL { ?urn nie:title ?localTitle } . ';
+
+            if (global && (flags & QueryFlags.UNFILTERED) == 0)
+                sparql += this._context.documentManager.getWhere();
+	}
+
+        sparql += '}';
+        sparql += tailSparql;
 
         return sparql;
     }
@@ -204,8 +255,39 @@ var QueryBuilder = class QueryBuilder {
     }
 
     buildCountQuery(flags) {
-        let sparql = 'SELECT DISTINCT COUNT(?urn) ' +
-            this._buildWhere(true, flags);
+        let sparql;
+        if (flags & QueryFlags.COLLECTIONS) {
+	    sparql = 'SELECT DISTINCT COUNT(?urn) AS ?c ' +
+		this._buildWhere(true, flags);
+	} else {
+	    let services = ['org.freedesktop.Tracker3.Miner.Files'];
+	    let countQueries = [];
+
+            if (this._context.sourceManager.hasProviderType('google'))
+		services.push('org.gnome.OnlineMiners.GData');
+            if (this._context.sourceManager.hasProviderType('owncloud'))
+		services.push('org.gnome.OnlineMiners.Owncloud');
+            if (this._context.sourceManager.hasProviderType('windows_live'))
+		services.push('org.gnome.OnlineMiners.Zpj');
+
+	    sparql = 'SELECT SUM(?c) {';
+
+	    services.forEach((service) => {
+		let countQuery =
+		    '{ ' +
+		    '  SERVICE SILENT <dbus:' + service + '> { ' +
+		    '    GRAPH tracker:Documents { ' +
+		    '      SELECT DISTINCT COUNT(?urn) AS ?c ' +
+		    this._buildWhere(true, flags) +
+		    '    }' +
+		    '  }' +
+		    '}';
+		countQueries.push(countQuery);
+	    });
+
+	    sparql += countQueries.join(' UNION ');
+	    sparql += '}';
+	}
 
         return this._createQuery(sparql);
     }
@@ -215,8 +297,8 @@ var QueryBuilder = class QueryBuilder {
         let sparql =
             ('SELECT ' +
              '?urn ' +
-             'tracker:coalesce(nfo:fileLastModified(?urn), nie:contentLastModified(?urn)) AS ?mtime ' +
-             'WHERE { ?urn nie:isPartOf ?collUrn } ' +
+             'nie:contentLastModified(?urn) AS ?mtime ' +
+             'WHERE { ?urn nie:isLogicalPartOf ?collUrn } ' +
              'ORDER BY DESC (?mtime)' +
              'LIMIT 4').replace(/\?collUrn/, '<' + resource + '>');
 
@@ -228,7 +310,7 @@ var QueryBuilder = class QueryBuilder {
         let sparql =
             ('SELECT ' +
              '?urn ' +
-             'WHERE { ?urn a nfo:DataContainer . ?docUrn nie:isPartOf ?urn }'
+             'WHERE { ?urn a nfo:DataContainer . ?docUrn nie:isLogicalPartOf ?urn }'
             ).replace(/\?docUrn/, '<' + resource + '>');
 
         return this._createQuery(sparql);
@@ -236,15 +318,21 @@ var QueryBuilder = class QueryBuilder {
 
     // adds or removes the given item to the given collection
     buildSetCollectionQuery(itemUrn, collectionUrn, setting) {
-        let sparql = ('%s { <%s> nie:isPartOf <%s> }'
-                     ).format((setting ? 'INSERT' : 'DELETE'), itemUrn, collectionUrn);
+        let sparql;
+        if (setting) {
+            sparql = ('INSERT DATA { <%s> a nie:InformationElement; nie:isLogicalPartOf <%s> }'
+                     ).format(itemUrn, collectionUrn);
+        } else {
+            sparql = ('DELETE DATA { <%s> nie:isLogicalPartOf <%s> }'
+                     ).format(itemUrn, collectionUrn);
+        }
         return this._createQuery(sparql);
     }
 
     // bumps the mtime to current time for the given resource
     buildUpdateMtimeQuery(resource) {
         let time = GdPrivate.iso8601_from_timestamp(GLib.get_real_time() / GLib.USEC_PER_SEC);
-        let sparql = ('INSERT OR REPLACE { <%s> nie:contentLastModified \"%s\" }'
+        let sparql = ('INSERT OR REPLACE { <%s> a nie:InformationElement; nie:contentLastModified \"%s\" }'
                      ).format(resource, time);
 
         return this._createQuery(sparql);
