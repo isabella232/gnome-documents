@@ -71,20 +71,21 @@ var trackerCollectionsController = null;
 var trackerDocumentsController = null;
 var trackerSearchController = null;
 
-const TrackerExtractPriorityIface = '<node> \
-<interface name="org.freedesktop.Tracker1.Extract.Priority"> \
-    <method name="ClearRdfTypes" /> \
-    <method name="SetRdfTypes"> \
-        <arg name="rdf_types" type="as" /> \
+const TrackerMinerFilesIndexIface = '<node> \
+<interface name="org.freedesktop.Tracker3.Miner.Files.Index"> \
+    <method name="IndexLocation"> \
+        <arg name="file_uri" type="s" /> \
+        <arg name="graphs" type="as" /> \
+        <arg name="flags" type="as" /> \
     </method> \
 </interface> \
 </node>';
 
-var TrackerExtractPriorityProxy = Gio.DBusProxy.makeProxyWrapper(TrackerExtractPriorityIface);
-function TrackerExtractPriority() {
-    return new TrackerExtractPriorityProxy(Gio.DBus.session,
-                                           'org.freedesktop.Tracker1.Miner.Extract',
-                                           '/org/freedesktop/Tracker1/Extract/Priority');
+var TrackerMinerFilesControlProxy = Gio.DBusProxy.makeProxyWrapper(TrackerMinerFilesIndexIface);
+function TrackerMinerFilesControl() {
+    return new TrackerMinerFilesControlProxy(Gio.DBus.session,
+                                             'org.freedesktop.Tracker3.Miner.Files.Control',
+                                             '/org/freedesktop/Tracker3/Miner/Files/Index');
 }
 
 const MINER_REFRESH_TIMEOUT = 60; /* seconds */
@@ -99,6 +100,7 @@ var Application = GObject.registerClass({
         this._activationTimestamp = Gdk.CURRENT_TIME;
         this._extractPriority = null;
         this._searchProvider = null;
+	this._minerControl = null;
 
         let appid;
         GLib.set_application_name(_("Documents"));
@@ -115,8 +117,6 @@ var Application = GObject.registerClass({
     }
 
     _initGettingStarted() {
-        let manager = TrackerControl.MinerManager.new_full(false);
-
         let languages = GLib.get_language_names();
         let files = languages.map(
             function(language) {
@@ -138,7 +138,7 @@ var Application = GObject.registerClass({
             this.gettingStartedLocation = files[i].get_parent();
 
             try {
-                manager.index_file(files[i], null);
+                this._minerControl.IndexLocationRemote(files[i].get_path(), ['tracker:Documents'], []);
             } catch (e) {
                 logError(e, 'Error indexing the getting started PDF');
             }
@@ -388,18 +388,19 @@ var Application = GObject.registerClass({
         if (this._mainWindow)
             return;
 
+        try {
+            this._minerControl = TrackerMinerFilesControl();
+            this._minerControl.IndexLocationRemote(GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DOCUMENTS),
+                                                   ['tracker:Documents'], []);
+        } catch (e) {
+            logError(e, 'Unable to connect to the tracker extractor');
+        }
+
         this._initGettingStarted();
 
         notificationManager = new Notifications.NotificationManager();
         this._mainWindow = new MainWindow.MainWindow(this);
         this._mainWindow.connect('destroy', this._onWindowDestroy.bind(this));
-
-        try {
-            this._extractPriority = TrackerExtractPriority();
-            this._extractPriority.SetRdfTypesRemote(['nfo:Document']);
-        } catch (e) {
-            logError(e, 'Unable to connect to the tracker extractor');
-        }
 
         // start miners
         this._startMiners();
@@ -475,9 +476,6 @@ var Application = GObject.registerClass({
 
         // stop miners
         this._stopMiners();
-
-        if (this._extractPriority)
-            this._extractPriority.ClearRdfTypesRemote();
     }
 
     _onWindowDestroy(window) {
