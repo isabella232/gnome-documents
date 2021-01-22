@@ -205,7 +205,7 @@ var QueryBuilder = class QueryBuilder {
                 selectClauses +
                 whereSparql;
         } else {
-	    let services = ['org.freedesktop.Tracker3.Miner.Files'];
+	    let services = [this._context.trackerMinerService];
 	    let serviceQueries = [];
 
             if (this._context.sourceManager.hasProviderType('google'))
@@ -260,7 +260,7 @@ var QueryBuilder = class QueryBuilder {
 	    sparql = 'SELECT DISTINCT COUNT(?urn) AS ?c ' +
 		this._buildWhere(true, flags);
 	} else {
-	    let services = ['org.freedesktop.Tracker3.Miner.Files'];
+	    let services = [this._context.trackerMinerService];
 	    let countQueries = [];
 
             if (this._context.sourceManager.hasProviderType('google'))

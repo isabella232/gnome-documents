@@ -17,9 +17,8 @@
         /* Needs to talk to the network: */
         "--share=network",
         "--talk-name=org.gnome.Mutter.DisplayConfig",
-        /* Tracker access */
-        "--talk-name=org.freedesktop.Tracker1",
-        "--talk-name=org.freedesktop.Tracker1.Miner.Extract",
+        /* Tracker3 graph access */
+        "--add-policy=Tracker3.dbus:org.freedesktop.Tracker3.Miner.Files=tracker:Documents",
         /* Needed for dconf to work */
         "--filesystem=xdg-run/dconf", "--filesystem=~/.config/dconf:ro",
         "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
@@ -158,34 +157,20 @@
             ]
         },
         {
-            "name": "tracker",
-            "buildsystem": "meson",
-            "cleanup": [ "/bin", "/etc", "/lib/systemd", "/libexec", "/share/dbus-1/services" ],
-            "config-opts": [ "--default-library=shared", "-Dbash-completion=no", "-Ddocs=false" ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/tracker.git",
-                    "branch": "tracker-2.3"
-                }
-            ]
-        },
-        {
             "name": "tracker-miners",
             "buildsystem": "meson",
-            "cleanup": [ "/bin", "/etc", "/lib/systemd", "/libexec" ],
-            "config-opts": [ "--default-library=shared",
-                             "-Dminer_apps=false",
+            "config-opts": [ "-Ddefault_index_single_directories=&DOWNLOADS",
+                             "-Ddefault_index_recursive_directories=&DOCUMENTS",
+                             "-Ddomain_prefix=org.gnome.Documents",
+                             "-Dman=false",
+                             "-Dminer_fs=true",
+                             "-Dminer_fs_cache_location=$XDG_CACHE_HOME/org.gnome.Documents/miner/files",
                              "-Dminer_rss=false",
-                             "-Dextract=false",
-                             "-Dgeneric_media_extractor=none",
-                             "-Dwriteback=false",
-                             "-Dminer_fs=true" ],
+                             "-Dsystemd_user_services=false" ],
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/tracker-miners.git",
-                    "branch": "tracker-miners-2.3"
+                    "url": "https://gitlab.gnome.org/GNOME/tracker-miners.git"
                 }
             ]
         },

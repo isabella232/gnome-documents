@@ -70,6 +70,7 @@ var sourceManager = null;
 var trackerCollectionsController = null;
 var trackerDocumentsController = null;
 var trackerSearchController = null;
+var trackerMinerService = null;
 
 const TrackerMinerFilesIndexIface = '<node> \
 <interface name="org.freedesktop.Tracker3.Miner.Files.Index"> \
@@ -345,6 +346,16 @@ var Application = GObject.registerClass({
         } catch (e) {
             logError(e, 'Unable to set up the tracker database');
             return;
+        }
+
+        // test access to global tracker daemon
+        try {
+            let busConn = Tracker.SparqlConnection.bus_new('org.freedesktop.Tracker3.Miner.Files',
+                                                           null, Gio.DBus.session);
+            trackerMinerService = 'org.freedesktop.Tracker3.Miner.Files';
+        } catch (e) {
+            // if the daemon is not available, run our own copy (for the sandboxed case)
+            trackerMinerService = this.get_application_id() + '.Tracker3.Miner.Files';
         }
 
         try {
