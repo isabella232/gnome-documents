@@ -1,7 +1,7 @@
 {
     "app-id": "org.gnome.Documents",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "3.32",
+    "runtime-version": "master",
     "sdk": "org.gnome.Sdk",
     "command": "gnome-documents",
     "tags": [ "nightly" ],
@@ -131,24 +131,13 @@
             ]
         },
         {
-            "name": "gspell",
-            "cleanup": [
-                "/bin"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/gspell.git"
-                }
-            ]
-        },
-        {
             "name": "evince",
+            "buildsystem": "meson",
             "cleanup": [ "/share/GConf", "/share/help" ],
-            "config-opts": [ "--disable-nautilus", "--disable-viewer",
-                             "--disable-previewer", "--disable-dbus",
-                             "--disable-browser-plugin", "--enable-introspection",
-                             "--disable-comics" ],
+            "config-opts": [ "-Dnautilus=false", "-Dviewer=false",
+                             "-Dpreviewer=false", "-Ddbus=false",
+                             "-Dbrowser-plugin=false", "-Dintrospection=true",
+                             "-Dcomics=disabled" ],
             "sources": [
                 {
                     "type": "git",
