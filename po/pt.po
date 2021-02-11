@@ -12,16 +12,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 3.12\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-documents/issues\n"
-"POT-Creation-Date: 2020-06-05 03:33+0000\n"
-"PO-Revision-Date: 2020-09-02 15:57+0100\n"
-"Last-Translator: Juliano Camargo <julianosc@pm.me>\n"
+"POT-Creation-Date: 2020-09-08 19:29+0000\n"
+"PO-Revision-Date: 2021-02-11 16:20+0000\n"
+"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Gtranslator 3.36.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.4.1\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.Documents.appdata.xml.in:7
@@ -84,7 +84,7 @@ msgstr "Permitir abrir editor completo para alterações não triviais"
 
 #: data/org.gnome.Documents.appdata.xml.in:39
 msgid "The GNOME Project"
-msgstr "Projeto GNOME"
+msgstr "O Projeto GNOME"
 
 #: data/org.gnome.Documents.desktop.in:4
 msgid "Access, manage and share documents"
@@ -149,14 +149,13 @@ msgstr "Modo Noturno"
 
 #: data/ui/documents-app-menu.ui:12
 msgid "Keyboard Shortcuts"
-msgstr "Atalhos de Teclado"
+msgstr "Teclas de atalho"
 
 #: data/ui/documents-app-menu.ui:16
 msgid "Help"
 msgstr "Ajuda"
 
 #: data/ui/documents-app-menu.ui:20
-#| msgid "Text Documents"
 msgid "About Documents"
 msgstr "Acerca do Documentos"
 
@@ -226,8 +225,6 @@ msgid "Copy selected text to clipboard"
 msgstr "Copiar o texto selecionado para a área de transferência"
 
 #: data/ui/help-overlay.ui:106
-#| msgctxt "shortcut window"
-#| msgid "Rotate clockwise"
 msgctxt "shortcut window"
 msgid "Rotate counterclockwise"
 msgstr "Rodar no sentido anti-horário"
@@ -255,12 +252,12 @@ msgstr "Modo de apresentação"
 #: data/ui/help-overlay.ui:141
 msgctxt "shortcut window"
 msgid "Open action menu"
-msgstr "Abrir o menu Ação"
+msgstr "Abrir o menu ação"
 
 #: data/ui/help-overlay.ui:148
 msgctxt "shortcut window"
 msgid "Fullscreen"
-msgstr "Ecrã completo"
+msgstr "Ecrã inteiro"
 
 #: data/ui/organize-collection-dialog.ui:40
 msgid "Enter a name for your first collection"
@@ -310,7 +307,7 @@ msgstr "Imprimir…"
 
 #: data/ui/preview-menu.ui:21 src/preview.js:443
 msgid "Fullscreen"
-msgstr "Ecrã completo"
+msgstr "Ecrã inteiro"
 
 #: data/ui/preview-menu.ui:27
 msgid "Present"
@@ -339,11 +336,11 @@ msgstr "Propriedades"
 
 #: data/ui/selection-menu.ui:6
 msgid "Select All"
-msgstr "Selecionar Tudo"
+msgstr "Selecionar tudo"
 
 #: data/ui/selection-menu.ui:11
 msgid "Select None"
-msgstr "Selecionar Nada"
+msgstr "Selecionar nada"
 
 #: data/ui/view-menu.ui:23
 msgid "View items as a grid of icons"
@@ -518,14 +515,14 @@ msgstr ""
 "Pedro Albuquerque <palbuquerque73@gmail.com>\n"
 "Sérgio Cardeira <cardeira.sergio@gmail.com>\n"
 "Tiago Santos <tiagofsantos81@sapo.pt>\n"
-"Juliano Camargo <julianosc@pm.me>"
+"Juliano Camargo <julianosc@pm.me>\n"
+"Hugo Carvalho <hugokarvalho@hotmail.com>"
 
 #: src/lib/gd-utils.c:319
 msgid "A document manager application"
 msgstr "Uma aplicação de gestão de documentos"
 
 #: src/mainToolbar.js:87
-#| msgid "View Menu"
 msgctxt "menu button tooltip"
 msgid "Menu"
 msgstr "Menu"
@@ -909,7 +906,7 @@ msgstr "Gravar"
 
 #: src/sharing.js:359
 msgid "Owner"
-msgstr "Dono"
+msgstr "Proprietário"
 
 #: src/sharing.js:426
 #, javascript-format
@@ -923,7 +920,7 @@ msgstr "O documento não foi atualizado"
 
 #: src/shellSearchProvider.js:274
 msgid "Untitled Document"
-msgstr "Documento sem Título"
+msgstr "Documento Sem título"
 
 #: src/trackerController.js:170
 msgid "Unable to fetch the list of documents"
