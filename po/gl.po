@@ -3,24 +3,24 @@
 # This file is distributed under the same license as the gnome-documents package.
 # Proxecto Trasno - Adaptación do software libre á lingua galega:  Se desexas
 # colaborar connosco, podes atopar máis información en http://www.trasno.net
+#
 # Fran Diéguez <frandieguez@gnome.org>, 2011, 2012.
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2012.
-# Fran Dieguez <frandieguez@gnome.org>, 2012-2019.
-#
+# Fran Dieguez <frandieguez@gnome.org>, 2012-2019, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-documents/issues\n"
-"POT-Creation-Date: 2019-09-26 07:25+0000\n"
-"PO-Revision-Date: 2019-12-25 04:40+0100\n"
-"Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
-"Language-Team: Galician <proxecto@trasno.gal>\n"
+"POT-Creation-Date: 2020-06-05 03:33+0000\n"
+"PO-Revision-Date: 2021-02-24 15:08+0100\n"
+"Last-Translator: Fran Diéguez <frandieguez@gnome.org>\n"
+"Language-Team: Proxecto Trasno <proxecto@trasno.gal>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Gtranslator 3.38.0\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.Documents.appdata.xml.in:7
@@ -265,7 +265,7 @@ msgstr "Escriba un nome para a súa primeira colección"
 #: data/ui/organize-collection-dialog.ui:56
 #: data/ui/organize-collection-dialog.ui:113
 msgid "New Collection…"
-msgstr "Nova colección…"
+msgstr "Nova colección…"
 
 #: data/ui/organize-collection-dialog.ui:73
 #: data/ui/organize-collection-dialog.ui:122 src/sharing.js:219
@@ -392,7 +392,7 @@ msgstr "Comezar con Documentos"
 #: src/documents.js:859 src/documents.js:1027 src/documents.js:1124
 #: src/documents.js:1250
 msgid "Collection"
-msgstr "Colección"
+msgstr "Colección"
 
 #. overridden
 #: src/documents.js:939
